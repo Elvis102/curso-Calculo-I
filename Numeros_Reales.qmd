@@ -1,0 +1,547 @@
+---
+title: Cálculo Diferencial
+subtitle: Números Reales 
+format:
+  revealjs: 
+    theme: [default, clean.scss]
+    slide-number: true
+    slide-tone: false
+    chalkboard: 
+      buttons: true
+    footer: | 
+      © 2025 Elvis Sánchez – Universidad Técnica de Machala
+  html:
+   embed-resources: true
+   pdf-max-pages-per-slide : true
+ 
+   
+author:
+  - name: Elvis M. Sánchez Rogel
+    orcid: 0009-0001-6662-2211
+    email: emsanchez@utmachala.edu.ec
+    affiliations: Universidad Técnica de Machala
+date: last-modified
+logo: Images/Utmach-logo.png
+lang: es
+
+
+#runtime: shiny_prerendered
+---
+
+```{r}
+#| context: setup
+#addResourcePath("Images", "Images")
+```
+
+# Introducción {.my-slide} 
+
+## [Números Reales: El conjunto $\mathbb{N}$ de los números naturales]{.bg style="--col: #ffff00"} {.scrollable} 
+
+::: columns
+
+::: {.column width="50%"}
+::: {.fragment fragment-index="1"}
+> **Números Naturales**  
+> $$\color{red}{\Large \mathbb{N} = \{ 1, 2, 3, \cdots \}}$$  
+:::
+:::
+
+::: {.column width="50%"}
+::: {.fragment fragment-index="2"}
+> ### “Dios creó los números naturales,  
+> todo lo demás es obra del hombre.”  
+> — **Leopold Kronecker**
+:::
+:::
+
+:::
+
+::: {.fragment fragment-index="3"}
+::: center
+![](Images/recta-0.jpg){width="80%"}
+:::
+:::
+
+::: {.fragment fragment-index="4"}
+
+Dado $a, b \in \mathbb{N}$, no siempre existe un número natural $x$ tal que: 
+$$\color{red}{a + x = b}$$.
+**$\color{blue}{\textbf{El Problema?}}$**  
+$$5 + x = 2 \quad \Longrightarrow \quad x = -3 \notin \mathbb{N}$$ 
+Pues requerimos de "**números negativos**", esta necesidad obligó requiere de un nuevo conjunto de números al cual llamaremos enteros $$\color{red}{\mathbb{Z}}=\{\cdots,-3,-2,-1,0,1,2,3,\cdots\}$$
+:::
+
+## [Números Reales: El conjunto $\mathbb{N}$ de los números naturales]{.bg style="--col: #ffff00"} {.scrollable}
+
+
+
+
+
+### ¿[**Qué significa**]{.alert} "$a, b \in \mathbb{N}$"?
+
+
+::: fragment
+- Queremos hablar de [**números naturales**]{.alert}: positivos.
+- Al escribir **$a, b \in \mathbb{N}$**, estamos diciendo:
+:::
+
+::: fragment
+  > [“Tomemos **dos números naturales** cualesquiera: uno lo llamamos $a$, y otro $b$”]{.bg style="--col:#fdf6e3"}
+:::
+
+::: fragment
+Esto nos permite **hablar en general**, sin decir exactamente qué números son.  
+Es como decir:
+
+  > [“Imagina dos números enteros… no importa cuáles, pero piensa que existen.”]{.bg style="--col:#fdf6e3"}
+:::
+
+::: fragment
+
+Ahora bien, **no siempre se puede encontrar otro natural $x$** que cumpla:
+
+$$a + x = b$$
+
+Por ejemplo, si $a = 2$ y $b = 5$…
+
+→ ¿Existe un número entero $x$ tal que $x = -3$?
+
+❌ **No**, porque $x = -3$ ***No es un número natural*
+
+:::
+
+## [Números Reales: El conjunto $\color{red}{\mathbb{Z}}$ de los números enteros]{.bg style="--col:#ffff00"} {.scrollable}
+
+
+
+$$\color{red}{\mathbb{Z}}=\{\cdots,-3,-2,-1,0,1,2,3,\cdots\}$$
+![](Images/recta-1.jpg)
+
+
+**$\color{blue}{\textbf{El problema de Números Enteros}}:$**  
+ Dado $a, b \in \mathbb{Z}$, no siempre existe un número entero $x$ tal que  
+$$\color{red}{a \cdot x = b}$$
+
+$$5 \cdot x = 2 \quad \Longrightarrow \quad x = \frac{2}{5} \notin \mathbb{Z}$$
+
+El conjunto $\color{red}{\large \mathbb{Q}}$ de los números **racionales** está formado por aquellos que pueden expresarse como un $\color{blue}{\textbf{cociente entre un número entero y un número natural}}$.
+
+Son [**racionales los números que tienen un número finito de cifras decimales**]{.alert} , y también los $\color{blue}{\textbf{números periódicos}}$
+
+## [Números Reales: El conjunto $\color{red}{\mathbb{Z}}$ de los números enteros]{.bg style="--col: #ffff00"} {.scrollable}
+
+::: {.fragment }
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #228B22;"}
+Por parecidos que sea dos [**racionales**]{.alert} [**entre ellos**]{.alert}, hay una [**infinidad de racionales**]{.alert}
+:::
+
+:::
+
+
+::: {.fragment }
+![](Images/recta-0.jpg){with="20%"}
+![](Images/recta-1.jpg)
+
+:::
+
+::: {.fragment}
+
+Si $a=1.41$ y $b=1.42$
+
+$$a<1.41\color{red}{37823445637867951846636}<b$$
+Lo que significa que los racionales están muy [**comprimidos (pegaditos)**]{.alert}, tan juntitos que parece que contituyen un [**todo continuo**]{.alert} y que llenan por completo la recta soporte, podía parecer que la visualizacion de $\color{red}{\mathbb{Q}}$ es la propia recta soporte.
+
+![](Images/recta-3.jpg)
+
+:::
+
+
+## [La recta real ampliada $\mathfrak{R}$]{.bg style="--col:#ffff00"} {.scrollable}
+
+::: {.fragment fragment-index="2"}
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #228B22;"}
+Llamamos recta real ampliada al conjunto que resulta al añadir a $\mathfrak{R}$ los simbolos $+\infty$ y $-\infty$.
+:::
+
+:::
+
+::: {.fragment fragment-index="1"}
+
+![](Images/recta-4.png)
+
+:::
+
+## [La recta real ampliada $\mathfrak{R}$]{.bg style="--col:#ffff00"} {.scrollable}
+
+
+## [La recta real ampliada $\mathfrak{R}$]{.bg style="--col:#ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #228B22;"}
+**Tambien [convenimos]{.alert} que $\forall x \in \mathfrak{R}$, es:**
+
+::: {layout="[[100],[30,70]]"}
+
+$$
+\begin{array}{lll}
+x + (+\infty)= (+\infty)+(+\infty)=+\infty\\
+x + (-\infty)= (+\infty)+(+\infty)=+\infty\\
+\dfrac{x}{+\infty}=\dfrac{x}{-\infty}=0
+\end{array}
+$$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+![](Images/pareja.png){width="80%"}
+:::
+
+::: {.fragment fragment-index="2"}
+![](Images/Pareja2.png){width="80%"}
+:::
+
+:::
+
+$$
+x . (-\infty) \texttt{=} (-\infty).x =
+\begin{cases}
+-\infty, &  \text{si x > 0 }\\
++\infty,&  \text{si x < 0 }
+\end{cases}
+$$
+$$
+x . (+\infty) \texttt{=} (+\infty).x =
+\begin{cases}
++\infty, &  \text{si x > 0 }\\
+-\infty,&  \text{si x < 0 }
+\end{cases}
+$$
+:::
+:::
+
+## Que quede claro!
+
+::: {.cuadro1 style="font-size: 140%;"}
+En general, con $\color{blue}{+\infty}$ y $\color{blue}{-\infty}$ 
+
+[No tienen sentido las operaciones que hacemos con los numeros]{.alert} 
+:::
+
+## [**Intervalos de la recta real**]{.bg style="--col:#ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+Siendo $a,b \in \mathfrak{R}$ tales que $a<b$, se llaman [**intervalo de origen**]{.alert} "a" y extremo "b" a los siguientes subconjuntos de $\mathfrak{R}$:
+
+::: columns
+
+::: {.column width="50%"}
+$$
+\begin{array}{llll}
+[a,b]=\{x \in \mathfrak{R}| a\leq x\leq b \} \equiv \textbf{intervalo cerrado} \\
+(a,b)=\{x \in \mathfrak{R}| a < x < b\} \equiv \textbf{intervalo abierto} \\
+[a,b)=\{x \in \mathfrak{R}| a < x\leq b \} \equiv \textbf{cerrado por la izq.} \\ 
+\phantom{(a,b]=\{x \in \mathfrak{R}| a < x\leq b \} \equiv } \textbf{y abierto por la der.} \\
+(a,b]=\{x \in \mathfrak{R}| a \leq x < b \} \equiv \textbf{abierto por la izq.} \\
+\phantom{[a,b)=\{x \in \mathfrak{R}| a \leq x < b \} \equiv } \textbf{y cerrado por la der.} \\
+\end{array}
+$$
+:::
+
+::: {.column width="30%" style="text-align: right;"}
+![](Images/recta-5.png){width="55%"}
+:::
+
+::: {.fragment}
+$$
+\left.
+\begin{array}{llll}
+[4,9]=\{x \in \mathfrak{R} \mid 4 \leq x \leq 9 \}\\
+(2,5)=\{x \in \mathfrak{R} \mid 2 < x < 5 \}\\
+[-4,2)=\{x \in \mathfrak{R} \mid -4 \leq x < 2 \}\\
+(6,8]=\{x \in \mathfrak{R} \mid 6 < x \leq 8 \}
+\end{array}
+\right\}
+\begin{array}{ll}
+\text{Para expresar que tienen una amplitud finita }, \\
+\text{se dice que son acotados} 
+\end{array}
+$$
+:::
+
+::: {.fragment}
+::: {.bg style="background-color:#bfeeff;padding:0.25em; border-left:6px solid #bfeeff;"}
+Los siguientes intervalos tienen [**amplitud infinita**]{.alert}, y para expresarlo se dice que son [**no acotados:**]{.alert}
+$$
+\begin{array}{lll}
+[a,+\infty) = \{ x\in \mathfrak{R} \mid x \geq a \} ;
+[a,+\infty) = \{ x\in \mathfrak{R} \mid x > a \}\\
+[-\infty,a) = \{ x\in \mathfrak{R} \mid x \leq a \};
+[-\infty,a) = \{ x\in \mathfrak{R} \mid x < a\} \\
+\end{array}
+$$
+Se dice que un intervalo es [**compacto**]{.alert} si es [**cerrado y acotado**]{.alert}, como los intervalos $[-2,3],[1,8],[6,9]$
+:::
+
+:::
+:::
+
+:::
+
+## [**Valor absoluto de un número real**]{.bg style="--col:#ffff00"} {.scrollable}
+
+El [**valor absoluto**]{.alert} de un número real "$x$" es el número real no negativo que se denota por $|x|$ y se define de la siguiente manera:
+$$
+|x| = \left\{
+\begin{array}{ll}
+x, & \text{si } x \geq 0 \\
+-x, & \text{si } x < 0
+\end{array}
+\right.
+$$
+
+::: columns
+::: {.column width="50%"}
+
+**Ejemplos:**
+
+- Como $5 > 0$, se tiene:  
+  $|5| = 5$
+
+- Como $-7 < 0$, se tiene:  
+  $|-7| = -(-7) = 7$
+
+:::
+
+::: {.column width="50%"}
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius:8px;"}
+
+**Propiedades del valor absoluto:**
+
+- $|x| > 0$ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; si $x \neq 0$  
+- $|0| = 0$  
+- Si $k > 0$ y $|x| < k$, entonces $-k < x < k$  
+- $|x \cdot y| = |x| \cdot |y|$  
+- $|x + y| \leq |x| + |y|$
+
+:::
+:::
+:::
+
+
+## [**Aplicaciones del valor absoluto**]{.bg style="--col:#ffff00"} {.scrollable}
+
+### Distancia entre dos puntos
+
+![](Images/dis-0.png)
+
+Para evaluar la [**proximidad**]{.alert} entre dos puntos "**$x$**", "**$y$**" usaremos el [**numero real no negativo**]{.alert} llamado [**distancia**]{.alert} entre "**$x$**" e "**$y$**", que se denota $d(x,y)$, siendo:
+
+::: center
+[$$d(x,y)= \mid y-x\mid \,\geq 0$$]{.bg style="--col:#bfeeff"}
+:::
+
+## [**Ejemplos de distancia y valor absoluto**]{.bg style="--col:#ffff00"} {.scrollable}
+::: columns
+
+::: {.column width="50%"}
+
+::: {.fragment fragment-index="1"}
+**Ejemplo 1:** La distancia entre los puntos $-4$ y $8$ es:
+$$
+|8 - (-4)| = |12| = 12
+$$
+:::
+
+::: {.fragment fragment-index="2"}
+**Ejemplo 2:** También se puede calcular como:
+$$
+|4 - (-8)| = |-12| = 12
+$$
+:::
+
+:::
+
+::: {.column width="40%"}
+
+::: {.fragment fragment-index="3"}
+<p style="text-align: center;">
+  <img src="Images/dis-1.png" width="100%">
+</p>
+:::
+
+:::
+
+:::
+
+::: {.fragment fragment-index="4"}
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+**Observación:**  
+Dos puntos "**x**" e "**y**" son muy (poco) [**próximos**]{.alert} si $d(x, y) = |y - x|$  
+es un número muy [**próximo**]{.alert} a cero.
+:::
+
+:::
+
+## [**Entorno de un punto en la recta real (continua...)**]{.bg style="--col:#ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+
+Si **$c \in \mathfrak{R}$** y **$r>0$**, el [**entorno**]{.alert} de centro en "**c**" y radio "**r**" se denota **$B_r(c)$**, y lo froman los puntos "**x**" cuya distancia a "**c**" es inferior a "**r**".
+:::
+
+$$
+B_r(c)=\{ x \in \mathfrak{R} \mid |x-c|<r \}=(c-r,c+r)
+$$
+
+::: center
+![](Images/recta-6.png)
+:::
+
+::: columns
+
+::: {.fragment}
+::: {.column width="50%"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+El entorno de centro en "**5**" y radio **$0.02$** lo forman los "**x**" tales que **$|x-5|<0.02$**, o sea, son los puntos de intervalo **$(5-0.02, 5+0.02) \equiv (4.98,5.02)$**.
+:::
+:::
+
+
+::: {.column width="50%"}
+![](Images/recta-7.png)
+:::
+:::
+
+::: columns
+
+::: {.fragment}
+::: {.column width="50%"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Del intervalo **$(4.98,5]$** se dice que es el [**semientorno izquierdo**]{.alert} de "**$5$**" y radio **$0.02$**.
+:::
+:::
+
+::: {.column width="50%"}
+![](Images/recta-8.png)
+:::
+
+:::
+
+::: columns
+
+::: {.fragment}
+::: {.column width="50%"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Del intervalo **$[5,5.02)$** se dice que es el [**semientorno derecho**]{.alert} de "**$5$**" y radio **$0.02$**.
+:::
+:::
+
+::: {.column width="50%"}
+![](Images/recta-9.png)
+:::
+:::
+
+:::
+:::
+:::
+
+## [**Entorno de un punto en la recta real**]{.bg style="--col:#ffff00"} {.scrollable}
+
+$$
+B_r(c)=\{ x \in \mathfrak{R} \mid |x-c|<r \}=(c-r,c+r)
+$$
+
+::: center
+![](Images/recta-6.png)
+:::
+
+::: {.fragment}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Si de **$B_r(c)$** [**eliminamos**]{.alert} el propio "**$c$**", obtenemos el [**entorno reducido**]{.alert} [**de centro en**]{.alert}  "**$c$**" [**y radio**]{.alert} "**$r$**", que denotamos **$B^*_r(c)$**:
+:::
+
+$$
+B^*_r(c)=\{ x \in \mathfrak{R} \quad 0 < \mid |x-c|< r \}=(c-r,c) \cup (c,c+r)
+$$
+
+::: center
+![](Images/recta-6-1.png)
+:::
+
+:::
+
+
+::: {.fragment}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+El entorno $\color{blue}{reducido}$ de centro en "**$5$**" y radio **$0.02$** lo froman los **x** tales que **$0<|x|<0.02$**; o sea, tales que **$x \in (4.98,5) \cup (5,5.02)$**.
+:::
+
+::: center
+![](Images/recta-11.png)
+:::
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Del intervalo **$(4.98,5)$** se dice que es el $\color{blue}{\text{semientorno reducido izuierdo}}$ de "**$5$**" y radio **$0.02$**; el intervalo **$(5,5.02)$** es el [**semientorno**]{.alert} reducido derecho de "**$5$**" y radio **$0.02$**
+:::
+:::
+
+## [**Entorno de un punto en la recta real (continua...)**]{.bg style="--col:#ffff00"} {.scrollable}
+
+De todo intervlo **$(a,+\infty)$** se dice que es un [**entorno**]{.alert} de **$+\infty$**.
+
+![](Images/recta-12.png)
+
+[**Por ejemplo**]{.alert}, el intervalo **$(6,+\infty)$** es entorno de **$+\infty$**, lo mismo que el intervalo **$(-15,+\infty)$**
+
+::: {.fragment}
+De todo intervalo $(-\infty, b)$ se dice que es un entorno de $-\infty$.
+
+![](Images/recta-13.png)
+
+[**Por ejemplo**]{.alert}, el intervalo **$(- \infty,7)$** es [**entorno**]{.alert} de **$-\infty$**, lo mismo que el intervalo **$(-\infty,-17)$**.
+:::
+
+::: {.fragment}
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+**Que quede Claro!**
+
+En estos dos casos la [**palabra**]{.alert} reducido no quita ni pone nada a la palabra [**entorno**]{.alert} pues como **$+\infty$** no es un numero, hablar de un entorno de $+\infty$ es igual que hablar de un [**entorno reducido**]{.alert} de **$+\infty$**, y lo mismo con **$-\infty$**. 
+:::
+:::
+
+## [**Propiedades de los números reales: $\mathfrak{R}$**]{.bg style="--col:#ffff00"} {.scrollable}
+
+Supondremos la existencia de un conjunto $\mathbb{R}$ de números en el que hay definidas dos operaciones, suma y producto, con las siguientes propiedades:
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+
+**Propiedades de la suma:**
+
+  -   Conmutativa: $a+b= b+a$, para todos los $a,b \in \mathbb{R}$
+      
+  -   Asociativa: $a+(b+c) = (a+b)+c$ para todos los $a,b,c \in \mathbb{R}$
+
+  -   Existe un elemento neutro, $0 \in \mathbb{R}$,  para la suma: $a+0=a=0+a$.
+      
+  -   Para cada $a \in \mathbb{R}$ existe un elemento $-a \in \mathbb{R}$, simétrico de $a$, tal que $a+(-a)=0=(-a)+a$
+:::
+## [**Propiedades de los números reales: $\mathfrak{R}$**]{.bg style="--col:#ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+
+**Propiedades del producto de números reales:**
+      
+  -   Conmutativa: $a\cdot b=b \cdot a$, para todos los $a,b \in \mathbb{R}$.
+      
+  -   Asociativa: $a \cdot (b \cdot c) = (a\cdot b)\cdot c$ para todos los $a,b,c \in \mathbb{R}$
+      
+  -   Existe un elemento neutro, $1 \in \mathbb{R}$,  para el producto: $a\cdot1=a=1\cdot a$.
+      
+  -   Para cada $a \in \mathbb{R}$, $a\neq 0$, existe un elemento $\dfrac{1}{a} = a^{-1} \in \mathbb{R}$, inverso de $a$, tal que $a \cdot a^{-1}=1=a ^{-1}\cdot a$
+      
+  -   El producto es distributivo respecto de la suma: $a\cdot (b+c) = a\cdot b + a \cdot c$ para todos los $a,b,c \in \mathbb{R}$.
+  :::

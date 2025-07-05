@@ -1,0 +1,451 @@
+/*-- scss:defaults --*/
+
+// Custom colours and variables
+
+$jet: #131516;
+$accent: #107895;
+$accent2:#f03813; /*#9a2515*/
+// $accent2: #e64173;
+$right-arrow: "\2192"; // Unicode character for right arrow
+
+// fonts
+
+/*
+Note: This theme uses the Roboto font family, which it imports from Google
+  Fonts to ensure consistent weighting in addition to availability. While
+  you can use a local installation of Roboto, this is generally not 
+  recommended since the weighting will likely be wrong (probably too
+  light). OTOH, importing from Google Fonts can cause some issues in
+  certain secure environments due the external CDN (see:
+  https://github.com/grantmcdermott/quarto-revealjs-clean/issues/7). If
+  that's the case for you, simply comment out the `@import url(...)` line
+  below and it will default for the default Sans Serif font on your system
+  (e.g., Helvetica on a Mac). Circling back to the earlier point about
+  preserving consistent font weights, you may also wish to remove "Roboto"
+  from the choice set if the family is installed locally.
+*/
+@import url(https://fonts.googleapis.com/css?family=Roboto:200,200i,300,300i,350,350i,400,400i);
+$font-family-sans-serif: "Roboto", sans-serif !default;
+$presentation-heading-font: "Roboto", sans-serif !default;
+$presentation-heading-color: #017eae;
+// $presentation-heading-color: $jet !default; 
+$presentation-heading-font-weight: lighter;
+$presentation-heading-line-height: 1;
+//$presentation-block-margin: 28px;
+
+// Establece el tamaño base de fuente para la presentación en 32 píxeles
+$presentation-font-size-root: 28px;
+
+// colors
+//$body-bg: #f0f1eb !default;
+$body-color: $jet !default;
+$link-color: $accent !default;
+$selection-bg: #26351c !default;
+
+
+/*-- scss:rules --*/
+
+.reveal a {
+  line-height: 1.5em;
+}
+
+.reveal p {
+  // font-weight: 300;
+  font-weight: lighter;
+  margin-top: 1.25em;
+}
+
+// Titilos y encabezados
+
+  
+  #title-slide {
+  text-align: center; /* Cambiado a centrado */
+
+  .title {
+    color: $body-color;
+    font-size: 3em;
+    font-weight: bold; /* Negrita */
+    max-width: 120%; /* Abarca el 80% del ancho de la diapositiva */
+    text-align: center; /* Asegura que el texto del título también esté centrado */
+    margin: 0 auto; /* Centra el contenedor */
+  }
+  /*...resto del código...*/
+
+
+  .subtitle {
+    color: $accent;
+    font-style: italic;
+    font-size: 2em;  /* Aumentar el tamaño de la fuente para el subtítulo */
+    margin-top: 0.5em; /* Espacio entre el título y el subtítulo */
+    font-weight: lighter;
+  }
+  
+
+
+  .institute,
+  .quarto-title-affiliation,
+  .quarto-title-author-email {
+    font-style: italic;
+    // font-size: 80%;
+    // color: #7F7F7F;
+  }
+
+  .author,
+  .quarto-title-author-name {
+    color: $body-color;
+  }
+
+  .quarto-title-authors {
+    display: flex;
+    justify-content: left;
+
+    .quarto-title-author {
+      padding-left: 0em;
+      padding-right: 0em;
+      width: 100%;
+    }
+  }
+
+}
+
+/* Definición de estilos para la diapositiva personalizada */
+
+/* Clase que se aplica a la diapositiva específica */
+.my-slide {
+  background-color: black; /* Establece el fondo de la diapositiva a negro */
+  background-image: url('/Images/texturebg.png'); /* Aplica una imagen de fondo */
+  background-size: 80px; /* Ajusta el tamaño de la imagen de fondo */
+  background-repeat: repeat; /* Repite la imagen para cubrir todo el fondo */
+}
+
+/* Aplica el color blanco al texto y a varios elementos dentro de .my-slide */
+.my-slide, /* Aplica a la diapositiva en sí */
+.my-slide h1, /* Títulos de nivel 1 */
+.my-slide h2, /* Títulos de nivel 2 */
+.my-slide h3, /* Títulos de nivel 3 */
+.my-slide h4, /* Títulos de nivel 4 */
+.my-slide h5, /* Títulos de nivel 5 */
+.my-slide h6, /* Títulos de nivel 6 */
+.my-slide p, /* Párrafos */
+.my-slide li, /* Elementos de lista */
+.my-slide span, /* Elementos span */
+.my-slide strong, /* Texto en negrita */
+.my-slide em, /* Texto en cursiva */
+.my-slide a { /* Enlaces */
+  color: white !important; /* Establece el color del texto a blanco con alta prioridad */
+}
+
+
+// Centar texto y otras cosas
+
+.center {
+    text-align: center;
+}
+
+.definition{
+  color: blue;
+  display:inline;
+  font-variant: small-caps;
+}
+
+.cuadro{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #b4ff9a;
+  padding: 10px;
+  font-size: 0.7em;
+  border: 5px solid black; /* Agrega un borde negro grueso */
+}
+
+.cuadro1{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #feeeb8;
+  padding: 10px;
+  font-size: 0.7em;
+  border: 2px solid black; /* Agrega un borde negro grueso */
+}
+.cuadro2{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #bfeeff;
+  padding: 10px;
+  font-size: 0.7em;
+  border: 1px solid black; /* Agrega un borde negro grueso */
+}
+
+.cuadro3{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: white;
+  padding: 10px;
+  font-size: 0.7em;
+  border: 1px solid black; /* Agrega un borde negro grueso */
+}
+
+
+.example{
+  color: black;
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #bfeeff;
+  padding: 10px;
+  font-size: 0.7em;
+}
+
+.prop{
+  color: #26b95d;
+  font-variant: small-caps;
+  display: inline;
+}
+
+.observ{
+  color: #1FD1D9;
+  font-variant: small-caps;
+  display: inline;
+}
+
+.dem {
+  border-radius: 10px 10px 10px 10px;
+  -moz-border-radius: 10px 10px 10px 10px;
+  -webkit-border-radius: 10px 10px 10px 10px;
+  background-color: #c9b2f8;
+  padding: 10px;
+  font-size: 0.7em;
+  color: black;
+}
+
+.reveal h2 {
+  //font-weight: 350;
+  font-weight: bold; // lighter, permite colocar negrita titulo de diap
+  font-size: 1.4em;
+}
+
+.reveal h3 {
+  color: $accent;
+  font-style: italic;
+  // font-weight: 350;
+  font-weight: lighter;
+  font-size: 0.95em;
+}
+
+.reveal h4 {
+  color: $accent2;
+  // font-weight: 350;
+  font-weight: normal;
+  margin-top: 1.25em;
+}
+
+// alerts etc.
+
+.alert {
+  color: $accent2;
+}
+
+.fg {
+  color: var(--col, $jet);
+}
+
+.bg {
+  background-color: var(--col, #fff);
+  padding: 0.1em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+
+
+.bgtext {
+  background-color: var(--col, #fff);
+  color: #ffffff; /* Agregado para cambiar el color del texto a blanco */
+  padding: 0.1em;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+
+
+
+
+// lists
+
+// Unordered lists
+
+.reveal ul {
+  // font-weight: 300;
+  font-weight: lighter;
+  padding-left: 16px;
+
+  li::marker {
+    color: mix($accent, white, 70%);
+  }
+}
+
+.reveal ul ul {
+  list-style: none;
+
+  li:before {
+    content: $right-arrow;
+    color: mix($accent, white, 60%);
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    margin-right: 0.5em;
+  }
+}
+
+// Ordered lists
+
+.reveal ol {
+  // font-weight: 300;
+  font-weight: lighter;
+  padding-left: 16px;
+
+  li::marker {
+    color: $accent;
+  }
+}
+
+// Mueva el botón de menú "Hamburguesa" hacia arriba a la derecha
+
+.reveal .slide-menu-button {
+  position: fixed;
+  bottom: 8px;
+  left: 0;         
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.reveal .slide-menu-button > * {
+  pointer-events: auto;
+}
+
+
+// Lo mismo para los botones de pizarra (con un desplazamiento)
+
+.reveal .slide-chalkboard-buttons {
+  position: fixed;
+  bottom: 15px;
+  left: 0px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  pointer-events: none;
+}
+
+.reveal .slide-chalkboard-buttons > * {
+  pointer-events: auto;
+}
+// algunos estilos
+
+
+.reveal .slide .goal {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #ccddeb;
+}
+
+
+.reveal .slide .in-out {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-top: 0.1em;
+  padding-bottom: 0.1em;
+  padding-left: 1em;
+  background: #E8E8E8;
+  font-family: $font-family-monospace;
+  font-size: 0.6em;
+}
+
+.small {
+  font-size: 0.75em;
+}
+
+
+
+// Beamer-style button link environment
+
+.button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer;
+  background-color: $accent;
+  border: 1px solid $accent;
+  color: #fff !important;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.button::before {
+  content: "▶";
+  margin-right: 5px;
+}
+
+// Special catch for etable environment to ensure these table images
+// don't overflow the slide.
+// See: https://lrberge.github.io/fixest/articles/etable_new_features.html
+
+.etable {
+  width: 100%;
+  height: calc(100% - 3em); /* Adjust 3em based on the height of your header, if necessary */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.etable img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.reveal .slide-logo {
+  max-height: 70px !important; /* Puedes cambiar este valor a algo más grande */
+  right: 7px !important; /* Ajusta la posición a la derecha */
+}
+
+ 
+.slide-background::after {
+  content: ""; /* contenido vacio*/
+  position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px; /* anccho de cinta*/
+    height: 100%; /* alto del cinta */
+    background: #fedc00;
+    @media (max-width: 850px) {
+      width: 0px; /*regla que establece el ancho de la cinta como 0px cuando el ancho de la ventana del navegador es máximo de 900px*/
+  }
+}
+

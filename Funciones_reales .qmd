@@ -1,0 +1,873 @@
+---
+title: Cálculo Diferencial
+subtitle: Funcion real de variable real
+format:
+  revealjs: 
+    theme: [default, clean.scss]
+    slide-number: true
+    slide-tone: false
+    chalkboard: 
+      buttons: true
+    footer: | 
+      © 2025 Elvis Sánchez – Universidad Técnica de Machala
+  html:
+   embed-resources: true
+   pdf-max-pages-per-slide : true
+ 
+   
+author:
+  - name: Elvis M. Sánchez Rogel
+    orcid: 0009-0001-6662-2211
+    email: emsanchez@utmachala.edu.ec
+    affiliations: Universidad Técnica de Machala
+date: last-modified
+logo: Images/Utmach-logo.png
+lang: es
+
+
+#runtime: shiny_prerendered
+---
+
+```{r}
+#| context: setup
+#addResourcePath("Images", "Images")
+```
+
+# Introducción {.my-slide}
+
+## Correspondencia entre conjuntos {.small}
+
+::: columns
+
+::: {.column width="50%" style="text-align: center;"} 
+
+::: {.fragment fragment-index="1"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Si $"A"$ y $"B"$ son conjuntos cualesquiera, se llama [**correspondencia**]{.alert} de $A$ en $B$ a todo criterio o ley que asocia elementos de $"A"$ con elementos de $"B"$.
+:::
+:::
+
+
+::: {.fragment fragment-index="2"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Si el nombre del criterio es $"f"$, para expresar que $"f"$ es una [**correspondencia**]{.alert} de $"A"$ en $"B"$ escibimos $f:A\longrightarrow B$.
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+De $"A"$ se dice que es el [**conjunto inicial**]{.alert} de $"f"$ de $"B"$ se dice es el [**conjunto final**]{.alert}
+de $"f"$
+:::
+:::
+
+::: {.fragment fragment-index="4"}
+![](images/C_04.jpg)
+:::
+
+:::
+
+::: {.column width="50%" style="text-align: center;"}
+
+::: {.fragment fragment-index="5"}
+
+
+::: definition
+**Observaciones:**
+:::
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+- En el conjunto inicial "A" puede haber elementos (177) a los que "f" no les asocia nungún elemento de "B".
+
+- En el conjunto inicial "A" puede haber elementos (Pato) a los que "f" les asocie varios elemento de "B".
+
+- En el conjunto final "B" puede haber elementos (5 y Luna) que no corresponden a ningún  elemento de "A".
+
+- En el conjunto final "B" puede haber elementos (Mesa) que corresponden a varios elementos de "A".
+:::
+:::
+
+::: {.fragment fragment-index="6"}
+
+
+[**Que quede clarito:**]{.fb style="--col:blue"} en la definición de correspondecia no se impone ninguna restricción o traba al criterio $"f"$ que asocia elementos de $"A"$ con elementos $"B"$; por tanto queda definida una correspondencia de $"A"$ en $"B"$ en el mismo instante en que se establece un criterio o ley que asocie elemnetos de $"A"$ con elementos de $"B"$, aunque ese criterio sea muy absurdo o **chiripitíflautico**.
+
+:::
+
+:::
+
+:::
+
+## Correspondencia de conjuntos {.small}
+
+::: columns
+
+::: {.column width="50%" style="text-align: center;"}
+
+::: {.fragment fragment-index="1"}
+
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Si $x \in A$ para referirnos al elemento de $"B"$ que $"f"$ asocia a $"x"$, usaremos la notación $"f(x)"$, que los profesionales leen [**efe de x**]{.alert}, pero tú debes leer [**imagen de x según f.**]{.alert}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+![](Images/C_03.jpg){height="240px"}
+:::
+
+::: {.fragment fragment-index="3"}
+
+![](Images/C_04.jpg)
+
+:::
+
+:::
+
+::: {.column width="50%" style="text-align: center;"}
+
+::: {.fragment fragment-index="4"}
+
+::: cuadro2
+
+::: definition
+
+::: {style="font-size: 2em; color: #ff0000; font-weight: bold;"}
+**Aviso navegantes:**
+:::
+
+**¡Están condenados al [**fracaso**]{.alert} los principiantes que se empecinen en leer como profesionales!, pues tras la notación [**$f(x)$**]{.alert} hay 5 protagonistas, y el cerebro debe estar simultáneamente pendiente de todos ellos:**
+:::
+
+:::
+
+:::
+::: {.fragment fragment-index="5"}
+
+::: incremental
+
+- El conjunto $"A"$, que es protagonista [**invisible**]{.fg style="--col: #228dff"}, pues $"A"$ no parece por ningún lado en la notación [**$"f(x)"$**]{.alert} ... ¡pero está!.
+
+- El conjunto $"B"$, también [**invisible**]{.fg style="--col: #228dff"}
+
+- La ley $"f"$ que asocia elementos de $"A"$ con elementos de $"B"$; es protagonista [**visible**]{.fg style="--col: #228dff"}, pues en la notación [**$"f(x)"$**]{.alert} hay una $"f"$.
+
+- El elemento $"x"$ del conjunto $"A"$; también es [**visible**]{.fg style="--col: #228dff"}, pues en la notación [**$"f(x)"$**]{.alert} hay una $"x"$.
+
+- El 5° protagonista es un elemento de $"B"$, pero no un elemento de cualquiera de $"B"$, el 5° protagonista es el elemento de $"B"$ que la ley $"f"$ asocia a $"x"$, y para denotarlo nadie ha inventado una notación más clara y concisa que [**$"f(x)"$**]{.alert}, introducida por **Euler** en 1734.
+:::
+
+:::
+
+:::
+
+:::
+
+## Función real de variable real {.small}
+
+### ¿No es fascinante cómo una función real de variable real puede describir el comportamiento de tantas situaciones en el mundo real, conectando conceptos abstractos con la realidad tangible?
+
+::: columns
+
+::: {.column width="50%" style="text-align: center;"}
+
+::: {.fragment fragment-index="1"}
+
+::: {style="font-size: 2em; color: #ff0000; font-weight: bold;"}
+**Dirichlet,1854**
+:::
+
+:::
+
+::: {.fragment fragment-index="2"}
+![](Images/Dirichlet.png){height="300px"}
+
+:::
+
+::: {.fragment fragment-index="3"}
+::: {.bg style="background-color:#e6f7ff; padding:0.75em; border-left:6px solid #31BAE9; border-radius: 8px;"}
+Llamamos [**función real de variable real**]{.alert} a toda correspondencia $f: \mathfrak{R} \longrightarrow \mathfrak{R}$; o sea, una función real de variable real es una ley o criterio $f$ que asocia números reales con números reales.
+:::
+:::
+
+:::
+
+
+::: {.column width="50%" style="text-align: center;"}
+
+::: {.fragment fragment-index="3"}
+
+![](Images/C_05.png){height="90px"}
+
+:::
+
+::: {.fragment fragment-index="3"}
+Se dice que $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ es una [función real]{.alert} porque su conjunto final es $\mathfrak{R}$ se dice que $f$ es de [variable real]{.alert} porque su conjunto inicial es $\mathfrak{R}$
+
+:::
+
+::: {.fragment fragment-index="4"}
+Para expresar que el número real $x \in \mathfrak{R}_{inicial}$ puede ser el que queramos, se dice que $x$ es una [variable independiente]{.alert}; y para expresar que el número real $f(x) \in \mathfrak{R}_{final}$ que $f$ asocia a $x$ escapa por completo a nuestro control, pues es $f$ quien decide el valor de $f(x)$, se dice que el número real que denotamos $"f(x)"$ es una [variable dependiente.]{.alert}
+:::
+
+:::
+
+:::
+
+## Ejemplo 1 {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3; padding:0.75em; border-left:6px solid #000000; border-radius: 8px;"}
+Por ejemplo, al hablar de la función $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ tal que $f(x)=\frac{x}{x-1}$ se habla de la ley $"f"$ que al número real $"x"$ le asocia el número real $\frac{x}{x-1}$; así, al número $5$ la ley $"f"$ le asocia el número  $\frac{5}{5-1}$ , al número $9$ le asocia el número $\frac{5}{5-1}$..... y escribemos:
+:::
+
+$$
+f(5)=\frac{5}{5-1}=\frac{5}{4}\quad ;\quad f(9)=\frac{9}{9-1}=\frac{9}{8}
+$$
+
+::: center
+![](Images/C_06-1.jpg)
+:::
+
+**Análogamente:**
+
+::: columns
+::: center
+::: {.fragment}
+$$
+\color{red}{f(x)=\frac{x}{x-1}}
+$$
+:::
+:::
+
+::: columns
+
+::: {.column width="50%"}
+
+::: {.bg style="background-color:#fdf6e3; padding:0.5em; border-left:6px solid #31BAE9;" .fragment}
+**Si evaluamos**: $x = 3 + h$
+
+$$
+f(3+h) = \frac{3+h}{(3+h)-1}
+= \frac{3+h}{2+h}
+$$
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.bg style="background-color:#fdf6e3; padding:0.5em; border-left:6px solid #31BAE9;" .fragment}
+**Si evaluamos**: $x = 2 - h$
+
+$$
+f(2-h) = \frac{2-h}{(2-h)-1}
+= \frac{2-h}{1-h}
+$$
+:::
+
+:::
+
+:::
+
+
+::: {.fragment}
+Si, operamos la siguiente expresion: Diferencia de cociente 
+
+$$
+\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}
+$$
+:::
+
+::: center
+::: {.bg style="background-color:#fdf6e3; padding:1em; border-left:6px solid #31BAE9;" .fragment}
+**Queremos calcular:**
+
+$$
+\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}= \frac{\frac{6+h}{(6+h)-1} - \frac{6}{6-1}}{h}
+= -\frac{1}{5(5+h)}
+$$
+:::
+:::
+:::
+
+
+## Dominio de definición de una función
+
+El [dominio de definición]{.alert} de la $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ se denota [Dom(f)]{.alert}, y es el subconjunto de $\mathfrak{R}_{inicial}$ formado por los puntos a los que $f$ les asigna imagen en $\mathfrak{R}_{final}$:
+
+::: center
+[$$
+Dom(f)= \{ x\in \mathfrak{R} \;| \;f(x)\in \mathfrak{R}\}
+$$]{.bg style="--col: #83fcfa"}
+:::
+
+Si $f(a) \in \mathfrak{R}$ se dice que $f$ [esta definida]{.alert} en el punto $"a"$, y si $f(a) \notin \mathfrak{R}$ se dice que $"f"$ [no está definida]{.alert} en "a".
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+
+::: center
+
+![](Images/C_03.jpg){height="300px"}
+
+:::
+
+:::
+
+::: {.fragment fragment-index="2"}
+
+::: center
+
+![](Images/C_07.jpg){height="300px"}
+:::
+
+:::
+
+:::
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Funciones reales de variable real
+
+Una función real de variable real $f:A \subset \mathfrak{R} \rightarrow \mathfrak{R}$ es una regla que asigna a cada elemento de un primer conjunto $A$, un único elemento de un segundo conjunto $\mathfrak{R}$. Las funciones son relaciones entre los elementos de dos conjuntos.
+
+Se llama **dominio** de la función $f$ al conjunto de valores para los cuales la misma está definida
+
+$$Dom\ f = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}$$
+El conjunto de todos los resultados posibles de una función dada se denomina **rango**, **imagen** o **codominio** de esa función. 
+
+$$Im\ f = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}$$
+
+
+## Funciones polinómicas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-2
+xmax=5
+ymin=-7
+ymax=15
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=7
+quantsy=11
+f = function(x){x^3-5*x^2+12}
+g = function(x){x^4/10-7*x^3/10+x^2-2}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+text(4,9,expression(paste("y=",x^3 - 5%.%x^2 + 12)),col="red")
+text(-1.1,14,expression(paste("y=",frac(1,10)%.%x^4 - frac(7,10)%.%x^3 + x^2 - 2)),col="blue")
+```
+
+
+## Funciones potenciales
+
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE, fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-6
+ymax=10
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=8
+f = function(x){1/x}
+g = function(x){sqrt(x)}
+h = function(x){x^2}
+k = function(x){1/sqrt(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2,ymax+toly,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+lines(x,k(x),col="orange")
+text(-4,-2,expression(paste("y=",frac(1,x))),col="red")
+text(4,2.5,expression(paste("y=",sqrt(x))),col="blue")
+text(4,9.5,expression(paste("y=",x^2)),col="green")
+text(5,1.25,expression(paste("y=",frac(1,sqrt(x)))),col="orange")
+```
+
+
+## Funciones exponenciales
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-1
+ymax=15
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=8
+f = function(x){exp(x)}
+g = function(x){exp(x/2)}
+h = function(x){exp(-x)}
+k = function(x){exp(-x/2)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+lines(x,k(x),col="orange")
+text(3,13,expression(paste("y=",e^x)),col="red")
+text(4.5,7,expression(paste("y=",e^frac(x,2))),col="blue")
+text(-2,13,expression(paste("y=",e^-x)),col="green")
+text(-3.8,9,expression(paste("y=",e^-frac(x,2))),col="orange")
+```
+
+
+## Funciones logarítmicas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6,warning=FALSE}
+xmin=-1
+xmax=9
+ymin=-2
+ymax=4
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=6
+f = function(x){log(x)}
+g = function(x){log(1+x)}
+h = function(x){log(2*x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(2.5*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+text(8,1.5,expression(paste("y=",log(x))),col="red")
+text(8,2.5,expression(paste("y=",log(x+1))),col="blue")
+text(8,3,expression(paste("y=",log(2%.%x))),col="green")
+```
+
+
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-1
+ymax=1
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=4
+f = function(x){sin(x)}
+g = function(x){cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+text(3,0.75,expression(paste("y=",sin(x))),col="red")
+text(-1.5,0.75,expression(paste("y=",cos(x))),col="blue")
+```
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-10
+ymax=10
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=10
+f = function(x){1/sin(x)}
+g = function(x){1/cos(x)}
+h = function(x){tan(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2+0.2,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+text(3.75,7,expression(paste("y=",frac(1,sin(x)))),col="red")
+text(2.25,7,expression(paste("y=",frac(1,cos(x)))),col="blue")
+text(-2.3,7,expression(paste("y=",tan(x))),col="green")
+text(-4,10,expression(paste("x=",frac(-5%.%pi,2))),col="green")
+text(-2.5,10,expression(paste("x=",frac(-3%.%pi,2))),col="red")
+text(-1,10,expression(paste("x=",frac(-pi,2))),col="green")
+text(2,10,expression(paste("x=",frac(pi,2))),col="green")
+text(3.65,10,expression(paste("x=",frac(3%.%pi,2))),col="red")
+```
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-1
+xmax=1
+ymin=-2
+ymax=4
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){asin(x)}
+g = function(x){acos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+text(-0.75,-1.5,expression(paste("y=",sin^-1,(x))),col="red")
+text(-0.75,3,expression(paste("y=",cos^-1,(x))),col="blue")
+```
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-10
+xmax=10
+ymin=-2
+ymax=2
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=4
+f = function(x){atan(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+abline(h=pi/2,col="blue",lty=2)
+abline(h=-pi/2,col="blue",lty=2)
+text(-6.25,-1.25,expression(paste("y=",tan^-1,(x))),col="red")
+text(9,-1.3,expression(paste("y=",-frac(pi,2))),col="blue")
+text(9,1.85,expression(paste("y=",frac(pi,2))),col="blue")
+```
+
+
+# Funciones de Activación Esenciales en Machine Learning: ReLU, Sigmoide y Tangente Hiperbólica {.my-slide}
+
+## 
+
+En el fascinante mundo del **machine learning**, y particularmente en las **redes neuronales**, las funciones de activación juegan un papel crucial. Estas funciones son responsables de introducir no linealidad en el modelo, permitiéndole aprender patrones complejos y representar relaciones más allá de las que un modelo lineal podría capturar. Para aquellos que exploran un curso de cálculo, comprender cómo estas funciones se construyen y cómo sus propiedades matemáticas impactan el aprendizaje automático es fundamental.
+
+Las tres funciones de activación más comunes y, a menudo, las primeras que se estudian son la **Unidad Rectificadora Lineal (ReLU)**, la **función sigmoide** y la **tangente hiperbólica (tanh)**.
+
+## Función ReLU (Unidad Rectificadora Lineal)
+
+La función `ReLU` es sencilla: devuelve el mismo valor si es positivo y cero si es negativo.
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5 # Ajustamos el rango para una mejor visualización de ReLU
+xmax=5
+ymin=-1
+ymax=5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=5 # Ajustamos las cantidades de ticks en el eje y
+f = function(x){pmax(0, x)} # pmax es la función vectorizada para max(0, x)
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red",lwd=2) # Añadimos lwd para hacer la línea más visible
+text(3,4.5,expression(paste("y = max(0, x)")),col="red")
+```
+
+## 
+
+La **función ReLU** es una de las funciones de activación más populares y se ha convertido en el estándar para muchas arquitecturas de redes neuronales profundas. Su simplicidad es su mayor fortaleza.
+
+* **Definición Matemática:**
+    La función ReLU se define como:
+    $f(x) = \max(0, x)$
+
+    Esto significa que si la entrada $x$ es mayor que cero, la salida es $x$. Si la entrada es menor o igual a cero, la salida es cero.
+
+* **Derivada:**
+    La derivada de la función ReLU es:
+    $f'(x) = 1$ si $x > 0$
+    $f'(x) = 0$ si $x < 0$
+    (La derivada en $x=0$ no está definida, pero en la práctica se suele asignar un valor, como 0 o 1).
+
+* **Relación con el Cálculo:** La facilidad para calcular su derivada es una gran ventaja en el entrenamiento de redes neuronales, ya que el **descenso de gradiente**, el algoritmo principal de optimización, depende del cálculo eficiente de derivadas (gradientes). La simplicidad de la derivada de ReLU ayuda a **mitigar el problema del gradiente desvanecedor** para valores positivos, lo que acelera el entrenamiento.
+
+* **Ventajas:**
+    * **Eficiencia Computacional:** Es muy simple de calcular.
+    * **Atenúa el Problema del Gradiente Desvanecedor:** Para entradas positivas, el gradiente es 1, lo que permite que los gradientes fluyan sin problemas.
+    * **Escasez de Activación:** Introduce "escasez" en la red, lo que puede llevar a una representación más compacta y eficiente.
+
+* **Desventajas:**
+    * **Problema del "Neurona Muerta" (Dying ReLU):** Si una neurona ReLU produce consistentemente una salida de 0 (por ejemplo, si sus entradas siempre son negativas), los gradientes que fluyen a través de ella serán 0, y la neurona dejará de aprender.
+
+## Función de Activación Sigmoide (Logística)
+
+La función sigmoide comprime cualquier valor de entrada en un rango entre 0 y 1. Es ideal para cuando necesitas interpretar una salida como una probabilidad.
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-10 # Rango típico para visualizar la sigmoide
+xmax=10
+ymin=-0.2 # Ajustamos el rango para la sigmoide
+ymax=1.2
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=4 # Ajustamos las cantidades de ticks en el eje y
+f = function(x){1 / (1 + exp(-x))}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red",lwd=2)
+abline(h=0.5,col="blue",lty=2) # Punto de inflexión
+text(6,0.6,expression(paste("y = ",frac(1, 1+e^-x))),col="red")
+
+```
+
+## 
+
+La **función sigmoide**, también conocida como función logística, fue una de las primeras funciones de activación populares, especialmente en las capas de salida de modelos de clasificación binaria.
+
+* **Definición Matemática:**
+    La función sigmoide se define como:
+    $f(x) = \frac{1}{1 + e^{-x}}$
+
+    La salida de la función sigmoide siempre está en el rango $(0, 1)$.
+
+* **Derivada:**
+    La derivada de la función sigmoide es:
+    $f'(x) = f(x) * (1 - f(x))$
+
+* **Relación con el Cálculo:** La derivada de la sigmoide es crucial para el algoritmo de **retropropagación**. Su forma, expresada en términos de la propia función, facilita los cálculos. Sin embargo, esta derivada también es la fuente de su principal desventaja.
+
+* **Ventajas:**
+    * **Salida Probabilística:** Su salida, entre 0 y 1, puede interpretarse como una probabilidad, lo que la hace ideal para la clasificación binaria.
+    * **Suave y Diferenciable:** Es una función continua y diferenciable en todo su dominio, lo cual es esencial para el descenso de gradiente.
+
+* **Desventajas:**
+    * **Problema del Gradiente Desvanecedor:** Para valores de entrada muy grandes o muy pequeños, la pendiente de la función sigmoide se vuelve muy pequeña (cercana a cero). Esto provoca que los gradientes que se retropropagan a través de muchas capas se vuelvan extremadamente pequeños, dificultando el aprendizaje en las capas iniciales de una red profunda.
+    * **Salida No Centrada en Cero:** La salida siempre es positiva. Esto puede llevar a oscilaciones en los gradientes durante el entrenamiento, haciendo que la convergencia sea más lenta.
+
+
+## Función de Activación Tangente Hiperbólica  (tanh)
+
+La función tanh es similar a la sigmoide, pero su rango de salida va de -1 a 1, lo cual puede ser beneficioso para el entrenamiento de redes neuronales profundas.
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-10 # Rango similar al de la sigmoide
+xmax=10
+ymin=-1.2 # Ajustamos el rango para tanh
+ymax=1.2
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=4 # Ajustamos las cantidades de ticks en el eje y
+f = function(x){tanh(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red",lwd=2)
+abline(h=0,col="blue",lty=2) # La función está centrada en 0
+abline(h=1,col="blue",lty=2) # Asíntota superior
+abline(h=-1,col="blue",lty=2) # Asíntota inferior
+text(6,0.85,expression(paste("y = tanh(x)")),col="red")
+```
+
+##
+
+La **función tangente hiperbólica**, o **tanh**, es otra función de activación clásica que resuelve uno de los problemas de la sigmoide.
+
+* **Definición Matemática:**
+    La función tanh se define como:
+    $f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
+
+    La salida de la función tanh siempre está en el rango $(-1, 1)$.
+
+* **Derivada:**
+    La derivada de la función tanh es:
+    $f'(x) = 1 - (f(x))^2$
+
+* **Relación con el Cálculo:** Al igual que la sigmoide, su derivada es clave para la retropropagación. Su rango de salida centrado en cero es una mejora significativa desde una perspectiva de cálculo, ya que puede ayudar a la convergencia del descenso de gradiente.
+
+* **Ventajas:**
+    * **Salida Centrada en Cero:** Su salida en el rango $(-1, 1)$ resuelve el problema de la salida no centrada en cero de la sigmoide, lo que puede acelerar la convergencia del entrenamiento.
+    * **Suave y Diferenciable:** Al igual que la sigmoide, es continua y diferenciable.
+
+* **Desventajas:**
+    * **Problema del Gradiente Desvanecedor:** Aunque un poco menos severo que en la sigmoide debido a su rango centrado, la tanh aún sufre del problema del gradiente desvanecedor para entradas muy grandes o muy pequeñas, donde la pendiente también se acerca a cero.
+
+
+## Conclusión
+
+La elección de la función de activación es un aspecto fundamental en el diseño de redes neuronales y tiene un impacto directo en la capacidad del modelo para aprender y en la eficiencia de su entrenamiento. Mientras que la **ReLU** se ha establecido como el caballo de batalla para las capas ocultas debido a su eficiencia y su ayuda en la mitigación del gradiente desvanecedor, las funciones **sigmoide** y **tanh** siguen siendo relevantes, especialmente en capas de salida para tareas específicas (como la clasificación binaria para la sigmoide).
+
+Un sólido entendimiento de sus definiciones matemáticas, derivadas y propiedades es indispensable en cualquier curso de cálculo que aborde los fundamentos del machine learning, ya que estas funciones son los pilares sobre los que se construyen los complejos modelos de inteligencia artificial.
+
+
