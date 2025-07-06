@@ -11,6 +11,7 @@ Pueden consultar todo el material complementario en nuestro [Github.io](https://
 5. [Aplicacions al Machine Learning]()
 
 ---
+
 ## ¡Transformando el Aprendizaje del Cálculo Diferencial para la Ciencia de Datos en la UTMACH! 🚀
 
 ¡Hola, estimados estudiantes de la Universidad Técnica de Machala!
