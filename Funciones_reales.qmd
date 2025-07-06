@@ -62,7 +62,7 @@ de $"f"$
 :::
 
 ::: {.fragment fragment-index="4"}
-![](images/C_04.jpg)
+![](Images/C_04.jpg)
 :::
 
 :::
