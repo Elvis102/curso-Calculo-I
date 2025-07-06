@@ -4,8 +4,8 @@
 
 Pueden consultar todos el material complementario en nuestro [Github.io](https://elvis102.github.io/curso-Calculo-I/), que es un ejemplo de cómo deseo que experimenten este curso: con **acceso irrestricto a todos los recursos**.
 
-1. [Números Reales](https://elvis102.github.io/curso-Calculo-I/Numeros_Reales.html)
-2. [Función Real de Variable Real](https://elvis102.github.io/curso-Calculo-I/Funciones_reales.html)
+1. [Números Reales](https://elvis102.github.io/curso-Calculo-I/docs/Numeros_Reales.html)
+2. [Función Real de Variable Real](https://elvis102.github.io/curso-Calculo-I/docs/Funciones_reales.html)
 3. [Limites de funciones]()
 4. [Derivada de una función]()
 5. [Aplicacions al Machine Learning]()
