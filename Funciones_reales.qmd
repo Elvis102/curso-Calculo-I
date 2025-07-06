@@ -62,7 +62,7 @@ de $"f"$
 :::
 
 ::: {.fragment fragment-index="4"}
-![](Images/C_04.jpg)
+![](images/C_04.jpg)
 :::
 
 :::
@@ -213,7 +213,7 @@ Para expresar que el número real $x \in \mathfrak{R}_{inicial}$ puede ser el qu
 
 :::
 
-## Ejemplo 1 {.scrollable}
+## Ejemplos {.scrollable}
 
 ::: {.bg style="background-color:#fdf6e3; padding:0.75em; border-left:6px solid #000000; border-radius: 8px;"}
 Por ejemplo, al hablar de la función $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ tal que $f(x)=\frac{x}{x-1}$ se habla de la ley $"f"$ que al número real $"x"$ le asocia el número real $\frac{x}{x-1}$; así, al número $5$ la ley $"f"$ le asocia el número  $\frac{5}{5-1}$ , al número $9$ le asocia el número $\frac{5}{5-1}$..... y escribemos:
@@ -289,6 +289,580 @@ $$
 :::
 :::
 
+## [**Determine la siguiente expresion $\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ en los siguientes casos: $a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x$**]{.bg style="--col: #fdf6e3"} {.scrollable}
+
+::: {.fragment fragment-index="2"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}= 2x+h
+$$
+:::
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/f-1.png)
+:::
+:::
+
+
+::: {.bg style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;"}
+$\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ es la [**Tasa de cambio**]{.alert} de la funcion $"f"$ si la variable independiente $\color{blue}{varia}$  desde "**x**" hasta "**x+h**"
+:::
+
+## [**Determine la siguiente expresion $\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ en los siguientes casos: $a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x$**]{.bg style="--col: #fdf6e3"} {.scrollable}
+
+::: {.fragment fragment-index="2"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{\frac{1}{(x+h)}-\frac{1}{x}}{h}=\frac{-h}{hx(h+x)}= \frac{-1}{x(x+h)}
+$$
+:::
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/f-1.png)
+:::
+:::
+
+
+::: {.bg style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;"}
+$\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ es la [**Tasa de cambio**]{.alert} de la funcion $"f"$ si la variable independiente $\color{blue}{varia}$  desde "**x**" hasta "**x+h**"
+:::
+
+
+## [**Determine la siguiente expresion $\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ en los siguientes casos: $a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x$**]{.bg style="--col: #fdf6e3"} {.scrollable}
+
+::: {.fragment fragment-index="2"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}= 2x+h
+$$
+:::
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/f-1.png)
+:::
+:::
+
+
+::: {.bg style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;"}
+$\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ es la [**Tasa de cambio**]{.alert} de la funcion $"f"$ si la variable independiente $\color{blue}{varia}$  desde "**x**" hasta "**x+h**"
+:::
+
+## [**Determine la siguiente expresion $\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ en los siguientes casos: $a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x$**]{.bg style="--col: #fdf6e3"} {.scrollable}
+
+::: {.fragment fragment-index="2"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{2^{x+h}-2^x}{h}
+$$
+:::
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/f-1.png)
+:::
+:::
+
+
+::: {.bg style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;"}
+$\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ es la [**Tasa de cambio**]{.alert} de la funcion $"f"$ si la variable independiente $\color{blue}{varia}$  desde "**x**" hasta "**x+h**"
+:::
+
+## [Si $f(x):\mathfrak{R} \longmapsto \mathfrak{R}$ es tal que $f(x):1+x^2$ determine su tasa de cambio en los siguientes casos:]{.bg style="--col: #fdf6e3"} {.scrollable}
+- La variable independiente varia de 5 a 7
+- La variable independiente varia de 5 a 2
+- La variable independiente varia de 3 a 3.02
+- La variable independiente varia de 3 a 2.97 
+
+::: {.fragment fragment-index="1"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(7)-f(5)}{7-5}=\frac{(1+7^2)-(1+5^2)}{2}= \frac{24}{2}=12
+$$
+:::
+::: {.fragment fragment-index="2"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(2)-f(5)}{2-5}=\frac{(1+2^2)-(1+5^2)}{-3}= \frac{-21}{-3}=7
+$$
+:::
+::: {.fragment fragment-index="3"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(3.02)-f(3)}{3.02-3}=\frac{(1+3.02^2)-(1+3^2)}{0.02}= \frac{0.1204}{0.02}=6.02
+$$
+:::
+::: {.fragment fragment-index="4"}
+$$
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(2.97)-f(3)}{2.97-3}=\frac{(1+2.97^2)-(1+3^2)}{-0.03}= \frac{-0.1791}{-0.03}=5.97
+$$
+:::
+
+
+::: {.bg style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;"}
+$\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ es la [**Tasa de cambio**]{.alert} de la funcion $"f"$ si la variable independiente $\color{blue}{varia}$  desde "**x**" hasta "**x+h**"
+:::
+
+## [LA PREGUNTA DEL MILLÓN, [¿Para que sirve la tasa de cambio?]{.bg style="--col: #ffff00"}![](Images/h-0.png){with="20%"}]{.bg style="--col: #fdf6e3"} {.scrollable}
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1.4em;"}
+El cociente $\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$, que es la [**TASA DE CAMBIO**]{.alert} de la funcion $f: \mathfrak{R} \longmapsto \mathfrak{R}$ si la vararible independiente varia desde **x** hasta **x+h**, tendra protagonismo estalar cuando hablemos de la [**derivada**]{.alert} de [**f**]{.alert} en [**x**]{.alert}
+:::
+
+## [**UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL**]{.bg style="background-color:#ffff00; padding:0.6em; font-size:1.2em;" .scrollable}
+
+Comprenderás la [**importancia de las funciones reales de variable real**]{.alert} si imaginas que la variable independiente [**"x"**]{.alert} representa la cantidad de capital invertido por una bodega, mientras que la variable dependiente [**$f(x)$**]{.alert} representa la **producción de vino** obtenida.
+
+::: columns
+
+::: {.column width="30%"}
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+
+::: center
+$$
+\overset{\large x}{\text{Capital}} \quad \longrightarrow \quad \overset{\large f(x)}{\text{Producción}}
+$$ 
+
+Si invierto [**"x"**]{.alert} euros, la producción de vino es [**$1 + x^2$**]{.alert} litros. Es decir, mi función [**$f$**]{.alert} de producción está definida por:  
+[**$f(x) = 1 + x^2$**]{.alert}
+:::
+:::
+
+:::
+
+::: {.column width="70%"}
+::: center
+![](Images/f-2.png){width="80%"}
+:::
+:::
+:::
+
+## [**Fijando ideas-problema parte 1 (capital-produccion)**]{.bg style="--col: #ffff00"} {.scrollable}
+![](Images/f-3.png)
+
+Si el capital empleado varia desde [**"x"**]{.alert} hasta [**"x+h"**]{.alert}, la produccion obtenida [**varia**]{.alert} desde [**$f(x)=1=x^2$**]{.alert} hasta [**$f(x+h)=1+(x+h)^2$**]{.alert}.
+La pregunta seria? Cuantas unidades varia la produccion por cada unidad de varaicion de capital?
+
+$$
+\begin{array}{llll}
+\left\{ 
+\begin{array}{l}
+\text{Tasa de cambio de "f" si v.i} \\
+\text{varía desde "x" hasta "x+h"}
+\end{array}
+\right\} 
+\equiv \frac{f(x+h)-f(x)}{(x+h)-x} \\
+\equiv \frac{
+\text{Variación de producción si el capital varía desde "x" a "x+h"}
+}{
+\text{Variación de capital}
+} \equiv \\
+\left\{
+\begin{array}{l}
+\text{Variación MEDIA de producción por cada unidad} \\
+\text{de variación de capital cuando este varía desde "x" a "x+h"}
+\end{array}
+\right\} \\
+= \frac{(1+(x+h)^2)-(1+x^2)}{h}= \frac{2xh+h^2}{h} = 2x + h
+\end{array}
+$$
+
+## [**Fijando ideas-problema parte 2 (capital-produccion)**]{.bg style="--col: #ffff00"} {.scrollable}
+
+Saber que la tasa de cambio es: $TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 2x+h \frac{litros}{euro}$ es una oportunidad ventajosa 
+
+| x   | x + h | h     | **TC = 2·x + h** | **litros/euro**        |
+|-----|-------|-------|------------------|-------------------------|
+| 4   | 7     | 3     | 2·4 + 3          | 11                      |
+| 4   | 2     | –2    | 2·4 + (–2)       | 6                       |
+| 5   | 5.2   | 0.2   | 2·5 + 0.2        | 10.2                    |
+| 5   | 4.9   | –0.1  | 2·5 + (–0.1)     | 9.9                     |
+| ⋮   | ⋮     | ⋮     | ⋮                | ⋮                       |
+
+## [**Fijando ideas-problema parte 1 (tiempo-velocidad)**]{.bg style="--col: #ffff00"} {.scrollable}
+![](Images/f-4.png){with="130%"}
+
+Si el tiempo varia desde [**"x"**]{.alert} hasta [**"x+h"**]{.alert}, la velocidad obtenida [**varia**]{.alert} desde [**$f(x)=1+x^3$**]{.alert} hasta [**$f(x+h)=1+(x+h)^3$**]{.alert}.
+La pregunta seria? Cuantas unidades varia la velocidad por cada unidad de [**variacion**]{.alert} de tiempo?
+
+$$
+\begin{array}{llll}
+\left\{ 
+\begin{array}{l}
+\text{Tasa de cambio de "f" si v.i} \\
+\text{varía desde "x" hasta "x+h"}
+\end{array}
+\right\} 
+\equiv \frac{f(x+h)-f(x)}{(x+h)-x} \\
+\equiv \frac{
+\text{Variación de velocidad entre el instante  "x" y el "x+h"}
+}{
+\text{Variación de tiempo}
+} \equiv \\
+\left\{
+\begin{array}{l}
+\text{Variación MEDIA de velocidad por cada unidad} \\
+\text{de variación de tiempo cuando este varía desde "x" a "x+h"}
+\end{array}
+\right\} \\
+= \frac{(1+(x+h)^3)-(1+x^3)}{h}= \frac{3x^2h+3xh^2+h^3}{h} = 3x^2 + 3xh + h^2
+\end{array}
+$$
+
+[[**Aceleracion media**]{.alert}]{.bg style="--col:#fdf6e3"} entre el instante **"x"** y el instante **"x+h"**
+
+## [**Fijando ideas-problema parte 2 (tiempo-velocidad)**]{.bg style="--col: #ffff00"} {.scrollable}
+Saber que la tasa de cambio es: $TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 3x^2+3xh+h^2 \frac{km-hora}{hora}$ es una oportunidad ventajosa 
+
+| x   | x + h | h     | **TC = 3·x² + 3·x·h + h²**             | **km/hora ÷ hora**       |
+|-----|-------|-------|----------------------------------------|---------------------------|
+| 5   | 9     | 4     | 3·5² + 3·5·4 + 4² = 75 + 60 + 16 = 151 | 151                       |
+| 5   | 3     | –2    | 3·5² + 3·5·(–2) + (–2)² = 75 – 30 + 4 = 49 | 49                     |
+| ⋮   | ⋮     | ⋮     | ⋮                                      | ⋮                         |
+
+## [**LA GRAFICA DE UNA FUNCION**]{.bg style="--col: #ffff00"} {.scrollable}
+
+![](Images/f-6.png)
+
+## El cociente $\frac{f(x+h)-f(x)}{(x+h)-x}$
+
+:::{.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1em;"}
+El **cociente** [**$\frac{f(x+h)-f(x)}{(x+h)-x}$**]{.alert}, que es la [**TASA DE CAMBIO**]{.alert} de la funcion $f: \mathfrak{R}\longmapsto \mathfrak{R}$ si la [**variable independiente**]{.alert} varia desde **"x"** hasta **"x+h"**, indica cuantas unidades varia la variable dependiente por cada unidad de variacion de la [**variable independiente**]{.alert}.
+:::
+
+::: colmuns
+::: {.column width="40%"}
+![](Images/f-7.png)
+ si $f(x) =x^2$,es:
+
+ $$
+ \begin{array}{ll}
+ TC & =\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}\\
+&=\frac{2xh+h^2}{h}= 2.x+h \equiv tg(\theta)
+\end{array}
+ $$
+:::
+
+::: {.column width="60%"}
+![](Images/f-8.png)
+:::
+:::
+
+## [**OTRAS NOTACIONES DE FUNCIONES**]{.bg style="--col: #ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+A veces, trabajando con una función $f: \mathfrak{R} \longrightarrow \mathfrak{R}$, para abreviar, se denota [**"y"**]{.alert} al número real [**$f(x)$**]{.alert} que **"f"** asocia a **"x"**.
+
+![](Images/f-9.png)
+:::
+
+Por ejemplo, en vez de escribir:
+$$
+f(x) = 3x - 1 \quad ; \quad f(x) = x \ln(x) \quad ; \quad f(x) = \sin(x^2)
+$$
+se escribe:
+$$
+y = 3x - 1 \quad ; \quad y = x \ln(x) \quad ; \quad y = \sin(x^2)
+$$
+
+[**Esta notación no es recomendable para los principiantes, porque con ella es más fácil que se les despiste lo esencial**]{.alert}. Y lo esencial ahora es asimilar que tras [**"f(x)"**]{.alert} hay cinco protagonistas: el conjunto [**$\mathfrak{R}_{\text{inicial}}$**]{.alert}, el [**$\mathfrak{R}_{\text{final}}$**]{.alert}, la correspondencia [**$"f"$**]{.alert} que asocia elementos de [**$\mathfrak{R}_{\text{inicial}}$**]{.alert} con elementos de [**$\mathfrak{R}_{\text{final}}$**]{.alert}, el número [**$x \in \mathfrak{R}_{\text{inicial}}$**]{.alert}, y el número [**$f(x) \in \mathfrak{R}_{\text{final}}$**]{.alert} que [**"f"**]{.alert} asocia a [**"x"**]{.alert}. Nuestro cerebro debe ser capaz de estar pendiente de los cinco simultáneamente.
+
+## [**FUNCIONES UNIFORMES**]{.bg style="--col: #ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+Se dice que la función $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ es **uniforme** si cada [**$x \in \mathfrak{R}_{\text{inicial}}$**]{.alert} que tiene imagen en [**$\mathfrak{R}_{\text{final}}$**]{.alert}, tiene una **única imagen**.
+:::
+
+Por ejemplo, la función "f" tal que $f(x)=1+x^2$ es uniforme, pues cada número real "x" tiene una única imagen.  
+Por otro lado, la función "g" tal que $(g(x))^2=1+x^2$ no es uniforme, pues $(g(x))^2=1+x^2 \Longrightarrow g(x)=\pm \sqrt{1+x^2}$; o sea, cada número real "x" tiene **dos imágenes posibles**.
+
+$$g(7)=\pm \sqrt{1+7^2}=\pm \sqrt{50} \quad ;\quad g(4)=\pm \sqrt{1+(-4)^2}=\pm \sqrt{17}$$
+
+::: {.bg style="background-color:#ADD8FF;padding:0.25em; border-left:6px solid #ADD8FF;"}
+
+::: center
+![](Images/f-10.png)
+:::
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+Si la función [**"f"**]{.alert} es uniforme, las paralelas al eje de ordenadas no cortan o cortan en un único punto a la gráfica de [**"f"**]{.alert}.  
+Si [**"f"**]{.alert} no es uniforme, hay rectas paralelas al eje de ordenadas que cortan a dicha curva en dos o más puntos.
+:::
+:::
+
+## [**Operaciones con funciones**]{.bg style="--col: #ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+
+- **$f = u + v$** es la función tal que **$f(x) = u(x) + v(x)$**
+
+- **$f = u \cdot v$** es la función tal que **$f(x) = u(x) \cdot v(x)$**
+
+- **$f = \frac{u}{v}$** es la función tal que **$f(x) = \frac{u(x)}{v(x)}$**
+
+- **$f = u^v$** es la función tal que **$f(x) = (u(x))^{v(x)}$**
+
+- **$f = \sqrt[k]{u}$** es la función tal que **$f(x) = \sqrt[k]{u(x)},\quad k \equiv \text{constante}$**
+
+- **$f = \log_k{u}$** es la función tal que **$f(x) = \log_k{u(x)},\quad k > 0 \quad ; \quad k \neq 1$**
+:::
+
+Por ejemplo, si $u: \mathfrak{R} \longrightarrow \mathfrak{R}$ y $v: \mathfrak{R} \longrightarrow \mathfrak{R}$ son tales que $u(x) = x^2$ y $v(x) = 5^x$:
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+
+- **$f = u + v$** es la función tal que **$f(x) = x^2 + 5^x$**
+
+- **$f = u \cdot v$** es la función tal que **$f(x) = x^2 \cdot 5^x$**
+
+- **$f = \frac{u}{v}$** es la función tal que **$f(x) = \frac{x^2}{5^x}$**
+
+- **$f = u^v$** es la función tal que **$f(x) = (x^2)^{5^x}$**
+
+- **$f = \sqrt[k]{u}$** es la función tal que **$f(x) = \sqrt[7]{x^2},\quad k \equiv 7$**
+
+- **$f = \log_k{u}$** es la función tal que **$f(x) = \log_5{x^2},\quad k = 5$**
+:::
+
+## [**LAS RECTAS**]{.bg style="--col: #ffff00"} {.scrollable}
+
+[La gráfica de la $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ es una curva plana]{.bg style="background-color: #000000; color: white; font-weight: bold; font-size: 1.5em;"}
+
+Siendo constantes **"a"** y **"b"**, la gráfica de toda función [**$f: \mathfrak{R} \longrightarrow \mathfrak{R}$**]{.alert} tal que $f(x) = ax + b$ es una **recta** no perpendicular al eje de abscisas.
+
+::: columns
+
+::: {.column width="40%"}
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size: 0.9em;"}
+Como **$f(0) = a \cdot 0 + b = b$**, la recta **[corta]{.alert}** al eje de ordenadas en el punto **"b"** (es decir, $\color{blue}{\text{la ordenada de la recta en el origen}}$).
+  
+- La recta **corta** al eje de abscisas en el punto **"x"** tal que **$f(x) = 0$**:
+  
+  $$
+  f(x) = ax + b = 0 \Longrightarrow x = \frac{-b}{a}
+  $$
+
+- Al número [**$\displaystyle\frac{-b}{a}$**]{.alert} se le llama la **abscisa de la recta en el origen**.
+:::
+:::
+
+::: {.column width="60%"}
+::: center
+![](Images/f-11.png)
+:::
+:::
+
+:::
+
+## [**LAS RECTAS**]{.bg style="--col: #ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #fdf6e3;font-size: 1.2em;"}
+Para dibujar una recta basta posicionar dos puntos de ella 
+:::
+
+**Por ejemplo**, para dibujar la recta correspondiente a la $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ tal que $f(x)=2+3x$,los novatos posicionan dos puntos cualesquiera de ella:
+$$
+\left\{
+  \begin{array}{ll}
+  f(1)= 2+3.(1)=5 \Longrightarrow \text{la recta pasa por} \quad P=(1,5) \\
+  f(2)= 2+3.(2)=8 \Longrightarrow \text{la recta pasa por} \quad Q=(2,8) \\
+  \end{array}
+\right.
+$$
+
+Los que no se chupan el dedo dibujan la recta calculando sus intersecciones con los ejes, pues asi tardan menos:
+$$
+\left\{
+  \begin{array}{ll}
+  f(0)= 2+3.(0)=2 \Longrightarrow \text{la recta pasa por} \quad (0,2) \\
+  f(x)= 2+3.(x)=0 \Longrightarrow x=-2/3 \Longrightarrow \text{la recta pasa por} \quad (-2/3,0) \\
+  \end{array}
+\right.
+$$
+
+::: columns
+
+::: {.column width="50%"}
+![](Images/f-12.png)
+:::
+
+::: {.column width="50%"}
+![](Images/f-14.png)
+:::
+
+:::
+
+## [Si $f(x) = a \cdot x + b$, se dice que **"f"** es una [función lineal]{.bg style="--col:#000000;color: white; font-weight: bold;"}]{.bg style="--col:#ffff00"} {.scrollable}
+
+Siendo $P = (x, f(x))$ un punto genérico de la recta $f(x) = ax + b$, se cumple:
+
+$$
+\Large f(x) - b = a \cdot x
+$$
+
+::: columns
+
+:::{.column width="50%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.5em; border-left:6px solid #228B22; font-size: 0.9em;"}
+
+Es decir, la diferencia $f(x) - b$ entre la ordenada [**"$f(x)$"**]{.alert} del punto [**"P"**]{.alert} y la ordenada [**"b"**]{.alert} de la recta en el origen es **proporcional** a la abscisa [**"x"**]{.alert} de [**"P"**]{.alert}.  
+La **constante de proporcionalidad** [**"a"**]{.alert} coincide con la **tangente del ángulo** $\theta$ que forma la recta con la dirección positiva del eje de abscisas:
+
+$$
+f(x) - b = ax \Longrightarrow \frac{f(x) - b}{x} = a = \tan(\theta)
+$$
+
+:::
+:::
+
+:::{.column width="50%"}
+![](Images/f-15.png)
+:::
+De [**"$a$"**]{.alert} se dice que es la pendiente de la recta .
+
+[**Observa:**]{.alert} si $a=0 \Longrightarrow \theta  \Longrightarrow$ la recta es paralela al eje de abcisas. 
+:::
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = 5x + 2$, entonces $f(0) = 2$, que es la ordenada al origen. Como la [**pendiente**]{.alert} es $5$, la recta forma un ángulo $\theta$ con la dirección positiva del eje $x$ tal que:$\tan(\theta) = 5 \quad \Rightarrow \quad \theta = \arctan(5) \approx 78.69^\circ$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-1.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/es-0.png){width="45%"}
+:::
+:::
+:::
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = -3x + 4$, es $f(0) = 4$. Como la [**pendiente**]{.alert} es $-3$, la recta forma un ángulo $\theta$ con la [**dirección positiva**]{.alert} del eje abcisas un angulo $\tan(\theta)$ cuya tangente es "$-3$"; o sea; $\theta=arctan(-3)=108.43^{\circ}$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-3.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/es-4.png){width="45%"}
+:::
+:::
+:::
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = -3x + 4$, es $f(0) = 4$. Como la [**pendiente**]{.alert} es $-3$, la recta forma un ángulo $\theta$ con la [**dirección positiva**]{.alert} del eje abcisas un angulo $\tan(\theta)$ cuya tangente es **"$-3$"**; o sea; $\theta=arctan(-3)=108.43^{\circ}$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-3.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/es-4.png){width="45%"}
+:::
+:::
+:::
+
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = 3$, es $f(0) = 3$. Como la [**pendiente**]{.alert} es $0$, la recta paralela al eje de la abcisas.
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-5.png){width="50%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/f-17.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+::: center
+![](Images/f-18.png){width="45%"}
+:::
+:::
+
+:::
+
 
 ## Dominio de definición de una función
 
@@ -325,37 +899,141 @@ Si $f(a) \in \mathfrak{R}$ se dice que $f$ [esta definida]{.alert} en el punto $
 
 :::
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## Funciones reales de variable real
-
 Una función real de variable real $f:A \subset \mathfrak{R} \rightarrow \mathfrak{R}$ es una regla que asigna a cada elemento de un primer conjunto $A$, un único elemento de un segundo conjunto $\mathfrak{R}$. Las funciones son relaciones entre los elementos de dos conjuntos.
 
 Se llama **dominio** de la función $f$ al conjunto de valores para los cuales la misma está definida
 
-$$Dom\ f = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}$$
+$$Dom\ (f) = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}$$
 El conjunto de todos los resultados posibles de una función dada se denomina **rango**, **imagen** o **codominio** de esa función. 
 
-$$Im\ f = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}$$
+$$Im\ (f) = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}$$
+
+## RECORDATORIO DE LOS LOGARITMOS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1em;"}
+Se dice que el numero real [**"a"**]{.alert} es el [**logaritmo de base "k" \quad ($k>0,\quad k \neq 1$)**]{.alert} del numero real positivo [**"b"**]{.alert}, y se escribe [**$\log_k b=a$**]{.alert}, si [**$k^a=b$**]{.alert}
+
+::: center
+[$$\log_k b=a \quad \Longleftrightarrow k^a=b$$]{.bg style="--col:#e6f7ff;text-align:center; font-size: 1.2em;"}
+:::
+
+:::
+
+- $\log_2 8=3$, pues $2^3=8$
+
+- $\log_5 25=2$, pues $5^2=25$
+
+- $\log_{0.7} 0.49=2$, pues $0.7^2=0.49$
+
+-  $\log_{2} (x-4)=5, \longrightarrow  x-4=2^{5} \longrightarrow x=4+2^{5}=36$
+
+-  $\log_{2} (x-4)=-5, \longrightarrow  x-4=2^{-5} \longrightarrow x=4+2^{-5}=\frac{129}{32}$
+
+-  $\log_{4} (x^2-9)=2, \longrightarrow x^2-9=4^2\longrightarrow x^2=25\longrightarrow x= \pm 5$
+
+## RECORDATORIO DE LOS LOGARITMOS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1em;"}
+Se dice que el numero real [**"a"**]{.alert} es el [**logaritmo de base "k" \quad ($k>0,\quad k \neq 1$)**]{.alert} del numero real positivo [**"b"**]{.alert}, y se escribe [**$\log_k b=a$**]{.alert}, si [**$k^a=b$**]{.alert}
+
+::: center
+[$$\log_k b=a \quad \Longleftrightarrow k^a=b$$]{.bg style="--col:#e6f7ff;text-align:center; font-size: 1.2em;"}
+:::
+:::
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+- Si la base es 10, se dice que el logaritmo es [**decimal**]{.alert}
+- Si la base es $e \approx 2.718281828$, se dice que el logaritmo es [**neperiano**]{.alert}, y se denota [**Ln**]{.alert}
+
+::: center
+[**$$\ln_e b = a \quad \Longleftrightarrow e^a=b$$**]{.bg style="--col:#e6f7ff;text-align:center; font-size: 1.2em;color:red; font-weight:bold;"}
+:::
+$$
+\begin{array}{ll}
+(1+\frac{1}{1})^1\quad;(1+\frac{1}{2})^2\quad;(1+\frac{1}{3})^3 \quad;(1+\frac{1}{4})^4 \quad;(1+\frac{1}{5})^5 \quad;(1+\frac{1}{6})^6 \quad;\\
+(1+\frac{1}{7})^7\quad;(1+\frac{1}{8})^8\quad;(1+\frac{1}{9})^9\quad;\cdots \longrightarrow e
+\end{array}
+$$
+:::
+
+## PROPIEDADES DE LOS LOGARITMOS
+
+::: columns
+
+:::{.column width="50%"}
+::: {.bg style="background-color:#f0f9ff; padding:0.5em;"}
+
+-  $\log_k 1 = 0$
+-  $\log_k k = 1$
+-  $\log_k k^c = c$
+-  $\log_k b^c = c \cdot \log_k b$
+-  $\log_k (m \cdot n) = \log_k m + \log_k n$
+-  $\log_k \left(\dfrac{m}{n}\right) = \log_k m - \log_k n$
+-  **Cambio de base:**  
+  $\log_{k_1} m = \dfrac{\log_{k_2} m}{\log_{k_2} k_1}$
+
+-  **Comportamiento en $0^+$:**
+  
+  $$
+  \log_k 0^+ =
+  \left\{
+  \begin{array}{ll}
+  +\infty & \text{si } 0 < k < 1 \\
+  -\infty & \text{si } k > 1
+  \end{array}
+  \right.
+  $$
+:::
+:::
+
+:::{.column width="50%"}
+::: {.bg style="background-color:#d6f7db; padding:0.75em; margin-top:0.5em;"}
+
+🔎 Al escribir [**$0^+$**]{.alert}, nos referimos a un número [**muy próximo a cero pero positivo**]{.alert}.  
+Es decir:
+
+- Si un número **positivo** es **extremadamente pequeño**, su logaritmo:
+  - tiende a **$+\infty$** si la base $k$ está entre $0$ y $1$;
+  - tiende a **$-\infty$** si la base $k$ es mayor que $1$.
+:::
+:::
+:::
 
 
-## Funciones polinómicas
+
+
+
+
+## [**FUNCIONES ALGEBRAICAS Y TRASCENDENTES**]{.bg style="--col:#ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #fdf6e3;font-size: 0.9em;"}
+Se dice que $f : \mathfrak{R} \to \mathfrak{R}$ es una función [**algebraica**]{.alert} si las operaciones que deben realizarse para calcular el número $f(x)$ son algebraicas: **suma, resta, multiplicación, división, potenciación con exponentes constantes, radicación con índice constante**.
+:::
+
+Se dice que [**"f"**]{.alert} es [**trascendente**]{.alert} si no es algebraica.
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+**Por ejemplo**, son [**algebraicas**]{.alert}
+las funciones tales que:
+$$
+f(x)=x^3-3x \quad; \quad f(x)=\frac{x^2+x}{x-1}\quad; \quad f(x)=\frac{x+\sqrt{x}}{1-\sqrt[5]{2+x}}
+$$
+:::
+
+pues las operaciones para calcular **"f(x)"** son las algebraicas: **suma, resta, multiplicación, división, potenciación con exponentes constantes, radicación con índice constante**
+
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+**Por ejemplo**, son [**trascendentes**]{.alert}
+las funciones tales que:
+$$
+f(x)=2^{3x+1} \quad; \quad f(x)=\log_6 (x+1)   \quad; \quad f(x)=\sin(x^2)
+$$
+:::
+
+## Graficos de funciones algebraicas
+
+
 
 ```{r,echo=FALSE,fig.align='center',fig.height=6}
 xmin=-2
@@ -672,204 +1350,3 @@ text(-6.25,-1.25,expression(paste("y=",tan^-1,(x))),col="red")
 text(9,-1.3,expression(paste("y=",-frac(pi,2))),col="blue")
 text(9,1.85,expression(paste("y=",frac(pi,2))),col="blue")
 ```
-
-
-# Funciones de Activación Esenciales en Machine Learning: ReLU, Sigmoide y Tangente Hiperbólica {.my-slide}
-
-## 
-
-En el fascinante mundo del **machine learning**, y particularmente en las **redes neuronales**, las funciones de activación juegan un papel crucial. Estas funciones son responsables de introducir no linealidad en el modelo, permitiéndole aprender patrones complejos y representar relaciones más allá de las que un modelo lineal podría capturar. Para aquellos que exploran un curso de cálculo, comprender cómo estas funciones se construyen y cómo sus propiedades matemáticas impactan el aprendizaje automático es fundamental.
-
-Las tres funciones de activación más comunes y, a menudo, las primeras que se estudian son la **Unidad Rectificadora Lineal (ReLU)**, la **función sigmoide** y la **tangente hiperbólica (tanh)**.
-
-## Función ReLU (Unidad Rectificadora Lineal)
-
-La función `ReLU` es sencilla: devuelve el mismo valor si es positivo y cero si es negativo.
-
-```{r,echo=FALSE,fig.align='center',fig.height=6}
-xmin=-5 # Ajustamos el rango para una mejor visualización de ReLU
-xmax=5
-ymin=-1
-ymax=5
-tolx=0.01*(xmax-xmin)
-toly=0.05*(ymax-ymin)
-quantsx=10
-quantsy=5 # Ajustamos las cantidades de ticks en el eje y
-f = function(x){pmax(0, x)} # pmax es la función vectorizada para max(0, x)
-plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
-x=seq(from=xmin,to=xmax,by=0.01)
-lines(c(0,0),c(ymin,ymax))
-lines(c(xmin,xmax),c(0,0))
-text(xmax-3*tolx,-15*tolx,"x")
-text(toly,ymax+toly/2,"y")
-for (i in 0:(quantsx)){
-  if(xmin+((xmax-xmin)/quantsx)*i != 0){
-    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
-    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
-  }
-
-for (i in 0:(quantsy)){
-  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
-  text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
-}
-lines(x,f(x),col="red",lwd=2) # Añadimos lwd para hacer la línea más visible
-text(3,4.5,expression(paste("y = max(0, x)")),col="red")
-```
-
-## 
-
-La **función ReLU** es una de las funciones de activación más populares y se ha convertido en el estándar para muchas arquitecturas de redes neuronales profundas. Su simplicidad es su mayor fortaleza.
-
-* **Definición Matemática:**
-    La función ReLU se define como:
-    $f(x) = \max(0, x)$
-
-    Esto significa que si la entrada $x$ es mayor que cero, la salida es $x$. Si la entrada es menor o igual a cero, la salida es cero.
-
-* **Derivada:**
-    La derivada de la función ReLU es:
-    $f'(x) = 1$ si $x > 0$
-    $f'(x) = 0$ si $x < 0$
-    (La derivada en $x=0$ no está definida, pero en la práctica se suele asignar un valor, como 0 o 1).
-
-* **Relación con el Cálculo:** La facilidad para calcular su derivada es una gran ventaja en el entrenamiento de redes neuronales, ya que el **descenso de gradiente**, el algoritmo principal de optimización, depende del cálculo eficiente de derivadas (gradientes). La simplicidad de la derivada de ReLU ayuda a **mitigar el problema del gradiente desvanecedor** para valores positivos, lo que acelera el entrenamiento.
-
-* **Ventajas:**
-    * **Eficiencia Computacional:** Es muy simple de calcular.
-    * **Atenúa el Problema del Gradiente Desvanecedor:** Para entradas positivas, el gradiente es 1, lo que permite que los gradientes fluyan sin problemas.
-    * **Escasez de Activación:** Introduce "escasez" en la red, lo que puede llevar a una representación más compacta y eficiente.
-
-* **Desventajas:**
-    * **Problema del "Neurona Muerta" (Dying ReLU):** Si una neurona ReLU produce consistentemente una salida de 0 (por ejemplo, si sus entradas siempre son negativas), los gradientes que fluyen a través de ella serán 0, y la neurona dejará de aprender.
-
-## Función de Activación Sigmoide (Logística)
-
-La función sigmoide comprime cualquier valor de entrada en un rango entre 0 y 1. Es ideal para cuando necesitas interpretar una salida como una probabilidad.
-
-```{r,echo=FALSE,fig.align='center',fig.height=6}
-xmin=-10 # Rango típico para visualizar la sigmoide
-xmax=10
-ymin=-0.2 # Ajustamos el rango para la sigmoide
-ymax=1.2
-tolx=0.01*(xmax-xmin)
-toly=0.05*(ymax-ymin)
-quantsx=10
-quantsy=4 # Ajustamos las cantidades de ticks en el eje y
-f = function(x){1 / (1 + exp(-x))}
-plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
-x=seq(from=xmin,to=xmax,by=0.01)
-lines(c(0,0),c(ymin,ymax))
-lines(c(xmin,xmax),c(0,0))
-text(xmax-3*tolx,-15*tolx,"x")
-text(toly,ymax+toly/2,"y")
-for (i in 0:(quantsx)){
-  if(xmin+((xmax-xmin)/quantsx)*i != 0){
-    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
-    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
-  }
-
-for (i in 0:(quantsy)){
-  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
-  text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
-}
-lines(x,f(x),col="red",lwd=2)
-abline(h=0.5,col="blue",lty=2) # Punto de inflexión
-text(6,0.6,expression(paste("y = ",frac(1, 1+e^-x))),col="red")
-
-```
-
-## 
-
-La **función sigmoide**, también conocida como función logística, fue una de las primeras funciones de activación populares, especialmente en las capas de salida de modelos de clasificación binaria.
-
-* **Definición Matemática:**
-    La función sigmoide se define como:
-    $f(x) = \frac{1}{1 + e^{-x}}$
-
-    La salida de la función sigmoide siempre está en el rango $(0, 1)$.
-
-* **Derivada:**
-    La derivada de la función sigmoide es:
-    $f'(x) = f(x) * (1 - f(x))$
-
-* **Relación con el Cálculo:** La derivada de la sigmoide es crucial para el algoritmo de **retropropagación**. Su forma, expresada en términos de la propia función, facilita los cálculos. Sin embargo, esta derivada también es la fuente de su principal desventaja.
-
-* **Ventajas:**
-    * **Salida Probabilística:** Su salida, entre 0 y 1, puede interpretarse como una probabilidad, lo que la hace ideal para la clasificación binaria.
-    * **Suave y Diferenciable:** Es una función continua y diferenciable en todo su dominio, lo cual es esencial para el descenso de gradiente.
-
-* **Desventajas:**
-    * **Problema del Gradiente Desvanecedor:** Para valores de entrada muy grandes o muy pequeños, la pendiente de la función sigmoide se vuelve muy pequeña (cercana a cero). Esto provoca que los gradientes que se retropropagan a través de muchas capas se vuelvan extremadamente pequeños, dificultando el aprendizaje en las capas iniciales de una red profunda.
-    * **Salida No Centrada en Cero:** La salida siempre es positiva. Esto puede llevar a oscilaciones en los gradientes durante el entrenamiento, haciendo que la convergencia sea más lenta.
-
-
-## Función de Activación Tangente Hiperbólica  (tanh)
-
-La función tanh es similar a la sigmoide, pero su rango de salida va de -1 a 1, lo cual puede ser beneficioso para el entrenamiento de redes neuronales profundas.
-
-```{r,echo=FALSE,fig.align='center',fig.height=6}
-xmin=-10 # Rango similar al de la sigmoide
-xmax=10
-ymin=-1.2 # Ajustamos el rango para tanh
-ymax=1.2
-tolx=0.01*(xmax-xmin)
-toly=0.05*(ymax-ymin)
-quantsx=10
-quantsy=4 # Ajustamos las cantidades de ticks en el eje y
-f = function(x){tanh(x)}
-plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
-x=seq(from=xmin,to=xmax,by=0.01)
-lines(c(0,0),c(ymin,ymax))
-lines(c(xmin,xmax),c(0,0))
-text(xmax-3*tolx,-15*tolx,"x")
-text(toly,ymax+toly/2,"y")
-for (i in 0:(quantsx)){
-  if(xmin+((xmax-xmin)/quantsx)*i != 0){
-    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
-    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
-  }
-
-for (i in 0:(quantsy)){
-  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
-  text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
-}
-lines(x,f(x),col="red",lwd=2)
-abline(h=0,col="blue",lty=2) # La función está centrada en 0
-abline(h=1,col="blue",lty=2) # Asíntota superior
-abline(h=-1,col="blue",lty=2) # Asíntota inferior
-text(6,0.85,expression(paste("y = tanh(x)")),col="red")
-```
-
-##
-
-La **función tangente hiperbólica**, o **tanh**, es otra función de activación clásica que resuelve uno de los problemas de la sigmoide.
-
-* **Definición Matemática:**
-    La función tanh se define como:
-    $f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}$
-
-    La salida de la función tanh siempre está en el rango $(-1, 1)$.
-
-* **Derivada:**
-    La derivada de la función tanh es:
-    $f'(x) = 1 - (f(x))^2$
-
-* **Relación con el Cálculo:** Al igual que la sigmoide, su derivada es clave para la retropropagación. Su rango de salida centrado en cero es una mejora significativa desde una perspectiva de cálculo, ya que puede ayudar a la convergencia del descenso de gradiente.
-
-* **Ventajas:**
-    * **Salida Centrada en Cero:** Su salida en el rango $(-1, 1)$ resuelve el problema de la salida no centrada en cero de la sigmoide, lo que puede acelerar la convergencia del entrenamiento.
-    * **Suave y Diferenciable:** Al igual que la sigmoide, es continua y diferenciable.
-
-* **Desventajas:**
-    * **Problema del Gradiente Desvanecedor:** Aunque un poco menos severo que en la sigmoide debido a su rango centrado, la tanh aún sufre del problema del gradiente desvanecedor para entradas muy grandes o muy pequeñas, donde la pendiente también se acerca a cero.
-
-
-## Conclusión
-
-La elección de la función de activación es un aspecto fundamental en el diseño de redes neuronales y tiene un impacto directo en la capacidad del modelo para aprender y en la eficiencia de su entrenamiento. Mientras que la **ReLU** se ha establecido como el caballo de batalla para las capas ocultas debido a su eficiencia y su ayuda en la mitigación del gradiente desvanecedor, las funciones **sigmoide** y **tanh** siguen siendo relevantes, especialmente en capas de salida para tareas específicas (como la clasificación binaria para la sigmoide).
-
-Un sólido entendimiento de sus definiciones matemáticas, derivadas y propiedades es indispensable en cualquier curso de cálculo que aborde los fundamentos del machine learning, ya que estas funciones son los pilares sobre los que se construyen los complejos modelos de inteligencia artificial.
-
-## tema siguiente
-
-

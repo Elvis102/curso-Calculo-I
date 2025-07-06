@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-07-05">
+  <meta name="dcterms.date" content="2025-07-06">
   <title>Cálculo Diferencial</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,7 +147,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-07-05</p>
+  <p class="date">2025-07-06</p>
 </section>
 <section>
 <section id="introducción" class="title-slide slide level1 my-slide center">
@@ -264,8 +264,8 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 </div></div>
 </section>
-<section id="ejemplo-1" class="slide level2 scrollable">
-<h2>Ejemplo 1</h2>
+<section id="ejemplos" class="slide level2 scrollable">
+<h2>Ejemplos</h2>
 <div class="bg" style="background-color:#fdf6e3; padding:0.75em; border-left:6px solid #000000; border-radius: 8px;">
 <p>Por ejemplo, al hablar de la función <span class="math inline">\(f:\mathfrak{R} \longrightarrow \mathfrak{R}\)</span> tal que <span class="math inline">\(f(x)=\frac{x}{x-1}\)</span> se habla de la ley <span class="math inline">\("f"\)</span> que al número real <span class="math inline">\("x"\)</span> le asocia el número real <span class="math inline">\(\frac{x}{x-1}\)</span>; así, al número <span class="math inline">\(5\)</span> la ley <span class="math inline">\("f"\)</span> le asocia el número <span class="math inline">\(\frac{5}{5-1}\)</span> , al número <span class="math inline">\(9\)</span> le asocia el número <span class="math inline">\(\frac{5}{5-1}\)</span>….. y escribemos:</p>
 </div>
@@ -316,6 +316,530 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 </div>
 </div>
 </section>
+<section id="determine-la-siguiente-expresion-colorredfracfxh-fxxh-x-en-los-siguientes-casos-a.-quad-fxx2-quad-b.-quad-fxfrac1x-quadc.-quad-fx-2x" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></h2>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}= 2x+h
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png"></p>
+</div>
+</div>
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</section>
+<section id="determine-la-siguiente-expresion-colorredfracfxh-fxxh-x-en-los-siguientes-casos-a.-quad-fxx2-quad-b.-quad-fxfrac1x-quadc.-quad-fx-2x-1" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></h2>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{\frac{1}{(x+h)}-\frac{1}{x}}{h}=\frac{-h}{hx(h+x)}= \frac{-1}{x(x+h)}
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png"></p>
+</div>
+</div>
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</section>
+<section id="determine-la-siguiente-expresion-colorredfracfxh-fxxh-x-en-los-siguientes-casos-a.-quad-fxx2-quad-b.-quad-fxfrac1x-quadc.-quad-fx-2x-2" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></h2>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}= 2x+h
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png"></p>
+</div>
+</div>
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</section>
+<section id="determine-la-siguiente-expresion-colorredfracfxh-fxxh-x-en-los-siguientes-casos-a.-quad-fxx2-quad-b.-quad-fxfrac1x-quadc.-quad-fx-2x-3" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></h2>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{2^{x+h}-2^x}{h}
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png"></p>
+</div>
+</div>
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</section>
+<section id="si-fxmathfrakr-longmapsto-mathfrakr-es-tal-que-fx1x2-determine-su-tasa-de-cambio-en-los-siguientes-casos" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3">Si <span class="math inline">\(f(x):\mathfrak{R} \longmapsto \mathfrak{R}\)</span> es tal que <span class="math inline">\(f(x):1+x^2\)</span> determine su tasa de cambio en los siguientes casos:</span></h2>
+<ul>
+<li>La variable independiente varia de 5 a 7</li>
+<li>La variable independiente varia de 5 a 2</li>
+<li>La variable independiente varia de 3 a 3.02</li>
+<li>La variable independiente varia de 3 a 2.97</li>
+</ul>
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(7)-f(5)}{7-5}=\frac{(1+7^2)-(1+5^2)}{2}= \frac{24}{2}=12
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(2)-f(5)}{2-5}=\frac{(1+2^2)-(1+5^2)}{-3}= \frac{-21}{-3}=7
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(3.02)-f(3)}{3.02-3}=\frac{(1+3.02^2)-(1+3^2)}{0.02}= \frac{0.1204}{0.02}=6.02
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(2.97)-f(3)}{2.97-3}=\frac{(1+2.97^2)-(1+3^2)}{-0.03}= \frac{-0.1791}{-0.03}=5.97
+\]</span></p>
+</div>
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</section>
+<section id="la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3">LA PREGUNTA DEL MILLÓN, <span class="bg" style="--col: #ffff00">¿Para que sirve la tasa de cambio?</span><img data-src="Images/h-0.png" data-with="20%"></span></h2>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1.4em;">
+<p>El cociente <span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span>, que es la <span class="alert"><strong>TASA DE CAMBIO</strong></span> de la funcion <span class="math inline">\(f: \mathfrak{R} \longmapsto \mathfrak{R}\)</span> si la vararible independiente varia desde <strong>x</strong> hasta <strong>x+h</strong>, tendra protagonismo estalar cuando hablemos de la <span class="alert"><strong>derivada</strong></span> de <span class="alert"><strong>f</strong></span> en <span class="alert"><strong>x</strong></span></p>
+</div>
+</section>
+<section id="utilidad-de-la-función-real-de-variable-real" class="slide level2">
+<h2><span class="bg scrollable" style="background-color:#ffff00; padding:0.6em; font-size:1.2em;"><strong>UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL</strong></span></h2>
+<p>Comprenderás la <span class="alert"><strong>importancia de las funciones reales de variable real</strong></span> si imaginas que la variable independiente <span class="alert"><strong>“x”</strong></span> representa la cantidad de capital invertido por una bodega, mientras que la variable dependiente <span class="alert"><strong><span class="math inline">\(f(x)\)</span></strong></span> representa la <strong>producción de vino</strong> obtenida.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<div class="center">
+<p><span class="math display">\[
+\overset{\large x}{\text{Capital}} \quad \longrightarrow \quad \overset{\large f(x)}{\text{Producción}}
+\]</span></p>
+<p>Si invierto <span class="alert"><strong>“x”</strong></span> euros, la producción de vino es <span class="alert"><strong><span class="math inline">\(1 + x^2\)</span></strong></span> litros. Es decir, mi función <span class="alert"><strong><span class="math inline">\(f\)</span></strong></span> de producción está definida por:<br>
+<span class="alert"><strong><span class="math inline">\(f(x) = 1 + x^2\)</span></strong></span></p>
+</div>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="center">
+<p><img data-src="Images/f-2.png" style="width:80.0%"></p>
+</div>
+</div></div>
+</section>
+<section id="fijando-ideas-problema-parte-1-capital-produccion" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (capital-produccion)</strong></span></h2>
+
+<img data-src="Images/f-3.png" class="r-stretch"><p>Si el capital empleado varia desde <span class="alert"><strong>“x”</strong></span> hasta <span class="alert"><strong>“x+h”</strong></span>, la produccion obtenida <span class="alert"><strong>varia</strong></span> desde <span class="alert"><strong><span class="math inline">\(f(x)=1=x^2\)</span></strong></span> hasta <span class="alert"><strong><span class="math inline">\(f(x+h)=1+(x+h)^2\)</span></strong></span>. La pregunta seria? Cuantas unidades varia la produccion por cada unidad de varaicion de capital?</p>
+<p><span class="math display">\[
+\begin{array}{llll}
+\left\{
+\begin{array}{l}
+\text{Tasa de cambio de "f" si v.i} \\
+\text{varía desde "x" hasta "x+h"}
+\end{array}
+\right\}
+\equiv \frac{f(x+h)-f(x)}{(x+h)-x} \\
+\equiv \frac{
+\text{Variación de producción si el capital varía desde "x" a "x+h"}
+}{
+\text{Variación de capital}
+} \equiv \\
+\left\{
+\begin{array}{l}
+\text{Variación MEDIA de producción por cada unidad} \\
+\text{de variación de capital cuando este varía desde "x" a "x+h"}
+\end{array}
+\right\} \\
+= \frac{(1+(x+h)^2)-(1+x^2)}{h}= \frac{2xh+h^2}{h} = 2x + h
+\end{array}
+\]</span></p>
+</section>
+<section id="fijando-ideas-problema-parte-2-capital-produccion" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (capital-produccion)</strong></span></h2>
+<p>Saber que la tasa de cambio es: <span class="math inline">\(TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 2x+h \frac{litros}{euro}\)</span> es una oportunidad ventajosa</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>x</th>
+<th>x + h</th>
+<th>h</th>
+<th><strong>TC = 2·x + h</strong></th>
+<th><strong>litros/euro</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4</td>
+<td>7</td>
+<td>3</td>
+<td>2·4 + 3</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+<td>–2</td>
+<td>2·4 + (–2)</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5.2</td>
+<td>0.2</td>
+<td>2·5 + 0.2</td>
+<td>10.2</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4.9</td>
+<td>–0.1</td>
+<td>2·5 + (–0.1)</td>
+<td>9.9</td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fijando-ideas-problema-parte-1-tiempo-velocidad" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (tiempo-velocidad)</strong></span></h2>
+
+<img data-src="Images/f-4.png" data-with="130%" class="r-stretch"><p>Si el tiempo varia desde <span class="alert"><strong>“x”</strong></span> hasta <span class="alert"><strong>“x+h”</strong></span>, la velocidad obtenida <span class="alert"><strong>varia</strong></span> desde <span class="alert"><strong><span class="math inline">\(f(x)=1+x^3\)</span></strong></span> hasta <span class="alert"><strong><span class="math inline">\(f(x+h)=1+(x+h)^3\)</span></strong></span>. La pregunta seria? Cuantas unidades varia la velocidad por cada unidad de <span class="alert"><strong>variacion</strong></span> de tiempo?</p>
+<p><span class="math display">\[
+\begin{array}{llll}
+\left\{
+\begin{array}{l}
+\text{Tasa de cambio de "f" si v.i} \\
+\text{varía desde "x" hasta "x+h"}
+\end{array}
+\right\}
+\equiv \frac{f(x+h)-f(x)}{(x+h)-x} \\
+\equiv \frac{
+\text{Variación de velocidad entre el instante  "x" y el "x+h"}
+}{
+\text{Variación de tiempo}
+} \equiv \\
+\left\{
+\begin{array}{l}
+\text{Variación MEDIA de velocidad por cada unidad} \\
+\text{de variación de tiempo cuando este varía desde "x" a "x+h"}
+\end{array}
+\right\} \\
+= \frac{(1+(x+h)^3)-(1+x^3)}{h}= \frac{3x^2h+3xh^2+h^3}{h} = 3x^2 + 3xh + h^2
+\end{array}
+\]</span></p>
+<p><span class="bg" style="--col:#fdf6e3"><span class="alert"><strong>Aceleracion media</strong></span></span> entre el instante <strong>“x”</strong> y el instante <strong>“x+h”</strong></p>
+</section>
+<section id="fijando-ideas-problema-parte-2-tiempo-velocidad" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (tiempo-velocidad)</strong></span></h2>
+<p>Saber que la tasa de cambio es: <span class="math inline">\(TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 3x^2+3xh+h^2 \frac{km-hora}{hora}\)</span> es una oportunidad ventajosa</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 46%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>x + h</th>
+<th>h</th>
+<th><strong>TC = 3·x² + 3·x·h + h²</strong></th>
+<th><strong>km/hora ÷ hora</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>9</td>
+<td>4</td>
+<td>3·5² + 3·5·4 + 4² = 75 + 60 + 16 = 151</td>
+<td>151</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>3</td>
+<td>–2</td>
+<td>3·5² + 3·5·(–2) + (–2)² = 75 – 30 + 4 = 49</td>
+<td>49</td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="la-grafica-de-una-funcion" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>LA GRAFICA DE UNA FUNCION</strong></span></h2>
+
+<img data-src="Images/f-6.png" class="r-stretch"></section>
+<section id="el-cociente-fracfxh-fxxh-x" class="slide level2">
+<h2>El cociente <span class="math inline">\(\frac{f(x+h)-f(x)}{(x+h)-x}\)</span></h2>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1em;">
+<p>El <strong>cociente</strong> <span class="alert"><strong><span class="math inline">\(\frac{f(x+h)-f(x)}{(x+h)-x}\)</span></strong></span>, que es la <span class="alert"><strong>TASA DE CAMBIO</strong></span> de la funcion <span class="math inline">\(f: \mathfrak{R}\longmapsto \mathfrak{R}\)</span> si la <span class="alert"><strong>variable independiente</strong></span> varia desde <strong>“x”</strong> hasta <strong>“x+h”</strong>, indica cuantas unidades varia la variable dependiente por cada unidad de variacion de la <span class="alert"><strong>variable independiente</strong></span>.</p>
+</div>
+<div class="colmuns">
+<div class="column" style="width:40%;">
+<p><img data-src="Images/f-7.png"> si <span class="math inline">\(f(x) =x^2\)</span>,es:</p>
+<p><span class="math display">\[
+\begin{array}{ll}
+TC &amp; =\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}\\
+&amp;=\frac{2xh+h^2}{h}= 2.x+h \equiv tg(\theta)
+\end{array}
+\]</span></p>
+</div><div class="column" style="width:60%;">
+<p><img data-src="Images/f-8.png"></p>
+</div></div>
+</section>
+<section id="otras-notaciones-de-funciones" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>OTRAS NOTACIONES DE FUNCIONES</strong></span></h2>
+<div class="bg" style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;">
+<p>A veces, trabajando con una función <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span>, para abreviar, se denota <span class="alert"><strong>“y”</strong></span> al número real <span class="alert"><strong><span class="math inline">\(f(x)\)</span></strong></span> que <strong>“f”</strong> asocia a <strong>“x”</strong>.</p>
+<p><img data-src="Images/f-9.png"></p>
+</div>
+<p>Por ejemplo, en vez de escribir: <span class="math display">\[
+f(x) = 3x - 1 \quad ; \quad f(x) = x \ln(x) \quad ; \quad f(x) = \sin(x^2)
+\]</span> se escribe: <span class="math display">\[
+y = 3x - 1 \quad ; \quad y = x \ln(x) \quad ; \quad y = \sin(x^2)
+\]</span></p>
+<p><span class="alert"><strong>Esta notación no es recomendable para los principiantes, porque con ella es más fácil que se les despiste lo esencial</strong></span>. Y lo esencial ahora es asimilar que tras <span class="alert"><strong>“f(x)”</strong></span> hay cinco protagonistas: el conjunto <span class="alert"><strong><span class="math inline">\(\mathfrak{R}_{\text{inicial}}\)</span></strong></span>, el <span class="alert"><strong><span class="math inline">\(\mathfrak{R}_{\text{final}}\)</span></strong></span>, la correspondencia <span class="alert"><strong><span class="math inline">\("f"\)</span></strong></span> que asocia elementos de <span class="alert"><strong><span class="math inline">\(\mathfrak{R}_{\text{inicial}}\)</span></strong></span> con elementos de <span class="alert"><strong><span class="math inline">\(\mathfrak{R}_{\text{final}}\)</span></strong></span>, el número <span class="alert"><strong><span class="math inline">\(x \in \mathfrak{R}_{\text{inicial}}\)</span></strong></span>, y el número <span class="alert"><strong><span class="math inline">\(f(x) \in \mathfrak{R}_{\text{final}}\)</span></strong></span> que <span class="alert"><strong>“f”</strong></span> asocia a <span class="alert"><strong>“x”</strong></span>. Nuestro cerebro debe ser capaz de estar pendiente de los cinco simultáneamente.</p>
+</section>
+<section id="funciones-uniformes" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>FUNCIONES UNIFORMES</strong></span></h2>
+<div class="bg" style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;">
+<p>Se dice que la función <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> es <strong>uniforme</strong> si cada <span class="alert"><strong><span class="math inline">\(x \in \mathfrak{R}_{\text{inicial}}\)</span></strong></span> que tiene imagen en <span class="alert"><strong><span class="math inline">\(\mathfrak{R}_{\text{final}}\)</span></strong></span>, tiene una <strong>única imagen</strong>.</p>
+</div>
+<p>Por ejemplo, la función “f” tal que <span class="math inline">\(f(x)=1+x^2\)</span> es uniforme, pues cada número real “x” tiene una única imagen.<br>
+Por otro lado, la función “g” tal que <span class="math inline">\((g(x))^2=1+x^2\)</span> no es uniforme, pues <span class="math inline">\((g(x))^2=1+x^2 \Longrightarrow g(x)=\pm \sqrt{1+x^2}\)</span>; o sea, cada número real “x” tiene <strong>dos imágenes posibles</strong>.</p>
+<p><span class="math display">\[g(7)=\pm \sqrt{1+7^2}=\pm \sqrt{50} \quad ;\quad g(4)=\pm \sqrt{1+(-4)^2}=\pm \sqrt{17}\]</span></p>
+<div class="bg" style="background-color:#ADD8FF;padding:0.25em; border-left:6px solid #ADD8FF;">
+<div class="center">
+<p><img data-src="Images/f-10.png"></p>
+</div>
+<div class="bg" style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;">
+<p>Si la función <span class="alert"><strong>“f”</strong></span> es uniforme, las paralelas al eje de ordenadas no cortan o cortan en un único punto a la gráfica de <span class="alert"><strong>“f”</strong></span>.<br>
+Si <span class="alert"><strong>“f”</strong></span> no es uniforme, hay rectas paralelas al eje de ordenadas que cortan a dicha curva en dos o más puntos.</p>
+</div>
+</div>
+</section>
+<section id="operaciones-con-funciones" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Operaciones con funciones</strong></span></h2>
+<div class="bg" style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;">
+<ul>
+<li><p><strong><span class="math inline">\(f = u + v\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = u(x) + v(x)\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = u \cdot v\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = u(x) \cdot v(x)\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = \frac{u}{v}\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = \frac{u(x)}{v(x)}\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = u^v\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = (u(x))^{v(x)}\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = \sqrt[k]{u}\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = \sqrt[k]{u(x)},\quad k \equiv \text{constante}\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = \log_k{u}\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = \log_k{u(x)},\quad k &gt; 0 \quad ; \quad k \neq 1\)</span></strong></p></li>
+</ul>
+</div>
+<p>Por ejemplo, si <span class="math inline">\(u: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> y <span class="math inline">\(v: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> son tales que <span class="math inline">\(u(x) = x^2\)</span> y <span class="math inline">\(v(x) = 5^x\)</span>:</p>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<ul>
+<li><p><strong><span class="math inline">\(f = u + v\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = x^2 + 5^x\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = u \cdot v\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = x^2 \cdot 5^x\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = \frac{u}{v}\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = \frac{x^2}{5^x}\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = u^v\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = (x^2)^{5^x}\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = \sqrt[k]{u}\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = \sqrt[7]{x^2},\quad k \equiv 7\)</span></strong></p></li>
+<li><p><strong><span class="math inline">\(f = \log_k{u}\)</span></strong> es la función tal que <strong><span class="math inline">\(f(x) = \log_5{x^2},\quad k = 5\)</span></strong></p></li>
+</ul>
+</div>
+</section>
+<section id="las-rectas" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>LAS RECTAS</strong></span></h2>
+<p><span class="bg" style="background-color: #000000; color: white; font-weight: bold; font-size: 1.5em;">La gráfica de la <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> es una curva plana</span></p>
+<p>Siendo constantes <strong>“a”</strong> y <strong>“b”</strong>, la gráfica de toda función <span class="alert"><strong><span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span></strong></span> tal que <span class="math inline">\(f(x) = ax + b\)</span> es una <strong>recta</strong> no perpendicular al eje de abscisas.</p>
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size: 0.9em;">
+<p>Como <strong><span class="math inline">\(f(0) = a \cdot 0 + b = b\)</span></strong>, la recta <strong><span class="alert">corta</span></strong> al eje de ordenadas en el punto <strong>“b”</strong> (es decir, <span class="math inline">\(\color{blue}{\text{la ordenada de la recta en el origen}}\)</span>).</p>
+<ul>
+<li><p>La recta <strong>corta</strong> al eje de abscisas en el punto <strong>“x”</strong> tal que <strong><span class="math inline">\(f(x) = 0\)</span></strong>:</p>
+<p><span class="math display">\[
+f(x) = ax + b = 0 \Longrightarrow x = \frac{-b}{a}
+\]</span></p></li>
+<li><p>Al número <span class="alert"><strong><span class="math inline">\(\displaystyle\frac{-b}{a}\)</span></strong></span> se le llama la <strong>abscisa de la recta en el origen</strong>.</p></li>
+</ul>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="center">
+<p><img data-src="Images/f-11.png"></p>
+</div>
+</div></div>
+</section>
+<section id="las-rectas-1" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>LAS RECTAS</strong></span></h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #fdf6e3;font-size: 1.2em;">
+<p>Para dibujar una recta basta posicionar dos puntos de ella</p>
+</div>
+<p><strong>Por ejemplo</strong>, para dibujar la recta correspondiente a la <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> tal que <span class="math inline">\(f(x)=2+3x\)</span>,los novatos posicionan dos puntos cualesquiera de ella: <span class="math display">\[
+\left\{
+  \begin{array}{ll}
+  f(1)= 2+3.(1)=5 \Longrightarrow \text{la recta pasa por} \quad P=(1,5) \\
+  f(2)= 2+3.(2)=8 \Longrightarrow \text{la recta pasa por} \quad Q=(2,8) \\
+  \end{array}
+\right.
+\]</span></p>
+<p>Los que no se chupan el dedo dibujan la recta calculando sus intersecciones con los ejes, pues asi tardan menos: <span class="math display">\[
+\left\{
+  \begin{array}{ll}
+  f(0)= 2+3.(0)=2 \Longrightarrow \text{la recta pasa por} \quad (0,2) \\
+  f(x)= 2+3.(x)=0 \Longrightarrow x=-2/3 \Longrightarrow \text{la recta pasa por} \quad (-2/3,0) \\
+  \end{array}
+\right.
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="Images/f-12.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/f-14.png"></p>
+</div></div>
+</section>
+<section id="si-fx-a-cdot-x-b-se-dice-que-f-es-una-función-lineal" class="slide level2 scrollable">
+<h2><span class="bg" style="--col:#ffff00">Si <span class="math inline">\(f(x) = a \cdot x + b\)</span>, se dice que <strong>“f”</strong> es una <span class="bg" style="--col:#000000;color: white; font-weight: bold;">función lineal</span></span></h2>
+<p>Siendo <span class="math inline">\(P = (x, f(x))\)</span> un punto genérico de la recta <span class="math inline">\(f(x) = ax + b\)</span>, se cumple:</p>
+<p><span class="math display">\[
+\Large f(x) - b = a \cdot x
+\]</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="bg" style="background-color:#fdf6e3; padding:0.5em; border-left:6px solid #228B22; font-size: 0.9em;">
+<p>Es decir, la diferencia <span class="math inline">\(f(x) - b\)</span> entre la ordenada <span class="alert"><strong>“<span class="math inline">\(f(x)\)</span>”</strong></span> del punto <span class="alert"><strong>“P”</strong></span> y la ordenada <span class="alert"><strong>“b”</strong></span> de la recta en el origen es <strong>proporcional</strong> a la abscisa <span class="alert"><strong>“x”</strong></span> de <span class="alert"><strong>“P”</strong></span>.<br>
+La <strong>constante de proporcionalidad</strong> <span class="alert"><strong>“a”</strong></span> coincide con la <strong>tangente del ángulo</strong> <span class="math inline">\(\theta\)</span> que forma la recta con la dirección positiva del eje de abscisas:</p>
+<p><span class="math display">\[
+f(x) - b = ax \Longrightarrow \frac{f(x) - b}{x} = a = \tan(\theta)
+\]</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/f-15.png"></p>
+</div><p>De <span class="alert"><strong>“<span class="math inline">\(a\)</span>”</strong></span> se dice que es la pendiente de la recta .</p><p><span class="alert"><strong>Observa:</strong></span> si <span class="math inline">\(a=0 \Longrightarrow \theta  \Longrightarrow\)</span> la recta es paralela al eje de abcisas.</p>
+</div>
+</section>
+<section id="rectas" class="slide level2">
+<h2>RECTAS</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;">
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Sea <span class="math inline">\(f(x) = ax + b\)</span>. A la constante <span class="alert"><strong>“a”</strong></span> se le llama la <span class="alert"><strong>pendiente</strong></span> de la recta, y representa la tangente del ángulo <span class="alert"><strong><span class="math inline">\(\theta\)</span></strong></span> que la recta forma con la <span class="alert"><strong>dirección positiva</strong></span> del eje de abscisas.</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="Images/f-16.png"></p>
+</div></div>
+</div>
+<p><strong>Ejemplo:</strong> Si <span class="math inline">\(f(x) = 5x + 2\)</span>, entonces <span class="math inline">\(f(0) = 2\)</span>, que es la ordenada al origen. Como la <span class="alert"><strong>pendiente</strong></span> es <span class="math inline">\(5\)</span>, la recta forma un ángulo <span class="math inline">\(\theta\)</span> con la dirección positiva del eje <span class="math inline">\(x\)</span> tal que:<span class="math inline">\(\tan(\theta) = 5 \quad \Rightarrow \quad \theta = \arctan(5) \approx 78.69^\circ\)</span></p>
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/es-1.png" style="width:45.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="center">
+<p><img data-src="Images/es-0.png" style="width:45.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="rectas-1" class="slide level2">
+<h2>RECTAS</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;">
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Sea <span class="math inline">\(f(x) = ax + b\)</span>. A la constante <span class="alert"><strong>“a”</strong></span> se le llama la <span class="alert"><strong>pendiente</strong></span> de la recta, y representa la tangente del ángulo <span class="alert"><strong><span class="math inline">\(\theta\)</span></strong></span> que la recta forma con la <span class="alert"><strong>dirección positiva</strong></span> del eje de abscisas.</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="Images/f-16.png"></p>
+</div></div>
+</div>
+<p><strong>Ejemplo:</strong> Si <span class="math inline">\(f(x) = -3x + 4\)</span>, es <span class="math inline">\(f(0) = 4\)</span>. Como la <span class="alert"><strong>pendiente</strong></span> es <span class="math inline">\(-3\)</span>, la recta forma un ángulo <span class="math inline">\(\theta\)</span> con la <span class="alert"><strong>dirección positiva</strong></span> del eje abcisas un angulo <span class="math inline">\(\tan(\theta)\)</span> cuya tangente es “<span class="math inline">\(-3\)</span>”; o sea; <span class="math inline">\(\theta=arctan(-3)=108.43^{\circ}\)</span></p>
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/es-3.png" style="width:45.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="center">
+<p><img data-src="Images/es-4.png" style="width:45.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="rectas-2" class="slide level2">
+<h2>RECTAS</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;">
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Sea <span class="math inline">\(f(x) = ax + b\)</span>. A la constante <span class="alert"><strong>“a”</strong></span> se le llama la <span class="alert"><strong>pendiente</strong></span> de la recta, y representa la tangente del ángulo <span class="alert"><strong><span class="math inline">\(\theta\)</span></strong></span> que la recta forma con la <span class="alert"><strong>dirección positiva</strong></span> del eje de abscisas.</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="Images/f-16.png"></p>
+</div></div>
+</div>
+<p><strong>Ejemplo:</strong> Si <span class="math inline">\(f(x) = -3x + 4\)</span>, es <span class="math inline">\(f(0) = 4\)</span>. Como la <span class="alert"><strong>pendiente</strong></span> es <span class="math inline">\(-3\)</span>, la recta forma un ángulo <span class="math inline">\(\theta\)</span> con la <span class="alert"><strong>dirección positiva</strong></span> del eje abcisas un angulo <span class="math inline">\(\tan(\theta)\)</span> cuya tangente es <strong>“<span class="math inline">\(-3\)</span>”</strong>; o sea; <span class="math inline">\(\theta=arctan(-3)=108.43^{\circ}\)</span></p>
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/es-3.png" style="width:45.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="center">
+<p><img data-src="Images/es-4.png" style="width:45.0%"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="rectas-3" class="slide level2">
+<h2>RECTAS</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;">
+<div class="columns">
+<div class="column" style="width:70%;">
+<p>Sea <span class="math inline">\(f(x) = ax + b\)</span>. A la constante <span class="alert"><strong>“a”</strong></span> se le llama la <span class="alert"><strong>pendiente</strong></span> de la recta, y representa la tangente del ángulo <span class="alert"><strong><span class="math inline">\(\theta\)</span></strong></span> que la recta forma con la <span class="alert"><strong>dirección positiva</strong></span> del eje de abscisas.</p>
+</div><div class="column" style="width:30%;">
+<p><img data-src="Images/f-16.png"></p>
+</div></div>
+</div>
+<p><strong>Ejemplo:</strong> Si <span class="math inline">\(f(x) = 3\)</span>, es <span class="math inline">\(f(0) = 3\)</span>. Como la <span class="alert"><strong>pendiente</strong></span> es <span class="math inline">\(0\)</span>, la recta paralela al eje de la abcisas.</p>
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/es-5.png" style="width:50.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="center">
+<p><img data-src="Images/f-17.png" style="width:45.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="3">
+<div class="center">
+<p><img data-src="Images/f-18.png" style="width:45.0%"></p>
+</div>
+</div>
+</div>
+</section>
 <section id="dominio-de-definición-de-una-función" class="slide level2">
 <h2>Dominio de definición de una función</h2>
 <p>El <span class="alert">dominio de definición</span> de la <span class="math inline">\(f:\mathfrak{R} \longrightarrow \mathfrak{R}\)</span> se denota <span class="alert">Dom(f)</span>, y es el subconjunto de <span class="math inline">\(\mathfrak{R}_{inicial}\)</span> formado por los puntos a los que <span class="math inline">\(f\)</span> les asigna imagen en <span class="math inline">\(\mathfrak{R}_{final}\)</span>:</p>
@@ -337,16 +861,112 @@ Dom(f)= \{ x\in \mathfrak{R} \;| \;f(x)\in \mathfrak{R}\}
 </div>
 </div>
 </div>
-</section>
-<section id="funciones-reales-de-variable-real" class="slide level2">
-<h2>Funciones reales de variable real</h2>
 <p>Una función real de variable real <span class="math inline">\(f:A \subset \mathfrak{R} \rightarrow \mathfrak{R}\)</span> es una regla que asigna a cada elemento de un primer conjunto <span class="math inline">\(A\)</span>, un único elemento de un segundo conjunto <span class="math inline">\(\mathfrak{R}\)</span>. Las funciones son relaciones entre los elementos de dos conjuntos.</p>
 <p>Se llama <strong>dominio</strong> de la función <span class="math inline">\(f\)</span> al conjunto de valores para los cuales la misma está definida</p>
-<p><span class="math display">\[Dom\ f = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}\]</span> El conjunto de todos los resultados posibles de una función dada se denomina <strong>rango</strong>, <strong>imagen</strong> o <strong>codominio</strong> de esa función.</p>
-<p><span class="math display">\[Im\ f = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}\]</span></p>
+<p><span class="math display">\[Dom\ (f) = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}\]</span> El conjunto de todos los resultados posibles de una función dada se denomina <strong>rango</strong>, <strong>imagen</strong> o <strong>codominio</strong> de esa función.</p>
+<p><span class="math display">\[Im\ (f) = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}\]</span></p>
 </section>
-<section id="funciones-polinómicas" class="slide level2">
-<h2>Funciones polinómicas</h2>
+<section id="recordatorio-de-los-logaritmos" class="slide level2">
+<h2>RECORDATORIO DE LOS LOGARITMOS</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 1em;">
+<p>Se dice que el numero real <span class="alert"><strong>“a”</strong></span> es el <span class="alert"><strong>logaritmo de base “k” (<span class="math inline">\(k&gt;0,\quad k \neq 1\)</span>)</strong></span> del numero real positivo <span class="alert"><strong>“b”</strong></span>, y se escribe <span class="alert"><strong><span class="math inline">\(\log_k b=a\)</span></strong></span>, si <span class="alert"><strong><span class="math inline">\(k^a=b\)</span></strong></span></p>
+<div class="center">
+<p><span class="bg" style="--col:#e6f7ff;text-align:center; font-size: 1.2em;"><span class="math display">\[\log_k b=a \quad \Longleftrightarrow k^a=b\]</span></span></p>
+</div>
+</div>
+<ul>
+<li><p><span class="math inline">\(\log_2 8=3\)</span>, pues <span class="math inline">\(2^3=8\)</span></p></li>
+<li><p><span class="math inline">\(\log_5 25=2\)</span>, pues <span class="math inline">\(5^2=25\)</span></p></li>
+<li><p><span class="math inline">\(\log_{0.7} 0.49=2\)</span>, pues <span class="math inline">\(0.7^2=0.49\)</span></p></li>
+<li><p><span class="math inline">\(\log_{2} (x-4)=5, \longrightarrow  x-4=2^{5} \longrightarrow x=4+2^{5}=36\)</span></p></li>
+<li><p><span class="math inline">\(\log_{2} (x-4)=-5, \longrightarrow  x-4=2^{-5} \longrightarrow x=4+2^{-5}=\frac{129}{32}\)</span></p></li>
+<li><p><span class="math inline">\(\log_{4} (x^2-9)=2, \longrightarrow x^2-9=4^2\longrightarrow x^2=25\longrightarrow x= \pm 5\)</span></p></li>
+</ul>
+</section>
+<section id="recordatorio-de-los-logaritmos-1" class="slide level2">
+<h2>RECORDATORIO DE LOS LOGARITMOS</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 1em;">
+<p>Se dice que el numero real <span class="alert"><strong>“a”</strong></span> es el <span class="alert"><strong>logaritmo de base “k” (<span class="math inline">\(k&gt;0,\quad k \neq 1\)</span>)</strong></span> del numero real positivo <span class="alert"><strong>“b”</strong></span>, y se escribe <span class="alert"><strong><span class="math inline">\(\log_k b=a\)</span></strong></span>, si <span class="alert"><strong><span class="math inline">\(k^a=b\)</span></strong></span></p>
+<div class="center">
+<p><span class="bg" style="--col:#e6f7ff;text-align:center; font-size: 1.2em;"><span class="math display">\[\log_k b=a \quad \Longleftrightarrow k^a=b\]</span></span></p>
+</div>
+</div>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<ul>
+<li>Si la base es 10, se dice que el logaritmo es <span class="alert"><strong>decimal</strong></span></li>
+<li>Si la base es <span class="math inline">\(e \approx 2.718281828\)</span>, se dice que el logaritmo es <span class="alert"><strong>neperiano</strong></span>, y se denota <span class="alert"><strong>Ln</strong></span></li>
+</ul>
+<div class="center">
+<p><span class="bg" style="--col:#e6f7ff;text-align:center; font-size: 1.2em;color:red; font-weight:bold;"><strong><span class="math display">\[\ln_e b = a \quad \Longleftrightarrow e^a=b\]</span></strong></span></p>
+</div>
+<p><span class="math display">\[
+\begin{array}{ll}
+(1+\frac{1}{1})^1\quad;(1+\frac{1}{2})^2\quad;(1+\frac{1}{3})^3 \quad;(1+\frac{1}{4})^4 \quad;(1+\frac{1}{5})^5 \quad;(1+\frac{1}{6})^6 \quad;\\
+(1+\frac{1}{7})^7\quad;(1+\frac{1}{8})^8\quad;(1+\frac{1}{9})^9\quad;\cdots \longrightarrow e
+\end{array}
+\]</span></p>
+</div>
+</section>
+<section id="propiedades-de-los-logaritmos" class="slide level2">
+<h2>PROPIEDADES DE LOS LOGARITMOS</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="bg" style="background-color:#f0f9ff; padding:0.5em;">
+<ul>
+<li><p><span class="math inline">\(\log_k 1 = 0\)</span></p></li>
+<li><p><span class="math inline">\(\log_k k = 1\)</span></p></li>
+<li><p><span class="math inline">\(\log_k k^c = c\)</span></p></li>
+<li><p><span class="math inline">\(\log_k b^c = c \cdot \log_k b\)</span></p></li>
+<li><p><span class="math inline">\(\log_k (m \cdot n) = \log_k m + \log_k n\)</span></p></li>
+<li><p><span class="math inline">\(\log_k \left(\dfrac{m}{n}\right) = \log_k m - \log_k n\)</span></p></li>
+<li><p><strong>Cambio de base:</strong><br>
+<span class="math inline">\(\log_{k_1} m = \dfrac{\log_{k_2} m}{\log_{k_2} k_1}\)</span></p></li>
+<li><p><strong>Comportamiento en <span class="math inline">\(0^+\)</span>:</strong></p></li>
+</ul>
+<p><span class="math display">\[
+  \log_k 0^+ =
+  \left\{
+  \begin{array}{ll}
+  +\infty &amp; \text{si } 0 &lt; k &lt; 1 \\
+  -\infty &amp; \text{si } k &gt; 1
+  \end{array}
+  \right.
+  \]</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="bg" style="background-color:#d6f7db; padding:0.75em; margin-top:0.5em;">
+<p>🔎 Al escribir <span class="alert"><strong><span class="math inline">\(0^+\)</span></strong></span>, nos referimos a un número <span class="alert"><strong>muy próximo a cero pero positivo</strong></span>.<br>
+Es decir:</p>
+<ul>
+<li>Si un número <strong>positivo</strong> es <strong>extremadamente pequeño</strong>, su logaritmo:
+<ul>
+<li>tiende a <strong><span class="math inline">\(+\infty\)</span></strong> si la base <span class="math inline">\(k\)</span> está entre <span class="math inline">\(0\)</span> y <span class="math inline">\(1\)</span>;</li>
+<li>tiende a <strong><span class="math inline">\(-\infty\)</span></strong> si la base <span class="math inline">\(k\)</span> es mayor que <span class="math inline">\(1\)</span>.</li>
+</ul></li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="funciones-algebraicas-y-trascendentes" class="slide level2 scrollable">
+<h2><span class="bg" style="--col:#ffff00"><strong>FUNCIONES ALGEBRAICAS Y TRASCENDENTES</strong></span></h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #fdf6e3;font-size: 0.9em;">
+<p>Se dice que <span class="math inline">\(f : \mathfrak{R} \to \mathfrak{R}\)</span> es una función <span class="alert"><strong>algebraica</strong></span> si las operaciones que deben realizarse para calcular el número <span class="math inline">\(f(x)\)</span> son algebraicas: <strong>suma, resta, multiplicación, división, potenciación con exponentes constantes, radicación con índice constante</strong>.</p>
+</div>
+<p>Se dice que <span class="alert"><strong>“f”</strong></span> es <span class="alert"><strong>trascendente</strong></span> si no es algebraica.</p>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<p><strong>Por ejemplo</strong>, son <span class="alert"><strong>algebraicas</strong></span> las funciones tales que: <span class="math display">\[
+f(x)=x^3-3x \quad; \quad f(x)=\frac{x^2+x}{x-1}\quad; \quad f(x)=\frac{x+\sqrt{x}}{1-\sqrt[5]{2+x}}
+\]</span></p>
+</div>
+<p>pues las operaciones para calcular <strong>“f(x)”</strong> son las algebraicas: <strong>suma, resta, multiplicación, división, potenciación con exponentes constantes, radicación con índice constante</strong></p>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<p><strong>Por ejemplo</strong>, son <span class="alert"><strong>trascendentes</strong></span> las funciones tales que: <span class="math display">\[
+f(x)=2^{3x+1} \quad; \quad f(x)=\log_6 (x+1)   \quad; \quad f(x)=\sin(x^2)
+\]</span></p>
+</div>
+</section>
+<section id="graficos-de-funciones-algebraicas" class="slide level2">
+<h2>Graficos de funciones algebraicas</h2>
 
 <img data-src="Funciones_reales_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="funciones-potenciales" class="slide level2">
@@ -376,100 +996,8 @@ Dom(f)= \{ x\in \mathfrak{R} \;| \;f(x)\in \mathfrak{R}\}
 <section id="funciones-trigonométricas-3" class="slide level2">
 <h2>Funciones trigonométricas</h2>
 
+
 <img data-src="Funciones_reales_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section></section>
-<section>
-<section id="funciones-de-activación-esenciales-en-machine-learning-relu-sigmoide-y-tangente-hiperbólica" class="title-slide slide level1 my-slide center">
-<h1>Funciones de Activación Esenciales en Machine Learning: ReLU, Sigmoide y Tangente Hiperbólica</h1>
-
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<p>En el fascinante mundo del <strong>machine learning</strong>, y particularmente en las <strong>redes neuronales</strong>, las funciones de activación juegan un papel crucial. Estas funciones son responsables de introducir no linealidad en el modelo, permitiéndole aprender patrones complejos y representar relaciones más allá de las que un modelo lineal podría capturar. Para aquellos que exploran un curso de cálculo, comprender cómo estas funciones se construyen y cómo sus propiedades matemáticas impactan el aprendizaje automático es fundamental.</p>
-<p>Las tres funciones de activación más comunes y, a menudo, las primeras que se estudian son la <strong>Unidad Rectificadora Lineal (ReLU)</strong>, la <strong>función sigmoide</strong> y la <strong>tangente hiperbólica (tanh)</strong>.</p>
-</section>
-<section id="función-relu-unidad-rectificadora-lineal" class="slide level2">
-<h2>Función ReLU (Unidad Rectificadora Lineal)</h2>
-<p>La función <code>ReLU</code> es sencilla: devuelve el mismo valor si es positivo y cero si es negativo.</p>
-
-<img data-src="Funciones_reales_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-1" class="slide level2">
-<h2></h2>
-<p>La <strong>función ReLU</strong> es una de las funciones de activación más populares y se ha convertido en el estándar para muchas arquitecturas de redes neuronales profundas. Su simplicidad es su mayor fortaleza.</p>
-<ul>
-<li><p><strong>Definición Matemática:</strong> La función ReLU se define como: <span class="math inline">\(f(x) = \max(0, x)\)</span></p>
-<p>Esto significa que si la entrada <span class="math inline">\(x\)</span> es mayor que cero, la salida es <span class="math inline">\(x\)</span>. Si la entrada es menor o igual a cero, la salida es cero.</p></li>
-<li><p><strong>Derivada:</strong> La derivada de la función ReLU es: <span class="math inline">\(f'(x) = 1\)</span> si <span class="math inline">\(x &gt; 0\)</span> <span class="math inline">\(f'(x) = 0\)</span> si <span class="math inline">\(x &lt; 0\)</span> (La derivada en <span class="math inline">\(x=0\)</span> no está definida, pero en la práctica se suele asignar un valor, como 0 o 1).</p></li>
-<li><p><strong>Relación con el Cálculo:</strong> La facilidad para calcular su derivada es una gran ventaja en el entrenamiento de redes neuronales, ya que el <strong>descenso de gradiente</strong>, el algoritmo principal de optimización, depende del cálculo eficiente de derivadas (gradientes). La simplicidad de la derivada de ReLU ayuda a <strong>mitigar el problema del gradiente desvanecedor</strong> para valores positivos, lo que acelera el entrenamiento.</p></li>
-<li><p><strong>Ventajas:</strong></p>
-<ul>
-<li><strong>Eficiencia Computacional:</strong> Es muy simple de calcular.</li>
-<li><strong>Atenúa el Problema del Gradiente Desvanecedor:</strong> Para entradas positivas, el gradiente es 1, lo que permite que los gradientes fluyan sin problemas.</li>
-<li><strong>Escasez de Activación:</strong> Introduce “escasez” en la red, lo que puede llevar a una representación más compacta y eficiente.</li>
-</ul></li>
-<li><p><strong>Desventajas:</strong></p>
-<ul>
-<li><strong>Problema del “Neurona Muerta” (Dying ReLU):</strong> Si una neurona ReLU produce consistentemente una salida de 0 (por ejemplo, si sus entradas siempre son negativas), los gradientes que fluyen a través de ella serán 0, y la neurona dejará de aprender.</li>
-</ul></li>
-</ul>
-</section>
-<section id="función-de-activación-sigmoide-logística" class="slide level2">
-<h2>Función de Activación Sigmoide (Logística)</h2>
-<p>La función sigmoide comprime cualquier valor de entrada en un rango entre 0 y 1. Es ideal para cuando necesitas interpretar una salida como una probabilidad.</p>
-
-<img data-src="Funciones_reales_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<p>La <strong>función sigmoide</strong>, también conocida como función logística, fue una de las primeras funciones de activación populares, especialmente en las capas de salida de modelos de clasificación binaria.</p>
-<ul>
-<li><p><strong>Definición Matemática:</strong> La función sigmoide se define como: <span class="math inline">\(f(x) = \frac{1}{1 + e^{-x}}\)</span></p>
-<p>La salida de la función sigmoide siempre está en el rango <span class="math inline">\((0, 1)\)</span>.</p></li>
-<li><p><strong>Derivada:</strong> La derivada de la función sigmoide es: <span class="math inline">\(f'(x) = f(x) * (1 - f(x))\)</span></p></li>
-<li><p><strong>Relación con el Cálculo:</strong> La derivada de la sigmoide es crucial para el algoritmo de <strong>retropropagación</strong>. Su forma, expresada en términos de la propia función, facilita los cálculos. Sin embargo, esta derivada también es la fuente de su principal desventaja.</p></li>
-<li><p><strong>Ventajas:</strong></p>
-<ul>
-<li><strong>Salida Probabilística:</strong> Su salida, entre 0 y 1, puede interpretarse como una probabilidad, lo que la hace ideal para la clasificación binaria.</li>
-<li><strong>Suave y Diferenciable:</strong> Es una función continua y diferenciable en todo su dominio, lo cual es esencial para el descenso de gradiente.</li>
-</ul></li>
-<li><p><strong>Desventajas:</strong></p>
-<ul>
-<li><strong>Problema del Gradiente Desvanecedor:</strong> Para valores de entrada muy grandes o muy pequeños, la pendiente de la función sigmoide se vuelve muy pequeña (cercana a cero). Esto provoca que los gradientes que se retropropagan a través de muchas capas se vuelvan extremadamente pequeños, dificultando el aprendizaje en las capas iniciales de una red profunda.</li>
-<li><strong>Salida No Centrada en Cero:</strong> La salida siempre es positiva. Esto puede llevar a oscilaciones en los gradientes durante el entrenamiento, haciendo que la convergencia sea más lenta.</li>
-</ul></li>
-</ul>
-</section>
-<section id="función-de-activación-tangente-hiperbólica-tanh" class="slide level2">
-<h2>Función de Activación Tangente Hiperbólica (tanh)</h2>
-<p>La función tanh es similar a la sigmoide, pero su rango de salida va de -1 a 1, lo cual puede ser beneficioso para el entrenamiento de redes neuronales profundas.</p>
-
-<img data-src="Funciones_reales_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<p>La <strong>función tangente hiperbólica</strong>, o <strong>tanh</strong>, es otra función de activación clásica que resuelve uno de los problemas de la sigmoide.</p>
-<ul>
-<li><p><strong>Definición Matemática:</strong> La función tanh se define como: <span class="math inline">\(f(x) = \tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}\)</span></p>
-<p>La salida de la función tanh siempre está en el rango <span class="math inline">\((-1, 1)\)</span>.</p></li>
-<li><p><strong>Derivada:</strong> La derivada de la función tanh es: <span class="math inline">\(f'(x) = 1 - (f(x))^2\)</span></p></li>
-<li><p><strong>Relación con el Cálculo:</strong> Al igual que la sigmoide, su derivada es clave para la retropropagación. Su rango de salida centrado en cero es una mejora significativa desde una perspectiva de cálculo, ya que puede ayudar a la convergencia del descenso de gradiente.</p></li>
-<li><p><strong>Ventajas:</strong></p>
-<ul>
-<li><strong>Salida Centrada en Cero:</strong> Su salida en el rango <span class="math inline">\((-1, 1)\)</span> resuelve el problema de la salida no centrada en cero de la sigmoide, lo que puede acelerar la convergencia del entrenamiento.</li>
-<li><strong>Suave y Diferenciable:</strong> Al igual que la sigmoide, es continua y diferenciable.</li>
-</ul></li>
-<li><p><strong>Desventajas:</strong></p>
-<ul>
-<li><strong>Problema del Gradiente Desvanecedor:</strong> Aunque un poco menos severo que en la sigmoide debido a su rango centrado, la tanh aún sufre del problema del gradiente desvanecedor para entradas muy grandes o muy pequeñas, donde la pendiente también se acerca a cero.</li>
-</ul></li>
-</ul>
-</section>
-<section id="conclusión" class="slide level2">
-<h2>Conclusión</h2>
-<p>La elección de la función de activación es un aspecto fundamental en el diseño de redes neuronales y tiene un impacto directo en la capacidad del modelo para aprender y en la eficiencia de su entrenamiento. Mientras que la <strong>ReLU</strong> se ha establecido como el caballo de batalla para las capas ocultas debido a su eficiencia y su ayuda en la mitigación del gradiente desvanecedor, las funciones <strong>sigmoide</strong> y <strong>tanh</strong> siguen siendo relevantes, especialmente en capas de salida para tareas específicas (como la clasificación binaria para la sigmoide).</p>
-<p>Un sólido entendimiento de sus definiciones matemáticas, derivadas y propiedades es indispensable en cualquier curso de cálculo que aborde los fundamentos del machine learning, ya que estas funciones son los pilares sobre los que se construyen los complejos modelos de inteligencia artificial.</p>
-</section>
-<section id="tema-siguiente" class="slide level2">
-<h2>tema siguiente</h2>
-
-</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="Images/Utmach-logo.png" class="slide-logo"></p>
