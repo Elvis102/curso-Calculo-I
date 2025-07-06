@@ -870,4 +870,6 @@ La elección de la función de activación es un aspecto fundamental en el dise�
 
 Un sólido entendimiento de sus definiciones matemáticas, derivadas y propiedades es indispensable en cualquier curso de cálculo que aborde los fundamentos del machine learning, ya que estas funciones son los pilares sobre los que se construyen los complejos modelos de inteligencia artificial.
 
+## tema siguiente
+
 
