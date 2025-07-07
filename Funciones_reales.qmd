@@ -863,6 +863,134 @@ Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendient
 
 :::
 
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS
+
+::: columns
+::: {.column width="35%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.86em;"}
+Sea $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ la función cuya grafica es la recta que pasa por los puntos $(M=(c_0,
+d_0))$ y $(N=(c_1, d_1))$ y $P=(x,f(x))$ es un [punto genérico]{.alert} de la recta.
+
+De la figura, por la [semejanza de los triangulos]{.alert} se tiene que MTN y MSP, resulta:
+
+$$
+\frac{MS}{MT} = \frac{PS}{NT} 
+$$
+o sea:
+
+
+$$
+\frac{x_0 - c_0}{c_1 - c_0} = \frac{f(x) - d_0}{d_1 - d_0}
+$$
+:::
+:::
+
+::: {.column width="65%"}
+::: center
+![](Images/f-19.png){width="100%"}
+:::
+:::
+:::
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplos)
+
+[RECETA]{.blue}: Para la función cuya gráfica es la recta que pasa por los puntos $(M=(c_0,
+d_0))$ y $(N=(c_1, d_1))$ es:
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.86em;text-align: center"}
+
+$$
+\frac{x - c_0}{c_1 - c_0} =\frac{f(x) - d_0}{d_1 - d_0} 
+$$
+
+:::
+
+[Por ejemplo]{.alert}: la recta $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ que pasa por los puntos $M=(-4, -1)$ y $N=(2, -3)$ es:
+$$
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (-4)}{2 - (-4)} = \frac{f(x) - (-1)}{-3 - (-1)} \\ 
+\end{array}
+\right.
+\Longrightarrow
+f(x) = -\frac{1}{3}x - \frac{7}{3}
+$$
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplo2)
+
+::: {.bg style="padding:0.25em; font-size: 0.8em;"}
+[RECETA]{.blue}: Para la función cuya gráfica es la recta que pasa por los puntos $(M=(c_0,
+d_0))$ y $(N=(c_1, d_1))$ es:
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.8em;text-align: center"}
+
+$$
+\frac{x - c_0}{c_1 - c_0} =\frac{f(x) - d_0}{d_1 - d_0} 
+$$
+
+:::
+
+[Por ejemplo]{.alert}: la recta $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ que pasa por los puntos $M=(3, 1)$ y $N=(7, 5)$ es:
+$$
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (3)}{7 - (3)} = \frac{f(x) - (1)}{5 - (1)} \\ 
+\end{array}
+\right.
+\Longrightarrow
+f(x) = x - 2
+$$
+
+[De todos modos:]{.alert} si $f(x)0 ax+b$ es la ercta buscada, determinaremos $"a"$ y $"b"$ al [exigir]{.alert} que la recta pase por los puntos $M=(3, 1)$ y $N=(7, 5)$.
+
+$$
+\left.
+\begin{array}{ll}
+\displaystyle f(x)=1 \longrightarrow 3.a + b = 1 \\
+\displaystyle f(x)=1 \longrightarrow 7.a + b = 5
+\end{array}
+\right\}
+\Longrightarrow
+\left\{
+  \begin{array}{l}
+   a = 1 \\
+   b = -2
+   \end{array}
+\right\} \longrightarrow
+f(x) = x - 2
+$$
+:::
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplo 2. continuación)
+
+::: columns
+::: {.column width="35%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.9em;"}
+
+Si $(x, f(x))$ son las coordenadas de un [punto genérico]{.alert}, de la recta pasa por los puntos $(3, 1)$ y $(7, 5)$ de la figura, por [semejanza de triangulos]{.alert}, resulta que:
+
+$$
+\frac{x - 3}{7 - 3} = \frac{f(x) - 1}{5 - 1}
+$$
+
+[De donde se obtine:]{.blue}
+
+$$f(x) = x - 2$$
+:::
+:::
+
+::: {.column width="65%"}
+::: center
+![](Images/f-20.png){width="100%"}
+:::
+:::
+:::
+
+
+
+
+
+
 
 ## Dominio de definición de una función
 
@@ -1031,7 +1159,7 @@ f(x)=2^{3x+1} \quad; \quad f(x)=\log_6 (x+1)   \quad; \quad f(x)=\sin(x^2)
 $$
 :::
 
-## Graficos de funciones algebraicas
+## Gráficos de funciones algebraicas
 
 
 

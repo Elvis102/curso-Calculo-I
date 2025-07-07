@@ -249,7 +249,14 @@ $selection-bg: #26351c !default;
 
 .alert {
   color: $accent2;
+  font-weight: bold;
 }
+
+.blue {
+  color: $accent;
+  font-weight: bold;
+}
+
 
 .fg {
   color: var(--col, $jet);

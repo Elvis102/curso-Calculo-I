@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="Funciones_reales_files/libs/revealjs/dist/theme/quarto-a719037b20a8d16de8dbf0482c42b4f5.css">
+  <link rel="stylesheet" href="Funciones_reales_files/libs/revealjs/dist/theme/quarto-acfa0bf1e819483bfadc4ce1f10e619d.css">
   <link href="Funciones_reales_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Funciones_reales_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Funciones_reales_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -840,6 +840,102 @@ f(x) - b = ax \Longrightarrow \frac{f(x) - b}{x} = a = \tan(\theta)
 </div>
 </div>
 </section>
+<section id="recta-que-pasa-por-dos-puntos-conocidos" class="slide level2">
+<h2>RECTA QUE PASA POR DOS PUNTOS CONOCIDOS</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 0.86em;">
+<p>Sea <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> la función cuya grafica es la recta que pasa por los puntos <span class="math inline">\((M=(c_0,
+d_0))\)</span> y <span class="math inline">\((N=(c_1, d_1))\)</span> y <span class="math inline">\(P=(x,f(x))\)</span> es un <span class="alert">punto genérico</span> de la recta.</p>
+<p>De la figura, por la <span class="alert">semejanza de los triangulos</span> se tiene que MTN y MSP, resulta:</p>
+<p><span class="math display">\[
+\frac{MS}{MT} = \frac{PS}{NT}
+\]</span> o sea:</p>
+<p><span class="math display">\[
+\frac{x_0 - c_0}{c_1 - c_0} = \frac{f(x) - d_0}{d_1 - d_0}
+\]</span></p>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="center">
+<p><img data-src="Images/f-19.png" style="width:100.0%"></p>
+</div>
+</div></div>
+</section>
+<section id="recta-que-pasa-por-dos-puntos-conocidos-ejemplos" class="slide level2">
+<h2>RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplos)</h2>
+<p><span class="blue">RECETA</span>: Para la función cuya gráfica es la recta que pasa por los puntos <span class="math inline">\((M=(c_0,
+d_0))\)</span> y <span class="math inline">\((N=(c_1, d_1))\)</span> es:</p>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 0.86em;text-align: center">
+<p><span class="math display">\[
+\frac{x - c_0}{c_1 - c_0} =\frac{f(x) - d_0}{d_1 - d_0}
+\]</span></p>
+</div>
+<p><span class="alert">Por ejemplo</span>: la recta <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> que pasa por los puntos <span class="math inline">\(M=(-4, -1)\)</span> y <span class="math inline">\(N=(2, -3)\)</span> es: <span class="math display">\[
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (-4)}{2 - (-4)} = \frac{f(x) - (-1)}{-3 - (-1)} \\
+\end{array}
+\right.
+\Longrightarrow
+f(x) = -\frac{1}{3}x - \frac{7}{3}
+\]</span></p>
+</section>
+<section id="recta-que-pasa-por-dos-puntos-conocidos-ejemplo2" class="slide level2">
+<h2>RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplo2)</h2>
+<div class="bg" style="padding:0.25em; font-size: 0.8em;">
+<p><span class="blue">RECETA</span>: Para la función cuya gráfica es la recta que pasa por los puntos <span class="math inline">\((M=(c_0,
+d_0))\)</span> y <span class="math inline">\((N=(c_1, d_1))\)</span> es:</p>
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 0.8em;text-align: center">
+<p><span class="math display">\[
+\frac{x - c_0}{c_1 - c_0} =\frac{f(x) - d_0}{d_1 - d_0}
+\]</span></p>
+</div>
+<p><span class="alert">Por ejemplo</span>: la recta <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> que pasa por los puntos <span class="math inline">\(M=(3, 1)\)</span> y <span class="math inline">\(N=(7, 5)\)</span> es: <span class="math display">\[
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (3)}{7 - (3)} = \frac{f(x) - (1)}{5 - (1)} \\
+\end{array}
+\right.
+\Longrightarrow
+f(x) = x - 2
+\]</span></p>
+<p><span class="alert">De todos modos:</span> si <span class="math inline">\(f(x)0 ax+b\)</span> es la ercta buscada, determinaremos <span class="math inline">\("a"\)</span> y <span class="math inline">\("b"\)</span> al <span class="alert">exigir</span> que la recta pase por los puntos <span class="math inline">\(M=(3, 1)\)</span> y <span class="math inline">\(N=(7, 5)\)</span>.</p>
+<p><span class="math display">\[
+\left.
+\begin{array}{ll}
+\displaystyle f(x)=1 \longrightarrow 3.a + b = 1 \\
+\displaystyle f(x)=1 \longrightarrow 7.a + b = 5
+\end{array}
+\right\}
+\Longrightarrow
+\left\{
+  \begin{array}{l}
+   a = 1 \\
+   b = -2
+   \end{array}
+\right\} \longrightarrow
+f(x) = x - 2
+\]</span></p>
+</div>
+</section>
+<section id="recta-que-pasa-por-dos-puntos-conocidos-ejemplo2.-continuación" class="slide level2">
+<h2>RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplo2. continuación)</h2>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="bg" style="background-color:#fdf6e3; padding:0.25em; font-size: 0.9em;">
+<p>Si <span class="math inline">\((x, f(x))\)</span> son las coordenadas de un <span class="alert">punto genérico</span>, de la recta pasa por los puntos <span class="math inline">\((3, 1)\)</span> y <span class="math inline">\((7, 5)\)</span> de la figura, por <span class="alert">semejanza de triangulos</span>, resulta que:</p>
+<p><span class="math display">\[
+\frac{x - 3}{7 - 3} = \frac{f(x) - 1}{5 - 1}
+\]</span></p>
+<p><span class="blue">De donde se obtine:</span></p>
+<p><span class="math display">\[f(x) = x - 2\]</span></p>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="center">
+<p><img data-src="Images/f-20.png" style="width:100.0%"></p>
+</div>
+</div></div>
+</section>
 <section id="dominio-de-definición-de-una-función" class="slide level2">
 <h2>Dominio de definición de una función</h2>
 <p>El <span class="alert">dominio de definición</span> de la <span class="math inline">\(f:\mathfrak{R} \longrightarrow \mathfrak{R}\)</span> se denota <span class="alert">Dom(f)</span>, y es el subconjunto de <span class="math inline">\(\mathfrak{R}_{inicial}\)</span> formado por los puntos a los que <span class="math inline">\(f\)</span> les asigna imagen en <span class="math inline">\(\mathfrak{R}_{final}\)</span>:</p>
@@ -965,8 +1061,8 @@ f(x)=2^{3x+1} \quad; \quad f(x)=\log_6 (x+1)   \quad; \quad f(x)=\sin(x^2)
 \]</span></p>
 </div>
 </section>
-<section id="graficos-de-funciones-algebraicas" class="slide level2">
-<h2>Graficos de funciones algebraicas</h2>
+<section id="gráficos-de-funciones-algebraicas" class="slide level2">
+<h2>Gráficos de funciones algebraicas</h2>
 
 <img data-src="Funciones_reales_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="funciones-potenciales" class="slide level2">
