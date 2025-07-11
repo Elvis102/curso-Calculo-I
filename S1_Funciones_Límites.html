@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<script src="S1_Funciones_Límites_files/libs/clipboard/clipboard.min.js"></script>
+<script src="S1_Funciones_Límites_files/libs/quarto-html/tabby.min.js"></script>
+<script src="S1_Funciones_Límites_files/libs/quarto-html/popper.min.js"></script>
+<script src="S1_Funciones_Límites_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="S1_Funciones_Límites_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="S1_Funciones_Límites_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="S1_Funciones_Límites_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Elvis M. Sánchez Rogel">
+  <meta name="dcterms.date" content="2025-07-10">
+  <title>Cálculo I</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="S1_Funciones_Límites_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="S1_Funciones_Límites_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="S1_Funciones_Límites_files/libs/revealjs/dist/theme/quarto-acfa0bf1e819483bfadc4ce1f10e619d.css">
+  <link href="S1_Funciones_Límites_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="S1_Funciones_Límites_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Cálculo I</h1>
+  <p class="subtitle">Cálculo Diferencial para Ciencia de Datos</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:emsanchez@utmachala.edu.ec">emsanchez@utmachala.edu.ec</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Universidad Técnica de Machala
+          </p>
+    </div>
+</div>
+
+  <p class="date">2025-07-10</p>
+</section><section id="TOC">
+<nav role="doc-toc"> 
+<h2 id="toc-title">Tabla de contenidos</h2>
+<ul>
+<li><a href="#/fundamentos-teóricos-de-funciones" id="/toc-fundamentos-teóricos-de-funciones"><strong>Fundamentos Teóricos de Funciones</strong></a>
+<ul>
+<li><a href="#/por-qué-funciones-la-piedra-angular-del-ml" id="/toc-por-qué-funciones-la-piedra-angular-del-ml">¿Por qué Funciones? La Piedra Angular del ML</a></li>
+<li><a href="#/correspondencia-de-conjuntos" id="/toc-correspondencia-de-conjuntos">CORRESPONDENCIA DE CONJUNTOS</a></li>
+
+<li><a href="#/función-real-de-variable-real" id="/toc-función-real-de-variable-real">Función real de variable real</a>
+<ul>
+<li><a href="#/no-es-fascinante-cómo-una-función-real-de-variable-real-puede-describir-el-comportamiento-de-tantas-situaciones-en-el-mundo-real-conectando-conceptos-abstractos-con-la-realidad-tangible" id="/toc-no-es-fascinante-cómo-una-función-real-de-variable-real-puede-describir-el-comportamiento-de-tantas-situaciones-en-el-mundo-real-conectando-conceptos-abstractos-con-la-realidad-tangible">¿No es fascinante cómo una función real de variable real puede describir el comportamiento de tantas situaciones en el mundo real, conectando conceptos abstractos con la realidad tangible?</a></li>
+</ul></li>
+<li><a href="#/ejemplos" id="/toc-ejemplos">Ejemplos</a></li>
+
+<li><a href="#/la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio" id="/toc-la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio"><span class="bg" style="--col: #fdf6e3">LA PREGUNTA DEL MILLÓN, <span class="bg" style="--col: #ffff00">¿Para que sirve la tasa de cambio?</span><img data-src="Images/h-0.png" data-with="20%"></span></a></li>
+<li><a href="#/utilidad-de-la-función-real-de-variable-real-20-min" id="/toc-utilidad-de-la-función-real-de-variable-real-20-min"><span class="bg scrollable" style="background-color:#ffff00; padding:0.6em; font-size:1.2em;"><strong>UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL</strong></span> (20 min)</a></li>
+<li><a href="#/tasas-de-cambio-preparación-para-la-derivada" id="/toc-tasas-de-cambio-preparación-para-la-derivada">Tasas de Cambio: Preparación para la Derivada</a></li>
+
+
+
+
+<li><a href="#/fijando-ideas-problema-parte-1-capital-produccion" id="/toc-fijando-ideas-problema-parte-1-capital-produccion"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (capital-produccion)</strong></span></a></li>
+<li><a href="#/fijando-ideas-problema-parte-2-capital-produccion" id="/toc-fijando-ideas-problema-parte-2-capital-produccion"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (capital-produccion)</strong></span></a></li>
+<li><a href="#/fijando-ideas-problema-parte-1-tiempo-velocidad" id="/toc-fijando-ideas-problema-parte-1-tiempo-velocidad"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (tiempo-velocidad)</strong></span></a></li>
+<li><a href="#/fijando-ideas-problema-parte-2-tiempo-velocidad" id="/toc-fijando-ideas-problema-parte-2-tiempo-velocidad"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (tiempo-velocidad)</strong></span></a></li>
+<li><a href="#/tasa-de-cambio-el-camino-a-la-derivada" id="/toc-tasa-de-cambio-el-camino-a-la-derivada"><strong>Tasa de Cambio: El Camino a la Derivada</strong></a></li>
+<li><a href="#/grafica" id="/toc-grafica">Grafica</a></li>
+<li><a href="#/grafiac-1" id="/toc-grafiac-1">grafiac 1</a></li>
+</ul></li>
+</ul>
+</nav>
+</section>
+<section>
+<section id="fundamentos-teóricos-de-funciones" class="title-slide slide level1 my-slide center">
+<h1><strong>Fundamentos Teóricos de Funciones</strong></h1>
+
+</section>
+<section id="por-qué-funciones-la-piedra-angular-del-ml" class="slide level2">
+<h2>¿Por qué Funciones? La Piedra Angular del ML</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.75em; margin-top:0.5em;">
+<p>“Los modelos de <strong>Machine Learning</strong> son, en su esencia, funciones que transforman datos de entrada en datos de salida.”</p>
+</div>
+<ul>
+<li>Ejemplos intuitivos:
+<ul>
+<li><strong>Función de Regresión:</strong> <span class="math inline">\(y = f(x)\)</span> (ej., predecir precios de casas).</li>
+<li><strong>Función de Costo/Pérdida:</strong> <span class="math inline">\(J(w)\)</span> (ej., cuantificar el error de una predicción).</li>
+<li><strong>Funciones de Activación:</strong> <span class="math inline">\(g(z)\)</span> (ej., el “interruptor” en una neurona artificial).</li>
+</ul></li>
+</ul>
+</section>
+<section id="correspondencia-de-conjuntos" class="slide level2 small">
+<h2>CORRESPONDENCIA DE CONJUNTOS</h2>
+<div class="columns">
+<div class="column" style="text-align: center;">
+<div class="fragment" data-fragment-index="1">
+<div class="bg" style="background-color:#e6f7ff; padding:0em;font-size: 0.9em;">
+<p>Si <span class="math inline">\("A"\)</span> y <span class="math inline">\("B"\)</span> son conjuntos cualesquiera, se llama <span class="alert"><strong>correspondencia</strong></span> de <span class="math inline">\(A\)</span> en <span class="math inline">\(B\)</span> a todo criterio o ley que asocia elementos de <span class="math inline">\("A"\)</span> con elementos de <span class="math inline">\("B"\)</span>.</p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="bg" style="background-color:#e6f7ff; padding:0em;font-size: 0.9em; ">
+<p>Si el nombre del criterio es <span class="math inline">\("f"\)</span>, para expresar que <span class="math inline">\("f"\)</span> es una <span class="alert"><strong>correspondencia</strong></span> de <span class="math inline">\("A"\)</span> en <span class="math inline">\("B"\)</span> escibimos <span class="math inline">\(f:A\longrightarrow B\)</span>.</p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="3">
+<div class="bg" style="background-color:#e6f7ff; padding:0em;font-size: 0.9em;">
+<p>De <span class="math inline">\("A"\)</span> se dice que es el <span class="alert"><strong>conjunto inicial</strong></span> de <span class="math inline">\("f"\)</span> de <span class="math inline">\("B"\)</span> se dice es el <span class="alert"><strong>conjunto final</strong></span> de <span class="math inline">\("f"\)</span></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p><img data-src="images/C_04.jpg"></p>
+</div>
+</div><div class="column" style="text-align: center;">
+<div class="fragment" data-fragment-index="5">
+<div class="definition">
+<p><strong>Observaciones:</strong></p>
+</div>
+<div class="bg" style="background-color:#e6f7ff; padding:0.75em;font-size: 0.9em; ">
+<ul>
+<li><p>En el conjunto inicial “A” puede haber elementos (177) a los que “f” no les asocia nungún elemento de “B”.</p></li>
+<li><p>En el conjunto inicial “A” puede haber elementos (Pato) a los que “f” les asocie varios elemento de “B”.</p></li>
+<li><p>En el conjunto final “B” puede haber elementos (5 y Luna) que no corresponden a ningún elemento de “A”.</p></li>
+<li><p>En el conjunto final “B” puede haber elementos (Mesa) que corresponden a varios elementos de “A”.</p></li>
+</ul>
+</div>
+</div>
+<div class="fragment" data-fragment-index="6">
+<p><span class="bg" style="--col:#ffff00"><strong>Que quede clarito:</strong></span> en la definición de correspondecia no se impone ninguna restricción o traba al criterio <span class="math inline">\("f"\)</span> que asocia elementos de <span class="math inline">\("A"\)</span> con elementos <span class="math inline">\("B"\)</span>; por tanto queda definida una correspondencia de <span class="math inline">\("A"\)</span> en <span class="math inline">\("B"\)</span> en el mismo instante en que se establece un <span class="alert">criterio o ley que asocie</span> elementos de <span class="math inline">\("A"\)</span> con elementos de <span class="math inline">\("B"\)</span>, aunque ese criterio sea muy absurdo o <span class="alert"><strong>chiripitíflautico</strong></span>.</p>
+</div>
+</div></div>
+</section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div class="columns">
+<div class="column" style="text-align: center;">
+<div class="fragment" data-fragment-index="1">
+<div class="bg" style="background-color:#e6f7ff; padding:0.75em; font-size: 0.75em;margin-top:-2.2em;">
+<p>Si <span class="math inline">\(x \in A\)</span> para referirnos al elemento de <span class="math inline">\("B"\)</span> que <span class="math inline">\("f"\)</span> asocia a <span class="math inline">\("x"\)</span>, usaremos la notación <span class="math inline">\("f(x)"\)</span>, que los profesionales leen <span class="alert"><strong>efe de x</strong></span>, pero tú debes leer <span class="alert"><strong>imagen de x según f.</strong></span></p>
+</div>
+</div>
+<div class="bg" style="padding:0.75em; font-size: 0.7em;margin-top:-0.7em;">
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="Images/C_03.jpg" height="240"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="3">
+<div class="bg" style="padding:0.75em; font-size: 0.7em;margin-top:-2.5em;">
+<p><img data-src="Images/C_04.jpg"></p>
+</div>
+</div>
+</div><div class="column" style="text-align: center;">
+<div class="fragment" data-fragment-index="4">
+<div class="cuadro2">
+<div class="definition">
+<div style="font-size: 2em; color: #ff0000; font-weight: bold;font-size: 1.5em;margin-top:-1em;">
+<p><strong>Aviso navegantes:</strong></p>
+</div>
+<p><strong>¡Están condenados al <span class="alert"><strong>fracaso</strong></span> los principiantes que se empecinen en leer como profesionales!, pues tras la notación <span class="alert"><strong><span class="math inline">\(f(x)\)</span></strong></span> hay 5 protagonistas, y el cerebro debe estar simultáneamente pendiente de todos ellos:</strong></p>
+</div>
+</div>
+</div>
+<div class="fragment" data-fragment-index="5">
+<div>
+<div class="bg" style="background-color:#e6f7ff; padding:0em; font-size: 0.75em;margin-top:.2em;">
+<ul>
+<li class="fragment"><p>El conjunto <span class="math inline">\("A"\)</span>, que es protagonista <span class="fg" style="--col: #228dff"><strong>invisible</strong></span>, pues <span class="math inline">\("A"\)</span> no parece por ningún lado en la notación <span class="alert"><strong><span class="math inline">\("f(x)"\)</span></strong></span> … ¡pero está!.</p></li>
+<li class="fragment"><p>El conjunto <span class="math inline">\("B"\)</span>, también <span class="fg" style="--col: #228dff"><strong>invisible</strong></span></p></li>
+<li class="fragment"><p>La ley <span class="math inline">\("f"\)</span> que asocia elementos de <span class="math inline">\("A"\)</span> con elementos de <span class="math inline">\("B"\)</span>; es protagonista <span class="fg" style="--col: #228dff"><strong>visible</strong></span>, pues en la notación <span class="alert"><strong><span class="math inline">\("f(x)"\)</span></strong></span> hay una <span class="math inline">\("f"\)</span>.</p></li>
+<li class="fragment"><p>El elemento <span class="math inline">\("x"\)</span> del conjunto <span class="math inline">\("A"\)</span>; también es <span class="fg" style="--col: #228dff"><strong>visible</strong></span>, pues en la notación <span class="alert"><strong><span class="math inline">\("f(x)"\)</span></strong></span> hay una <span class="math inline">\("x"\)</span>.</p></li>
+<li class="fragment"><p>El 5° protagonista es un elemento de <span class="math inline">\("B"\)</span>, pero no un elemento de cualquiera de <span class="math inline">\("B"\)</span>, el 5° protagonista es el elemento de <span class="math inline">\("B"\)</span> que la ley <span class="math inline">\("f"\)</span> asocia a <span class="math inline">\("x"\)</span>, y para denotarlo nadie ha inventado una notación más clara y concisa que <span class="alert"><strong><span class="math inline">\("f(x)"\)</span></strong></span>, introducida por <strong>Euler</strong> en 1734.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="función-real-de-variable-real" class="slide level2 small">
+<h2>Función real de variable real</h2>
+<h3 id="no-es-fascinante-cómo-una-función-real-de-variable-real-puede-describir-el-comportamiento-de-tantas-situaciones-en-el-mundo-real-conectando-conceptos-abstractos-con-la-realidad-tangible">¿No es fascinante cómo una función real de variable real puede describir el comportamiento de tantas situaciones en el mundo real, conectando conceptos abstractos con la realidad tangible?</h3>
+<div class="columns">
+<div class="column" style="text-align: center;">
+<div class="fragment" data-fragment-index="1">
+<div style="font-size: 2em; color: #ff0000; font-weight: bold;">
+<p><strong>Dirichlet,1854</strong></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><img data-src="Images/Dirichlet.png" height="300"></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<div class="bg" style="background-color:#e6f7ff; padding:0.75em;font-size: 0.75em;margin-top:-0.5em">
+<p>Llamamos <span class="alert"><strong>función real de variable real</strong></span> a toda correspondencia <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span>; o sea, una función real de variable real es una ley o criterio <span class="math inline">\(f\)</span> que asocia números reales con números reales.</p>
+</div>
+</div>
+</div><div class="column" style="text-align: center;">
+<div class="fragment" data-fragment-index="3">
+<p><img data-src="Images/C_05.png" height="90"></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p>Se dice que <span class="math inline">\(f: \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> es una <span class="alert">función real</span> porque su conjunto final es <span class="math inline">\(\mathfrak{R}\)</span> se dice que <span class="math inline">\(f\)</span> es de <span class="alert">variable real</span> porque su conjunto inicial es <span class="math inline">\(\mathfrak{R}\)</span></p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p>Para expresar que el número real <span class="math inline">\(x \in \mathfrak{R}_{inicial}\)</span> puede ser el que queramos, se dice que <span class="math inline">\(x\)</span> es una <span class="alert">variable independiente</span>; y para expresar que el número real <span class="math inline">\(f(x) \in \mathfrak{R}_{final}\)</span> que <span class="math inline">\(f\)</span> asocia a <span class="math inline">\(x\)</span> escapa por completo a nuestro control, pues es <span class="math inline">\(f\)</span> quien decide el valor de <span class="math inline">\(f(x)\)</span>, se dice que el número real que denotamos <span class="math inline">\("f(x)"\)</span> es una <span class="alert">variable dependiente.</span></p>
+</div>
+</div></div>
+</section>
+<section id="ejemplos" class="slide level2 scrollable">
+<h2>Ejemplos</h2>
+<div class="bg" style="background-color:#fdf6e3; padding:0.75em;font-size: 0.75em;margin-top:-0.5em ">
+<p>Por ejemplo, al hablar de la función <span class="math inline">\(f:\mathfrak{R} \longrightarrow \mathfrak{R}\)</span> tal que <span class="math inline">\(f(x)=\frac{x}{x-1}\)</span> se habla de la ley <span class="math inline">\("f"\)</span> que al número real <span class="math inline">\("x"\)</span> le asocia el número real <span class="math inline">\(\frac{x}{x-1}\)</span>; así, al número <span class="math inline">\(5\)</span> la ley <span class="math inline">\("f"\)</span> le asocia el número <span class="math inline">\(\frac{5}{5-1}\)</span> , al número <span class="math inline">\(9\)</span> le asocia el número <span class="math inline">\(\frac{5}{5-1}\)</span>….. y escribemos:</p>
+</div>
+<p><span class="math display">\[
+f(5)=\frac{5}{5-1}=\frac{5}{4}\quad ;\quad f(9)=\frac{9}{9-1}=\frac{9}{8}
+\]</span></p>
+<div class="bg" style="padding:0.75em;font-size: 0.75em;margin-top:-0.5em ">
+<div class="center">
+<p><img data-src="Images/C_06-1.jpg"></p>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2">
+<h2></h2>
+<div class="bg" style="padding:0em;font-size: 0.75em;margin-top:0em ">
+<p><strong>Análogamente:</strong></p>
+<div class="columns">
+<div class="center">
+<div class="fragment">
+<p><span class="math display">\[
+\color{red}{f(x)=\frac{x}{x-1}}
+\]</span></p>
+</div>
+</div><div class="columns">
+<div class="column" style="width:50%;">
+<div class="bg fragment" style="background-color:#fdf6e3; padding:0.5em;">
+<p><strong>Si evaluamos</strong>: <span class="math inline">\(x = 3 + h\)</span></p>
+<p><span class="math display">\[
+f(3+h) = \frac{3+h}{(3+h)-1}
+= \frac{3+h}{2+h}
+\]</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="bg fragment" style="background-color:#fdf6e3; padding:0.5em;">
+<p><strong>Si evaluamos</strong>: <span class="math inline">\(x = 2 - h\)</span></p>
+<p><span class="math display">\[
+f(2-h) = \frac{2-h}{(2-h)-1}
+= \frac{2-h}{1-h}
+\]</span></p>
+</div>
+</div></div><div class="fragment">
+<p>Si, operamos la siguiente expresion: Diferencia de cociente</p>
+<p><span class="math display">\[
+\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}
+\]</span></p>
+</div><div class="center">
+<div class="bg fragment" style="padding:0em;">
+<p><strong>Queremos calcular:</strong></p>
+<p><span class="math display">\[
+\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}= \frac{\frac{6+h}{(6+h)-1} - \frac{6}{6-1}}{h}
+= -\frac{1}{5(5+h)}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #fdf6e3">LA PREGUNTA DEL MILLÓN, <span class="bg" style="--col: #ffff00">¿Para que sirve la tasa de cambio?</span><img data-src="Images/h-0.png" data-with="20%"></span></h2>
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1.4em;">
+<p>El cociente <span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span>, que es la <span class="alert"><strong>TASA DE CAMBIO</strong></span> de la funcion <span class="math inline">\(f: \mathfrak{R} \longmapsto \mathfrak{R}\)</span> si la vararible independiente varia desde <strong>x</strong> hasta <strong>x+h</strong>, tendra protagonismo estalar cuando hablemos de la <span class="alert"><strong>derivada</strong></span> de <span class="alert"><strong>f</strong></span> en <span class="alert"><strong>x</strong></span></p>
+</div>
+</section>
+<section id="utilidad-de-la-función-real-de-variable-real-20-min" class="slide level2">
+<h2><span class="bg scrollable" style="background-color:#ffff00; padding:0.6em; font-size:1.2em;"><strong>UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL</strong></span> (20 min)</h2>
+<p>Comprenderás la <span class="alert"><strong>importancia de las funciones reales de variable real</strong></span> si imaginas que la variable independiente <span class="alert"><strong>“x”</strong></span> representa la cantidad de capital invertido por una bodega, mientras que la variable dependiente <span class="alert"><strong><span class="math inline">\(f(x)\)</span></strong></span> representa la <strong>producción de vino</strong> obtenida.</p>
+<div class="columns">
+<div class="column" style="width:30%;">
+<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<div class="center">
+<p><span class="math display">\[
+\overset{\large x}{\text{Capital}} \quad \longrightarrow \quad \overset{\large f(x)}{\text{Producción}}
+\]</span></p>
+<p>Si invierto <span class="alert"><strong>“x”</strong></span> euros, la producción de vino es <span class="alert"><strong><span class="math inline">\(1 + x^2\)</span></strong></span> litros. Es decir, mi función <span class="alert"><strong><span class="math inline">\(f\)</span></strong></span> de producción está definida por:<br>
+<span class="alert"><strong><span class="math inline">\(f(x) = 1 + x^2\)</span></strong></span></p>
+</div>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="center">
+<p><img data-src="Images/f-2.png" style="width:80.0%"></p>
+</div>
+</div></div>
+</section>
+<section id="tasas-de-cambio-preparación-para-la-derivada" class="slide level2">
+<h2>Tasas de Cambio: Preparación para la Derivada</h2>
+<p><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></p>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}= 2x+h
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png" style="width:50.0%"></p>
+</div>
+</div>
+<div class="footer">
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</div>
+</section>
+<section id="section-2" class="slide level2">
+<h2></h2>
+<p><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></p>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{\frac{1}{(x+h)}-\frac{1}{x}}{h}=\frac{-h}{hx(h+x)}= \frac{-1}{x(x+h)}
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png" style="width:50.0%"></p>
+</div>
+</div>
+<div class="footer">
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</div>
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<p><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></p>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}=\frac{2xh+h^2}{h}= 2x+h
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png" style="width:50.0%"></p>
+</div>
+</div>
+<div class="footer">
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</div>
+</section>
+<section id="section-4" class="slide level2">
+<h2></h2>
+<p><span class="bg" style="--col: #fdf6e3"><strong>Determine la siguiente expresion <span class="math inline">\(\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> en los siguientes casos: <span class="math inline">\(a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x\)</span></strong></span></p>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{2^{x+h}-2^x}{h}
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/f-1.png" style="width:50.0%"></p>
+</div>
+</div>
+<div class="footer">
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</div>
+</section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<p><span class="bg" style="--col: #fdf6e3">Si <span class="math inline">\(f(x):\mathfrak{R} \longmapsto \mathfrak{R}\)</span> es tal que <span class="math inline">\(f(x):1+x^2\)</span> determine su tasa de cambio en los siguientes casos:</span></p>
+<div class="bg" style="padding:0em;font-size: 0.75em;margin-top:0em">
+<ul>
+<li>La variable independiente varia de 5 a 7</li>
+<li>La variable independiente varia de 5 a 2</li>
+<li>La variable independiente varia de 3 a 3.02</li>
+<li>La variable independiente varia de 3 a 2.97</li>
+</ul>
+</div>
+<div class="bg" style="padding:0em;font-size: 0.7em;margin-top:0em">
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(7)-f(5)}{7-5}=\frac{(1+7^2)-(1+5^2)}{2}= \frac{24}{2}=12
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(2)-f(5)}{2-5}=\frac{(1+2^2)-(1+5^2)}{-3}= \frac{-21}{-3}=7
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(3.02)-f(3)}{3.02-3}=\frac{(1+3.02^2)-(1+3^2)}{0.02}= \frac{0.1204}{0.02}=6.02
+\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="4">
+<p><span class="math display">\[
+\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{f(2.97)-f(3)}{2.97-3}=\frac{(1+2.97^2)-(1+3^2)}{-0.03}= \frac{-0.1791}{-0.03}=5.97
+\]</span></p>
+</div>
+</div>
+<div class="footer">
+<div class="bg" style="background-color:#d6f7db; padding:0em; border-left:0px solid #000000; border-radius: 1px;">
+<p><span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span> es la <span class="alert"><strong>Tasa de cambio</strong></span> de la funcion <span class="math inline">\("f"\)</span> si la variable independiente <span class="math inline">\(\color{blue}{varia}\)</span> desde “<strong>x</strong>” hasta “<strong>x+h</strong>”</p>
+</div>
+</div>
+</section>
+<section id="fijando-ideas-problema-parte-1-capital-produccion" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (capital-produccion)</strong></span></h2>
+
+<img data-src="Images/f-3.png" class="r-stretch"><p>Si el capital empleado varia desde <span class="alert"><strong>“x”</strong></span> hasta <span class="alert"><strong>“x+h”</strong></span>, la produccion obtenida <span class="alert"><strong>varia</strong></span> desde <span class="alert"><strong><span class="math inline">\(f(x)=1=x^2\)</span></strong></span> hasta <span class="alert"><strong><span class="math inline">\(f(x+h)=1+(x+h)^2\)</span></strong></span>. La pregunta seria? Cuantas unidades varia la produccion por cada unidad de varaicion de capital?</p>
+<p><span class="math display">\[
+\begin{array}{llll}
+\left\{
+\begin{array}{l}
+\text{Tasa de cambio de "f" si v.i} \\
+\text{varía desde "x" hasta "x+h"}
+\end{array}
+\right\}
+\equiv \frac{f(x+h)-f(x)}{(x+h)-x} \\
+\equiv \frac{
+\text{Variación de producción si el capital varía desde "x" a "x+h"}
+}{
+\text{Variación de capital}
+} \equiv \\
+\left\{
+\begin{array}{l}
+\text{Variación MEDIA de producción por cada unidad} \\
+\text{de variación de capital cuando este varía desde "x" a "x+h"}
+\end{array}
+\right\} \\
+= \frac{(1+(x+h)^2)-(1+x^2)}{h}= \frac{2xh+h^2}{h} = 2x + h
+\end{array}
+\]</span></p>
+</section>
+<section id="fijando-ideas-problema-parte-2-capital-produccion" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (capital-produccion)</strong></span></h2>
+<p>Saber que la tasa de cambio es: <span class="math inline">\(TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 2x+h \frac{litros}{euro}\)</span> es una oportunidad ventajosa</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th>x</th>
+<th>x + h</th>
+<th>h</th>
+<th><strong>TC = 2·x + h</strong></th>
+<th><strong>litros/euro</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>4</td>
+<td>7</td>
+<td>3</td>
+<td>2·4 + 3</td>
+<td>11</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>2</td>
+<td>–2</td>
+<td>2·4 + (–2)</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>5.2</td>
+<td>0.2</td>
+<td>2·5 + 0.2</td>
+<td>10.2</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>4.9</td>
+<td>–0.1</td>
+<td>2·5 + (–0.1)</td>
+<td>9.9</td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="fijando-ideas-problema-parte-1-tiempo-velocidad" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (tiempo-velocidad)</strong></span></h2>
+
+<img data-src="Images/f-4.png" data-with="130%" class="r-stretch"><p>Si el tiempo varia desde <span class="alert"><strong>“x”</strong></span> hasta <span class="alert"><strong>“x+h”</strong></span>, la velocidad obtenida <span class="alert"><strong>varia</strong></span> desde <span class="alert"><strong><span class="math inline">\(f(x)=1+x^3\)</span></strong></span> hasta <span class="alert"><strong><span class="math inline">\(f(x+h)=1+(x+h)^3\)</span></strong></span>. La pregunta seria? Cuantas unidades varia la velocidad por cada unidad de <span class="alert"><strong>variacion</strong></span> de tiempo?</p>
+<p><span class="math display">\[
+\begin{array}{llll}
+\left\{
+\begin{array}{l}
+\text{Tasa de cambio de "f" si v.i} \\
+\text{varía desde "x" hasta "x+h"}
+\end{array}
+\right\}
+\equiv \frac{f(x+h)-f(x)}{(x+h)-x} \\
+\equiv \frac{
+\text{Variación de velocidad entre el instante  "x" y el "x+h"}
+}{
+\text{Variación de tiempo}
+} \equiv \\
+\left\{
+\begin{array}{l}
+\text{Variación MEDIA de velocidad por cada unidad} \\
+\text{de variación de tiempo cuando este varía desde "x" a "x+h"}
+\end{array}
+\right\} \\
+= \frac{(1+(x+h)^3)-(1+x^3)}{h}= \frac{3x^2h+3xh^2+h^3}{h} = 3x^2 + 3xh + h^2
+\end{array}
+\]</span></p>
+<p><span class="bg" style="--col:#fdf6e3"><span class="alert"><strong>Aceleracion media</strong></span></span> entre el instante <strong>“x”</strong> y el instante <strong>“x+h”</strong></p>
+</section>
+<section id="fijando-ideas-problema-parte-2-tiempo-velocidad" class="slide level2 scrollable">
+<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (tiempo-velocidad)</strong></span></h2>
+<p>Saber que la tasa de cambio es: <span class="math inline">\(TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 3x^2+3xh+h^2 \frac{km-hora}{hora}\)</span> es una oportunidad ventajosa</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 46%">
+<col style="width: 31%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>x</th>
+<th>x + h</th>
+<th>h</th>
+<th><strong>TC = 3·x² + 3·x·h + h²</strong></th>
+<th><strong>km/hora ÷ hora</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5</td>
+<td>9</td>
+<td>4</td>
+<td>3·5² + 3·5·4 + 4² = 75 + 60 + 16 = 151</td>
+<td>151</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>3</td>
+<td>–2</td>
+<td>3·5² + 3·5·(–2) + (–2)² = 75 – 30 + 4 = 49</td>
+<td>49</td>
+</tr>
+<tr class="odd">
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+<td>⋮</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="tasa-de-cambio-el-camino-a-la-derivada" class="slide level2">
+<h2><strong>Tasa de Cambio: El Camino a la Derivada</strong></h2>
+<div class="bg" style="background-color:#d6f7db; padding:0.75em; font-size:0.9em; border-left:6px solid #228B22;">
+<p>La <strong>tasa de cambio</strong> de <span class="math inline">\(f(x)\)</span> es <span class="math inline">\(\frac{f(x+h) - f(x)}{h}\)</span>, la pendiente de la recta secante.</p>
+</div>
+<iframe src="animacion_x2.html" width="100%" height="400px">
+</iframe>
+<p><strong>Explora la animación interactiva:</strong> - <a href="animacion_x2.html">Ver en Jupyter Notebook</a> - <a href="enlace_a_desmos">Explorar en Desmos</a></p>
+<p><strong>Actividad:</strong> Calcula la tasa de cambio para <span class="math inline">\(f(x) = x^2\)</span> con <span class="math inline">\(x=1\)</span> y <span class="math inline">\(h=0.1\)</span> en el notebook</p>
+</section>
+<section id="grafica" class="slide level2 scrollable">
+<h2>Grafica</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="f7a1d432-a8de-4032-ac0f-e87086c12e56" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("f7a1d432-a8de-4032-ac0f-e87086c12e56")) {                    Plotly.newPlot(                        "f7a1d432-a8de-4032-ac0f-e87086c12e56",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"f(x) = x\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+<div class="cell-output-display">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="b8538b22-621d-4e89-a62e-a001f8a28575" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b8538b22-621d-4e89-a62e-a001f8a28575")) {                    Plotly.newPlot(                        "b8538b22-621d-4e89-a62e-a001f8a28575",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"f(x) = x\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+<div class="cell-output-display">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="774eb214-6b4c-4511-8d2e-4038acf93b9e" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("774eb214-6b4c-4511-8d2e-4038acf93b9e")) {                    Plotly.newPlot(                        "774eb214-6b4c-4511-8d2e-4038acf93b9e",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"f(x) = x\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"},{"line":{"color":"#FFD700"},"mode":"lines","name":"Tangente","x":[0.0,0.020202020202020204,0.04040404040404041,0.06060606060606061,0.08080808080808081,0.10101010101010102,0.12121212121212122,0.14141414141414144,0.16161616161616163,0.18181818181818182,0.20202020202020204,0.22222222222222224,0.24242424242424243,0.26262626262626265,0.2828282828282829,0.30303030303030304,0.32323232323232326,0.3434343434343435,0.36363636363636365,0.38383838383838387,0.4040404040404041,0.42424242424242425,0.4444444444444445,0.4646464646464647,0.48484848484848486,0.5050505050505051,0.5252525252525253,0.5454545454545455,0.5656565656565657,0.5858585858585859,0.6060606060606061,0.6262626262626263,0.6464646464646465,0.6666666666666667,0.686868686868687,0.7070707070707072,0.7272727272727273,0.7474747474747475,0.7676767676767677,0.787878787878788,0.8080808080808082,0.8282828282828284,0.8484848484848485,0.8686868686868687,0.888888888888889,0.9090909090909092,0.9292929292929294,0.9494949494949496,0.9696969696969697,0.98989898989899,1.0101010101010102,1.0303030303030305,1.0505050505050506,1.0707070707070707,1.090909090909091,1.1111111111111112,1.1313131313131315,1.1515151515151516,1.1717171717171717,1.191919191919192,1.2121212121212122,1.2323232323232325,1.2525252525252526,1.272727272727273,1.292929292929293,1.3131313131313131,1.3333333333333335,1.3535353535353536,1.373737373737374,1.393939393939394,1.4141414141414144,1.4343434343434345,1.4545454545454546,1.474747474747475,1.494949494949495,1.5151515151515154,1.5353535353535355,1.5555555555555556,1.575757575757576,1.595959595959596,1.6161616161616164,1.6363636363636365,1.6565656565656568,1.676767676767677,1.696969696969697,1.7171717171717173,1.7373737373737375,1.7575757575757578,1.777777777777778,1.7979797979797982,1.8181818181818183,1.8383838383838385,1.8585858585858588,1.878787878787879,1.8989898989898992,1.9191919191919193,1.9393939393939394,1.9595959595959598,1.97979797979798,2.0],"y":[-1.0,-0.9595959595959596,-0.9191919191919191,-0.8787878787878789,-0.8383838383838385,-0.797979797979798,-0.7575757575757576,-0.7171717171717171,-0.6767676767676767,-0.6363636363636362,-0.595959595959596,-0.5555555555555556,-0.5151515151515151,-0.4747474747474747,-0.43434343434343425,-0.39393939393939403,-0.35353535353535337,-0.31313131313131315,-0.2727272727272727,-0.23232323232323226,-0.19191919191919182,-0.15151515151515138,-0.11111111111111116,-0.0707070707070705,-0.030303030303030276,0.010101010101010166,0.05050505050505061,0.09090909090909105,0.1313131313131315,0.1717171717171717,0.21212121212121215,0.2525252525252526,0.29292929292929304,0.3333333333333335,0.3737373737373739,0.41414141414141437,0.4545454545454546,0.49494949494949503,0.5353535353535355,0.5757575757575759,0.6161616161616164,0.6565656565656568,0.696969696969697,0.7373737373737375,0.7777777777777779,0.8181818181818183,0.8585858585858588,0.8989898989898992,0.9393939393939394,0.9797979797979799,1.0202020202020203,1.060606060606061,1.1010101010101012,1.1414141414141414,1.181818181818182,1.2222222222222223,1.262626262626263,1.3030303030303032,1.3434343434343434,1.383838383838384,1.4242424242424243,1.464646464646465,1.5050505050505052,1.5454545454545459,1.585858585858586,1.6262626262626263,1.666666666666667,1.7070707070707072,1.7474747474747478,1.787878787878788,1.8282828282828287,1.868686868686869,1.9090909090909092,1.9494949494949498,1.98989898989899,2.0303030303030307,2.070707070707071,2.111111111111111,2.151515151515152,2.191919191919192,2.2323232323232327,2.272727272727273,2.3131313131313136,2.353535353535354,2.393939393939394,2.4343434343434347,2.474747474747475,2.5151515151515156,2.555555555555556,2.5959595959595965,2.6363636363636367,2.676767676767677,2.7171717171717176,2.757575757575758,2.7979797979797985,2.8383838383838387,2.878787878787879,2.9191919191919196,2.95959595959596,3.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+<div class="cell-output-display">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="b7dafe7b-7833-437a-9885-8dc3fd3e4184" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("b7dafe7b-7833-437a-9885-8dc3fd3e4184")) {                    Plotly.newPlot(                        "b7dafe7b-7833-437a-9885-8dc3fd3e4184",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"f(x) = x\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"},{"line":{"color":"#FFD700"},"mode":"lines","name":"Tangente","x":[0.0,0.020202020202020204,0.04040404040404041,0.06060606060606061,0.08080808080808081,0.10101010101010102,0.12121212121212122,0.14141414141414144,0.16161616161616163,0.18181818181818182,0.20202020202020204,0.22222222222222224,0.24242424242424243,0.26262626262626265,0.2828282828282829,0.30303030303030304,0.32323232323232326,0.3434343434343435,0.36363636363636365,0.38383838383838387,0.4040404040404041,0.42424242424242425,0.4444444444444445,0.4646464646464647,0.48484848484848486,0.5050505050505051,0.5252525252525253,0.5454545454545455,0.5656565656565657,0.5858585858585859,0.6060606060606061,0.6262626262626263,0.6464646464646465,0.6666666666666667,0.686868686868687,0.7070707070707072,0.7272727272727273,0.7474747474747475,0.7676767676767677,0.787878787878788,0.8080808080808082,0.8282828282828284,0.8484848484848485,0.8686868686868687,0.888888888888889,0.9090909090909092,0.9292929292929294,0.9494949494949496,0.9696969696969697,0.98989898989899,1.0101010101010102,1.0303030303030305,1.0505050505050506,1.0707070707070707,1.090909090909091,1.1111111111111112,1.1313131313131315,1.1515151515151516,1.1717171717171717,1.191919191919192,1.2121212121212122,1.2323232323232325,1.2525252525252526,1.272727272727273,1.292929292929293,1.3131313131313131,1.3333333333333335,1.3535353535353536,1.373737373737374,1.393939393939394,1.4141414141414144,1.4343434343434345,1.4545454545454546,1.474747474747475,1.494949494949495,1.5151515151515154,1.5353535353535355,1.5555555555555556,1.575757575757576,1.595959595959596,1.6161616161616164,1.6363636363636365,1.6565656565656568,1.676767676767677,1.696969696969697,1.7171717171717173,1.7373737373737375,1.7575757575757578,1.777777777777778,1.7979797979797982,1.8181818181818183,1.8383838383838385,1.8585858585858588,1.878787878787879,1.8989898989898992,1.9191919191919193,1.9393939393939394,1.9595959595959598,1.97979797979798,2.0],"y":[-1.0,-0.9595959595959596,-0.9191919191919191,-0.8787878787878789,-0.8383838383838385,-0.797979797979798,-0.7575757575757576,-0.7171717171717171,-0.6767676767676767,-0.6363636363636362,-0.595959595959596,-0.5555555555555556,-0.5151515151515151,-0.4747474747474747,-0.43434343434343425,-0.39393939393939403,-0.35353535353535337,-0.31313131313131315,-0.2727272727272727,-0.23232323232323226,-0.19191919191919182,-0.15151515151515138,-0.11111111111111116,-0.0707070707070705,-0.030303030303030276,0.010101010101010166,0.05050505050505061,0.09090909090909105,0.1313131313131315,0.1717171717171717,0.21212121212121215,0.2525252525252526,0.29292929292929304,0.3333333333333335,0.3737373737373739,0.41414141414141437,0.4545454545454546,0.49494949494949503,0.5353535353535355,0.5757575757575759,0.6161616161616164,0.6565656565656568,0.696969696969697,0.7373737373737375,0.7777777777777779,0.8181818181818183,0.8585858585858588,0.8989898989898992,0.9393939393939394,0.9797979797979799,1.0202020202020203,1.060606060606061,1.1010101010101012,1.1414141414141414,1.181818181818182,1.2222222222222223,1.262626262626263,1.3030303030303032,1.3434343434343434,1.383838383838384,1.4242424242424243,1.464646464646465,1.5050505050505052,1.5454545454545459,1.585858585858586,1.6262626262626263,1.666666666666667,1.7070707070707072,1.7474747474747478,1.787878787878788,1.8282828282828287,1.868686868686869,1.9090909090909092,1.9494949494949498,1.98989898989899,2.0303030303030307,2.070707070707071,2.111111111111111,2.151515151515152,2.191919191919192,2.2323232323232327,2.272727272727273,2.3131313131313136,2.353535353535354,2.393939393939394,2.4343434343434347,2.474747474747475,2.5151515151515156,2.555555555555556,2.5959595959595965,2.6363636363636367,2.676767676767677,2.7171717171717176,2.757575757575758,2.7979797979797985,2.8383838383838387,2.878787878787879,2.9191919191919196,2.95959595959596,3.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"sliders":[{"active":0,"currentvalue":{"prefix":"h = "},"steps":[{"args":[{"visible":[true,true,false,false,false,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=1: 3.00"}],"label":"1","method":"update"},{"args":[{"visible":[true,false,true,false,false,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=0.5: 2.50"}],"label":"0.5","method":"update"},{"args":[{"visible":[true,false,false,true,false,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=0.1: 2.10"}],"label":"0.1","method":"update"},{"args":[{"visible":[true,false,false,false,true,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=0.01: 2.01"}],"label":"0.01","method":"update"}]}],"title":{"text":"Tasa de Cambio: f(x) = x\u00b2"},"showlegend":true,"xaxis":{"title":{"text":"x"}},"yaxis":{"title":{"text":"f(x)"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+<div class="cell-output-display">
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="51a6791a-070f-4663-a20d-584b55406f07" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("51a6791a-070f-4663-a20d-584b55406f07")) {                    Plotly.newPlot(                        "51a6791a-070f-4663-a20d-584b55406f07",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"f(x) = x\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"},{"line":{"color":"#FFD700"},"mode":"lines","name":"Tangente","x":[0.0,0.020202020202020204,0.04040404040404041,0.06060606060606061,0.08080808080808081,0.10101010101010102,0.12121212121212122,0.14141414141414144,0.16161616161616163,0.18181818181818182,0.20202020202020204,0.22222222222222224,0.24242424242424243,0.26262626262626265,0.2828282828282829,0.30303030303030304,0.32323232323232326,0.3434343434343435,0.36363636363636365,0.38383838383838387,0.4040404040404041,0.42424242424242425,0.4444444444444445,0.4646464646464647,0.48484848484848486,0.5050505050505051,0.5252525252525253,0.5454545454545455,0.5656565656565657,0.5858585858585859,0.6060606060606061,0.6262626262626263,0.6464646464646465,0.6666666666666667,0.686868686868687,0.7070707070707072,0.7272727272727273,0.7474747474747475,0.7676767676767677,0.787878787878788,0.8080808080808082,0.8282828282828284,0.8484848484848485,0.8686868686868687,0.888888888888889,0.9090909090909092,0.9292929292929294,0.9494949494949496,0.9696969696969697,0.98989898989899,1.0101010101010102,1.0303030303030305,1.0505050505050506,1.0707070707070707,1.090909090909091,1.1111111111111112,1.1313131313131315,1.1515151515151516,1.1717171717171717,1.191919191919192,1.2121212121212122,1.2323232323232325,1.2525252525252526,1.272727272727273,1.292929292929293,1.3131313131313131,1.3333333333333335,1.3535353535353536,1.373737373737374,1.393939393939394,1.4141414141414144,1.4343434343434345,1.4545454545454546,1.474747474747475,1.494949494949495,1.5151515151515154,1.5353535353535355,1.5555555555555556,1.575757575757576,1.595959595959596,1.6161616161616164,1.6363636363636365,1.6565656565656568,1.676767676767677,1.696969696969697,1.7171717171717173,1.7373737373737375,1.7575757575757578,1.777777777777778,1.7979797979797982,1.8181818181818183,1.8383838383838385,1.8585858585858588,1.878787878787879,1.8989898989898992,1.9191919191919193,1.9393939393939394,1.9595959595959598,1.97979797979798,2.0],"y":[-1.0,-0.9595959595959596,-0.9191919191919191,-0.8787878787878789,-0.8383838383838385,-0.797979797979798,-0.7575757575757576,-0.7171717171717171,-0.6767676767676767,-0.6363636363636362,-0.595959595959596,-0.5555555555555556,-0.5151515151515151,-0.4747474747474747,-0.43434343434343425,-0.39393939393939403,-0.35353535353535337,-0.31313131313131315,-0.2727272727272727,-0.23232323232323226,-0.19191919191919182,-0.15151515151515138,-0.11111111111111116,-0.0707070707070705,-0.030303030303030276,0.010101010101010166,0.05050505050505061,0.09090909090909105,0.1313131313131315,0.1717171717171717,0.21212121212121215,0.2525252525252526,0.29292929292929304,0.3333333333333335,0.3737373737373739,0.41414141414141437,0.4545454545454546,0.49494949494949503,0.5353535353535355,0.5757575757575759,0.6161616161616164,0.6565656565656568,0.696969696969697,0.7373737373737375,0.7777777777777779,0.8181818181818183,0.8585858585858588,0.8989898989898992,0.9393939393939394,0.9797979797979799,1.0202020202020203,1.060606060606061,1.1010101010101012,1.1414141414141414,1.181818181818182,1.2222222222222223,1.262626262626263,1.3030303030303032,1.3434343434343434,1.383838383838384,1.4242424242424243,1.464646464646465,1.5050505050505052,1.5454545454545459,1.585858585858586,1.6262626262626263,1.666666666666667,1.7070707070707072,1.7474747474747478,1.787878787878788,1.8282828282828287,1.868686868686869,1.9090909090909092,1.9494949494949498,1.98989898989899,2.0303030303030307,2.070707070707071,2.111111111111111,2.151515151515152,2.191919191919192,2.2323232323232327,2.272727272727273,2.3131313131313136,2.353535353535354,2.393939393939394,2.4343434343434347,2.474747474747475,2.5151515151515156,2.555555555555556,2.5959595959595965,2.6363636363636367,2.676767676767677,2.7171717171717176,2.757575757575758,2.7979797979797985,2.8383838383838387,2.878787878787879,2.9191919191919196,2.95959595959596,3.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"sliders":[{"active":0,"currentvalue":{"prefix":"h = "},"steps":[{"args":[{"visible":[true,true,false,false,false,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=1: 3.00"}],"label":"1","method":"update"},{"args":[{"visible":[true,false,true,false,false,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=0.5: 2.50"}],"label":"0.5","method":"update"},{"args":[{"visible":[true,false,false,true,false,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=0.1: 2.10"}],"label":"0.1","method":"update"},{"args":[{"visible":[true,false,false,false,true,true]},{"title.text":"Tasa de Cambio para f(x) = x\u00b2, h=0.01: 2.01"}],"label":"0.01","method":"update"}]}],"title":{"text":"Tasa de Cambio: f(x) = x\u00b2"},"showlegend":true,"xaxis":{"title":{"text":"x"}},"yaxis":{"title":{"text":"f(x)"}}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+</div>
+</section>
+<section id="grafiac-1" class="slide level2 scrollable">
+<h2>grafiac 1</h2>
+
+
+<img data-src="S1_Funciones_Límites_files/figure-revealjs/unnamed-chunk-3-1.png" width="576" class="r-stretch"></section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="Images/Utmach-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>© 2025 Elvis Sánchez – Universidad Técnica de Machala</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="S1_Funciones_Límites_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copiado");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copiado");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
