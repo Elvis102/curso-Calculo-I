@@ -308,20 +308,72 @@ $$
 :::
 :::
 
+## DOMINIO DE DEFINICION DE UNA FUNCION
+
+::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
+El [dominio de definición]{.alert} de la $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ se denota [Dom(f)]{.alert}, y es el subconjunto de $\mathfrak{R}_{inicial}$ formado por los puntos a los que $f$ les asigna imagen en $\mathfrak{R}_{final}$:
+:::
+
+::: center
+[$$
+Dom(f)= \{ x\in \mathfrak{R} \;| \;f(x)\in \mathfrak{R}\}
+$$]{.bg style="--col: #e0ffff"}
+:::
+
+::: {.bg style="padding:0em; margin-top:-1em; font-size:0.75em;"}
+Si $f(a) \in \mathfrak{R}$ se dice que $f$ [esta definida]{.alert} en el punto $"a"$, y si $f(a) \notin \mathfrak{R}$ se dice que $"f"$ [no está definida]{.alert} en "a".
+:::
+
+::: {.bg style="padding:0em; margin-top:-0.5em; font-size:0.75em;"}
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+
+::: center
+
+![](Images/C_03.jpg){width="80%"}
+
+:::
+
+:::
+
+::: {.fragment fragment-index="2"}
+
+::: center
+
+![](Images/C_07.jpg){width="80%"}
+:::
+
+:::
+
+:::
+:::
+
+Una función real de variable real $f:A \subset \mathfrak{R} \rightarrow \mathfrak{R}$ es una regla que asigna a cada elemento de un primer conjunto $A$, un único elemento de un segundo conjunto $\mathfrak{R}$. Las funciones son relaciones entre los elementos de dos conjuntos.
+
+Se llama **dominio** de la función $f$ al conjunto de valores para los cuales la misma está definida
+
+$$Dom\ (f) = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}$$
+El conjunto de todos los resultados posibles de una función dada se denomina **rango**, **imagen** o **codominio** de esa función. 
+
+$$Im\ (f) = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}$$
+
+
 ## [LA PREGUNTA DEL MILLÓN, [¿Para que sirve la tasa de cambio?]{.bg style="--col: #ffff00"}![](Images/h-0.png){with="20%"}]{.bg style="--col: #fdf6e3"} {.scrollable}
 
 ::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1.4em;"}
 El cociente $\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$, que es la [**TASA DE CAMBIO**]{.alert} de la funcion $f: \mathfrak{R} \longmapsto \mathfrak{R}$ si la vararible independiente varia desde **x** hasta **x+h**, tendra protagonismo estalar cuando hablemos de la [**derivada**]{.alert} de [**f**]{.alert} en [**x**]{.alert}
 :::
 
-## [**UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL**]{.bg style="background-color:#ffff00; padding:0.6em; font-size:1.2em;" .scrollable} (20 min)
+## **UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL**
 
 Comprenderás la [**importancia de las funciones reales de variable real**]{.alert} si imaginas que la variable independiente [**"x"**]{.alert} representa la cantidad de capital invertido por una bodega, mientras que la variable dependiente [**$f(x)$**]{.alert} representa la **producción de vino** obtenida.
 
 ::: columns
 
 ::: {.column width="30%"}
-::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+::: {.bg style="background-color:#d6f7db; padding:0.25em;"}
 
 ::: center
 $$
@@ -337,13 +389,12 @@ Si invierto [**"x"**]{.alert} euros, la producción de vino es [**$1 + x^2$**]{.
 
 ::: {.column width="70%"}
 ::: center
-![](Images/f-2.png){width="80%"}
+![](Images/f-2.png){width="72%"}
 :::
 :::
 :::
 
 ## Tasas de Cambio: Preparación para la Derivada
-
 
 [**Determine la siguiente expresion $\color{red}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ en los siguientes casos: $a. \quad f(x)=x^2 \quad; b. \quad f(x)=\frac{1}{x} \quad;c. \quad f(x)= 2^x$**]{.bg style="--col: #fdf6e3"} 
 
@@ -479,7 +530,7 @@ $\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}$ es la [**Tasa de cambio**]{.alert} d
 
 
 
-## [**Fijando ideas-problema parte 1 (capital-produccion)**]{.bg style="--col: #ffff00"} {.scrollable}
+## **Fijando ideas-problema parte 1 (capital-produccion)**
 ![](Images/f-3.png)
 
 Si el capital empleado varia desde [**"x"**]{.alert} hasta [**"x+h"**]{.alert}, la produccion obtenida [**varia**]{.alert} desde [**$f(x)=1=x^2$**]{.alert} hasta [**$f(x+h)=1+(x+h)^2$**]{.alert}.
@@ -509,7 +560,7 @@ $$
 \end{array}
 $$
 
-## [**Fijando ideas-problema parte 2 (capital-produccion)**]{.bg style="--col: #ffff00"} {.scrollable}
+## **Fijando ideas-problema parte 2 (capital-produccion)**
 
 Saber que la tasa de cambio es: $TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 2x+h \frac{litros}{euro}$ es una oportunidad ventajosa 
 
@@ -521,7 +572,7 @@ Saber que la tasa de cambio es: $TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 2x+h \frac{litr
 | 5   | 4.9   | –0.1  | 2·5 + (–0.1)     | 9.9                     |
 | ⋮   | ⋮     | ⋮     | ⋮                | ⋮                       |
 
-## [**Fijando ideas-problema parte 1 (tiempo-velocidad)**]{.bg style="--col: #ffff00"} {.scrollable}
+## **Fijando ideas-problema parte 1 (tiempo-velocidad)**
 ![](Images/f-4.png){with="130%"}
 
 Si el tiempo varia desde [**"x"**]{.alert} hasta [**"x+h"**]{.alert}, la velocidad obtenida [**varia**]{.alert} desde [**$f(x)=1+x^3$**]{.alert} hasta [**$f(x+h)=1+(x+h)^3$**]{.alert}.
@@ -553,7 +604,7 @@ $$
 
 [[**Aceleracion media**]{.alert}]{.bg style="--col:#fdf6e3"} entre el instante **"x"** y el instante **"x+h"**
 
-## [**Fijando ideas-problema parte 2 (tiempo-velocidad)**]{.bg style="--col: #ffff00"} {.scrollable}
+## **Fijando ideas-problema parte 2 (tiempo-velocidad)**]
 Saber que la tasa de cambio es: $TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 3x^2+3xh+h^2 \frac{km-hora}{hora}$ es una oportunidad ventajosa 
 
 | x   | x + h | h     | **TC = 3·x² + 3·x·h + h²**             | **km/hora ÷ hora**       |
@@ -563,125 +614,638 @@ Saber que la tasa de cambio es: $TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 3x^2+3xh+h^2 \f
 | ⋮   | ⋮     | ⋮     | ⋮                                      | ⋮                         |
 
 
-## **Tasa de Cambio: El Camino a la Derivada**
+## Aprendizaje Práctico – Experimental (1h):
 
-::: {.bg style="background-color:#d6f7db; padding:0.75em; font-size:0.9em; border-left:6px solid #228B22;"}
-La **tasa de cambio** de $f(x)$ es $\frac{f(x+h) - f(x)}{h}$, la pendiente de la recta secante.
-:::
 
-<iframe src="animacion_x2.html" width="100%" height="400px"></iframe>
+# Límites I {.my-slide}
 
-**Explora la animación interactiva:**
-- [Ver en Jupyter Notebook](animacion_x2.html)
-- [Explorar en Desmos](enlace_a_desmos)
+## Definición e Interpretación
 
-**Actividad:** Calcula la tasa de cambio para $f(x) = x^2$ con $x=1$ y $h=0.1$ en el notebook
+## Funciones reales de variable real
 
-## Grafica {.scrollable}
+Supondremos que son conocidos el concepto de **función**, en tanto que una **aplicación** entre conjuntos de números. En particular, nos concentraremos en **funciones reales de variable real**, es decir en funciones $f:A \subset \mathbb{R} \rightarrow \mathbb{R}$.
 
-```{python}
-import plotly.graph_objects as go
-import numpy as np
+Tambien suponemos conocidos los conceptos de **rango** y **dominio** de una función, así como los términos **variable independiente** y **dependiente**. 
 
-def f(x):
-    return x**2
+Aunque seran tratadas con detalle más adelante, es conveniente tener presentes las principales características de funciones elementales como las polinómicas $f(x)= P_n(x) = a_nx^n+a_{n-1}x^{n-1}+ \cdots + a_1x+a_0$, la exponencial $f(x)=e^x$ y las trigonométricas $f(x)=\sin(x)$, $f(x)=\cos(x)$, $f(x) =\tan(x)$, entre otras. 
 
-def tasa_cambio(x, h):
-    return (f(x + h) - f(x)) / h
+## Funciones reales de variable real
 
-# Datos
-x = np.linspace(-2, 2, 100)
-y = f(x)
-x0 = 1  # Punto fijo
-h_values = [1, 0.5, 0.1, 0.01]
+Uno de los principales objetivos del cálculo es el estudio las funciones. De hecho, como ya se ha mencionado, el **cálculo diferencial** trata del estudio de la **medida del cambio**, precisamente a través de relaciones que vienen expresadas como funciones, principalmente como **funciones reales de variable real**.
 
-# Crear figura
-fig = go.Figure()
+La primera cuestión que se aborda tiene que ver con los **números reales**, en particular cómo **evaluar las funciones reales de variable real** cuando la **variable independiente** es un número **irracional**. Nuevamente el concepto de **límite** viene a ayudar en la solución de esta cuestión.
 
-# Añadir la función
-fig.add_trace(go.Scatter(x=x, y=y, mode='lines', name='f(x) = x²', line=dict(color='#228B22')))
+## Límite de una función en un punto
 
-# Añadir rectas secantes (solo una visible a la vez)
-for i, h in enumerate(h_values):
-    x_sec = [x0, x0 + h]
-    y_sec = [f(x0), f(x0 + h)]
-    fig.add_trace(go.Scatter(x=x_sec, y=y_sec, mode='lines+markers', name=f'Secante (h={h})',
-                             line=dict(dash='dash', color='#FF5733'), visible=(i==0)))
+<l class="definition"> **Definición. Límite de una función en un punto.** </l>
 
-# Añadir la tangente
-x_tan = np.linspace(x0 - 1, x0 + 1, 100)
-y_tan = f(x0) + 2 * x0 * (x_tan - x0)
-fig.add_trace(go.Scatter(x=x_tan, y=y_tan, mode='lines', name='Tangente', line=dict(color='#FFD700')))
+Sea $f:A \subset \mathbb{R}$ una función definida sobre el conjunto $A \subset \mathbb{R}$ y sea $c$ un punto de acumulación de $A$. $L \in \mathbb{R}$ es el **límite de $f(x)$ cuando $x$ tiende a $c$** si para toda sucesión $\{x_n\}_{n \in \mathbb{N}}$ de puntos de $A$ tal que $\displaystyle{\lim_{n \rightarrow \infty}x_n = c}$ es $\displaystyle{\lim_{n \rightarrow \infty}f(x_n)=L}$.
 
-# Configurar deslizador
-steps = []
-for i, h in enumerate(h_values):
-    step = dict(
-        method="update",
-        args=[{"visible": [True] + [j == i for j in range(len(h_values))] + [True]},
-              {"title.text": f"Tasa de Cambio para f(x) = x², h={h}: {tasa_cambio(x0, h):.2f}"}],
-        label=str(h)
-    )
-    steps.append(step)
+Escribiremos, $\displaystyle{\lim_{x \rightarrow c}f(x)=L}$, para indicar el límite de $f(x)$ cuando $x$ tiende a $c$. 
 
-sliders = [dict(active=0, steps=steps, currentvalue={"prefix": "h = "})]
-fig.update_layout(sliders=sliders, title="Tasa de Cambio: f(x) = x²", showlegend=True,
-                  xaxis_title="x", yaxis_title="f(x)", template="plotly_white")
 
-# Exportar como HTML
-fig.write_html("animacion_x2.html")
-fig.show()
+##  Límite de una función en un punto
+<l class="observ"> **Observaciones.** </l>
+
+**1.** Igual que hemos hecho con las sucesiones y los números irracionales, con esta definción convertimos el problema de evaluar una función en un punto irracional en el de calcular el límite de una sucesión. 
+
+**2.** El hecho requerir que $c$ sea un punto de acumulación de $A$, nos garantiza que existan sucesiones $\{x_n\}$ de puntos de $A$ tales que $\displaystyle{\lim_{n\rightarrow \infty} x_n = c}$ y, por lo tanto, la definición tiene sentido.
+
+**3.** Si $c$ es un punto **aislado** de $A$, es decir si hay un entorno de $c$ en el cual no hay puntos de $A$ diferentes de $c$, entonces no tiene sentido hablar del límite de $f$ en ese punto.
+
+## Límite de una función en un punto: Ejemplos.
+
+<div class="example"> **Ejemplos**
+
+**Ejemplo 1.** Sea $f: \mathbb{R}\rightarrow \mathbb{R}$ definida por $f(x)=x$ y sea $c \in \mathbb{R}$, entonces
+$$
+\lim_{x \rightarrow c} x = c,
+$$
+puesto que para cualquier sucesión $x_n  \rightarrow c$ es obvio que $f(x_n) = x_n \rightarrow c$.
+
+**Ejemplo 2.** Análogamente si ahora es $f(x) = \dfrac{1}{x}$ y $c \neq 0$, entonces 
+
+$$
+\lim_{x \rightarrow c} \dfrac{1}{x} = \dfrac{1}{c},
+$$
+puesto que si $x_n \rightarrow c$, entonces $\dfrac{1}{x_n} \rightarrow \dfrac{1}{c}.$
+
+</div>
+
+## Límite de una función en un punto: Ejemplos
+
+<div class="example"> **Ejemplos**
+
+**Ejemplo 3.** Si $f(x) = P_n(x) = a_n x^n + a_{n-1}x^{n-1}+ \cdots + a_1 x + a_0$, entonces para todo $c \in \mathbb{R}$ es
+$$
+\lim_{x \rightarrow c}P_n(x) = P_n(c) = a_n c^n + a_{n-1}c^{n-1}+ \cdots + a_1 c + a_0,
+$$
+como se deduce fácilmente de las propiedades aritméticas de los límites de sucesiones.
+
+**Ejemplo 4.** Igualmente, si $P_n(x)$ y $Q_m(x)$ són polinomios tales que $Q_m(c) \ne 0$, entonces 
+$$
+\lim_{x \rightarrow c} \dfrac{P_n(x)}{Q_m(x)} = \dfrac{P_n(c)}{Q_m(c)}.
+$$
+**Ejemplo 5.** Si $f(x) = e^x$, entonces $\displaystyle{\lim_{x \rightarrow c} e^x = e^{c}}$ puesto que, como hemos demostrado, si $x_n \rightarrow c$, entonces $e^{x_n} \rightarrow e^{c}$.
+</div>
+
+
+## Límite de una función en un punto: Ejemplos
+
+<div class="example"> **Ejemplos**
+
+**Ejemplo 6.** Más interesante es el caso $\displaystyle{\lim_{x \rightarrow 1} \dfrac{x^5-2x^3+1}{x-1}}$, puesto que, en principio, para $x=1$ la función no está definida al anularse el denominador, es decir que el dominio de la función es $\mathbb{R}\setminus\{1\}$ y, por lo tanto, $1$ es un punto de acumulación del dominio.
+
+Ahora bien, dado que el numerador también se anula en este punto, podemos simplificar la fracción por $x-1$, con lo que nos queda que $\dfrac{x^5-2x^3+1}{x-1} = x^4+x^3-x^2-x$, y por lo tanto, 
+$$\lim _{x \rightarrow 1} \dfrac{x^5-2x^3+1}{x-1} = \lim _{x \rightarrow 1} (x^4+x^3-x^2-x-1 )= -1.
+$$
+</div>
+
+## Caracterización del límite: propiedad $\epsilon-\delta$.
+
+<l class="prop"> **Proposición** </l>
+
+Sea $f:A \subset \mathbb{R} \rightarrow \mathbb{R}$ una función definida sobre el conjunto $A \subset \mathbb{R}$ y sea $c$ un punto de acumulación de $A$. entonces son equivalentes las tres afirmaciones siguientes:
+
+  a) $\displaystyle{\lim_{x \rightarrow c}f(x)=L}$
+  
+  b) Para todo $\epsilon >0$ existe un $\delta >0$ tal que siempre que $0<|x-c|< \delta$, entonces es $|f(x)-L|<\epsilon$. (**Propiedad $\epsilon-\delta$**).
+
+  c) Para todo entorno abierto de $L$, $V_{\epsilon}(L)$, existe un entorno abierto de $c$, $V_{\delta} (c)$ tal que para todo $x \in V^*_{\delta} (c)$ es $f(x) \in V_{\epsilon}(L)$, donde $V^*_{\delta}= V_{\delta} \setminus \{c\}$, es decir el entorno reducido de $c$ y radio $\delta$
+
+
+## Caracterización del límite: propiedad $\epsilon-\delta$
+
+<div class="dem"> **Demostración**
+
+ Veamos en primer lugar que 2) $\implies$ 1). Sea $x_n$ una sucesión de puntos distintos de $c$, tal que $x_n \rightarrow c$.
+
+Supongamos que para todo $\epsilon >0$ existe $\delta >0$ tal que si $|x - c|< \delta$, entonces $|f(x)-L|<\epsilon$. 
+
+Dado que $\delta >0$, existe $n_0$ tal que para todo $n > n_0$ es $|x_n - c|<\delta$, por lo tanto será $|f(x_n) - L| < \epsilon$, para todo $n > n_0$, por lo que, efectivamente, $f(x_n) \rightarrow L$.
+
+</div>
+
+## Las dos definiciones son equivalentes
+
+<div class="dem"> **Demostración. (Continuación)**
+
+Demostramos la otra implicación por contraposición, es decir usando la equivalencia $2 \implies 1 \equiv \lnot 1 \implies \lnot 2$. 
+
+Suponemos, pues que se verifica la propiedad $\epsilon-\delta$, es decir que hay un $\epsilon > 0$ tal que para todo $\delta >0$ existe $x_{\delta}$ tal que $|x_{\delta} - c|<\delta$ y $|f(x_{\delta}) - L| \geq \epsilon$. 
+
+Se trata de ver que hay una sucesión, $\{x_n\}$ que tiene límite  $c$ y que $f(x_n) \not\rightarrow_{x \rightarrow c} L$. 
+
+Consideremos ahora la sucesión de números positivos $\delta_n = \frac{1}{n}$, y los correspondientes $x_n$ tales que $|x_n-c|< \frac{1}{n}$, es $|f(x_n) -L | \geq \epsilon$, es decir $f(x_n) \not\rightarrow L$, en tanto que $x_n \rightarrow c$, que es lo que se quería demostrar.
+
+Finalmente, en lo que se refiere al tercer apartado, es suficiente tener en cuenta que que $|x-c| < \delta$ si, y sólo si,  $x \in V_{\delta}(c)$.
+
+</div>
+
+## Ejemplo de la propiedad $\epsilon-\delta$
+
+<div class="example"> **Ejemplo**
+
+
+Si $f(x)=\dfrac{1}{x}$, dado un punto $c>0$, tenemos para $x>0$, 
+$$
+\left|\dfrac{1}{x} -\dfrac{1}{c}\right|= \left|\dfrac{1}{cx}(c-x)\right| = \dfrac{1}{cx}|c-x|
+$$
+Ahora, si $x$ es tal que $|x-c| <\dfrac{1}{2}c$, de tal manera que $\dfrac{c}{2}<x<\dfrac{3c}{2}$, por lo que $0 < \dfrac{1}{cx} <  \dfrac{2}{c^2} \quad \text{ para } |x-c|< \dfrac{1}{2}c$.
+Por lo tanto, para estos valores de $x$ tenemos que
+$$
+\left|\dfrac{1}{x} -\dfrac{1}{c}\right| \leq \dfrac{2}{c^2} |x-c|.
+$$
+
+
+Ahora, dado un $\epsilon >0$ bastará tomar $\delta = \min \left\{\dfrac{1}{2}c, \dfrac{1}{2}c^2 \epsilon \right\}$ para tener asegurado que si $|x -c|<\delta$, entonces $\left|\dfrac{1}{x} -\dfrac{1}{c}\right| < \epsilon$.
+
+</div>
+
+
+##  Ejemplo de la propiedad $\epsilon-\delta$
+
+<div class="example"> **Ejemplo**
+
+Veamos que $\displaystyle{\lim_{x \rightarrow 2} \dfrac{x^3-4}{x^2+1}= \dfrac{4}{5}}$
+$$
+\left|\dfrac{x^3-4}{x^2+1} -  \dfrac{4}{5}\right|= \left|\dfrac{5x^3-20-4x^2-4}{5(x^2+1)}\right| = \dfrac{|5x^2+6x+12|}{5(x^2+1)}|x-2|
+$$
+Ahora, si $|x-2|<1$, o equivalentemente, si $0<x<3$, tendremos que $\dfrac{|5x^2+6x+12|}{5(x^2+1)} \leq \dfrac{15}{2}$, puesto que el numerador es menor o igual que $15$ y el numerador mayor o igual que $2$. 
+
+Si para un $\epsilon >0$ tomamos $\delta = \min \left\{1, \dfrac{2}{15} \epsilon \right\}$, tendremos que si $|x-2| < \delta$, entonces 
+$$
+\left|\dfrac{x^3-4}{x^2+1} -  \dfrac{4}{5}\right| < \epsilon
+$$
+
+</div>
+
+## Sobre la propiedad $\epsilon-\delta$
+
+<l class="observ"> **Observaciones** </l>
+
+**1.** La propiedad $\epsilon -\delta$, significa que dada una precisión cualquiera, $\epsilon$, para el resultado, $L$, podemos determinar la precisión, $\delta$, con la que hay que tomar la aproximación, $x$ de $c$, para tener asegurada la precisión requerida para $L$.
+
+**2.** Los ejemplos anteriores muestran que $\delta$ puede depender de $\epsilon$ y del punto $c$, por lo que sería más apropiado escribir $\delta(\epsilon,c)$, lo que no se acostumbra a hacer para evitar complicar la notación en exceso, lo cual no es óbice para olvidar esta dependencia.
+
+**3.** Los ejemplos anteriores también pueden producir la impresión, equivocada, que es más conveniente usar la primera definición de límite que la propiedad $\epsilon-\delta$, pero veremos que, en ocasiones, resulta más conveniente esta última que la primera.
+
+## La propiedad $\epsilon-\delta$
+
+<div class="center">
+```{r, echo=FALSE, label=edelta,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/epdel0.png",dpi=1200)
 ```
+</div>
 
-## grafiac 1 {.scrollable}
+## Propiedades del límite de una función
 
-```{python}
-import numpy as np
-import matplotlib.pyplot as plt
-from matplotlib.animation import FuncAnimation
+<l class="definition"> **Definición** </l>
 
-# Define función, derivada exacta y punto base
-def f(x): return x**3 - 3*x + 1
-def df(x): return 3*x**2 - 3
+Sea $f:A \subset \mathbb{R} \rightarrow \mathbb{R}$ y $c$ un punto de acumulación de $A$. $f$ **está acotada en un entorno de $c$**, $V_{\delta}(c)$, si existe una constante $M \in \mathbb{R}$ tal que $|f(x)| \leq M$ para todo $x \in A \cap V_{\delta}(c)$.
 
-a = 0.5
-h_vals = np.linspace(1, 0.01, 200)
+<l class="prop"> **Proposición**
 
-# Preparar figura
-fig, ax = plt.subplots(figsize=(6,6))
-x = np.linspace(a-1, a+1, 400)
-ax.plot(x, f(x), label='f(x)', color='blue', lw=2)
-secant_line, = ax.plot([], [], 'r--', label='Secante')
-tangent_line, = ax.plot([], [], 'g-', label='Tangente')
-ax.legend()
-ax.set_xlabel('x'), ax.set_ylabel('f(x)')
-ax.set_title('Secante → Tangente')
+Sea $f:A \subset \mathbb{R} \rightarrow \mathbb{R}$ y $c$ un punto de acumulación de $A$. Si $\lim _{x \rightarrow c} f(x) =L$, entonces $f$ está acotada en un entorno de $c$.
 
-# Función de inicialización
-def init():
-    secant_line.set_data([], [])
-    tangent_line.set_data([], [])
-    return secant_line, tangent_line
+<div class="dem"> **Demostración**
 
-# Función para actualizar cada fotograma
-def animate(i):
-    h = h_vals[i]
-    m_sec = (f(a + h) - f(a)) / h
-    y0 = f(a)
-    sec_x = np.array([a - 1, a + 1])
-    sec_y = y0 + m_sec * (sec_x - a)
-    secant_line.set_data(sec_x, sec_y)
-    
-    m_tan = df(a)
-    tan_y = y0 + m_tan * (sec_x - a)
-    tangent_line.set_data(sec_x, tan_y)
-    
-    ax.set_title(f'h = {h:.3f}')
-    return secant_line, tangent_line
+Dado $\epsilon=1>0$, existe $\delta$ tal que $|f(x)|-|L| \leq |f(x)-L|<1$, para todo $x \in A \cap V_{\delta}(c)$. Por consiguiente si $M= |L|+1$, es $|f(x)| < |L|+1 = M$.
 
-ani = FuncAnimation(fig, animate, frames=len(h_vals), init_func=init,
-                    interval=50, blit=True, repeat=False)
-ani.save('secant_to_tangent.gif', writer='pillow', fps=20)
+</div>
 
-plt.show()
+## Propiedades del límite de una función
+
+<l class="definition"> **Definición** </l>
+
+Sean $f,g:A \subset \mathbb{R} \rightarrow \mathbb{R}$ dos funciones reales de variable real. Entonces
+
+1) $f+g: A \subset \mathbb{R} \rightarrow \mathbb{R}$ es la función definida por $(f+g)(x) = f(x)+g(x)$
+
+2)  $f \cdot g: A \subset \mathbb{R} \rightarrow \mathbb{R}$ es la función definida por $(f\cdot g)(x) = f(x) \cdot g(x)$
+
+3) Si $g(x)\neq 0$ en un $A$, entonces $\dfrac{1}{g}:A \subset \mathbb{R} \rightarrow \mathbb{R}$ es la función definida por $\dfrac{1}{g}(x)= \dfrac{1}{g(x)}$
+
+4) Si $\lambda \in \mathbb{R}$, entonces $\lambda \cdot f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ es la función definida por $(\lambda \cdot f)(x)= \lambda \cdot f(x)$.
+
+
+## Propiedades del límite de una función
+
+
+<l class="prop"> **Proposición** </l>
+
+Sean $f,g:A \subset \mathbb{R} \rightarrow \mathbb{R}$ dos funciones reales de variable real y $c$ un punto de acumulación de $A$, tales que $\displaystyle{\lim_{x \rightarrow c} f(x) = L_1}$ y $\displaystyle{\lim_{x \rightarrow c} g(x)= L_2}$. Entonces
+
+P1. $\displaystyle{\lim_{x \rightarrow c}(f+g)(x) = L_1+L_2}$.
+
+P2. $\displaystyle{\lim_{x \rightarrow c}(f \cdot g)(x) = L_1 \cdot L_2}$.
+
+P3. $\displaystyle{\lim_{x \rightarrow c} (\lambda \cdot f)(x) = \lambda \cdot L_1}$.
+
+P4. Si $L_2 \neq 0$, entonces $\displaystyle{\lim_{x \rightarrow c} \dfrac{f(x)}{g(x)} = \dfrac{L_1}{L_2}}$.
+
+## Propiedades del límite de una función
+
+<div class="dem"> **Demostración**
+
+P1, P2 y P3 son una consecuencia inmediata de la definción de límite de una función. En el caso de P1, por ejemplo, tenemos que si $x_n \rightarrow c$ entonces $f(x_n) \rightarrow L_1$ y $g(x_n) \rightarrow L_2$, por lo tanto, 
+
+$$
+\lim_{x \rightarrow c}(f+g)(x)= \lim_{n  \rightarrow \infty} (f+g)(x_n)= \lim_{n  \rightarrow \infty} \left( f(x_n)+g(x_n) \right)
+$$
+
+$$=  \lim_{n  \rightarrow \infty} f(x_n) + \lim_{n  \rightarrow \infty} g(x_n) = L_1+L_2 = \lim_{x \rightarrow c} f(x) + \lim_{x \rightarrow c} g(x) 
+$$
+
+
+Por lo que se refiere a P4, tenemos que si $L_2 \neq 0$, entonces hemos demostrado, en el tema de límite de sucesiones, que para toda sucesión $x_n$ de puntos de $A$ tal que $g(x_n) \rightarrow L_2$, existe $n_0$ tal $g(x_n) \neq 0$ para todo $n \geq n_0$ y, además, $\lim_{n \rightarrow \infty}\dfrac{1}{g(x_n)} = \dfrac{1}{L_2}$ y, por lo tanto,
+$$
+\lim_{x \rightarrow c} \dfrac{f(x)}{g(x)} = \dfrac{L_1}{L_2}.
+$$
+
+</div>
+
+## Propiedades del límite de una función
+
+<l class="prop"> **Proposición** </l>
+
+Si para todo $x \in A$ es $a \leq f(x) \leq b$, entonces $\displaystyle{a \leq \lim_{x \rightarrow c} f(x) \leq b}$
+
+<l class="prop"> **Proposición** </l>
+
+Sean $f,g,h :A\subset \mathbb{R} \rightarrow \mathbb{R}$, tales que $h(x) \leq f(x) \leq g(x)$, para todo $x \in A$, y
+
+que $\displaystyle{\lim_{x \rightarrow c} g(x) =  \lim_{x \rightarrow c} h(x) = L}$, entonces  
+$$
+\lim_{x \rightarrow c} f(x) = L.
+$$
+
+## Propiedades del límite de una función
+
+<l class="prop"> **Proposición** </l>
+
+Sean $f:A \subset \mathbb{R} \rightarrow \mathbb{R}$ y $c$ un punto de acumulación de $A$. Si $\lim _{x \rightarrow c} f(x) = L>0$, entonces existe $\delta > 0$ tal que $f(x)>0$ para todo $x \in V^*_{\delta}(c) \cap A$.
+
+Análogamente, si $\lim _{x \rightarrow c} f(x) = L <0$, entonces existe $\delta > 0$ tal que $f(x)<0$ para todo $x \in V^*_{\delta}(c) \cap A$.
+
+<div class="dem"> **Demostración**
+
+Supongamos, en primer lugar que $L>0$. Sea $\epsilon = \dfrac{L}{2} > 0$, entonces, por ser $L= \lim _{x \rightarrow c} f(x)$, existe $\delta >0$ tal que $|f(x)-L|<\dfrac{L}{2}= \epsilon$, por lo tanto, tenemos que $-\dfrac{L}{2} < f(x) - L < \dfrac{L}{2}$ y por lo tanto, es $0 <\dfrac{L}{2} < f(x)$. 
+
+La demostración para el caso $L<0$ es completamente similar y se deja como ejercicio.
+
+</div>
+
+## Límites laterales
+
+
+La función $f:\mathbb{R} \setminus \{0\} \rightarrow \mathbb{R}$, $f(x) = \dfrac{x}{|x|}$, no està definida en el punto ${0}$, de hecho, se trata de la función
+$$ 
+f(x) =
+\begin{cases}
+\;\;   1, & \mbox { si } x>0 \\
+-1, & \mbox { si } x<0
+\end{cases}
+$$
+conocida como la función *signo* de $x$, que se acostumbra a indicar por $\text{sgn}(x)$
+
+$0$ es un punto de acumulación del dominio de $f$, pero no existe el $\displaystyle{\lim_{x \rightarrow 0} \text{sgn}(x)}$
+
+## Límites laterales
+
+No existe el $\displaystyle{\lim_{x \rightarrow 0}\text{sgn}(x)}$. 
+
+En efecto, consideremos la sucesión de término general $x_n = \dfrac{(-1)^n}{n}$, entonces es $\text{sgn}(x_{2k})= 1$ en tanto que $\text{sgn}(x_{2k+1})=-1$, para todo $k \in \mathbb{N}$, es decir que la sucesión de término general $\text{sgn}(x_n)$ tiene dos subsucesiones con límite diferente y, por lo tanto, $\text{sgn}(x_n)$ no tiene límite. 
+
+En definitiva no existe el $\displaystyle{\lim_{x \rightarrow 0}\text{sgn}(x)}$.
+
+
+## Límites laterales: gráfica de la función $\text{sgn}(x)$
+
+<div class="center">
+```{r, echo=FALSE, label=sgn1,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/sgn1.png",dpi=1200)
 ```
+</div>
+
+## Límites laterales
+
+<l class="definition"> **Definición de límite lateral** </l>
+
+1) Sea $f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ una función real de variable real y sea $c$ un punto de acumulación de $A$. $L \in \mathbb{R}$ es el **límite lateral por la derecha** de $f$ en $c$, si para toda sucesión $x_n$ tal que $x_n \rightarrow c$ con $x_n \geq c$, es $f(x_n)\rightarrow L$. Escribiremos 
+$$
+L = \lim_{x \rightarrow c^+}f(x).
+$$
+
+
+2) Análogamente, $L \in \mathbb{R}$ es el **límite lateral por la izquierda** de $f$ en $c$, si para toda sucesión $x_n$ tal que $x_n \rightarrow c$ con $x_n \leq c$, es $f(x_n)\rightarrow L$. Escribiremos 
+$$
+L = \lim_{x \rightarrow c^-}f(x).
+$$
+
+
+
+## Límites laterales 
+
+<div class="example"> **Ejemplos**
+
+1) En el caso de la función *signo*, $\text{sgn}(x) = \dfrac{x}{|x|}$, hemos visto que  $\lim_{x \rightarrow 0^+}\text{sgn}(x) = 1$ y  $\lim_{x \rightarrow 0^-} \text{sgn}(x) = -1$.
+
+2) Sea $g:\mathbb{R} \rightarrow \mathbb{R}$, la función definida por
+$$
+g(x)=
+\begin{cases}
+x+1, & \mbox{ si } x \leq 0, \\
+x^2, & \mbox{ si } x > 0.
+\end{cases}
+$$
+Entonces $\lim_{x \rightarrow 0^-} g(x) = 1$ y $\lim_{x \rightarrow 0^+} g(x) = 0$.
+
+3) Sea $h:\mathbb{R} \rightarrow \mathbb{R}$, la función definida por
+$$
+h(x)=
+\begin{cases}
+x+1, & \mbox{ si } x \leq 0, \\
+x^2+1, & \mbox{ si } x > 0. 
+\end{cases}
+$$
+Entonces $\lim_{x \rightarrow 0^+} h(x) = 1$ y $\lim_{x \rightarrow 0^-} h(x) = 1$ y, como veremos a continuación, existe el $\lim_{x \rightarrow 0} h(x)$ y es igual a $1$.
+
+</div>
+
+## Gráfica de la función g 
+
+<div class="center">
+```{r, echo=FALSE, label=gx,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/gx.png",dpi=1200)
+```
+</div>
+
+## Gráfica de la función h 
+
+<div class="center">
+```{r, echo=FALSE, label=hx,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/hx.png",dpi=1200)
+```
+</div>
+
+## Límites laterales
+
+<div class="exercise"> **Ejercicios**
+
+En lo que sigue,  $f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ es una función real de variable real y $c$ es un punto de acumulación de $A$.
+
+1. Demuestra que $L = \lim_{x \rightarrow c^+}f(x)$ si, y sólo si, para todo $\epsilon >0$, existe $\delta >0$ tal que, siempre que $0<x-c<\delta$, entonces es $|f(x)-L| < \epsilon$. 
+
+2. Demuestra que   $L = \lim_{x \rightarrow c^-}f(x)$ si, y sólo si, para todo $\epsilon >0$, existe $\delta >0$ tal que, siempre que $0<c-x<\delta$, entonces es $|f(x)-L| < \epsilon$.
+
+3. Demuestra que  $L = \lim_{x \rightarrow c^+}f(x)$ si, y sólo si, para todo $\epsilon >0$, existe $\delta >0$ tal que si $x \in V^*_{\delta} (c) \cap (c, +\infty)$, entonces $f(x) \in V_{\epsilon}(L)$
+
+4. Demuestra que  $L = \lim_{x \rightarrow c^-}f(x)$ si, y sólo si, para todo $\epsilon >0$, existe $\delta >0$ tal que si $x \in V^*_{\delta} (c) \cap (-\infty, c)$, entonces $f(x) \in V_{\epsilon}(L)$.
+
+</div>
+
+
+## Límites laterales
+
+<l class="prop"> **Proposición** </l>
+
+Sea $f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ y sea $c$ un punto de acumulación de $A$. Entonces existe el $\displaystyle{\lim_{x \rightarrow c}f(x)}$ si, y sólo si, los dos límites laterales $\displaystyle{\lim_{x \rightarrow c^+}f(x)}$ y $\displaystyle{\lim_{x \rightarrow c^-}f(x)}$
+existen y son iguales.
+
+## Límites laterales
+
+<div class="dem"> **Demostración**
+
+Si $\lim_{x \rightarrow c}f(x) = L$, entonces para toda sucesión $x_n$ tal que $x_n \rightarrow c$ es $f(x_n) \rightarrow L$. Ahora, si $x_n \rightarrow c$ y $x_n > c$ será igualmente $f(x_n) \rightarrow L$. Análogamente si $x_n <c$.
+
+Supongamos ahora que los dos límites laterales existen y son iguales a $L$. Sea $x_n$ tal que $x_n \rightarrow c$, entonces tres casos són posibles:
+
+1) todos los $x_n$ a partir de un lugar son tales que $x_n \geq c$, 
+
+2) todos los $x_n$ a partir de un lugar son tales que $x_n \leq c$, y 
+
+3) existen infinitos $x_{n_k}$ tales que $x_{n_k} \geq c$ e infinitos $x_{n_j}$ tales que $x_{n_j} \leq c$, claramente $\{x_n\}= \{ x_{n_k}\} \cup \{x_{n_j}\}$.
+
+En todos los casos es $f(x_n) \rightarrow L$, en el primero por ser $\lim_{x \rightarrow c^+}f(x)$ y en el segundo por ser  $\lim_{x \rightarrow c^-}f(x)$. El el tercer caso tendríamos dos subsucesiones $f(x_{n_k})$ y $f(x_{n_j})$ con el mismo límite L y, por lo tanto es $f(x_n) \rightarrow L$, dado que $\{x_n\}= \{ x_{n_k}\} \cup \{x_{n_j}\}$. En definitiva es  $\lim_{x \rightarrow c}f(x) = L$.
+
+</div>
+
+## Limites infinitos
+
+<l class="definition"> **Definición** </l>
+
+Sean $f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ y $c$ un punto de acumulación de $A$,
+
+1. Diremos que $\lim_{x \rightarrow c}f(x) = +\infty$, si para cada $K >0$ existe un $\delta > 0$ tal que si $x \in V^*_{\delta}(c)$ entonces es $f(x)>K$.
+
+2. Diremos que $\lim_{x \rightarrow c}f(x) = - \infty$, si para cada $K >0$ existe un $\delta > 0$ tal que si $x \in V^*_{\delta}(c)$ entonces es $f(x)< -K$
+
+<div class="exercise"> **Ejercicio** 
+
+Las definiciones anteriores también se pueden formular en términos de sucesiones así, por ejemplo, se pide comprobar que la primera definición es equivalente a
+
+$\lim_{x \rightarrow c}f(x) = +\infty$ si, y sólo si, para toda sucesión $x_n$ tal que $x_n \rightarrow c$ es $f(x_n) \rightarrow \infty$. 
+
+</div>
+
+## Limites infinitos: Ejemplos.
+
+<div class="example"> **Ejemplo**
+
+$\displaystyle{\lim_{x \rightarrow 0} \dfrac{1}{x^2} = \infty}$, puesto que si $x_n \rightarrow 0$ entonces para todo $K>0$ existe $n_0$ tal que para todo $n > n_0$ es $|x_n| < \dfrac{1}{\sqrt{K}}$ y, por lo tanto $|f(x_n)|=\dfrac{1}{x_n^2}>K$.
+
+</div>
+
+<div class="center">
+
+```{r, echo=FALSE, label=inversax2,fig.cap="",out.width = "500px"}
+knitr::include_graphics("Images/inversax2.png",dpi=1200)
+```
+</div>
+
+## Límites en el infinito
+
+El ejemplo anterior también sirve para justificar la siguiente definición:
+
+<l class="definition"> **Definición** </l>
+
+Sean $f: \mathbb{R} \rightarrow \mathbb{R}$ y $L \in \mathbb{R}$, $L = \lim_{x \rightarrow \infty}f(x)$ si para toda sucesión $x_n$ tal que $\lim_{n \rightarrow \infty}x_n= +\infty$ entonces $\lim_{n \rightarrow +\infty} f(x_n)= L$.
+
+Análogamente, $L = \lim_{x \rightarrow -\infty}f(x)$ si para toda sucesión $x_n$ tal que $\lim_{n \rightarrow \infty}x_n= -\infty$ entonces $\lim_{n \rightarrow \infty} f(x_n)= L$.
+
+<div class="exercise"> **Ejercicios**
+
+1) Demuestra que $L = \lim_{x \rightarrow +\infty}f(x)$ si, sólo sí, para todo $\epsilon >0$ existe $K>0$ tal que si $x>K$ entonces $|f(x)-L|<\epsilon$.
+
+2) Demuestra que $L = \lim_{x \rightarrow -\infty}f(x)$ si, sólo sí, para todo $\epsilon >0$ existe $K>0$ tal que si $x<-K$ entonces $|f(x)-L|<\epsilon$.
+
+</div>
+
+## Limites en el infinito
+
+<div class="example"> **Ejemplos**
+
+1) $\displaystyle{\lim_{x \rightarrow +\infty} \dfrac{1}{x^2} = 0}$, puesto que dado un $\epsilon >0$ para $K=\dfrac{1}{\sqrt{\epsilon}}$ es $f(x)= \dfrac{1}{x^2} < \epsilon$ siempre que $x >K$.
+
+2) Anàlogamente $\lim_{x \rightarrow -\infty} \dfrac{1}{x^2} = 0$, puesto que dado un $\epsilon >0$ para $K=\dfrac{1}{\sqrt{\epsilon}}$ es $f(x)= \dfrac{1}{x^2} < \epsilon$ siempre que $x <-K$.
+
+3) La función $h(x) = \dfrac{1}{x}$, proporciona un interesante ejemplo de que también tienen sentido los límites laterales para los límites infinitos, puesto que como es fácil comprobar $\lim_{x \rightarrow 0^+} h(x) = +\infty$ en tanto que $\lim_{x \rightarrow 0^-} h(x) = -\infty$. 
+
+4) También es fácil comprobar que $\lim_{x \rightarrow -\infty} \dfrac{1}{x} =0 = \lim_{x \rightarrow +\infty}  \dfrac{1}{x}.$
+
+</div>
+
+## Límites en el infinito: Gráfica de la función $\frac{1}{x}$
+
+<div class="center">
+
+```{r, echo=FALSE, label=inversx,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/inversx.png",dpi=1200)
+```
+</div>
+
+# Cálculo de límites
+
+## Cálculo de límites
+
+Dada la definición de límite de una función en un punto que hemos hecho, vinculada a la de límite de sucesiones, no debería sorprendernos que una buena parte de las técnicas exploradas para el cálculo de límites de sucesiones sean también de aplicación para el cálculo de límite de funciones.
+
+Así, por ejemplo $\lim_{x \rightarrow 0}(1+x)^{\frac{1}{x}} = e$, puesto que, como hemos visto en el tema anterior, dada una sucesión $a_n$ tal que $a_n \rightarrow 0$, es $\lim (1+a_n)^{\frac{1}{a_n}}=e$, como esta igualdad es cierta para cualquier sucesión que tenga límite $0$, es $\lim_{x \rightarrow 0}(1+x)^{\frac{1}{x}} =e$.
+
+Aparecen algunas técnicas nuevas, como las relacionadas con la consideración de límites laterales o la de los infinitésimos equivalentes, y algunas dejan de tener sentido, como por ejemplo, las que involucran el criterio de Stoltz.
+
+## Cálculo de límites
+
+<div class="example"> **Ejemplo 1**
+
+Calcula el $\lim_{x \rightarrow 0}\dfrac{\sqrt{1+2x} - \sqrt{1+3x}}{x+2x^2}$.
+
+En primer lugar, la función està definida para todos los puntos $x \geq -\frac{1}{3}$, menos el punto $x=0$. Por lo tanto $0$ es un punto de acumulación del dominio y tiene sentido considerar el límite de la función en ese punto.
+
+En segundo lugar, se trata de una indeterminación del tipo $\frac{0}{0}$, en estos casos que involucran sumas o diferencias de raíces cuadradas, es conveniente intentar resolver la indeterminación multiplicando y dividiendo por el conjugado:
+$$
+\lim_{x \rightarrow 0}\dfrac{\sqrt{1+2x} - \sqrt{1+3x}}{x+2x^2} = \lim_{x \rightarrow 0}\dfrac{(\sqrt{1+2x} - \sqrt{1+3x})(\sqrt{1+2x} + \sqrt{1+3x})}{(x+2x^2)(\sqrt{1+2x} + \sqrt{1+3x})}
+$$
+$$
+= \lim_{x \rightarrow 0}\dfrac{1+2x - (1+3x)}{x(1+2x)(\sqrt{1+2x} + \sqrt{1+3x})} = \lim_{x \rightarrow 0}\dfrac{-x}{x(1+2x)(\sqrt{1+2x} + \sqrt{1+3x})}=-\dfrac{1}{2}
+$$
+
+Este resultado se puede comprobar con `Wolfram Alpha` en este enlace: [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=lim+%28sqrt%281%2B2x%29-sqrt%281%2B3x%29%29%2F%28x%2B2x%5E2%29+as+x+tends+to+0)
+</div>
+
+
+## Cálculo de límites
+
+<div class="example">
+La gráfica de la función corrobora el resultado obtenido:
+
+<div class="center">
+
+```{r, echo=FALSE, label=limit1,fig.cap="",out.width = "600px"}
+knitr::include_graphics("Images/limit1.png",dpi=1200)
+```
+</div>
+</div>
+
+## Cálculo de límites
+
+<div class="example"> **Ejemplo 2**
+
+Demuestra que no existe el $\lim_{x \rightarrow 0}  \cos \dfrac{1}{x}$ y que $\lim_{x \rightarrow 0} x \cos \dfrac{1}{x}=0$
+
+Para ver que no existe el primer límite es suficiente considerar las dos sucesiones $\dfrac{1}{2n\pi}$ y $\dfrac{1}{2n\pi + \frac{\pi}{2}}$, ambas tienden a $0$, sin embargo $\cos (2n \pi) \rightarrow 1$ en tanto que $\cos (2n\pi + \frac{\pi}{2}) \rightarrow 0$.
+
+En el segundo límite, se trata de una función que tiene límite $0$ multiplicada por otra que está acotada, ya que $\left|\cos \dfrac{1}{x}\right| \leq 1$, por lo tanto $\lim_{x \rightarrow 0} x \cos \dfrac{1}{x}=0$
+
+</div>
+
+## Cálculo de límites
+
+Gráficas de la funciones $f(x)=\cos \frac{1}{x}$ y $g(x)=x \cos \frac{1}{x}$, respectivamente:
+
+<div class="center">
+
+```{r, echo=FALSE, label=limit12_3,fig.cap=" ",out.width = "900px"}
+knitr::include_graphics("Images/limit2_3.png",dpi=1200)
+```
+</div>
+
+## Cálculo de límites
+
+<div class="example"> **Ejemplo 3**
+
+Calcula el $\lim_{x \rightarrow 1} \dfrac{\sqrt{x} -1}{x-1}$.
+
+Se trata de una indeterminación del tipo $\dfrac{0}{0}$. En este caso el cambio de variable $x = t^2$ puede ser útil, dado que 
+$$
+\lim_{x \rightarrow 1} \dfrac{\sqrt{x} -1}{x-1} = \lim_{t \rightarrow 1}\dfrac{t-1}{t^2-1}=\lim_{t \rightarrow 1}\dfrac{t-1}{(t-1)(t+1)} =\lim_{t \rightarrow 1}\dfrac{1}{t+1} = \dfrac{1}{2}
+$$
+Este resultado se puede comprobar con `Wolfram Alpha` en este enlace: [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=lim%20%28sqrt%28x%29-1%29%2F%28x-1%29%20as%20x-%3E1)
+</div>
+<div class="center">
+
+```{r, echo=FALSE, label=limit3,fig.cap="",out.width = "250px"}
+knitr::include_graphics("Images/limit3.png",dpi=1200)
+```
+</div>
+
+## Cálculo de límites
+
+<div class="example"> **Ejemplo 4**
+
+Calcula el $\lim_{x \rightarrow a} \dfrac{x^2-(a+1)x+a}{x^3-a^3}$
+
+Se trata de una indeterminación del tipo $\dfrac{0}{0}$. Dado que $a$ es una raíz de los dos polinomios, ambos son múltiplos de $x-a$, efectuando la división entera obtenemos que 
+$$
+x^2-(a+1)x+a = (x-1)(x-a) \quad \text{ y} \quad x^3-a^3= (x^2 +ax+a^2)(x-a).
+$$
+Por lo tanto 
+$$
+\lim_{x \rightarrow a} \dfrac{x^2-(a+1)x+a}{x^3-a^3} =\lim_{x \rightarrow a} \dfrac{(x-1)(x-a)}{(x^2 +ax+a^2)(x-a)} = \lim_{x \rightarrow a} \dfrac{x-1}{x^2 +ax+a^2} =\dfrac{a-1}{3a^2}
+$$
+Este resultado se puede comprobar con `Wolfram Alpha` en este enlace: [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=lim%28x%5E2-%28a%2B1%29x%2Ba%29%2F%28x%5E3-a%5E3%29+as+x+tends+to+a)
+
+</div>
+
+## Cálculo de límites
+
+<div class="example"> **Ejemplo 5**
+
+Calcula $\lim_{x \rightarrow 0}\left(\dfrac{1-x}{1+x}\right)^{\dfrac{1}{x}}$
+
+Se trata de una indeterminación del tipo $1^{\infty}$, con el cambio $x=\dfrac{1}{t}$, tenemos
+$$
+\lim_{x \rightarrow 0}\left(\dfrac{1-x}{1+x}\right)^{\frac{1}{x}} =\lim_{t \rightarrow \infty}\left(\dfrac{t-1}{t+1} \right)^t= e^{\lim_{t \rightarrow \infty}t \left(\frac{t-1}{t+1}-1\right)} = e^{-2}=\dfrac{1}{e^2}
+$$
+
+Este resultado se puede comprobar con `Wolfram Alpha` en este enlace: [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=lim+%28%281-x%29%2F%281%2Bx%29%29%5E%281%2Fx%29+as+x+tends+to+0)
+
+</div>
+
+
+
+## Cálculo de límites
+
+<div class="example"> **Ejemplo 6**
+
+Calcula el $\displaystyle{\lim_{x \rightarrow 0}\dfrac{1}{x} \log \sqrt{\dfrac{1+x}{1-x}}}$
+
+Se trata de una indeterminación del tipo $\dfrac{0}{0}$. 
+
+Dado que  $\log \sqrt{\dfrac{1+x}{1-x}} = \dfrac{1}{2} (\log (1+x)- \log(1-x))$, tenemos que el límite a calcular es
+
+$$
+\lim_{x \rightarrow 0}\dfrac{1}{x} \log \sqrt{\dfrac{1+x}{1-x}} = \dfrac{1}{2} \log \lim_{x \rightarrow 0} \left(\dfrac{1+x}{1-x} \right)^{\dfrac{1}{x}}= \dfrac{1}{2} \log e^2 =1
+$$
+
+Este resultado se puede comprobar con `Wolfram Alpha` en este enlace: [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=lim+%281%2Fx%29ln+%28sqrt%28+%28%281%2Bx%29%2F%281-x%29%29%29%29+as+x+tends+0)
+</div>
+
+
+
+
+
+
+
+

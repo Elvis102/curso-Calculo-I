@@ -1,0 +1,37 @@
+---
+title: Cálculo I
+subtitle: La Derivada
+
+toc: true
+format:
+  revealjs: 
+    theme: [default, clean.scss]
+    slide-number: true
+    slide-tone: false
+    chalkboard: 
+      buttons: true
+    footer: | 
+      © 2025 Elvis Sánchez – Universidad Técnica de Machala
+  html:
+   embed-resources: true
+   pdf-max-pages-per-slide : true
+ 
+author:
+  - name: Elvis M. Sánchez Rogel
+    orcid: 0009-0001-6662-2211
+    email: emsanchez@utmachala.edu.ec
+    affiliations: Universidad Técnica de Machala
+date: last-modified
+logo: Images/Utmach-logo.png
+lang: es
+
+#runtime: shiny_prerendered
+---
+
+```{r}
+#| context: setup
+#addResourcePath("Images", "Images")
+```
+
+# **La Derivada: Midiendo la Tasa de Cambio y el Impacto ** {.my-slide}
+
