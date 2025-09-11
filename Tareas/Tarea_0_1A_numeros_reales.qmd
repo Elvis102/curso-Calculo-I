@@ -1,0 +1,67 @@
+---
+title: "Números Reales"
+subtitle: "Tarea 0_1A"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+---
+
+## Ejercicio 1
+
+**¿Cuáles de los siguientes son verdaderos para $a = -3$ y $b = 2$?**
+
+(a) $a < b$
+(b) $|a| < |b|$
+(c) $ab > 0$
+(d) $3a < 3b$
+(e) $-4a < -4b$
+(f) $\frac{1}{a} < \frac{1}{b}$
+
+## Ejercicio 2
+
+**En los Ejercicios 3-5, expresa el intervalo en términos de una desigualdad que involucre valor absoluto.**
+
+### 3. $[-2, 2]$
+
+
+### 4. $(-4, 4)$
+
+
+### 5. $(0, 4)$
+
+## Ejercicio 3
+
+**En los Ejercicios 9-12, escribe la desigualdad en la forma $a < x < b$.**
+
+### 9. $|x| < 8$
+
+
+### 10. $|x - 12| < 8$
+
+
+### 12. $|3x - 4| < 2$
+
+## Ejercicio 4
+
+**Empareja (a)–(f) con (i)–(vi).**
+
+(a) $a > 3$ 
+(b) $|a - 5| < \frac{1}{3}$ 
+(c) $|a - \frac{1}{3}| < 5$ 
+(d) $|a| > 5$ 
+(e) $|a - 4| < 3$ 
+(f) $1 \le a \le 5$ 
+
+* **(i)** $a$ se encuentra a la derecha de 3.
+* **(ii)** $a$ se encuentra entre 1 y 7.
+* **(iii)** La distancia de $a$ a 5 es menor que 1/3.
+* **(iv)** La distancia de $a$ a 3 es como máximo 2.
+* **(v)** $a$ se encuentra a menos de 5 unidades de 1/3.
+* **(vi)** $a$ se encuentra a la izquierda de -5 o a la derecha de 5.
+
+## Ejercicio 5 (Bonus) +
+
+**Supongamos que $|a - 6| \le 2$ y $|b| \le 3$. (a) ¿Cuál es el valor más grande posible de $|a + b|$? (b) ¿Cuál es el valor más pequeño posible de $|a + b|$?**

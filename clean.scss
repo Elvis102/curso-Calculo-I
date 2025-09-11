@@ -281,7 +281,22 @@ $selection-bg: #26351c !default;
 }
 
 
+/* Estilo para el fondo general del callout (azul muy bajo) */
+.callout-note {
+  background-color: #e4fbfb !important; /* Un azul muy pálido */
+  border-color: #5086c1 !important; /* Un borde azul medio */
+  font-size: 1.1em; /* Si quieres mantener la fuente más grande */
+}
 
+/* Estilo para la cabecera del callout (azul un poco más encendido) */
+.callout-note .callout-header {
+  background-color: #bfeeff  !important; /* Un azul más claro y encendido */
+}
+
+/* Opcional: Para el icono si quieres que coincida mejor */
+.callout-note .callout-icon {
+    color: #B4C1D0  !important; /* Un azul más oscuro para el icono */
+}
 
 
 

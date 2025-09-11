@@ -1,0 +1,71 @@
+---
+title: "Números Reales"
+subtitle: "Tarea_0.1B"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+---
+
+## Ejercicio 1
+
+1.  **Da un ejemplo de números $a$ y $b$ tal que $a < b$ y $|a| > |b|$.**
+
+2.  **¿Qué números satisfacen $|a| = a$? ¿Cuáles satisfacen $|a| = -a$? ¿Qué hay de $-|a| = a$?** 
+
+3.  **Da un ejemplo de números $a$ y $b$ tal que $|a+b| < |a| + |b|$.** 
+
+4.  **¿Cuáles son las coordenadas del punto que se encuentra en la intersección de las líneas $x = 9$ y $y = -4$?**
+
+## Ejercicio 2
+
+**En los Ejercicios 6-8, expresa el intervalo en términos de una desigualdad que involucre valor absoluto.**
+
+### 6. $[-4, 0]$
+
+
+### 7. $[1, 5]$
+
+
+### 8. $(-2, 8)$
+
+## Ejercicio 3
+
+**En los Ejercicios 13-18, expresa el conjunto de números $x$ que satisfacen la condición dada como un intervalo.**
+
+### 13. $|x| < 4$
+
+### 14. $|x| \le 9$
+
+### 15. $|x - 4| < 2$
+
+### 16. $|x + 7| < 2$
+
+### 17. $|4x - 1| \le 8$
+
+### 18. $|3x + 5| < 1$
+
+## Ejercicio 3
+
+**Empareja (a)–(f) con (i)–(vi).**
+
+(a) $a > 3$ 
+(b) $|a - 5| < \frac{1}{3}$ 
+(c) $|a - \frac{1}{3}| < 5$ 
+(d) $|a| > 5$ 
+(e) $|a - 4| < 3$ 
+(f) $1 \le a \le 5$ 
+
+* **(i)** $a$ se encuentra a la derecha de 3.
+* **(ii)** $a$ se encuentra entre 1 y 7.
+* **(iii)** La distancia de $a$ a 5 es menor que 1/3.
+* **(iv)** La distancia de $a$ a 3 es como máximo 2.
+* **(v)** $a$ se encuentra a menos de 5 unidades de 1/3.
+* **(vi)** $a$ se encuentra a la izquierda de -5 o a la derecha de 5.
+
+## Ejercicio 5 (Bonus) +
+
+**Prueba que $||x| - |y|| \le |x - y|$.**
+

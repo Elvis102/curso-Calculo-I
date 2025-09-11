@@ -1,0 +1,1720 @@
+---
+title: Cálculo I
+subtitle: Geometría analítica de la Reta
+toc: false
+format:
+  revealjs: 
+    theme: [default, clean.scss]
+    slide-number: true
+    slide-tone: false
+    chalkboard:
+      chalk-width: 2          # grosor de la tiza (más pequeño = más delgado)
+      boardmarker-width: 2    # grosor del marcador
+    footer: | 
+      © 2025 Elvis Sánchez – Universidad Técnica de Machala
+  html:
+   embed-resources: true
+   pdf-max-pages-per-slide : true
+ 
+author:
+  - name: Elvis M. Sánchez Rogel
+    orcid: 0009-0001-6662-2211
+    email: emsanchez@utmachala.edu.ec
+    affiliations: Universidad Técnica de Machala
+date: last-modified
+logo: Images/Utmach-logo.png
+lang: es
+
+#runtime: shiny_prerendered
+---
+
+```{r}
+#| context: setup
+#addResourcePath("Images", "Images")
+```
+
+
+## [**LA GRAFICA DE UNA FUNCION**]{.bg style="--col: #ffff00"} {.scrollable} (16 min)
+
+![](Images/f-6.png)
+
+## El cociente $\frac{f(x+h)-f(x)}{(x+h)-x}$
+
+:::{.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1em;"}
+El **cociente** [**$\frac{f(x+h)-f(x)}{(x+h)-x}$**]{.alert}, que es la [**TASA DE CAMBIO**]{.alert} de la funcion $f: \mathfrak{R}\longmapsto \mathfrak{R}$ si la [**variable independiente**]{.alert} varia desde **"x"** hasta **"x+h"**, indica cuantas unidades varia la variable dependiente por cada unidad de variacion de la [**variable independiente**]{.alert}.
+:::
+
+::: colmuns
+::: {.column width="40%"}
+![](Images/f-7.png)
+ si $f(x) =x^2$,es:
+
+ $$
+ \begin{array}{ll}
+ TC & =\frac{f(x+h)-f(x)}{(x+h)-x}=\frac{(x+h)^2-x^2}{h}\\
+&=\frac{2xh+h^2}{h}= 2.x+h \equiv tg(\theta)
+\end{array}
+ $$
+:::
+
+::: {.column width="60%"}
+![](Images/f-8.png)
+:::
+:::
+
+## [**OTRAS NOTACIONES DE FUNCIONES**]{.bg style="--col: #ffff00"} {.scrollable}  (6 min)
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+A veces, trabajando con una función $f: \mathfrak{R} \longrightarrow \mathfrak{R}$, para abreviar, se denota [**"y"**]{.alert} al número real [**$f(x)$**]{.alert} que **"f"** asocia a **"x"**.
+
+![](Images/f-9.png)
+:::
+
+Por ejemplo, en vez de escribir:
+$$
+f(x) = 3x - 1 \quad ; \quad f(x) = x \ln(x) \quad ; \quad f(x) = \sin(x^2)
+$$
+se escribe:
+$$
+y = 3x - 1 \quad ; \quad y = x \ln(x) \quad ; \quad y = \sin(x^2)
+$$
+
+[**Esta notación no es recomendable para los principiantes, porque con ella es más fácil que se les despiste lo esencial**]{.alert}. Y lo esencial ahora es asimilar que tras [**"f(x)"**]{.alert} hay cinco protagonistas: el conjunto [**$\mathfrak{R}_{\text{inicial}}$**]{.alert}, el [**$\mathfrak{R}_{\text{final}}$**]{.alert}, la correspondencia [**$"f"$**]{.alert} que asocia elementos de [**$\mathfrak{R}_{\text{inicial}}$**]{.alert} con elementos de [**$\mathfrak{R}_{\text{final}}$**]{.alert}, el número [**$x \in \mathfrak{R}_{\text{inicial}}$**]{.alert}, y el número [**$f(x) \in \mathfrak{R}_{\text{final}}$**]{.alert} que [**"f"**]{.alert} asocia a [**"x"**]{.alert}. Nuestro cerebro debe ser capaz de estar pendiente de los cinco simultáneamente.
+
+## [**FUNCIONES UNIFORMES**]{.bg style="--col: #ffff00"} {.scrollable} (5 min)
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+Se dice que la función $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ es **uniforme** si cada [**$x \in \mathfrak{R}_{\text{inicial}}$**]{.alert} que tiene imagen en [**$\mathfrak{R}_{\text{final}}$**]{.alert}, tiene una **única imagen**.
+:::
+
+Por ejemplo, la función "f" tal que $f(x)=1+x^2$ es uniforme, pues cada número real "x" tiene una única imagen.  
+Por otro lado, la función "g" tal que $(g(x))^2=1+x^2$ no es uniforme, pues $(g(x))^2=1+x^2 \Longrightarrow g(x)=\pm \sqrt{1+x^2}$; o sea, cada número real "x" tiene **dos imágenes posibles**.
+
+$$g(7)=\pm \sqrt{1+7^2}=\pm \sqrt{50} \quad ;\quad g(4)=\pm \sqrt{1+(-4)^2}=\pm \sqrt{17}$$
+
+::: {.bg style="background-color:#ADD8FF;padding:0.25em; border-left:6px solid #ADD8FF;"}
+
+::: center
+![](Images/f-10.png)
+:::
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+Si la función [**"f"**]{.alert} es uniforme, las paralelas al eje de ordenadas no cortan o cortan en un único punto a la gráfica de [**"f"**]{.alert}.  
+Si [**"f"**]{.alert} no es uniforme, hay rectas paralelas al eje de ordenadas que cortan a dicha curva en dos o más puntos.
+:::
+:::
+
+## [**Operaciones con funciones**]{.bg style="--col: #ffff00"} {.scrollable} ()
+
+::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"} (4.20 min)
+
+- **$f = u + v$** es la función tal que **$f(x) = u(x) + v(x)$**
+
+- **$f = u \cdot v$** es la función tal que **$f(x) = u(x) \cdot v(x)$**
+
+- **$f = \frac{u}{v}$** es la función tal que **$f(x) = \frac{u(x)}{v(x)}$**
+
+- **$f = u^v$** es la función tal que **$f(x) = (u(x))^{v(x)}$**
+
+- **$f = \sqrt[k]{u}$** es la función tal que **$f(x) = \sqrt[k]{u(x)},\quad k \equiv \text{constante}$**
+
+- **$f = \log_k{u}$** es la función tal que **$f(x) = \log_k{u(x)},\quad k > 0 \quad ; \quad k \neq 1$**
+:::
+
+Por ejemplo, si $u: \mathfrak{R} \longrightarrow \mathfrak{R}$ y $v: \mathfrak{R} \longrightarrow \mathfrak{R}$ son tales que $u(x) = x^2$ y $v(x) = 5^x$:
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+
+- **$f = u + v$** es la función tal que **$f(x) = x^2 + 5^x$**
+
+- **$f = u \cdot v$** es la función tal que **$f(x) = x^2 \cdot 5^x$**
+
+- **$f = \frac{u}{v}$** es la función tal que **$f(x) = \frac{x^2}{5^x}$**
+
+- **$f = u^v$** es la función tal que **$f(x) = (x^2)^{5^x}$**
+
+- **$f = \sqrt[k]{u}$** es la función tal que **$f(x) = \sqrt[7]{x^2},\quad k \equiv 7$**
+
+- **$f = \log_k{u}$** es la función tal que **$f(x) = \log_5{x^2},\quad k = 5$**
+:::
+
+## [**LAS RECTAS**]{.bg style="--col: #ffff00"} {.scrollable} 
+
+[La gráfica de la $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ es una curva plana]{.bg style="background-color: #000000; color: white; font-weight: bold; font-size: 1.5em;"}
+
+Siendo constantes **"a"** y **"b"**, la gráfica de toda función [**$f: \mathfrak{R} \longrightarrow \mathfrak{R}$**]{.alert} tal que $f(x) = ax + b$ es una **recta** no perpendicular al eje de abscisas.
+
+::: columns
+
+::: {.column width="40%"}
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size: 0.85em;margin: 0.5em;"}
+Como **$f(0) = a \cdot 0 + b = b$**, la recta **[corta]{.alert}** al eje de ordenadas en el punto **"b"** (es decir, $\color{blue}{\text{la ordenada de la recta en el origen}}$).
+  
+- La recta **corta** al eje de abscisas en el punto **"x"** tal que **$f(x) = 0$**:
+  
+  $$
+  f(x) = ax + b = 0 \Longrightarrow x = \frac{-b}{a}
+  $$
+
+- Al número [**$\displaystyle\frac{-b}{a}$**]{.alert} se le llama la **abscisa de la recta en el origen**.
+:::
+:::
+
+::: {.column width="60%"}
+::: center
+![](Images/f-11.png)
+:::
+:::
+
+:::
+
+## [**LAS RECTAS**]{.bg style="--col: #ffff00"} {.scrollable}
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #fdf6e3;font-size: 1.2em;"}
+Para dibujar una recta basta posicionar dos puntos de ella 
+:::
+
+**Por ejemplo**, para dibujar la recta correspondiente a la $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ tal que $f(x)=2+3x$,los novatos posicionan dos puntos cualesquiera de ella:
+$$
+\left\{
+  \begin{array}{ll}
+  f(1)= 2+3.(1)=5 \Longrightarrow \text{la recta pasa por} \quad P=(1,5) \\
+  f(2)= 2+3.(2)=8 \Longrightarrow \text{la recta pasa por} \quad Q=(2,8) \\
+  \end{array}
+\right.
+$$
+
+Los que no se chupan el dedo dibujan la recta calculando sus intersecciones con los ejes, pues asi tardan menos:
+$$
+\left\{
+  \begin{array}{ll}
+  f(0)= 2+3.(0)=2 \Longrightarrow \text{la recta pasa por} \quad (0,2) \\
+  f(x)= 2+3.(x)=0 \Longrightarrow x=-2/3 \Longrightarrow \text{la recta pasa por} \quad (-2/3,0) \\
+  \end{array}
+\right.
+$$
+
+::: columns
+
+::: {.column width="50%"}
+![](Images/f-12.png)
+:::
+
+::: {.column width="50%"}
+![](Images/f-14.png)
+:::
+
+:::
+
+## [Si $f(x) = a \cdot x + b$, se dice que **"f"** es una [función lineal]{.bg style="--col:#000000;color: white; font-weight: bold;"}]{.bg style="--col:#ffff00"} {.scrollable}
+
+Siendo $P = (x, f(x))$ un punto genérico de la recta $f(x) = ax + b$, se cumple:
+
+$$
+\Large f(x) - b = a \cdot x
+$$
+
+::: columns
+
+:::{.column width="60%"}
+::: {.bg style="background-color:#fdf6e3; padding:0em;font-size: 0.7em;mrgin:0em;"}
+
+Es decir, la diferencia $f(x) - b$ entre la ordenada [**"$f(x)$"**]{.alert} del punto [**"P"**]{.alert} y la ordenada [**"b"**]{.alert} de la recta en el origen es **proporcional** a la abscisa [**"x"**]{.alert} de [**"P"**]{.alert}.  
+La **constante de proporcionalidad** [**"a"**]{.alert} coincide con la **tangente del ángulo** $\theta$ que forma la recta con la dirección positiva del eje de abscisas:
+
+$$
+f(x) - b = ax \Longrightarrow \frac{f(x) - b}{x} = a = \tan(\theta)
+$$
+
+:::
+:::
+
+:::{.column width="40%"}
+
+::: {.bg style="background-color:none; padding:0em;font-size: 0.7em;margin:-1.5em;align:right;"}
+![](Images/f-15.png){width="60%"}
+:::
+
+:::
+
+
+
+:::
+
+De [**"$a$"**]{.alert} se dice que es la pendiente de la recta .
+
+[**Observa:**]{.alert} si $a=0 \Longrightarrow \theta  \Longrightarrow$ la recta es paralela al eje de abcisas. 
+:::
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = 5x + 2$, entonces $f(0) = 2$, que es la ordenada al origen. Como la [**pendiente**]{.alert} es $5$, la recta forma un ángulo $\theta$ con la dirección positiva del eje $x$ tal que:$\tan(\theta) = 5 \quad \Rightarrow \quad \theta = \arctan(5) \approx 78.69^\circ$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-1.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/es-0.png){width="45%"}
+:::
+:::
+:::
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = -3x + 4$, es $f(0) = 4$. Como la [**pendiente**]{.alert} es $-3$, la recta forma un ángulo $\theta$ con la [**dirección positiva**]{.alert} del eje abcisas un angulo $\tan(\theta)$ cuya tangente es "$-3$"; o sea; $\theta=arctan(-3)=108.43^{\circ}$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-3.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/es-4.png){width="45%"}
+:::
+:::
+:::
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = -3x + 4$, es $f(0) = 4$. Como la [**pendiente**]{.alert} es $-3$, la recta forma un ángulo $\theta$ con la [**dirección positiva**]{.alert} del eje abcisas un angulo $\tan(\theta)$ cuya tangente es **"$-3$"**; o sea; $\theta=arctan(-3)=108.43^{\circ}$
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-3.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/es-4.png){width="45%"}
+:::
+:::
+:::
+
+
+## RECTAS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1.2em;"}
+
+::: columns
+
+:::{.column width="70%"}
+Sea $f(x) = ax + b$. A la constante [**"a"**]{.alert} se le llama la [**pendiente**]{.alert} de la recta, y representa la tangente del ángulo [**$\theta$**]{.alert} que la recta forma con la [**dirección positiva**]{.alert} del eje de abscisas.
+:::
+
+:::{.column width="30%"}
+![](Images/f-16.png)
+:::
+
+:::
+:::
+
+**Ejemplo:**  Si $f(x) = 3$, es $f(0) = 3$. Como la [**pendiente**]{.alert} es $0$, la recta paralela al eje de la abcisas.
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/es-5.png){width="50%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/f-17.png){width="45%"}
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+::: center
+![](Images/f-18.png){width="45%"}
+:::
+:::
+
+:::
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (17 min)
+
+::: columns
+::: {.column width="35%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.86em;"}
+Sea $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ la función cuya grafica es la recta que pasa por los puntos $M=(c_0,
+d_0)$ y $N=(c_1, d_1)$ y $P=(x,f(x))$ es un [punto genérico]{.alert} de la recta.
+
+De la figura, por la [semejanza de los triangulos]{.alert} se tiene que MTN y MSP, resulta:
+
+$$
+\frac{MS}{MT} = \frac{PS}{NT} 
+$$
+o sea:
+
+
+$$
+\frac{x_0 - c_0}{c_1 - c_0} = \frac{f(x) - d_0}{d_1 - d_0}
+$$
+:::
+:::
+
+::: {.column width="65%"}
+::: center
+![](Images/f-19.png){width="100%"}
+:::
+:::
+:::
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplos)
+
+[RECETA]{.blue}: Para la función cuya gráfica es la recta que pasa por los puntos $(M=(c_0,
+d_0))$ y $(N=(c_1, d_1))$ es:
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.86em;text-align: center"}
+
+$$
+\frac{x - c_0}{c_1 - c_0} =\frac{f(x) - d_0}{d_1 - d_0} 
+$$
+
+:::
+
+[Por ejemplo]{.alert}: la recta $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ que pasa por los puntos $M=(-4, -1)$ y $N=(2, -3)$ es:
+$$
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (-4)}{2 - (-4)} = \frac{f(x) - (-1)}{-3 - (-1)} \\ 
+\end{array}
+\right.
+\Longrightarrow
+f(x) = -\frac{1}{3}x - \frac{7}{3}
+$$
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplo2)
+
+::: {.bg style="padding:0.25em; font-size: 0.8em;"}
+[RECETA]{.blue}: Para la función cuya gráfica es la recta que pasa por los puntos $(M=(c_0,
+d_0))$ y $(N=(c_1, d_1))$ es:
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.8em;text-align: center"}
+
+$$
+\frac{x - c_0}{c_1 - c_0} =\frac{f(x) - d_0}{d_1 - d_0} 
+$$
+
+:::
+
+[Por ejemplo]{.alert}: la recta $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ que pasa por los puntos $M=(3, 1)$ y $N=(7, 5)$ es:
+$$
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (3)}{7 - (3)} = \frac{f(x) - (1)}{5 - (1)} \\ 
+\end{array}
+\right.
+\Longrightarrow
+f(x) = x - 2
+$$
+
+[De todos modos:]{.alert} si $f(x)0 ax+b$ es la ercta buscada, determinaremos $"a"$ y $"b"$ al [exigir]{.alert} que la recta pase por los puntos $M=(3, 1)$ y $N=(7, 5)$.
+
+$$
+\left.
+\begin{array}{ll}
+\displaystyle f(x)=1 \longrightarrow 3.a + b = 1 \\
+\displaystyle f(x)=1 \longrightarrow 7.a + b = 5
+\end{array}
+\right\}
+\Longrightarrow
+\left\{
+  \begin{array}{l}
+   a = 1 \\
+   b = -2
+   \end{array}
+\right\} \longrightarrow
+f(x) = x - 2
+$$
+:::
+
+## RECTA QUE PASA POR DOS PUNTOS CONOCIDOS (Ejemplo 2. continuación)
+
+::: columns
+::: {.column width="35%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.9em;"}
+
+Si $(x, f(x))$ son las coordenadas de un [punto genérico]{.alert}, de la recta pasa por los puntos $(3, 1)$ y $(7, 5)$ de la figura, por [semejanza de triangulos]{.alert}, resulta que:
+
+$$
+\frac{x - 3}{7 - 3} = \frac{f(x) - 1}{5 - 1}
+$$
+
+[De donde se obtine:]{.blue}
+
+$$f(x) = x - 2$$
+:::
+:::
+
+::: {.column width="65%"}
+::: center
+![](Images/f-20.png){width="100%"}
+:::
+:::
+:::
+
+## RECTA (Ejemplo 3. ¡Como para examen!) (16 min)
+
+::: {.fragment fragment-index="1"}
+
+::: {.bg style="background-color:#fdf6e3; padding:0em; font-size: 0.8em; font-weight: bold;"}
+Un vendedor de ilusiones sabe que si un día el precio es de $2$ euros/kilo, vende 12 kilos; y si el precio es de $5$ euros/kilo, vende 8 kilos. Haga una estimación [lineal]{.alert} de la cantidad vendida si el precio hoy es de $3$ euros/kilo. Si un día quiere vender 9 kilos, ¿qué precio a de fijar?
+:::
+:::
+
+::: {.fragment fragment-index="6"}
+
+::: {.bg style="padding:0em; font-size: 0.65em;font-weight: bold;margin-top:-1em;"}
+Como de [[Precio]{.bg style="--col: #b0e0e6"} $\overset{f}\longrightarrow$ [Cantidad]{.bg style="--col: #b0e0e6"}]{.alert} sólo sabemos que $f(2)=12$ y $f(5)=8$, entonces es [imposible]{.blue} conocer $f(3)=?$.
+[Estimaciones lineales]{.alert} $\Longrightarrow$ consideremos que [[Precio]{.bg style="--col: #b0e0e6"} $\overset{f}\longrightarrow$ [Cantidad]{.bg style="--col: #b0e0e6"}]{.alert} es la recta que pasa por los puntos $(2, 12)$ y $(5, 8)$, por lo que:
+$$
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - (2)}{5 - (2)} = \frac{f(x) - (12)}{8 - (12)} \\ 
+\end{array}
+\right.
+\Longrightarrow
+f(x) = -\frac{4}{3}x + \frac{44}{3}\Longrightarrow
+f(\color{red}{3}) = -\frac{4}{3}(\color{red}{3}) + \frac{44}{3} = \color{red}{\frac{32}{3}} \, \color{red}{\text{kilos}}
+$$
+
+::: 
+:::
+
+::: columns
+::: {.column width="30%"}
+::: {.fragment fragment-index="7"}
+::: {.bg style="padding:0em; font-size: 0.8em;font-weight: bold;margin-top:-1em;"}
+[Observación:]{.blue} Más allá del resultado puntual, fíjate bien: las rectas nos han salvado la [vida]{.alert}. Recuerda que es [imposible]{.blue} conocer el valor de $f(3)$ sin asumir que $f$ es la recta que pasa por los puntos $(2,12)$ y $(5,8)$. Solo bajo esa suposición, podemos extender razonadamente el comportamiento de la función.
+:::
+:::
+:::
+
+::: {.column width="70%"}
+::: {.r-stack}
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/f-21.png){width="100%"}
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+::: center
+![](Images/f-22.png){width="100%"}
+:::
+:::
+
+::: {.fragment fragment-index="4"}
+::: center
+![](Images/f-23.png){width="100%"}
+:::
+:::
+
+::: {.fragment fragment-index="5"}
+::: center
+![](Images/f-24.png){width="100%"}
+:::
+:::
+
+::: {.fragment fragment-index="8"}
+::: center
+![](Images/f-25.png){width="100%"}
+:::
+:::
+:::
+:::
+:::
+
+## RECTA (Ejemplo 3 continuación. ¡Como para examen!)
+
+::: {.fragment fragment-index="1"}
+
+::: {.bg style="background-color:#fdf6e3; padding:0em; font-size: 1em; font-weight: bold;"}
+Un vendedor de ilusiones sabe que si un día el precio es de $2$ euros/kilo, vende 12 kilos; y si el precio es de $5$ euros/kilo, vende 8 kilos. Haga una estimación [lineal]{.alert} de la cantidad vendida si el precio hoy es de $3$ euros/kilo. Si un día quiere vender 9 kilos, ¿qué precio a de fijar?
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/f-26.png){width="73%"}
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+$$
+\left.
+f(x)=9
+\right.
+\Longrightarrow f(\color{red}{x}) = -\frac{4}{3}(\color{red}{x}) + \frac{44}{3} =9 \Longrightarrow x=\color{red}{\frac{17}{4}} \, \color{red}{\text{euros/kilos}}
+$$
+:::
+
+## RECTA QUE PASA POR POR UN PUNTO CONOCIDO CON PENDIENTE CONOCIDA (4 min)
+
+::: columns
+::: {.column width="30%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.75em;"}
+Sea $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ la función cuya grafica es la recta que pasa por el punto $M=(c_0,
+d_0)$ con [pendiente]{.alert} $"a"$. Sea $P=(x,f(x))$ un punto generico de la recta.
+
+**De la figura, se deduce que:**
+
+::: {.bg style="background-color:#b0e0e6; padding:0.1em; font-size: 0.85em;"}
+$$
+\tan \theta =\frac{f(x)-d_0}{x-c_0} 
+$$
+$$
+\color{red}{\Longrightarrow f(x)=d_0+a(x-c_0)}
+$$
+
+:::
+:::
+:::
+
+::: {.column width="60%"}
+![](Images/f-27.png){width="90%"}
+:::
+
+::: {.bg style="padding:0em;margin-top:-1.2em; font-size: 0.82em;"}
+
+::: {.fragment fragment-index="1"}
+[Por ejemplo]{.alert}, la recta que pasa por el punto $(6,-4)$ con pendiente $3$ es $f(x)=-4+3(x-6)=3x+22$.
+:::
+
+::: {.fragment fragment-index="2"}
+[Por ejemplo]{.alert}, la recta que pasa por el punto $(-5,7)$ con pendiente $-4$ es $f(x)=7-4(x-(-5))=-4x-13$.
+:::
+:::
+
+:::
+
+
+## RECTA QUE PASA POR POR UN PUNTO CONOCIDO CON PENDIENTE CONOCIDA
+
+::: columns
+::: {.column width="30%"}
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 0.75em;"}
+Sea $f: \mathfrak{R} \longrightarrow \mathfrak{R}$ la función cuya gráfica es la recta que pasa por el punto $M=(c_0,
+d_0)$ con [pendiente]{.alert} $"a"$. Sea $P=(x,f(x))$ un punto genérico de la recta.
+
+**De la figura, se deduce que:**
+
+::: {.bg style="background-color:#b0e0e6; padding:0.1em; font-size: 0.85em;"}
+$$
+\tan \theta =\frac{f(x)-d_0}{x-c_0} 
+$$
+$$
+\color{red}{\Longrightarrow f(x)=d_0+a(x-c_0)}
+$$
+:::
+:::
+:::
+
+::: {.column width="60%"}
+![](Images/f-27.png){width="90%"}
+:::
+:::
+
+::: {.bg style="padding:0em;margin-top:-1.2em; font-size: 0.82em;"}
+::: columns
+::: {.column width="40%"}
+::: {.fragment fragment-index="1"}
+[Por ejemplo]{.alert}, la recta que pasa por el punto $(6,2)$ con [pendiente]{.blue} $0$ es:
+$$f(x)=2+0(x-6)=2$$
+:::
+:::
+::: {.column width="60%"}
+::: {.fragment fragment-index="2"}
+![](Images/f-28.png){width="65%"}
+:::
+:::
+:::
+:::
+
+## LA RECTA CON OTRAS NOTACIONES (5  min)
+
+::: {.bg style="padding:0em;margin-top:0em; font-size: 0.82em;"}
+::: center
+![](Images/f-29.png){width="85%"}
+:::
+:::
+
+::: {.bg style="background-color:#fdf6e3;padding:0em;margin-top:-1.2em; font-size: 0.8em;"}
+Por ejemplo: Si $3y-\sqrt{3}x=12$, [despejando]{.alert} "**y**", es $y=\frac{\sqrt{3}}{3}x+4$.
+
+La ordenada en el origen es "4" $(x=0 \longrightarrow y=4)$ y la pendiente es $\frac{\sqrt{3}}{3}$: la recta forma con la dirección positiva del eje de abscisas un ángulo $\theta$ cuya tangente es $\frac{\sqrt{3}}{3}$, por lo que $\theta= \arctan \frac{\sqrt{3}}{3}$.
+:::
+
+::: {.bg style="padding:0em;margin-top:-0.5em; font-size: 0.82em;"}
+::: center
+![](Images/f-30.png){width="65%"}
+:::
+:::
+
+## LA RECTA CON OTRAS NOTACIONES
+
+::: {.bg style="padding:0em;margin-top:0em; font-size: 0.82em;"}
+::: center
+![](Images/f-29.png){width="85%"}
+:::
+:::
+
+::: {.bg style="background-color:#fdf6e3;padding:0em; margin-top:-0.7em; font-size: 0.9em;"}
+**Receta:** Para una función $f$ cuya gráfica es la recta que pasa por los puntos $(c_0,d_0)$ y $(c_1,d_1)$, se cumple:
+
+::: center
+[$$\frac{x - c_0}{c_1 - c_0} = \frac{f(x) - d_0}{d_1 - d_0}$$]{.bg style="--col:#ffffcc"}
+:::
+:::
+
+::: {.bg style="padding:0.5em; margin-top:-0.7em; font-size: 0.8em;"}
+**Ejemplo:** La recta que pasa por los puntos $(5,7)$ y $(8,9)$ se obtiene así:
+
+::: center
+$$
+\left.
+\begin{array}{l}
+\displaystyle \frac{x - 5}{8 - 5} = \frac{y - 7}{9 - 7}
+\end{array}
+\right.
+\Longrightarrow
+y = \frac{2}{3}x + \frac{11}{3}
+$$
+:::
+:::
+
+## LA RECTA CON OTRAS NOTACIONES 
+
+::: {.bg style="padding:0em;margin-top:0em; font-size: 0.82em;"}
+::: center
+![](Images/f-29.png){width="85%"}
+:::
+:::
+
+::: {.bg style="background-color:#fdf6e3;padding:0.5em; margin-top:-0.5em; font-size: 1em;"}
+**Receta:** Para una función $f$ cuya gráfica es la [recta]{.alert} que pasa por el punto $M(c_0,d_0)$ con [pendiente]{.alert} "a", es:
+
+::: center
+[$$f(x)=d_0+a(x-c_0)$$]{.bg style="--col:#ffffcc"}
+:::
+:::
+
+::: {.bg style="padding:0.5em; margin-top:-0.5em; font-size: 0.8em;"}
+**Ejemplo:** La recta que pasa por el punto $(6,-4$) con pendiente 3:
+
+::: center
+$$
+y = -4 +3(x-6)=3x-22
+$$
+:::
+:::
+
+## PARALELISMO Y PERPENDICULARIDAD DE LAS RECTAS (10 min)
+
+::: {.bg style="padding:0em;margin-top:0em; font-size: 0.82em;"}
+::: center
+![](Images/f-29.png){width="85%"}
+:::
+:::
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/f-31.png){width="85%"}
+:::
+:::
+
+## PARALELISMO Y PERPENDICULARIDAD DE LAS RECTAS (Ejemplos)
+
+::: {.fragment fragment-index="1"}
+[Por ejemplo]{.blue}, las rectas [$y=3x-7$]{.alert} e [$y=3x+5$]{.alert} son paralelas, pues ambas tienen pendiente 3.
+:::
+
+::: {.fragment fragment-index="2"}
+[Por ejemplo]{.blue}, las rectas [$y=5x-2$]{.alert} e [$y=2x+1$]{.alert} no son paralelas, pues no tienen igual pendiente.
+:::
+
+::: {.fragment fragment-index="3"}
+[Por ejemplo]{.blue}, las rectas [$2y=4x-3$]{.alert} e [$y=2x+9$]{.alert} son paralelas, pues no ambas tienen pendiente 2.
+$$
+2y=4x-3 \, \Longrightarrow \, y=2x-\frac{3}{2}
+$$
+:::
+
+## PARALELISMO Y PERPENDICULARIDAD DE LAS RECTAS 
+
+[**Receta**]{.bg style="--col: #b0e0e6"}: 
+
+::: {.bg style="background-color:#fdf6e3;padding:0.5em; margin-top:-0.5em; font-size: 0.9em;"}
+ [Recta]{.alert} que pasa por el punto $M(c_0,d_0)$ con [pendiente]{.alert} "a", es: [$f(x)=d_0+a(x-c_0)$]{.bg style="--col:#b0e0e6"}
+:::
+
+::: {.bg style="padding:0em;margin-top:-0.7em; font-size: 0.82em;"}
+
+
+::: {.fragment fragment-index="1"}
+[Por ejemplo]{.blue}, la recta que pasa por el punto $M(2,3)$ y es paralela a la recta $y=5x+7$ es: [$y=3x+5(x-2)$]{.alert}
+:::
+
+::: columns
+::: {.column width="40%"}
+::: {.fragment fragment-index="2"}
+[Por ejemplo]{.blue}, la recta que pasa por el punto $M(9,4)$ y es paralela a la recta que pasa por los puntos $N(1,2)$ y $S(6,5)$ es:
+:::
+:::
+
+::: {.column width="60%"}
+::: {.fragment fragment-index="3"}
+::: {.bg style="padding:0em;margin-top:-2.25em; font-size: 0.82em;"}
+![](Images/f-32.png){width="90%"}
+:::
+:::
+:::
+:::
+:::
+
+## PARALELISMO Y PERPENDICULARIDAD DE LAS RECTAS 
+ 
+ **Tarea:**
+
+[Por ejemplo]{.blue}, la recta que pasa por el punto $M(9,4)$ y es paralela a la recta que pasa por los puntos $N(1,5)$ y $S(6,2)$.
+
+## PARALELISMO Y PERPENDICULARIDAD DE LAS RECTAS 
+
+[**Perpendicularidad**]{.bg style="--col: #b0e0e6"}: 
+
+::: {.bg style="background-color:#fdf6e3;padding:0.5em; margin-top:-0.5em; font-size: 0.9em;"}
+ Dos rectas son [perpendiculares]{.alert} solo si el producto de sus respectivas pendientes es -1. 
+ $$
+ m_1 \cdot m_2 = -1
+ $$
+:::
+
+::: {.bg style="padding:0.5em; margin-top:-1.5em; font-size: 0.9em;"}
+::: center
+![](Images/f-33.png){width="50%"}
+:::
+:::
+
+::: {.bg style="padding:0.5em; margin-top:-1.5em; font-size: 0.9em;"}
+$$
+\tan(\theta+\frac{\pi}{2})=\frac{sin(\theta+\frac{\pi}{2})}{\cos(\theta+\frac{\pi}{2})}=\frac{cos(\theta)}{-sin(\theta)}=\frac{1}{\tan(\theta)} \Longrightarrow (\tan(\theta)). (\tan(\theta+\frac{\pi}{2}))
+$$
+:::
+
+## PARALELISMO Y PERPENDICULARIDAD DE LAS RECTAS
+
+[**Perpendicularidad**]{.bg style="--col: #b0e0e6"}: 
+
+::: {.bg style="background-color:#fdf6e3;padding:0em; margin-top:-0.5em; font-size: 0.9em;"}
+ Dos rectas son [perpendiculares]{.alert} solo si el producto de sus respectivas pendientes es -1. 
+ $$
+ m_1 \cdot m_2 = -1
+ $$
+:::
+
+::: {.bg style="padding:0em; margin-top:-1em; font-size: 0.75em;"}
+
+[Por ejemplo]{.blue}, la recta que pasa por el punto $M=(2,3)$ y es perpendicular a la recta $y=5x-7$ es: 
+$$
+\color{red}{y=3+(-\frac{1}{5}).(x-2)}
+$$.
+:::
+
+::: {.bg style="padding:0em; margin-top:-3em; font-size: 0.75em"}
+[Por ejemplo]{.blue}, la recta que pasa por el punto $M=(9,4)$ y es perpendicular a la recta que pasa por los puntos $N=(2,0)$ y $S=(3,-6)$ es:
+:::
+
+::: {.bg style="padding:0em; margin-top:-.5em; font-size: 0.85em"}
+::: columns
+::: {.column width="60%"}
+La pendiente de la recta que pasa por los puntos: 
+
+::: {.bg style="--col:#e0ffff; text-align:center;; font-size: 1em"}
+$$
+\frac{(-6)-0}{3-2} = -6 \equiv \frac{\text{Diferencia de ordenadas}}{\text{Diferencia de abscisas}}
+$$
+:::
+
+:::
+
+::: {.column width="40%"}
+entonces: 
+$$
+\left.
+\begin{array}{lll}
+m_1 \cdot m_2 & = &-1 \\
+-6 \cdot m_2  & = &-1 \\
+          m_2 & = &\frac{1}{6}
+\end{array}
+\right. \Longrightarrow \color{red}{y=4+\frac{1}{6}(x-9)}
+$$
+:::
+:::
+:::
+
+## LA PARABOLA (3:13 min)
+
+::: {.bg style="background-color:#fdf6e3; padding:0em; margin-top:-0.5em; font-size:0.7em; border-radius: 0.5em;"}
+
+Sea $a \neq 0$ y $a, b, c$ constantes. Si $f(x) = ax^2 + bx + c$, entonces la gráfica de $f$ es una [parábola de eje vertical]{.alert}.
+
+::: columns
+::: {.column width="50%"}
+- Si $a > 0$, la parábola abre **hacia arriba**.  
+- Si $a < 0$, la parábola abre **hacia abajo**.
+:::
+::: {.column width="50%"}
+[[**Ecuacion 2do grado**]{.bg style="--col: #e0ffff"}$$ax^2+bx+c=0 \, \Longrightarrow x=\frac{-b \pm \sqrt{b^2-4ac}}{2a}$$]{.bg style="--col:#b0e0e6"}
+:::
+:::
+
+:::
+
+::: {.bg style="padding:0em; margin-top:0em; font-size: 0.75em"}
+::: center
+![](Images/f-34.png){width="68%"}
+:::
+:::
+
+## LA PARABOLA (Ejemplos 7:07 min ) 
+
+::: {.bg style="background-color:#fdf6e3; padding:0.8em; margin-top:0em; font-size:1em; border-radius: 0.5em;"}
+
+1. Determine la parabola que pasa por (0,3), (1,2), y (2,3)
+
+2. Determine la parabola que pasa por (1,-1), (3,1), y (0,-2)
+
+3. Determine la parabola que pasa por (0,1), (1,1), (2,3) y (3,7)
+
+4. Determine la parabola que pasa por (0,0), (1,2), (2,3) y (3,0)
+:::
+
+[Supongamos el problema  resuelto:]{.alert}
+
+Sea $f(x)=ax^2+bx+c$ la parabola buscada.
+
+Determinamos "a", "b" y "c" al exigir que pase por los puntos dados.
+
+::: {.bg style="padding:0em; margin-top:-0.5em; font-size:0.8em; border-radius: 0.5em;"}
+$$
+\left.
+\begin{array}{ll}
+f(0)=3 \Longrightarrow a.0^2+b.0+c=3 \\
+f(1)=2 \Longrightarrow a.1^2+b.1+c=2 \\
+f(2)=3 \Longrightarrow a.2^2+b.2+c=3
+\end{array}
+\right\} \Longrightarrow 
+\left\{
+\begin{array}{ll}
+a=1 \\
+b=-2 \\
+c=3 
+\end{array}
+\right\}\Longrightarrow f(x)=x^2-2x+3
+$$
+:::
+
+## FUNCION VALOR ABSOLUTO (7:35 min)
+
+El **valor absoluto** de un número real \( x \) es el [número real no negativo]{.alert} que denotamos como \( |x| \) y se define de la siguiente manera: [$|x| =\left\{\begin{array}{ll}x & \text{si }x \geq 0 \\-x & \text{si } x < 0\end{array}\right.$]{.bg style="--col:#fdf6e3"}
+
+Algunos ejemplos:
+
+- Como $5 > 0$, se tiene que $|5| = 5$. Como $-7 < 0$, entonces $|-7| = -(-7) = 7$.
+
+También podemos expresar funciones valor absoluto como funciones a trozos:
+
+::: columns
+::: {.column width="50%"}
+::: {.bg style="background-color:#ccf3cc; padding:0em;font-size:0.8em;font-size:0.8em;margin-top:1.3em; "}
+$$
+f(x) = |u(x)| =
+\left\{
+\begin{array}{ll}
+u(x) & \text{si } u(x) \geq 0 \\
+- u(x) & \text{si } u(x) < 0
+\end{array}
+\right.
+$$
+:::
+:::
+
+::: {.column width="50%"}
+![](Images/f-35.png){width="100%"}
+:::
+:::
+
+## FUNCION VALOR ABSOLUTO (Ejemplos) (10min)
+
+::: {.bg style="background-color:#fdf6e3; padding:0.8em; margin-top:0em; font-size:1em; border-radius: 0.5em;"}
+Representar la grafica de $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ en los siguientes casos.
+
+$1) f(x)=|x-2| \quad 2) f(x)=|9-3x| \quad 3) f(x)=|x^2-6x+5|$
+:::
+
+## FUNCIONES A TROZOS (15 min)
+
+
+
+## EL CÍRCULO GONIOMÉTRICO
+
+::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
+
+::: center
+[**RECUERDA**]{.bg style="--col:#ffff00"}
+:::
+
+::: columns
+
+::: {.column width="50%"}
+![](Images/f-37.png)
+
+Para el [ángulo "x"]{.alert}, es:
+
+::: center
+[$\sin^2 x + \cos^2 x = 1$]{.bg style="--col:#ffff00"}
+:::
+:::
+
+::: {.column width="50%"}
+$$
+\left\{
+\begin{array}{ll}
+\sin x = \dfrac{\text{cateto opuesto}}{\text{hipotenusa}} = \dfrac{b}{c} \\
+\cos x = \dfrac{\text{cateto adyacente}}{\text{hipotenusa}} = \dfrac{a}{c} \\
+\tan x = \dfrac{\sin x}{\cos x} = \dfrac{b}{a} \\
+\cot x = \dfrac{\cos x}{\sin x} = \dfrac{a}{b} \\
+\sec x = \dfrac{1}{\cos x} = \dfrac{c}{a} \\
+\csc x = \dfrac{1}{\sin x} = \dfrac{c}{b}
+\end{array}
+\right.
+$$
+:::
+
+:::
+
+:::
+
+## EL CÍRCULO GONIOMÉTRICO
+
+::: columns
+
+::: {.column width="80%"}
+![](Images/f-38.png){width="100%"}
+:::
+
+::: {.column width="20%"}
+
+::: {.bg style="padding:0em; margin-top:0em; font-size:0.65em;"}
+$$
+\text{En} \, OPM:
+\left\{
+\begin{array}{ll}
+\sin x = \frac{PM}{OP} = \color{red}{PM} \\
+\cos x = \frac{OM}{OP} = \color{magenta}{OM}
+\end{array}
+\right.
+$$
+
+$$
+\text{En} \, OQN:
+\left\{
+\begin{array}{ll}
+\tan x = \frac{QN}{ON} = \color{blue}{QN} \\
+\end{array}
+\right.
+$$
+
+$$
+\text{En} \, ORT:
+\left\{
+\begin{array}{ll}
+\cot x = \frac{RT}{OR} = \color{green}{RT} \\
+\end{array}
+\right.
+$$
+
+[Los ángulos siempre se miden en radianes:]{.alert} un [radián]{.blue} es el ángulo tal que la longitud del arco PS coincide con el radio de la circunferencia.  
+Los [360 grados]{.alert} de la circunferencia corresponden a [$2\pi$ radianes]{.alert}; así, expresado en grados, un radián equivale a $\frac{360}{2\pi} \approx 57.29578$ grados.
+:::
+
+:::
+:::
+
+## EL CÍRCULO GONIOMÉTRICO
+
+::: columns
+
+::: {.column width="80%"}
+![](Images/f-39.png){width="100%"}
+:::
+
+::: {.column width="20%"}
+
+::: {.bg style="padding:0em; margin-top:-1.7em; font-size:0.65em;"}
+Las funciones trigonométricas cambian de signo según el cuadrante del ángulo. En el **primer cuadrante**, todas son **positivas**. En el **segundo**, solo el **seno** lo es; en el **tercero**, la **tangente** y **cotangente**; y en el **cuarto**, el **coseno** y la **secante**. Este patrón se recuerda con la frase **"Todos sin tacos"**.
+
+
+:::
+:::
+
+::: {.bg style="padding:0em; margin-top:-1.2em; font-size:0.75em;"}
+
+::: {.table style="background-color:#e0faff; border: 1px solid #ccc; border-radius: 8px; padding: 1em; font-size: 0.95em;"}
+
+::: center
+
+| **Grados** | 0   | 30   | 45                | 60                | 90         | 180        | 270          | 360        |
+|------------|-----|------|-------------------|-------------------|------------|------------|--------------|------------|
+| **Radianes** | $0$ | $\frac{\pi}{6}$ | $\frac{\pi}{4}$ | $\frac{\pi}{3}$ | $\frac{\pi}{2}$ | $\pi$ | $\frac{3\pi}{2}$ | $2\pi$ |
+| **Seno**     | $0$ | $\frac{1}{2}$ | $\frac{\sqrt{2}}{2}$ | $\frac{\sqrt{3}}{2}$ | $1$ | $0$ | $-1$ | $0$ |
+| **Coseno**   | $1$ | $\frac{\sqrt{3}}{2}$ | $\frac{\sqrt{2}}{2}$ | $\frac{1}{2}$ | $0$ | $-1$ | $0$ | $1$ |
+:::
+:::
+
+:::
+:::
+
+## Gráfico de la Función Seno 
+
+![](Images/f-40.png){width="100%"}
+
+
+::: {.bg style="padding:0em; margin-top:-1.2em; font-size:0.75em;"}
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/f-41.png){width="80%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/f-42.png){width="80%"}
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+::: center
+![](Images/f-43.png){width="80%"}
+:::
+:::
+
+::: {.fragment fragment-index="4"}
+::: center
+![](Images/f-44.png){width="80%"}
+:::
+:::
+
+::: {.fragment fragment-index="5"}
+::: center
+![](Images/f-45.png){width="80%"}
+:::
+:::
+
+:::
+
+:::
+
+## DOMINIO DE DEFINICION DE UNA FUNCION (8 min)
+
+::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
+El [dominio de definición]{.alert} de la $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ se denota [Dom(f)]{.alert}, y es el subconjunto de $\mathfrak{R}_{inicial}$ formado por los puntos a los que $f$ les asigna imagen en $\mathfrak{R}_{final}$:
+:::
+
+::: center
+[$$
+Dom(f)= \{ x\in \mathfrak{R} \;| \;f(x)\in \mathfrak{R}\}
+$$]{.bg style="--col: #e0ffff"}
+:::
+
+::: {.bg style="padding:0em; margin-top:-1em; font-size:0.75em;"}
+Si $f(a) \in \mathfrak{R}$ se dice que $f$ [esta definida]{.alert} en el punto $"a"$, y si $f(a) \notin \mathfrak{R}$ se dice que $"f"$ [no está definida]{.alert} en "a".
+:::
+
+::: {.bg style="padding:0em; margin-top:-0.5em; font-size:0.75em;"}
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+
+::: center
+
+![](Images/C_03.jpg){width="80%"}
+
+:::
+
+:::
+
+::: {.fragment fragment-index="2"}
+
+::: center
+
+![](Images/C_07.jpg){width="80%"}
+:::
+
+:::
+
+:::
+:::
+
+Una función real de variable real $f:A \subset \mathfrak{R} \rightarrow \mathfrak{R}$ es una regla que asigna a cada elemento de un primer conjunto $A$, un único elemento de un segundo conjunto $\mathfrak{R}$. Las funciones son relaciones entre los elementos de dos conjuntos.
+
+Se llama **dominio** de la función $f$ al conjunto de valores para los cuales la misma está definida
+
+$$Dom\ (f) = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}$$
+El conjunto de todos los resultados posibles de una función dada se denomina **rango**, **imagen** o **codominio** de esa función. 
+
+$$Im\ (f) = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}$$
+
+## RECORDATORIO DE LOS LOGARITMOS (12.2 min)
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1em;"}
+Se dice que el numero real [**"a"**]{.alert} es el [**logaritmo de base "k" \quad ($k>0,\quad k \neq 1$)**]{.alert} del numero real positivo [**"b"**]{.alert}, y se escribe [**$\log_k b=a$**]{.alert}, si [**$k^a=b$**]{.alert}
+
+::: center
+[$$\log_k b=a \quad \Longleftrightarrow k^a=b$$]{.bg style="--col:#e6f7ff;text-align:center; font-size: 1.2em;"}
+:::
+
+:::
+
+- $\log_2 8=3$, pues $2^3=8$
+
+- $\log_5 25=2$, pues $5^2=25$
+
+- $\log_{0.7} 0.49=2$, pues $0.7^2=0.49$
+
+-  $\log_{2} (x-4)=5, \longrightarrow  x-4=2^{5} \longrightarrow x=4+2^{5}=36$
+
+-  $\log_{2} (x-4)=-5, \longrightarrow  x-4=2^{-5} \longrightarrow x=4+2^{-5}=\frac{129}{32}$
+
+-  $\log_{4} (x^2-9)=2, \longrightarrow x^2-9=4^2\longrightarrow x^2=25\longrightarrow x= \pm 5$
+
+## RECORDATORIO DE LOS LOGARITMOS
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; font-size: 1em;"}
+Se dice que el numero real [**"a"**]{.alert} es el [**logaritmo de base "k" \quad ($k>0,\quad k \neq 1$)**]{.alert} del numero real positivo [**"b"**]{.alert}, y se escribe [**$\log_k b=a$**]{.alert}, si [**$k^a=b$**]{.alert}
+
+::: center
+[$$\log_k b=a \quad \Longleftrightarrow k^a=b$$]{.bg style="--col:#e6f7ff;text-align:center; font-size: 1.2em;"}
+:::
+:::
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+- Si la base es 10, se dice que el logaritmo es [**decimal**]{.alert}
+- Si la base es $e \approx 2.718281828$, se dice que el logaritmo es [**neperiano**]{.alert}, y se denota [**Ln**]{.alert}
+
+::: center
+[**$$\ln_e b = a \quad \Longleftrightarrow e^a=b$$**]{.bg style="--col:#e6f7ff;text-align:center; font-size: 1.2em;color:red; font-weight:bold;"}
+:::
+$$
+\begin{array}{ll}
+(1+\frac{1}{1})^1\quad;(1+\frac{1}{2})^2\quad;(1+\frac{1}{3})^3 \quad;(1+\frac{1}{4})^4 \quad;(1+\frac{1}{5})^5 \quad;(1+\frac{1}{6})^6 \quad;\\
+(1+\frac{1}{7})^7\quad;(1+\frac{1}{8})^8\quad;(1+\frac{1}{9})^9\quad;\cdots \longrightarrow e
+\end{array}
+$$
+:::
+
+## PROPIEDADES DE LOS LOGARITMOS
+
+::: columns
+
+:::{.column width="50%"}
+::: {.bg style="background-color:#f0f9ff; padding:0.5em;"}
+
+-  $\log_k 1 = 0$
+-  $\log_k k = 1$
+-  $\log_k k^c = c$
+-  $\log_k b^c = c \cdot \log_k b$
+-  $\log_k (m \cdot n) = \log_k m + \log_k n$
+-  $\log_k \left(\dfrac{m}{n}\right) = \log_k m - \log_k n$
+-  **Cambio de base:**  
+  $\log_{k_1} m = \dfrac{\log_{k_2} m}{\log_{k_2} k_1}$
+
+-  **Comportamiento en $0^+$:**
+  
+  $$
+  \log_k 0^+ =
+  \left\{
+  \begin{array}{ll}
+  +\infty & \text{si } 0 < k < 1 \\
+  -\infty & \text{si } k > 1
+  \end{array}
+  \right.
+  $$
+:::
+:::
+
+:::{.column width="50%"}
+::: {.bg style="background-color:#d6f7db; padding:0.75em; margin-top:0.5em;"}
+
+🔎 Al escribir [**$0^+$**]{.alert}, nos referimos a un número [**muy próximo a cero pero positivo**]{.alert}.  
+Es decir:
+
+- Si un número **positivo** es **extremadamente pequeño**, su logaritmo:
+  - tiende a **$+\infty$** si la base $k$ está entre $0$ y $1$;
+  - tiende a **$-\infty$** si la base $k$ es mayor que $1$.
+:::
+:::
+:::
+
+
+## [**FUNCIONES ALGEBRAICAS Y TRASCENDENTES**]{.bg style="--col:#ffff00"} {.scrollable} ()
+
+::: {.bg style="background-color:#fdf6e3; padding:0.25em; border-left:6px solid #fdf6e3;font-size: 0.9em;"}
+Se dice que $f : \mathfrak{R} \to \mathfrak{R}$ es una función [**algebraica**]{.alert} si las operaciones que deben realizarse para calcular el número $f(x)$ son algebraicas: **suma, resta, multiplicación, división, potenciación con exponentes constantes, radicación con índice constante**.
+:::
+
+Se dice que [**"f"**]{.alert} es [**trascendente**]{.alert} si no es algebraica.
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+**Por ejemplo**, son [**algebraicas**]{.alert}
+las funciones tales que:
+$$
+f(x)=x^3-3x \quad; \quad f(x)=\frac{x^2+x}{x-1}\quad; \quad f(x)=\frac{x+\sqrt{x}}{1-\sqrt[5]{2+x}}
+$$
+:::
+
+pues las operaciones para calcular **"f(x)"** son las algebraicas: **suma, resta, multiplicación, división, potenciación con exponentes constantes, radicación con índice constante**
+
+
+::: {.bg style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;"}
+**Por ejemplo**, son [**trascendentes**]{.alert}
+las funciones tales que:
+$$
+f(x)=2^{3x+1} \quad; \quad f(x)=\log_6 (x+1)   \quad; \quad f(x)=\sin(x^2)
+$$
+:::
+
+## Gráficos de funciones algebraicas (6 min)
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-2
+xmax=5
+ymin=-7
+ymax=15
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=7
+quantsy=11
+f = function(x){x^3-5*x^2+12}
+g = function(x){x^4/10-7*x^3/10+x^2-2}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+text(4,9,expression(paste("y=",x^3 - 5%.%x^2 + 12)),col="red")
+text(-1.1,14,expression(paste("y=",frac(1,10)%.%x^4 - frac(7,10)%.%x^3 + x^2 - 2)),col="blue")
+```
+
+
+## Funciones potenciales (6 min)
+
+
+```{r,echo=FALSE,message=FALSE,warning=FALSE, fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-6
+ymax=10
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=8
+f = function(x){1/x}
+g = function(x){sqrt(x)}
+h = function(x){x^2}
+k = function(x){1/sqrt(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2,ymax+toly,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+lines(x,k(x),col="orange")
+text(-4,-2,expression(paste("y=",frac(1,x))),col="red")
+text(4,2.5,expression(paste("y=",sqrt(x))),col="blue")
+text(4,9.5,expression(paste("y=",x^2)),col="green")
+text(5,1.25,expression(paste("y=",frac(1,sqrt(x)))),col="orange")
+```
+
+
+## Funciones exponenciales (6 min)
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-1
+ymax=15
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=8
+f = function(x){exp(x)}
+g = function(x){exp(x/2)}
+h = function(x){exp(-x)}
+k = function(x){exp(-x/2)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+lines(x,k(x),col="orange")
+text(3,13,expression(paste("y=",e^x)),col="red")
+text(4.5,7,expression(paste("y=",e^frac(x,2))),col="blue")
+text(-2,13,expression(paste("y=",e^-x)),col="green")
+text(-3.8,9,expression(paste("y=",e^-frac(x,2))),col="orange")
+```
+
+## Funciones logarítmicas (6 min)
+
+```{r,echo=FALSE,fig.align='center',fig.height=6,warning=FALSE}
+xmin=-1
+xmax=9
+ymin=-2
+ymax=4
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=6
+f = function(x){log(x)}
+g = function(x){log(1+x)}
+h = function(x){log(2*x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(2.5*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+text(8,1.5,expression(paste("y=",log(x))),col="red")
+text(8,2.5,expression(paste("y=",log(x+1))),col="blue")
+text(8,3,expression(paste("y=",log(2%.%x))),col="green")
+```
+
+## Funciones trigonométricas (6min)
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-1
+ymax=1
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=4
+f = function(x){sin(x)}
+g = function(x){cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+text(3,0.75,expression(paste("y=",sin(x))),col="red")
+text(-1.5,0.75,expression(paste("y=",cos(x))),col="blue")
+```
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-5
+xmax=5
+ymin=-10
+ymax=10
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=10
+f = function(x){1/sin(x)}
+g = function(x){1/cos(x)}
+h = function(x){tan(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2+0.2,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+lines(x,h(x),col="green")
+text(3.75,7,expression(paste("y=",frac(1,sin(x)))),col="red")
+text(2.25,7,expression(paste("y=",frac(1,cos(x)))),col="blue")
+text(-2.3,7,expression(paste("y=",tan(x))),col="green")
+text(-4,10,expression(paste("x=",frac(-5%.%pi,2))),col="green")
+text(-2.5,10,expression(paste("x=",frac(-3%.%pi,2))),col="red")
+text(-1,10,expression(paste("x=",frac(-pi,2))),col="green")
+text(2,10,expression(paste("x=",frac(pi,2))),col="green")
+text(3.65,10,expression(paste("x=",frac(3%.%pi,2))),col="red")
+```
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-1
+xmax=1
+ymin=-2
+ymax=4
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){asin(x)}
+g = function(x){acos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly/2,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+lines(x,g(x),col="blue")
+text(-0.75,-1.5,expression(paste("y=",sin^-1,(x))),col="red")
+text(-0.75,3,expression(paste("y=",cos^-1,(x))),col="blue")
+```
+
+## Funciones trigonométricas
+
+```{r,echo=FALSE,fig.align='center',fig.height=6}
+xmin=-10
+xmax=10
+ymin=-2
+ymax=2
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=10
+quantsy=4
+f = function(x){atan(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-15*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  if(xmin+((xmax-xmin)/quantsx)*i != 0){
+    lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+    text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
+  }
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+ text(3.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
+}
+lines(x,f(x),col="red")
+abline(h=pi/2,col="blue",lty=2)
+abline(h=-pi/2,col="blue",lty=2)
+text(-6.25,-1.25,expression(paste("y=",tan^-1,(x))),col="red")
+text(9,-1.3,expression(paste("y=",-frac(pi,2))),col="blue")
+text(9,1.85,expression(paste("y=",frac(pi,2))),col="blue")
+```
+
+## SIMETRIAS DE FUNCIONES (15 min)
+
+::: {.fragment fragment-index="1"}
+::: {.bg style="background-color:#ccf5cc; padding:0.2em; margin-top:0.1em; font-size:0.85em; border-radius: 0.3em;"}
+Se dice que $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ es par si [$f(-x)=f(x)$]{.alert} asi, la grafica de "f" es [simetrica]{.blue} respecto el [eje de ordenadas]{.alert}. 
+:::
+:::
+
+::: {.fragment fragment-index="3"}
+::: {.bg style="background-color:#ccf5cc; padding:0.2em; margin-top:0.3em; font-size:0.75em; border-radius: 0.3em;"}
+Se dice que $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ es impar si [$f(-x)=-f(x)$]{.alert} asi, la grafica de "f" es [simetrica]{.blue} respecto al [origen de coordenadas]{.alert}. 
+:::
+:::
+
+::: columns
+:::{.column width="50%"}
+::: {.fragment fragment-index="2"}
+::: {.bg style="padding:0.8em; margin-top:-0.1em; font-size:0.75em; border-radius: 0.5em;"}
+![](Images/f-46.png){width="68%"}
+:::
+:::
+:::
+
+
+:::{.column width="50%"}
+::: {.fragment fragment-index="4"}
+::: {.bg style="padding:0.8em; margin-top:-0.1em; font-size:0.75em; border-radius: 0.5em;"}
+![](Images/f-47.png){width="60%"}
+:::
+:::
+
+::: {.fragment fragment-index="5"}
+::: {.bg style="padding:0.8em; margin-top:-0.1em; font-size:0.75em; border-radius: 0.5em;"}
+El que $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ sea par o impar es estupendo, pues en tal caso solo nos preocupará dibujar su gráfica si $x \geq 0$, ya que lo que sucede si $x < 0$ lo deducimos por simetría.
+:::
+:::
+
+:::
+
+:::
+
+
+
+
+
+
+
+
+
+## SIMETRIAS DE FUNCIONES (Ejemplos) (15 min)
+
+## COMPOSICION DE FUNCIONES (6 min)
+
+## COMPOSICION DE FUNCIONES (Ejemplos) (12 min)

@@ -1,0 +1,7 @@
+# macOS
+.DS_Store
+
+# Archivos temporales
+~$*.docx
+*.profraw
+.Rhistory

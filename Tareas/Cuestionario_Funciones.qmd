@@ -1,0 +1,96 @@
+---
+title: "Cuestionario: Relaciones y funciones"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+--- 
+
+## Preguntas de Opción Múltiple
+
+
+
+**1.  Según las definiciones proporcionadas, ¿cuál es la condición para que una función $f: X \to Y$ sea inyectiva?**
+
+* a) Para cada elemento $y$ en $Y$, existe al menos un elemento $x$ en $X$ tal que $f(x) = y$.
+* b) Para cada elemento $x$ en $X$, existe al menos un elemento $y$ en $Y$ tal que $f(x) = y$.
+* c) Para cada elemento $y$ en $Y$, existe como máximo una flecha que apunta hacia él.
+* d) La función puede invertirse correctamente.
+
+**Respuesta correcta: c)**. La inyectividad significa que cada elemento de la imagen tiene como máximo una flecha que le apunta. Esto se relaciona con la definición de que "para cada $y \in Y$ existe a lo más un $x \in X$ tal que $f(x) = y$".
+
+---
+
+**2.  Observando la imagen del "Criterio de la función real de variable real", ¿cuál de las siguientes afirmaciones es correcta?**
+
+* a) El dominio de la función es un subconjunto de $Y$.
+* b) La imagen de la función es un subconjunto de $X$.
+* c) Una curva continua en un plano siempre representa una función.
+* d) Puede haber como máximo una flecha saliendo de cada elemento en el dominio.
+
+**Respuesta correcta: d)**. Una función se define por tener un único valor de salida para cada valor de entrada. En términos de la analogía de las flechas, esto significa que de cada elemento del dominio ($X$) sale exactamente una flecha. 
+---
+
+**3.  La función $f(x) = x^2$ con dominio y codominio en los números reales ($\mathbb{R} \to \mathbb{R}$) no es ni inyectiva ni sobreyectiva. ¿Cuál es la razón principal para que no sea inyectiva?**
+
+* a) Los valores negativos no tienen un valor en el codominio.
+* b) Múltiples valores de $x$ pueden producir el mismo valor de $y$ (por ejemplo, $f(2) = 4$ y $f(-2) = 4$).
+* c) La función no es continua.
+* d) La imagen de la función no cubre todos los números reales.
+
+**Respuesta correcta: b)**. La inyectividad requiere que cada elemento del codominio sea mapeado por un máximo de un elemento del dominio. Dado que $f(2)$ y $f(-2)$ tienen el mismo valor, la función no es inyectiva. 
+---
+
+**4.  Si una función es "biyectiva", esto implica que:**
+
+* a) Es solo inyectiva, pero no sobreyectiva.
+* b) Es solo sobreyectiva, pero no inyectiva.
+* c) Es inyectiva y sobreyectiva.
+* d) No puede tener una función inversa.
+
+**Respuesta correcta: c)**. Según el texto, una función es biyectiva si es a la vez inyectiva y sobreyectiva. Esta propiedad es clave para la invertibilidad.
+
+---
+
+**5.  En la función $f: \mathbb{Z} \to \{0, 1\}$ definida por $f(x) = 0$ si $x$ es par, y $f(x) = 1$ si $x$ es impar, se afirma que es "sobreyectiva". ¿Qué significa esto en este contexto?**
+
+* a) Ningún número entero $x$ mapea a un número par.
+* b) Cada elemento del conjunto $\{0, 1\}$ es alcanzado por al menos un valor de $x$ en el dominio.
+* c) Diferentes valores de $x$ siempre dan diferentes valores de $y$.
+* d) La función es invertible.
+
+**Respuesta correcta: b)**. La sobreyectividad (o "surjectiva") significa que la imagen de la función es igual a su codominio. En este caso, tanto el 0 como el 1 son alcanzados por la función, por lo que su imagen es $\{0, 1\}$, que es el codominio. 
+---
+
+**6.  ¿Cuál de las siguientes es una característica de una "función uniforme" según la imagen de "Funciones uniformes"?**
+
+* a) La función tiene dos o más imágenes posibles.
+* b) Las líneas paralelas al eje de ordenadas (eje Y) cortan la gráfica en dos o más puntos.
+* c) Cada elemento del dominio tiene una única imagen.
+* d) Su gráfica siempre es una línea recta.
+
+**Respuesta correcta: c)**. La definición en la imagen establece que una función es uniforme si cada $x$ del dominio tiene una "única imagen". Esta es la misma definición de una función estándar. La imagen de la "función no uniforme" es un ejemplo de una relación que no cumple con este criterio.
+
+---
+
+**7.  Una función $f: X \to Y$ es invertible. ¿Qué se puede afirmar sobre ella basándose en la información proporcionada?**
+
+* a) Es sobreyectiva, pero no necesariamente inyectiva.
+* b) No puede ser ni inyectiva ni sobreyectiva.
+* c) La imagen de la función es un subconjunto del codominio.
+* d) Es biyectiva, lo que significa que es inyectiva y sobreyectiva.
+
+**Respuesta correcta: d)**. El texto establece explícitamente que una función biyectiva "puede invertirse correctamente" y que la función inversa existe y es única. Esto hace que la biyectividad sea una condición necesaria y suficiente para la invertibilidad.
+
+---
+
+**8.  ¿Cuál es la principal diferencia entre el "dominio" y la "imagen" de una función, según la definición proporcionada?**
+
+* a) El dominio es el conjunto de donde parten las flechas, y la imagen es el conjunto a donde apuntan las flechas.
+* b) El dominio es un subconjunto del codominio, y la imagen es el conjunto de todos los valores de salida.
+* c) El dominio es el conjunto de todos los posibles valores de entrada, mientras que la imagen es el subconjunto de valores de salida que realmente se alcanzan.
+* d) El dominio y la imagen son siempre el mismo conjunto.
+
+**Respuesta correcta: c)**. El dominio (dom($f$)) es el conjunto de todos los valores de entrada ($x \in X$) para los que la función está definida. La imagen (im($f$)) es el subconjunto del codominio ($Y$) que consiste en los valores de salida ($y$) que realmente son alcanzados por la función. 

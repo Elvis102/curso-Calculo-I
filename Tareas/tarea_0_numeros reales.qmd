@@ -1,0 +1,393 @@
+---
+title: "Números Reales"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+---
+
+### 1.1 Números Reales
+
+**Preguntas Preliminares**
+
+1.  **Da un ejemplo de números $a$ y $b$ tal que $a < b$ y $|a| > |b|$.**
+
+   
+
+2.  **¿Qué números satisfacen $|a| = a$? ¿Cuáles satisfacen $|a| = -a$? ¿Qué hay de $-|a| = a$?**
+
+   
+
+3.  **Da un ejemplo de números $a$ y $b$ tal que $|a+b| < |a| + |b|$.**
+
+   
+
+4.  **¿Cuáles son las coordenadas del punto que se encuentra en la intersección de las líneas $x = 9$ y $y = -4$?**
+
+{{< pagebreak >}}
+
+### 1.1 Números Reales
+
+**Preguntas Preliminares**
+
+1.  **Da un ejemplo de números $a$ y $b$ tal que $a < b$ y $|a| > |b|$.**
+
+    *SOLUCIÓN:* Toma $a = -3$ y $b = 1$. Entonces $a < b$ pero $|a| = 3 > 1 = |b|$.
+
+2.  **¿Qué números satisfacen $|a| = a$? ¿Cuáles satisfacen $|a| = -a$? ¿Qué hay de $-|a| = a$?**
+
+    *SOLUCIÓN:* Los números $a \ge 0$ satisfacen $|a| = a$ y $-|a| = -a$. Los números $a \le 0$ satisfacen $|a| = -a$.
+
+3.  **Da un ejemplo de números $a$ y $b$ tal que $|a+b| < |a| + |b|$.**
+
+    *SOLUCIÓN:* Toma $a = -3$ y $b = 1$. Entonces:
+
+    $|a+b| = |-3 + 1| = |-2| = 2$, pero $|a| + |b| = |-3| + |1| = 3 + 1 = 4$.
+
+    Así, $|a+b| < |a| + |b|$.
+
+4.  **¿Cuáles son las coordenadas del punto que se encuentra en la intersección de las líneas $x = 9$ y $y = -4$?**
+
+    *SOLUCIÓN:* El punto $(9, -4)$ se encuentra en la intersección de las líneas $x = 9$ y $y = -4$.
+
+
+{{< pagebreak >}}
+
+# Precalculus Review
+
+## Ejercicio 2
+
+**¿Cuáles de los siguientes son verdaderos para $a = -3$ y $b = 2$?**
+
+(a) $a < b$
+(b) $|a| < |b|$
+(c) $ab > 0$
+(d) $3a < 3b$
+(e) $-4a < -4b$
+(f) $\frac{1}{a} < \frac{1}{b}$
+
+
+## Ejercicios 3–8
+
+*En los Ejercicios 3-8, expresa el intervalo en términos de una desigualdad que involucre valor absoluto.*
+
+### 3. $[-2, 2]$
+
+
+### 4. $(-4, 4)$
+
+
+### 5. $(0, 4)$
+
+
+### 6. $[-4, 0]$
+
+
+### 7. $[1, 5]$
+
+
+### 8. $(-2, 8)$
+
+
+## Ejercicios 9–12
+
+*En los Ejercicios 9-12, escribe la desigualdad en la forma $a < x < b$.*
+
+### 9. $|x| < 8$
+
+
+### 10. $|x - 12| < 8$
+
+
+### 11. $|2x + 1| < 5$
+
+
+### 12. $|3x - 4| < 2$
+
+
+## Ejercicios 13–18
+
+*En los Ejercicios 13-18, expresa el conjunto de números $x$ que satisfacen la condición dada como un intervalo.*
+
+### 13. $|x| < 4$
+
+### 14. $|x| \le 9$
+
+
+### 15. $|x - 4| < 2$
+
+
+### 16. $|x + 7| < 2$
+
+### 17. $|4x - 1| \le 8$
+
+
+### 18. $|3x + 5| < 1$
+
+
+## Ejercicios 19–22
+
+*En los Ejercicios 19-22, describe el conjunto como una unión de intervalos finitos o infinitos.*
+
+### 19. $\{x : |x - 4| > 2\}$
+
+### 20. $\{x : |2x + 4| \ge 3\}$
+
+
+### 21. $\{x : |x^2 - 1| > 2\}$
+
+### 22. $\{x : |x^2 + 2x| \ge 2\}$
+
+
+## Ejercicio 23
+
+**Empareja (a)–(f) con (i)–(vi).**
+
+(a) $a > 3$ 
+(b) $|a - 5| < \frac{1}{3}$ 
+(c) $|a - \frac{1}{3}| < 5$ 
+(d) $|a| > 5$ 
+(e) $|a - 4| < 3$ 
+(f) $1 \le a \le 5$ 
+
+* **(i)** $a$ se encuentra a la derecha de 3.
+* **(ii)** $a$ se encuentra entre 1 y 7.
+* **(iii)** La distancia de $a$ a 5 es menor que 1/3.
+* **(iv)** La distancia de $a$ a 3 es como máximo 2.
+* **(v)** $a$ se encuentra a menos de 5 unidades de 1/3.
+* **(vi)** $a$ se encuentra a la izquierda de -5 o a la derecha de 5.
+
+## Ejercicio 24
+
+**Describe $\{x : \frac{x}{x+1} < 0\}$ como un intervalo.**
+
+
+## Ejercicio 29
+
+**Demuestra que si $|a - 5| < \frac{1}{2}$ y $|b - 8| < \frac{1}{2}$, entonces $|(a + b) - 13| < 1$.**
+
+
+## Ejercicio 30
+
+**Supongamos que $|x - 4| \le 1$. (a) ¿Cuál es el valor máximo posible de $|x + 4|$? (b) Demuestra que $|x^2 - 16| \le 9$.**
+
+
+## Ejercicio 31
+
+**Supongamos que $|a - 6| \le 2$ y $|b| \le 3$. (a) ¿Cuál es el valor más grande posible de $|a + b|$? (b) ¿Cuál es el valor más pequeño posible de $|a + b|$?**
+
+
+## Ejercicio 32
+
+**Prueba que $||x| - |y|| \le |x - y|$.**
+
+
+## Ejercicio 33
+
+**Expresa $r_1 = 0.\overline{27}$ como una fracción. Pista: $100r_1 - r_1$ es un entero. Luego expresa $r_2 = 0.2666...$ como una fracción.**
+
+
+## Ejercicio 34
+
+**Representa $\frac{1}{7}$ y $\frac{4}{27}$ como decimales periódicos.**
+
+
+
+## Ejercicio 35
+
+**El texto dice: Si las expansiones decimales de los números $a$ y $b$ coinciden hasta $k$ lugares, entonces $|a - b| \le 10^{-k}$. Demuestra que la inversa es falsa: Para todo $k$ hay números $a$ y $b$ cuyas expansiones decimales no coinciden en absoluto, pero $|a - b| \le 10^{-k}$.**
+
+
+{{< pagebreak >}}
+
+# Soluciones Precalculus Review
+
+## Ejercicio 2
+
+**¿Cuáles de los siguientes son verdaderos para $a = -3$ y $b = 2$?**
+
+(a) $a < b$
+(b) $|a| < |b|$
+(c) $ab > 0$
+(d) $3a < 3b$
+(e) $-4a < -4b$
+(f) $\frac{1}{a} < \frac{1}{b}$
+
+**SOLUCIÓN**
+(a) Verdadero.
+(b) Falso, $|a| = 3 > 2 = |b|$.
+(c) Falso, $(-3)(2) = -6 < 0$.
+(d) Verdadero.
+(e) Falso, $-4(-3) = 12 > -8 = -4(2)$.
+(f) Verdadero.
+
+## Ejercicios 3–8
+
+*En los Ejercicios 3-8, expresa el intervalo en términos de una desigualdad que involucre valor absoluto.*
+
+### 3. $[-2, 2]$
+**SOLUCIÓN** $|x| \le 2$
+
+### 4. $(-4, 4)$
+**SOLUCIÓN** $|x| < 4$
+
+### 5. $(0, 4)$
+**SOLUCIÓN** El punto medio del intervalo es $c = (0+4)/2 = 2$, y el radio es $r = (4-0)/2 = 2$; por lo tanto, $(0, 4)$ puede ser expresado como $|x - 2| < 2$.
+
+### 6. $[-4, 0]$
+**SOLUCIÓN** El punto medio del intervalo es $c = (-4+0)/2 = -2$, y el radio es $r = (0 - (-4))/2 = 2$; por lo tanto, el intervalo $[-4, 0]$ puede ser expresado como $|x + 2| \le 2$.
+
+### 7. $[1, 5]$
+**SOLUCIÓN** El punto medio del intervalo es $c = (1+5)/2 = 3$, y el radio es $r = (5 - 1)/2 = 2$; por lo tanto, el intervalo $[1, 5]$ puede ser expresado como $|x - 3| \le 2$.
+
+### 8. $(-2, 8)$
+**SOLUCIÓN** El punto medio del intervalo es $c = (-2+8)/2 = 3$, y el radio es $r = (8 - (-2))/2 = 5$; por lo tanto, el intervalo $(-2, 8)$ puede ser expresado como $|x - 3| < 5$.
+
+## Ejercicios 9–12
+
+*En los Ejercicios 9-12, escribe la desigualdad en la forma $a < x < b$.*
+
+### 9. $|x| < 8$
+**SOLUCIÓN** $-8 < x < 8$
+
+### 10. $|x - 12| < 8$
+**SOLUCIÓN** $-8 < x - 12 < 8$, por lo tanto, $4 < x < 20$
+
+### 11. $|2x + 1| < 5$
+**SOLUCIÓN** $-5 < 2x + 1 < 5$, por lo tanto, $-6 < 2x < 4$ y $-3 < x < 2$
+
+### 12. $|3x - 4| < 2$
+**SOLUCIÓN** $-2 < 3x - 4 < 2$, por lo tanto, $2 < 3x < 6$ y $\frac{2}{3} < x < 2$
+
+## Ejercicios 13–18
+
+*En los Ejercicios 13-18, expresa el conjunto de números $x$ que satisfacen la condición dada como un intervalo.*
+
+### 13. $|x| < 4$
+**SOLUCIÓN** $(-4, 4)$
+
+### 14. $|x| \le 9$
+**SOLUCIÓN** $[-9, 9]$
+
+### 15. $|x - 4| < 2$
+**SOLUCIÓN** La expresión $|x - 4| < 2$ es equivalente a $-2 < x - 4 < 2$. Por lo tanto, $2 < x < 6$, lo que representa el intervalo $(2, 6)$.
+
+### 16. $|x + 7| < 2$
+**SOLUCIÓN** La expresión $|x + 7| < 2$ es equivalente a $-2 < x + 7 < 2$. Por lo tanto, $-9 < x < -5$, lo que representa el intervalo $(-9, -5)$.
+
+### 17. $|4x - 1| \le 8$
+**SOLUCIÓN** La expresión $|4x - 1| \le 8$ es equivalente a $-8 \le 4x - 1 \le 8$ o $-7 \le 4x \le 9$. Por lo tanto, $-\frac{7}{4} \le x \le \frac{9}{4}$, lo que representa el intervalo $[-\frac{7}{4}, \frac{9}{4}]$.
+
+### 18. $|3x + 5| < 1$
+**SOLUCIÓN** La expresión $|3x + 5| < 1$ es equivalente a $-1 < 3x + 5 < 1$ o $-6 < 3x < -4$. Por lo tanto, $-2 < x < -\frac{4}{3}$, lo que representa el intervalo $(-2, -\frac{4}{3})$.
+
+## Ejercicios 19–22
+
+*En los Ejercicios 19-22, describe el conjunto como una unión de intervalos finitos o infinitos.*
+
+### 19. $\{x : |x - 4| > 2\}$
+**SOLUCIÓN** $x - 4 > 2$ o $x - 4 < -2 \implies x > 6$ o $x < 2 \implies (-\infty, 2) \cup (6, \infty)$
+
+### 20. $\{x : |2x + 4| \ge 3\}$
+**SOLUCIÓN** $2x + 4 \ge 3$ o $2x + 4 \le -3 \implies 2x \ge -1$ o $2x \le -7 \implies x \ge -\frac{1}{2}$ o $x \le -\frac{7}{2} \implies (-\infty, -\frac{7}{2}] \cup [-\frac{1}{2}, \infty)$
+
+### 21. $\{x : |x^2 - 1| > 2\}$
+**SOLUCIÓN** $x^2 - 1 > 2$ o $x^2 - 1 < -2 \implies x^2 > 3$ o $x^2 < -1$ (esto nunca sucederá) $\implies x > \sqrt{3}$ o $x < -\sqrt{3} \implies (-\infty, -\sqrt{3}) \cup (\sqrt{3}, \infty)$.
+
+### 22. $\{x : |x^2 + 2x| \ge 2\}$
+**SOLUCIÓN** $x^2 + 2x \ge 2$ o $x^2 + 2x \le -2$. Para el primer caso, las raíces de $x^2 + 2x - 2 = 0$ son $x = -1 \pm \sqrt{3} \implies (-\infty, -1 - \sqrt{3}] \cup [-1 + \sqrt{3}, \infty)$. Para el segundo caso, observa que no hay raíces reales. Como la parábola se abre hacia arriba y su vértice se encuentra por encima del eje $x$, no hay valores de $x$ para los cuales $x^2 + 2x + 2 \le 0$. Por lo tanto, el conjunto de soluciones es $(-\infty, -1 - \sqrt{3}] \cup [-1 + \sqrt{3}, \infty)$.
+
+## Ejercicio 23
+
+**Empareja (a)–(f) con (i)–(vi).**
+
+(a) $a > 3$ con (i)
+(b) $|a - 5| < \frac{1}{3}$ con (iii)
+(c) $|a - \frac{1}{3}| < 5$ con (v)
+(d) $|a| > 5$ con (vi)
+(e) $|a - 4| < 3$ con (ii)
+(f) $1 \le a \le 5$ con (iv)
+
+- **(i)** $a$ se encuentra a la derecha de 3.
+- **(ii)** $a$ se encuentra entre 1 y 7.
+- **(iii)** La distancia de $a$ a 5 es menor que 1/3.
+- **(iv)** La distancia de $a$ a 3 es como máximo 2.
+- **(v)** $a$ se encuentra a menos de 5 unidades de 1/3.
+- **(vi)** $a$ se encuentra a la izquierda de -5 o a la derecha de 5.
+
+**SOLUCIÓN**
+(a) En la recta numérica, los números mayores que 3 aparecen a la derecha; por lo tanto, $a > 3$ es equivalente a los números a la derecha de 3: (i).
+(b) $|a - 5|$ mide la distancia de $a$ a 5; por lo tanto, $|a - 5| < \frac{1}{3}$ es satisfecho por aquellos números a una distancia menor de $\frac{1}{3}$ de la unidad a partir de 5: (iii).
+(c) $|a - \frac{1}{3}|$ mide la distancia de $a$ a $\frac{1}{3}$; por lo tanto, $|a - \frac{1}{3}| < 5$ es satisfecho por aquellos números a una distancia menor de 5 unidades a partir de $\frac{1}{3}$: (v).
+(d) La desigualdad $|a| > 5$ es equivalente a $a > 5$ o $a < -5$; es decir, $a$ se encuentra a la derecha de 5 o a la izquierda de -5: (vi).
+(e) El intervalo descrito por la desigualdad $|a - 4| < 3$ tiene un centro en 4 y un radio de 3; es decir, el intervalo consiste en aquellos números entre 1 y 7: (ii).
+(f) El intervalo descrito por la desigualdad $1 \le x \le 5$ tiene un centro en 3 y un radio de 2; es decir, el intervalo consiste en aquellos números a una distancia de 2 unidades como máximo a partir de 3: (iv).
+
+## Ejercicio 24
+
+**Describe $\{x : \frac{x}{x+1} < 0\}$ como un intervalo.**
+
+**SOLUCIÓN**
+Caso 1: $x < 0$ y $x + 1 > 0$. Esto implica que $x < 0$ y $x > -1 \implies -1 < x < 0$.
+Caso 2: $x > 0$ y $x + 1 < 0$. Esto implica $x > 0$ y $x < -1$ para los cuales no existe tal $x$.
+Por lo tanto, el conjunto de soluciones es $(-1, 0)$.
+
+## Ejercicio 29
+
+**Demuestra que si $|a - 5| < \frac{1}{2}$ y $|b - 8| < \frac{1}{2}$, entonces $|(a + b) - 13| < 1$.**
+
+**SOLUCIÓN**
+Primero nota que
+$|a + b - 13| = |(a - 5) + (b - 8)| \le |a - 5| + |b - 8|$ (por la desigualdad del triángulo)
+$< \frac{1}{2} + \frac{1}{2} = 1$.
+
+## Ejercicio 30
+
+**Supongamos que $|x - 4| \le 1$. (a) ¿Cuál es el valor máximo posible de $|x + 4|$? (b) Demuestra que $|x^2 - 16| \le 9$.**
+
+**SOLUCIÓN**
+(a) $|x - 4| \le 1$ garantiza que $3 \le x \le 5$. Así, $7 \le x + 4 \le 9$, por lo tanto, $|x + 4| \le 9$.
+(b) $|x^2 - 16| = |(x - 4)(x + 4)| = |x - 4| |x + 4|$. Se deduce que $|x - 4| |x + 4| \le 1 \cdot 9 = 9$.
+
+## Ejercicio 31
+
+**Supongamos que $|a - 6| \le 2$ y $|b| \le 3$. (a) ¿Cuál es el valor más grande posible de $|a + b|$? (b) ¿Cuál es el valor más pequeño posible de $|a + b|$?**
+
+**SOLUCIÓN**
+(a) $|a - 6| \le 2$ garantiza que $4 \le a \le 8$, mientras que $|b| \le 3$ garantiza que $-3 \le b \le 3$. Por lo tanto, $1 \le a + b \le 11$. Se deduce que el valor más grande posible de $|a + b|$ es 11.
+(b) El valor más pequeño posible de $|a + b|$ es 1.
+
+## Ejercicio 32
+
+**Prueba que $||x| - |y|| \le |x - y|$.**
+
+**SOLUCIÓN**
+Primero nota que
+$|x| = |(x - y) + y| \le |x - y| + |y|$
+por la desigualdad del triángulo. Restando $|y|$ de ambos lados de esta desigualdad se obtiene
+$|x| - |y| \le |x - y|$.
+
+## Ejercicio 33
+
+**Expresa $r_1 = 0.\overline{27}$ como una fracción. Pista: $100r_1 - r_1$ es un entero. Luego expresa $r_2 = 0.2666...$ como una fracción.**
+
+**SOLUCIÓN**
+Sea $r_1 = 0.\overline{27}$. Observamos que $100r_1 = 27.\overline{27}$. Por lo tanto, $100r_1 - r_1 = 27.\overline{27} - 0.\overline{27} = 27$ y $r_1 = \frac{27}{99} = \frac{3}{11}$.
+
+Ahora, sea $r_2 = 0.2666...$. Entonces $10r_2 = 2.666...$ y $100r_2 = 26.666...$. Por lo tanto, $100r_2 - 10r_2 = 26.666... - 2.666... = 24$ y $90r_2 = 24$, por lo que $r_2 = \frac{24}{90} = \frac{4}{15}$.
+
+## Ejercicio 34
+
+**Representa $\frac{1}{7}$ y $\frac{4}{27}$ como decimales periódicos.**
+
+**SOLUCIÓN**
+$\frac{1}{7} = 0.\overline{142857}$; $\frac{4}{27} = 0.\overline{148}$
+
+## Ejercicio 35
+
+**El texto dice: Si las expansiones decimales de los números $a$ y $b$ coinciden hasta $k$ lugares, entonces $|a - b| \le 10^{-k}$. Demuestra que la inversa es falsa: Para todo $k$ hay números $a$ y $b$ cuyas expansiones decimales no coinciden en absoluto, pero $|a - b| \le 10^{-k}$.**
+
+**SOLUCIÓN**
+Toma $a = 1$ y $b = 0.9$ (ver la discusión antes del Ejemplo 1). Las expansiones decimales de $a$ y $b$ no coinciden, pero $|1 - 0.9| < 10^{-k}$ para todo $k$.
