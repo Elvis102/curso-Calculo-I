@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-07-10">
+  <meta name="dcterms.date" content="2025-07-11">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -131,7 +131,7 @@
 
 <section id="title-slide" class="quarto-title-block center">
   <h1 class="title">Cálculo I</h1>
-  <p class="subtitle">Cálculo Diferencial para Ciencia de Datos</p>
+  <p class="subtitle">Límites I</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -147,37 +147,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-07-10</p>
-</section><section id="TOC">
-<nav role="doc-toc"> 
-<h2 id="toc-title">Tabla de contenidos</h2>
-<ul>
-<li><a href="#/fundamentos-teóricos-de-funciones" id="/toc-fundamentos-teóricos-de-funciones"><strong>Fundamentos Teóricos de Funciones</strong></a>
-<ul>
-<li><a href="#/por-qué-funciones-la-piedra-angular-del-ml" id="/toc-por-qué-funciones-la-piedra-angular-del-ml">¿Por qué Funciones? La Piedra Angular del ML</a></li>
-<li><a href="#/correspondencia-de-conjuntos" id="/toc-correspondencia-de-conjuntos">CORRESPONDENCIA DE CONJUNTOS</a></li>
-
-<li><a href="#/función-real-de-variable-real" id="/toc-función-real-de-variable-real">Función real de variable real</a>
-<ul>
-<li><a href="#/no-es-fascinante-cómo-una-función-real-de-variable-real-puede-describir-el-comportamiento-de-tantas-situaciones-en-el-mundo-real-conectando-conceptos-abstractos-con-la-realidad-tangible" id="/toc-no-es-fascinante-cómo-una-función-real-de-variable-real-puede-describir-el-comportamiento-de-tantas-situaciones-en-el-mundo-real-conectando-conceptos-abstractos-con-la-realidad-tangible">¿No es fascinante cómo una función real de variable real puede describir el comportamiento de tantas situaciones en el mundo real, conectando conceptos abstractos con la realidad tangible?</a></li>
-</ul></li>
-<li><a href="#/ejemplos" id="/toc-ejemplos">Ejemplos</a></li>
-
-<li><a href="#/la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio" id="/toc-la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio"><span class="bg" style="--col: #fdf6e3">LA PREGUNTA DEL MILLÓN, <span class="bg" style="--col: #ffff00">¿Para que sirve la tasa de cambio?</span><img data-src="Images/h-0.png" data-with="20%"></span></a></li>
-<li><a href="#/utilidad-de-la-función-real-de-variable-real-20-min" id="/toc-utilidad-de-la-función-real-de-variable-real-20-min"><span class="bg scrollable" style="background-color:#ffff00; padding:0.6em; font-size:1.2em;"><strong>UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL</strong></span> (20 min)</a></li>
-<li><a href="#/tasas-de-cambio-preparación-para-la-derivada" id="/toc-tasas-de-cambio-preparación-para-la-derivada">Tasas de Cambio: Preparación para la Derivada</a></li>
-
-
-
-
-<li><a href="#/fijando-ideas-problema-parte-1-capital-produccion" id="/toc-fijando-ideas-problema-parte-1-capital-produccion"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (capital-produccion)</strong></span></a></li>
-<li><a href="#/fijando-ideas-problema-parte-2-capital-produccion" id="/toc-fijando-ideas-problema-parte-2-capital-produccion"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (capital-produccion)</strong></span></a></li>
-<li><a href="#/fijando-ideas-problema-parte-1-tiempo-velocidad" id="/toc-fijando-ideas-problema-parte-1-tiempo-velocidad"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (tiempo-velocidad)</strong></span></a></li>
-<li><a href="#/fijando-ideas-problema-parte-2-tiempo-velocidad" id="/toc-fijando-ideas-problema-parte-2-tiempo-velocidad"><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (tiempo-velocidad)</strong></span></a></li>
-<li><a href="#/tasa-de-cambio-el-camino-a-la-derivada" id="/toc-tasa-de-cambio-el-camino-a-la-derivada"><strong>Tasa de Cambio: El Camino a la Derivada</strong></a></li>
-</ul></li>
-</ul>
-</nav>
+  <p class="date">2025-07-11</p>
 </section>
 <section>
 <section id="fundamentos-teóricos-de-funciones" class="title-slide slide level1 my-slide center">
@@ -373,18 +343,50 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 </div>
 </div>
 </section>
+<section id="dominio-de-definicion-de-una-funcion" class="slide level2">
+<h2>DOMINIO DE DEFINICION DE UNA FUNCION</h2>
+<div class="bg" style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;">
+<p>El <span class="alert">dominio de definición</span> de la <span class="math inline">\(f:\mathfrak{R} \longrightarrow \mathfrak{R}\)</span> se denota <span class="alert">Dom(f)</span>, y es el subconjunto de <span class="math inline">\(\mathfrak{R}_{inicial}\)</span> formado por los puntos a los que <span class="math inline">\(f\)</span> les asigna imagen en <span class="math inline">\(\mathfrak{R}_{final}\)</span>:</p>
+</div>
+<div class="center">
+<p><span class="bg" style="--col: #e0ffff"><span class="math display">\[
+Dom(f)= \{ x\in \mathfrak{R} \;| \;f(x)\in \mathfrak{R}\}
+\]</span></span></p>
+</div>
+<div class="bg" style="padding:0em; margin-top:-1em; font-size:0.75em;">
+<p>Si <span class="math inline">\(f(a) \in \mathfrak{R}\)</span> se dice que <span class="math inline">\(f\)</span> <span class="alert">esta definida</span> en el punto <span class="math inline">\("a"\)</span>, y si <span class="math inline">\(f(a) \notin \mathfrak{R}\)</span> se dice que <span class="math inline">\("f"\)</span> <span class="alert">no está definida</span> en “a”.</p>
+</div>
+<div class="bg" style="padding:0em; margin-top:-0.5em; font-size:0.75em;">
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/C_03.jpg" style="width:80.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="center">
+<p><img data-src="Images/C_07.jpg" style="width:80.0%"></p>
+</div>
+</div>
+</div>
+</div>
+<p>Una función real de variable real <span class="math inline">\(f:A \subset \mathfrak{R} \rightarrow \mathfrak{R}\)</span> es una regla que asigna a cada elemento de un primer conjunto <span class="math inline">\(A\)</span>, un único elemento de un segundo conjunto <span class="math inline">\(\mathfrak{R}\)</span>. Las funciones son relaciones entre los elementos de dos conjuntos.</p>
+<p>Se llama <strong>dominio</strong> de la función <span class="math inline">\(f\)</span> al conjunto de valores para los cuales la misma está definida</p>
+<p><span class="math display">\[Dom\ (f) = A = \{x\in \mathbb R| \exists! y \in \mathbb R: f(x)=y\}\]</span> El conjunto de todos los resultados posibles de una función dada se denomina <strong>rango</strong>, <strong>imagen</strong> o <strong>codominio</strong> de esa función.</p>
+<p><span class="math display">\[Im\ (f) = \{y\in \mathbb R| \exists x \in \mathbb R: f(x)=y\}\]</span></p>
+</section>
 <section id="la-pregunta-del-millón-para-que-sirve-la-tasa-de-cambio" class="slide level2 scrollable">
 <h2><span class="bg" style="--col: #fdf6e3">LA PREGUNTA DEL MILLÓN, <span class="bg" style="--col: #ffff00">¿Para que sirve la tasa de cambio?</span><img data-src="Images/h-0.png" data-with="20%"></span></h2>
 <div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;font-size:1.4em;">
 <p>El cociente <span class="math inline">\(\color{blue}{\frac{f(x+h)-f(x)}{(x+h)-x}}\)</span>, que es la <span class="alert"><strong>TASA DE CAMBIO</strong></span> de la funcion <span class="math inline">\(f: \mathfrak{R} \longmapsto \mathfrak{R}\)</span> si la vararible independiente varia desde <strong>x</strong> hasta <strong>x+h</strong>, tendra protagonismo estalar cuando hablemos de la <span class="alert"><strong>derivada</strong></span> de <span class="alert"><strong>f</strong></span> en <span class="alert"><strong>x</strong></span></p>
 </div>
 </section>
-<section id="utilidad-de-la-función-real-de-variable-real-20-min" class="slide level2">
-<h2><span class="bg scrollable" style="background-color:#ffff00; padding:0.6em; font-size:1.2em;"><strong>UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL</strong></span> (20 min)</h2>
+<section id="utilidad-de-la-función-real-de-variable-real" class="slide level2">
+<h2><strong>UTILIDAD DE LA FUNCIÓN REAL DE VARIABLE REAL</strong></h2>
 <p>Comprenderás la <span class="alert"><strong>importancia de las funciones reales de variable real</strong></span> si imaginas que la variable independiente <span class="alert"><strong>“x”</strong></span> representa la cantidad de capital invertido por una bodega, mientras que la variable dependiente <span class="alert"><strong><span class="math inline">\(f(x)\)</span></strong></span> representa la <strong>producción de vino</strong> obtenida.</p>
 <div class="columns">
 <div class="column" style="width:30%;">
-<div class="bg" style="background-color:#d6f7db; padding:0.25em; border-left:6px solid #228B22;">
+<div class="bg" style="background-color:#d6f7db; padding:0.25em;">
 <div class="center">
 <p><span class="math display">\[
 \overset{\large x}{\text{Capital}} \quad \longrightarrow \quad \overset{\large f(x)}{\text{Producción}}
@@ -395,7 +397,7 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 </div>
 </div><div class="column" style="width:70%;">
 <div class="center">
-<p><img data-src="Images/f-2.png" style="width:80.0%"></p>
+<p><img data-src="Images/f-2.png" style="width:72.0%"></p>
 </div>
 </div></div>
 </section>
@@ -514,8 +516,8 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 </div>
 </div>
 </section>
-<section id="fijando-ideas-problema-parte-1-capital-produccion" class="slide level2 scrollable">
-<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (capital-produccion)</strong></span></h2>
+<section id="fijando-ideas-problema-parte-1-capital-produccion" class="slide level2">
+<h2><strong>Fijando ideas-problema parte 1 (capital-produccion)</strong></h2>
 
 <img data-src="Images/f-3.png" class="r-stretch"><p>Si el capital empleado varia desde <span class="alert"><strong>“x”</strong></span> hasta <span class="alert"><strong>“x+h”</strong></span>, la produccion obtenida <span class="alert"><strong>varia</strong></span> desde <span class="alert"><strong><span class="math inline">\(f(x)=1=x^2\)</span></strong></span> hasta <span class="alert"><strong><span class="math inline">\(f(x+h)=1+(x+h)^2\)</span></strong></span>. La pregunta seria? Cuantas unidades varia la produccion por cada unidad de varaicion de capital?</p>
 <p><span class="math display">\[
@@ -542,8 +544,8 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 \end{array}
 \]</span></p>
 </section>
-<section id="fijando-ideas-problema-parte-2-capital-produccion" class="slide level2 scrollable">
-<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (capital-produccion)</strong></span></h2>
+<section id="fijando-ideas-problema-parte-2-capital-produccion" class="slide level2">
+<h2><strong>Fijando ideas-problema parte 2 (capital-produccion)</strong></h2>
 <p>Saber que la tasa de cambio es: <span class="math inline">\(TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 2x+h \frac{litros}{euro}\)</span> es una oportunidad ventajosa</p>
 <table class="caption-top">
 <thead>
@@ -594,8 +596,8 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 </tbody>
 </table>
 </section>
-<section id="fijando-ideas-problema-parte-1-tiempo-velocidad" class="slide level2 scrollable">
-<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 1 (tiempo-velocidad)</strong></span></h2>
+<section id="fijando-ideas-problema-parte-1-tiempo-velocidad" class="slide level2">
+<h2><strong>Fijando ideas-problema parte 1 (tiempo-velocidad)</strong></h2>
 
 <img data-src="Images/f-4.png" data-with="130%" class="r-stretch"><p>Si el tiempo varia desde <span class="alert"><strong>“x”</strong></span> hasta <span class="alert"><strong>“x+h”</strong></span>, la velocidad obtenida <span class="alert"><strong>varia</strong></span> desde <span class="alert"><strong><span class="math inline">\(f(x)=1+x^3\)</span></strong></span> hasta <span class="alert"><strong><span class="math inline">\(f(x+h)=1+(x+h)^3\)</span></strong></span>. La pregunta seria? Cuantas unidades varia la velocidad por cada unidad de <span class="alert"><strong>variacion</strong></span> de tiempo?</p>
 <p><span class="math display">\[
@@ -623,8 +625,8 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 \]</span></p>
 <p><span class="bg" style="--col:#fdf6e3"><span class="alert"><strong>Aceleracion media</strong></span></span> entre el instante <strong>“x”</strong> y el instante <strong>“x+h”</strong></p>
 </section>
-<section id="fijando-ideas-problema-parte-2-tiempo-velocidad" class="slide level2 scrollable">
-<h2><span class="bg" style="--col: #ffff00"><strong>Fijando ideas-problema parte 2 (tiempo-velocidad)</strong></span></h2>
+<section id="fijando-ideas-problema-parte-2-tiempo-velocidad" class="slide level2">
+<h2><strong>Fijando ideas-problema parte 2 (tiempo-velocidad)</strong>]</h2>
 <p>Saber que la tasa de cambio es: <span class="math inline">\(TC=\frac{f(x+h)-f(x)}{(x+h)-x}= 3x^2+3xh+h^2 \frac{km-hora}{hora}\)</span> es una oportunidad ventajosa</p>
 <table class="caption-top">
 <colgroup>
@@ -668,36 +670,537 @@ f(2-h) = \frac{2-h}{(2-h)-1}
 </tbody>
 </table>
 </section>
-<section id="tasa-de-cambio-el-camino-a-la-derivada" class="slide level2">
-<h2><strong>Tasa de Cambio: El Camino a la Derivada</strong></h2>
-<div class="bg" style="background-color:#d6f7db; padding:0.75em; font-size:0.9em; border-left:6px solid #228B22;">
-<p>La <strong>tasa de cambio</strong> de <span class="math inline">\(f(x)\)</span> es <span class="math inline">\(\frac{f(x+h) - f(x)}{h}\)</span>, la pendiente de la recta secante.</p>
+<section id="aprendizaje-práctico-experimental-1h" class="slide level2">
+<h2>Aprendizaje Práctico – Experimental (1h):</h2>
+</section></section>
+<section>
+<section id="límites-i" class="title-slide slide level1 my-slide center">
+<h1>Límites I</h1>
+
+</section>
+<section id="definición-e-interpretación" class="slide level2">
+<h2>Definición e Interpretación</h2>
+</section>
+<section id="funciones-reales-de-variable-real" class="slide level2">
+<h2>Funciones reales de variable real</h2>
+<p>Supondremos que son conocidos el concepto de <strong>función</strong>, en tanto que una <strong>aplicación</strong> entre conjuntos de números. En particular, nos concentraremos en <strong>funciones reales de variable real</strong>, es decir en funciones <span class="math inline">\(f:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span>.</p>
+<p>Tambien suponemos conocidos los conceptos de <strong>rango</strong> y <strong>dominio</strong> de una función, así como los términos <strong>variable independiente</strong> y <strong>dependiente</strong>.</p>
+<p>Aunque seran tratadas con detalle más adelante, es conveniente tener presentes las principales características de funciones elementales como las polinómicas <span class="math inline">\(f(x)= P_n(x) = a_nx^n+a_{n-1}x^{n-1}+ \cdots + a_1x+a_0\)</span>, la exponencial <span class="math inline">\(f(x)=e^x\)</span> y las trigonométricas <span class="math inline">\(f(x)=\sin(x)\)</span>, <span class="math inline">\(f(x)=\cos(x)\)</span>, <span class="math inline">\(f(x) =\tan(x)\)</span>, entre otras.</p>
+</section>
+<section id="funciones-reales-de-variable-real-1" class="slide level2">
+<h2>Funciones reales de variable real</h2>
+<p>Uno de los principales objetivos del cálculo es el estudio las funciones. De hecho, como ya se ha mencionado, el <strong>cálculo diferencial</strong> trata del estudio de la <strong>medida del cambio</strong>, precisamente a través de relaciones que vienen expresadas como funciones, principalmente como <strong>funciones reales de variable real</strong>.</p>
+<p>La primera cuestión que se aborda tiene que ver con los <strong>números reales</strong>, en particular cómo <strong>evaluar las funciones reales de variable real</strong> cuando la <strong>variable independiente</strong> es un número <strong>irracional</strong>. Nuevamente el concepto de <strong>límite</strong> viene a ayudar en la solución de esta cuestión.</p>
+</section>
+<section id="límite-de-una-función-en-un-punto" class="slide level2">
+<h2>Límite de una función en un punto</h2>
+<p><l class="definition"> <strong>Definición. Límite de una función en un punto.</strong> </l></p>
+<p>Sea <span class="math inline">\(f:A \subset \mathbb{R}\)</span> una función definida sobre el conjunto <span class="math inline">\(A \subset \mathbb{R}\)</span> y sea <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. <span class="math inline">\(L \in \mathbb{R}\)</span> es el <strong>límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> tiende a <span class="math inline">\(c\)</span></strong> si para toda sucesión <span class="math inline">\(\{x_n\}_{n \in \mathbb{N}}\)</span> de puntos de <span class="math inline">\(A\)</span> tal que <span class="math inline">\(\displaystyle{\lim_{n \rightarrow \infty}x_n = c}\)</span> es <span class="math inline">\(\displaystyle{\lim_{n \rightarrow \infty}f(x_n)=L}\)</span>.</p>
+<p>Escribiremos, <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c}f(x)=L}\)</span>, para indicar el límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> tiende a <span class="math inline">\(c\)</span>.</p>
+</section>
+<section id="límite-de-una-función-en-un-punto-1" class="slide level2">
+<h2>Límite de una función en un punto</h2>
+<p><l class="observ"> <strong>Observaciones.</strong> </l></p>
+<p><strong>1.</strong> Igual que hemos hecho con las sucesiones y los números irracionales, con esta definción convertimos el problema de evaluar una función en un punto irracional en el de calcular el límite de una sucesión.</p>
+<p><strong>2.</strong> El hecho requerir que <span class="math inline">\(c\)</span> sea un punto de acumulación de <span class="math inline">\(A\)</span>, nos garantiza que existan sucesiones <span class="math inline">\(\{x_n\}\)</span> de puntos de <span class="math inline">\(A\)</span> tales que <span class="math inline">\(\displaystyle{\lim_{n\rightarrow \infty} x_n = c}\)</span> y, por lo tanto, la definición tiene sentido.</p>
+<p><strong>3.</strong> Si <span class="math inline">\(c\)</span> es un punto <strong>aislado</strong> de <span class="math inline">\(A\)</span>, es decir si hay un entorno de <span class="math inline">\(c\)</span> en el cual no hay puntos de <span class="math inline">\(A\)</span> diferentes de <span class="math inline">\(c\)</span>, entonces no tiene sentido hablar del límite de <span class="math inline">\(f\)</span> en ese punto.</p>
+</section>
+<section id="límite-de-una-función-en-un-punto-ejemplos." class="slide level2">
+<h2>Límite de una función en un punto: Ejemplos.</h2>
+<div class="example">
+<p><strong>Ejemplos</strong></p>
+<p><strong>Ejemplo 1.</strong> Sea <span class="math inline">\(f: \mathbb{R}\rightarrow \mathbb{R}\)</span> definida por <span class="math inline">\(f(x)=x\)</span> y sea <span class="math inline">\(c \in \mathbb{R}\)</span>, entonces <span class="math display">\[
+\lim_{x \rightarrow c} x = c,
+\]</span> puesto que para cualquier sucesión <span class="math inline">\(x_n  \rightarrow c\)</span> es obvio que <span class="math inline">\(f(x_n) = x_n \rightarrow c\)</span>.</p>
+<p><strong>Ejemplo 2.</strong> Análogamente si ahora es <span class="math inline">\(f(x) = \dfrac{1}{x}\)</span> y <span class="math inline">\(c \neq 0\)</span>, entonces</p>
+<p><span class="math display">\[
+\lim_{x \rightarrow c} \dfrac{1}{x} = \dfrac{1}{c},
+\]</span> puesto que si <span class="math inline">\(x_n \rightarrow c\)</span>, entonces <span class="math inline">\(\dfrac{1}{x_n} \rightarrow \dfrac{1}{c}.\)</span></p>
 </div>
-<iframe src="animacion_x2.html" width="100%" height="400px">
-</iframe>
-<p><strong>Explora la animación interactiva:</strong> - <a href="animacion_x2.html">Ver en Jupyter Notebook</a> - <a href="enlace_a_desmos">Explorar en Desmos</a></p>
-<p><strong>Actividad:</strong> Calcula la tasa de cambio para <span class="math inline">\(f(x) = x^2\)</span> con <span class="math inline">\(x=1\)</span> y <span class="math inline">\(h=0.1\)</span> en el notebook</p>
+</section>
+<section id="límite-de-una-función-en-un-punto-ejemplos" class="slide level2">
+<h2>Límite de una función en un punto: Ejemplos</h2>
+<div class="example">
+<p><strong>Ejemplos</strong></p>
+<p><strong>Ejemplo 3.</strong> Si <span class="math inline">\(f(x) = P_n(x) = a_n x^n + a_{n-1}x^{n-1}+ \cdots + a_1 x + a_0\)</span>, entonces para todo <span class="math inline">\(c \in \mathbb{R}\)</span> es <span class="math display">\[
+\lim_{x \rightarrow c}P_n(x) = P_n(c) = a_n c^n + a_{n-1}c^{n-1}+ \cdots + a_1 c + a_0,
+\]</span> como se deduce fácilmente de las propiedades aritméticas de los límites de sucesiones.</p>
+<p><strong>Ejemplo 4.</strong> Igualmente, si <span class="math inline">\(P_n(x)\)</span> y <span class="math inline">\(Q_m(x)\)</span> són polinomios tales que <span class="math inline">\(Q_m(c) \ne 0\)</span>, entonces <span class="math display">\[
+\lim_{x \rightarrow c} \dfrac{P_n(x)}{Q_m(x)} = \dfrac{P_n(c)}{Q_m(c)}.
+\]</span> <strong>Ejemplo 5.</strong> Si <span class="math inline">\(f(x) = e^x\)</span>, entonces <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c} e^x = e^{c}}\)</span> puesto que, como hemos demostrado, si <span class="math inline">\(x_n \rightarrow c\)</span>, entonces <span class="math inline">\(e^{x_n} \rightarrow e^{c}\)</span>.</p>
+</div>
+</section>
+<section id="límite-de-una-función-en-un-punto-ejemplos-1" class="slide level2">
+<h2>Límite de una función en un punto: Ejemplos</h2>
+<div class="example">
+<p><strong>Ejemplos</strong></p>
+<p><strong>Ejemplo 6.</strong> Más interesante es el caso <span class="math inline">\(\displaystyle{\lim_{x \rightarrow 1} \dfrac{x^5-2x^3+1}{x-1}}\)</span>, puesto que, en principio, para <span class="math inline">\(x=1\)</span> la función no está definida al anularse el denominador, es decir que el dominio de la función es <span class="math inline">\(\mathbb{R}\setminus\{1\}\)</span> y, por lo tanto, <span class="math inline">\(1\)</span> es un punto de acumulación del dominio.</p>
+<p>Ahora bien, dado que el numerador también se anula en este punto, podemos simplificar la fracción por <span class="math inline">\(x-1\)</span>, con lo que nos queda que <span class="math inline">\(\dfrac{x^5-2x^3+1}{x-1} = x^4+x^3-x^2-x\)</span>, y por lo tanto, <span class="math display">\[\lim _{x \rightarrow 1} \dfrac{x^5-2x^3+1}{x-1} = \lim _{x \rightarrow 1} (x^4+x^3-x^2-x-1 )= -1.
+\]</span></p>
+</div>
+</section>
+<section id="caracterización-del-límite-propiedad-epsilon-delta." class="slide level2">
+<h2>Caracterización del límite: propiedad <span class="math inline">\(\epsilon-\delta\)</span>.</h2>
+<p><l class="prop"> <strong>Proposición</strong> </l></p>
+<p>Sea <span class="math inline">\(f:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> una función definida sobre el conjunto <span class="math inline">\(A \subset \mathbb{R}\)</span> y sea <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. entonces son equivalentes las tres afirmaciones siguientes:</p>
+<ol type="a">
+<li><p><span class="math inline">\(\displaystyle{\lim_{x \rightarrow c}f(x)=L}\)</span></p></li>
+<li><p>Para todo <span class="math inline">\(\epsilon &gt;0\)</span> existe un <span class="math inline">\(\delta &gt;0\)</span> tal que siempre que <span class="math inline">\(0&lt;|x-c|&lt; \delta\)</span>, entonces es <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>. (<strong>Propiedad <span class="math inline">\(\epsilon-\delta\)</span></strong>).</p></li>
+<li><p>Para todo entorno abierto de <span class="math inline">\(L\)</span>, <span class="math inline">\(V_{\epsilon}(L)\)</span>, existe un entorno abierto de <span class="math inline">\(c\)</span>, <span class="math inline">\(V_{\delta} (c)\)</span> tal que para todo <span class="math inline">\(x \in V^*_{\delta} (c)\)</span> es <span class="math inline">\(f(x) \in V_{\epsilon}(L)\)</span>, donde <span class="math inline">\(V^*_{\delta}= V_{\delta} \setminus \{c\}\)</span>, es decir el entorno reducido de <span class="math inline">\(c\)</span> y radio <span class="math inline">\(\delta\)</span></p></li>
+</ol>
+</section>
+<section id="caracterización-del-límite-propiedad-epsilon-delta" class="slide level2">
+<h2>Caracterización del límite: propiedad <span class="math inline">\(\epsilon-\delta\)</span></h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Veamos en primer lugar que 2) <span class="math inline">\(\implies\)</span> 1). Sea <span class="math inline">\(x_n\)</span> una sucesión de puntos distintos de <span class="math inline">\(c\)</span>, tal que <span class="math inline">\(x_n \rightarrow c\)</span>.</p>
+<p>Supongamos que para todo <span class="math inline">\(\epsilon &gt;0\)</span> existe <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(|x - c|&lt; \delta\)</span>, entonces <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>.</p>
+<p>Dado que <span class="math inline">\(\delta &gt;0\)</span>, existe <span class="math inline">\(n_0\)</span> tal que para todo <span class="math inline">\(n &gt; n_0\)</span> es <span class="math inline">\(|x_n - c|&lt;\delta\)</span>, por lo tanto será <span class="math inline">\(|f(x_n) - L| &lt; \epsilon\)</span>, para todo <span class="math inline">\(n &gt; n_0\)</span>, por lo que, efectivamente, <span class="math inline">\(f(x_n) \rightarrow L\)</span>.</p>
+</div>
+</section>
+<section id="las-dos-definiciones-son-equivalentes" class="slide level2">
+<h2>Las dos definiciones son equivalentes</h2>
+<div class="dem">
+<p><strong>Demostración. (Continuación)</strong></p>
+<p>Demostramos la otra implicación por contraposición, es decir usando la equivalencia <span class="math inline">\(2 \implies 1 \equiv \lnot 1 \implies \lnot 2\)</span>.</p>
+<p>Suponemos, pues que se verifica la propiedad <span class="math inline">\(\epsilon-\delta\)</span>, es decir que hay un <span class="math inline">\(\epsilon &gt; 0\)</span> tal que para todo <span class="math inline">\(\delta &gt;0\)</span> existe <span class="math inline">\(x_{\delta}\)</span> tal que <span class="math inline">\(|x_{\delta} - c|&lt;\delta\)</span> y <span class="math inline">\(|f(x_{\delta}) - L| \geq \epsilon\)</span>.</p>
+<p>Se trata de ver que hay una sucesión, <span class="math inline">\(\{x_n\}\)</span> que tiene límite <span class="math inline">\(c\)</span> y que <span class="math inline">\(f(x_n) \not\rightarrow_{x \rightarrow c} L\)</span>.</p>
+<p>Consideremos ahora la sucesión de números positivos <span class="math inline">\(\delta_n = \frac{1}{n}\)</span>, y los correspondientes <span class="math inline">\(x_n\)</span> tales que <span class="math inline">\(|x_n-c|&lt; \frac{1}{n}\)</span>, es <span class="math inline">\(|f(x_n) -L | \geq \epsilon\)</span>, es decir <span class="math inline">\(f(x_n) \not\rightarrow L\)</span>, en tanto que <span class="math inline">\(x_n \rightarrow c\)</span>, que es lo que se quería demostrar.</p>
+<p>Finalmente, en lo que se refiere al tercer apartado, es suficiente tener en cuenta que que <span class="math inline">\(|x-c| &lt; \delta\)</span> si, y sólo si, <span class="math inline">\(x \in V_{\delta}(c)\)</span>.</p>
+</div>
+</section>
+<section id="ejemplo-de-la-propiedad-epsilon-delta" class="slide level2">
+<h2>Ejemplo de la propiedad <span class="math inline">\(\epsilon-\delta\)</span></h2>
+<div class="example">
+<p><strong>Ejemplo</strong></p>
+<p>Si <span class="math inline">\(f(x)=\dfrac{1}{x}\)</span>, dado un punto <span class="math inline">\(c&gt;0\)</span>, tenemos para <span class="math inline">\(x&gt;0\)</span>, <span class="math display">\[
+\left|\dfrac{1}{x} -\dfrac{1}{c}\right|= \left|\dfrac{1}{cx}(c-x)\right| = \dfrac{1}{cx}|c-x|
+\]</span> Ahora, si <span class="math inline">\(x\)</span> es tal que <span class="math inline">\(|x-c| &lt;\dfrac{1}{2}c\)</span>, de tal manera que <span class="math inline">\(\dfrac{c}{2}&lt;x&lt;\dfrac{3c}{2}\)</span>, por lo que <span class="math inline">\(0 &lt; \dfrac{1}{cx} &lt;  \dfrac{2}{c^2} \quad \text{ para } |x-c|&lt; \dfrac{1}{2}c\)</span>. Por lo tanto, para estos valores de <span class="math inline">\(x\)</span> tenemos que <span class="math display">\[
+\left|\dfrac{1}{x} -\dfrac{1}{c}\right| \leq \dfrac{2}{c^2} |x-c|.
+\]</span></p>
+<p>Ahora, dado un <span class="math inline">\(\epsilon &gt;0\)</span> bastará tomar <span class="math inline">\(\delta = \min \left\{\dfrac{1}{2}c, \dfrac{1}{2}c^2 \epsilon \right\}\)</span> para tener asegurado que si <span class="math inline">\(|x -c|&lt;\delta\)</span>, entonces <span class="math inline">\(\left|\dfrac{1}{x} -\dfrac{1}{c}\right| &lt; \epsilon\)</span>.</p>
+</div>
+</section>
+<section id="ejemplo-de-la-propiedad-epsilon-delta-1" class="slide level2">
+<h2>Ejemplo de la propiedad <span class="math inline">\(\epsilon-\delta\)</span></h2>
+<div class="example">
+<p><strong>Ejemplo</strong></p>
+<p>Veamos que <span class="math inline">\(\displaystyle{\lim_{x \rightarrow 2} \dfrac{x^3-4}{x^2+1}= \dfrac{4}{5}}\)</span> <span class="math display">\[
+\left|\dfrac{x^3-4}{x^2+1} -  \dfrac{4}{5}\right|= \left|\dfrac{5x^3-20-4x^2-4}{5(x^2+1)}\right| = \dfrac{|5x^2+6x+12|}{5(x^2+1)}|x-2|
+\]</span> Ahora, si <span class="math inline">\(|x-2|&lt;1\)</span>, o equivalentemente, si <span class="math inline">\(0&lt;x&lt;3\)</span>, tendremos que <span class="math inline">\(\dfrac{|5x^2+6x+12|}{5(x^2+1)} \leq \dfrac{15}{2}\)</span>, puesto que el numerador es menor o igual que <span class="math inline">\(15\)</span> y el numerador mayor o igual que <span class="math inline">\(2\)</span>.</p>
+<p>Si para un <span class="math inline">\(\epsilon &gt;0\)</span> tomamos <span class="math inline">\(\delta = \min \left\{1, \dfrac{2}{15} \epsilon \right\}\)</span>, tendremos que si <span class="math inline">\(|x-2| &lt; \delta\)</span>, entonces <span class="math display">\[
+\left|\dfrac{x^3-4}{x^2+1} -  \dfrac{4}{5}\right| &lt; \epsilon
+\]</span></p>
+</div>
+</section>
+<section id="sobre-la-propiedad-epsilon-delta" class="slide level2">
+<h2>Sobre la propiedad <span class="math inline">\(\epsilon-\delta\)</span></h2>
+<p><l class="observ"> <strong>Observaciones</strong> </l></p>
+<p><strong>1.</strong> La propiedad <span class="math inline">\(\epsilon -\delta\)</span>, significa que dada una precisión cualquiera, <span class="math inline">\(\epsilon\)</span>, para el resultado, <span class="math inline">\(L\)</span>, podemos determinar la precisión, <span class="math inline">\(\delta\)</span>, con la que hay que tomar la aproximación, <span class="math inline">\(x\)</span> de <span class="math inline">\(c\)</span>, para tener asegurada la precisión requerida para <span class="math inline">\(L\)</span>.</p>
+<p><strong>2.</strong> Los ejemplos anteriores muestran que <span class="math inline">\(\delta\)</span> puede depender de <span class="math inline">\(\epsilon\)</span> y del punto <span class="math inline">\(c\)</span>, por lo que sería más apropiado escribir <span class="math inline">\(\delta(\epsilon,c)\)</span>, lo que no se acostumbra a hacer para evitar complicar la notación en exceso, lo cual no es óbice para olvidar esta dependencia.</p>
+<p><strong>3.</strong> Los ejemplos anteriores también pueden producir la impresión, equivocada, que es más conveniente usar la primera definición de límite que la propiedad <span class="math inline">\(\epsilon-\delta\)</span>, pero veremos que, en ocasiones, resulta más conveniente esta última que la primera.</p>
+</section>
+<section id="la-propiedad-epsilon-delta" class="slide level2">
+<h2>La propiedad <span class="math inline">\(\epsilon-\delta\)</span></h2>
+<div class="center">
 <div class="cell">
 <div class="cell-output-display">
-<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="7d43abd2-dcf1-494a-a0c3-2a88d0d339ba" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("7d43abd2-dcf1-494a-a0c3-2a88d0d339ba")) {                    Plotly.newPlot(                        "7d43abd2-dcf1-494a-a0c3-2a88d0d339ba",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"J(w) = w\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };                            </script>        </div>
+<div>
+<figure>
+<p><img data-src="Images/epdel0.png" width="600"></p>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="propiedades-del-límite-de-una-función" class="slide level2">
+<h2>Propiedades del límite de una función</h2>
+<p><l class="definition"> <strong>Definición</strong> </l></p>
+<p>Sea <span class="math inline">\(f:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> y <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. <span class="math inline">\(f\)</span> <strong>está acotada en un entorno de <span class="math inline">\(c\)</span></strong>, <span class="math inline">\(V_{\delta}(c)\)</span>, si existe una constante <span class="math inline">\(M \in \mathbb{R}\)</span> tal que <span class="math inline">\(|f(x)| \leq M\)</span> para todo <span class="math inline">\(x \in A \cap V_{\delta}(c)\)</span>.</p>
+<p><l class="prop"> <strong>Proposición</strong></l></p>
+<p>Sea <span class="math inline">\(f:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> y <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. Si <span class="math inline">\(\lim _{x \rightarrow c} f(x) =L\)</span>, entonces <span class="math inline">\(f\)</span> está acotada en un entorno de <span class="math inline">\(c\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Dado <span class="math inline">\(\epsilon=1&gt;0\)</span>, existe <span class="math inline">\(\delta\)</span> tal que <span class="math inline">\(|f(x)|-|L| \leq |f(x)-L|&lt;1\)</span>, para todo <span class="math inline">\(x \in A \cap V_{\delta}(c)\)</span>. Por consiguiente si <span class="math inline">\(M= |L|+1\)</span>, es <span class="math inline">\(|f(x)| &lt; |L|+1 = M\)</span>.</p>
+</div>
+</section>
+<section id="propiedades-del-límite-de-una-función-1" class="slide level2">
+<h2>Propiedades del límite de una función</h2>
+<p><l class="definition"> <strong>Definición</strong> </l></p>
+<p>Sean <span class="math inline">\(f,g:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> dos funciones reales de variable real. Entonces</p>
+<ol type="1">
+<li><p><span class="math inline">\(f+g: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es la función definida por <span class="math inline">\((f+g)(x) = f(x)+g(x)\)</span></p></li>
+<li><p><span class="math inline">\(f \cdot g: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es la función definida por <span class="math inline">\((f\cdot g)(x) = f(x)&nbsp;\cdot g(x)\)</span></p></li>
+<li><p>Si <span class="math inline">\(g(x)\neq 0\)</span> en un <span class="math inline">\(A\)</span>, entonces <span class="math inline">\(\dfrac{1}{g}:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es la función definida por <span class="math inline">\(\dfrac{1}{g}(x)= \dfrac{1}{g(x)}\)</span></p></li>
+<li><p>Si <span class="math inline">\(\lambda \in \mathbb{R}\)</span>, entonces <span class="math inline">\(\lambda \cdot f: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es la función definida por <span class="math inline">\((\lambda \cdot f)(x)= \lambda \cdot f(x)\)</span>.</p></li>
+</ol>
+</section>
+<section id="propiedades-del-límite-de-una-función-2" class="slide level2">
+<h2>Propiedades del límite de una función</h2>
+<p><l class="prop"> <strong>Proposición</strong> </l></p>
+<p>Sean <span class="math inline">\(f,g:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> dos funciones reales de variable real y <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>, tales que <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c} f(x) = L_1}\)</span> y <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c} g(x)= L_2}\)</span>. Entonces</p>
+<p>P1. <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c}(f+g)(x) = L_1+L_2}\)</span>.</p>
+<p>P2. <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c}(f \cdot g)(x) = L_1 \cdot L_2}\)</span>.</p>
+<p>P3. <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c} (\lambda \cdot f)(x) = \lambda \cdot L_1}\)</span>.</p>
+<p>P4. Si <span class="math inline">\(L_2 \neq 0\)</span>, entonces <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c} \dfrac{f(x)}{g(x)} = \dfrac{L_1}{L_2}}\)</span>.</p>
+</section>
+<section id="propiedades-del-límite-de-una-función-3" class="slide level2">
+<h2>Propiedades del límite de una función</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>P1, P2 y P3 son una consecuencia inmediata de la definción de límite de una función. En el caso de P1, por ejemplo, tenemos que si <span class="math inline">\(x_n \rightarrow c\)</span> entonces <span class="math inline">\(f(x_n) \rightarrow L_1\)</span> y <span class="math inline">\(g(x_n) \rightarrow L_2\)</span>, por lo tanto,</p>
+<p><span class="math display">\[
+\lim_{x \rightarrow c}(f+g)(x)= \lim_{n  \rightarrow \infty} (f+g)(x_n)= \lim_{n  \rightarrow \infty} \left( f(x_n)+g(x_n) \right)
+\]</span></p>
+<p><span class="math display">\[=  \lim_{n  \rightarrow \infty} f(x_n) + \lim_{n  \rightarrow \infty} g(x_n) = L_1+L_2 = \lim_{x \rightarrow c} f(x) + \lim_{x \rightarrow c} g(x)
+\]</span></p>
+<p>Por lo que se refiere a P4, tenemos que si <span class="math inline">\(L_2 \neq 0\)</span>, entonces hemos demostrado, en el tema de límite de sucesiones, que para toda sucesión <span class="math inline">\(x_n\)</span> de puntos de <span class="math inline">\(A\)</span> tal que <span class="math inline">\(g(x_n) \rightarrow L_2\)</span>, existe <span class="math inline">\(n_0\)</span> tal <span class="math inline">\(g(x_n) \neq 0\)</span> para todo <span class="math inline">\(n \geq n_0\)</span> y, además, <span class="math inline">\(\lim_{n \rightarrow \infty}\dfrac{1}{g(x_n)} = \dfrac{1}{L_2}\)</span> y, por lo tanto, <span class="math display">\[
+\lim_{x \rightarrow c} \dfrac{f(x)}{g(x)} = \dfrac{L_1}{L_2}.
+\]</span></p>
+</div>
+</section>
+<section id="propiedades-del-límite-de-una-función-4" class="slide level2">
+<h2>Propiedades del límite de una función</h2>
+<p><l class="prop"> <strong>Proposición</strong> </l></p>
+<p>Si para todo <span class="math inline">\(x \in A\)</span> es <span class="math inline">\(a \leq f(x) \leq b\)</span>, entonces <span class="math inline">\(\displaystyle{a \leq \lim_{x \rightarrow c} f(x) \leq b}\)</span></p>
+<p><l class="prop"> <strong>Proposición</strong> </l></p>
+<p>Sean <span class="math inline">\(f,g,h :A\subset \mathbb{R} \rightarrow \mathbb{R}\)</span>, tales que <span class="math inline">\(h(x) \leq f(x) \leq g(x)\)</span>, para todo <span class="math inline">\(x \in A\)</span>, y</p>
+<p>que <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c} g(x) =  \lim_{x \rightarrow c} h(x) = L}\)</span>, entonces<br>
+<span class="math display">\[
+\lim_{x \rightarrow c} f(x) = L.
+\]</span></p>
+</section>
+<section id="propiedades-del-límite-de-una-función-5" class="slide level2">
+<h2>Propiedades del límite de una función</h2>
+<p><l class="prop"> <strong>Proposición</strong> </l></p>
+<p>Sean <span class="math inline">\(f:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> y <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. Si <span class="math inline">\(\lim _{x \rightarrow c} f(x) = L&gt;0\)</span>, entonces existe <span class="math inline">\(\delta &gt; 0\)</span> tal que <span class="math inline">\(f(x)&gt;0\)</span> para todo <span class="math inline">\(x \in V^*_{\delta}(c) \cap A\)</span>.</p>
+<p>Análogamente, si <span class="math inline">\(\lim _{x \rightarrow c} f(x) = L &lt;0\)</span>, entonces existe <span class="math inline">\(\delta &gt; 0\)</span> tal que <span class="math inline">\(f(x)&lt;0\)</span> para todo <span class="math inline">\(x \in V^*_{\delta}(c) \cap A\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Supongamos, en primer lugar que <span class="math inline">\(L&gt;0\)</span>. Sea <span class="math inline">\(\epsilon = \dfrac{L}{2} &gt; 0\)</span>, entonces, por ser <span class="math inline">\(L= \lim _{x \rightarrow c} f(x)\)</span>, existe <span class="math inline">\(\delta &gt;0\)</span> tal que <span class="math inline">\(|f(x)-L|&lt;\dfrac{L}{2}= \epsilon\)</span>, por lo tanto, tenemos que <span class="math inline">\(-\dfrac{L}{2} &lt; f(x) - L &lt; \dfrac{L}{2}\)</span> y por lo tanto, es <span class="math inline">\(0 &lt;\dfrac{L}{2} &lt; f(x)\)</span>.</p>
+<p>La demostración para el caso <span class="math inline">\(L&lt;0\)</span> es completamente similar y se deja como ejercicio.</p>
+</div>
+</section>
+<section id="límites-laterales" class="slide level2">
+<h2>Límites laterales</h2>
+<p>La función <span class="math inline">\(f:\mathbb{R} \setminus \{0\} \rightarrow \mathbb{R}\)</span>, <span class="math inline">\(f(x) = \dfrac{x}{|x|}\)</span>, no està definida en el punto <span class="math inline">\({0}\)</span>, de hecho, se trata de la función <span class="math display">\[
+f(x) =
+\begin{cases}
+\;\;   1, &amp; \mbox { si } x&gt;0 \\
+-1, &amp; \mbox { si } x&lt;0
+\end{cases}
+\]</span> conocida como la función <em>signo</em> de <span class="math inline">\(x\)</span>, que se acostumbra a indicar por <span class="math inline">\(\text{sgn}(x)\)</span></p>
+<p><span class="math inline">\(0\)</span> es un punto de acumulación del dominio de <span class="math inline">\(f\)</span>, pero no existe el <span class="math inline">\(\displaystyle{\lim_{x \rightarrow 0} \text{sgn}(x)}\)</span></p>
+</section>
+<section id="límites-laterales-1" class="slide level2">
+<h2>Límites laterales</h2>
+<p>No existe el <span class="math inline">\(\displaystyle{\lim_{x \rightarrow 0}\text{sgn}(x)}\)</span>.</p>
+<p>En efecto, consideremos la sucesión de término general <span class="math inline">\(x_n = \dfrac{(-1)^n}{n}\)</span>, entonces es <span class="math inline">\(\text{sgn}(x_{2k})= 1\)</span> en tanto que <span class="math inline">\(\text{sgn}(x_{2k+1})=-1\)</span>, para todo <span class="math inline">\(k \in \mathbb{N}\)</span>, es decir que la sucesión de término general <span class="math inline">\(\text{sgn}(x_n)\)</span> tiene dos subsucesiones con límite diferente y, por lo tanto, <span class="math inline">\(\text{sgn}(x_n)\)</span> no tiene límite.</p>
+<p>En definitiva no existe el <span class="math inline">\(\displaystyle{\lim_{x \rightarrow 0}\text{sgn}(x)}\)</span>.</p>
+</section>
+<section id="límites-laterales-gráfica-de-la-función-textsgnx" class="slide level2">
+<h2>Límites laterales: gráfica de la función <span class="math inline">\(\text{sgn}(x)\)</span></h2>
+<div class="center">
+<div class="cell">
 <div class="cell-output-display">
-<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="fc6c17f3-a151-419b-95e7-35783dc4691c" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("fc6c17f3-a151-419b-95e7-35783dc4691c")) {                    Plotly.newPlot(                        "fc6c17f3-a151-419b-95e7-35783dc4691c",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"J(w) = w\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };                            </script>        </div>
+<div>
+<figure>
+<p><img data-src="Images/sgn1.png" width="600"></p>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="límites-laterales-2" class="slide level2">
+<h2>Límites laterales</h2>
+<p><l class="definition"> <strong>Definición de límite lateral</strong> </l></p>
+<ol type="1">
+<li><p>Sea <span class="math inline">\(f: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> una función real de variable real y sea <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. <span class="math inline">\(L \in \mathbb{R}\)</span> es el <strong>límite lateral por la derecha</strong> de <span class="math inline">\(f\)</span> en <span class="math inline">\(c\)</span>, si para toda sucesión <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(x_n \rightarrow c\)</span> con <span class="math inline">\(x_n \geq c\)</span>, es <span class="math inline">\(f(x_n)\rightarrow L\)</span>. Escribiremos <span class="math display">\[
+L = \lim_{x \rightarrow c^+}f(x).
+\]</span></p></li>
+<li><p>Análogamente, <span class="math inline">\(L \in \mathbb{R}\)</span> es el <strong>límite lateral por la izquierda</strong> de <span class="math inline">\(f\)</span> en <span class="math inline">\(c\)</span>, si para toda sucesión <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(x_n \rightarrow c\)</span> con <span class="math inline">\(x_n \leq c\)</span>, es <span class="math inline">\(f(x_n)\rightarrow L\)</span>. Escribiremos <span class="math display">\[
+L = \lim_{x \rightarrow c^-}f(x).
+\]</span></p></li>
+</ol>
+</section>
+<section id="límites-laterales-3" class="slide level2">
+<h2>Límites laterales</h2>
+<div class="example">
+<p><strong>Ejemplos</strong></p>
+<ol type="1">
+<li><p>En el caso de la función <em>signo</em>, <span class="math inline">\(\text{sgn}(x) = \dfrac{x}{|x|}\)</span>, hemos visto que <span class="math inline">\(\lim_{x \rightarrow 0^+}\text{sgn}(x) = 1\)</span> y <span class="math inline">\(\lim_{x \rightarrow 0^-} \text{sgn}(x) = -1\)</span>.</p></li>
+<li><p>Sea <span class="math inline">\(g:\mathbb{R} \rightarrow \mathbb{R}\)</span>, la función definida por <span class="math display">\[
+g(x)=
+\begin{cases}
+x+1, &amp; \mbox{ si } x \leq 0, \\
+x^2, &amp; \mbox{ si } x &gt; 0.
+\end{cases}
+\]</span> Entonces <span class="math inline">\(\lim_{x \rightarrow 0^-} g(x) = 1\)</span> y <span class="math inline">\(\lim_{x \rightarrow 0^+} g(x) = 0\)</span>.</p></li>
+<li><p>Sea <span class="math inline">\(h:\mathbb{R} \rightarrow \mathbb{R}\)</span>, la función definida por <span class="math display">\[
+h(x)=
+\begin{cases}
+x+1, &amp; \mbox{ si } x \leq 0, \\
+x^2+1, &amp; \mbox{ si } x &gt; 0.
+\end{cases}
+\]</span> Entonces <span class="math inline">\(\lim_{x \rightarrow 0^+} h(x) = 1\)</span> y <span class="math inline">\(\lim_{x \rightarrow 0^-} h(x) = 1\)</span> y, como veremos a continuación, existe el <span class="math inline">\(\lim_{x \rightarrow 0} h(x)\)</span> y es igual a <span class="math inline">\(1\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="gráfica-de-la-función-g" class="slide level2">
+<h2>Gráfica de la función g</h2>
+<div class="center">
+<div class="cell">
 <div class="cell-output-display">
-<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="8673d46c-ba5e-44c0-971c-eaf765646d71" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("8673d46c-ba5e-44c0-971c-eaf765646d71")) {                    Plotly.newPlot(                        "8673d46c-ba5e-44c0-971c-eaf765646d71",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"J(w) = w\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"},{"line":{"color":"#FFD700"},"mode":"lines","name":"Tangente","x":[0.5,0.51010101010101,0.5202020202020202,0.5303030303030303,0.5404040404040404,0.5505050505050505,0.5606060606060606,0.5707070707070707,0.5808080808080808,0.5909090909090909,0.601010101010101,0.6111111111111112,0.6212121212121212,0.6313131313131313,0.6414141414141414,0.6515151515151515,0.6616161616161617,0.6717171717171717,0.6818181818181819,0.6919191919191919,0.702020202020202,0.7121212121212122,0.7222222222222222,0.7323232323232324,0.7424242424242424,0.7525252525252526,0.7626262626262627,0.7727272727272727,0.7828282828282829,0.7929292929292929,0.803030303030303,0.8131313131313131,0.8232323232323233,0.8333333333333334,0.8434343434343434,0.8535353535353536,0.8636363636363636,0.8737373737373737,0.8838383838383839,0.893939393939394,0.9040404040404041,0.9141414141414141,0.9242424242424243,0.9343434343434344,0.9444444444444444,0.9545454545454546,0.9646464646464648,0.9747474747474748,0.9848484848484849,0.994949494949495,1.0050505050505052,1.0151515151515151,1.0252525252525253,1.0353535353535355,1.0454545454545454,1.0555555555555556,1.0656565656565657,1.0757575757575757,1.0858585858585859,1.095959595959596,1.106060606060606,1.1161616161616164,1.1262626262626263,1.1363636363636365,1.1464646464646466,1.1565656565656566,1.1666666666666667,1.176767676767677,1.1868686868686869,1.196969696969697,1.2070707070707072,1.2171717171717171,1.2272727272727273,1.2373737373737375,1.2474747474747474,1.2575757575757578,1.2676767676767677,1.2777777777777777,1.287878787878788,1.297979797979798,1.3080808080808082,1.3181818181818183,1.3282828282828283,1.3383838383838385,1.3484848484848486,1.3585858585858586,1.3686868686868687,1.378787878787879,1.3888888888888888,1.3989898989898992,1.4090909090909092,1.4191919191919191,1.4292929292929295,1.4393939393939394,1.4494949494949496,1.4595959595959598,1.4696969696969697,1.47979797979798,1.48989898989899,1.5],"y":[0.0,0.02020202020202011,0.04040404040404044,0.06060606060606055,0.08080808080808088,0.101010101010101,0.1212121212121211,0.14141414141414144,0.16161616161616155,0.18181818181818188,0.202020202020202,0.22222222222222232,0.24242424242424243,0.26262626262626254,0.2828282828282829,0.303030303030303,0.3232323232323233,0.3434343434343434,0.36363636363636376,0.38383838383838387,0.404040404040404,0.4242424242424243,0.4444444444444444,0.46464646464646475,0.48484848484848486,0.5050505050505052,0.5252525252525253,0.5454545454545454,0.5656565656565657,0.5858585858585859,0.606060606060606,0.6262626262626263,0.6464646464646466,0.6666666666666667,0.6868686868686869,0.7070707070707072,0.7272727272727273,0.7474747474747474,0.7676767676767677,0.7878787878787881,0.8080808080808082,0.8282828282828283,0.8484848484848486,0.8686868686868687,0.8888888888888888,0.9090909090909092,0.9292929292929295,0.9494949494949496,0.9696969696969697,0.9898989898989901,1.0101010101010104,1.0303030303030303,1.0505050505050506,1.070707070707071,1.0909090909090908,1.1111111111111112,1.1313131313131315,1.1515151515151514,1.1717171717171717,1.191919191919192,1.212121212121212,1.2323232323232327,1.2525252525252526,1.272727272727273,1.2929292929292933,1.3131313131313131,1.3333333333333335,1.3535353535353538,1.3737373737373737,1.393939393939394,1.4141414141414144,1.4343434343434343,1.4545454545454546,1.474747474747475,1.4949494949494948,1.5151515151515156,1.5353535353535355,1.5555555555555554,1.5757575757575761,1.595959595959596,1.6161616161616164,1.6363636363636367,1.6565656565656566,1.676767676767677,1.6969696969696972,1.7171717171717171,1.7373737373737375,1.7575757575757578,1.7777777777777777,1.7979797979797985,1.8181818181818183,1.8383838383838382,1.858585858585859,1.878787878787879,1.8989898989898992,1.9191919191919196,1.9393939393939394,1.9595959595959598,1.9797979797979801,2.0],"type":"scatter"}],                        {"template":{"data":{"histogram2dcontour":[{"type":"histogram2dcontour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"choropleth":[{"type":"choropleth","colorbar":{"outlinewidth":0,"ticks":""}}],"histogram2d":[{"type":"histogram2d","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmap":[{"type":"heatmap","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"heatmapgl":[{"type":"heatmapgl","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"contourcarpet":[{"type":"contourcarpet","colorbar":{"outlinewidth":0,"ticks":""}}],"contour":[{"type":"contour","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"surface":[{"type":"surface","colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]}],"mesh3d":[{"type":"mesh3d","colorbar":{"outlinewidth":0,"ticks":""}}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"parcoords":[{"type":"parcoords","line":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolargl":[{"type":"scatterpolargl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"scattergeo":[{"type":"scattergeo","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterpolar":[{"type":"scatterpolar","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"scattergl":[{"type":"scattergl","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatter3d":[{"type":"scatter3d","line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattermapbox":[{"type":"scattermapbox","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scatterternary":[{"type":"scatterternary","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"scattercarpet":[{"type":"scattercarpet","marker":{"colorbar":{"outlinewidth":0,"ticks":""}}}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"white","linecolor":"white","minorgridcolor":"white","startlinecolor":"#2a3f5f"},"type":"carpet"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}],"barpolar":[{"marker":{"line":{"color":"#E5ECF6","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"pie":[{"automargin":true,"type":"pie"}]},"layout":{"autotypenumbers":"strict","colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"hovermode":"closest","hoverlabel":{"align":"left"},"paper_bgcolor":"white","plot_bgcolor":"#E5ECF6","polar":{"bgcolor":"#E5ECF6","angularaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"radialaxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"ternary":{"bgcolor":"#E5ECF6","aaxis":{"gridcolor":"white","linecolor":"white","ticks":""},"baxis":{"gridcolor":"white","linecolor":"white","ticks":""},"caxis":{"gridcolor":"white","linecolor":"white","ticks":""}},"coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]]},"xaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"yaxis":{"gridcolor":"white","linecolor":"white","ticks":"","title":{"standoff":15},"zerolinecolor":"white","automargin":true,"zerolinewidth":2},"scene":{"xaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"yaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2},"zaxis":{"backgroundcolor":"#E5ECF6","gridcolor":"white","linecolor":"white","showbackground":true,"ticks":"","zerolinecolor":"white","gridwidth":2}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"geo":{"bgcolor":"white","landcolor":"#E5ECF6","subunitcolor":"white","showland":true,"showlakes":true,"lakecolor":"white"},"title":{"x":0.05},"mapbox":{"style":"light"}}}},                        {"responsive": true}                    )                };                            </script>        </div>
+<div>
+<figure>
+<p><img data-src="Images/gx.png" width="600"></p>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="gráfica-de-la-función-h" class="slide level2">
+<h2>Gráfica de la función h</h2>
+<div class="center">
+<div class="cell">
 <div class="cell-output-display">
-<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="bdd5586c-d9d0-424d-86db-c9c63abc36f3" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("bdd5586c-d9d0-424d-86db-c9c63abc36f3")) {                    Plotly.newPlot(                        "bdd5586c-d9d0-424d-86db-c9c63abc36f3",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"J(w) = w\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"},{"line":{"color":"#FFD700"},"mode":"lines","name":"Tangente","x":[0.5,0.51010101010101,0.5202020202020202,0.5303030303030303,0.5404040404040404,0.5505050505050505,0.5606060606060606,0.5707070707070707,0.5808080808080808,0.5909090909090909,0.601010101010101,0.6111111111111112,0.6212121212121212,0.6313131313131313,0.6414141414141414,0.6515151515151515,0.6616161616161617,0.6717171717171717,0.6818181818181819,0.6919191919191919,0.702020202020202,0.7121212121212122,0.7222222222222222,0.7323232323232324,0.7424242424242424,0.7525252525252526,0.7626262626262627,0.7727272727272727,0.7828282828282829,0.7929292929292929,0.803030303030303,0.8131313131313131,0.8232323232323233,0.8333333333333334,0.8434343434343434,0.8535353535353536,0.8636363636363636,0.8737373737373737,0.8838383838383839,0.893939393939394,0.9040404040404041,0.9141414141414141,0.9242424242424243,0.9343434343434344,0.9444444444444444,0.9545454545454546,0.9646464646464648,0.9747474747474748,0.9848484848484849,0.994949494949495,1.0050505050505052,1.0151515151515151,1.0252525252525253,1.0353535353535355,1.0454545454545454,1.0555555555555556,1.0656565656565657,1.0757575757575757,1.0858585858585859,1.095959595959596,1.106060606060606,1.1161616161616164,1.1262626262626263,1.1363636363636365,1.1464646464646466,1.1565656565656566,1.1666666666666667,1.176767676767677,1.1868686868686869,1.196969696969697,1.2070707070707072,1.2171717171717171,1.2272727272727273,1.2373737373737375,1.2474747474747474,1.2575757575757578,1.2676767676767677,1.2777777777777777,1.287878787878788,1.297979797979798,1.3080808080808082,1.3181818181818183,1.3282828282828283,1.3383838383838385,1.3484848484848486,1.3585858585858586,1.3686868686868687,1.378787878787879,1.3888888888888888,1.3989898989898992,1.4090909090909092,1.4191919191919191,1.4292929292929295,1.4393939393939394,1.4494949494949496,1.4595959595959598,1.4696969696969697,1.47979797979798,1.48989898989899,1.5],"y":[0.0,0.02020202020202011,0.04040404040404044,0.06060606060606055,0.08080808080808088,0.101010101010101,0.1212121212121211,0.14141414141414144,0.16161616161616155,0.18181818181818188,0.202020202020202,0.22222222222222232,0.24242424242424243,0.26262626262626254,0.2828282828282829,0.303030303030303,0.3232323232323233,0.3434343434343434,0.36363636363636376,0.38383838383838387,0.404040404040404,0.4242424242424243,0.4444444444444444,0.46464646464646475,0.48484848484848486,0.5050505050505052,0.5252525252525253,0.5454545454545454,0.5656565656565657,0.5858585858585859,0.606060606060606,0.6262626262626263,0.6464646464646466,0.6666666666666667,0.6868686868686869,0.7070707070707072,0.7272727272727273,0.7474747474747474,0.7676767676767677,0.7878787878787881,0.8080808080808082,0.8282828282828283,0.8484848484848486,0.8686868686868687,0.8888888888888888,0.9090909090909092,0.9292929292929295,0.9494949494949496,0.9696969696969697,0.9898989898989901,1.0101010101010104,1.0303030303030303,1.0505050505050506,1.070707070707071,1.0909090909090908,1.1111111111111112,1.1313131313131315,1.1515151515151514,1.1717171717171717,1.191919191919192,1.212121212121212,1.2323232323232327,1.2525252525252526,1.272727272727273,1.2929292929292933,1.3131313131313131,1.3333333333333335,1.3535353535353538,1.3737373737373737,1.393939393939394,1.4141414141414144,1.4343434343434343,1.4545454545454546,1.474747474747475,1.4949494949494948,1.5151515151515156,1.5353535353535355,1.5555555555555554,1.5757575757575761,1.595959595959596,1.6161616161616164,1.6363636363636367,1.6565656565656566,1.676767676767677,1.6969696969696972,1.7171717171717171,1.7373737373737375,1.7575757575757578,1.7777777777777777,1.7979797979797985,1.8181818181818183,1.8383838383838382,1.858585858585859,1.878787878787879,1.8989898989898992,1.9191919191919196,1.9393939393939394,1.9595959595959598,1.9797979797979801,2.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"sliders":[{"active":0,"currentvalue":{"prefix":"h = "},"steps":[{"args":[{"visible":[true,true,false,false,false,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=1, Pendiente=3.00"}],"label":"1","method":"update"},{"args":[{"visible":[true,false,true,false,false,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=0.5, Pendiente=2.50"}],"label":"0.5","method":"update"},{"args":[{"visible":[true,false,false,true,false,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=0.1, Pendiente=2.10"}],"label":"0.1","method":"update"},{"args":[{"visible":[true,false,false,false,true,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=0.01, Pendiente=2.01"}],"label":"0.01","method":"update"}]}],"title":{"text":"Optimizaci\u00f3n: Tasa de Cambio y Derivada en J(w) = w\u00b2"},"showlegend":true,"xaxis":{"title":{"text":"Par\u00e1metro w"}},"yaxis":{"title":{"text":"Costo J(w)"}},"annotations":[{"arrowhead":2,"ax":20,"ay":-30,"showarrow":true,"text":"La derivada (pendiente de la tangente) gu\u00eda el descenso por gradiente","x":0,"xref":"x","y":4,"yref":"y"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+<div>
+<figure>
+<p><img data-src="Images/hx.png" width="600"></p>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="límites-laterales-4" class="slide level2">
+<h2>Límites laterales</h2>
+<div class="exercise">
+<p><strong>Ejercicios</strong></p>
+<p>En lo que sigue, <span class="math inline">\(f: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> es una función real de variable real y <span class="math inline">\(c\)</span> es un punto de acumulación de <span class="math inline">\(A\)</span>.</p>
+<ol type="1">
+<li><p>Demuestra que <span class="math inline">\(L = \lim_{x \rightarrow c^+}f(x)\)</span> si, y sólo si, para todo <span class="math inline">\(\epsilon &gt;0\)</span>, existe <span class="math inline">\(\delta &gt;0\)</span> tal que, siempre que <span class="math inline">\(0&lt;x-c&lt;\delta\)</span>, entonces es <span class="math inline">\(|f(x)-L| &lt; \epsilon\)</span>.</p></li>
+<li><p>Demuestra que <span class="math inline">\(L = \lim_{x \rightarrow c^-}f(x)\)</span> si, y sólo si, para todo <span class="math inline">\(\epsilon &gt;0\)</span>, existe <span class="math inline">\(\delta &gt;0\)</span> tal que, siempre que <span class="math inline">\(0&lt;c-x&lt;\delta\)</span>, entonces es <span class="math inline">\(|f(x)-L| &lt; \epsilon\)</span>.</p></li>
+<li><p>Demuestra que <span class="math inline">\(L = \lim_{x \rightarrow c^+}f(x)\)</span> si, y sólo si, para todo <span class="math inline">\(\epsilon &gt;0\)</span>, existe <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x \in V^*_{\delta} (c) \cap (c, +\infty)\)</span>, entonces <span class="math inline">\(f(x) \in V_{\epsilon}(L)\)</span></p></li>
+<li><p>Demuestra que <span class="math inline">\(L = \lim_{x \rightarrow c^-}f(x)\)</span> si, y sólo si, para todo <span class="math inline">\(\epsilon &gt;0\)</span>, existe <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x \in V^*_{\delta} (c) \cap (-\infty, c)\)</span>, entonces <span class="math inline">\(f(x) \in V_{\epsilon}(L)\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="límites-laterales-5" class="slide level2">
+<h2>Límites laterales</h2>
+<p><l class="prop"> <strong>Proposición</strong> </l></p>
+<p>Sea <span class="math inline">\(f: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> y sea <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. Entonces existe el <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c}f(x)}\)</span> si, y sólo si, los dos límites laterales <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c^+}f(x)}\)</span> y <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c^-}f(x)}\)</span> existen y son iguales.</p>
+</section>
+<section id="límites-laterales-6" class="slide level2">
+<h2>Límites laterales</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Si <span class="math inline">\(\lim_{x \rightarrow c}f(x) = L\)</span>, entonces para toda sucesión <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(x_n \rightarrow c\)</span> es <span class="math inline">\(f(x_n) \rightarrow L\)</span>. Ahora, si <span class="math inline">\(x_n \rightarrow c\)</span> y <span class="math inline">\(x_n &gt; c\)</span> será igualmente <span class="math inline">\(f(x_n) \rightarrow L\)</span>. Análogamente si <span class="math inline">\(x_n &lt;c\)</span>.</p>
+<p>Supongamos ahora que los dos límites laterales existen y son iguales a <span class="math inline">\(L\)</span>. Sea <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(x_n \rightarrow c\)</span>, entonces tres casos són posibles:</p>
+<ol type="1">
+<li><p>todos los <span class="math inline">\(x_n\)</span> a partir de un lugar son tales que <span class="math inline">\(x_n \geq c\)</span>,</p></li>
+<li><p>todos los <span class="math inline">\(x_n\)</span> a partir de un lugar son tales que <span class="math inline">\(x_n \leq c\)</span>, y</p></li>
+<li><p>existen infinitos <span class="math inline">\(x_{n_k}\)</span> tales que <span class="math inline">\(x_{n_k} \geq c\)</span> e infinitos <span class="math inline">\(x_{n_j}\)</span> tales que <span class="math inline">\(x_{n_j} \leq c\)</span>, claramente <span class="math inline">\(\{x_n\}= \{ x_{n_k}\} \cup \{x_{n_j}\}\)</span>.</p></li>
+</ol>
+<p>En todos los casos es <span class="math inline">\(f(x_n) \rightarrow L\)</span>, en el primero por ser <span class="math inline">\(\lim_{x \rightarrow c^+}f(x)\)</span> y en el segundo por ser <span class="math inline">\(\lim_{x \rightarrow c^-}f(x)\)</span>. El el tercer caso tendríamos dos subsucesiones <span class="math inline">\(f(x_{n_k})\)</span> y <span class="math inline">\(f(x_{n_j})\)</span> con el mismo límite L y, por lo tanto es <span class="math inline">\(f(x_n) \rightarrow L\)</span>, dado que <span class="math inline">\(\{x_n\}= \{ x_{n_k}\} \cup \{x_{n_j}\}\)</span>. En definitiva es <span class="math inline">\(\lim_{x \rightarrow c}f(x) = L\)</span>.</p>
+</div>
+</section>
+<section id="limites-infinitos" class="slide level2">
+<h2>Limites infinitos</h2>
+<p><l class="definition"> <strong>Definición</strong> </l></p>
+<p>Sean <span class="math inline">\(f: A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span> y <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>,</p>
+<ol type="1">
+<li><p>Diremos que <span class="math inline">\(\lim_{x \rightarrow c}f(x) = +\infty\)</span>, si para cada <span class="math inline">\(K &gt;0\)</span> existe un <span class="math inline">\(\delta &gt; 0\)</span> tal que si <span class="math inline">\(x \in V^*_{\delta}(c)\)</span> entonces es <span class="math inline">\(f(x)&gt;K\)</span>.</p></li>
+<li><p>Diremos que <span class="math inline">\(\lim_{x \rightarrow c}f(x) = - \infty\)</span>, si para cada <span class="math inline">\(K &gt;0\)</span> existe un <span class="math inline">\(\delta &gt; 0\)</span> tal que si <span class="math inline">\(x \in V^*_{\delta}(c)\)</span> entonces es <span class="math inline">\(f(x)&lt; -K\)</span></p></li>
+</ol>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Las definiciones anteriores también se pueden formular en términos de sucesiones así, por ejemplo, se pide comprobar que la primera definición es equivalente a</p>
+<p><span class="math inline">\(\lim_{x \rightarrow c}f(x) = +\infty\)</span> si, y sólo si, para toda sucesión <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(x_n \rightarrow c\)</span> es <span class="math inline">\(f(x_n) \rightarrow \infty\)</span>.</p>
+</div>
+</section>
+<section id="limites-infinitos-ejemplos." class="slide level2">
+<h2>Limites infinitos: Ejemplos.</h2>
+<div class="example">
+<p><strong>Ejemplo</strong></p>
+<p><span class="math inline">\(\displaystyle{\lim_{x \rightarrow 0} \dfrac{1}{x^2} = \infty}\)</span>, puesto que si <span class="math inline">\(x_n \rightarrow 0\)</span> entonces para todo <span class="math inline">\(K&gt;0\)</span> existe <span class="math inline">\(n_0\)</span> tal que para todo <span class="math inline">\(n &gt; n_0\)</span> es <span class="math inline">\(|x_n| &lt; \dfrac{1}{\sqrt{K}}\)</span> y, por lo tanto <span class="math inline">\(|f(x_n)|=\dfrac{1}{x_n^2}&gt;K\)</span>.</p>
+</div>
+<div class="center">
+<div class="cell">
 <div class="cell-output-display">
-<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
-        <script charset="utf-8" src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>                <div id="ef875fbb-eea5-4530-b975-0ad2a80b48ea" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("ef875fbb-eea5-4530-b975-0ad2a80b48ea")) {                    Plotly.newPlot(                        "ef875fbb-eea5-4530-b975-0ad2a80b48ea",                        [{"line":{"color":"#228B22"},"mode":"lines","name":"J(w) = w\u00b2","x":[-2.0,-1.9595959595959596,-1.9191919191919191,-1.878787878787879,-1.8383838383838385,-1.797979797979798,-1.7575757575757576,-1.7171717171717171,-1.6767676767676767,-1.6363636363636362,-1.595959595959596,-1.5555555555555556,-1.5151515151515151,-1.4747474747474747,-1.4343434343434343,-1.393939393939394,-1.3535353535353534,-1.3131313131313131,-1.2727272727272727,-1.2323232323232323,-1.1919191919191918,-1.1515151515151514,-1.1111111111111112,-1.0707070707070705,-1.0303030303030303,-0.9898989898989898,-0.9494949494949494,-0.909090909090909,-0.8686868686868685,-0.8282828282828283,-0.7878787878787878,-0.7474747474747474,-0.707070707070707,-0.6666666666666665,-0.6262626262626261,-0.5858585858585856,-0.5454545454545454,-0.505050505050505,-0.46464646464646453,-0.4242424242424241,-0.38383838383838365,-0.3434343434343432,-0.303030303030303,-0.26262626262626254,-0.2222222222222221,-0.18181818181818166,-0.14141414141414121,-0.10101010101010077,-0.06060606060606055,-0.02020202020202011,0.020202020202020332,0.060606060606060996,0.10101010101010122,0.14141414141414144,0.1818181818181821,0.22222222222222232,0.262626262626263,0.3030303030303032,0.3434343434343434,0.3838383838383841,0.4242424242424243,0.464646464646465,0.5050505050505052,0.5454545454545459,0.5858585858585861,0.6262626262626263,0.666666666666667,0.7070707070707072,0.7474747474747478,0.7878787878787881,0.8282828282828287,0.868686868686869,0.9090909090909092,0.9494949494949498,0.9898989898989901,1.0303030303030307,1.070707070707071,1.1111111111111112,1.1515151515151518,1.191919191919192,1.2323232323232327,1.272727272727273,1.3131313131313136,1.3535353535353538,1.393939393939394,1.4343434343434347,1.474747474747475,1.5151515151515156,1.5555555555555558,1.5959595959595965,1.6363636363636367,1.676767676767677,1.7171717171717176,1.7575757575757578,1.7979797979797985,1.8383838383838387,1.878787878787879,1.9191919191919196,1.9595959595959598,2.0],"y":[4.0,3.8400163248648096,3.683297622691562,3.5298438934802574,3.379655137230895,3.232731353943475,3.089072543617998,2.9486787062544635,2.8115498418528717,2.6776859504132227,2.5470870319355168,2.419753086419753,2.295684113865932,2.1748801142740537,2.057341087644118,1.9430670339761251,1.832057953270074,1.7243138455259668,1.6198347107438016,1.5186205489235791,1.4206713600652991,1.3259871441689621,1.234567901234568,1.1464136312621156,1.061524334251607,0.9799000102030404,0.9015406591164165,0.8264462809917352,0.7546168758289967,0.6860524436282012,0.620752984389348,0.5587184981124373,0.49994898479746946,0.44444444444444425,0.39220487705336166,0.3432302826242218,0.29752066115702475,0.25507601265177016,0.2158963371084582,0.17998163452708893,0.14733190490766235,0.1179471482501784,0.09182736455463725,0.06897255382103862,0.04938271604938266,0.03305785123966936,0.019997959391898728,0.010203040506070762,0.0036730945821854847,0.0004081216202428287,0.0004081216202428376,0.0036730945821855385,0.01020304050607085,0.019997959391898794,0.033057851239669526,0.04938271604938276,0.06897255382103885,0.09182736455463739,0.11794714825017855,0.14733190490766268,0.17998163452708912,0.21589633710845862,0.2550760126517704,0.29752066115702525,0.3432302826242223,0.39220487705336193,0.44444444444444486,0.4999489847974698,0.558718498112438,0.6207529843893483,0.686052443628202,0.7546168758289975,0.8264462809917357,0.9015406591164173,0.9799000102030408,1.0615243342516079,1.1464136312621167,1.234567901234568,1.325987144168963,1.4206713600652998,1.5186205489235802,1.6198347107438023,1.724313845525968,1.8320579532700751,1.9430670339761251,2.057341087644119,2.174880114274054,2.295684113865933,2.419753086419754,2.5470870319355186,2.677685950413224,2.8115498418528726,2.9486787062544653,3.089072543617999,3.232731353943477,3.379655137230896,3.5298438934802574,3.6832976226915637,3.8400163248648105,4.0],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=1)","visible":true,"x":[1,2],"y":[1,4],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.5)","visible":false,"x":[1,1.5],"y":[1,2.25],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.1)","visible":false,"x":[1,1.1],"y":[1,1.2100000000000002],"type":"scatter"},{"line":{"color":"#FF5733","dash":"dash"},"mode":"lines+markers","name":"Secante (h=0.01)","visible":false,"x":[1,1.01],"y":[1,1.0201],"type":"scatter"},{"line":{"color":"#FFD700"},"mode":"lines","name":"Tangente","x":[0.5,0.51010101010101,0.5202020202020202,0.5303030303030303,0.5404040404040404,0.5505050505050505,0.5606060606060606,0.5707070707070707,0.5808080808080808,0.5909090909090909,0.601010101010101,0.6111111111111112,0.6212121212121212,0.6313131313131313,0.6414141414141414,0.6515151515151515,0.6616161616161617,0.6717171717171717,0.6818181818181819,0.6919191919191919,0.702020202020202,0.7121212121212122,0.7222222222222222,0.7323232323232324,0.7424242424242424,0.7525252525252526,0.7626262626262627,0.7727272727272727,0.7828282828282829,0.7929292929292929,0.803030303030303,0.8131313131313131,0.8232323232323233,0.8333333333333334,0.8434343434343434,0.8535353535353536,0.8636363636363636,0.8737373737373737,0.8838383838383839,0.893939393939394,0.9040404040404041,0.9141414141414141,0.9242424242424243,0.9343434343434344,0.9444444444444444,0.9545454545454546,0.9646464646464648,0.9747474747474748,0.9848484848484849,0.994949494949495,1.0050505050505052,1.0151515151515151,1.0252525252525253,1.0353535353535355,1.0454545454545454,1.0555555555555556,1.0656565656565657,1.0757575757575757,1.0858585858585859,1.095959595959596,1.106060606060606,1.1161616161616164,1.1262626262626263,1.1363636363636365,1.1464646464646466,1.1565656565656566,1.1666666666666667,1.176767676767677,1.1868686868686869,1.196969696969697,1.2070707070707072,1.2171717171717171,1.2272727272727273,1.2373737373737375,1.2474747474747474,1.2575757575757578,1.2676767676767677,1.2777777777777777,1.287878787878788,1.297979797979798,1.3080808080808082,1.3181818181818183,1.3282828282828283,1.3383838383838385,1.3484848484848486,1.3585858585858586,1.3686868686868687,1.378787878787879,1.3888888888888888,1.3989898989898992,1.4090909090909092,1.4191919191919191,1.4292929292929295,1.4393939393939394,1.4494949494949496,1.4595959595959598,1.4696969696969697,1.47979797979798,1.48989898989899,1.5],"y":[0.0,0.02020202020202011,0.04040404040404044,0.06060606060606055,0.08080808080808088,0.101010101010101,0.1212121212121211,0.14141414141414144,0.16161616161616155,0.18181818181818188,0.202020202020202,0.22222222222222232,0.24242424242424243,0.26262626262626254,0.2828282828282829,0.303030303030303,0.3232323232323233,0.3434343434343434,0.36363636363636376,0.38383838383838387,0.404040404040404,0.4242424242424243,0.4444444444444444,0.46464646464646475,0.48484848484848486,0.5050505050505052,0.5252525252525253,0.5454545454545454,0.5656565656565657,0.5858585858585859,0.606060606060606,0.6262626262626263,0.6464646464646466,0.6666666666666667,0.6868686868686869,0.7070707070707072,0.7272727272727273,0.7474747474747474,0.7676767676767677,0.7878787878787881,0.8080808080808082,0.8282828282828283,0.8484848484848486,0.8686868686868687,0.8888888888888888,0.9090909090909092,0.9292929292929295,0.9494949494949496,0.9696969696969697,0.9898989898989901,1.0101010101010104,1.0303030303030303,1.0505050505050506,1.070707070707071,1.0909090909090908,1.1111111111111112,1.1313131313131315,1.1515151515151514,1.1717171717171717,1.191919191919192,1.212121212121212,1.2323232323232327,1.2525252525252526,1.272727272727273,1.2929292929292933,1.3131313131313131,1.3333333333333335,1.3535353535353538,1.3737373737373737,1.393939393939394,1.4141414141414144,1.4343434343434343,1.4545454545454546,1.474747474747475,1.4949494949494948,1.5151515151515156,1.5353535353535355,1.5555555555555554,1.5757575757575761,1.595959595959596,1.6161616161616164,1.6363636363636367,1.6565656565656566,1.676767676767677,1.6969696969696972,1.7171717171717171,1.7373737373737375,1.7575757575757578,1.7777777777777777,1.7979797979797985,1.8181818181818183,1.8383838383838382,1.858585858585859,1.878787878787879,1.8989898989898992,1.9191919191919196,1.9393939393939394,1.9595959595959598,1.9797979797979801,2.0],"type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"fillpattern":{"fillmode":"overlay","size":10,"solidity":0.2},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"sliders":[{"active":0,"currentvalue":{"prefix":"h = "},"steps":[{"args":[{"visible":[true,true,false,false,false,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=1, Pendiente=3.00"}],"label":"1","method":"update"},{"args":[{"visible":[true,false,true,false,false,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=0.5, Pendiente=2.50"}],"label":"0.5","method":"update"},{"args":[{"visible":[true,false,false,true,false,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=0.1, Pendiente=2.10"}],"label":"0.1","method":"update"},{"args":[{"visible":[true,false,false,false,true,true]},{"title.text":"Optimizaci\u00f3n: Tasa de Cambio para h=0.01, Pendiente=2.01"}],"label":"0.01","method":"update"}]}],"title":{"text":"Optimizaci\u00f3n: Tasa de Cambio y Derivada en J(w) = w\u00b2"},"showlegend":true,"xaxis":{"title":{"text":"Par\u00e1metro w"}},"yaxis":{"title":{"text":"Costo J(w)"}},"annotations":[{"arrowhead":2,"ax":20,"ay":-30,"showarrow":true,"text":"La derivada (pendiente de la tangente) gu\u00eda el descenso por gradiente","x":0,"xref":"x","y":4,"yref":"y"}]},                        {"responsive": true}                    )                };                            </script>        </div>
+<div>
+<figure>
+<p><img data-src="Images/inversax2.png" width="500"></p>
+</figure>
 </div>
+</div>
+</div>
+</div>
+</section>
+<section id="límites-en-el-infinito" class="slide level2">
+<h2>Límites en el infinito</h2>
+<p>El ejemplo anterior también sirve para justificar la siguiente definición:</p>
+<p><l class="definition"> <strong>Definición</strong> </l></p>
+<p>Sean <span class="math inline">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span> y <span class="math inline">\(L \in \mathbb{R}\)</span>, <span class="math inline">\(L = \lim_{x \rightarrow \infty}f(x)\)</span> si para toda sucesión <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(\lim_{n \rightarrow \infty}x_n= +\infty\)</span> entonces <span class="math inline">\(\lim_{n \rightarrow +\infty} f(x_n)= L\)</span>.</p>
+<p>Análogamente, <span class="math inline">\(L = \lim_{x \rightarrow -\infty}f(x)\)</span> si para toda sucesión <span class="math inline">\(x_n\)</span> tal que <span class="math inline">\(\lim_{n \rightarrow \infty}x_n= -\infty\)</span> entonces <span class="math inline">\(\lim_{n \rightarrow \infty} f(x_n)= L\)</span>.</p>
+<div class="exercise">
+<p><strong>Ejercicios</strong></p>
+<ol type="1">
+<li><p>Demuestra que <span class="math inline">\(L = \lim_{x \rightarrow +\infty}f(x)\)</span> si, sólo sí, para todo <span class="math inline">\(\epsilon &gt;0\)</span> existe <span class="math inline">\(K&gt;0\)</span> tal que si <span class="math inline">\(x&gt;K\)</span> entonces <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>.</p></li>
+<li><p>Demuestra que <span class="math inline">\(L = \lim_{x \rightarrow -\infty}f(x)\)</span> si, sólo sí, para todo <span class="math inline">\(\epsilon &gt;0\)</span> existe <span class="math inline">\(K&gt;0\)</span> tal que si <span class="math inline">\(x&lt;-K\)</span> entonces <span class="math inline">\(|f(x)-L|&lt;\epsilon\)</span>.</p></li>
+</ol>
+</div>
+</section>
+<section id="limites-en-el-infinito" class="slide level2">
+<h2>Limites en el infinito</h2>
+<div class="example">
+<p><strong>Ejemplos</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(\displaystyle{\lim_{x \rightarrow +\infty} \dfrac{1}{x^2} = 0}\)</span>, puesto que dado un <span class="math inline">\(\epsilon &gt;0\)</span> para <span class="math inline">\(K=\dfrac{1}{\sqrt{\epsilon}}\)</span> es <span class="math inline">\(f(x)= \dfrac{1}{x^2} &lt; \epsilon\)</span> siempre que <span class="math inline">\(x &gt;K\)</span>.</p></li>
+<li><p>Anàlogamente <span class="math inline">\(\lim_{x \rightarrow -\infty} \dfrac{1}{x^2} = 0\)</span>, puesto que dado un <span class="math inline">\(\epsilon &gt;0\)</span> para <span class="math inline">\(K=\dfrac{1}{\sqrt{\epsilon}}\)</span> es <span class="math inline">\(f(x)= \dfrac{1}{x^2} &lt; \epsilon\)</span> siempre que <span class="math inline">\(x &lt;-K\)</span>.</p></li>
+<li><p>La función <span class="math inline">\(h(x) = \dfrac{1}{x}\)</span>, proporciona un interesante ejemplo de que también tienen sentido los límites laterales para los límites infinitos, puesto que como es fácil comprobar <span class="math inline">\(\lim_{x \rightarrow 0^+} h(x) = +\infty\)</span> en tanto que <span class="math inline">\(\lim_{x \rightarrow 0^-} h(x) = -\infty\)</span>.</p></li>
+<li><p>También es fácil comprobar que <span class="math inline">\(\lim_{x \rightarrow -\infty} \dfrac{1}{x} =0 = \lim_{x \rightarrow +\infty}  \dfrac{1}{x}.\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="límites-en-el-infinito-gráfica-de-la-función-frac1x" class="slide level2">
+<h2>Límites en el infinito: Gráfica de la función <span class="math inline">\(\frac{1}{x}\)</span></h2>
+<div class="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Images/inversx.png" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="cálculo-de-límites" class="title-slide slide level1 center">
+<h1>Cálculo de límites</h1>
+
+</section>
+<section id="cálculo-de-límites-1" class="slide level2">
+<h2>Cálculo de límites</h2>
+<p>Dada la definición de límite de una función en un punto que hemos hecho, vinculada a la de límite de sucesiones, no debería sorprendernos que una buena parte de las técnicas exploradas para el cálculo de límites de sucesiones sean también de aplicación para el cálculo de límite de funciones.</p>
+<p>Así, por ejemplo <span class="math inline">\(\lim_{x \rightarrow 0}(1+x)^{\frac{1}{x}} = e\)</span>, puesto que, como hemos visto en el tema anterior, dada una sucesión <span class="math inline">\(a_n\)</span> tal que <span class="math inline">\(a_n \rightarrow 0\)</span>, es <span class="math inline">\(\lim (1+a_n)^{\frac{1}{a_n}}=e\)</span>, como esta igualdad es cierta para cualquier sucesión que tenga límite <span class="math inline">\(0\)</span>, es <span class="math inline">\(\lim_{x \rightarrow 0}(1+x)^{\frac{1}{x}} =e\)</span>.</p>
+<p>Aparecen algunas técnicas nuevas, como las relacionadas con la consideración de límites laterales o la de los infinitésimos equivalentes, y algunas dejan de tener sentido, como por ejemplo, las que involucran el criterio de Stoltz.</p>
+</section>
+<section id="cálculo-de-límites-2" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p><strong>Ejemplo 1</strong></p>
+<p>Calcula el <span class="math inline">\(\lim_{x \rightarrow 0}\dfrac{\sqrt{1+2x} - \sqrt{1+3x}}{x+2x^2}\)</span>.</p>
+<p>En primer lugar, la función està definida para todos los puntos <span class="math inline">\(x \geq -\frac{1}{3}\)</span>, menos el punto <span class="math inline">\(x=0\)</span>. Por lo tanto <span class="math inline">\(0\)</span> es un punto de acumulación del dominio y tiene sentido considerar el límite de la función en ese punto.</p>
+<p>En segundo lugar, se trata de una indeterminación del tipo <span class="math inline">\(\frac{0}{0}\)</span>, en estos casos que involucran sumas o diferencias de raíces cuadradas, es conveniente intentar resolver la indeterminación multiplicando y dividiendo por el conjugado: <span class="math display">\[
+\lim_{x \rightarrow 0}\dfrac{\sqrt{1+2x} - \sqrt{1+3x}}{x+2x^2} = \lim_{x \rightarrow 0}\dfrac{(\sqrt{1+2x} - \sqrt{1+3x})(\sqrt{1+2x} + \sqrt{1+3x})}{(x+2x^2)(\sqrt{1+2x} + \sqrt{1+3x})}
+\]</span> <span class="math display">\[
+= \lim_{x \rightarrow 0}\dfrac{1+2x - (1+3x)}{x(1+2x)(\sqrt{1+2x} + \sqrt{1+3x})} = \lim_{x \rightarrow 0}\dfrac{-x}{x(1+2x)(\sqrt{1+2x} + \sqrt{1+3x})}=-\dfrac{1}{2}
+\]</span></p>
+<p>Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim+%28sqrt%281%2B2x%29-sqrt%281%2B3x%29%29%2F%28x%2B2x%5E2%29+as+x+tends+to+0"><img data-src="Images/wolfram.png"></a></p>
+</div>
+</section>
+<section id="cálculo-de-límites-3" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p>La gráfica de la función corrobora el resultado obtenido:</p>
+<div class="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Images/limit1.png" width="600"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cálculo-de-límites-4" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p><strong>Ejemplo 2</strong></p>
+<p>Demuestra que no existe el <span class="math inline">\(\lim_{x \rightarrow 0}  \cos \dfrac{1}{x}\)</span> y que <span class="math inline">\(\lim_{x \rightarrow 0} x \cos \dfrac{1}{x}=0\)</span></p>
+<p>Para ver que no existe el primer límite es suficiente considerar las dos sucesiones <span class="math inline">\(\dfrac{1}{2n\pi}\)</span> y <span class="math inline">\(\dfrac{1}{2n\pi + \frac{\pi}{2}}\)</span>, ambas tienden a <span class="math inline">\(0\)</span>, sin embargo <span class="math inline">\(\cos (2n \pi) \rightarrow 1\)</span> en tanto que <span class="math inline">\(\cos (2n\pi + \frac{\pi}{2}) \rightarrow 0\)</span>.</p>
+<p>En el segundo límite, se trata de una función que tiene límite <span class="math inline">\(0\)</span> multiplicada por otra que está acotada, ya que <span class="math inline">\(\left|\cos \dfrac{1}{x}\right| \leq 1\)</span>, por lo tanto <span class="math inline">\(\lim_{x \rightarrow 0} x \cos \dfrac{1}{x}=0\)</span></p>
+</div>
+</section>
+<section id="cálculo-de-límites-5" class="slide level2">
+<h2>Cálculo de límites</h2>
+<p>Gráficas de la funciones <span class="math inline">\(f(x)=\cos \frac{1}{x}\)</span> y <span class="math inline">\(g(x)=x \cos \frac{1}{x}\)</span>, respectivamente:</p>
+<div class="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Images/limit2_3.png" width="900"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cálculo-de-límites-6" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p><strong>Ejemplo 3</strong></p>
+<p>Calcula el <span class="math inline">\(\lim_{x \rightarrow 1} \dfrac{\sqrt{x} -1}{x-1}\)</span>.</p>
+<p>Se trata de una indeterminación del tipo <span class="math inline">\(\dfrac{0}{0}\)</span>. En este caso el cambio de variable <span class="math inline">\(x = t^2\)</span> puede ser útil, dado que <span class="math display">\[
+\lim_{x \rightarrow 1} \dfrac{\sqrt{x} -1}{x-1} = \lim_{t \rightarrow 1}\dfrac{t-1}{t^2-1}=\lim_{t \rightarrow 1}\dfrac{t-1}{(t-1)(t+1)} =\lim_{t \rightarrow 1}\dfrac{1}{t+1} = \dfrac{1}{2}
+\]</span> Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim%20%28sqrt%28x%29-1%29%2F%28x-1%29%20as%20x-%3E1"><img data-src="Images/wolfram.png"></a></p>
+</div>
+<div class="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Images/limit3.png" width="250"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="cálculo-de-límites-7" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p><strong>Ejemplo 4</strong></p>
+<p>Calcula el <span class="math inline">\(\lim_{x \rightarrow a} \dfrac{x^2-(a+1)x+a}{x^3-a^3}\)</span></p>
+<p>Se trata de una indeterminación del tipo <span class="math inline">\(\dfrac{0}{0}\)</span>. Dado que <span class="math inline">\(a\)</span> es una raíz de los dos polinomios, ambos son múltiplos de <span class="math inline">\(x-a\)</span>, efectuando la división entera obtenemos que <span class="math display">\[
+x^2-(a+1)x+a = (x-1)(x-a) \quad \text{ y} \quad x^3-a^3= (x^2 +ax+a^2)(x-a).
+\]</span> Por lo tanto <span class="math display">\[
+\lim_{x \rightarrow a} \dfrac{x^2-(a+1)x+a}{x^3-a^3} =\lim_{x \rightarrow a} \dfrac{(x-1)(x-a)}{(x^2 +ax+a^2)(x-a)} = \lim_{x \rightarrow a} \dfrac{x-1}{x^2 +ax+a^2} =\dfrac{a-1}{3a^2}
+\]</span> Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim%28x%5E2-%28a%2B1%29x%2Ba%29%2F%28x%5E3-a%5E3%29+as+x+tends+to+a"><img data-src="Images/wolfram.png"></a></p>
+</div>
+</section>
+<section id="cálculo-de-límites-8" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p><strong>Ejemplo 5</strong></p>
+<p>Calcula <span class="math inline">\(\lim_{x \rightarrow 0}\left(\dfrac{1-x}{1+x}\right)^{\dfrac{1}{x}}\)</span></p>
+<p>Se trata de una indeterminación del tipo <span class="math inline">\(1^{\infty}\)</span>, con el cambio <span class="math inline">\(x=\dfrac{1}{t}\)</span>, tenemos <span class="math display">\[
+\lim_{x \rightarrow 0}\left(\dfrac{1-x}{1+x}\right)^{\frac{1}{x}} =\lim_{t \rightarrow \infty}\left(\dfrac{t-1}{t+1} \right)^t= e^{\lim_{t \rightarrow \infty}t \left(\frac{t-1}{t+1}-1\right)} = e^{-2}=\dfrac{1}{e^2}
+\]</span></p>
+<p>Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim+%28%281-x%29%2F%281%2Bx%29%29%5E%281%2Fx%29+as+x+tends+to+0"><img data-src="Images/wolfram.png"></a></p>
+</div>
+</section>
+<section id="cálculo-de-límites-9" class="slide level2">
+<h2>Cálculo de límites</h2>
+<div class="example">
+<p><strong>Ejemplo 6</strong></p>
+<p>Calcula el <span class="math inline">\(\displaystyle{\lim_{x \rightarrow 0}\dfrac{1}{x} \log \sqrt{\dfrac{1+x}{1-x}}}\)</span></p>
+<p>Se trata de una indeterminación del tipo <span class="math inline">\(\dfrac{0}{0}\)</span>.</p>
+<p>Dado que <span class="math inline">\(\log \sqrt{\dfrac{1+x}{1-x}} = \dfrac{1}{2} (\log (1+x)- \log(1-x))\)</span>, tenemos que el límite a calcular es</p>
+<p><span class="math display">\[
+\lim_{x \rightarrow 0}\dfrac{1}{x} \log \sqrt{\dfrac{1+x}{1-x}} = \dfrac{1}{2} \log \lim_{x \rightarrow 0} \left(\dfrac{1+x}{1-x} \right)^{\dfrac{1}{x}}= \dfrac{1}{2} \log e^2 =1
+\]</span></p>
+<p>Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim+%281%2Fx%29ln+%28sqrt%28+%28%281%2Bx%29%2F%281-x%29%29%29%29+as+x+tends+0"><img data-src="Images/wolfram.png"></a></p>
 </div>
 
 </section></section>

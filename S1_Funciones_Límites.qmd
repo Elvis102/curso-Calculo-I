@@ -1,7 +1,7 @@
 ---
 title: Cálculo I
-subtitle: Cálculo Diferencial para Ciencia de Datos
-toc: true
+subtitle: Límites I
+toc: false
 format:
   revealjs: 
     theme: [default, clean.scss]
