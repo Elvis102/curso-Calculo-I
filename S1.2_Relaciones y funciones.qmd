@@ -588,6 +588,7 @@ $$
 se denominan respectivamente dominio e **imagen de  $f$.**
 :::
 
+
 ## Continua.. 
 
 ::: {.bg style="background-color:none;font-size: 0.80em;"}
@@ -616,6 +617,90 @@ donde comienzan las flechas; la imagen es el **subconjunto** de donde apuntan la
 ::: {.bg style="background-color:none;font-size: 0.80em;"}
 Para poner el estudio de las funciones sobre fundamentos teóricos sólidos, introducimos el concepto de funciones **inyectivas** , **sobreyectivas** y **biyectivas.** 
 :::
+
+## Ejercicios de Dominio e Imagen 
+### Dominio de una función
+
+::: {.bg style="background-color:none;font-size: 0.80em;"}
+
+La función $f$ [no está definida]{.alert} en un punto $c$ si para calcular $f(c)$ hay que violar alguna de las siguientes **Reglas Sagradas del Cálculo**:
+
+::: center
+::: {.bg style="background-color: #fdf6e3;font-size: 1.2em;padding:0.1em;"}
+**No dividir por 0** : \quad $\log_k a \notin \mathbb{R}$ si $a \le 0$; $\sqrt[par]{a} \notin \mathbb{R}$ si $a < 0$.
+:::
+:::
+
+:::
+
+::: {.bg style="background-color:none;font-size: 0.7em;"}
+A continuación se presentan varios ejemplos de funciones cuyo dominio es el conjunto de todos los números reales ($\mathbb{R}$).
+
+::: columns
+
+::: {.column width="50%"}
+* $f(x) = x^3 - x^2 + 1$
+* $f(x) = e^{x^2} + \cos(1-x^2)$
+* $f(x) = x^4 + \sqrt[3]{1-x} + e^x + \sin x$
+* $f(x) = x^2 - \sqrt[7]{x^4-1} + \sin e^x$
+* $f(x) = x^{21} - \sqrt[3]{1-x^3} + \cos^2 e^x$
+:::
+
+::: {.column width="50%"}
+* $\Rightarrow Dom.f = \mathbb{R}$
+* $\Rightarrow Dom.f = \mathbb{R}$
+* $\Rightarrow Dom.f = \mathbb{R}$
+* $\Rightarrow Dom.f = \mathbb{R}$
+* $\Rightarrow Dom.f = \mathbb{R}$
+:::
+
+:::
+
+:::
+
+::: {.bg style="background-color:none;font-size: 0.9em;"}
+[Para representar la gráfica de una función $f: \mathbb{R} \to \mathbb{R}$, lo primero **SIEMPRE** es determinar el **$Dom.f$**]{.alert}. Esto nos permite saber cuáles son los elementos del conjunto inicial a los que "**$f$**" les asigna una imagen, y cuáles son los "pobrecitos desgraciados" a los que "**$f$**" no les asigna una imagen.
+:::
+
+## Ejercicios de Imagen de una función
+
+::: {.bg style="background-color:none;font-size: 0.80em;"}
+
+La función $f$ [no está definida]{.alert} en un punto $c$ si para calcular $f(c)$ hay que violar alguna de las siguientes **Reglas Sagradas del Cálculo**:
+
+::: center
+::: {.bg style="background-color: #fdf6e3;font-size: 1.2em;padding:0.1em;"}
+**No dividir por 0** : \quad $\log_k a \notin \mathbb{R}$ si $a \le 0$; $\sqrt[par]{a} \notin \mathbb{R}$ si $a < 0$.
+:::
+:::
+
+:::
+
+::: {.bg style="background-color:none;font-size: 0.8em;"}
+[Para representar la gráfica de una función $f: \mathbb{R} \to \mathbb{R}$, lo primero **SIEMPRE** es determinar el **$Dom.f$**]{.alert}. Esto nos permite saber cuáles son los elementos del conjunto inicial a los que "**$f$**" les asigna una imagen, y cuáles son los "pobrecitos desgraciados" a los que "**$f$**" no les asigna una imagen.
+
+::: columns
+
+::: {.column width="50%"}
+* $f(x) = \frac{4}{x-5}$
+* $f(x) = \frac{4}{x-5}$
+* $f(x) = \frac{x}{x^2-9}$
+* $f(x) = \frac{5}{\sqrt{x^2+9}}$
+* $f(x) = \frac{x}{x^2+x+1}$
+:::
+
+::: {.column width="50%"}
+* $\Rightarrow Dom.f = \mathbb{R}-\{5\}$
+* $\Rightarrow Dom.f = \mathbb{R}-\{0\}$
+* $\Rightarrow Dom.f = \mathbb{R}-\{-3; 3\}$
+* $\Rightarrow Dom.f = \mathbb{R}$
+* $\Rightarrow Dom.f = \mathbb{R}$
+:::
+
+:::
+
+:::
+
 
 ## Funciones inyectivas, sobreyectivas y biyectivas
 

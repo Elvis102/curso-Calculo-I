@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-08-21">
+  <meta name="dcterms.date" content="2025-09-15">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="S2_Limites_Continuidad_files/libs/revealjs/dist/theme/quarto-acfa0bf1e819483bfadc4ce1f10e619d.css">
+  <link rel="stylesheet" href="S2_Limites_Continuidad_files/libs/revealjs/dist/theme/quarto-4c4a6c452ae6491cf1e2f49b8f64ef3e.css">
   <link href="S2_Limites_Continuidad_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="S2_Limites_Continuidad_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="S2_Limites_Continuidad_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -147,7 +147,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-08-21</p>
+  <p class="date">2025-09-15</p>
 </section>
 <section>
 <section id="límites" class="title-slide slide level1 my-slide center">
@@ -255,6 +255,90 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 \left|\dfrac{1}{x} -\dfrac{1}{c}\right| \leq \dfrac{2}{c^2} |x-c|.
 \]</span></p>
 <p>Ahora, dado un <span class="math inline">\(\epsilon &gt;0\)</span> bastará tomar <span class="math inline">\(\delta = \min \left\{\dfrac{1}{2}c, \dfrac{1}{2}c^2 \epsilon \right\}\)</span> para tener asegurado que si <span class="math inline">\(|x -c|&lt;\delta\)</span>, entonces <span class="math inline">\(\left|\dfrac{1}{x} -\dfrac{1}{c}\right| &lt; \epsilon\)</span>.</p>
+</div>
+</section>
+<section id="ejemplo-1-enunciado" class="slide level2">
+<h2>Ejemplo 1 Enunciado</h2>
+<p>Sea la función <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> dada por <span class="math inline">\(f(x) = -\frac{1}{2}x+3\)</span>. Demostrar que <span class="math inline">\(\lim_{x \to 2} f(x)=2\)</span>.</p>
+</section>
+<section id="ejemplo-1" class="slide level2 scrollable">
+<h2>Ejemplo 1</h2>
+<div class="bg" style="background-color:none; font-size: 0.7em">
+<p>Sea la función <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> dada por <span class="math inline">\(f(x) = -\frac{1}{2}x+3\)</span>. Demostrar que <span class="math inline">\(\lim_{x \to 2} f(x)=2\)</span>.</p>
+<h3 id="demostración">Demostración</h3>
+<p>Sea <span class="math inline">\(\epsilon&gt;0\)</span>, buscamos un <span class="math inline">\(\delta&gt;0\)</span> tal que si <span class="math inline">\(0 &lt; |x-2| &lt; \delta\)</span>, entonces <span class="math inline">\(|f(x) - 2| &lt; \epsilon\)</span>.</p>
+<p>Comenzamos con la expresión <span class="math inline">\(|f(x) - L|\)</span>:</p>
+<p><span class="math display">\[
+\left| f(x) - 2 \right| = \left| \left(-\frac{1}{2}x+3\right) - 2 \right|
+\]</span></p>
+<p><span class="math display">\[
+= \left| -\frac{1}{2}x+1 \right|
+\]</span></p>
+<p>Factorizamos el término <span class="math inline">\(-1/2\)</span> para aislar la expresión <span class="math inline">\((x-2)\)</span>:</p>
+<p><span class="math display">\[
+= \left| -\frac{1}{2}(x-2) \right|
+\]</span></p>
+<p><span class="math display">\[
+= \left| -\frac{1}{2} \right| |x-2|
+\]</span></p>
+<p><span class="math display">\[
+= \frac{1}{2}|x-2|
+\]</span></p>
+<p>Ahora, para que esta expresión sea menor que <span class="math inline">\(\epsilon\)</span>, establecemos:</p>
+<p><span class="math display">\[
+\frac{1}{2}|x-2| &lt; \epsilon
+\]</span></p>
+<p><span class="math display">\[
+|x-2| &lt; 2 \epsilon
+\]</span></p>
+<p>Por lo tanto, elegimos <span class="math inline">\(\delta = 2\epsilon\)</span>. Con esta elección de <span class="math inline">\(\delta\)</span>, si <span class="math inline">\(0 &lt; |x-2| &lt; \delta\)</span>, entonces:</p>
+<p><span class="math display">\[
+\left| f(x) - 2 \right| = \frac{1}{2}|x-2| &lt; \frac{1}{2}\delta = \frac{1}{2}(2\epsilon) = \epsilon
+\]</span></p>
+<p>Hemos demostrado que para cualquier <span class="math inline">\(\epsilon&gt;0\)</span>, existe un <span class="math inline">\(\delta=2\epsilon\)</span> tal que si <span class="math inline">\(0&lt;|x-2|&lt; \delta\)</span>, entonces <span class="math inline">\(|f(x)-2|&lt; \epsilon\)</span>.</p>
+<p>Por lo tanto, <span class="math inline">\(\lim_{x \to 2} f(x)=2\)</span>.</p>
+</div>
+</section>
+<section id="ejemplo-2-enunciado" class="slide level2">
+<h2>Ejemplo 2 Enunciado</h2>
+<p>Demostrar que <span class="math inline">\(\lim_{x \to 4} \left( -\frac{1}{2}x+3 \right) = 1\)</span>.</p>
+</section>
+<section id="solucion" class="slide level2 scrollable">
+<h2>Solucion</h2>
+<h3 id="ejemplo-2-demostración-del-límite-de-fx--frac12x-3">Ejemplo 2 Demostración del Límite de <span class="math inline">\(f(x) = -\frac{1}{2}x + 3\)</span></h3>
+<div class="bg" style="background-color:none; font-size: 0.7em">
+<p>Demostrar que <span class="math inline">\(\lim_{x \to 4} \left( -\frac{1}{2}x+3 \right) = 1\)</span>.</p>
+<h3 id="demostración-1">Demostración</h3>
+<p>Sea <span class="math inline">\(\epsilon &gt; 0\)</span>, debemos encontrar un <span class="math inline">\(\delta &gt; 0\)</span> tal que si <span class="math inline">\(0 &lt; |x-4| &lt; \delta\)</span>, entonces <span class="math inline">\(|f(x) - 1| &lt; \epsilon\)</span>.</p>
+<p>Comenzamos con la expresión <span class="math inline">\(|f(x) - L|\)</span>:</p>
+<p><span class="math display">\[
+\left| \left(-\frac{1}{2}x+3\right) - 1 \right| = \left| -\frac{1}{2}x+2 \right|
+\]</span></p>
+<p>Factorizamos el término <span class="math inline">\(-1/2\)</span> para obtener la expresión <span class="math inline">\((x-4)\)</span>:</p>
+<p><span class="math display">\[
+= \left| -\frac{1}{2}(x-4) \right|
+\]</span></p>
+<p><span class="math display">\[
+= \left| -\frac{1}{2} \right| |x-4|
+\]</span></p>
+<p><span class="math display">\[
+= \frac{1}{2}|x-4|
+\]</span></p>
+<p>Para que la expresión final sea menor que <span class="math inline">\(\epsilon\)</span>, establecemos:</p>
+<p><span class="math display">\[
+\frac{1}{2}|x-4| &lt; \epsilon
+\]</span></p>
+<p>Despejando <span class="math inline">\(|x-4|\)</span>, obtenemos:</p>
+<p><span class="math display">\[
+|x-4| &lt; 2\epsilon
+\]</span></p>
+<p>Por lo tanto, elegimos <span class="math inline">\(\delta = 2\epsilon\)</span>.</p>
+<p>Con esta elección de <span class="math inline">\(\delta\)</span>, si <span class="math inline">\(0 &lt; |x-4| &lt; \delta\)</span>, entonces:</p>
+<p><span class="math display">\[
+\left| f(x) - 1 \right| = \frac{1}{2}|x-4| &lt; \frac{1}{2}\delta = \frac{1}{2}(2\epsilon) = \epsilon
+\]</span></p>
+<p>Hemos demostrado que para cualquier <span class="math inline">\(\epsilon &gt; 0\)</span>, existe un <span class="math inline">\(\delta = 2\epsilon\)</span> tal que si <span class="math inline">\(0 &lt; |x-4| &lt; \\delta\)</span>, entonces <span class="math inline">\(|f(x) - 1| &lt; \epsilon\)</span>.</p>
+<p>Por lo tanto, <span class="math inline">\(\lim_{x \\to 4} \left( -\frac{1}{2}x+3 \right) = 1\)</span>.</p>
 </div>
 </section>
 <section id="ejemplo-de-la-propiedad-epsilon-delta-1" class="slide level2">
@@ -1597,7 +1681,7 @@ g_{\epsilon}(x)=\dfrac{f(x_k) - f(x_{k-1})}{x_k - x_{k-1}} (x -x_{k-1})+f(x_{k-1
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'chalkboard': {"buttons":true,"chalkWidth":2,"boardmarkerWidth":2},
 'smaller': false,
  
         // Display controls in the bottom right corner

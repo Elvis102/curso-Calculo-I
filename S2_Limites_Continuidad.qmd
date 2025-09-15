@@ -179,6 +179,126 @@ Ahora, dado un $\epsilon >0$ bastará tomar $\delta = \min \left\{\dfrac{1}{2}c,
 
 </div>
 
+## Ejemplo 1 Enunciado
+
+Sea la función $f: \mathfrak{R} \to \mathfrak{R}$ dada por $f(x) = -\frac{1}{2}x+3$. Demostrar que $\lim_{x \to 2} f(x)=2$.
+
+## Solución {.scrollable}
+
+::: {.bg style="background-color:none; font-size: 0.7em"}
+
+Sea la función $f: \mathfrak{R} \to \mathfrak{R}$ dada por $f(x) = -\frac{1}{2}x+3$. Demostrar que $\lim_{x \to 2} f(x)=2$.
+
+### Demostración 
+
+Sea $\epsilon>0$, buscamos un $\delta>0$ tal que si $0 < |x-2| < \delta$, entonces $|f(x) - 2| < \epsilon$.
+
+Comenzamos con la expresión $|f(x) - L|$:
+
+$$
+\left| f(x) - 2 \right| = \left| \left(-\frac{1}{2}x+3\right) - 2 \right|
+$$
+
+$$
+= \left| -\frac{1}{2}x+1 \right|
+$$
+
+Factorizamos el término $-1/2$ para aislar la expresión $(x-2)$:
+
+$$
+= \left| -\frac{1}{2}(x-2) \right|
+$$
+
+$$
+= \left| -\frac{1}{2} \right| |x-2|
+$$
+
+$$
+= \frac{1}{2}|x-2|
+$$
+
+Ahora, para que esta expresión sea menor que $\epsilon$, establecemos:
+
+$$
+\frac{1}{2}|x-2| < \epsilon
+$$
+
+$$
+|x-2| < 2 \epsilon
+$$
+
+Por lo tanto, elegimos $\delta = 2\epsilon$. Con esta elección de $\delta$, si $0 < |x-2| < \delta$, entonces:
+
+$$
+\left| f(x) - 2 \right| = \frac{1}{2}|x-2| < \frac{1}{2}\delta = \frac{1}{2}(2\epsilon) = \epsilon
+$$
+
+Hemos demostrado que para cualquier $\epsilon>0$, existe un $\delta=2\epsilon$ tal que si $0<|x-2|< \delta$, entonces $|f(x)-2|< \epsilon$.
+
+Por lo tanto, $\lim_{x \to 2} f(x)=2$.
+:::
+
+## Ejemplo 2 Enunciado
+
+Demostrar que $\lim_{x \to 4} \left( -\frac{1}{2}x+3 \right) = 1$.
+
+## Solucion {.scrollable}
+
+### Ejemplo 2 Demostración del Límite de $f(x) = -\frac{1}{2}x + 3$
+
+::: {.bg style="background-color:none; font-size: 0.7em"}
+Demostrar que $\lim_{x \to 4} \left( -\frac{1}{2}x+3 \right) = 1$.
+
+### Demostración
+
+Sea $\epsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x-4| < \delta$, entonces $|f(x) - 1| < \epsilon$.
+
+Comenzamos con la expresión $|f(x) - L|$:
+
+$$
+\left| \left(-\frac{1}{2}x+3\right) - 1 \right| = \left| -\frac{1}{2}x+2 \right|
+$$
+
+Factorizamos el término $-1/2$ para obtener la expresión $(x-4)$:
+
+$$
+= \left| -\frac{1}{2}(x-4) \right|
+$$
+
+$$
+= \left| -\frac{1}{2} \right| |x-4|
+$$
+
+$$
+= \frac{1}{2}|x-4|
+$$
+
+Para que la expresión final sea menor que $\epsilon$, establecemos:
+
+$$
+\frac{1}{2}|x-4| < \epsilon
+$$
+
+Despejando $|x-4|$, obtenemos:
+
+$$
+|x-4| < 2\epsilon
+$$
+
+Por lo tanto, elegimos $\delta = 2\epsilon$.
+
+Con esta elección de $\delta$, si $0 < |x-4| < \delta$, entonces:
+
+$$
+\left| f(x) - 1 \right| = \frac{1}{2}|x-4| < \frac{1}{2}\delta = \frac{1}{2}(2\epsilon) = \epsilon
+$$
+
+Hemos demostrado que para cualquier $\epsilon > 0$, existe un $\delta = 2\epsilon$ tal que si $0 < |x-4| < \\delta$, entonces $|f(x) - 1| < \epsilon$.
+
+Por lo tanto, $\lim_{x \\to 4} \left( -\frac{1}{2}x+3 \right) = 1$.
+:::
+
+
 
 ##  Ejemplo de la propiedad $\epsilon-\delta$
 
