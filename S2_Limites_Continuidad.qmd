@@ -54,6 +54,20 @@ La primera cuestión que se aborda tiene que ver con los **números reales**, en
 
 ## Límite de una función en un punto
 
+::: {.callout-note style="font-size: 0.9em;"}
+## Definiciones
+
+Sea $f: X \to Y$ una función arbitraria.
+
+*(a)* $f$ es *[inyectiva]{.blue}* si para cada $y \in Y$ existe al menos un $x \in X$ tal que $f(x) = y$.
+
+*(b)* $f$ is *[sobreyectiva]{.blue}* si para cada $y \in Y$ existe un $x \in X$ tal que $f(x) = y$.*
+
+*(c)* $f$ is *[biyectiva]{.blue}* si esta es inyectiva y sobreyectiva 
+:::
+
+## Límite de una función en un punto
+
 <l class="definition"> **Definición. Límite de una función en un punto.** </l>
 
 Sea $f:A \subset \mathbb{R}$ una función definida sobre el conjunto $A \subset \mathbb{R}$ y sea $c$ un punto de acumulación de $A$. $L \in \mathbb{R}$ es el **límite de $f(x)$ cuando $x$ tiende a $c$** si para toda sucesión $\{x_n\}_{n \in \mathbb{N}}$ de puntos de $A$ tal que $\displaystyle{\lim_{n \rightarrow \infty}x_n = c}$ es $\displaystyle{\lim_{n \rightarrow \infty}f(x_n)=L}$.
@@ -88,6 +102,196 @@ $$
 puesto que si $x_n \rightarrow c$, entonces $\dfrac{1}{x_n} \rightarrow \dfrac{1}{c}.$
 
 </div>
+
+## Ejemplo 1 Enunciado
+
+Sea la función $f: \mathfrak{R} \to \mathfrak{R}$ dada por $f(x) = -\frac{1}{2}x+3$. Demostrar que $\lim_{x \to 2} f(x)=2$.
+
+
+## Ejemplo 1 {.scrollable}
+
+::: {.bg style="background-color:none; font-size: 0.7em"}
+
+Sea la función $f: \mathfrak{R} \to \mathfrak{R}$ dada por $f(x) = -\frac{1}{2}x+3$. Demostrar que $\lim_{x \to 2} f(x)=2$.
+
+### Demostración 
+
+Sea $\epsilon>0$, buscamos un $\delta>0$ tal que si $0 < |x-2| < \delta$, entonces $|f(x) - 2| < \epsilon$.
+
+Comenzamos con la expresión $|f(x) - L|$:
+
+$$
+\left| f(x) - 2 \right| = \left| \left(-\frac{1}{2}x+3\right) - 2 \right|
+$$
+
+$$
+= \left| -\frac{1}{2}x+1 \right|
+$$
+
+Factorizamos el término $-1/2$ para aislar la expresión $(x-2)$:
+
+$$
+= \left| -\frac{1}{2}(x-2) \right|
+$$
+
+$$
+= \left| -\frac{1}{2} \right| |x-2|
+$$
+
+$$
+= \frac{1}{2}|x-2|
+$$
+
+Ahora, para que esta expresión sea menor que $\epsilon$, establecemos:
+
+$$
+\frac{1}{2}|x-2| < \epsilon
+$$
+
+$$
+|x-2| < 2 \epsilon
+$$
+
+Por lo tanto, elegimos $\delta = 2\epsilon$. Con esta elección de $\delta$, si $0 < |x-2| < \delta$, entonces:
+
+$$
+\left| f(x) - 2 \right| = \frac{1}{2}|x-2| < \frac{1}{2}\delta = \frac{1}{2}(2\epsilon) = \epsilon
+$$
+
+Hemos demostrado que para cualquier $\epsilon>0$, existe un $\delta=2\epsilon$ tal que si $0<|x-2|< \delta$, entonces $|f(x)-2|< \epsilon$.
+
+Por lo tanto, $\lim_{x \to 2} f(x)=2$.
+:::
+
+## Ejemplo 2 Enunciado
+
+Demostrar que $\lim_{x \to 4} \left( -\frac{1}{2}x+3 \right) = 1$.
+
+## Solucion {.scrollable}
+
+### Ejemplo 2 Demostración del Límite de $f(x) = -\frac{1}{2}x + 3$
+
+::: {.bg style="background-color:none; font-size: 0.7em"}
+Demostrar que $\lim_{x \to 4} \left( -\frac{1}{2}x+3 \right) = 1$.
+
+### Demostración
+
+Sea $\epsilon > 0$, debemos encontrar un $\delta > 0$ tal que si $0 < |x-4| < \delta$, entonces $|f(x) - 1| < \epsilon$.
+
+Comenzamos con la expresión $|f(x) - L|$:
+
+$$
+\left| \left(-\frac{1}{2}x+3\right) - 1 \right| = \left| -\frac{1}{2}x+2 \right|
+$$
+
+Factorizamos el término $-1/2$ para obtener la expresión $(x-4)$:
+
+$$
+= \left| -\frac{1}{2}(x-4) \right|
+$$
+
+$$
+= \left| -\frac{1}{2} \right| |x-4|
+$$
+
+$$
+= \frac{1}{2}|x-4|
+$$
+
+Para que la expresión final sea menor que $\epsilon$, establecemos:
+
+$$
+\frac{1}{2}|x-4| < \epsilon
+$$
+
+Despejando $|x-4|$, obtenemos:
+
+$$
+|x-4| < 2\epsilon
+$$
+
+Por lo tanto, elegimos $\delta = 2\epsilon$.
+
+Con esta elección de $\delta$, si $0 < |x-4| < \delta$, entonces:
+
+$$
+\left| f(x) - 1 \right| = \frac{1}{2}|x-4| < \frac{1}{2}\delta = \frac{1}{2}(2\epsilon) = \epsilon
+$$
+
+Hemos demostrado que para cualquier $\epsilon > 0$, existe un $\delta = 2\epsilon$ tal que si $0 < |x-4| < \\delta$, entonces $|f(x) - 1| < \epsilon$.
+
+Por lo tanto, $\lim_{x \\to 4} \left( -\frac{1}{2}x+3 \right) = 1$.
+:::
+
+
+## Ejemplo 3 {.scrollable}
+::: {.bg style="background-color:none; font-size: 0.7em"}
+### Ejemplo de la propiedad $\epsilon - \delta$
+
+Prueba formal del límite de la función $f(x) = \frac{1}{x}$ en un punto $x=c$ utilizando la definición $\epsilon - \delta$. El objetivo es demostrar que $\lim_{x \to c} \frac{1}{x} = \frac{1}{c}$.
+
+### 1. Manipulación Algebraica
+
+Primero, manipulamos la expresión $|f(x) - L| = \left| \frac{1}{x} - \frac{1}{c} \right|$ para encontrar un término que incluya $|x - c|$.
+
+$$
+\left| \frac{1}{x} - \frac{1}{c} \right| = \left| \frac{c - x}{xc} \right| = \frac{|c - x|}{|x||c|} = \frac{|x - c|}{|x|c}
+$$
+
+### 2. Acotando la expresión
+
+El siguiente paso es acotar el término $\frac{1}{|x|}$. Para ello, debemos asegurarnos de que $x$ no se acerque demasiado a cero. Elegimos una cota inicial para $\delta$, por ejemplo, $\delta_1 = \frac{c}{2}$.
+
+Si $|x - c| < \delta_1 = \frac{c}{2}$, entonces:
+
+$$
+-\frac{c}{2} < x - c < \frac{c}{2}
+$$
+$$
+c - \frac{c}{2} < x < c + \frac{c}{2}
+$$
+$$
+\frac{c}{2} < x < \frac{3c}{2}
+$$
+
+Dado que $x > \frac{c}{2}$, podemos decir que $\frac{1}{x} < \frac{2}{c}$. Usando esta cota, la expresión original se convierte en:
+
+$$
+\left| \frac{1}{x} - \frac{1}{c} \right| = \frac{|x - c|}{|x|c} < \frac{|x - c|}{(\frac{c}{2})c} = \frac{2}{c^2}|x - c|
+$$
+
+### 3. Encontrando el valor de $\delta$
+
+Ahora, para que la expresión final sea menor que $\epsilon$, necesitamos que:
+
+$$
+\frac{2}{c^2}|x - c| < \epsilon
+$$
+
+$$
+|x - c| < \frac{\epsilon c^2}{2}
+$$
+
+Llamemos a esta cota $\delta_2 = \frac{\epsilon c^2}{2}$. Para que ambas condiciones se cumplan ($|x - c| < \delta_1$ y $|x - c| < \delta_2$), debemos elegir el valor más pequeño de los dos.
+
+Por lo tanto, $\delta$ se define como:
+
+$$
+\delta = \min\left\{ \frac{c}{2}, \frac{\epsilon c^2}{2} \right\}
+$$
+
+Si $0 < |x - c| < \delta$, entonces $|x - c| < \frac{c}{2}$ y $|x - c| < \frac{\epsilon c^2}{2}$.
+
+Esto nos permite concluir que:
+
+$$ \left| \frac{1}{x} - \frac{1}{c} \right| = \frac{|x - c|}{|x|c} < \frac{2}{c^2}|x - c| < \frac{2}{c^2}\left(\frac{\epsilon c^2}{2}\right) = \epsilon $$
+
+Por lo tanto, hemos probado que $\lim_{x \to c} \frac{1}{x} = \frac{1}{c}$.
+
+### Conclusión
+
+Hemos demostrado que para cualquier $\epsilon > 0$ dado, podemos encontrar un $\delta = \min\left\{ \frac{c}{2}, \frac{\epsilon c^2}{2} \right\}$ tal que si $0 < |x - c| < \delta$, entonces $\left| \frac{1}{x} - \frac{1}{c} \right| < \epsilon$.
+:::
 
 ## Límite de una función en un punto: Ejemplos
 
