@@ -329,6 +329,7 @@ $$
 
 ## La propiedad $\epsilon-\delta$
 
+![](Images/pedl0.png)
 <div class="center">
 ```{r, echo=FALSE, label=edelta,fig.cap="",out.width = "600px"}
 knitr::include_graphics("Images/epdel0.png",dpi=1200)
