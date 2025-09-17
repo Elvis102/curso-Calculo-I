@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-09-15">
+  <meta name="dcterms.date" content="2025-09-16">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,34 +147,87 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-09-15</p>
+  <p class="date">2025-09-16</p>
 </section>
 <section>
 <section id="límites" class="title-slide slide level1 my-slide center">
 <h1>Límites</h1>
 
 </section>
-<section id="definición-e-interpretación" class="slide level2">
-<h2>Definición e Interpretación</h2>
-</section>
-<section id="funciones-reales-de-variable-real" class="slide level2">
-<h2>Funciones reales de variable real</h2>
-<p>Supondremos que son conocidos el concepto de <strong>función</strong>, en tanto que una <strong>aplicación</strong> entre conjuntos de números. En particular, nos concentraremos en <strong>funciones reales de variable real</strong>, es decir en funciones <span class="math inline">\(f:A \subset \mathbb{R} \rightarrow \mathbb{R}\)</span>.</p>
-<p>Tambien suponemos conocidos los conceptos de <strong>rango</strong> y <strong>dominio</strong> de una función, así como los términos <strong>variable independiente</strong> y <strong>dependiente</strong>.</p>
-<p>Aunque seran tratadas con detalle más adelante, es conveniente tener presentes las principales características de funciones elementales como las polinómicas <span class="math inline">\(f(x)= P_n(x) = a_nx^n+a_{n-1}x^{n-1}+ \cdots + a_1x+a_0\)</span>, la exponencial <span class="math inline">\(f(x)=e^x\)</span> y las trigonométricas <span class="math inline">\(f(x)=\sin(x)\)</span>, <span class="math inline">\(f(x)=\cos(x)\)</span>, <span class="math inline">\(f(x) =\tan(x)\)</span>, entre otras.</p>
-</section>
-<section id="funciones-reales-de-variable-real-1" class="slide level2">
-<h2>Funciones reales de variable real</h2>
-<p>Uno de los principales objetivos del cálculo es el estudio las funciones. De hecho, como ya se ha mencionado, el <strong>cálculo diferencial</strong> trata del estudio de la <strong>medida del cambio</strong>, precisamente a través de relaciones que vienen expresadas como funciones, principalmente como <strong>funciones reales de variable real</strong>.</p>
-<p>La primera cuestión que se aborda tiene que ver con los <strong>números reales</strong>, en particular cómo <strong>evaluar las funciones reales de variable real</strong> cuando la <strong>variable independiente</strong> es un número <strong>irracional</strong>. Nuevamente el concepto de <strong>límite</strong> viene a ayudar en la solución de esta cuestión.</p>
+<section id="límite-de-una-función" class="slide level2">
+<h2><strong>Límite de una función</strong></h2>
+<p>El límite se enfoca en el <strong>comportamiento</strong> de la función en las <strong>proximidades</strong> de un punto, no necesariamente en el valor exacto de la función en ese punto.</p>
+<ul>
+<li><strong>Concepto:</strong> Imagina que te acercas a un punto en el eje <span class="math inline">\(x\)</span> desde la izquierda y la derecha. El límite es el valor al que la función (<span class="math inline">\(y\)</span>) se va acercando.</li>
+<li><strong>Existencia:</strong> Un límite puede existir incluso si la función no está definida en el punto en cuestión. Por ejemplo, en una función con un agujero. .</li>
+<li><strong>Notación:</strong> <span class="math inline">\(\lim_{x \to a} f(x) = L\)</span></li>
+</ul>
 </section>
 <section id="límite-de-una-función-en-un-punto" class="slide level2">
+<h2>Límite de una función en un punto</h2>
+<div style="font-size: 1em;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Definición</strong></p>
+</div>
+<div class="callout-content">
+<p>Si <span class="math inline">\(f:A \subset \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> está definida en <span class="alert">todo punto de un entorno reducido</span> del punto <span class="math inline">\(c \in \mathfrak{R}\)</span>, diremos que <span class="math inline">\(L\)</span> es el límite de <span class="math inline">\(f\)</span> en <span class="math inline">\(c\)</span> si <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c^{-}} f(x) = \lim_{x \rightarrow c^{+}} f(x) = L}\)</span>.</p>
+<p>Y escribiremos <span class="math display">\[
+\displaystyle{\lim_{x \rightarrow c} f(x) =L}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:0.8em;margin-top:-1em">
+<p><strong>Recuerda:</strong> al escribir <span class="math inline">\(x\to c\)</span> queremos indicar que <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(c\)</span> indistintamente por la derecha o por la izquierda.</p>
+<p>Además, Si los límites laterales de <strong><span class="math inline">\(f\)</span></strong> en <strong><span class="math inline">\(c\)</span></strong> son distintos diremos que <strong><span class="math inline">\(f\)</span></strong> <span class="alert">no tiene límite</span> en el punto <strong><span class="math inline">\(c\)</span></strong>.</p>
+</div>
+<div class="bg" style="padding:0em; margin-top:-0.9em; font-size:0.75em;">
+<div class="r-stack">
+<div class="fragment" data-fragment-index="1">
+<div class="center">
+<p><img data-src="Images/limite.png" style="width:55.0%"></p>
+</div>
+</div>
+<div class="fragment" data-fragment-index="2">
+<div class="center">
+<p><img data-src="Images/limiteL.png" style="width:56.0%"></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="límite-de-una-función-en-un-punto-1" class="slide level2">
+<h2>Límite de una función en un punto</h2>
+<p><strong>Observatión:</strong></p>
+<p>Al hablar del <span class="alert"><strong>límite de “f” en el punto “c”</strong></span> importa un pito si “<span class="alert"><strong>c</strong></span>” tiene imagen según “<span class="alert"><strong>f</strong></span>” o no, pues en la definición de límite de “<strong>f</strong>” en “<strong>c</strong>” solo intervienen los valores que toma “<strong>f</strong>” en puntos <strong>próximos a “c”</strong>. Así, si en todo punto “<strong>x</strong>” de un entorno reducido de “<strong>c</strong>” sucede que <span class="math inline">\(f(x) = g(x)\)</span>, las funciones “<strong>f</strong>” y “<strong>g</strong>” tienen el mismo [<strong>límite en “c”</strong>}{.alert} … y por eso es legítimo, <span class="alert">antes de calcular el <strong>límite</strong></span>, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en “<strong>c</strong>”, siempre que estos no se anulen en las <span class="alert"><strong>proximidades de “c”</strong></span>.</p>
+</section>
+<section id="ejemplo" class="slide level2">
+<h2>Ejemplo</h2>
+<div class="bg" style="background-color:none; padding:0.8em; margin-top:0em; font-size:0.85em;">
+<p><span class="alert">Por ejemplo</span>, sea una función <span class="math inline">\(f\)</span> tal que: <span class="math inline">\(f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}\)</span></p>
+<p>El límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(26\)</span> se calcula de la siguiente manera:</p>
+<p><span class="math inline">\(\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdot (x-2) + 1)\)</span></p>
+</div>
+<section id="simplificación-y-proximidad" class="bg" style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;">
+<h3>Simplificación y Proximidad</h3>
+<p>En las <strong>proximidades</strong> del punto <span class="math inline">\(x=26\)</span>, sucede que <span class="math inline">\(f(x)\)</span> coincide con la función <span class="math inline">\(g(x) = 3 \cdot (x-2) + 1\)</span>. Esto es así porque, si <span class="math inline">\(x\)</span> es <strong>próximo a 26</strong>, se cumple que:</p>
+<p><span class="math inline">\(\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1\)</span></p>
+<p>Se dividió el numerador (<span class="math inline">\(N^{dor}\)</span>) y el denominador (<span class="math inline">\(D^{dor}\)</span>) por el factor <span class="math inline">\((x-2)\)</span>, que no se anula en ningún punto de las proximidades de <span class="math inline">\(x=26\)</span>.</p>
+</section>
+</section>
+<section id="límite-de-una-función-en-un-punto-2" class="slide level2">
 <h2>Límite de una función en un punto</h2>
 <p><l class="definition"> <strong>Definición. Límite de una función en un punto.</strong> </l></p>
 <p>Sea <span class="math inline">\(f:A \subset \mathbb{R}\)</span> una función definida sobre el conjunto <span class="math inline">\(A \subset \mathbb{R}\)</span> y sea <span class="math inline">\(c\)</span> un punto de acumulación de <span class="math inline">\(A\)</span>. <span class="math inline">\(L \in \mathbb{R}\)</span> es el <strong>límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> tiende a <span class="math inline">\(c\)</span></strong> si para toda sucesión <span class="math inline">\(\{x_n\}_{n \in \mathbb{N}}\)</span> de puntos de <span class="math inline">\(A\)</span> tal que <span class="math inline">\(\displaystyle{\lim_{n \rightarrow \infty}x_n = c}\)</span> es <span class="math inline">\(\displaystyle{\lim_{n \rightarrow \infty}f(x_n)=L}\)</span>.</p>
 <p>Escribiremos, <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c}f(x)=L}\)</span>, para indicar el límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> tiende a <span class="math inline">\(c\)</span>.</p>
 </section>
-<section id="límite-de-una-función-en-un-punto-1" class="slide level2">
+<section id="límite-de-una-función-en-un-punto-3" class="slide level2">
 <h2>Límite de una función en un punto</h2>
 <p><l class="observ"> <strong>Observaciones.</strong> </l></p>
 <p><strong>1.</strong> Igual que hemos hecho con las sucesiones y los números irracionales, con esta definción convertimos el problema de evaluar una función en un punto irracional en el de calcular el límite de una sucesión.</p>
