@@ -64,15 +64,6 @@ $$
 Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos que **$f$** [no tiene límite]{.alert} en el punto **$c$**.
 :::
 
-<<<<<<< HEAD
-## **Límite de una función** 
-
-El límite se enfoca en el **comportamiento** de la función en las **proximidades** de un punto, no necesariamente en el valor exacto de la función en ese punto.
-
-  * **Concepto:** Imagina que te acercas a un punto en el eje $x$ desde la izquierda y la derecha. El límite es el valor al que la función ($y$) se va acercando.
-  * **Existencia:** Un límite puede existir incluso si la función no está definida en el punto en cuestión. Por ejemplo, en una función con un agujero. .
-  * **Notación:** $\lim_{x \to a} f(x) = L$
-=======
 ::: {.bg style="padding:0em; margin-top:-0.9em; font-size:0.75em;"}
 
 ::: {.r-stack}
@@ -120,7 +111,6 @@ $\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1$
 Se dividió el numerador ($N^{dor}$) y el denominador ($D^{dor}$) por el factor $(x-2)$, que no se anula en ningún punto de las proximidades de $x=26$.
 
 :::
->>>>>>> de0c6659b151651a331a4ee941a2b1c160ca7ccc
 
 ## Límite de una función en un punto
 
