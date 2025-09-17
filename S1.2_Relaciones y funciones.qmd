@@ -103,7 +103,7 @@ Una **relación binaria** **$R$** de un conjunto $X$ a un conjunto $Y$ es un sub
 ::: {.column width="50%" style="text-align: center;"} 
 
 ::: {.fragment fragment-index="1"}
-::: {.bg style="background-color:#e6f7ff; padding:0em;font-size: 0.9em;"}
+::: {.bg style="background-color: #e6f7ff; padding:0em;font-size: 0.9em;"}
 Si $"A"$ y $"B"$ son conjuntos cualesquiera, se llama [**correspondencia**]{.alert} de $A$ en $B$ a todo criterio o ley que asocia elementos de $"A"$ con elementos de $"B"$.
 :::
 :::
@@ -116,7 +116,7 @@ Si el nombre del criterio es $"f"$, para expresar que $"f"$ es una [**correspond
 :::
 
 ::: {.fragment fragment-index="3"}
-::: {.bg style="background-color:#e6f7ff; padding:0em;font-size: 0.9em;"}
+::: {.bg style="background-color: #e6f7ff; padding:0em;font-size: 0.9em;"}
 De $"A"$ se dice que es el [**conjunto inicial**]{.alert} de $"f"$, y $"B"$ se dice es el [**conjunto final**]{.alert}
 de $"f"$
 :::
@@ -137,7 +137,7 @@ de $"f"$
 **Observaciones:**
 :::
 
-::: {.bg style="background-color:#e6f7ff; padding:0.75em;font-size: 0.9em; "}
+::: {.bg style="background-color: #e6f7ff; padding:0.75em;font-size: 0.9em; "}
 - En el conjunto inicial "A" puede haber elementos (177) a los que "f" no les asocia nungún elemento de "B".
 
 - En el conjunto inicial "A" puede haber elementos (Pato) a los que "f" les asocie varios elemento de "B".
@@ -167,7 +167,7 @@ de $"f"$
 
 ::: {.fragment fragment-index="1"}
 
-::: {.bg style="background-color:#e6f7ff; padding:0.75em; font-size: 0.75em;margin-top:-2.2em;"}
+::: {.bg style="background-color: #e6f7ff; padding:0.75em; font-size: 0.75em;margin-top:-2.2em;"}
 Si $x \in A$ para referirnos al elemento de $"B"$ que $"f"$ asocia a $"x"$, usaremos la notación $"f(x)"$, que los profesionales leen [**efe de x**]{.alert}, pero tú debes leer [**imagen de x según f.**]{.alert}
 :::
 :::
@@ -210,7 +210,7 @@ Si $x \in A$ para referirnos al elemento de $"B"$ que $"f"$ asocia a $"x"$, usar
 
 ::: incremental
 
-::: {.bg style="background-color:#e6f7ff; padding:0em; font-size: 0.7em;margin-top:.2em;"}
+::: {.bg style="background-color: #e6f7ff; padding:0em; font-size: 0.7em;margin-top:.2em;"}
 
 - El conjunto $"A"$, que es protagonista [**invisible**]{.fg style="--col: #228dff"}, pues $"A"$ no parece por ningún lado en la notación [**$"f(x)"$**]{.alert} ... ¡pero está!.
 
@@ -287,7 +287,7 @@ Para expresar que el número real $x \in \mathfrak{R}_{inicial}$ puede ser el qu
 
 ## Ejemplos {.scrollable}
 
-::: {.bg style="background-color:#fdf6e3; padding:0.75em;font-size: 0.75em;margin-top:-0.5em "}
+::: {.bg style="background-color: #fdf6e3; padding:0.75em;font-size: 0.75em;margin-top:-0.5em "}
 Por ejemplo, al hablar de la función $f:\mathfrak{R} \longrightarrow \mathfrak{R}$ tal que $f(x)=\frac{x}{x-1}$ se habla de la ley $"f"$ que al número real $"x"$ le asocia el número real $\frac{x}{x-1}$; así, al número $5$ la ley $"f"$ le asocia el número  $\frac{5}{5-1}$ , al número $9$ le asocia el número $\frac{5}{5-1}$..... y escribemos:
 :::
 

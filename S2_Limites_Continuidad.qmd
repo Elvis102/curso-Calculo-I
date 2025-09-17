@@ -100,7 +100,7 @@ $\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdo
 
 :::
 
-::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
+::: {.bg style="background-color: #ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
 
 Simplificación y Proximidad
 
@@ -118,6 +118,300 @@ Se dividió el numerador ($N^{dor}$) y el denominador ($D^{dor}$) por el factor 
 **Observatión:**
 
 Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si [**c**]{.alert} tiene imagen según [**f**]{.alert} o no, pues en la definición de límite de "**f**" en "**c**" solo intervienen los valores que toma "**f**" en puntos **próximos a "c"**. Así, si en todo punto "**x**" de un entorno reducido de "**c**" sucede que $f(x) = g(x)$, las funciones "**f**" y "**g**" tienen el mismo [**límite en "c"**]{.alert} y por eso es legítimo, [antes de calcular el **límite**]{.alert}, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en "**c**", siempre que estos no se anulen en las [**proximidades de "c"**]{.alert}.
+
+## Ejemplos de PL (con límites inofensivos)
+
+En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [igual al valor]{.alert} de la función en ese mismo [punto]{.blue}.
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.75em;margin-top:-0.5em;"}
+::: {.fragment}
+* Si $f(x) = 2x+3$, entonces: $\lim_{x \to 5} f(x) = 13 = f(5)$
+
+    *PL*: si $x \to 5 \Rightarrow f(x) = 2x+3 \to 2 \cdot 5 + 3 = 13$
+
+    Es decir: $f(x)$ "[tiende]{.alert}" a 13 tanto si $x \to 5^-$ como si $x \to 5^+$
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.7em;margin-top:0em;"}
+::: {.fragment}
+* Si $f(x) = x^2+7$, entonces: $\lim_{x \to -3} f(x) = 16 = f(-3)$
+
+    *PL*: si $x \to -3 \Rightarrow f(x) = x^2+7 \to (-3)^2 + 7 = 16$
+
+    Es decir: $f(x)$ "[tiende]{.alert}" a 16 tanto si $x \to -3^-$ como si $x \to -3^+$
+:::
+:::
+
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+::: {.fragment}
+* Si $f(x) = 3x^3-x$, entonces: $\lim_{x \to 2} f(x) = 3 \cdot 2^3 - 2 = 22$
+
+    *PL*: si $x \to 2 \Rightarrow f(x) = 3x^3-x \to 3 \cdot 2^3 - 2 = 22$
+
+    Es decir: $f(x)$ "[tiende]{.alert}" a 22 tanto si $x \to 2^-$ como si $x \to 2^+$
+:::
+:::
+:::
+
+::: {.bg style="background: #ccf5cc; font-size:0.7em;margin-top:-0.5em;"}
+[**Recuerda:**]{.alert} al escribir $x \to c$, que se lee "$x$ tiende a $c$", queremos indicar que "$x$" se aproxima a "$c$" indistintamente por la derecha ($x \to c^+$) o por la izquierda ($x \to c^-$).
+:::
+
+## Ejemplos de PL (con límites inofensivos)
+
+En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [igual al valor]{.alert} de la función en ese mismo [punto]{.blue}.
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.75em;margin-top:-0.5em;"}
+::: {.fragment}
+* Si $f(x) = \frac{x+1}{x+6}$, entonces:
+    $\lim_{x \to 3} f(x) = \frac{4}{9} = f(3)$
+    *PL*: si $x \to 3 \Rightarrow \left\{ \begin{array}{l} x+1 \to 4 \\ x+6 \to 9 \end{array} \right\} \Rightarrow f(x) = \frac{x+1}{x+6} \to \frac{4}{9}$
+
+    Es decir: $f(x)$ "tiende" a $\frac{4}{9}$ tanto si $x \to 3^-$ como si $x \to 3^+$
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.7em;margin-top:0em;"}
+::: {.fragment}
+* Si $f(x) = \ln \frac{x-1}{7-x}$, entonces:
+    $\lim_{x \to 4} f(x) = 0 = f(4)$
+    *PL*: si $x \to 4 \Rightarrow \left\{ \begin{array}{l} x-1 \to 3 \\ 7-x \to 3 \end{array} \right\} \Rightarrow f(x) = \ln \frac{x-1}{7-x} \to \ln \frac{3}{3} = 0$
+
+    Es decir: $f(x)$ "tiende" a 0 tanto si $x \to 4^-$ como si $x \to 4^+$
+:::
+:::
+
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+::: {.fragment}
+* Si $f(x) = e^x \cdot \cos(1+x^3)$, entonces:
+    $\lim_{x \to 0} f(x) = \cos(1) = f(0)$
+    *PL*: si $x \to 0 \Rightarrow \left\{ \begin{array}{l} e^x \to e^0 = 1 \\ 1+x^3 \to 1 \Rightarrow \cos(1+x^3) \to \cos 1 \end{array} \right\} \Rightarrow f(x) = e^x \cdot \cos(1+x^3) \to \cos 1$
+:::
+:::
+:::
+
+::: {.bg style="background: #ccf5cc; font-size:0.7em;margin-top:-0.5em;"}
+[**Recuerda:**]{.alert} al escribir $x \to c$, que se lee "$x$ tiende a $c$", queremos indicar que "$x$" se aproxima a "$c$" indistintamente por la derecha ($x \to c^+$) o por la izquierda ($x \to c^-$).
+:::
+
+## Ejemplos de Límites (Casos Inofensivos)
+
+En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [igual al valor]{.alert} de la función en ese mismo [punto]{.blue}.
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.75em;margin-top:-0.5em;"}
+::: {.fragment}
+* Si $f(x) = (1+x^2)^{x+2}$, entonces:
+    $\lim_{x \to 1} f(x) = 8 = f(1)$
+    *PL*: si $x \to 1 \Rightarrow \left\{ \begin{array}{l} 1+x^2 \to 2 \\ x+2 \to 3 \end{array} \right\} \Rightarrow f(x) = (1+x^2)^{x+2} \to 2^3 = 8$
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.7em;margin-top:0em;"}
+::: {.fragment}
+* Si $f(x) = \frac{2-x^2}{x+1} \cdot \sqrt[3]{\frac{8+x}{1-x}}$, entonces:
+    $\lim_{x \to 0} f(x) = 4 = f(0)$
+    *PL*: si $x \to 0 \Rightarrow \left\{ \begin{array}{l} \frac{2-x^2}{x+1} \to \frac{2-0}{0+1} = 2 \\ \sqrt[3]{\frac{8+x}{1-x}} \to \sqrt[3]{\frac{8}{1}} = 2 \end{array} \right\} \Rightarrow f(x) = \frac{2-x^2}{x+1} \cdot \sqrt[3]{\frac{8+x}{1-x}} \to 2 \cdot 2 = 4$
+:::
+:::
+
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+::: {.fragment}
+* Si $f(x) = |1-x^3|$, entonces:
+    $\lim_{x \to 2} f(x) = 7 = f(2)$
+    *PL*: si $x \to 2 \Rightarrow 1-x^3 \to 1-2^3 = -7 \Rightarrow f(x) = |1-x^3| \to |-7| = 7$
+:::
+:::
+:::
+
+::: {.bg style="background: #ccf5cc; font-size:0.7em;margin-top:-0.5em;"}
+[**Recuerda:**]{.alert} al escribir $x \to c$, que se lee "$x$ tiende a $c$", queremos indicar que "$x$" se aproxima a "$c$" indistintamente por la derecha ($x \to c^+$) o por la izquierda ($x \to c^-$).
+:::
+
+## Ejemplos de Límites (Casos de funciones por partes)
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+Sea una función $f: \mathbb{R} \to \mathbb{R}$ tal que: $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-1.2em;"}
+![](Images/limp.png){width="50%"}
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.9em;margin-top:-1.5em;"}
+::: {.fragment}
+Para calcular el límite de $f(x)$ cuando $x$ se aproxima a $-5$, primero debemos identificar qué parte de la función se aplica en ese punto.
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.9em;margin-top:-1.5em;"}
+$\lim_{x \to -5} f(x) = -125$ *PL*: Si $x \to -5$, entonces  $\Rightarrow f(x) = x^3 \to (-5)^3 = -125$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-2.2em;"}
+![](Images/limp2.png){width="25%"}
+:::
+:::
+
+## Ejemplos de Límites (Casos de funciones por partes)
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+Sea una función $f: \mathbb{R} \to \mathbb{R}$ tal que: $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-1.2em;"}
+![](Images/limp.png){width="50%"}
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.9em;margin-top:-1.5em;"}
+::: {.fragment}
+Para calcular el límite de $f(x)$ cuando $x$ se aproxima a $2$, primero debemos identificar qué parte de la función se aplica en ese punto.
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.9em;margin-top:-1.5em;"}
+$\lim_{x \to 2} f(x) = 3$ *PL*: Si $x \to 2$, entonces  $\Rightarrow f(x) = 2^x-1 \to 2^2-1 = 3$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-2.2em;"}
+![](Images/limp3.png){width="25%"}
+:::
+:::
+
+## Ejemplos de Límites (Casos de funciones por partes)
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+Sea una función $f: \mathbb{R} \to \mathbb{R}$ tal que: $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-1.2em;"}
+![](Images/limp.png){width="50%"}
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.9em;margin-top:-1.5em;"}
+::: {.fragment}
+Para calcular el límite de $f(x)$ cuando $x$ se aproxima a $4$, primero debemos identificar qué parte de la función se aplica en ese punto.
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.9em;margin-top:-1.5em;"}
+$\lim_{x \to 4} f(x) = 17$ *PL*: Si $x \to 4$, entonces  $\Rightarrow f(x) = x^2+1 \to 4^2+1 = 17$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-2.2em;"}
+![](Images/limp4.png){width="25%"}
+:::
+:::
+
+## Ejemplos de Límites (Casos de funciones por partes)
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+Sea una función $f: \mathbb{R} \to \mathbb{R}$ tal que: $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-1.2em;"}
+![](Images/limp5.png){width="50%"}
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.75em;margin-top:-1.5em;"}
+Para el límite cuando $x$ se acerca a 1 por la izquierda ($x \to 1^-$), usamos la primera parte de la función:
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.75em;margin-top:-1.5em;"}
+$PL: \text{si } x \to 1^- \implies f(x) = x^3 \to 1^3 = 1$
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.75em;margin-top:-1.5em;"}
+Para el límite cuando $x$ se acerca a 1 por la derecha ($x \to 1^+$), usamos la segunda parte de la función:
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.75em;margin-top:-1.5em;"}
+$PL: \text{si } x \to 1^+ \implies f(x) = 2^x - 1 \to 2^1 - 1 = 1$
+:::
+:::
+
+::: center
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.75em;margin-top:-1.5em;"}
+$$\lim_{x \to 1} f(x) = 1$$ 
+:::
+:::
+:::
+
+## Ejemplos de Límites (Casos de funciones por partes)
+
+::: center
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+Sea una función $f: \mathbb{R} \to \mathbb{R}$ tal que: $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$
+:::
+:::
+
+::: center
+::: {.fragment style="margin-top:-1.2em;"}
+![](Images/limp6.png){width="50%"}
+:::
+:::
+
+::: {.fragment}
+::: {.bg style="background: none; font-size:0.75em;margin-top:-1.5em;"}
+Para el límite cuando $x$ se acerca a 3 por la izquierda ($x \to 3^-$), usamos la segunda parte de la función:
+
+::: {.fragment}
+$PL: \text{si } x \to 3^- \implies f(x) = 2^x - 1 \to 2^3 - 1 = 7$
+:::
+
+::: {.fragment}
+Para el límite cuando $x$ se acerca a 3 por la derecha ($x \to 3^+$), usamos la tercera parte de la función:
+:::
+
+::: {.fragment}
+$PL: \text{si } x \to 3^+ \implies f(x) = x^2 + 1 \to 3^2 + 1 = 10$
+:::
+
+::: center
+::: {.fragment}
+**No tiene límite en el punto 3**
+:::
+:::
+
+:::
+:::
+
 
 
 
