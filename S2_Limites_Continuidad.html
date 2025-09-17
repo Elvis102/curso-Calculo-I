@@ -172,7 +172,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Definición</strong></p>
+<p><strong>Nota</strong></p>
 </div>
 <div class="callout-content">
 <p>Si <span class="math inline">\(f:A \subset \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> está definida en <span class="alert">todo punto de un entorno reducido</span> del punto <span class="math inline">\(c \in \mathfrak{R}\)</span>, diremos que <span class="math inline">\(L\)</span> es el límite de <span class="math inline">\(f\)</span> en <span class="math inline">\(c\)</span> si <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c^{-}} f(x) = \lim_{x \rightarrow c^{+}} f(x) = L}\)</span>.</p>
@@ -214,74 +214,23 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <p>El límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(26\)</span> se calcula de la siguiente manera:</p>
 <p><span class="math inline">\(\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdot (x-2) + 1)\)</span></p>
 </div>
-<section id="simplificación-y-proximidad" class="bg" style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;">
-<h3>Simplificación y Proximidad</h3>
+<div class="bg" style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;">
+<p>Simplificación y Proximidad</p>
 <p>En las <strong>proximidades</strong> del punto <span class="math inline">\(x=26\)</span>, sucede que <span class="math inline">\(f(x)\)</span> coincide con la función <span class="math inline">\(g(x) = 3 \cdot (x-2) + 1\)</span>. Esto es así porque, si <span class="math inline">\(x\)</span> es <strong>próximo a 26</strong>, se cumple que:</p>
 <p><span class="math inline">\(\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1\)</span></p>
 <p>Se dividió el numerador (<span class="math inline">\(N^{dor}\)</span>) y el denominador (<span class="math inline">\(D^{dor}\)</span>) por el factor <span class="math inline">\((x-2)\)</span>, que no se anula en ningún punto de las proximidades de <span class="math inline">\(x=26\)</span>.</p>
-</section>
+</div>
 </section>
 <section id="límite-de-una-función-en-un-punto-2" class="slide level2">
 <h2>Límite de una función en un punto</h2>
-<div style="font-size: 1em;">
-<div class="callout callout-note callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Definición</strong></p>
-</div>
-<div class="callout-content">
-<p>Si <span class="math inline">\(f:A \subset \mathfrak{R} \longrightarrow \mathfrak{R}\)</span> está definida en <span class="alert">todo punto de un entorno reducido</span> del punto <span class="math inline">\(c \in \mathfrak{R}\)</span>, diremos que <span class="math inline">\(L\)</span> es el límite de <span class="math inline">\(f\)</span> en <span class="math inline">\(c\)</span> si <span class="math inline">\(\displaystyle{\lim_{x \rightarrow c^{-}} f(x) = \lim_{x \rightarrow c^{+}} f(x) = L}\)</span>.</p>
-<p>Y escribiremos <span class="math display">\[
-\displaystyle{\lim_{x \rightarrow c} f(x) =L}
-\]</span></p>
-</div>
-</div>
-</div>
-</div>
-<div class="bg" style="padding:0em; margin-top:0em; font-size:0.8em;margin-top:-1em">
-<p><strong>Recuerda:</strong> al escribir <span class="math inline">\(x\to c\)</span> queremos indicar que <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(c\)</span> indistintamente por la derecha o por la izquierda.</p>
-<p>Además, Si los límites laterales de <strong><span class="math inline">\(f\)</span></strong> en <strong><span class="math inline">\(c\)</span></strong> son distintos diremos que <strong><span class="math inline">\(f\)</span></strong> <span class="alert">no tiene límite</span> en el punto <strong><span class="math inline">\(c\)</span></strong>.</p>
-</div>
-<div class="bg" style="padding:0em; margin-top:-0.9em; font-size:0.75em;">
-<div class="r-stack">
-<div class="fragment" data-fragment-index="1">
-<div class="center">
-<p><img data-src="Images/limite.png" style="width:55.0%"></p>
-</div>
-</div>
-<div class="fragment" data-fragment-index="2">
-<div class="center">
-<p><img data-src="Images/limiteL.png" style="width:56.0%"></p>
-</div>
-</div>
-</div>
-</div>
+<p><strong>Observatión:</strong></p>
+<p>Al hablar del <span class="alert"><strong>límite de “f” en el punto “c”</strong></span> importa un pito si <span class="alert"><strong>c</strong></span> tiene imagen según <span class="alert"><strong>f</strong></span> o no, pues en la definición de límite de “<strong>f</strong>” en “<strong>c</strong>” solo intervienen los valores que toma “<strong>f</strong>” en puntos <strong>próximos a “c”</strong>. Así, si en todo punto “<strong>x</strong>” de un entorno reducido de “<strong>c</strong>” sucede que <span class="math inline">\(f(x) = g(x)\)</span>, las funciones “<strong>f</strong>” y “<strong>g</strong>” tienen el mismo <span class="alert"><strong>límite en “c”</strong></span> y por eso es legítimo, <span class="alert">antes de calcular el <strong>límite</strong></span>, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en “<strong>c</strong>”, siempre que estos no se anulen en las <span class="alert"><strong>proximidades de “c”</strong></span>.</p>
 </section>
 <section id="límite-de-una-función-en-un-punto-3" class="slide level2">
 <h2>Límite de una función en un punto</h2>
-<p><strong>Observatión:</strong></p>
-<p>Al hablar del <span class="alert"><strong>límite de “f” en el punto “c”</strong></span> importa un pito si “<span class="alert"><strong>c</strong></span>” tiene imagen según “<span class="alert"><strong>f</strong></span>” o no, pues en la definición de límite de “<strong>f</strong>” en “<strong>c</strong>” solo intervienen los valores que toma “<strong>f</strong>” en puntos <strong>próximos a “c”</strong>. Así, si en todo punto “<strong>x</strong>” de un entorno reducido de “<strong>c</strong>” sucede que <span class="math inline">\(f(x) = g(x)\)</span>, las funciones “<strong>f</strong>” y “<strong>g</strong>” tienen el mismo [<strong>límite en “c”</strong>}{.alert} … y por eso es legítimo, <span class="alert">antes de calcular el <strong>límite</strong></span>, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en “<strong>c</strong>”, siempre que estos no se anulen en las <span class="alert"><strong>proximidades de “c”</strong></span>.</p>
-</section>
-<section id="ejemplo-1" class="slide level2">
-<h2>Ejemplo</h2>
-<div class="bg" style="background-color:none; padding:0.8em; margin-top:0em; font-size:0.85em;">
-<p><span class="alert">Por ejemplo</span>, sea una función <span class="math inline">\(f\)</span> tal que: <span class="math inline">\(f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}\)</span></p>
-<p>El límite de <span class="math inline">\(f(x)\)</span> cuando <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(26\)</span> se calcula de la siguiente manera:</p>
-<p><span class="math inline">\(\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdot (x-2) + 1)\)</span></p>
+<div class="observ">
+<p><strong>Observaciones.</strong></p>
 </div>
-<section id="simplificación-y-proximidad-1" class="bg" style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;">
-<h3>Simplificación y Proximidad</h3>
-<p>En las <strong>proximidades</strong> del punto <span class="math inline">\(x=26\)</span>, sucede que <span class="math inline">\(f(x)\)</span> coincide con la función <span class="math inline">\(g(x) = 3 \cdot (x-2) + 1\)</span>. Esto es así porque, si <span class="math inline">\(x\)</span> es <strong>próximo a 26</strong>, se cumple que:</p>
-<p><span class="math inline">\(\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1\)</span></p>
-<p>Se dividió el numerador (<span class="math inline">\(N^{dor}\)</span>) y el denominador (<span class="math inline">\(D^{dor}\)</span>) por el factor <span class="math inline">\((x-2)\)</span>, que no se anula en ningún punto de las proximidades de <span class="math inline">\(x=26\)</span>.</p>
-</section>
-</section>
-<section id="límite-de-una-función-en-un-punto-4" class="slide level2">
-<h2>Límite de una función en un punto</h2>
-<p><l class="observ"> <strong>Observaciones.</strong> </l></p>
 <p><strong>1.</strong> Igual que hemos hecho con las sucesiones y los números irracionales, con esta definción convertimos el problema de evaluar una función en un punto irracional en el de calcular el límite de una sucesión.</p>
 <p><strong>2.</strong> El hecho requerir que <span class="math inline">\(c\)</span> sea un punto de acumulación de <span class="math inline">\(A\)</span>, nos garantiza que existan sucesiones <span class="math inline">\(\{x_n\}\)</span> de puntos de <span class="math inline">\(A\)</span> tales que <span class="math inline">\(\displaystyle{\lim_{n\rightarrow \infty} x_n = c}\)</span> y, por lo tanto, la definición tiene sentido.</p>
 <p><strong>3.</strong> Si <span class="math inline">\(c\)</span> es un punto <strong>aislado</strong> de <span class="math inline">\(A\)</span>, es decir si hay un entorno de <span class="math inline">\(c\)</span> en el cual no hay puntos de <span class="math inline">\(A\)</span> diferentes de <span class="math inline">\(c\)</span>, entonces no tiene sentido hablar del límite de <span class="math inline">\(f\)</span> en ese punto.</p>
@@ -303,7 +252,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <h2>Ejemplo 1 Enunciado</h2>
 <p>Sea la función <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> dada por <span class="math inline">\(f(x) = -\frac{1}{2}x+3\)</span>. Demostrar que <span class="math inline">\(\lim_{x \to 2} f(x)=2\)</span>.</p>
 </section>
-<section id="ejemplo-1-1" class="slide level2 scrollable">
+<section id="ejemplo-1" class="slide level2 scrollable">
 <h2>Ejemplo 1</h2>
 <div class="bg" style="background-color:none; font-size: 0.7em">
 <p>Sea la función <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> dada por <span class="math inline">\(f(x) = -\frac{1}{2}x+3\)</span>. Demostrar que <span class="math inline">\(\lim_{x \to 2} f(x)=2\)</span>.</p>

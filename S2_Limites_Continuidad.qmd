@@ -101,7 +101,8 @@ $\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdo
 :::
 
 ::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
-### Simplificación y Proximidad
+
+Simplificación y Proximidad
 
 En las **proximidades** del punto $x=26$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es **próximo a 26**, se cumple que:
 
@@ -111,75 +112,20 @@ Se dividió el numerador ($N^{dor}$) y el denominador ($D^{dor}$) por el factor 
 
 :::
 
-## Límite de una función en un punto
-
-::: {.callout-note style="font-size: 1em;"}
-## Definición 
-
-Si $f:A \subset \mathfrak{R} \longrightarrow \mathfrak{R}$ está definida en [todo punto de un entorno reducido]{.alert} del punto $c \in \mathfrak{R}$, diremos que $L$ es el límite de $f$ en $c$ si $\displaystyle{\lim_{x \rightarrow c^{-}} f(x) = \lim_{x \rightarrow c^{+}} f(x) = L}$.
-
-Y escribiremos
-$$
-\displaystyle{\lim_{x \rightarrow c} f(x) =L}
-$$
-:::
-
-::: {.bg style="padding:0em; margin-top:0em; font-size:0.8em;margin-top:-1em"}
-**Recuerda:** al escribir $x\to c$ queremos indicar que $x$ se aproxima a $c$ indistintamente por la derecha o por la izquierda.
-
-Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos que **$f$** [no tiene límite]{.alert} en el punto **$c$**.
-:::
-
-::: {.bg style="padding:0em; margin-top:-0.9em; font-size:0.75em;"}
-::: {.r-stack}
-
-::: {.fragment fragment-index="1"}
-::: center
-![](Images/limite.png){width="55%"}
-:::
-:::
-
-::: {.fragment fragment-index="2"}
-::: center
-![](Images/limiteL.png){width="56%"}
-:::
-:::
-
-:::
-:::
 
 ## Límite de una función en un punto
 
 **Observatión:**
 
-Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si "[**c**]{.alert}" tiene imagen según "[**f**]{.alert}" o no, pues en la definición de límite de "**f**" en "**c**" solo intervienen los valores que toma "**f**" en puntos **próximos a "c"**. Así, si en todo punto "**x**" de un entorno reducido de "**c**" sucede que $f(x) = g(x)$, las funciones "**f**" y "**g**" tienen el mismo [**límite en "c"**}{.alert} ... y por eso es legítimo, [antes de calcular el **límite**]{.alert}, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en "**c**", siempre que estos no se anulen en las [**proximidades de "c"**]{.alert}.
+Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si [**c**]{.alert} tiene imagen según [**f**]{.alert} o no, pues en la definición de límite de "**f**" en "**c**" solo intervienen los valores que toma "**f**" en puntos **próximos a "c"**. Así, si en todo punto "**x**" de un entorno reducido de "**c**" sucede que $f(x) = g(x)$, las funciones "**f**" y "**g**" tienen el mismo [**límite en "c"**]{.alert} y por eso es legítimo, [antes de calcular el **límite**]{.alert}, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en "**c**", siempre que estos no se anulen en las [**proximidades de "c"**]{.alert}.
 
-## Ejemplo 
 
-::: {.bg style="background-color:none; padding:0.8em; margin-top:0em; font-size:0.85em;"}
-
-[Por ejemplo]{.alert}, sea una función $f$ tal que: $f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}$
-
-El límite de $f(x)$ cuando $x$ se aproxima a $26$ se calcula de la siguiente manera:
-
-$\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdot (x-2) + 1)$
-:::
-
-::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
-
-### Simplificación y Proximidad
-
-En las **proximidades** del punto $x=26$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es **próximo a 26**, se cumple que:
-
-$\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1$
-
-Se dividió el numerador ($N^{dor}$) y el denominador ($D^{dor}$) por el factor $(x-2)$, que no se anula en ningún punto de las proximidades de $x=26$.
-
-:::
 
 ##  Límite de una función en un punto
 
-<l class="observ"> **Observaciones.** </l>
+::: observ
+**Observaciones.** 
+:::
 
 **1.** Igual que hemos hecho con las sucesiones y los números irracionales, con esta definción convertimos el problema de evaluar una función en un punto irracional en el de calcular el límite de una sucesión. 
 
