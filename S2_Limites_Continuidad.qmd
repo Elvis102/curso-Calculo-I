@@ -36,15 +36,6 @@ lang: es
 
 # Límites {.my-slide}
 
-## Definición e Interpretación
-
-## Funciones reales de variable real
-
-Supondremos que son conocidos el concepto de **función**, en tanto que una **aplicación** entre conjuntos de números. En particular, nos concentraremos en **funciones reales de variable real**, es decir en funciones $f:A \subset \mathbb{R} \rightarrow \mathbb{R}$.
-
-Tambien suponemos conocidos los conceptos de **rango** y **dominio** de una función, así como los términos **variable independiente** y **dependiente**. 
-
-Aunque seran tratadas con detalle más adelante, es conveniente tener presentes las principales características de funciones elementales como las polinómicas $f(x)= P_n(x) = a_nx^n+a_{n-1}x^{n-1}+ \cdots + a_1x+a_0$, la exponencial $f(x)=e^x$ y las trigonométricas $f(x)=\sin(x)$, $f(x)=\cos(x)$, $f(x) =\tan(x)$, entre otras. 
 
 ## **Límite de una función** 
 
@@ -53,6 +44,83 @@ El límite se enfoca en el **comportamiento** de la función en las **proximidad
   * **Concepto:** Imagina que te acercas a un punto en el eje $x$ desde la izquierda y la derecha. El límite es el valor al que la función ($y$) se va acercando.
   * **Existencia:** Un límite puede existir incluso si la función no está definida en el punto en cuestión. Por ejemplo, en una función con un agujero. .
   * **Notación:** $\lim_{x \to a} f(x) = L$
+
+## Límite de una función en un punto
+
+::: {.callout-note style="font-size: 1em;"}
+## Definición 
+
+Si $f:A \subset \mathfrak{R} \longrightarrow \mathfrak{R}$ está definida en [todo punto de un entorno reducido]{.alert} del punto $c \in \mathfrak{R}$, diremos que $L$ es el límite de $f$ en $c$ si $\displaystyle{\lim_{x \rightarrow c^{-}} f(x) = \lim_{x \rightarrow c^{+}} f(x) = L}$.
+
+Y escribiremos
+$$
+\displaystyle{\lim_{x \rightarrow c} f(x) =L}
+$$
+:::
+
+::: {.bg style="padding:0em; margin-top:0em; font-size:0.8em;margin-top:-1em"}
+**Recuerda:** al escribir $x\to c$ queremos indicar que $x$ se aproxima a $c$ indistintamente por la derecha o por la izquierda.
+
+Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos que **$f$** [no tiene límite]{.alert} en el punto **$c$**.
+:::
+
+<<<<<<< HEAD
+## **Límite de una función** 
+
+El límite se enfoca en el **comportamiento** de la función en las **proximidades** de un punto, no necesariamente en el valor exacto de la función en ese punto.
+
+  * **Concepto:** Imagina que te acercas a un punto en el eje $x$ desde la izquierda y la derecha. El límite es el valor al que la función ($y$) se va acercando.
+  * **Existencia:** Un límite puede existir incluso si la función no está definida en el punto en cuestión. Por ejemplo, en una función con un agujero. .
+  * **Notación:** $\lim_{x \to a} f(x) = L$
+=======
+::: {.bg style="padding:0em; margin-top:-0.9em; font-size:0.75em;"}
+
+::: {.r-stack}
+
+::: {.fragment fragment-index="1"}
+::: center
+![](Images/limite.png){width="55%"}
+:::
+:::
+
+::: {.fragment fragment-index="2"}
+::: center
+![](Images/limiteL.png){width="56%"}
+:::
+:::
+
+:::
+:::
+
+## Límite de una función en un punto
+
+**Observatión:**
+
+Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si "[**c**]{.alert}" tiene imagen según "[**f**]{.alert}" o no, pues en la definición de límite de "**f**" en "**c**" solo intervienen los valores que toma "**f**" en puntos **próximos a "c"**. Así, si en todo punto "**x**" de un entorno reducido de "**c**" sucede que $f(x) = g(x)$, las funciones "**f**" y "**g**" tienen el mismo [**límite en "c"**}{.alert} ... y por eso es legítimo, [antes de calcular el **límite**]{.alert}, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en "**c**", siempre que estos no se anulen en las [**proximidades de "c"**]{.alert}.
+
+## Ejemplo 
+
+::: {.bg style="background-color:none; padding:0.8em; margin-top:0em; font-size:0.85em;"}
+
+[Por ejemplo]{.alert}, sea una función $f$ tal que: $f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}$
+
+El límite de $f(x)$ cuando $x$ se aproxima a $26$ se calcula de la siguiente manera:
+
+$\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \lim_{x \to 26} (3 \cdot (x-2) + 1)$
+
+:::
+
+::: {.bg style="background-color:#ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
+### Simplificación y Proximidad
+
+En las **proximidades** del punto $x=26$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es **próximo a 26**, se cumple que:
+
+$\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1$
+
+Se dividió el numerador ($N^{dor}$) y el denominador ($D^{dor}$) por el factor $(x-2)$, que no se anula en ningún punto de las proximidades de $x=26$.
+
+:::
+>>>>>>> de0c6659b151651a331a4ee941a2b1c160ca7ccc
 
 ## Límite de una función en un punto
 
@@ -577,6 +645,7 @@ $$
 
 ## La propiedad $\epsilon-\delta$
 
+![](Images/pedl0.png)
 <div class="center">
 ```{r, echo=FALSE, label=edelta,fig.cap="",out.width = "600px"}
 knitr::include_graphics("Images/epdel0.png",dpi=1200)

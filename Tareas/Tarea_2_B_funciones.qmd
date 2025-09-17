@@ -41,39 +41,13 @@ Con base en tu trabajo anterior, responde y justifica las siguientes preguntas:
 
 ## Problema 2: Dominio e Imagen de una Función discreta
 
-Hola, gracias por compartir el ejercicio. A continuación, te doy mi opinión y sugerencias para mejorarlo.
 
----
 
-### Opinión del Ejercicio
+* **"Con base en tu respuesta, ¿la función $f$ es inyectiva? Explica por qué."**
 
-El ejercicio es excelente para reforzar los conceptos de dominio e imagen (rango). La idea de que los estudiantes identifiquen el dominio y el rango a partir de una **función discreta** graficada es muy buena porque les obliga a pensar en puntos individuales y no en una línea continua. Además, pedirles que lo representen con un diagrama de Venn y flechas es una manera directa de evaluar si han comprendido la conceptualización de las funciones como "flechas entre conjuntos", que es la base de tu material de clase.
+    * (La respuesta correcta sería no, porque $f(2) = 5$ y $f(4) = 5$, y $2 \neq 4$. Esto conecta directamente con tus ejemplos de clase sobre inyectividad.)
 
-El problema es claro y aborda un concepto fundamental de una manera práctica.
+* **"Con base en tu respuesta, ¿la función $f$ es sobreyectiva en su codominio $\mathbb{Z}$? Explica por qué."**
 
-### Sugerencias de Mejora
+    * (La respuesta sería no, ya que la imagen de la función es solo $\{1, 2, 3, 5\}$, lo que no cubre todos los números enteros del codominio $\mathbb{Z}$.)
 
-A continuación, te propongo algunas mejoras que podrían hacerlo aún más efectivo y didáctico:
-
-1.  **Clarificar la terminología:** En el ejercicio, el texto pide identificar el "dominio y rango", y luego el diagrama de Venn de la derecha tiene las etiquetas "Domain" y "Range". El material de clase que proporcionaste usa el término **"imagen"** (im($f$)) para referirse al rango. Para evitar confusión, te sugiero que seas coherente con la terminología que usas en tus apuntes. Podrías modificar la pregunta para que diga: "En el siguiente gráfico, identifique el **dominio y la imagen** de la función..."
-
-2.  **Unificar la pregunta:** La pregunta actual mezcla dos tareas:
-    * Identificar dominio y rango del gráfico.
-    * Representarlo en un diagrama de Venn.
-
-    El diagrama de la derecha parece ya resuelto. Si el objetivo es que el estudiante lo resuelva, es mejor presentar un diagrama de Venn vacío o incompleto. Para una mejor evaluación, puedes dividir el problema en dos partes claras:
-
-    * **Parte a):** Liste el dominio y la imagen de la función $f$ a partir del gráfico.
-    * **Parte b):** Dibuje el diagrama de Venn con los elementos del dominio y la imagen, y trace las flechas de asignación correspondientes.
-
-3.  **Añadir una pregunta de análisis:** Para ir más allá de la simple identificación, podrías agregar una pregunta que les pida analizar las propiedades de la función. Por ejemplo:
-
-    * **"Con base en tu respuesta, ¿la función $f$ es inyectiva? Explica por qué."**
-        * (La respuesta correcta sería no, porque $f(2) = 5$ y $f(4) = 5$, y $2 \neq 4$. Esto conecta directamente con tus ejemplos de clase sobre inyectividad.)
-
-    * **"Con base en tu respuesta, ¿la función $f$ es sobreyectiva en su codominio $\mathbb{Z}$? Explica por qué."**
-        * (La respuesta sería no, ya que la imagen de la función es solo $\{1, 2, 3, 5\}$, lo que no cubre todos los números enteros del codominio $\mathbb{Z}$.)
-
-Estas sugerencias no solo mejorarán la claridad del ejercicio, sino que también te permitirán evaluar si los estudiantes están conectando la identificación del dominio/imagen con los conceptos más abstractos de inyectividad y sobreyectividad.
-
-¿Te gustaría que te ayude a redactar la versión final del ejercicio con estas sugerencias?
