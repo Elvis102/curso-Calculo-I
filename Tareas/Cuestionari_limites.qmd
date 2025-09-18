@@ -1,0 +1,142 @@
+---
+title: "Cuestionario limites"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+--- 
+
+### Cuestionario de Límites de Funciones
+
+**1. Concepto de Límite**
+
+¿Qué describe mejor el concepto de límite de una función en un punto $c$?
+
+* **a.** El valor exacto de la función en $c$.
+
+* **b.** El valor al que se aproxima la función a medida que $x$ se acerca a $c$.
+
+* **c.** El valor que la función nunca puede alcanzar.
+
+* **d.** El valor de la función solo cuando $x = c$.
+
+**Respuesta Correcta:** b
+
+**2. Existencia del Límite**
+Para que el límite de una función $f(x)$ en un punto $c$ exista, ¿qué condición se debe cumplir?
+
+* **a.** El valor de la función en $c$ debe ser un número real.
+
+* **b.** Los límites laterales ($x \to c^+$ y $x \to c^-$) deben ser diferentes.
+
+* **c.** Los límites laterales ($x \to c^+$ y $x \to c^-$) deben ser iguales a $L$.
+
+* **d.** La función debe ser un polinomio.
+
+**Respuesta Correcta:** c
+
+**3. Límite en una función por partes**
+Dada la función $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$, ¿cuál es el límite de $f(x)$ cuando $x$ se aproxima a 2?
+
+* **a.** 1
+
+* **b.** 3
+
+* **c.** 7
+
+* **d.** No tiene límite
+
+**Respuesta Correcta:** b
+
+**4. Límite en los extremos de un intervalo (izquierda)**
+Para la misma función por partes, ¿cuál es el límite de $f(x)$ cuando $x$ se aproxima a 1 por la izquierda ($x \to 1^-$)?
+
+* **a.** 1
+
+* **b.** 2
+
+* **c.** 3
+
+* **d.** 10
+
+**Respuesta Correcta:** a
+
+**5. Límite en los extremos de un intervalo (derecha)**
+Para la misma función por partes, ¿cuál es el límite de $f(x)$ cuando $x$ se aproxima a 1 por la derecha ($x \to 1^+$)?
+
+* **a.** 1
+
+* **b.** 2
+
+* **c.** 3
+
+* **d.** 10
+
+**Respuesta Correcta:** a
+
+**6. Ausencia de Límite**
+Dada la función $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$, ¿en qué punto no tiene límite la función?
+
+* **a.** $x = -5$
+
+* **b.** $x = 1$
+
+* **c.** $x = 2$
+
+* **d.** $x = 3$
+
+**Respuesta Correcta:** d
+
+**7. Simplificación de límites**
+Dada la función $f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}$, ¿cuál es su límite cuando $x \to 26$?
+
+* **a.** 0
+
+* **b.** 1
+
+* **c.** 73
+
+* **d.** 76
+
+**Respuesta Correcta:** c
+
+**8. Límite en una función con raíz cúbica**
+¿Cuál es el valor de $\lim_{x \to 0} 104$?
+
+* **a.** 2
+
+* **b.** 4
+
+* **c.** 8
+
+* **d.** 104
+
+**Respuesta Correcta:** b
+
+**9. Límite con valor absoluto**
+¿Cuál es el valor del límite de la función $f(x) = |1-x^3|$ cuando $x$ se aproxima a 2?
+
+* **a.** -7
+
+* **b.** 7
+
+* **c.** 0
+
+* **d.** 9
+
+**Respuesta Correcta:** b
+
+**10. Límite en un punto de transición**
+¿Cuál es el valor de $\lim_{x \to 1} f(x)$ para la función $f(x) = \left\{ \begin{array}{ll} x^3 & \text{si } x < 1 \\ 2^x-1 & \text{si } 1 \leq x \leq 3 \\ x^2+1 & \text{si } x > 3 \end{array} \right.$?
+
+* **a.** 1
+
+* **b.** 2
+
+* **c.** 7
+
+* **d.** No tiene límite
+
+**Respuesta Correcta:** a

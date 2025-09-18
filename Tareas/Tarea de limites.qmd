@@ -1,0 +1,126 @@
+---
+title: "Límites de funciones"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+1.  Determine el límite de la siguiente: $f(x)=\sqrt{3}$
+
+$\lim_{x \to 4.2} \sqrt{3}$
+
+
+2.  Determine el límite de la siguiente: $f(x)=3x$
+
+$\lim_{x \to 4} 3x$
+
+
+3.  Determine el límite de la siguiente: $f(x)=\frac{\sqrt{x} - 1}{x - 1}$
+
+$\lim_{x \to 1} \frac{\sqrt{x} - 1}{x - 1}$
+
+Estime la siguiente tabla, para evaluar la imagen:
+
+$$
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+$x$ & 0.9995 & 0.9999 & 1.00001 & 1.0005 \\
+\hline
+$f(x)$ &  &  &  &  \\
+\hline
+\end{tabular}
+$$
+
+Y el límite cuando $x \to 1$ es: ?.
+
+4.  Determine el límite de la siguiente función:
+
+$\lim_{x \to -4} \frac{2x^2 - 32}{x + 4}$
+
+Estime la siguiente tabla, para evaluar la imagen: 
+$$
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+$x$ & -4.001 & -4.0001 & -3.9999 & -3.999 \\
+\hline
+$f(x)$ &  &  &  &  \\
+\hline
+\end{tabular}
+$$
+
+Y el límite cuando $x \to -4$ es: ?.
+
+5.   Determine el límite de la siguiente: $f(x)=\frac{\sin(5x)}{x}$
+ 
+$\lim_{x \to 0} \frac{\sin(5x)}{x}$
+
+Estime la siguiente tabla, para evaluar la imagen:
+
+$$
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+$x$ & -0.01 & -0.005 & 0.005 & 0.01 \\
+\hline
+$f(x)$ &  &  &  &  \\
+\hline
+\end{tabular}
+$$
+
+Y el límite cuando $x \to 0$ es: ?.
+
+{{<pagebreak>}}
+
+## Soluciones
+
+1.  $\lim_{x \to 4.2} \sqrt{3}$
+
+    SOLUCIÓN
+
+    La gráfica de $f(x) = \sqrt{3}$ es una línea horizontal. $f(x) = \sqrt{3}$ para todos los valores de $x$, por lo que el límite también es igual a $\sqrt{3}$.
+
+2.  $\lim_{x \to 4} 3x = 12$
+
+    SOLUCIÓN
+
+    $|3x - 12| = 3|x - 4|$. $|3x - 12|$ se puede hacer arbitrariamente pequeño al hacer que $x$ esté lo suficientemente cerca de 4, lo que hace que $|x - 4|$ sea pequeño.
+
+3.  $\lim_{x \to 1} \frac{\sqrt{x} - 1}{x - 1}$
+
+    SOLUCIÓN
+$$
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+$x$ & 0.9995 & 0.9999 & 1.00001 & 1.0005 \\
+\hline
+$f(x)$ & 0.500063 & 0.500001 & 0.49999 & 0.499938 \\
+\hline
+\end{tabular}
+$$
+
+Y responda el límite cuando $x \to 1$ es 0.5.
+
+4.  $\lim_{x \to -4} \frac{2x^2 - 32}{x + 4}$
+
+    SOLUCIÓN
+
+    |x| -4.001 | -4.0001 | -3.9999 | -3.999 |
+    |---|---|---|---|---|
+    |f(x)| -16.002 | -16.0002 | -15.9998 | -15.998 |
+
+    El límite cuando $x \to -4$ es -16.
+
+5.  $\lim_{x \to 0} \frac{\sin(5x)}{x}$
+
+    SOLUCIÓN
+
+    |x| -0.01 | -0.005 | 0.005 | 0.01 |
+    |---|---|---|---|---|
+    |f(x)| 4.997917 | 4.999479 | 4.999479 | 4.997917 |
+
+    El límite cuando $x \to 0$ es 5.
