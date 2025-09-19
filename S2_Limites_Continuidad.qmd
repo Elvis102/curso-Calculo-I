@@ -82,11 +82,50 @@ Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos q
 :::
 :::
 
-## Límite de una función en un punto
+## El Problema del Límite y su Naturaleza
 
-**Observatión:**
+El problema típico en el cálculo de límites es determinar el límite de una función **$f$** en un punto dado **$c$**. Para abordar esto, es fundamental comprender dos tipos de límites, dependiendo de si se infringe o no una "Regla Sagrada del Cálculo" en el punto **$c$**.
 
-Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si "[**c**]{.alert}" tiene imagen según "[**f**]{.alert}" o no, pues en la definición de límite de "**f**" en "**c**" solo intervienen los valores que toma "**f**" en puntos **próximos a "c"**. Así, si en todo punto "**x**" de un entorno reducido de "**c**" sucede que $f(x) = g(x)$, las funciones "**f**" y "**g**" tienen el mismo [**límite en "c"**}{.alert} ... y por eso es legítimo, [antes de calcular el **límite**]{.alert}, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en "**c**", siempre que estos no se anulen en las [**proximidades de "c"**]{.alert}.
+### Tipos de Límites
+
+#### Límites Inofensivos
+
+Un límite se considera **inofensivo** si en el punto **$c$** no se viola ninguna regla sagrada del cálculo. En estos casos, la función **$f$** tendrá un límite en **$c$** que coincidirá con el valor de la función en dicho punto, $f(c)$. Esto significa que los límites laterales de **$f$** en **$c$** existirán y serán iguales.
+
+#### Límites Peligrosos
+
+Un límite es **peligroso** si en el punto **$c$** se viola alguna regla sagrada del cálculo. El estudio de estos límites puede ser más complejo y no existe una receta mágica que resuelva todos los casos.
+
+## Observación y Simplificación
+
+Para el cálculo de un límite, es importante recordar que la definición solo involucra los valores de la función en puntos **próximos** a **$c$**, no en el punto **$c$** mismo. Por lo tanto, no importa si **$c$** tiene una imagen definida por la función **$f$**. Esto permite simplificar la función antes de calcular el límite.
+
+Si una función **$f(x)$** es igual a otra función **$g(x)$** en todos los puntos de un entorno reducido de **$c$**, ambas funciones tendrán el mismo límite en **$c$**. Por esta razón, es legítimo hacer simplificaciones convenientes antes de calcular el límite, incluso la supresión de factores comunes que se anulan en **$c$**, siempre que estos no se anulen en las **proximidades** de **$c$**.
+
+## Ejemplo 
+
+::: {.bg style="background-color:none; padding:0.8em; margin-top:0em; font-size:0.82em;"}
+
+Si $f(x) = 4x+2$, es: 
+$$\lim_{x \to 7} f(x) = f(7) = 30$$
+
+[¡Qué genial!:]{.alert} Si $f(x) = 4x+2$, en el punto "$7$" no se viola ninguna Regla Sagrada (RS); por tanto, el límite de "$f$" en el punto "$7$" coincide con $f(7)$.
+
+:::
+
+::: {.bg style="background-color: #f2f398ff; padding:0.8em; margin-top:0em; font-size:0.8em; border-radius: 0.5em;"}
+
+[En examen no importa lo que sabes, importa lo que **parece** que sabes.]{.bg style="background:white;font-size:1em;"}
+
+Eligiendo "$x$" suficientemente próximo a "$7$", el valor absoluto de $\mid f(x) - 30 \mid$ es inferior a todo número positivo que se fije de antemano.
+
+::: center
+![](Images/limp8.png){width="38%"}
+:::
+:::
+
+
+
 
 ## Ejemplo 
 
@@ -96,45 +135,101 @@ Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si "[
 
 El límite de $f(x)$ cuando $x$ se aproxima a $26$ se calcula de la siguiente manera:
 
+::: center
 $\displaystyle\lim_{x \to 26} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \displaystyle\lim_{x \to 26} (3 \cdot (x-2) + 1)$
+:::
 
 :::
 
-::: {.bg style="background-color: #ccf5cc; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
+::: {.bg style="background-color: #f2f398ff; padding:0.8em; margin-top:0em; font-size:0.85em; border-radius: 0.5em;"}
 
-**Simplificación y Proximidad**
+En las [proximidades]{.alert} del punto $x=26$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es [próximo]{.alert} a 26, se cumple que:
 
-En las **proximidades** del punto $x=26$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es **próximo a 26**, se cumple que:
+::: center
+$\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} =\frac{(x-2)[3 \cdot (x-2)] + {1}]}{{(x-2)}}= 3 \cdot (x-2) + 1$
+:::
 
-$\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} = 3 \cdot (x-2) + 1$
-
-Se dividió el numerador ($N^{dor}$) y el denominador ($D^{dor}$) por el factor $(x-2)$, que no se anula en ningún punto de las proximidades de $x=26$.
+::: {.bg style="background:white;font-size:1"}
+Dividimos el $N^{dor}$ y el denominador $D^{dor}$ por el factor $(x-2)$, que no se anula en ningún punto de las [proximidades]{.alert} de $x=26$.
+:::
 
 :::
 
+## Ejemplo 
 
-## Límite de una función en un punto
+::: {.bg style="background-color:none; padding:0.8em; margin-top:-0.8em; font-size:0.85em;"}
 
-**Observatión:**
+[Por ejemplo]{.alert}, sea una función $f$ tal que: $f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}$
 
-Al hablar del [**límite de "f" en el punto "c"**]{.alert} importa un pito si [**c**]{.alert} tiene imagen según [**f**]{.alert} o no, pues en la definición de límite de "**f**" en "**c**" solo intervienen los valores que toma "**f**" en puntos **próximos a "c"**. Así, si en todo punto "**x**" de un entorno reducido de "**c**" sucede que $f(x) = g(x)$, las funciones "**f**" y "**g**" tienen el mismo [**límite en "c"**]{.alert} y por eso es legítimo, [antes de calcular el **límite**]{.alert}, hacer todas las simplificaciones convenientes, incluso la supresión de factores comunes que se anulan en "**c**", siempre que estos no se anulen en las [**proximidades de "c"**]{.alert}.
+::: center
+$\displaystyle\lim_{x \to 2.01} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \displaystyle\lim_{x \to 26} (3 \cdot (x-2) + 1)$
+:::
+
+:::
+
+::: {.bg style="background-color: #f2f398ff; padding:0.5em; margin-top:-0.75em; font-size:0.8em; border-radius: 0.5em;"}
+
+En las [proximidades]{.alert} del punto $x=2.01$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es [próximo]{.alert} a 2.01, se cumple que:
+
+::: center
+$\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} =\frac{(x-2)[3 \cdot (x-2)] + {1}]}{{(x-2)}}= 3 \cdot (x-2) + 1$
+:::
+
+::: {.bg style="background:white;font-size:0.85em;padding:0.2em;"}
+Dividimos el $N^{dor}$ y el denominador $D^{dor}$ por el factor $(x-2)$, que no se anula en ningún punto de las [proximidades]{.alert} de $x=2.01$.
+
+::: center
+![](Images/rep.png){width="40%"}
+:::
+
+[Obvio]{.alert} , si $0<\lambda<0.01$, el factor $x-2$ no se anula en ningun punto del entorno reducido de centro en 2.01 y radio $\lambda$ 
+:::
+
+:::
+
+## Ejemplo 
+
+::: {.bg style="background-color:none; padding:0.8em; margin-top:-0.8em; font-size:0.85em;"}
+
+[Por ejemplo]{.alert}, sea una función $f$ tal que: $f(x) = \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)}$
+
+::: center
+$\displaystyle\lim_{x \to 2} \frac{3 \cdot (x-2)^2 + (x-2)}{(x-2)} = \displaystyle\lim_{x \to 2} (3 \cdot (x-2) + 1)$
+:::
+
+:::
+
+::: {.bg style="background-color: #f2f398ff; padding:0.5em; margin-top:-0.75em; font-size:0.9em; border-radius: 0.5em;"}
+
+En las [proximidades]{.alert} del punto $x=2$, sucede que $f(x)$ coincide con la función $g(x) = 3 \cdot (x-2) + 1$. Esto es así porque, si $x$ es [próximo]{.alert} a 2, se cumple que:
+
+::: center
+$\frac{3 \cdot (x-2)^{2} + {(x-2)}}{{(x-2)}} =\frac{(x-2)[3 \cdot (x-2)] + {1}]}{{(x-2)}}= 3 \cdot (x-2) + 1$
+:::
+
+::: {.bg style="background:white;font-size:1em;padding:0.2em;"}
+Dividimos el $N^{dor}$ y el denominador $D^{dor}$ por el factor $(x-2)$, que  se anula en el punto $x=2$ Pues el resultado obtenido tras la división no es valido si $x=2$ al dividir por $x-2$ se divide por [cero]{.alert}, lo que es prohibido, pero no se anula en la [proximidades]{.alert} de $x=2$
+:::
+
+:::
+
 
 ## Ejemplos de PL (con límites inofensivos)
 
 En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [igual al valor]{.alert} de la función en ese mismo [punto]{.blue}.
 
 ::: center
-::: {.bg style="background: #fdf6e3; font-size:0.75em;margin-top:-0.5em;"}
+::: {.bg style="background: #fdf6e3; font-size:0.68em;margin-top:-0.5em;"}
 ::: {.fragment}
 * Si $f(x) = 2x+3$, entonces: $\displaystyle\lim_{x \to 5} f(x) = 13 = f(5)$
 
-    *PL*: si $x \to 5 \Rightarrow f(x) = 2x+3 \to 2 \cdot 5 + 3 = 13$
+    *PL*: si $x \to 5 \Rightarrow f(x) = 2x+3 \to 2 \cdot (5) + 3 = 13$
 
     Es decir: $f(x)$ "[tiende]{.alert}" a 13 tanto si $x \to 5^-$ como si $x \to 5^+$
 :::
 :::
 
-::: {.bg style="background: none; font-size:0.7em;margin-top:0em;"}
+::: {.bg style="background: none; font-size:0.68em;margin-top:0em;"}
 ::: {.fragment}
 * Si $f(x) = x^2+7$, entonces: $\displaystyle\lim_{x \to -3} f(x) = 16 = f(-3)$
 
@@ -144,7 +239,7 @@ En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [i
 :::
 :::
 
-::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+::: {.bg style="background: #fdf6e3; font-size:0.68em;margin-top:-0.5em;"}
 ::: {.fragment}
 * Si $f(x) = 3x^3-x$, entonces: $\displaystyle\lim_{x \to 2} f(x) = 3 \cdot 2^3 - 2 = 22$
 
@@ -155,7 +250,7 @@ En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [i
 :::
 :::
 
-::: {.bg style="background: #ccf5cc; font-size:0.7em;margin-top:-0.5em;"}
+::: {.bg style="background: #ccf5cc; font-size:0.7em;margin-top:-0.5em;padding:0.1em"}
 [**Recuerda:**]{.alert} al escribir $x \to c$, que se lee "$x$ tiende a $c$", queremos indicar que "$x$" se aproxima a "$c$" indistintamente por la derecha ($x \to c^+$) o por la izquierda ($x \to c^-$).
 :::
 
@@ -164,7 +259,7 @@ En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [i
 En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [igual al valor]{.alert} de la función en ese mismo [punto]{.blue}.
 
 ::: center
-::: {.bg style="background: #fdf6e3; font-size:0.78em;margin-top:-0.5em;"}
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
 ::: {.fragment}
 * Si $f(x) = \frac{x+1}{x+6}$, entonces:
     $\displaystyle\lim_{x \to 3} f(x) = \frac{4}{9} = f(3)$
@@ -174,7 +269,7 @@ En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [i
 :::
 :::
 
-::: {.bg style="background: none; font-size:0.78em;margin-top:0em;"}
+::: {.bg style="background: none; font-size:0.7em;margin-top:0em;"}
 ::: {.fragment}
 * Si $f(x) = \ln \frac{x-1}{7-x}$, entonces:
     $\displaystyle\lim_{x \to 4} f(x) = 0 = f(4)$
@@ -184,7 +279,7 @@ En los siguientes ejemplos, el límite de la función en un [punto]{.blue} es [i
 :::
 :::
 
-::: {.bg style="background: #fdf6e3; font-size:0.78em;margin-top:-0.5em;"}
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
 ::: {.fragment}
 * Si $f(x) = e^x \cdot \cos(1+x^3)$, entonces:
     $\displaystyle\lim_{x \to 0} f(x) = \cos(1) = f(0)$
