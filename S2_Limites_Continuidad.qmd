@@ -507,6 +507,125 @@ $PL: \text{si } x \to 3^+ \implies f(x) = x^2 + 1 \to 3^2 + 1 = 10$
 :::
 :::
 
+## Límite peligrosos 
+
+::: {.bg style="background: #fdf6e3; font-size:0.7em;margin-top:-0.5em;"}
+
+**Solución de andar por casa**
+
+Como "$f$" es inofensiva en "5", su límite en "5" coincide con $f(5) = \ln(1+5^2) = \ln 26$. [Desplegamos el "PL"]{.alert}
+
+::: center
+$\lim_{x \to 5} f(x) = \ln 26$
+
+"PL": si $x \to 5 \Rightarrow 1+x^2 \to 26 \Rightarrow \ln(1+x^2) \to \ln 26$
+:::
+:::
+
+::: {.bg style="background:none; font-size:0.85em;margin-top:-0.5em;"}
+
+[Camino novedoso]{.alert}
+
+::: center
+$\lim_{h \to 0} f(5+h) = \lim_{h \to 0} \ln(1+(5+h)^2)$
+
+$f(5+h) = \ln(1+(5+h)^2)$
+
+Esto se expande a:
+
+$$
+\lim_{h \to 0} \ln(26 + h^2 + 10h) = \left\{
+    \begin{array}{ll}
+        \ln 26 & \text{si } h \to 0^- \implies \lim_{x \to 5^-} f(x) \\
+        \ln 26 & \text{si } h \to 0^+ \implies \lim_{x \to 5^+} f(x)
+    \end{array}
+\right.
+$$
+:::
+:::
+
+## Límites peligrosos
+
+::: colums
+
+::: {.column width="50%"}
+::: {.bg style="background: #fdf6e3; font-size:0.65em;margin-top:-0.5em;"}
+
+**Definición del Límite Lateral Izquierdo**
+
+El que $\lim_{x \to 5^-} f(x) = \ln 26$ significa que:
+
+$$
+\forall \epsilon > 0, \exists \delta_1 > 0 \text{ / } |f(x) - \ln 26| < \epsilon \text{ si } x \in (5-\delta_1; 5)
+$$
+:::
+:::
+
+::: {.column width="50%"}
+
+::: {.bg style="background: #fdf6e3; font-size:0.65em;margin-top:-0.5em;padding:0.1em"}
+**Definición del Límite Lateral Derecho**
+
+El que $\lim_{x \to 5^+} f(x) = \ln 26$ significa que:
+
+$$
+\forall \epsilon > 0, \exists \delta_2 > 0 \text{ / } |f(x) - \ln 26| < \epsilon \text{ si } x \in (5; 5+\delta_2)
+$$
+:::
+:::
+
+::: {.bg style="background: none; font-size:0.65em;margin-top:-0.5em;padding:0.1em"}
+::: center 
+![](Images/limp10.png){width="82%"}
+:::
+:::
+
+
+:::
+
+## Límites Infinitos
+
+::: {.bg style="background: none; font-size:0.75em;margin-top:-0.85em;padding:0.1em"}
+Si "$f$" está definida en todo punto de un semientorno reducido izquierdo (derecho) del punto $c \in \mathfrak{R}$, diremos que el **límite de "f" en "c" por la izquierda (derecha) es +$\infty$** para indicar que si "$x$" se aproxima más y más a "$c$" por la izquierda (derecha), el número $f(x)$ **se hace más y más positivo**... y tan enormemente positivo llega a ser $f(x)$ que, sin más que elegir "$x$" bastante próximo a "$c$", el número $f(x)$ llega a ser mayor que todo número que se fije de antemano.
+
+$$
+\lim_{x \to c^-} f(x) = +\infty \qquad ; \qquad \lim_{x \to c^+} f(x) = +\infty
+$$
+:::
+
+::: {.bg style="background: none; font-size:0.8em;margin-top:-1.5em;padding:0.1em"}
+::: center
+![](Images/limp11.png){width="45%"}
+:::
+:::
+
+## Límite de una Función
+
+Si los dos límites laterales de "$f$" en "$c$" son $+\infty$, se dice que el **límite de "$f$" en "$c$" es $+\infty$**, y se escribe:
+
+$$
+\lim_{x \to c} f(x) = +\infty
+$$
+
+::: {.bg style="background: none; font-size:0.8em;margin-top:-1.5em;padding:0.1em"}
+::: center
+![](Images/limp12.png){width="55%"}
+:::
+:::
+
+## Límite de una Función
+
+::: {.bg style="background: none; font-size:0.8em;margin-top:-1.5em;padding:0.1em"}
+::: center
+![](Images/limp13.png){width="65%"}
+:::
+:::
+
+
+
+
+
+
 
 
 
