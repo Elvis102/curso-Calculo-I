@@ -1,0 +1,107 @@
+---
+title: "Cuestionario Continuidad de funciones"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    # Esta es la configuración clave: Quarto usará una plantilla más básica
+    # para evitar dependencias complejas como fontawesome5.
+    #template-partials: [ "partials/title.tex", "partials/doc-class.tex" ]
+    # Quitando la configuración de break-on-sections: true
+    # que puede causar problemas con la plantilla predeterminada.
+---
+
+# Cuestionario: Continuidad de Funciones
+
+El siguiente cuestionario consta de 5 preguntas de opción múltiple basadas en el material de estudio sobre la continuidad de funciones.
+
+:::{.callout-tip}
+Selecciona la opción que consideres correcta para cada pregunta. La respuesta y una breve explicación aparecerán después de seleccionarla.
+:::
+
+## Preguntas
+
+### Pregunta 1: Definición $\epsilon-\delta$ de Continuidad
+
+**Según la definición $\epsilon-\delta$ de continuidad para una función $f$ en $x_0$, ¿qué condición debe cumplirse para un $\delta > 0$ dado un $\epsilon > 0$ fijo?**
+
+:::quiz
+1. Si $|f(x)-f(x_0)|<\delta$, entonces $|x-x_0|<\epsilon$.
+2. Existe un $\delta > 0$ tal que si $|x-x_0|<\epsilon$, entonces $|f(x)-f(x_0)|<\delta$.
+3. Para todo $\delta > 0$ existe un $\epsilon > 0$ tal que si $|x-x_0|<\delta$, entonces $|f(x)-f(x_0)|<\epsilon$.
+4. **Existe un $\delta > 0$ tal que para todo $x \in A$, si $|x-x_0|<\delta$, entonces $|f(x)-f(x_0)|<\epsilon$.**
+
+:::{.solution}
+La continuidad exige que, **una vez fijada la precisión en la imagen ($\epsilon$)**, se pueda encontrar una precisión en el dominio ($\delta$) que garantice esa exactitud.
+:::
+:::
+
+
+
+### Pregunta 2: Clasificación de Discontinuidades (Removible)
+
+**¿Qué tipo de discontinuidad presenta la función $h(x) = \frac{x^2 - 1}{x - 1}$ en $x_0 = 1$?**
+
+:::quiz
+1. Discontinuidad de salto (primera especie).
+2. **Discontinuidad evitable (removible).**
+3. Discontinuidad de segunda especie.
+4. La función es continua en $x_0=1$.
+
+:::{.solution}
+La discontinuidad es evitable porque el límite $\lim_{x \to 1} h(x) = 2$ existe, pero la función no está definida en $x=1$. Se puede "rellenar el hueco" para hacerla continua.
+:::
+:::
+
+
+
+### Pregunta 3: Continuidad y Límites (Puntos de Acumulación)
+
+Si **$x_0$** es un **punto de acumulación** del dominio $A$ de $f$, la función $f$ es continua en $x_0$ si, y solo si, se cumple la siguiente condición:
+
+:::quiz
+1. **$$\lim_{x \rightarrow x_0}f(x)=f(x_0)$$**
+2. $$\lim_{x \rightarrow x_0^-}f(x) \neq \lim_{x \rightarrow x_0^+}f(x) $$
+3. $$\lim_{x \rightarrow x_0}f(x) $$ no existe.
+4. $$\lim_{x \rightarrow x_0}f(x)=0 $$
+
+:::{.solution}
+Para un punto de acumulación, la continuidad es equivalente a que el límite exista y sea igual al valor de la función en el punto, es decir, $\lim_{x \rightarrow x_0}f(x)=f(x_0)$.
+:::
+:::
+
+
+
+### Pregunta 4: Tipos de Discontinuidades
+
+**¿Cuál de los siguientes escenarios corresponde a una **discontinuidad de segunda especie**?**
+
+:::quiz
+1. El límite $\lim_{x \rightarrow x_0}f(x)$ existe, pero la función no está definida en $x_0$.
+2. Los límites laterales existen, pero $\lim_{x \rightarrow x_0^-}f(x) \neq \lim_{x \rightarrow x_0^+}f(x)$.
+3. **No existe alguno o ninguno de los límites laterales de la función en $x_0$.**
+4. La función es continua en $x_0$, pero no es derivable en ese punto.
+
+:::{.solution}
+La discontinuidad de segunda especie ocurre cuando la función presenta un comportamiento que impide la existencia de uno o ambos límites laterales (p. ej., una asíntota vertical o una oscilación infinita).
+:::
+:::
+
+
+
+### Pregunta 5: Composición de Funciones Continuas
+
+**Sean $f: A \subset \mathbb{R} \rightarrow \mathbb{R}$ y $g : B \subset \mathbb{R} \rightarrow \mathbb{R}$ con $f(A) \subset B$. Si $f$ es continua en $x_0$ y $g$ es continua en $f(x_0)$, ¿qué se puede afirmar sobre la función compuesta $g \circ f$?**
+
+:::quiz
+1. La función $g \circ f$ es continua en $A$.
+2. La función $g \circ f$ es discontinua en $x_0$ a menos que $f(x_0) = 0$.
+3. **La función $g \circ f$ es continua en $x_0$.**
+4. La función $g \circ f$ solo es continua si $f$ y $g$ son funciones polinómicas.
+
+:::{.solution}
+La **Proposición de Composición de funciones continuas** asegura que si la función interna ($f$) es continua en $x_0$ y la función externa ($g$) es continua en la imagen $f(x_0)$, entonces la función compuesta ($g \circ f$) es continua en $x_0$.
+:::
+:::
+

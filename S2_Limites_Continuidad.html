@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-09-22">
+  <meta name="dcterms.date" content="2025-09-29">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,7 +147,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-09-22</p>
+  <p class="date">2025-09-29</p>
 </section>
 <section>
 <section id="límites" class="title-slide slide level1 my-slide center">
@@ -1315,7 +1315,48 @@ x^2+1, &amp; \mbox{ si } x &gt; 0.
 </div>
 </div>
 </section>
-<section id="cálculo-de-límites-7" class="slide level2">
+<section id="cálculo-de-límites-7" class="slide level2 scrollable">
+<h2>Cálculo de límites</h2>
+<p>¡Claro! Con gusto te explico este ejercicio de límites paso a paso.</p>
+<p>El ejercicio que quieres resolver es el siguiente límite:</p>
+<p><span class="math display">\[\lim_{x\to0} \left(\frac{1-x}{1+x}\right)^{\frac{1}{x}}\]</span></p>
+<p>Este es un límite indeterminado de la forma <span class="math inline">\(1^\infty\)</span>. Para resolverlo, se usa una propiedad especial de los límites relacionada con el número <span class="math inline">\(e\)</span>.</p>
+<p>Paso 1: Convertir la forma indeterminada</p>
+<p>La propiedad que se aplica aquí es:</p>
+<p><span class="math display">\[\lim_{f(x)\to\infty} \left(1 + \frac{1}{f(x)}\right)^{f(x)} = e\]</span></p>
+<p>Para usarla, necesitamos que nuestra expresión se parezca a la de la propiedad, lo que no sucede directamente. Por eso, el ejercicio introduce un cambio de variable.</p>
+<p>Paso 2: Realizar un cambio de variable</p>
+<p>Se introduce la variable <span class="math inline">\(t = \frac{1}{x}\)</span>.</p>
+<ul>
+<li>Si <span class="math inline">\(x \to 0^+\)</span>, entonces <span class="math inline">\(t \to \infty\)</span>.</li>
+<li>Si <span class="math inline">\(x \to 0^-\)</span>, entonces <span class="math inline">\(t \to -\infty\)</span>.</li>
+</ul>
+<p>Al hacer este cambio, el límite se reescribe de la siguiente manera:</p>
+<p><span class="math display">\[\lim_{t\to\infty} \left(\frac{1-\frac{1}{t}}{1+\frac{1}{t}}\right)^t = \lim_{t\to\infty} \left(\frac{\frac{t-1}{t}}{\frac{t+1}{t}}\right)^t = \lim_{t\to\infty} \left(\frac{t-1}{t+1}\right)^t\]</span></p>
+<p>Esta es la primera igualdad en tu ejercicio.</p>
+<p>Paso 3: Manipular la expresión para usar la propiedad de <span class="math inline">\(e\)</span></p>
+<p>El siguiente paso es transformar la fracción <span class="math inline">\(\frac{t-1}{t+1}\)</span> para que se parezca a la forma <span class="math inline">\((1 + \frac{1}{f(t)})\)</span>.</p>
+<p>Para lograrlo, se puede dividir el numerador y el denominador por <span class="math inline">\(t+1\)</span>:</p>
+<p><span class="math display">\[\frac{t-1}{t+1} = \frac{(t+1)-2}{t+1} = \frac{t+1}{t+1} - \frac{2}{t+1} = 1 - \frac{2}{t+1}\]</span></p>
+<p>Ahora, reescribimos el límite con esta nueva expresión:</p>
+<p><span class="math display">\[\lim_{t\to\infty} \left(1 - \frac{2}{t+1}\right)^t\]</span></p>
+<p>Para que la forma coincida con la de la propiedad de <span class="math inline">\(e\)</span>, necesitamos que el exponente sea el recíproco de la expresión dentro del paréntesis. Es decir, necesitamos un exponente de <span class="math inline">\(-\frac{t+1}{2}\)</span>.</p>
+<p><span class="math display">\[\lim_{t\to\infty} \left[\left(1 - \frac{2}{t+1}\right)^{-\frac{t+1}{2}}\right]^{-\frac{2t}{t+1}}\]</span></p>
+<p>La parte dentro del corchete tiende a <span class="math inline">\(e\)</span> cuando <span class="math inline">\(t \to \infty\)</span>. Ahora, solo necesitamos calcular el límite del exponente.</p>
+<p>Paso 4: Calcular el límite del exponente</p>
+<p>El límite del exponente es:</p>
+<p><span class="math display">\[\lim_{t\to\infty} \frac{-2t}{t+1}\]</span></p>
+<p>Para resolverlo, dividimos el numerador y el denominador por la variable de mayor grado (<span class="math inline">\(t\)</span>):</p>
+<p><span class="math display">\[\lim_{t\to\infty} \frac{-2}{\frac{t}{t}+\frac{1}{t}} = \lim_{t\to\infty} \frac{-2}{1+\frac{1}{t}}\]</span></p>
+<p>Cuando <span class="math inline">\(t \to \infty\)</span>, el término <span class="math inline">\(\frac{1}{t}\)</span> tiende a 0. Por lo tanto:</p>
+<p><span class="math display">\[\frac{-2}{1+0} = -2\]</span></p>
+<p>Paso 5: Combinar los resultados</p>
+<p>Ahora que tenemos el límite de la base (<span class="math inline">\(e\)</span>) y el límite del exponente (<span class="math inline">\(-2\)</span>), el resultado final es:</p>
+<p><span class="math display">\[e^{-2}\]</span></p>
+<p>Finalmente, la regla de los exponentes indica que <span class="math inline">\(e^{-2}\)</span> es lo mismo que <span class="math inline">\(\frac{1}{e^2}\)</span>.</p>
+<p>Algunos de estos pasos, como la manipulación de la expresión para que coincida con la propiedad de <span class="math inline">\(e\)</span>, pero el resultado final es el mismo. El paso intermedio que se muestra en tu imagen (<span class="math inline">\(e^{\lim_{t\to\infty} t(\frac{t-1}{t+1}-1)}\)</span>) es una forma alternativa de llegar al mismo resultado, usando la propiedad de que <span class="math inline">\(\lim [f(x)]^{g(x)} = e^{\lim g(x)(f(x)-1)}\)</span> para límites de tipo <span class="math inline">\(1^\infty\)</span>. Ambas rutas te llevan a la misma solución.</p>
+</section>
+<section id="cálculo-de-límites-8" class="slide level2">
 <h2>Cálculo de límites</h2>
 <div class="example">
 <p><strong>Ejemplo 4</strong></p>
@@ -1327,7 +1368,7 @@ x^2-(a+1)x+a = (x-1)(x-a) \quad \text{ y} \quad x^3-a^3= (x^2 +ax+a^2)(x-a).
 \]</span> Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim%28x%5E2-%28a%2B1%29x%2Ba%29%2F%28x%5E3-a%5E3%29+as+x+tends+to+a"><img data-src="Images/wolfram.png"></a></p>
 </div>
 </section>
-<section id="cálculo-de-límites-8" class="slide level2">
+<section id="cálculo-de-límites-9" class="slide level2">
 <h2>Cálculo de límites</h2>
 <div class="example">
 <p><strong>Ejemplo 5</strong></p>
@@ -1338,7 +1379,7 @@ x^2-(a+1)x+a = (x-1)(x-a) \quad \text{ y} \quad x^3-a^3= (x^2 +ax+a^2)(x-a).
 <p>Este resultado se puede comprobar con <code>Wolfram Alpha</code> en este enlace: <a href="https://www.wolframalpha.com/input/?i=lim+%28%281-x%29%2F%281%2Bx%29%29%5E%281%2Fx%29+as+x+tends+to+0"><img data-src="Images/wolfram.png"></a></p>
 </div>
 </section>
-<section id="cálculo-de-límites-9" class="slide level2">
+<section id="cálculo-de-límites-10" class="slide level2">
 <h2>Cálculo de límites</h2>
 <div class="example">
 <p><strong>Ejemplo 6</strong></p>
@@ -1384,6 +1425,70 @@ x^2-(a+1)x+a = (x-1)(x-a) \quad \text{ y} \quad x^3-a^3= (x^2 +ax+a^2)(x-a).
 </div>
 </div>
 <p><span class="math inline">\(\epsilon\)</span> es la precisión con la queremos <span class="math inline">\(f(x_0)\)</span> y <span class="math inline">\(\delta\)</span> es la precisón para <span class="math inline">\(x_0\)</span>. Es decir, <span class="math inline">\(f(x_0) \in (f(x_0)-\epsilon,f(x_0)+\epsilon)\)</span>, siempre que <span class="math inline">\(x_0 \in (x_0 -\delta, x_0 + \delta)\)</span>.</p>
+</section>
+<section id="ejemplo-numérico" class="slide level2">
+<h2>Ejemplo numérico</h2>
+<div class="example">
+<p>Sea la función <span class="math inline">\(f(x) = 2x + 3\)</span> y queremos ver si es continua en <span class="math inline">\(x_0 = 1.\)</span></p>
+</div>
+<div class="columns">
+<div class="column" style="font-size:0.52em;">
+<p>Sabemos que: <span class="math display">\[f(1) = 2(1) + 3 = 5.\]</span></p>
+<h4 id="fijando-la-precisión-varepsilon-0.1.">Fijando la Precisión <span class="math inline">\(\varepsilon = 0.1.\)</span></h4>
+<p>Es decir, aceptamos como “buenos” los valores de <span class="math inline">\(f(x)\)</span> que caigan dentro del intervalo: <span class="math inline">\((5 - 0.1, 5 + 0.1) = (4.9, 5.1).\)</span></p>
+<h4 id="paso-1.-condición-de-continuidad-queremos-encontrar-un-delta-0-tal-que-si">Paso 1. Condición de Continuidad Queremos encontrar un (<span class="math inline">\(\delta &gt; 0\)</span>) tal que si</h4>
+<p><span class="math inline">\(|x - 1| &lt; \delta,\)</span> entonces <span class="math inline">\(|f(x) - 5| &lt; 0.1.\)</span></p>
+<h4 id="paso-2.-sustituimos-la-función">Paso 2. Sustituimos la Función</h4>
+<p>Como <span class="math inline">\(f(x) = 2x + 3\)</span>, <span class="math inline">\(|f(x) - 5| = |(2x+3) - 5| = |2x - 2| = 2|x - 1|.\)</span> Queremos que: <span class="math inline">\(2|x - 1| &lt; 0.1 \quad \Rightarrow \quad |x - 1| &lt; 0.05.\)</span></p>
+<h4 id="paso-3.-elección-de-delta-esto-significa-que-podemos-tomar-delta-0.05.">Paso 3. Elección de <span class="math inline">\(\delta\)</span> Esto significa que podemos tomar <span class="math inline">\(\delta = 0.05.\)</span></h4>
+<h4 id="interpretación-si-tomamos-cualquier-x-dentro-del-intervalo-1---0.05-1-0.05-0.95-1.05-entonces-su-imagen-fx-caerá-dentro-del-intervalo">Interpretación: Si tomamos cualquier <span class="math inline">\(x\)</span> dentro del intervalo <span class="math inline">\((1 - 0.05, 1 + 0.05) = (0.95, 1.05),\)</span> entonces su imagen <span class="math inline">\(f(x)\)</span> caerá dentro del intervalo</h4>
+<p><span class="math inline">\((4.9, 5.1),\)</span> es decir, a menos de <span class="math inline">\(\varepsilon = 0.1\)</span> de <span class="math inline">\(f(1)\)</span>.</p>
+<h5 id="conclusión-con-esto-hemos-verificado-numéricamente-la-definición-la-función-lineal-fx-2x3-es-continua-en-x_0-1.">Conclusión: Con esto hemos verificado numéricamente la definición: la función lineal <span class="math inline">\(f(x) = 2x+3\)</span> es continua en <span class="math inline">\(x_0 = 1\)</span>.</h5>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/fc1.png" style="width:80.0%"></p>
+</div></div>
+</section>
+<section id="ejemplo-función-discontinua-escalón-de-heaviside" class="slide level2">
+<h2>Ejemplo: función discontinua (escalón de Heaviside)</h2>
+<div class="columns">
+<div class="column" style="font-size:0.77em;">
+<p>La función azul es el <strong>escalón de Heaviside</strong>:</p>
+<p><span class="math display">\[
+g(x) =
+\begin{cases}
+0, &amp; \text{si } x &lt; 0, \\
+1, &amp; \text{si } x \geq 0.
+\end{cases}
+\]</span></p>
+<p>El punto rojo indica: <span class="math inline">\(g(0) = 1.\)</span></p>
+<p>La banda verde representa la franja <span class="math inline">\(\varepsilon = 0.1\)</span> alrededor de <span class="math inline">\(g(0) = 1\)</span>.</p>
+<p>La banda naranja es el intervalo <span class="math inline">\(\delta\)</span> alrededor de <span class="math inline">\(x_0 = 0\)</span>.</p>
+<p>🔎 Observa que, no importa lo pequeño que sea <span class="math inline">\(\delta\)</span>, siempre habrá valores de <span class="math inline">\(x\)</span> dentro de la franja naranja (los que están a la izquierda de 0) cuya imagen cae en <span class="math inline">\(0\)</span>, que queda fuera de la franja verde.</p>
+<p>👉 Esto demuestra que aquí no existe un <span class="math inline">\(\delta\)</span> que funcione, y por tanto la función no es continua en <span class="math inline">\(x_0 = 0\)</span>.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/fc2.png" style="width:90.0%"></p>
+</div></div>
+</section>
+<section id="ejemplo-discontinuidad-removible" class="slide level2">
+<h2>Ejemplo: discontinuidad removible</h2>
+<div class="columns">
+<div class="column" style="font-size:0.8em;">
+<p>La función es: <span class="math inline">\(h(x) = \frac{x^2 - 1}{x - 1},\)</span></p>
+<p>que se simplifica a: <span class="math inline">\(h(x) = x + 1 \quad \text{para } x \neq 1.\)</span></p>
+<p>🔎 <strong>Observa en la gráfica:</strong></p>
+<ul>
+<li>La curva azul corresponde a <span class="math inline">\(y = x+1\)</span>.<br>
+</li>
+<li>En <span class="math inline">\(x=1\)</span>, la función no está definida (se produce una indeterminación <span class="math inline">\(0/0\)</span>).<br>
+</li>
+<li>Esto genera un <strong>hueco</strong> (marcado en rojo).</li>
+</ul>
+<p>El límite: <span class="math inline">\(\lim_{x \to 1} h(x) = 2\)</span></p>
+<p>existe, pero la función no está definida en ese punto.</p>
+<p>👉 Si “rellenamos el hueco” definiendo <span class="math inline">\(h(1) = 2\)</span>, la función se vuelve continua en <span class="math inline">\(x=1\)</span>.</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="Images/fc3.png" style="width:90.0%"></p>
+</div></div>
 </section>
 <section id="funciones-continuas-1" class="slide level2">
 <h2>Funciones continuas</h2>

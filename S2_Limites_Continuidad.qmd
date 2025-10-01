@@ -1489,6 +1489,90 @@ knitr::include_graphics("Images/limit3.png",dpi=1200)
 ```
 </div>
 
+## Cálculo de límites {.scrollable}
+
+¡Claro! Con gusto te explico este ejercicio de límites paso a paso.
+
+El ejercicio que quieres resolver es el siguiente límite:
+
+$$\lim_{x\to0} \left(\frac{1-x}{1+x}\right)^{\frac{1}{x}}$$
+
+Este es un límite indeterminado de la forma $1^\infty$. Para resolverlo, se usa una propiedad especial de los límites relacionada con el número $e$.
+
+
+
+Paso 1: Convertir la forma indeterminada
+
+La propiedad que se aplica aquí es:
+
+$$\lim_{f(x)\to\infty} \left(1 + \frac{1}{f(x)}\right)^{f(x)} = e$$
+
+Para usarla, necesitamos que nuestra expresión se parezca a la de la propiedad, lo que no sucede directamente. Por eso, el ejercicio introduce un cambio de variable.
+
+
+
+ Paso 2: Realizar un cambio de variable
+
+Se introduce la variable $t = \frac{1}{x}$.
+
+* Si $x \to 0^+$, entonces $t \to \infty$.
+* Si $x \to 0^-$, entonces $t \to -\infty$.
+
+Al hacer este cambio, el límite se reescribe de la siguiente manera:
+
+$$\lim_{t\to\infty} \left(\frac{1-\frac{1}{t}}{1+\frac{1}{t}}\right)^t = \lim_{t\to\infty} \left(\frac{\frac{t-1}{t}}{\frac{t+1}{t}}\right)^t = \lim_{t\to\infty} \left(\frac{t-1}{t+1}\right)^t$$
+
+Esta es la primera igualdad en tu ejercicio.
+
+
+
+ Paso 3: Manipular la expresión para usar la propiedad de $e$
+
+El siguiente paso es transformar la fracción $\frac{t-1}{t+1}$ para que se parezca a la forma $(1 + \frac{1}{f(t)})$.
+
+Para lograrlo, se puede dividir el numerador y el denominador por $t+1$:
+
+$$\frac{t-1}{t+1} = \frac{(t+1)-2}{t+1} = \frac{t+1}{t+1} - \frac{2}{t+1} = 1 - \frac{2}{t+1}$$
+
+Ahora, reescribimos el límite con esta nueva expresión:
+
+$$\lim_{t\to\infty} \left(1 - \frac{2}{t+1}\right)^t$$
+
+Para que la forma coincida con la de la propiedad de $e$, necesitamos que el exponente sea el recíproco de la expresión dentro del paréntesis. Es decir, necesitamos un exponente de $-\frac{t+1}{2}$.
+
+$$\lim_{t\to\infty} \left[\left(1 - \frac{2}{t+1}\right)^{-\frac{t+1}{2}}\right]^{-\frac{2t}{t+1}}$$
+
+La parte dentro del corchete tiende a $e$ cuando $t \to \infty$. Ahora, solo necesitamos calcular el límite del exponente.
+
+
+
+ Paso 4: Calcular el límite del exponente
+
+El límite del exponente es:
+
+$$\lim_{t\to\infty} \frac{-2t}{t+1}$$
+
+Para resolverlo, dividimos el numerador y el denominador por la variable de mayor grado ($t$):
+
+$$\lim_{t\to\infty} \frac{-2}{\frac{t}{t}+\frac{1}{t}} = \lim_{t\to\infty} \frac{-2}{1+\frac{1}{t}}$$
+
+Cuando $t \to \infty$, el término $\frac{1}{t}$ tiende a 0. Por lo tanto:
+
+$$\frac{-2}{1+0} = -2$$
+
+
+
+ Paso 5: Combinar los resultados
+
+Ahora que tenemos el límite de la base ($e$) y el límite del exponente ($-2$), el resultado final es:
+
+$$e^{-2}$$
+
+Finalmente, la regla de los exponentes indica que $e^{-2}$ es lo mismo que $\frac{1}{e^2}$.
+
+Algunos de estos pasos, como la manipulación de la expresión para que coincida con la propiedad de $e$, pero el resultado final es el mismo. El paso intermedio que se muestra en tu imagen ($e^{\lim_{t\to\infty} t(\frac{t-1}{t+1}-1)}$) es una forma alternativa de llegar al mismo resultado, usando la propiedad de que $\lim [f(x)]^{g(x)} = e^{\lim g(x)(f(x)-1)}$ para límites de tipo $1^\infty$. Ambas rutas te llevan a la misma solución.
+
+
 ## Cálculo de límites
 
 <div class="example"> **Ejemplo 4**
@@ -1574,6 +1658,112 @@ knitr::include_graphics("Images/fcont.png",dpi=1200)
 </div>
 
 $\epsilon$ es la precisión con la queremos $f(x_0)$ y $\delta$ es la precisón para $x_0$. Es decir, $f(x_0) \in (f(x_0)-\epsilon,f(x_0)+\epsilon)$, siempre que $x_0 \in (x_0 -\delta, x_0 + \delta)$.
+
+## Ejemplo numérico 
+
+::: example
+Sea la función $f(x) = 2x + 3$ y queremos ver si es continua en $x_0 = 1.$
+:::
+
+::: columns
+::: {.column width="50%" style="font-size:0.52em;"}
+
+Sabemos que: $$f(1) = 2(1) + 3 = 5.$$
+
+#### Fijando la Precisión $\varepsilon = 0.1.$
+Es decir, aceptamos como “buenos” los valores de $f(x)$ que caigan dentro del intervalo: $(5 - 0.1, 5 + 0.1) = (4.9, 5.1).$
+
+#### Paso 1. Condición de Continuidad Queremos encontrar un ($\delta > 0$) tal que si
+$|x - 1| < \delta,$ entonces $|f(x) - 5| < 0.1.$
+
+#### Paso 2. Sustituimos la Función
+Como $f(x) = 2x + 3$, $|f(x) - 5| = |(2x+3) - 5| = |2x - 2| = 2|x - 1|.$ Queremos que:
+$2|x - 1| < 0.1 \quad \Rightarrow \quad |x - 1| < 0.05.$
+
+#### Paso 3. Elección de $\delta$ Esto significa que podemos tomar $\delta = 0.05.$
+
+#### Interpretación: Si tomamos cualquier $x$ dentro del intervalo $(1 - 0.05, 1 + 0.05) = (0.95, 1.05),$ entonces su imagen $f(x)$ caerá dentro del intervalo
+$(4.9, 5.1),$ es decir, a menos de $\varepsilon = 0.1$ de $f(1)$.
+
+##### Conclusión: Con esto hemos verificado numéricamente la definición: la función lineal $f(x) = 2x+3$ es continua en $x_0 = 1$.
+:::
+
+::: {.column width="50%"}
+![](Images/fc1.png){width="80%"}
+:::
+
+:::
+
+## Ejemplo: función discontinua (escalón de Heaviside)
+
+::: columns
+
+::: {.column width="50%" style="font-size:0.77em;"}
+
+La función azul es el **escalón de Heaviside**:
+
+$$
+g(x) =
+\begin{cases}
+0, & \text{si } x < 0, \\
+1, & \text{si } x \geq 0.
+\end{cases}
+$$
+
+El punto rojo indica: $g(0) = 1.$
+
+La banda verde representa la franja  $\varepsilon = 0.1$ alrededor de $g(0) = 1$.
+
+La banda naranja es el intervalo  $\delta$ alrededor de $x_0 = 0$.
+
+🔎 Observa que, no importa lo pequeño que sea $\delta$, siempre habrá valores de $x$ dentro de la franja naranja (los que están a la izquierda de 0) cuya imagen cae en $0$, que queda fuera de la franja verde.  
+
+👉 Esto demuestra que aquí no existe un $\delta$ que funcione, y por tanto la función no es continua en $x_0 = 0$.
+
+:::
+
+::: {.column width="50%"}
+![](Images/fc2.png){width="90%"}
+:::
+
+:::
+
+
+## Ejemplo: discontinuidad removible
+
+::: columns
+
+::: {.column width="50%" style="font-size:0.8em;"}
+
+La función es: $h(x) = \frac{x^2 - 1}{x - 1},$
+
+que se simplifica a: $h(x) = x + 1 \quad \text{para } x \neq 1.$
+
+🔎 **Observa en la gráfica:**
+
+- La curva azul corresponde a $y = x+1$.  
+- En $x=1$, la función no está definida (se produce una indeterminación $0/0$).  
+- Esto genera un **hueco** (marcado en rojo).  
+
+El límite:  $\lim_{x \to 1} h(x) = 2$
+
+existe, pero la función no está definida en ese punto.  
+
+👉 Si “rellenamos el hueco” definiendo $h(1) = 2$, la función se vuelve continua en $x=1$.  
+
+:::
+
+::: {.column width="50%"}
+![](Images/fc3.png){width="90%"}
+:::
+
+:::
+
+
+
+
+
+
 
 ## Funciones continuas
 
