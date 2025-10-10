@@ -1,0 +1,84 @@
+---
+title: "Ejercicio Funciones Compuestas"
+subtitle: "Tarea"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+---
+
+# Planteamiento del Problema
+
+Sean $f$ y $g$ las funciones reales de variable real definidas, respectivamente, por:
+
+$$f(x) = \frac{x + |x|}{2}, \quad g(x) = \begin{cases} x, & \text{si } x < 0 \\ x^2, & \text{si } x \geq 0 \end{cases}$$
+
+**Hallar** una fórmula para la función compuesta $h(x) = f(g(x))$.
+
+**¿Para qué valores de $x$ es continua $h$?**
+
+---
+
+# Solución
+
+## Cálculo de la Función Compuesta $h(x) = f(g(x))$
+
+Analizamos la composición en los dos casos definidos por $g(x)$.
+
+### Caso 1: $x < 0$
+
+Si $x < 0$, entonces $g(x) = x$. Por lo tanto:
+$$
+\begin{split}
+f(g(x)) &= f(x) \\
+&= \frac{x + |x|}{2}
+\end{split}
+$$
+
+Como $x < 0$, tenemos que $|x| = -x$. Sustituyendo:
+
+$$f(g(x)) = \frac{x + (-x)}{2} = \frac{0}{2} = 0$$
+
+### Caso 2: $x \geq 0$
+
+Si $x \geq 0$, entonces $g(x) = x^2$. Por lo tanto:
+
+$$\begin{split} f(g(x)) &= f(x^2) \\ &= \frac{x^2 + |x^2|}{2} \end{split}$$
+
+Como $x \geq 0$, tenemos que $x^2 \geq 0$, lo que implica que $|x^2| = x^2$. Sustituyendo:
+
+$$f(g(x)) = \frac{x^2 + x^2}{2} = \frac{2x^2}{2} = x^2$$
+
+## Función $h(x)$ Definitiva
+
+En definitiva, la función compuesta es:
+
+$$h(x) = f(g(x)) = \begin{cases} 0, & \text{si } x < 0 \\ x^2, & \text{si } x \geq 0 \end{cases}$$
+
+---
+
+# Análisis de la Continuidad de $h(x)$
+
+La función $h(x)$ está definida por funciones polinómicas ($0$ y $x^2$), las cuales son continuas en sus respectivos dominios ($x<0$ y $x\geq0$).
+
+El único punto en que puede haber una discontinuidad es en el punto de cambio de definición, en **$x=0$**.
+
+Para que $h(x)$ sea continua en $x=0$, se deben cumplir tres condiciones:
+
+1.  **$h(0)$ debe estar definida:** $h(0) = 0^2 = 0$. (Se cumple)
+2.  **$\lim_{x \to 0} h(x)$ debe existir:** Los límites laterales deben coincidir.
+3.  **$\lim_{x \to 0} h(x) = h(0)$:** El límite debe ser igual al valor de la función.
+
+Calculamos los límites laterales:
+
+$$\lim_{x \to 0^+} h(x) = \lim_{x \to 0^+} x^2 = 0^2 = 0$$
+
+$$\lim_{x \to 0^-} h(x) = \lim_{x \to 0^-} 0 = 0$$
+
+Dado que los límites laterales coinciden ($\lim_{x \to 0^+} h(x) = 0 = \lim_{x \to 0^-} h(x)$), el límite existe y es $0$.
+
+Finalmente, como $\lim_{x \to 0} h(x) = 0$ y $h(0) = 0$, la función es continua en $x=0$.
+
+**Conclusión:** $h$ es continua para todo **$x \in \mathbb{R}$**.

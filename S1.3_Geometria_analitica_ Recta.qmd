@@ -64,7 +64,7 @@ El **cociente** [**$\frac{f(x+h)-f(x)}{(x+h)-x}$**]{.alert}, que es la [**TASA D
 
 ## [**OTRAS NOTACIONES DE FUNCIONES**]{.bg style="--col: #ffff00"} {.scrollable}  (6 min)
 
-::: {.bg style="background-color:#fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
+::: {.bg style="background-color: #fdf6e3;padding:0.25em; border-left:6px solid #fdf6e3;"}
 A veces, trabajando con una función $f: \mathfrak{R} \longrightarrow \mathfrak{R}$, para abreviar, se denota [**"y"**]{.alert} al número real [**$f(x)$**]{.alert} que **"f"** asocia a **"x"**.
 
 ![](Images/f-9.png)
