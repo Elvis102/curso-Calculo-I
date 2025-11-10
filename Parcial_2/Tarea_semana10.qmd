@@ -1,0 +1,147 @@
+---
+title: "Tarea Autónoma"
+subtitle: "La derivada"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+
+
+## Ejercicio 1: Interpretación Geométrica y Concepto
+
+Si, para una función $g(x)$, has calculado su derivada en el punto $x_0 = 2$ y obtuviste que $g'(2) = -3$:
+
+1.  **¿Qué representa geométricamente** el valor $g'(2) = -3$ en la gráfica de la función $g(x)$?
+2.  **Describe** cómo se relaciona este valor con la recta secante que mencionaste en el texto.
+
+
+### Ejercicio 2: Derivada de una Suma de Monomios y Constantes
+
+Calcula la derivada de la siguiente función:
+
+$$
+f(x) = 4x^5 - 2x^3 + 7x - 10
+$$
+
+**Paso 1:** Aplica la regla de la derivada para la suma y resta de funciones, derivando cada término por separado.
+**Paso 2:** Utiliza la regla de la derivada para monomios ($\frac{d}{dx} (ax^n) = anx^{n-1}$) y para constantes ($\frac{d}{dx} (k) = 0$).
+
+### Ejercicio 3: Derivada de una Función con Término de Grado Cero y Coeficiente Fraccionario
+
+Calcula la derivada de la siguiente función, prestando especial atención al término constante y al monomio con coeficiente fraccionario:
+
+$$
+g(x) = \frac{1}{3}x^6 + 5x^2 + \pi
+$$
+
+**Paso 1:** Identifica los términos que son monomios y los términos que son constantes. Recuerda que $\pi$ es una constante.
+**Paso 2:** Aplica la regla de derivación para cada término.
+**Paso 3:** Simplifica la expresión final.
+
+{{<pagebreak>}}
+
+**Soluciones:**
+
+## Solución Ejercicio 1: 
+
+1. ¿Qué representa $g'(2) = -3$?
+
+::: {.callout-note}
+**Respuesta:** El valor $g'(2) = -3$ representa **la pendiente de la recta tangente** a la gráfica de la función $g(x)$ en el punto donde $x=2$.
+:::
+
+* Como la pendiente es **negativa** ($-3 < 0$), esto indica que la función $g(x)$ es **decreciente** en ese punto.
+
+2. Relación con la Recta Secante
+
+::: {.callout-note}
+**Relación:** El valor $g'(2) = -3$ es el **valor límite** al que tiende $m_{\text{secante}}$ a medida que el desplazamiento $h$ se aproxima a cero ($\lim_{h \to 0}$). La recta tangente es, por lo tanto, la posición límite de la recta secante.
+:::
+
+## Solución Ejercicio 2: 
+
+Aplicamos la **regla de la suma/resta** y la **regla de la potencia** ($\frac{d}{dx} (ax^n) = anx^{n-1}$) a cada término:
+
+$$
+f'(x) = \frac{d}{dx} (4x^5) - \frac{d}{dx} (2x^3) + \frac{d}{dx} (7x) - \frac{d}{dx} (10)
+$$
+
+1.  $\frac{d}{dx} (4x^5) = 4 \cdot 5 x^{5-1} = 20x^4$
+2.  $\frac{d}{dx} (2x^3) = 2 \cdot 3 x^{3-1} = 6x^2$
+3.  $\frac{d}{dx} (7x) = 7 \cdot 1 x^{1-1} = 7$
+4.  $\frac{d}{dx} (10) = 0$ (Derivada de una constante)
+
+Resultado Final
+
+$$
+\mathbf{f'(x) = 20x^4 - 6x^2 + 7}
+$$
+
+
+## Ejercicio 3:
+
+Aplicación de las Reglas
+
+1.  **Término $\frac{1}{3}x^6$**: Se aplica la regla de la potencia.
+    $$
+    \frac{d}{dx} \left(\frac{1}{3}x^6\right) = \frac{1}{3} \cdot 6 x^{6-1} = 2x^5
+    $$
+2.  **Término $5x^2$**:
+    $$
+    \frac{d}{dx} (5x^2) = 5 \cdot 2 x^{2-1} = 10x
+    $$
+3.  **Término $\pi$**: $\pi$ es una constante (aproximadamente 3.14159...).
+    $$
+    \frac{d}{dx} (\pi) = 0
+    $$
+
+Resultado Final
+
+Sumando las derivadas de los términos:
+
+$$
+\mathbf{g'(x) = 2x^5 + 10x}
+$$
+
+{{<pagebreak>}}
+```{python}
+#| label: fig-ejercicio2
+#| fig-cap: "Gráfica de $f(x)$ y su Derivada $f'(x)$"
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Definición de las funciones
+def f_x(x):
+    return 4 * x**5 - 2 * x**3 + 7 * x - 10
+
+def f_prime_x(x):
+    return 20 * x**4 - 6 * x**2 + 7
+
+# Rango de valores
+x_vals = np.linspace(-1.5, 1.5, 400)
+y_f = f_x(x_vals)
+y_f_prime = f_prime_x(x_vals)
+
+# Generación de la gráfica
+plt.figure(figsize=(10, 6))
+
+plt.plot(x_vals, y_f, label='$f(x) = 4x^5 - 2x^3 + 7x - 10$', color='blue')
+plt.plot(x_vals, y_f_prime, label='$f\'(x) = 20x^4 - 6x^2 + 7$', color='red', linestyle='--')
+
+plt.title('Función Original y su Derivada')
+plt.xlabel('Eje x')
+plt.ylabel('Eje y')
+plt.axhline(0, color='black', linewidth=0.5)
+plt.axvline(0, color='black', linewidth=0.5)
+plt.grid(True, linestyle=':', alpha=0.6)
+plt.legend()
+plt.show()
+```

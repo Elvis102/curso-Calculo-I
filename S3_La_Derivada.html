@@ -6,11 +6,11 @@
 <script src="S3_La_Derivada_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="S3_La_Derivada_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="S3_La_Derivada_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="S3_La_Derivada_files/libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.30">
+<link href="S3_La_Derivada_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-07-31">
+  <meta name="dcterms.date" content="2025-11-07">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="S3_La_Derivada_files/libs/revealjs/dist/theme/quarto-08ca7a44f5b967e8dbedbc4d7218929d.css">
+  <link rel="stylesheet" href="S3_La_Derivada_files/libs/revealjs/dist/theme/quarto-5ae54f486db3b0423dab074a324b234c.css">
   <link href="S3_La_Derivada_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="S3_La_Derivada_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="S3_La_Derivada_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -147,12 +147,77 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-07-31</p>
+  <p class="date">2025-11-07</p>
 </section>
 <section>
 <section id="derivada-de-una-función-en-un-punto-del-dominio-de-la-misma" class="title-slide slide level1 my-slide center">
 <h1>Derivada de una función en un punto del dominio de la misma</h1>
 
+</section>
+<section id="regla-de-la-cadena" class="slide level2">
+<h2>Regla de la cadena</h2>
+<div class="layout-sidebar layout-sidebar-left">
+<div class="cell panel-sidebar">
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="x_angle_slider-label" for="x_angle_slider">Posición/Rotación de Rueda X:</label>
+<input class="js-range-slider" id="x_angle_slider" data-skin="shiny" data-min="0" data-max="360" data-from="0" data-step="1" data-grid="true" data-grid-num="10" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
+<div class="slider-animate-container">
+<a href="#" class="slider-animate-button" data-target-id="x_angle_slider" data-interval="100" data-loop="TRUE">
+<span class="play">
+<i aria-label="play icon" class="glyphicon glyphicon-play" role="presentation"></i>
+</span>
+<span class="pause">
+<i aria-label="pause icon" class="glyphicon glyphicon-pause" role="presentation"></i>
+</span>
+</a>
+</div>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="ratio_xu-label" for="ratio_xu">Radio de X/U (Magnitud du/dx):</label>
+<input class="js-range-slider" id="ratio_xu" data-skin="shiny" data-min="0.5" data-max="3" data-from="2" data-step="0.1" data-grid="true" data-grid-num="8.33333333333333" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<div class="checkbox">
+<label>
+<input id="cross_xu" type="checkbox" class="shiny-input-checkbox">
+<span>Correa cruzada x-u (Sentido inverso -)</span>
+</label>
+</div>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="ratio_uy-label" for="ratio_uy">Radio de U/Y (Magnitud dy/du):</label>
+<input class="js-range-slider" id="ratio_uy" data-skin="shiny" data-min="0.5" data-max="3" data-from="1.5" data-step="0.1" data-grid="true" data-grid-num="8.33333333333333" data-grid-snap="false" data-prettify-separator="," data-prettify-enabled="true" data-keyboard="true" data-data-type="number">
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<div class="checkbox">
+<label>
+<input id="cross_uy" type="checkbox" class="shiny-input-checkbox">
+<span>Correa cruzada u-y (Sentido inverso -)</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+<div class="cell panel-fill">
+<div class="cell-output-display">
+<div class="shiny-plot-output html-fill-item" id="simulacion_plot" style="width:100%;height:400px;"></div>
+</div>
+<div class="cell-output-display">
+<h4>
+<div id="derivative_output" class="shiny-text-output"></div>
+</h4>
+</div>
+</div>
+</div>
 </section>
 <section id="introducción" class="slide level2">
 <h2>Introducción</h2>
@@ -163,7 +228,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <section id="introducción-1" class="slide level2">
 <h2>Introducción</h2>
 
-<img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-7-1.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="introducción-2" class="slide level2">
 <h2>Introducción</h2>
 <div class="center">
@@ -242,13 +307,15 @@ f'(x_0) &amp; =\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=\lim_{x\to 
 <h2>Ejemplo</h2>
 <div class="example">
 <p><strong>Derivada del monomio de grado <span class="math inline">\(n\)</span></strong></p>
-<p>La derivada de la función anterior en <code>Wolfram Alpha</code> se muestra en el enlace siguiente: ::: center <a href="https://www.wolframalpha.com/input/?i=derivative+of+x%5En"><img data-src="Images/wolfram.png"></a></p>
+<p>La derivada de la función anterior en <code>Wolfram Alpha</code> se muestra en el enlace siguiente:</p>
+<div class="center">
+<p><a href="https://www.wolframalpha.com/input/?i=derivative+of+x%5En"><img data-src="Images/wolfram.png"></a></p>
 </div>
-<p>:::</p>
+</div>
 </section>
 <section id="ejemplos-2" class="slide level2">
 <h2>Ejemplos</h2>
-<div class="example">
+<div class="example" style="font-size: 0.9em;">
 <p><strong>Derivada del valor absoluto</strong></p>
 <p>Consideremos la función <span class="math inline">\(f(x)=|x|\)</span>, valor absoluto de <span class="math inline">\(x\)</span>, definida en todo <span class="math inline">\(\mathbb{R}\)</span> como: <span class="math inline">\(f(x)=\begin{cases}
 x, &amp; \mbox{si } x\geq 0, \\
@@ -279,7 +346,7 @@ x, &amp; \mbox{si } x\geq 0, \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -305,7 +372,7 @@ x, &amp; \mbox{si } x\geq 0, \\
 </section>
 <section id="derivabilidad-implica-continuidad-1" class="slide level2">
 <h2>Derivabilidad implica continuidad</h2>
-<div class="dem">
+<div class="dem" style="font-size: 0.82em;">
 <p><strong>Demostración.</strong></p>
 <p>Definimos la función siguiente en un entorno de punto <span class="math inline">\(x_0\)</span>: <span class="math display">\[
 g(x)=\begin{cases}
@@ -350,7 +417,7 @@ f'(x_0), &amp; \mbox{si } x=x_0.
 <h2>La derivada del producto de funciones</h2>
 <p><l class="prop">Proposición.</l></p>
 <p>Sean <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> dos funciones reales de variable real y sea <span class="math inline">\(x_0\)</span> un punto del dominio de <span class="math inline">\(f\)</span> y de <span class="math inline">\(g\)</span>. Si <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son derivables en <span class="math inline">\(x_0\)</span>, también lo es la función producto <span class="math inline">\(f\cdot g\)</span>, y se verifica que: <span class="math inline">\((f\cdot g)'(x_0)=f'(x_0)\cdot g(x_0)+f(x_0)\cdot g'(x_0)\)</span>.</p>
-<div class="dem">
+<div class="dem" style="font-size: 0.75em;">
 <p><strong>Demostración:</strong> <span class="math display">\[
 \begin{array}{rl}
 (f\cdot g)'(x_0) &amp; = \displaystyle\lim_{x\to x_0}\frac{(f\cdot g)(x)-(f\cdot g)(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{f(x)\cdot g(x)-f(x_0)\cdot g(x_0)}{x-x_0} \\ &amp; = \displaystyle \lim_{x\to x_0}\frac{f(x)\cdot g(x)-f(x)\cdot g(x_0)+f(x)\cdot g(x_0)-f(x_0)\cdot g(x_0)}{x-x_0}\\ &amp; = \displaystyle \lim_{x\to x_0}\frac{f(x)\cdot (g(x)- g(x_0))+(f(x)-f(x_0))\cdot g(x_0)}{x-x_0}\\ &amp; = \displaystyle \lim_{x\to x_0}f(x)\cdot\frac{g(x)- g(x_0)}{x-x_0}+\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\cdot g(x_0)=f(x_0)\cdot g'(x_0)+f'(x_0)\cdot g(x_0).
@@ -362,7 +429,7 @@ f'(x_0), &amp; \mbox{si } x=x_0.
 <h2>La derivada del cociente de funciones</h2>
 <p><l class="prop">Proposición.</l></p>
 <p>Sean <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> dos funciones reales de variable real y sea <span class="math inline">\(x_0\)</span> un punto del dominio de <span class="math inline">\(f\)</span> y de <span class="math inline">\(g\)</span> tal que <span class="math inline">\(g'(x_0)\neq 0\)</span>. Si <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son derivables en <span class="math inline">\(x_0\)</span>, también lo es la función cociente <span class="math inline">\(\frac{f}{g}\)</span>, y se verifica que: <span class="math inline">\(\left(\frac{f}{g}\right)'(x_0)=\frac{f'(x_0)\cdot g(x_0)-f(x_0)\cdot g'(x_0)}{g(x_0)^2}\)</span>.</p>
-<div class="dem">
+<div class="dem" style="font-size: 0.75em;">
 <p><strong>Demostración:</strong> <span class="math display">\[
 \begin{array}{rl}
 \left(\frac{f}{g}\right)'(x_0) &amp; = \displaystyle\lim_{x\to x_0}\frac{\left(\frac{f}{g}\right)(x)-\left(\frac{f}{g}\right)(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{\frac{f(x)}{g(x)}-\frac{f(x_0)}{g(x_0)}}{x-x_0} =\lim_{x\to x_0} \frac{f(x)\cdot g(x_0)-g(x)\cdot f(x_0)}{g(x)\cdot g(x_0)\cdot (x-x_0)}  \\ &amp; \displaystyle =\lim_{x\to x_0} \frac{f(x)\cdot g(x_0)-f(x_0)\cdot g(x_0)+f(x_0)\cdot g(x_0) -g(x)\cdot f(x_0)}{g(x)\cdot g(x_0)\cdot (x-x_0)} \\ &amp; = \displaystyle \lim_{x\to x_0}\frac{1}{g(x)\cdot g(x_0)}\cdot \left(\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\cdot g(x_0)-f(x_0)\cdot \lim_{x\to x_0} \frac{g(x)-g(x_0)}{x-x_0}\right) \\ &amp; = \displaystyle \frac{1}{g(x_0)^2}(f'(x_0)\cdot g(x_0)-f(x_0)\cdot g'(x_0)).
@@ -377,7 +444,7 @@ f'(x_0), &amp; \mbox{si } x=x_0.
 </section>
 <section id="derivada-de-la-función-inversa-1" class="slide level2">
 <h2>Derivada de la función inversa</h2>
-<div class="dem">
+<div class="dem" style="font-size: 0.75em;">
 <p><strong>Demostración:</strong></p>
 <p>El valor de <span class="math inline">\(g'(f(x_0))\)</span> es: <span class="math inline">\(g'(f(x_0))  = \displaystyle\lim_{y\to f(x_0)}\frac{g(y)-g(f(x_0))}{y-f(x_0)}.\)</span></p>
 <p>Para el cálculo del límite anterior, hacemos el cambio de variable siguiente: <span class="math inline">\(y=f(x)\)</span>, o lo que es lo mismo, <span class="math inline">\(x=g(y)\)</span>. Como <span class="math inline">\(y\)</span> tiende a <span class="math inline">\(f(x_0)\)</span>, tendremos con la variable nueva que <span class="math inline">\(f(x)\)</span> tiende a <span class="math inline">\(f(x_0)\)</span> pero como <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(f(x_0)\)</span>, deducimos que <span class="math inline">\(g(f(x))=x\)</span> tiende a <span class="math inline">\(g(f(x_0))=x_0\)</span>. En resumen, el límite anterior puede escribirse como: <span class="math display">\[
@@ -387,7 +454,7 @@ g'(f(x_0)) =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=\lim_{x\to x_0}
 </section>
 <section id="ejemplo-2" class="slide level2">
 <h2>Ejemplo</h2>
-<div class="example">
+<div class="example" style="font-size: 0.75em;">
 <p><strong>Ejemplo: derivada de la función <span class="math inline">\(g(x)=\sqrt[n]{x}\)</span>.</strong></p>
 <p>La función <span class="math inline">\(g(x)=\sqrt[n]{x}\)</span> es la inversa de la función <span class="math inline">\(f(x)=x^n\)</span> ya que: <span class="math inline">\(g(f(x))=g(x^n)=\sqrt[n]{x^n}=x\)</span>.</p>
 <p>Usando la expresión vista anteriormente, podemos escribir que: <span class="math inline">\(g'(f(x))=g'(x^n)=\frac{1}{f'(x)}\)</span>.</p>
@@ -398,12 +465,12 @@ g'(f(x_0)) =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=\lim_{x\to x_0}
 </section>
 <section id="ejemplo-3" class="slide level2">
 <h2>Ejemplo</h2>
-<div class="example">
+<div class="example" style="font-size: 0.75em;">
 <p><strong>Ejemplo: derivada de la función <span class="math inline">\(\tan x\)</span>.</strong></p>
 <p>La función <span class="math inline">\(\tan x\)</span> está definida como <span class="math inline">\(\frac{\sin x}{\cos x}\)</span>.</p>
 <p>Calculemos primero la derivada de la función <span class="math inline">\(\sin x\)</span> en un valor <span class="math inline">\(x_0\)</span>: <span class="math display">\[
 \begin{array}{rl}
-(\sin)'(x_0) &amp; \displaystyle =\lim_{x\to x_0}\frac{\sin x-\sin x_0}{x-x_0}=\lim_{x\to x_0}\frac{2\cos\left(\frac{x+x_0}{2}\right)\cdot\sin\left(\frac{x-x_0}{2}\right)}{x-x_0}=2\cdot \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{x-x_0} \\ &amp; \displaystyle = \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{\frac{x-x_0}{2}} = \cos(x_0),
+(\sin)'(x_0) &amp; \displaystyle =\lim_{x\to x_0}\frac{\sin x-\sin x_0}{x-x_0}=\lim_{x\to x_0}\frac{2\cos\left(\frac{x+x_0}{2}\right)\cdot\sin\left(\frac{x-x_0}{2}\right)}{x-x_0}=2\cdot \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{x-x_0} \\ &amp; \displaystyle = \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{\frac{x-x_0}{2}} = \cos(x_0)\lim_{t\to 0}\frac{\sin t}{t} = \cos(x_0),
 \end{array}
 \]</span> usando que <span class="math inline">\(\lim\limits_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{\frac{x-x_0}{2}}=1.\)</span> La expresión anterior se deduce del hecho de que <span class="math inline">\(\lim\limits_{t\to 0} \frac{\sin t}{t}=1\)</span>.</p>
 <p>Si se hace el cambio de variable <span class="math inline">\(t=\frac{x-x_0}{2}\)</span> y teniendo en cuenta que como <span class="math inline">\(x\to x_0\)</span>, entonces <span class="math inline">\(t\to 0\)</span>, los dos límites anteriores son iguales a 1.</p>
@@ -411,7 +478,7 @@ g'(f(x_0)) =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=\lim_{x\to x_0}
 </section>
 <section id="ejemplo-4" class="slide level2">
 <h2>Ejemplo</h2>
-<div class="example">
+<div class="example" style="font-size: 0.75em;">
 <p><strong>Ejemplo: derivada de la función <span class="math inline">\(\tan x\)</span>.</strong></p>
 <p>Para calcular la derivada de la función <span class="math inline">\(\cos x\)</span>, usamos una técnica similar: <span class="math display">\[
 \begin{array}{rl}
@@ -434,7 +501,7 @@ g'(f(x_0)) =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=\lim_{x\to x_0}
 </section>
 <section id="derivada-de-la-función-compuesta.-regla-de-la-cadena-1" class="slide level2">
 <h2>Derivada de la función compuesta. Regla de la cadena</h2>
-<div class="dem">
+<div class="dem" style="font-size: 0.75em;">
 <p><strong>Demostración:</strong> <span class="math display">\[
 \begin{array}{rl}
 (g\circ f)'(x_0) &amp; \displaystyle =\lim_{x\to x_0}\frac{(g\circ f)(x)-(g\circ f)(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{x-x_0} \\ &amp; \displaystyle =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}\cdot \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=g'(f(x_0))\cdot f'(x_0).
@@ -444,9 +511,51 @@ g'(f(x_0)) =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=\lim_{x\to x_0}
 \]</span></p>
 </div>
 </section>
+<section id="interactivo" class="slide level2 scrollable">
+<h2>Interactivo</h2>
+<div class="layout-sidebar layout-sidebar-left">
+<div class="cell panel-sidebar">
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="xcol-label" for="xcol">X Variable</label>
+<div>
+<select id="xcol" class="shiny-input-select"><option value="Sepal.Length" selected="">Sepal.Length</option>
+<option value="Sepal.Width">Sepal.Width</option>
+<option value="Petal.Length">Petal.Length</option>
+<option value="Petal.Width">Petal.Width</option></select>
+<script type="application/json" data-for="xcol" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
+<div class="cell-output-display no-overflow-x">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="ycol-label" for="ycol">Y Variable</label>
+<div>
+<select id="ycol" class="shiny-input-select"><option value="Sepal.Length">Sepal.Length</option>
+<option value="Sepal.Width" selected="">Sepal.Width</option>
+<option value="Petal.Length">Petal.Length</option>
+<option value="Petal.Width">Petal.Width</option></select>
+<script type="application/json" data-for="ycol" data-nonempty="">{"plugins":["selectize-plugin-a11y"]}</script>
+</div>
+</div>
+</div>
+<div class="cell-output-display">
+<div class="form-group shiny-input-container">
+<label class="control-label" id="clusters-label" for="clusters">Cluster count</label>
+<input id="clusters" type="number" class="shiny-input-number form-control" value="3" data-update-on="change" min="1" max="9">
+</div>
+</div>
+</div>
+<div class="cell panel-fill">
+<div class="cell-output-display">
+<div class="shiny-plot-output html-fill-item" id="plot1" style="width:100%;height:400px;"></div>
+</div>
+</div>
+</div>
+</section>
 <section id="ejemplo-5" class="slide level2">
 <h2>Ejemplo</h2>
-<div class="example">
+<div class="example" style="font-size: 0.75em;">
 <p><strong>Ejemplo</strong></p>
 <p>Hallemos la derivada de la función <span class="math inline">\(h(x)=\arctan (x^3+x^2+1)\)</span>.</p>
 <p>La función anterior es la composición de la función <span class="math inline">\(f(x)=x^3+x^2+1\)</span> y <span class="math inline">\(g(y)=\arctan y\)</span>, es decir: <span class="math inline">\(h(x)=(g\circ f)(x)\)</span>.</p>
@@ -460,27 +569,37 @@ g'(\tan x)=\frac{1}{\tan'(x)}=\frac{1}{\frac{1}{\cos^2 x}}=\cos^2 x.
 </section>
 <section id="ejemplo-6" class="slide level2">
 <h2>Ejemplo</h2>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Para hallar <span class="math inline">\(g'(y)\)</span>, tenemos que escribir <span class="math inline">\(y=\tan x\)</span>, y, por tanto, <span class="math inline">\(x=\arctan y\)</span>: <span class="math display">\[
-g'(y)=\cos^2(\arctan y)=\frac{1}{1+\tan^2 (\arctan y)}=\frac{1}{1+y^2},
-\]</span> donde hemos usado la siguiente relación trigonométrica: <span class="math inline">\(\cos^2\alpha = \frac{1}{1+\tan^2\alpha}\)</span>.</p>
-<p>La derivada de la función <span class="math inline">\(h(x)\)</span> usando la <strong>regla de la cadena</strong> será: <span class="math display">\[
+<div class="example" style="font-size: 0.75em;">
+<p><strong>Ejemplo: derivada de la función <span class="math inline">\(h(x)=\arctan (x^3+x^2+1)\)</span>.</strong></p>
+<p>Hallemos el valor de <span class="math inline">\(g'(\tan(x))\)</span> en <span class="math inline">\(x=\frac{\pi}{4}\)</span>: <span class="math display">\[
 \begin{array}{rl}
-h'(x) &amp; =(g\circ f)'(x)=g'(f(x))\cdot f'(x)=\frac{1}{1+f(x)^2}\cdot (3 x^2+2x)=\frac{3x^2+2x}{1+(x^3+x^2+1)^2}\\ &amp; =\frac{3x^2+2x}{x^6+2 x^5+x^4+2 x^3+2 x^2+2}.
+g'(\tan(x)) &amp; =\cos^2(x), \\
+g'(\tan(\frac{\pi}{4})) &amp; =\cos^2(\frac{\pi}{4})=\frac{1}{2}.
 \end{array}
 \]</span></p>
-<p>La derivada de la función <span class="math inline">\(h(x)\)</span> en <code>Wolfram Alpha</code> se muestra en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=derivative+of+arctan%28x%5E3%2Bx%5E2%2B1%29"><img data-src="Images/wolfram.png"></a> </l></p>
+<p>Calculemos ahora el valor de <span class="math inline">\(f'(\tan(x))\)</span> en <span class="math inline">\(x=\frac{\pi}{4}\)</span>: <span class="math display">\[
+\begin{array}{rl}
+f'(x) &amp; = 3x^2+2x, \\
+f'(\tan(\frac{\pi}{4})) &amp; = 3\tan^2(\frac{\pi}{4})+2\tan(\frac{\pi}{4})=3+2=5.
+\end{array}
+\]</span></p>
 </div>
 </section>
-<section id="tablas-de-derivadas" class="slide level2">
-<h2>Tablas de derivadas</h2>
-<p>Si vais al enlace siguiente <a href="https://www.google.com/search?tbm=isch&amp;sxsrf=ACYBGNQqojnjJv8BaCiJGV99iyRexZsPcg%3A1578831703469&amp;source=hp&amp;biw=2560&amp;bih=1268&amp;ei=Vw8bXsXVGoKkgweJ7qO4Bw&amp;q=tablas+de+derivadas&amp;oq=tablas+de+der&amp;gs_l=img.3.0.35i39j0l5j0i5i30l4.5860.8647..10003...2.0..0.70.862.13......0....1..gws-wiz-img.....10..35i362i39j0i131.bUJ_Ou6rWlA">tablas de derivadas</a> y escribís “tablas de derivadas” en la casilla de búsqueda, encontraréis un montón de tablas de derivadas para las funciones más usadas.</p>
-</section></section>
-<section>
-<section id="teoremas-de-derivación" class="title-slide slide level1 my-slide center">
-<h1>Teoremas de derivación</h1>
-
+<section id="ejemplo-7" class="slide level2">
+<h2>Ejemplo</h2>
+<div class="example" style="font-size: 0.75em;">
+<p><strong>Ejemplo: derivada de la función <span class="math inline">\(h(x)=\arctan (x^3+x^2+1)\)</span>.</strong></p>
+<p>Hallemos el valor de <span class="math inline">\(h'(\frac{\pi}{4})\)</span>: <span class="math display">\[
+\begin{array}{rl}
+h'(x) &amp; =(g\circ f)'(x)=g'(f(x))\cdot f'(x), \\
+h'(\frac{\pi}{4}) &amp; =g'(f(\tan(\frac{\pi}{4})))\cdot f'(\tan(\frac{\pi}{4}))=g'(\tan(\frac{\pi}{4}))\cdot f'(\tan(\frac{\pi}{4})) \\
+&amp; =\frac{1}{5}\cdot 5=1.
+\end{array}
+\]</span> La derivada de la función <span class="math inline">\(h(x)\)</span> en <code>Wolfram Alpha</code> se muestra en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=derivative+of+arctan%28x%5E3%2Bx%5E2%2B1%29"><img data-src="Images/wolfram.png"></a> </l></p>
+</div>
+</section>
+<section id="teoremas-de-derivación" class="slide level2 my-slide">
+<h2>Teoremas de derivación</h2>
 </section>
 <section id="derivación-y-extremos" class="slide level2">
 <h2>Derivación y extremos</h2>
@@ -495,7 +614,7 @@ h'(x) &amp; =(g\circ f)'(x)=g'(f(x))\cdot f'(x)=\frac{1}{1+f(x)^2}\cdot (3 x^2+2
 <p>Si la condición anterior se verifica para cualquier valor <span class="math inline">\(x\in (a,b)\)</span>, diremos que <span class="math inline">\(f\)</span> tiene un <strong>mínimo absoluto</strong> en el punto <span class="math inline">\(x_0\)</span>.</p>
 <p>Los puntos donde <span class="math inline">\(f\)</span> presente un <strong>máximo</strong> o un <strong>mínimo</strong> <strong>relativos</strong> o <strong>absolutos</strong> se denominan <strong>extremos relativos</strong> o <strong>absolutos</strong> de la función.</p>
 </section>
-<section id="ejemplo-7" class="slide level2">
+<section id="ejemplo-8" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
@@ -510,14 +629,14 @@ x&amp; \longrightarrow \sin(x)-\cos(x).
 <p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
 </div>
 </section>
-<section id="ejemplo-8" class="slide level2">
+<section id="ejemplo-9" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -549,143 +668,18 @@ f'(x_0), &amp;\mbox{si }x=x_0,
 <h2>Derivación y extremos</h2>
 <div class="dem">
 <p><strong>Demostración</strong></p>
-<p>Es decir, para todo <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, <span class="math inline">\(g(x)=\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>.</p>
-<p>Esto es equivalente a decir que el numerador y el denominador de la fracción anterior tienen el mismo signo, dicho en otras palabras:</p>
-<ul>
-<li>si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span> y <span class="math inline">\(x&gt;x_0\)</span>, entonces <span class="math inline">\(f(x) &gt; f(x_0)\)</span> y,</li>
-<li>si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span> y <span class="math inline">\(x&lt;x_0\)</span>, entonces <span class="math inline">\(f(x) &lt; f(x_0)\)</span>.</li>
-</ul>
-<p>Las condiciones anteriores contradicen el hecho que <span class="math inline">\(x_0\)</span> sea un extremo ya que hemos encontrado valores en un entorno del mismo que superan <span class="math inline">\(f(x_0)\)</span> y valores del mismo entorno que son menores que <span class="math inline">\(f(x_0)\)</span>. En conclusión, llegamos a una contradicción al suponer que <span class="math inline">\(g(x_0)=f'(x_0)&gt;0\)</span>.</p>
-<div class="exercise">
-<p><strong>Ejercicio</strong></p>
-<p>Suponer que <span class="math inline">\(g(x_0)=f'(x_0)&lt;0\)</span> y ver que se llega a una contradicción razonando de manera similar.</p>
-</div>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
 </div>
 </section>
 <section id="derivación-y-extremos-5" class="slide level2">
 <h2>Derivación y extremos</h2>
-<div class="dem">
-<p><strong>Demostración</strong></p>
-<p>Al no poder ser que <span class="math inline">\(f'(x_0)&gt;\)</span> ni <span class="math inline">\(f'(x_0)&lt;0\)</span>, necesariamente <span class="math inline">\(f'(x_0)=0\)</span> tal como queríamos demostrar.</p>
-</div>
-<p><l class="observ"> Observación. </l></p>
-<p>El recíproco del teorema anterior es falso. Es decir, el hecho que <span class="math inline">\(f'(x_0)\)</span> sea <span class="math inline">\(0\)</span>, no implica que <span class="math inline">\(x_0\)</span> sea un <strong>extremo relativo</strong> de la función.</p>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Considerar, por ejemplo, la función <span class="math inline">\(f(x)=x^2\cdot \sin(x)\)</span>. Si derivamos dicha función, obtenemos: <span class="math display">\[
-f'(x)=2x\sin(x)+x^2\cos(x).
-\]</span> Vemos que <span class="math inline">\(f'(0)=0\)</span>. En cambio <span class="math inline">\(f\)</span> no tiene ningún extremo en este punto tal como se observa en el gráfico de su función:</p>
-</div>
-</section>
-<section id="derivación-y-extremos-6" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="derivación-y-extremos-7" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Para ver que el 0 no es extremo relativo, es facil ver que para <span class="math inline">\(x\in (0,\pi)\)</span>, <span class="math inline">\(f(x)\geq 0\)</span> y para <span class="math inline">\(x\in (-\pi,0)\)</span>, <span class="math inline">\(f(x)\leq 0\)</span>. Comprobémoslo para unos cuantos valores en <code>python</code>, para <span class="math inline">\(x=-0.2,-0.1,0.1,0.2\)</span>:</p>
-</div>
-</section>
-<section id="derivación-y-extremos-8" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>f(-0.2)=-0.00794677323180245
-f(-0.1)=-0.000998334166468282
-f(0.1)=0.000998334166468282
-f(0.2)=0.00794677323180245</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="derivación-y-extremos-9" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>El cálculo de la derivada de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=derivative+of+x%5E2*sin%28x%29"><img data-src="Images/wolfram.png"></a></l></p>
-<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+x%5E2*sin%28x%29%2C+where+x+is+between+-2+and+2"><img data-src="Images/wolfram.png"></a> </l></p>
-</div>
-</section>
-<section id="derivación-y-extremos-10" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="definition">
-<p>Definición de crecimiento de una función.</p>
-</div>
-<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Diremos que <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en el punto <span class="math inline">\(x_0\)</span> si existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un valor <span class="math inline">\(\delta &gt;0\)</span> tal que para todo <span class="math inline">\(x\)</span> de dicho entorno diferente de <span class="math inline">\(x_0\)</span>, o si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, con <span class="math inline">\(x\neq x_0\)</span>, se verifica que el cociente siguiente es positivo: <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>.</p>
-<div class="observ">
-<p>Observación.</p>
-</div>
-<p>La definición anterior es equivalente a decir que existe un valor <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0,x_0+\delta)\)</span> o <span class="math inline">\(x&gt;x_0\)</span>, entonces <span class="math inline">\(f(x)&gt;f(x_0)\)</span> y si <span class="math inline">\(x\in (x_0-\delta, x_0)\)</span> o <span class="math inline">\(x&lt;x_0\)</span>, entonces <span class="math inline">\(f(x)&lt;f(x_0)\)</span>. Ver el gráfico siguiente.</p>
-</section>
-<section id="derivación-y-extremos-11" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="center">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Images/Derivada2.png" width="650"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="derivación-y-extremos-12" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="definition">
-<p>Definición de decrecimiento de una función.</p>
-</div>
-<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Diremos que <span class="math inline">\(f\)</span> es <strong>estrictamente decreciente</strong> en el punto <span class="math inline">\(x_0\)</span> si existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un valor <span class="math inline">\(\delta &gt;0\)</span> tal que para todo <span class="math inline">\(x\)</span> de dicho entorno diferente de <span class="math inline">\(x_0\)</span>, o si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, con <span class="math inline">\(x\neq x_0\)</span>, se verifica que el cociente siguiente es negativo: <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&lt;0\)</span>.</p>
-<div class="observ">
-<p>Observación.</p>
-</div>
-<p>La definición anterior es equivalente a decir que existe un valor <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0,x_0+\delta)\)</span> o <span class="math inline">\(x&gt;x_0\)</span>, entonces <span class="math inline">\(f(x)&lt;f(x_0)\)</span> y si <span class="math inline">\(x\in (x_0-\delta, x_0)\)</span> o <span class="math inline">\(x&lt;x_0\)</span>, entonces <span class="math inline">\(f(x)&gt;f(x_0)\)</span>. Ver gráfico siguiente.</p>
-</section>
-<section id="derivación-y-extremos-13" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="center">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Images/Derivada3.png" width="650"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="derivación-y-extremos-14" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="observ">
-<p>Observación.</p>
-</div>
-<p>Si la desigualdad <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span> no es estricta, se dice que <span class="math inline">\(f\)</span> es <strong>creciente</strong>.</p>
-<div class="observ">
-<p>Observación.</p>
-</div>
-<p>Si la desigualdad <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\leq 0\)</span> no es estricta, se dice que <span class="math inline">\(f\)</span> es <strong>decreciente</strong>.</p>
-</section>
-<section id="derivación-y-extremos-15" class="slide level2">
-<h2>Derivación y extremos</h2>
 <div class="prop">
-<p>Proposición</p>
+<p>Proposición.</p>
 </div>
 <p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
 <div class="dem">
@@ -695,8 +689,8 @@ f(0.2)=0.00794677323180245</code></pre>
 \]</span></p>
 </div>
 </section>
-<section id="derivación-y-extremos-16" class="slide level2">
-<h2>Derivación y extremos</h2>
+<section id="consecuencias-de-los-teoremas" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
 <div class="dem">
 <p><strong>Demostración</strong></p>
 <p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
@@ -707,191 +701,7 @@ f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
 \]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
 </div>
 </section>
-<section id="derivación-y-extremos-17" class="slide level2">
-<h2>Derivación y extremos</h2>
-<div class="prop">
-<p>Proposición.</p>
-</div>
-<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&lt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada negativa</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente decreciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
-<div class="exercise">
-<p><strong>Ejercicio</strong></p>
-<p>Demostrar la proposición anterior usando la misma técnica que para demostrar que si <span class="math inline">\(f'(x_0)&gt;0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
-</div>
-</section>
-<section id="ejemplo-9" class="slide level2">
-<h2>Ejemplo</h2>
-<div class="example">
-<p><strong>Ejemplo</strong></p>
-<p>Consideremos la función siguiente de un ejemplo anterior: <span class="math inline">\(f(x)=\sin(x)-\cos(x)\)</span>.</p>
-<p>La derivada de la función <span class="math inline">\(f\)</span> vale: <span class="math inline">\(f'(x)=\cos(x)+\sin(x)\)</span>.</p>
-<p>Dicha función se anula en los <strong>extremos</strong> <span class="math inline">\(x=-\frac{5}{4}\pi,-\frac{\pi}{4},\frac{3}{4}\pi\)</span> y <span class="math inline">\(\frac{7}{4}\pi\)</span>:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>f'(-5*pi/4)=0
-f'(-pi/4)=0
-f'(3*pi/4)=0
-f'(7*pi/4)=0</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="ejemplo-10" class="slide level2">
-<h2>Ejemplo</h2>
-<div class="example">
-<p>En los puntos <span class="math inline">\(x=-\frac{3}{2}\pi\)</span> y <span class="math inline">\(x=\frac{\pi}{2}\)</span> la función es <strong>estrictamente creciente</strong> al tener derivada positiva en dichos puntos:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>f'(-3*pi/2)=1
-f'(pi/2)=1</code></pre>
-</div>
-</div>
-<p>En cambio, en los puntos <span class="math inline">\(x=-\frac{\pi}{2}\)</span> y <span class="math inline">\(\frac{3}{2}\pi\)</span> la función es <strong>estrictamente decreciente</strong> al tener derivada negativa en dichos puntos:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>f'(-pi/2)=-1
-f'(3*pi/2)=-1</code></pre>
-</div>
-</div>
-</div>
-</section>
-<section id="teoremas-de-rolle-y-del-valor-medio" class="slide level2">
-<h2>Teoremas de Rolle y del valor medio</h2>
-<p>Las proposiciones vistas hasta ahora nos permiten determinar el comportamiento local de una función en un punto en términos de su crecimiento dependiendo del signo de la derivada de dicha función en dicho punto.</p>
-<p>Vamos a ver dos resultados que nos permiten determinar las propiedades globales de la función en todo su dominio a partir del comportamiento de la función derivada de dicha función.</p>
-<p>El teorema de Rolle dice que si los valores de una función derivable en todo el interior de un intervalo, los valores coinciden en los extremos del mismo, necesariamente ha de tener al menos un máximo o un mínimo Intuitivamente, el resultado es claro ya que si suponemos por ejemplo que la función crece en su extremo izquierdo <span class="math inline">\(a\)</span>, como <span class="math inline">\(f(a)=f(b)\)</span>, donde <span class="math inline">\(b\)</span> es su extremo derecho, en algún momento tiene que decrecer. Por tanto, en <em>dicho momento</em>, la función tendrá un extremo o un máximo en este caso.</p>
-</section>
-<section id="teoremas-de-rolle-y-del-valor-medio-1" class="slide level2">
-<h2>Teoremas de Rolle y del valor medio</h2>
-<div class="center">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Images/Rolle1.png" width="650"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="teoremas-de-rolle-y-del-valor-medio-2" class="slide level2">
-<h2>Teoremas de Rolle y del valor medio</h2>
-<p>El teorema del valor medio dice que dada una función derivable en todo su dominio, ha de existir un punto en el que recta tangente en dicho punto sea paralela a la recta que pasa por los extremos del dominio de la función.</p>
-<p>En el gráfico siguiente la recta verde es la recta que pasa por los extremos de la función (en azul) y la recta roja es la recta tangente al punto <span class="math inline">\(c\)</span> que pertenece al dominio de la función.</p>
-</section>
-<section id="teoremas-de-rolle-y-del-valor-medio-3" class="slide level2">
-<h2>Teoremas de Rolle y del valor medio</h2>
-<div class="center">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Images/ValorMedio1.png" width="650"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section id="teorema-de-rolle" class="slide level2">
-<h2>Teorema de Rolle</h2>
-<div class="prop">
-<p>Teorema de Rolle.</p>
-</div>
-<p>Sea <span class="math inline">\(f: [a,b]\longrightarrow \mathbb{R}\)</span> una función real de variable real. Supongamos que <span class="math inline">\(f\)</span> es continua en todo su dominio <span class="math inline">\([a,b]\)</span> y derivable en los puntos del interior <span class="math inline">\((a,b)\)</span>. Supongamos además que las imágenes en los extremos coinciden, es decir, <span class="math inline">\(f(a)=f(b)\)</span>. Entonces existe al menos un punto <span class="math inline">\(c\in (a,b)\)</span> tal que <span class="math inline">\(f'(c)=0\)</span>.</p>
-<div class="observ">
-<p>Observación.</p>
-</div>
-<p>En el dominio de definición de <span class="math inline">\(f\)</span> están incluidos los extremos del intervalo.</p>
-</section>
-<section id="teorema-de-rolle-1" class="slide level2">
-<h2>Teorema de Rolle</h2>
-<div class="dem">
-<p><strong>Demostración</strong></p>
-<p>Como la función <span class="math inline">\(f\)</span> es continua en el intervalo cerrado <span class="math inline">\([a,b]\)</span>, deducimos que <span class="math inline">\(f\)</span> tiene un máximo absoluto <span class="math inline">\(M\)</span> y un mínimo absoluto <span class="math inline">\(m\)</span>.</p>
-<p>Pueden ocurrir dos casos:</p>
-<ul>
-<li>Que el máximo absoluto se alcance en el extremo <span class="math inline">\(a\)</span> y el mínimo, en el extremo <span class="math inline">\(b\)</span>, con <span class="math inline">\(f(a)=M\)</span> y <span class="math inline">\(f(b)=m\)</span> o al revés, es decir, que el máximo absoluto se alcance en el extremo <span class="math inline">\(b\)</span> y el mínimo, en el extremo <span class="math inline">\(a\)</span>, con <span class="math inline">\(f(a)=m\)</span> y <span class="math inline">\(f(b)=M\)</span>. Como <span class="math inline">\(f(a)=f(b)\)</span>, resulta que <span class="math inline">\(M=m\)</span> y la única función en un intervalo en donde su máximo coincide con su mínimo es la función constante. En este caso <span class="math inline">\(f'(x)=0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> como ya vimos anteriormente y el teorema quedaría demostrado en este caso.</li>
-<li>Supongamos que el máximo o el mínimo de la función se alcanza en un punto <span class="math inline">\(c\in (a,b)\)</span> del interior del intervalo. Por un teorema visto anteriormente, tenemos que <span class="math inline">\(f'(c)=0\)</span> y el teorema quedaría demostrado también en este caso.</li>
-</ul>
-</div>
-</section>
-<section id="teorema-del-valor-medio-de-cauchy" class="slide level2">
-<h2>Teorema del valor medio de Cauchy</h2>
-<div class="prop">
-<p>Teorema del valor medio de Cauchy.</p>
-</div>
-<p>Sean <span class="math inline">\(f,g:[a,b]\longrightarrow \mathbb{R}\)</span> dos funciones continuas en <span class="math inline">\([a,b]\)</span> y derivables en <span class="math inline">\((a,b)\)</span>. Entonces, existe un punto <span class="math inline">\(c\in (a,b)\)</span> del interior del intervalo tal que: <span class="math display">\[
-f'(c)\cdot (g(b)-g(a)) = g'(c)\cdot (f(b)-f(a)).
-\]</span></p>
-</section>
-<section id="teorema-del-valor-medio-de-cauchy-1" class="slide level2">
-<h2>Teorema del valor medio de Cauchy</h2>
-<div class="dem">
-<p><strong>Demostración</strong></p>
-<p>Consideramos la función siguiente: <span class="math display">\[
-h(x)=f(x)\cdot (g(b)-g(a))-g(x)\cdot (f(b)-f(a)),
-\]</span> que será continua en <span class="math inline">\([a,b]\)</span> y derivable en <span class="math inline">\((a,b)\)</span> al ser suma de productos de funciones continuas y derivables por constantes.</p>
-<p>La idea es aplicar el <strong>teorema de Rolle</strong> a la función <span class="math inline">\(h(x)\)</span>. Calculemos <span class="math inline">\(h(a)\)</span> y <span class="math inline">\(h(b)\)</span>: <span class="math display">\[
-\begin{array}{rl}
-h(a) &amp; = f(a)\cdot (g(b)-g(a))-g(a)\cdot (f(b)-f(a)) = f(a)\cdot g(b)-g(a)\cdot f(b),\\
-h(b) &amp; = f(b)\cdot (g(b)-g(a))-g(b)\cdot (f(b)-f(a)) = -f(b)\cdot g(a)+g(b)\cdot f(a).
-\end{array}
-\]</span> Se cumple, por tanto, que <span class="math inline">\(h(a)=h(b)\)</span>. Aplicando el <strong>teorema de Rolle</strong> a la función <span class="math inline">\(h\)</span>, tenemos que existe un punto <span class="math inline">\(c\in (a,b)\)</span> tal que <span class="math inline">\(h'(c)=0\)</span>: <span class="math display">\[
-h'(c)=f'(c)\cdot (g(b)-g(a))-g'(c)\cdot (f(b)-f(a))=0,
-\]</span> de donde deducimos lo que dice la tesis del teorema: <span class="math display">\[
-f'(c)\cdot (g(b)-g(a)) = g'(c)\cdot (f(b)-f(a)).
-\]</span></p>
-</div>
-</section>
-<section id="teorema-del-valor-medio-de-lagrange" class="slide level2">
-<h2>Teorema del valor medio de Lagrange</h2>
-<div class="prop">
-<p>Corolario: Teorema del valor medio de Lagrange.</p>
-</div>
-<p>Sea <span class="math inline">\(f:[a,b]\longrightarrow \mathbb{R}\)</span> una función continua en <span class="math inline">\([a,b]\)</span> y derivable en <span class="math inline">\((a,b)\)</span>. Entonces, existe un punto <span class="math inline">\(c\in (a,b)\)</span> del interior del intervalo tal que: <span class="math display">\[
-f(b)-f(a)=f'(c)\cdot (b-a).
-\]</span></p>
-<div class="exercise">
-<p><strong>Ejercicio</strong></p>
-<p>Demostrar el teorema del valor medio de Lagrange.</p>
-<p>Indicación: considerar <span class="math inline">\(f(x)\)</span> la función del teorema, <span class="math inline">\(g(x)=x\)</span> y aplicar el <strong>teorema del valor medio de Cauchy</strong>.</p>
-</div>
-</section>
-<section id="teorema-del-valor-medio-de-lagrange-1" class="slide level2">
-<h2>Teorema del valor medio de Lagrange</h2>
-<div class="observ">
-<p>Observación.</p>
-</div>
-<p>El <strong>Teorema del valor medio de Lagrange</strong> es equivalente a afirmar lo que hemos dicho anteriormente: si <span class="math inline">\(f\)</span> es derivable en el intervalo abierto y continua en el cerrado, existe un punto <span class="math inline">\(c\)</span> del interior del intervalo tal que <span class="math inline">\(f'(c)=\frac{f(b)-f(a)}{b-a}\)</span>, es decir, la pendiente de la recta tangente en el punto <span class="math inline">\(c\)</span> coincide con la pendiente de la recta que pasa por los extremos <span class="math inline">\((a,f(a))\)</span> y <span class="math inline">\((b,f(b))\)</span>.</p>
-<p>Es decir, la recta tangente en el punto <span class="math inline">\(c\)</span> es paralela a la recta que pasa por los extremos del intervalo de definición de la función <span class="math inline">\(f\)</span>.</p>
-</section>
-<section id="consecuencias-de-los-teoremas" class="slide level2">
-<h2>Consecuencias de los teoremas</h2>
-<div class="prop">
-<p>Corolario.</p>
-</div>
-<p>Sea <span class="math inline">\(f:[a,b]\longrightarrow \mathbb{R}\)</span> una función continua en <span class="math inline">\([a,b]\)</span> y derivable en <span class="math inline">\((a,b)\)</span> tal que <span class="math inline">\(f'(x)=0\)</span> para todo <span class="math inline">\(x\in (a,b)\)</span>. Entonces <span class="math inline">\(f\)</span> es constante.</p>
-<div class="dem">
-<p><strong>Demostración</strong></p>
-<p>Sea <span class="math inline">\(x\in (a,b]\)</span>. Veamos que <span class="math inline">\(f(x)=f(a)\)</span> y, por tanto, <span class="math inline">\(f\)</span> será constante.</p>
-<p>Para ello, consideremos la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([a,x]\)</span>, <span class="math inline">\(f:[a,x]\longrightarrow\mathbb{R}\)</span>, que será continua en <span class="math inline">\([a,x]\)</span> y derivable en <span class="math inline">\((a,x)\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong>, tenemos que existe un <span class="math inline">\(c\in (a,x)\)</span> tal que: <span class="math display">\[
-f(x)-f(a)=f'(c)\cdot (x-a)=0,
-\]</span> ya que nos dicen que <span class="math inline">\(f'(c)=0\)</span> al ser la derivada nula en cualquier punto del intervalo <span class="math inline">\((a,b)\)</span>.</p>
-<p>Deducimos, por tanto, que <span class="math inline">\(f(x)=f(a)\)</span>, condición que equivale a que la función <span class="math inline">\(f\)</span> es constante.</p>
-</div>
-</section>
 <section id="consecuencias-de-los-teoremas-1" class="slide level2">
-<h2>Consecuencias de los teoremas</h2>
-<p><l class="prop">Corolario.</l></p>
-<p>Sean <span class="math inline">\(f, g:[a,b]\longrightarrow \mathbb{R}\)</span> funciones continuas en <span class="math inline">\([a,b]\)</span> y derivables en <span class="math inline">\((a,b)\)</span> tal que <span class="math inline">\(f'(x)=g'(x)\)</span> para todo <span class="math inline">\(x\in (a,b)\)</span>. Entonces <span class="math inline">\(f(x)-g(x)\)</span> es constante.</p>
-<div class="exercise">
-<p><strong>Ejercicio</strong></p>
-<p>Demostrar el corolario anterior.</p>
-<p>Indicación: aplicar el resultado que hemos visto antes a la función <span class="math inline">\(h(x)=f(x)-g(x)\)</span>.</p>
-</div>
-</section>
-<section id="consecuencias-de-los-teoremas-2" class="slide level2">
 <h2>Consecuencias de los teoremas</h2>
 <div class="prop">
 <p>Corolario.</p>
@@ -903,7 +713,7 @@ f(x)-f(a)=f'(c)\cdot (x-a)=0,
 <p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
 </div>
 </section>
-<section id="consecuencias-de-los-teoremas-3" class="slide level2">
+<section id="consecuencias-de-los-teoremas-2" class="slide level2">
 <h2>Consecuencias de los teoremas</h2>
 <div class="dem">
 <p><strong>Demostración</strong></p>
@@ -915,15 +725,7 @@ f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
 \]</span></p>
 </div>
 </section>
-<section id="consecuencias-de-los-teoremas-4" class="slide level2">
-<h2>Consecuencias de los teoremas</h2>
-<div class="dem">
-<p><strong>Demostración</strong></p>
-<p>En resumen, el cociente <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span> siempre es positivo, condición que equivale a afirmar que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
-<p>De hecho, hubiera sido suficiente demostrar que el cociente anterior es positivo en un entorno de <span class="math inline">\(x_0\)</span> pero hemos demostrado más, hemos visto que dicho cociente siempre es positivo sea cual sea el valor <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
-</div>
-</section>
-<section id="consecuencias-de-los-teoremas-5" class="slide level2">
+<section id="consecuencias-de-los-teoremas-3" class="slide level2">
 <h2>Consecuencias de los teoremas</h2>
 <div class="prop">
 <p>Corolario.</p>
@@ -934,200 +736,932 @@ f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
 <p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
 </div>
 </section>
-<section id="ejemplo-11" class="slide level2">
+<section id="ejemplo-10" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
-<p>Consideremos la función vista anteriormente <span class="math inline">\(f(x)=\sin (x)-\cos(x)\)</span> definida en el intervalo <span class="math inline">\((-\pi,\pi)\)</span>.</p>
-<p>Como <span class="math inline">\(f(-\pi)=1=f(\pi)\)</span>, aplicando el <strong>teorema de Rolle</strong>, sabemos que existe como mínimo un punto <span class="math inline">\(c\)</span> tal que <span class="math inline">\(f'(c)=0\)</span>. De hecho, hay dos como hemos visto anteriormente: <span class="math inline">\(c=-\frac{\pi}{4}\)</span> y <span class="math inline">\(c=\frac{3}{4}\pi\)</span>: <span class="math display">\[
+<p>Consideremos la función siguiente definida en el intervalo <span class="math inline">\((-2\pi,2\pi)\)</span>: <span class="math display">\[
 \begin{array}{rl}
-f'(x) &amp; =\cos(x)+\sin(x),\\
-f'\left(-\frac{\pi}{4}\right) &amp; =\cos\left(-\frac{\pi}{4}\right)+\sin\left(-\frac{\pi}{4}\right)=\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}=0,\\
-f'\left(\frac{3\pi}{4}\right) &amp; =\cos\left(\frac{3\pi}{4}\right)+\sin\left(\frac{3\pi}{4}\right)=-\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}=0.
+f:(-2\pi,2\pi) &amp; \longrightarrow \mathbb{R},\\
+x&amp; \longrightarrow \sin(x)-\cos(x).
 \end{array}
-\]</span> Si ahora consideramos la función anterior pero definida en el intervalo <span class="math inline">\(\left(-\frac{\pi}{2},\frac{\pi}{2}\right)\)</span>, tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
-f'(c)=\cos(c)+\sin(c)=\frac{f\left(\frac{\pi}{2}\right)-f\left(-\frac{\pi}{2}\right)}{\frac{\pi}{2}-\left(-\frac{\pi}{2}\right)}=\frac{1-(-1)}{\pi}=\frac{2}{\pi}.
+\]</span> El gráfico de dicha función puede observase en la figura siguiente.</p>
+<p>Vemos que tiene dos <strong>máximos relativos</strong> en los valores <span class="math inline">\(x=-\frac{5}{4}\pi\)</span> y <span class="math inline">\(x=\frac{3}{4}\pi\)</span> y dos <strong>mínimos relativos</strong> en los valores <span class="math inline">\(x=-\frac{\pi}{4}\)</span> y <span class="math inline">\(x=\frac{7}{4}\pi\)</span>.</p>
+<p>Observamos que dichos máximos y mínimos son <strong>absolutos</strong>.</p>
+<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
+</div>
+</section>
+<section id="ejemplo-11" class="slide level2">
+<h2>Ejemplo</h2>
+<div class="example">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivación-y-extremos-6" class="slide level2">
+<h2>Derivación y extremos</h2>
+<p><l class="prop">Teorema.</l></p>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span> que sea <strong>extremo relativo</strong> de la función. Entonces si <span class="math inline">\(f\)</span> es <strong>derivable</strong> en el punto <span class="math inline">\(x_0\)</span>, se verifica que <span class="math inline">\(f'(x_0)=0\)</span>.</p>
+<p>Intuitivamente, el teorema anterior nos dice que si la función <span class="math inline">\(f\)</span> tiene un comportamiento <strong>suave</strong> en el extremo <span class="math inline">\(x_0\)</span>, la recta tangente en este punto tiene que ser <strong>horizontal</strong>, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior.</p>
+</section>
+<section id="derivación-y-extremos-7" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(f\)</span> es derivable en el punto <span class="math inline">\(x_0\)</span>, sabemos que existe el límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)</span>.</p>
+<p>Decir que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span> es equivalente a decir que la función siguiente: <span class="math display">\[
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, &amp; \mbox{si }x\neq x_0,\\
+f'(x_0), &amp;\mbox{si }x=x_0,
+\end{cases}
+\]</span> es continua en <span class="math inline">\(x_0\)</span>.</p>
+<p>Veamos a continuación que necesariamente <span class="math inline">\(g(x_0)=f'(x_0)=0\)</span> y quedará demostrado el teorema.</p>
+<p>Supongamos que <span class="math inline">\(g(x_0)&gt;0\)</span>. Como la función <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(x_0\)</span>, por el teorema de conservación del signo de funciones continuas, existirá un entorno de <span class="math inline">\(x_0\)</span>, es decir, existirá un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, <span class="math inline">\(g(x)&gt;0\)</span> también será positiva para todos los valores <span class="math inline">\(x\)</span> de dicho entorno.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-8" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-9" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="prop">
+<p>Proposición.</p>
+</div>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>, usando la definición de límite tenemos que: <span class="math display">\[
+\forall \epsilon &gt;0,\ \exists\delta &gt;0\ \mbox{t.q. si }|x-x_0|&lt;\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|&lt; \epsilon.
 \]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-4" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-5" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Rightarrow\)</span> Supongamos que la función <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span>. Esto significa que fijado <span class="math inline">\(x_0\in (a,b)\)</span> en el intervalo, existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un <span class="math inline">\(\delta &gt;0\)</span>, tal que para todo valor <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, se verifica que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span>.</p>
+<p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-6" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Leftarrow\)</span> Supongamos ahora que <span class="math inline">\(f'(x_0)\geq 0\)</span>, para todo valor <span class="math inline">\(x_0\in (a,b)\)</span> dentro del intervalo. Veamos que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
+<p>Sea <span class="math inline">\(x&gt;x_0\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x_0,x]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span> Sea ahora <span class="math inline">\(x&lt;x_0\)</span>. Si volvemos a aplicar el el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x,x_0]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-7" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es decreciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\leq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
 </div>
 </section>
 <section id="ejemplo-12" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>Hallemos a continuación el valor <span class="math inline">\(c\)</span>: <span class="math display">\[
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos la función siguiente definida en el intervalo <span class="math inline">\((-2\pi,2\pi)\)</span>: <span class="math display">\[
 \begin{array}{rl}
-\cos(c)+\sin(c) &amp; = \frac{2}{\pi}, \\
-\cos(c) &amp; = \frac{2}{\pi}-\sin(c), \\
-\pm \sqrt{1-\sin^2(c)} &amp; = \frac{2}{\pi}-\sin(c), \\
-1-\sin^2(c)  &amp; = \left(\frac{2}{\pi}-\sin(c)\right)^2 = \frac{4}{\pi^2}+\sin^2(c)-\frac{4}{\pi}\sin(c),\\
-2\sin^2(c)-\frac{4}{\pi}\sin(c)+\frac{4}{\pi^2}-1 &amp; = 0,\\
-\sin(c) &amp; = \frac{\frac{4}{\pi}\pm \sqrt{\frac{16}{\pi^2}-8\cdot\left(\frac{4}{\pi^2}-1\right)}}{4},\\
-\sin(c) &amp; = \frac{\frac{4}{\pi}\pm \sqrt{8-\frac{16}{\pi^2}}}{4}=\frac{4\pm\sqrt{8\pi^2-16}}{4\pi}=\frac{2\pm\sqrt{2\pi^2-4}}{2\pi}.
+f:(-2\pi,2\pi) &amp; \longrightarrow \mathbb{R},\\
+x&amp; \longrightarrow \sin(x)-\cos(x).
 \end{array}
-\]</span></p>
+\]</span> El gráfico de dicha función puede observase en la figura siguiente.</p>
+<p>Vemos que tiene dos <strong>máximos relativos</strong> en los valores <span class="math inline">\(x=-\frac{5}{4}\pi\)</span> y <span class="math inline">\(x=\frac{3}{4}\pi\)</span> y dos <strong>mínimos relativos</strong> en los valores <span class="math inline">\(x=-\frac{\pi}{4}\)</span> y <span class="math inline">\(x=\frac{7}{4}\pi\)</span>.</p>
+<p>Observamos que dichos máximos y mínimos son <strong>absolutos</strong>.</p>
+<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
 </div>
 </section>
 <section id="ejemplo-13" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>El valor de <span class="math inline">\(\cos(c)\)</span> será: <span class="math display">\[
-\begin{array}{rl}
-\cos(c) &amp; =\pm\sqrt{1-\left(\frac{2\pm\sqrt{2\pi^2-4}}{2\pi}\right)^2} = \pm\sqrt{1-\frac{2\pi^2\pm 4\sqrt{2\pi^2-4}}{4\pi^2}}=\pm\sqrt{\frac{2\pi^2\mp4\sqrt{2\pi^2-4}}{4\pi^2}}\\
-&amp; =\pm\sqrt{\frac{(2\mp\sqrt{2\pi^2-4})^2}{4\pi^2}} = \pm\frac{(2\mp\sqrt{2\pi^2-4})}{2\pi}.
-\end{array}
-\]</span> Entonces las parejas <span class="math inline">\((\sin(c),\cos(c))\)</span> son las siguientes:</p>
-<ul>
-<li>si <span class="math inline">\(\sin(c)=\frac{2+\sqrt{2\pi^2-4}}{2\pi}\)</span>, entonces <span class="math inline">\(\cos(c)=\frac{2-\sqrt{2\pi^2-4}}{2\pi}\)</span>,</li>
-<li>si <span class="math inline">\(\sin(c)=\frac{2-\sqrt{2\pi^2-4}}{2\pi}\)</span>, entonces <span class="math inline">\(\cos(c)=\frac{2+\sqrt{2\pi^2-4}}{2\pi}\)</span>.</li>
-</ul>
-<p>El primer caso no puede ser ya que <span class="math inline">\(\cos(c)&lt;0\)</span> y como estamos en el intervalo <span class="math inline">\(\left(-\frac{\pi}{2},\frac{\pi}{2}\right)\)</span>, la función coseno es positiva.</p>
-<p>Sólo será solución el segundo caso, donde el valor de <span class="math inline">\(c\)</span> será aproximadamente: -0.318.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivación-y-extremos-10" class="slide level2">
+<h2>Derivación y extremos</h2>
+<p><l class="prop">Teorema.</l></p>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span> que sea <strong>extremo relativo</strong> de la función. Entonces si <span class="math inline">\(f\)</span> es <strong>derivable</strong> en el punto <span class="math inline">\(x_0\)</span>, se verifica que <span class="math inline">\(f'(x_0)=0\)</span>.</p>
+<p>Intuitivamente, el teorema anterior nos dice que si la función <span class="math inline">\(f\)</span> tiene un comportamiento <strong>suave</strong> en el extremo <span class="math inline">\(x_0\)</span>, la recta tangente en este punto tiene que ser <strong>horizontal</strong>, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior.</p>
+</section>
+<section id="derivación-y-extremos-11" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(f\)</span> es derivable en el punto <span class="math inline">\(x_0\)</span>, sabemos que existe el límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)</span>.</p>
+<p>Decir que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span> es equivalente a decir que la función siguiente: <span class="math display">\[
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, &amp; \mbox{si }x\neq x_0,\\
+f'(x_0), &amp;\mbox{si }x=x_0,
+\end{cases}
+\]</span> es continua en <span class="math inline">\(x_0\)</span>.</p>
+<p>Veamos a continuación que necesariamente <span class="math inline">\(g(x_0)=f'(x_0)=0\)</span> y quedará demostrado el teorema.</p>
+<p>Supongamos que <span class="math inline">\(g(x_0)&gt;0\)</span>. Como la función <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(x_0\)</span>, por el teorema de conservación del signo de funciones continuas, existirá un entorno de <span class="math inline">\(x_0\)</span>, es decir, existirá un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, <span class="math inline">\(g(x)&gt;0\)</span> también será positiva para todos los valores <span class="math inline">\(x\)</span> de dicho entorno.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-12" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-13" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="prop">
+<p>Proposición.</p>
+</div>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>, usando la definición de límite tenemos que: <span class="math display">\[
+\forall \epsilon &gt;0,\ \exists\delta &gt;0\ \mbox{t.q. si }|x-x_0|&lt;\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|&lt; \epsilon.
+\]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-8" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo $x” del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-9" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Rightarrow\)</span> Supongamos que la función <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span>. Esto significa que fijado <span class="math inline">\(x_0\in (a,b)\)</span> en el intervalo, existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un <span class="math inline">\(\delta &gt;0\)</span>, tal que para todo valor <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, se verifica que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span>.</p>
+<p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-10" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Leftarrow\)</span> Supongamos ahora que <span class="math inline">\(f'(x_0)\geq 0\)</span>, para todo valor <span class="math inline">\(x_0\in (a,b)\)</span> dentro del intervalo. Veamos que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
+<p>Sea <span class="math inline">\(x&gt;x_0\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x_0,x]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span> Sea ahora <span class="math inline">\(x&lt;x_0\)</span>. Si volvemos a aplicar el el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x,x_0]\)</span> tenemos que existe un punto <span class="math inline">\(c" tal que:\)</span>$ f’(c)==. $$</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-11" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es decreciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\leq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
 </div>
 </section>
 <section id="ejemplo-14" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>Comprobemos usando <code>python</code> que el valor de <span class="math inline">\(c\)</span> hallado es el correcto:</p>
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>El valor de c es: -0.3184557133984764</code></pre>
-</div>
-</div>
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos la función siguiente definida en el intervalo <span class="math inline">\((-2\pi,2\pi)\)</span>: <span class="math display">\[
+\begin{array}{rl}
+f:(-2\pi,2\pi) &amp; \longrightarrow \mathbb{R},\\
+x&amp; \longrightarrow \sin(x)-\cos(x).
+\end{array}
+\]</span> El gráfico de dicha función puede observase en la figura siguiente.</p>
+<p>Vemos que tiene dos <strong>máximos relativos</strong> en los valores <span class="math inline">\(x=-\frac{5}{4}\pi\)</span> y <span class="math inline">\(x=\frac{3}{4}\pi\)</span> y dos <strong>mínimos relativos</strong> en los valores <span class="math inline">\(x=-\frac{\pi}{4}\)</span> y <span class="math inline">\(x=\frac{7}{4}\pi\)</span>.</p>
+<p>Observamos que dichos máximos y mínimos son <strong>absolutos</strong>.</p>
+<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
 </div>
 </section>
 <section id="ejemplo-15" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>El valor de la derivada de f en c es:0.6366197723675814</code></pre>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>El valor de 2/pi es:0.6366197723675814</code></pre>
 </div>
 </div>
 </div>
 </section>
-<section id="regla-de-lhôpital" class="slide level2">
-<h2>Regla de L’Hôpital</h2>
-<p>Una de las aplicaciones más importantes de las derivadas es su aplicación al cálculo de límites de funciones.</p>
-<p>La regla de L’Hôpital permite resolver indeterminaciones usando derivadas:</p>
+<section id="derivación-y-extremos-14" class="slide level2">
+<h2>Derivación y extremos</h2>
+<p><l class="prop">Teorema.</l></p>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span> que sea <strong>extremo relativo</strong> de la función. Entonces si <span class="math inline">\(f\)</span> es <strong>derivable</strong> en el punto <span class="math inline">\(x_0\)</span>, se verifica que <span class="math inline">\(f'(x_0)=0\)</span>.</p>
+<p>Intuitivamente, el teorema anterior nos dice que si la función <span class="math inline">\(f\)</span> tiene un comportamiento <strong>suave</strong> en el extremo <span class="math inline">\(x_0\)</span>, la recta tangente en este punto tiene que ser <strong>horizontal</strong>, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior.</p>
 </section>
-<section id="regla-de-lhôpital-1" class="slide level2">
-<h2>Regla de L’Hôpital</h2>
-<div class="prop">
-<p>Teorema: regla de L’Hôpital.</p>
-</div>
-<p>Sean <span class="math inline">\(f,g:(a,b)\longrightarrow\mathbb{R}\)</span> dos funciones derivables en un punto <span class="math inline">\(c\in (a,b)\)</span>. Supongamos:</p>
-<ul>
-<li><span class="math inline">\(f(c)=g(c)=0\)</span>,</li>
-<li><span class="math inline">\(g(x)\neq 0\)</span> y <span class="math inline">\(g'(x)\neq 0\)</span> para todo punto <span class="math inline">\(x\)</span> del entorno de <span class="math inline">\(c\)</span> diferente de <span class="math inline">\(c\)</span>,</li>
-</ul>
-<p>Si se verifican las condiciones anteriores y el límite siguiente existe <span class="math inline">\(\displaystyle\lim_{x\to c}\frac{f'(x)}{g'(x)}\)</span> y vale <span class="math inline">\(L\)</span>, entonces también existe el límite <span class="math inline">\(\displaystyle\lim_{x\to c}\frac{f(x)}{g(x)}\)</span> y vale <span class="math inline">\(L\)</span>.</p>
-</section>
-<section id="regla-de-lhôpital-2" class="slide level2">
-<h2>Regla de L’Hôpital</h2>
+<section id="derivación-y-extremos-15" class="slide level2">
+<h2>Derivación y extremos</h2>
 <div class="dem">
 <p><strong>Demostración</strong></p>
-<p>Sea <span class="math inline">\(\delta &gt;0\)</span> tal que <span class="math inline">\((c-\delta,c+\delta)\subseteq (a,b)\)</span> y donde se cumplen las condiciones del teorema.</p>
-<p>Sea <span class="math inline">\(x\in (c-\delta,c+\delta)\)</span> un punto del entorno. En el intervalo <span class="math inline">\([c,x]\)</span> se cumplen las hipótesis del <strong>Teorema del valor medio de Cauchy</strong>, ya que <span class="math inline">\(f\)</span> y <span class="math inline">\(g\)</span> son derivables en <span class="math inline">\((c,x)\)</span> al serlo en todo el entorno <span class="math inline">\((c-\delta,c+\delta)\)</span>, y continuas en <span class="math inline">\([c,x]\)</span>, ya que como son derivables en todo el entorno, serán continuas y como <span class="math inline">\([c,x]\subset (c-\delta,c+\delta)\)</span>, también serán continuas en el intervalo <span class="math inline">\([c,x]\)</span>.</p>
-<p>Usando por tanto el <strong>Teorema del valor medio de Cauchy</strong>, podemos afirmar que existe un punto <span class="math inline">\(d\in (c,x)\)</span> tal que: <span class="math display">\[
-f'(d)\cdot (g(d)-g(c))=g'(d)\cdot (f(d)-f(c)).
-\]</span> Recordemos que <span class="math inline">\(f(c)=g(c)=0\)</span>, <span class="math inline">\(f'(d)\neq 0\)</span> y <span class="math inline">\(g'(d)\neq 0\)</span> ya que suponíamos que las derivadas <span class="math inline">\(f'\)</span> y <span class="math inline">\(g'\)</span> no se anulaban en el entorno de <span class="math inline">\(c\)</span>. Usando las condiciones anteriores, podemos simplificar la expresión anterior de la siguiente manera: <span class="math display">\[
-\frac{f'(d)}{g'(d)}=\frac{f(d)}{g(d)}.
+<p>Como <span class="math inline">\(f\)</span> es derivable en el punto <span class="math inline">\(x_0\)</span>, sabemos que existe el límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)</span>.</p>
+<p>Decir que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span> es equivalente a decir que la función siguiente: <span class="math display">\[
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, &amp; \mbox{si }x\neq x_0,\\
+f'(x_0), &amp;\mbox{si }x=x_0,
+\end{cases}
+\]</span> es continua en <span class="math inline">\(x_0\)</span>.</p>
+<p>Veamos a continuación que necesariamente <span class="math inline">\(g(x_0)=f'(x_0)=0\)</span> y quedará demostrado el teorema.</p>
+<p>Supongamos que <span class="math inline">\(g(x_0)&gt;0\)</span>. Como la función <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(x_0\)</span>, por el teorema de conservación del signo de funciones continuas, existirá un entorno de <span class="math inline">\(x_0\)</span>, es decir, existirá un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, <span class="math inline">\(g(x)&gt;0\)</span> también será positiva para todos los valores <span class="math inline">\(x\)</span> de dicho entorno.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-16" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo $x” del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-17" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="prop">
+<p>Proposición.</p>
+</div>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>, usando la definición de límite tenemos que: <span class="math display">\[
+\forall \epsilon &gt;0,\ \exists\delta &gt;0\ \mbox{t.q. si }|x-x_0|&lt;\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|&lt; \epsilon.
 \]</span></p>
 </div>
 </section>
-<section id="regla-de-lhôpital-3" class="slide level2">
-<h2>Regla de L’Hôpital</h2>
+<section id="consecuencias-de-los-teoremas-12" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
 <div class="dem">
-<p>Si hacemos tender <span class="math inline">\(x\to c\)</span>, como <span class="math inline">\(d\in (c,x)\)</span>, tendremos que <span class="math inline">\(d\to c\)</span>. Por tanto, <span class="math display">\[
-\lim_{x\to c}\frac{f(x)}{g(x)}=\lim_{x\to c}\frac{f'(x)}{g'(x)}=L,
-\]</span> por hipótesis.</p>
-<p>En resumen, si existe <span class="math inline">\(\displaystyle \lim_{x\to c}\frac{f'(x)}{g'(x)}\)</span>, también existe el límite <span class="math inline">\(\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)}\)</span> y los dos coinciden.</p>
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un $&gt;0” tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
 </div>
-<div class="observ">
-<p>Observación.</p>
+</section>
+<section id="consecuencias-de-los-teoremas-13" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
 </div>
-<p>El teorema sigue siendo cierto en el caso en que <span class="math inline">\(a\)</span>, <span class="math inline">\(b\)</span>, <span class="math inline">\(c\)</span> o <span class="math inline">\(L\)</span> son <span class="math inline">\(\pm \infty\)</span>. Es decir, si existe el límite <span class="math inline">\(\displaystyle \lim_{x\to \pm\infty}\frac{f'(x)}{g'(x)}\)</span>, también existe el límite <span class="math inline">\(\displaystyle \lim_{x\to \pm\infty}\frac{f(x)}{g(x)}\)</span> y los dos coinciden y pueden tener como resultado <span class="math inline">\(\pm\infty\)</span>.</p>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Rightarrow\)</span> Supongamos que la función <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span>. Esto significa que fijado <span class="math inline">\(x_0\in (a,b)\)</span> en el intervalo, existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un <span class="math inline">\(\delta &gt;0\)</span>, tal que para todo valor <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, se verifica que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span>.</p>
+<p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-14" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Leftarrow\)</span> Supongamos ahora que <span class="math inline">\(f'(x_0)\geq 0\)</span>, para todo valor <span class="math inline">\(x_0\in (a,b)\)</span> dentro del intervalo. Veamos que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
+<p>Sea <span class="math inline">\(x&gt;x_0\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x_0,x]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span> Sea ahora <span class="math inline">\(x&lt;x_0\)</span>. Si volvemos a aplicar el el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x,x_0]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-15" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es decreciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\leq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
+</div>
 </section>
 <section id="ejemplo-16" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
-<p>Calculemos el valor del límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to 0}\frac{\sin x-x}{x-x\cos x}\)</span>.</p>
-<p>Observemos que si sustituimos por el valor <span class="math inline">\(0\)</span>, obtenemos la indeterminación <span class="math inline">\(\frac{0}{0}\)</span>.</p>
-<p>Usando la regla de L’Hôpital, calculemos el límite anterior: <span class="math display">\[
-\lim_{x\to 0}\frac{\sin x-x}{x-x\cos x} = \lim_{x\to 0}\frac{\cos x-1}{1-\cos x+x\sin x}=\frac{0}{0}.
-\]</span> Nos vuelve a dar la indeterminación <span class="math inline">\(\frac{0}{0}\)</span>. Aplicando la regla de L’Hôpital por segunda vez, obtenemos: <span class="math display">\[
-\lim_{x\to 0}\frac{\cos x-1}{1-\cos x+x\sin x} =\lim_{x\to 0}\frac{-\sin x}{\sin x+\sin x+x\cos x}=\lim_{x\to 0}\frac{-\sin x}{2\sin x+x\cos x}=\frac{0}{0}.
-\]</span></p>
+<p>Consideremos la función siguiente definida en el intervalo <span class="math inline">\((-2\pi,2\pi)\)</span>: <span class="math display">\[
+\begin{array}{rl}
+f:(-2\pi,2\pi) &amp; \longrightarrow \mathbb{R},\\
+x&amp; \longrightarrow \sin(x)-\cos(x).
+\end{array}
+\]</span> El gráfico de dicha función puede observase en la figura siguiente.</p>
+<p>Vemos que tiene dos <strong>máximos relativos</strong> en los valores <span class="math inline">\(x=-\frac{5}{4}\pi\)</span> y <span class="math inline">\(x=\frac{3}{4}\pi\)</span> y dos <strong>mínimos relativos</strong> en los valores <span class="math inline">\(x=-\frac{\pi}{4}\)</span> y <span class="math inline">\(x=\frac{7}{4}\pi\)</span>.</p>
+<p>Observamos que dichos máximos y mínimos son <strong>absolutos</strong>.</p>
+<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
 </div>
 </section>
 <section id="ejemplo-17" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>Nos vuelve a dar la indeterminación <span class="math inline">\(\frac{0}{0}\)</span>. Aplicando la regla de L’Hôpital por tercera vez, obtenemos: <span class="math display">\[
-\lim_{x\to 0}\frac{-\sin x}{2\sin x+x\cos x} =\lim_{x\to 0}\frac{-\cos x}{2\cos x+\cos x-x\sin x}=\frac{-1}{3}.
-\]</span> El límite tiene el valor <span class="math inline">\(-\frac{1}{3}\)</span>.</p>
-<p>El límite anterior en <code>Wolfram Alpha</code> se muestra en el enlace siguiente:</p>
-<div class="center">
-<p><a href="https://www.wolframalpha.com/input/?i=limit+of+%28sin%28x%29-x%29%2F%28x-x*cos%28x%29%29+when+x+tends+to+0"><img data-src="Images/wolfram.png"></a></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </section>
-<section id="regla-de-lhôpital-4" class="slide level2">
-<h2>Regla de L’Hôpital</h2>
-<div class="box">
-<div class="important">
-<p><i class="fa fa-exclamation-triangle"> ¡Cuidado! </i></p>
+<section id="derivación-y-extremos-18" class="slide level2">
+<h2>Derivación y extremos</h2>
+<p><l class="prop">Teorema.</l></p>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span> que sea <strong>extremo relativo</strong> de la función. Entonces si <span class="math inline">\(f\)</span> es <strong>derivable</strong> en el punto <span class="math inline">\(x_0\)</span>, se verifica que <span class="math inline">\(f'(x_0)=0\)</span>.</p>
+<p>Intuitivamente, el teorema anterior nos dice que si la función <span class="math inline">\(f\)</span> tiene un comportamiento <strong>suave</strong> en el extremo <span class="math inline">\(x_0\)</span>, la recta tangente en este punto tiene que ser <strong>horizontal</strong>, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior.</p>
+</section>
+<section id="derivación-y-extremos-19" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(f\)</span> es derivable en el punto <span class="math inline">\(x_0\)</span>, sabemos que existe el límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)</span>.</p>
+<p>Decir que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span> es equivalente a decir que la función siguiente: <span class="math display">\[
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, &amp; \mbox{si }x\neq x_0,\\
+f'(x_0), &amp;\mbox{si }x=x_0,
+\end{cases}
+\]</span> es continua en <span class="math inline">\(x_0\)</span>.</p>
+<p>Veamos a continuación que necesariamente <span class="math inline">\(g(x_0)=f'(x_0)=0\)</span> y quedará demostrado el teorema.</p>
+<p>Supongamos que <span class="math inline">\(g(x_0)&gt;0\)</span>. Como la función <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(x_0\)</span>, por el teorema de conservación del signo de funciones continuas, existirá un entorno de <span class="math inline">\(x_0\)</span>, es decir, existirá un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, <span class="math inline">\(g(x)&gt;0\)</span> también será positiva para todos los valores <span class="math inline">\(x\)</span> de dicho entorno.</p>
 </div>
-<p>La Regla de L’Hôpital sólo se puede aplicar en un sentido. Es decir, si existe el límite <span class="math inline">\(\displaystyle \lim_{x\to c}\frac{f'(x)}{g'(x)}\)</span>, bajo las condiciones del teorema anterior, existe el <span class="math inline">\(\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)}\)</span> y son iguales; ahora bien, si no existe el límite <span class="math inline">\(\displaystyle \lim_{x\to c}\frac{f'(x)}{g'(x)}\)</span>, no podemos decir nada acerca del límite <span class="math inline">\(\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)}\)</span>. Véase el ejemplo siguiente.</p>
+</section>
+<section id="derivación-y-extremos-20" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo $x” del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-21" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="prop">
+<p>Proposición.</p>
+</div>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>, usando la definición de límite tenemos que: <span class="math display">\[
+\forall \epsilon &gt;0,\ \exists\delta &gt;0\ \mbox{t.q. si }|x-x_0|&lt;\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|&lt; \epsilon.
+\]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-16" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-17" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Rightarrow\)</span> Supongamos que la función <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span>. Esto significa que fijado <span class="math inline">\(x_0\in (a,b)\)</span> en el intervalo, existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un <span class="math inline">\(\delta &gt;0\)</span>, tal que para todo valor <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, se verifica que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span>.</p>
+<p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-18" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Leftarrow\)</span> Supongamos ahora que <span class="math inline">\(f'(x_0)\geq 0\)</span>, para todo valor <span class="math inline">\(x_0\in (a,b)\)</span> dentro del intervalo. Veamos que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
+<p>Sea <span class="math inline">\(x&gt;x_0\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x_0,x]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span> Sea ahora <span class="math inline">\(x&lt;x_0\)</span>. Si volvemos a aplicar el el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x,x_0]\)</span> tenemos que existe un punto <span class="math inline">\(c" tal que:\)</span>$ f’(c)==. $$</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-19" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es decreciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\leq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
 </div>
 </section>
 <section id="ejemplo-18" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
 <p><strong>Ejemplo</strong></p>
-<p>Consideremos el límite siguiente: <span class="math inline">\(\displaystyle\lim_{x\to 0}\frac{x^2\sin\left(\frac{1}{x}\right)}{\sin x}.\)</span></p>
-<p>Si sustituimos <span class="math inline">\(x\)</span> por <span class="math inline">\(0\)</span> en el límite anterior obtenemos el valor <span class="math inline">\(\frac{0}{0}\)</span>, pensad que <span class="math inline">\(\displaystyle\lim_{x\to 0}x^2\sin\left(\frac{1}{x}\right)=0\)</span> vale <span class="math inline">\(0\)</span> ya que es el límite de una funció que tiende a 0 (<span class="math inline">\(x^2\)</span>) por una función acotada <span class="math inline">\(\left(\sin\left(\frac{1}{x}\right)\right)\)</span>.</p>
-<p>Apliquemos pues la regla de l’Hôpital: <span class="math display">\[
+<p>Consideremos la función siguiente definida en el intervalo <span class="math inline">\((-2\pi,2\pi)\)</span>: <span class="math display">\[
 \begin{array}{rl}
-\displaystyle\lim_{x\to 0}\frac{\left(x^2\sin\left(\frac{1}{x}\right)\right)'}{(\sin x)'} &amp; \displaystyle =\lim_{x\to 0}\frac{2x\sin\left(\frac{1}{x}\right)+x^2\cdot \left(-\frac{1}{x^2}\cos\left(\frac{1}{x}\right)\right)}{\cos x}=
-\lim_{x\to 0}\frac{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}{\cos x} \\ &amp; \displaystyle =\lim_{x\to 0} \frac{2x\sin\left(\frac{1}{x}\right)}{\cos x}-\lim_{x\to 0}\frac{\cos\left(\frac{1}{x}\right)}{\cos x} = 0-\lim_{x\to 0}\frac{\cos\left(\frac{1}{x}\right)}{\cos x} = -\lim_{x\to 0}\frac{\cos\left(\frac{1}{x}\right)}{\cos x}.
+f:(-2\pi,2\pi) &amp; \longrightarrow \mathbb{R},\\
+x&amp; \longrightarrow \sin(x)-\cos(x).
 \end{array}
-\]</span> El límite <span class="math inline">\(\displaystyle \lim_{x\to 0} \frac{2x\sin\left(\frac{1}{x}\right)}{\cos x}\)</span> vale <span class="math inline">\(0\)</span> ya que el denominador tiende a <span class="math inline">\(1\)</span> cuando <span class="math inline">\(x\to 0\)</span> y el numerador es el límite de una función que tiende a <span class="math inline">\(0\)</span> (<span class="math inline">\(2x\)</span>) por una función acotada <span class="math inline">\(\left(\sin\left(\frac{1}{x}\right)\right)\)</span>.</p>
+\]</span> El gráfico de dicha función puede observase en la figura siguiente.</p>
+<p>Vemos que tiene dos <strong>máximos relativos</strong> en los valores <span class="math inline">\(x=-\frac{5}{4}\pi\)</span> y <span class="math inline">\(x=\frac{3}{4}\pi\)</span> y dos <strong>mínimos relativos</strong> en los valores <span class="math inline">\(x=-\frac{\pi}{4}\)</span> y <span class="math inline">\(x=\frac{7}{4}\pi\)</span>.</p>
+<p>Observamos que dichos máximos y mínimos son <strong>absolutos</strong>.</p>
+<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
 </div>
 </section>
 <section id="ejemplo-19" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>El límite del cociente de derivadas no existe ya que si consideramos la sucesión <span class="math inline">\(x_n=\frac{1}{2\pi n}\longrightarrow 0\)</span>, si <span class="math inline">\(n\to\infty\)</span>, el límite de la sucesión <span class="math inline">\(\frac{\cos\left(\frac{1}{x_n}\right)}{\cos x_n}\)</span> vale: <span class="math display">\[
--\lim_{n\to\infty}\frac{\cos (2\pi n)}{\cos\left(\frac{1}{2\pi n}\right)}=-1.
-\]</span> En cambio, si consideramos la sucesión <span class="math inline">\(y_n =\frac{1}{\frac{\pi}{2}+2\pi n}\longrightarrow 0\)</span>, si <span class="math inline">\(n\to\infty\)</span>, el límite de la sucesión <span class="math inline">\(\frac{\cos\left(\frac{1}{y_n}\right)}{\cos y_n}\)</span> vale: <span class="math display">\[
--\lim_{n\to\infty}\frac{\cos \left(\frac{\pi}{2}+2\pi n\right)}{\cos\left(\frac{1}{\frac{\pi}{2}+2\pi n}\right)}=0.
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivación-y-extremos-22" class="slide level2">
+<h2>Derivación y extremos</h2>
+<p><l class="prop">Teorema.</l></p>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span> que sea <strong>extremo relativo</strong> de la función. Entonces si <span class="math inline">\(f\)</span> es <strong>derivable</strong> en el punto <span class="math inline">\(x_0\)</span>, se verifica que <span class="math inline">\(f'(x_0)=0\)</span>.</p>
+<p>Intuitivamente, el teorema anterior nos dice que si la función <span class="math inline">\(f\)</span> tiene un comportamiento <strong>suave</strong> en el extremo <span class="math inline">\(x_0\)</span>, la recta tangente en este punto tiene que ser <strong>horizontal</strong>, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior.</p>
+</section>
+<section id="derivación-y-extremos-23" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(f\)</span> es derivable en el punto <span class="math inline">\(x_0\)</span>, sabemos que existe el límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)</span>.</p>
+<p>Decir que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span> es equivalente a decir que la función siguiente: <span class="math display">\[
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, &amp; \mbox{si }x\neq x_0,\\
+f'(x_0), &amp;\mbox{si }x=x_0,
+\end{cases}
+\]</span> es continua en <span class="math inline">\(x_0\)</span>.</p>
+<p>Veamos a continuación que necesariamente <span class="math inline">\(g(x_0)=f'(x_0)=0\)</span> y quedará demostrado el teorema.</p>
+<p>Supongamos que <span class="math inline">\(g(x_0)&gt;0\)</span>. Como la función <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(x_0\)</span>, por el teorema de conservación del signo de funciones continuas, existirá un entorno de <span class="math inline">\(x_0\)</span>, es decir, existirá un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, <span class="math inline">\(g(x)&gt;0\)</span> también será positiva para todos los valores <span class="math inline">\(x\)</span> de dicho entorno.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-24" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo $x” del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-25" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="prop">
+<p>Proposición.</p>
+</div>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>, usando la definición de límite tenemos que: <span class="math display">\[
+\forall \epsilon &gt;0,\ \exists\delta &gt;0\ \mbox{t.q. si }|x-x_0|&lt;\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|&lt; \epsilon.
 \]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-20" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-21" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Rightarrow\)</span> Supongamos que la función <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span>. Esto significa que fijado <span class="math inline">\(x_0\in (a,b)\)</span> en el intervalo, existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un <span class="math inline">\(\delta &gt;0\)</span>, tal que para todo valor <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, se verifica que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span>.</p>
+<p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-22" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Leftarrow\)</span> Supongamos ahora que <span class="math inline">\(f'(x_0)\geq 0\)</span>, para todo valor <span class="math inline">\(x_0\in (a,b)\)</span> dentro del intervalo. Veamos que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
+<p>Sea <span class="math inline">\(x&gt;x_0\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x_0,x]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span> Sea ahora <span class="math inline">\(x&lt;x_0\)</span>. Si volvemos a aplicar el el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x,x_0]\)</span> tenemos que existe un punto <span class="math inline">\(c" tal que:\)</span>$ f’(c)==. $$</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-23" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es decreciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\leq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
 </div>
 </section>
 <section id="ejemplo-20" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>A continuación estaríamos tentados a decir que nuestro límite inicial <span class="math inline">\(\displaystyle\lim_{x\to 0}\frac{x^2\sin\left(\frac{1}{x}\right)}{\sin x}\)</span> no existe pero esto es falso ya que: <span class="math display">\[
-\lim_{x\to 0}\frac{x^2\sin\left(\frac{1}{x}\right)}{\sin x}= \lim_{x\to 0}\frac{x}{\sin x}\cdot \lim_{x\to 0}
-x\sin\left(\frac{1}{x}\right)=1\cdot 0=0!
-\]</span> El primer límite <span class="math inline">\(\displaystyle \lim_{x\to 0}\frac{x}{\sin x}\)</span> vale <span class="math inline">\(1\)</span> ya que vimos en su momento que <span class="math inline">\(\displaystyle \lim_{x\to 0}\frac{\sin x}{x}=1\)</span>, por tanto, si hacemos el límite de su recíproco también será <span class="math inline">\(1\)</span>: <span class="math inline">\(\displaystyle \lim_{x\to 0}\frac{x}{\sin x}=1\)</span>.</p>
-<p>El segundo límite <span class="math inline">\(\displaystyle \lim_{x\to 0} x\sin\left(\frac{1}{x}\right)\)</span> vale <span class="math inline">\(0\)</span> ya que es el límite de una función que tiende a <span class="math inline">\(0\)</span> (<span class="math inline">\(x\)</span>) por una función acotada <span class="math inline">\(\left(\sin\left(\frac{1}{x}\right)\right)\)</span>.</p>
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos la función siguiente definida en el intervalo <span class="math inline">\((-2\pi,2\pi)\)</span>: <span class="math display">\[
+\begin{array}{rl}
+f:(-2\pi,2\pi) &amp; \longrightarrow \mathbb{R},\\
+x&amp; \longrightarrow \sin(x)-\cos(x).
+\end{array}
+\]</span> El gráfico de dicha función puede observase en la figura siguiente.</p>
+<p>Vemos que tiene dos <strong>máximos relativos</strong> en los valores <span class="math inline">\(x=-\frac{5}{4}\pi\)</span> y <span class="math inline">\(x=\frac{3}{4}\pi\)</span> y dos <strong>mínimos relativos</strong> en los valores <span class="math inline">\(x=-\frac{\pi}{4}\)</span> y <span class="math inline">\(x=\frac{7}{4}\pi\)</span>.</p>
+<p>Observamos que dichos máximos y mínimos son <strong>absolutos</strong>.</p>
+<p>El gráfico de la función anterior puede verse en <code>Wolfram Alpha</code> en el enlace siguiente: <l class="center"> <a href="https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi"><img data-src="Images/wolfram.png"></a> </l></p>
 </div>
 </section>
 <section id="ejemplo-21" class="slide level2">
 <h2>Ejemplo</h2>
 <div class="example">
-<p>En resumen, que no exista el límite una vez aplicada la regla de l’Hôpital no significa que no exista el límite inicial que nos hemos planteado.</p>
-<p>El límite anterior en <code>Wolfram Alpha</code> se muestra en el enlace siguiente:</p>
-<div class="center">
-<p><a href="https://www.wolframalpha.com/input/?i=limit+of+%28x%5E2*sin%281%2Fx%29%29%2Fsin%28x%29+when+x+tends+to+0"><img data-src="Images/wolfram.png"></a></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3_La_Derivada_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section id="derivación-y-extremos-26" class="slide level2">
+<h2>Derivación y extremos</h2>
+<p><l class="prop">Teorema.</l></p>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span> que sea <strong>extremo relativo</strong> de la función. Entonces si <span class="math inline">\(f\)</span> es <strong>derivable</strong> en el punto <span class="math inline">\(x_0\)</span>, se verifica que <span class="math inline">\(f'(x_0)=0\)</span>.</p>
+<p>Intuitivamente, el teorema anterior nos dice que si la función <span class="math inline">\(f\)</span> tiene un comportamiento <strong>suave</strong> en el extremo <span class="math inline">\(x_0\)</span>, la recta tangente en este punto tiene que ser <strong>horizontal</strong>, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior.</p>
+</section>
+<section id="derivación-y-extremos-27" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(f\)</span> es derivable en el punto <span class="math inline">\(x_0\)</span>, sabemos que existe el límite siguiente <span class="math inline">\(\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}\)</span>.</p>
+<p>Decir que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span> es equivalente a decir que la función siguiente: <span class="math display">\[
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, &amp; \mbox{si }x\neq x_0,\\
+f'(x_0), &amp;\mbox{si }x=x_0,
+\end{cases}
+\]</span> es continua en <span class="math inline">\(x_0\)</span>.</p>
+<p>Veamos a continuación que necesariamente <span class="math inline">\(g(x_0)=f'(x_0)=0\)</span> y quedará demostrado el teorema.</p>
+<p>Supongamos que <span class="math inline">\(g(x_0)&gt;0\)</span>. Como la función <span class="math inline">\(g\)</span> es continua en <span class="math inline">\(x_0\)</span>, por el teorema de conservación del signo de funciones continuas, existirá un entorno de <span class="math inline">\(x_0\)</span>, es decir, existirá un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)\)</span>, <span class="math inline">\(g(x)&gt;0\)</span> también será positiva para todos los valores <span class="math inline">\(x\)</span> de dicho entorno.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-28" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un <span class="math inline">\(\delta &gt;0\)</span> tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo $x” del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="derivación-y-extremos-29" class="slide level2">
+<h2>Derivación y extremos</h2>
+<div class="prop">
+<p>Proposición.</p>
+</div>
+<p>Sea <span class="math inline">\(f: (a,b)\longrightarrow \mathbb{R}\)</span> una función real de variable real. Sea <span class="math inline">\(x_0\in (a,b)\)</span> un valor del dominio de <span class="math inline">\(f\)</span>. Supongamos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(x_0\)</span>. Entonces si <span class="math inline">\(f'(x_0)&gt;0\)</span> o <span class="math inline">\(f\)</span> tiene <strong>derivada positiva</strong> en <span class="math inline">\(x_0\)</span>, entonces <span class="math inline">\(f\)</span> es <strong>estrictamente creciente</strong> en <span class="math inline">\(x_0\)</span>.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>Como <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span>, usando la definición de límite tenemos que: <span class="math display">\[
+\forall \epsilon &gt;0,\ \exists\delta &gt;0\ \mbox{t.q. si }|x-x_0|&lt;\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|&lt; \epsilon.
+\]</span></p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-24" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p>La última condición se puede escribir de la siguiente manera: <span class="math display">\[
+f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon.
+\]</span> Como <span class="math inline">\(f'(x_0)&gt;0\)</span>, siempre es posible hallar un <span class="math inline">\(\epsilon &gt;0\)</span> tal que <span class="math inline">\(f'(x_0)-\epsilon&gt;0\)</span>.</p>
+<p>Para este <span class="math inline">\(\epsilon &gt;0\)</span>, podemos encontrar un entorno de <span class="math inline">\(x_0\)</span>, es decir, un $&gt;0” tal que si <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, entonces: <span class="math display">\[
+0&lt;f'(x_0)-\epsilon &lt; \frac{f(x)-f(x_0)}{x-x_0} &lt; f'(x_0)+\epsilon,
+\]</span> de donde deducimos que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}&gt;0\)</span> para todo <span class="math inline">\(x\)</span> del entorno, <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, lo que equivale a decir que <span class="math inline">\(f\)</span> es estrictamente creciente en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-25" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\geq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Rightarrow\)</span> Supongamos que la función <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\((a,b)\)</span>. Esto significa que fijado <span class="math inline">\(x_0\in (a,b)\)</span> en el intervalo, existe un entorno de <span class="math inline">\(x_0\)</span>, es decir, existe un <span class="math inline">\(\delta &gt;0\)</span>, tal que para todo valor <span class="math inline">\(x\in (x_0-\delta,x_0+\delta)\)</span>, se verifica que <span class="math inline">\(\frac{f(x)-f(x_0)}{x-x_0}\geq 0\)</span>.</p>
+<p>Entonces, usando que <span class="math inline">\(\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}\)</span>, tendremos que <span class="math inline">\(f'(x_0)\geq 0\)</span>, tal como queríamos ver.</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-26" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="dem">
+<p><strong>Demostración</strong></p>
+<p><span class="math inline">\(\Leftarrow\)</span> Supongamos ahora que <span class="math inline">\(f'(x_0)\geq 0\)</span>, para todo valor <span class="math inline">\(x_0\in (a,b)\)</span> dentro del intervalo. Veamos que <span class="math inline">\(f\)</span> es creciente en <span class="math inline">\(x_0\)</span>.</p>
+<p>Sea <span class="math inline">\(x&gt;x_0\)</span>. Si aplicamos el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x_0,x]\)</span> tenemos que existe un punto <span class="math inline">\(c\)</span> tal que: <span class="math display">\[
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+\]</span> Sea ahora <span class="math inline">\(x&lt;x_0\)</span>. Si volvemos a aplicar el el <strong>teorema del valor medio de Lagrange</strong> a la función <span class="math inline">\(f\)</span> restringida al intervalo <span class="math inline">\([x,x_0]\)</span> tenemos que existe un punto <span class="math inline">\(c" tal que:\)</span>$ f’(c)==. $$</p>
+</div>
+</section>
+<section id="consecuencias-de-los-teoremas-27" class="slide level2">
+<h2>Consecuencias de los teoremas</h2>
+<div class="prop">
+<p>Corolario.</p>
+</div>
+<p>Sea <span class="math inline">\(f:(a,b)\longrightarrow \mathbb{R}\)</span> una función derivable en todo punto del intervalo <span class="math inline">\((a,b)\)</span>. Entonces, <span class="math inline">\(f\)</span> es decreciente en <span class="math inline">\((a,b)\)</span> si, y sólo si, <span class="math inline">\(f'(x)\leq 0\)</span>, para todo <span class="math inline">\(x\in (a,b)\)</span> del intervalo.</p>
+<div class="exercise">
+<p><strong>Ejercicio</strong></p>
+<p>Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función <span class="math inline">\(f\)</span> es creciente.</p>
+</div>
+</section>
+<section id="ejemplo-22" class="slide level2">
+<h2>Ejemplo</h2>
+<div class="example">
+<p><strong>Ejemplo</strong></p>
+<p>Consideremos 
+<script type="application/shiny-prerendered" data-context="server-start">
+addResourcePath("Images", "Images")
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server-start">
+# Necesario para la función draw.circle en el plot
+library(plotrix)
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+# --- 1. FUNCIÓN GEOMÉTRICA NO REACTIVA ---
+# Dibuja una correa (recta o cruzada) entre dos ruedas usando trigonometría.
+draw_belt <- function(cx1, cy1, r1, cx2, cy2, r2, is_crossed, color) {
+  
+  d <- sqrt((cx2 - cx1)^2 + (cy2 - cy1)^2)
+  alpha <- atan2(cy2 - cy1, cx2 - cx1)
+  
+  if (d < abs(r1 - r2) + 0.1) {
+      # Evitar errores si las ruedas están demasiado cerca para la geometría
+      return() 
+  }
 
+  if (!is_crossed) { # Correa Recta (Directa)
+    beta <- acos((r1 - r2) / d)
+    
+    # Puntos de tangencia en Rueda 1 y 2
+    T1ax <- cx1 + r1 * cos(alpha + pi/2 - beta); T1ay <- cy1 + r1 * sin(alpha + pi/2 - beta)
+    T1bx <- cx1 + r1 * cos(alpha - pi/2 - beta); T1by <- cy1 + r1 * sin(alpha - pi/2 - beta)
+    
+    T2ax <- cx2 + r2 * cos(alpha + pi/2 - beta); T2ay <- cy2 + r2 * sin(alpha + pi/2 - beta)
+    T2bx <- cx2 + r2 * cos(alpha - pi/2 - beta); T2by <- cy2 + r2 * sin(alpha - pi/2 - beta)
+    
+    # Dibujar las dos líneas rectas
+    segments(T1ax, T1ay, T2ax, T2ay, col = color, lwd = 2)
+    segments(T1bx, T1by, T2bx, T2by, col = color, lwd = 2)
+    
+  } else { # Correa Cruzada (Invertida)
+    r_sum <- r1 + r2
+    if (d < r_sum + 0.1) return() # Evitar errores si la suma de radios es mayor a la distancia
+    
+    beta <- acos(r_sum / d)
+    
+    # Puntos de tangencia en Rueda 1
+    T1ax <- cx1 + r1 * cos(alpha + beta); T1ay <- cy1 + r1 * sin(alpha + beta)
+    T1bx <- cx1 + r1 * cos(alpha - beta); T1by <- cy1 + r1 * sin(alpha - beta)
+    
+    # Puntos de tangencia en Rueda 2 (se cruzan)
+    T2ax <- cx2 + r2 * cos(alpha - beta); T2ay <- cy2 + r2 * sin(alpha - beta) 
+    T2bx <- cx2 + r2 * cos(alpha + beta); T2by <- cy2 + r2 * sin(alpha + beta) 
+    
+    # Dibujar las dos líneas cruzadas
+    segments(T1ax, T1ay, T2ax, T2ay, col = color, lwd = 2)
+    segments(T1bx, T1by, T2bx, T2by, col = color, lwd = 2)
+  }
+}
+
+# --- 2. CÁLCULOS REACTIVOS ---
+
+# Razón de cambio du/dx (Magnitud * Signo)
+du_dx_calc <- reactive({
+  ratio <- input$ratio_xu
+  sign <- ifelse(input$cross_xu, -1, 1)
+  return(sign * ratio)
+})
+
+# Razón de cambio dy/du (Magnitud * Signo)
+dy_du_calc <- reactive({
+  ratio <- input$ratio_uy
+  sign <- ifelse(input$cross_uy, -1, 1)
+  return(sign * ratio)
+})
+
+# Resultado final: dy/dx
+dy_dx_calc <- reactive({
+  return(du_dx_calc() * dy_du_calc())
+})
+
+# --- 3. SALIDAS DE TEXTO (Output) ---
+
+output$derivative_output <- renderText({
+  paste("du/dx =", round(du_dx_calc(), 3), 
+        "| dy/du =", round(dy_du_calc(), 3),
+        "| **dy/dx (Regla Cadena)** =", round(dy_dx_calc(), 3))
+})
+
+# --- 4. SALIDA GRÁFICA (Plot) ---
+
+output$simulacion_plot <- renderPlot({
+  
+  # CONFIGURACIÓN ESTÁTICA
+  CX <- c(-10, 0, 10)  # Centros X
+  CY <- c(10, -5, 5)   # Centros Y
+  R <- c(4, 2, 3.5)    # Radios
+  wheel_colors <- c("blue", "red", "red")
+  
+  # Inicializar el gráfico
+  par(mar = c(0, 0, 0, 0)) 
+  plot(NULL, xlim = c(-15, 15), ylim = c(-10, 15), type = "n", 
+       asp = 1, xlab = "", ylab = "", axes = FALSE)
+  
+  # CÁLCULOS DINÁMICOS DE ÁNGULO
+  angle_x_rad <- input$x_angle_slider * pi / 180 # Convierte grados a radianes
+  
+  angle_u_rad <- angle_x_rad * du_dx_calc()
+  angle_y_rad <- angle_u_rad * dy_du_calc() 
+  
+  Angles <- c(angle_x_rad, angle_u_rad, angle_y_rad)
+  
+  # DIBUJO DE RUEDAS Y POSICIÓN
+  for (i in 1:3) {
+    # Círculo de la rueda
+    draw.circle(CX[i], CY[i], R[i], col = "white", border = wheel_colors[i], lwd = 2)
+    
+    # Indicador de posición (línea verde que rota)
+    x_end <- CX[i] + R[i] * cos(Angles[i])
+    y_end <- CY[i] + R[i] * sin(Angles[i])
+    segments(CX[i], CY[i], x_end, y_end, col = "darkgreen", lwd = 3)
+    
+    # Punto central
+    points(CX[i], CY[i], pch = 19, col = "blue")
+  }
+  
+  # DIBUJO DE CORREAS
+  # A. Correa X a U 
+  draw_belt(CX[1], CY[1], R[1], CX[2], CY[2], R[2], input$cross_xu, color="darkblue")
+  
+  # B. Correa U a Y 
+  draw_belt(CX[2], CY[2], R[2], CX[3], CY[3], R[3], input$cross_uy, color="darkred")
+  
+  # TEXTOS de las funciones
+  text(CX[1], CY[1] + R[1] + 1, expression(x), cex = 1.5, col="darkblue")
+  text(CX[2], CY[2] - R[2] - 1, expression(u), cex = 1.5, col="darkred")
+  text(CX[3], CY[3] + R[3] + 1, expression(y), cex = 1.5, col="darkred")
+  
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server">
+selectedData <- reactive({
+    iris[, c(input$xcol, input$ycol)]
+  })
+
+clusters <- reactive({
+  kmeans(selectedData(), input$clusters)
+})
+
+output$plot1 <- renderPlot({
+  palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+    "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+
+  par(mar = c(5.1, 4.1, 0, 1))
+  plot(selectedData(),
+       col = clusters()$cluster,
+       pch = 20, cex = 3)
+  points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+})
+</script>
+ 
+<script type="application/shiny-prerendered" data-context="server-extras">
+ojs_define <- function(..., .session = shiny::getDefaultReactiveDomain()) {
+  quos <- rlang::enquos(...)
+  vars <- rlang::list2(...)
+  nm <- names(vars)
+  if (is.null(nm)) {
+    nm <- rep_len("", length(vars))
+  }
+  mapply(function(q, nm, val) {
+    # Infer name, if possible
+    if (nm == "") {
+      tryCatch({
+        nm <- rlang::as_name(q)
+      }, error = function(e) {
+        code <- paste(collapse = "\n", deparse(rlang::f_rhs(q)))
+        stop("ojs_define() could not create a name for the argument: ", code)
+      })
+    }
+    .session$output[[nm]] <- val
+    outputOptions(.session$output, nm, suspendWhenHidden = FALSE)
+    .session$sendCustomMessage("ojs-export", list(name = nm))
+    NULL
+  }, quos, nm, vars, SIMPLIFY = FALSE, USE.NAMES = FALSE)
+  invisible()
+}
+</script>
+</p>
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="dependencies">
+{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-javascript"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/ion.rangeSlider.min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["strftime"]},{"type":"character","attributes":{},"value":["0.9.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/strftime"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["strftime-min.js"]},{"type":"NULL"},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["ionrangeslider-css"]},{"type":"character","attributes":{},"value":["2.3.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/ionrangeslider"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["css/ion.rangeSlider.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["selectize"]},{"type":"character","attributes":{},"value":["0.15.2"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["www/shared/selectize"]}]},{"type":"NULL"},{"type":"character","attributes":{},"value":["js/selectize.min.js","accessibility/js/selectize-plugin-a11y.min.js"]},{"type":"character","attributes":{},"value":["css/selectize.bootstrap3.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["shiny"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["1.11.1"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","version","src","meta","script","stylesheet","head","attachment","package","all_files","pkgVersion"]},"class":{"type":"character","attributes":{},"value":["html_dependency"]}},"value":[{"type":"character","attributes":{},"value":["htmltools-fill"]},{"type":"character","attributes":{},"value":["0.5.8.1"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["file"]}},"value":[{"type":"character","attributes":{},"value":["fill"]}]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["fill.css"]},{"type":"NULL"},{"type":"NULL"},{"type":"character","attributes":{},"value":["htmltools"]},{"type":"logical","attributes":{},"value":[true]},{"type":"character","attributes":{},"value":["0.5.8.1"]}]}]}
+</script>
+<!--/html_preserve-->
+<!--html_preserve-->
+<script type="application/shiny-prerendered" data-context="execution_dependencies">
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["packages","version"]},"class":{"type":"character","attributes":{},"value":["data.frame"]},"row.names":{"type":"integer","attributes":{},"value":[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42]}},"value":[{"type":"character","attributes":{},"value":["base","bslib","cachem","cli","compiler","datasets","digest","evaluate","fastmap","graphics","grDevices","grid","htmltools","httpuv","jquerylib","jsonlite","knitr","later","lattice","lifecycle","magrittr","Matrix","memoise","methods","mime","plotrix","png","promises","R6","Rcpp","reticulate","rlang","rmarkdown","sass","shiny","stats","tools","utils","withr","xfun","xtable","yaml"]},{"type":"character","attributes":{},"value":["4.5.1","0.9.0","1.1.0","3.6.5","4.5.1","4.5.1","0.6.37","1.0.4","1.2.0","4.5.1","4.5.1","4.5.1","0.5.8.1","1.6.16","0.1.4","2.0.0","1.50","1.4.4","0.22-7","1.0.4","2.0.3","1.7-3","2.0.1","4.5.1","0.13","3.8-4","0.1-8","1.3.3","2.6.1","1.1.0","1.43.0","1.1.6","2.29","0.4.10","1.11.1","4.5.1","4.5.1","4.5.1","3.0.2","0.53","1.8-4","2.3.10"]}]}]}
+</script>
+<!--/html_preserve-->
+
+</div>
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -1167,7 +1701,7 @@ x\sin\left(\frac{1}{x}\right)=1\cdot 0=0!
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'chalkboard': {"buttons":true},
+'chalkboard': {"buttons":true,"chalkWidth":2,"boardmarkerWidth":2},
 'smaller': false,
  
         // Display controls in the bottom right corner
@@ -1313,7 +1847,7 @@ x\sin\left(\frac{1}{x}\right)=1\cdot 0=0!
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
-        width: 1050,
+        width: 1600,
 
         height: 700,
 
@@ -1386,172 +1920,190 @@ x\sin\left(\frac{1}{x}\right)=1\cdot 0=0!
     </script>
 
     <script id="quarto-html-after-body" type="application/javascript">
-      window.document.addEventListener("DOMContentLoaded", function (event) {
-        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
-        tabsets.forEach(function(tabset) {
-          const tabby = new Tabby('#' + tabset.id);
-        });
-        const isCodeAnnotation = (el) => {
-          for (const clz of el.classList) {
-            if (clz.startsWith('code-annotation-')) {                     
-              return true;
-            }
-          }
-          return false;
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
         }
-        const onCopySuccess = function(e) {
-          // button target
-          const button = e.trigger;
-          // don't keep focus
-          button.blur();
-          // flash "checked"
-          button.classList.add('code-copy-button-checked');
-          var currentTitle = button.getAttribute("title");
-          button.setAttribute("title", "Copiado");
-          let tooltip;
-          if (window.bootstrap) {
-            button.setAttribute("data-bs-toggle", "tooltip");
-            button.setAttribute("data-bs-placement", "left");
-            button.setAttribute("data-bs-title", "Copiado");
-            tooltip = new bootstrap.Tooltip(button, 
-              { trigger: "manual", 
-                customClass: "code-copy-button-tooltip",
-                offset: [0, -8]});
-            tooltip.show();    
-          }
-          setTimeout(function() {
-            if (tooltip) {
-              tooltip.hide();
-              button.removeAttribute("data-bs-title");
-              button.removeAttribute("data-bs-toggle");
-              button.removeAttribute("data-bs-placement");
-            }
-            button.setAttribute("title", currentTitle);
-            button.classList.remove('code-copy-button-checked');
-          }, 1000);
-          // clear code selection
-          e.clearSelection();
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
         }
-        const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
-            }
-            return codeEl.innerText;
-        }
-        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-          text: getTextToCopy
-        });
-        clipboard.on('success', onCopySuccess);
-        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-            text: getTextToCopy,
-            container: window.document.getElementById('quarto-embedded-source-code-modal')
-          });
-          clipboardModal.on('success', onCopySuccess);
-        }
-          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-          var mailtoRegex = new RegExp(/^mailto:/);
-            var filterRegex = new RegExp('/' + window.location.host + '/');
-          var isInternal = (href) => {
-              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-          }
-          // Inspect non-navigation links and adorn them if external
-         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-          for (var i=0; i<links.length; i++) {
-            const link = links[i];
-            if (!isInternal(link.href)) {
-              // undo the damage that might have been done by quarto-nav.js in the case of
-              // links that we want to consider external
-              if (link.dataset.originalHref !== undefined) {
-                link.href = link.dataset.originalHref;
-              }
-            }
-          }
-        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
-          const config = {
-            allowHTML: true,
-            maxWidth: 500,
-            delay: 100,
-            arrow: false,
-            appendTo: function(el) {
-                return el.closest('section.slide') || el.parentElement;
-            },
-            interactive: true,
-            interactiveBorder: 10,
-            theme: 'light-border',
-            placement: 'bottom-start',
-          };
-          if (contentFn) {
-            config.content = contentFn;
-          }
-          if (onTriggerFn) {
-            config.onTrigger = onTriggerFn;
-          }
-          if (onUntriggerFn) {
-            config.onUntrigger = onUntriggerFn;
-          }
-            config['offset'] = [0,0];
-            config['maxWidth'] = 700;
-          window.tippy(el, config); 
-        }
-        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
-        for (var i=0; i<noterefs.length; i++) {
-          const ref = noterefs[i];
-          tippyHover(ref, function() {
-            // use id or data attribute instead here
-            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
-            try { href = new URL(href).hash; } catch {}
-            const id = href.replace(/^#\/?/, "");
-            const note = window.document.getElementById(id);
-            if (note) {
-              return note.innerHTML;
-            } else {
-              return "";
-            }
-          });
-        }
-        const findCites = (el) => {
-          const parentEl = el.parentElement;
-          if (parentEl) {
-            const cites = parentEl.dataset.cites;
-            if (cites) {
-              return {
-                el,
-                cites: cites.split(' ')
-              };
-            } else {
-              return findCites(el.parentElement)
-            }
-          } else {
-            return undefined;
-          }
-        };
-        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
-        for (var i=0; i<bibliorefs.length; i++) {
-          const ref = bibliorefs[i];
-          const citeInfo = findCites(ref);
-          if (citeInfo) {
-            tippyHover(citeInfo.el, function() {
-              var popup = window.document.createElement('div');
-              citeInfo.cites.forEach(function(cite) {
-                var citeDiv = window.document.createElement('div');
-                citeDiv.classList.add('hanging-indent');
-                citeDiv.classList.add('csl-entry');
-                var biblioDiv = window.document.getElementById('ref-' + cite);
-                if (biblioDiv) {
-                  citeDiv.innerHTML = biblioDiv.innerHTML;
-                }
-                popup.appendChild(citeDiv);
-              });
-              return popup.innerHTML;
-            });
-          }
-        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
       });
-      </script>
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copiado");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copiado");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
     
 
 </body></html>

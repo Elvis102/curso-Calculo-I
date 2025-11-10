@@ -1,0 +1,131 @@
+---
+title: "Cuestionari_1"
+subtitle: "La derivada-Conceptos"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+## Pregunta 1
+
+¿Cuál es la **noción** geométrica que la derivada de una función $f(x)$ en un punto $x_0$ busca formalizar?
+
+(A) La recta normal a la función en ese punto.
+(B) El valor de la función en el punto $x_0$.
+(C) **La recta tangente a la función en el punto $x_0$.**
+(D) El área bajo la curva de la función en el intervalo.
+
+::: callout-note
+**Respuesta Correcta:** (C) La derivada representa la pendiente de la recta tangente, formalizando esta noción geométrica.
+:::
+
+---
+
+## Pregunta 2
+
+De acuerdo con el texto, ¿cuál es la expresión de la definición de derivada de $f(x)$ en $x_0$ usando el límite de $h \to 0$?
+
+(A) $\lim_{h\to 0} \frac{f(x_0+h) + f(x_0)}{h}$
+(B) $\lim_{h\to 0} \frac{f(x_0) - f(x_0+h)}{h}$
+(C) **$\lim_{h\to 0} \frac{f(x_0+h) - f(x_0)}{h}$**
+(D) $\lim_{h\to 0} \frac{f(x_0) - f(x_0+h)}{x_0}$
+
+::: callout-note
+**Respuesta Correcta:** (C) Esta es la definición formal de la derivada de $f$ en $x_0$.
+:::
+
+---
+
+## Pregunta 3
+
+Se afirma en una observación que la derivada de una función es una propiedad **local**. ¿Qué significa esto?
+
+(A) Que la derivada solo existe en funciones definidas por trozos.
+(B) **Que la derivada está definida y se calcula para un punto específico $x_0$ del dominio.**
+(C) Que la derivada de una función depende del dominio completo de la misma.
+(D) Que la derivada siempre debe ser un número entero o racional.
+
+::: callout-note
+**Respuesta Correcta:** (B) Su existencia y valor se determinan en un punto particular $x_0$ del dominio de la función.
+:::
+
+---
+
+## Pregunta 4
+
+Cuando, haciendo un "abuso del lenguaje", se dice que una función $f$ es **derivable**, ¿qué se quiere decir en realidad?
+
+(A) Que la función es constante en todo su dominio.
+(B) Que la derivada de $f$ en un punto del dominio es nula.
+(C) **Que dicha función es derivable en todos los puntos de su dominio.**
+(D) Que el límite de la función existe en todos los puntos de su dominio.
+
+::: callout-note
+**Respuesta Correcta:** (C) Se extiende la propiedad local de ser derivable a la totalidad del dominio.
+:::
+
+---
+
+## Pregunta 5
+
+En el ejemplo de la **derivada de la función constante** $f(x)=k$, el resultado del límite $\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$ es:
+
+(A) Indeterminado, ya que se tiene la forma $\frac{0}{0}$.
+(B) $k$
+(C) **El límite es $0$.**
+(D) $1$
+
+::: callout-note
+**Respuesta Correcta:** (C) Como $f(x)=k$ y $f(x_0)=k$, el numerador es $k-k=0$, y el límite de $\frac{0}{x-x_0}$ cuando $x\to x_0$ es $0$.
+:::
+
+---
+
+## Pregunta 6
+
+La razón principal por la que la función $f(x)=|x|$ **no es derivable** en $x=0$ es:
+
+(A) Porque la función no es continua en $x=0$.
+(B) **Porque los límites laterales del cociente de diferencias en $x=0$ no coinciden.**
+(C) Porque el denominador $x-0$ es cero en el punto.
+(D) Porque la derivada por la derecha es $-1$ y por la izquierda es $1$.
+
+::: callout-note
+**Respuesta Correcta:** (B) El límite por la derecha es $1$ y por la izquierda es $-1$. Como $1 \neq -1$, el límite bilateral (la derivada) no existe.
+:::
+
+---
+
+## Pregunta 7
+
+Gráficamente, ¿cuál es el comportamiento **usual** cuando una función no es derivable en un punto $x_0$ de su dominio?
+
+(A) La función presenta una asíntota vertical en $x_0$.
+(B) La función tiene una discontinuidad de salto finito en $x_0$.
+(C) **La función tiene una 'punta' o un comportamiento no suave en $x_0$.**
+(D) La función es plana (constante) en una vecindad de $x_0$.
+
+::: callout-note
+**Respuesta Correcta:** (C) La falta de derivabilidad se manifiesta como una cúspide o 'punta' (donde hay múltiples rectas tangentes potenciales) o como un quiebre en la curva.
+:::
+
+¿Te gustaría que generara las soluciones de forma separada o que te proporcionara más preguntas sobre otros temas de cálculo?
+
+## Pregunta 8
+
+Según lo establecido en el estudio de la derivada, si una función $f(x)$ es derivable en un punto $x_0​$ de su dominio, ¿qué se puede afirmar sobre su continuidad en ese mismo punto?
+
+(A) No se puede asegurar nada sobre la continuidad de la función. 
+(B) La función debe ser discontinua en $x_0​$​. 
+(C) La función debe ser continua en $x_0​$​. 
+(D) La función solo es continua si la derivada es cero en $x_0​$​.
+
+::: callout-note 
+Respuesta Correcta: (C) Un teorema fundamental del cálculo establece que si una función es derivable en un punto (f′(x0​) existe), necesariamente debe ser continua en ese punto. Sin embargo, el recíproco no es cierto (como se ve en el ejemplo de f(x)=∣x∣ en x=0, que es continua pero no derivable). 
+:::

@@ -1,0 +1,13 @@
+---
+title: "Autonomo:funciones"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    documentclass: article
+    fontsize: 12pt
+    break-on-sections: true
+--- 
+
+**1. Rango de Constante (Bolzano)**
+La función $f(x)=x^2+k$ tiene al menos una raíz en el intervalo $[-2, -1]$. Aplicando Bolzano, determine el rango de valores que debe tomar la constante $k$.
+* **Respuesta Final:** $k \in $ 

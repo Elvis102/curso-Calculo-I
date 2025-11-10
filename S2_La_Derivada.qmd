@@ -5,6 +5,7 @@ subtitle: La Derivada
 toc: false
 format:
   revealjs: 
+    width: 1600
     theme: [default, clean.scss]
     slide-number: true
     slide-tone: false
@@ -27,7 +28,7 @@ date: last-modified
 logo: Images/Utmach-logo.png
 lang: es
 
-#runtime: shiny_prerendered
+runtime: shiny_prerendered
 ---
 
 ```{r}
@@ -410,7 +411,7 @@ $$(g\circ f)'(x_0)=g'(f(x_0))\cdot f'(x_0).$$
 **Demostración:**
 $$
 \begin{array}{rl}
-(g\circ f)'(x_0) & \displaystyle =\lim_{x\to x_0}\frac{(g\circ f)(x)-(g\circ f)(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{x-x_0} \\ & \displaystyle =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}\cdot \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=g'(f(x_0))\cdot f'(x_0).
+(g\circ f)'(x_0) & \displaystyle =\lim_{x\to x_0}\frac{(g\circ f)(x)-(g\circ f)(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{x-x_0} \cdot \left[  \frac{f(x) - f(x_0)}{f(x) - f(x_0)} \right]\\& \displaystyle =\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}\cdot \lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=g'(f(x_0))\cdot f'(x_0).
 \end{array}
 $$
 En el último cálculo, podemos afirmar que el límite $\displaystyle\lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}$ vale $g'(f(x_0))$ porque como $f$ es derivable en $x_0$, $f$ será continua en $x_0$ y si $x\to x_0$, entonces $f(x)\to f(x_0)$ y el límite anterior queda:

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-10-09">
+  <meta name="dcterms.date" content="2025-10-29">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -212,7 +212,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-10-09</p>
+  <p class="date">2025-10-29</p>
 </section>
 <section class="slide level2">
 
@@ -903,6 +903,39 @@ c - \frac{c}{2} &lt; x &lt; c + \frac{c}{2}
 <p>Finalmente, en lo que se refiere al tercer apartado, es suficiente tener en cuenta que que <span class="math inline">\(|x-c| &lt; \delta\)</span> si, y sólo si, <span class="math inline">\(x \in V_{\delta}(c)\)</span>.</p>
 </div>
 </section>
+<section id="definición-de-límites" class="slide level2">
+<h2>Definición de límites</h2>
+<div class="columns">
+<div class="column" style="font-size:0.75em;margin-top:-1em;">
+<p>Anteriormente se ha establecido que <span class="math inline">\(\lim_{x \to c} f(x) = L\)</span> significa que la diferencia entre <span class="math inline">\(f(x)\)</span> y <span class="math inline">\(L\)</span> se puede hacer tan pequeña como se quiera siempre que <span class="math inline">\(x\)</span> esté próxima a <span class="math inline">\(c\)</span> con <span class="math inline">\(x \neq c\)</span>. Ahora se cuenta con elementos que posibilitarán una mejor comprensión de la <strong>definición precisa de límite</strong> en la que se utilizan las letras griegas <span class="math inline">\(\epsilon\)</span> (<strong>épsilon</strong>) y <span class="math inline">\(\delta\)</span> (<strong>delta</strong>) para representar pequeños números positivos arbitrarios.</p>
+<p>Para expresar que <span class="math inline">\(f(x)\)</span> y <span class="math inline">\(L\)</span> difieren menos que <span class="math inline">\(\epsilon\)</span> se escribe:</p>
+<p><span class="math display">\[|f(x) - L| &lt; \epsilon\]</span></p>
+<p>Es decir:</p>
+<p><span class="math display">\[L - \epsilon &lt; f(x) &lt; L + \epsilon\]</span></p>
+<p>Por tanto, <span class="math inline">\(f(x)\)</span> pertenece al intervalo abierto <span class="math inline">\((L - \epsilon, L + \epsilon)\)</span> (véase figura 2.15).</p>
+<p>Para expresar que <span class="math inline">\(x\)</span> está próximo a <span class="math inline">\(c\)</span>, pero <span class="math inline">\(x \neq c\)</span>, para algún <span class="math inline">\(\delta\)</span>, significa que <span class="math inline">\(x\)</span> pertenece al intervalo abierto <span class="math inline">\((c - \delta, c + \delta)\)</span> donde <span class="math inline">\(x \neq c\)</span>, es decir:</p>
+<p><span class="math display">\[0 &lt; |x - c| &lt; \delta\]</span></p>
+<p>Donde <span class="math inline">\(0 &lt; |x - c| &lt; \delta\)</span> indica que <span class="math inline">\(c - \delta &lt; x &lt; c + \delta\)</span> y <span class="math inline">\(0 &lt; |x - c|\)</span> precisa la exclusión de <span class="math inline">\(x = c\)</span> (véase figura 2.16).</p>
+</div><div class="column" style="font-size:0.75em;margin-top:-2em;">
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout="[40,50]">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 44.4%;justify-content: center;">
+<p><img data-src="Images/epsilon.png"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 55.6%;justify-content: center;">
+<p><img data-src="Images/epsilon1.png"></p>
+</div>
+</div>
+</div>
+<p>Para una función <span class="math inline">\(f\)</span> definida en todo punto de un intervalo abierto <span class="math inline">\(I\)</span> que contiene a <span class="math inline">\(c\)</span>, con la posible excepción de <span class="math inline">\(c\)</span>.</p>
+<p>El <span class="math inline">\(\lim_{x \to c} f(x) = L\)</span> si para cualquier <span class="math inline">\(\epsilon &gt; 0\)</span>, no importa qué tan pequeña sea, existe una <span class="math inline">\(\delta &gt; 0\)</span> tal que <span class="math inline">\(|f(x) - L| &lt; \epsilon\)</span> siempre que <span class="math inline">\(0 &lt; |x - c| &lt; \delta\)</span>, es decir,</p>
+<p><span class="math display">\[0 &lt; |x - c| &lt; \delta \quad \Rightarrow \quad |f(x) - L| &lt; \epsilon.\]</span></p>
+<p>En esta definición de límite se establece que los valores de la función <span class="math inline">\(f(x)\)</span> se aproximan a un límite <span class="math inline">\(L\)</span> cuando <span class="math inline">\(x\)</span> se aproxima a un número <span class="math inline">\(c\)</span>, de tal manera que el valor absoluto de la diferencia entre <span class="math inline">\(f(x)\)</span> y <span class="math inline">\(L\)</span> se hace tan pequeña como se quiera tomando valores de <span class="math inline">\(x\)</span> muy próximos a <span class="math inline">\(c\)</span> pero no iguales a <span class="math inline">\(c\)</span>.</p>
+</div></div>
+</section>
 <section id="ejemplo-de-la-propiedad-epsilon-delta" class="slide level2">
 <h2>Ejemplo de la propiedad <span class="math inline">\(\epsilon-\delta\)</span></h2>
 <div class="example">
@@ -914,6 +947,43 @@ c - \frac{c}{2} &lt; x &lt; c + \frac{c}{2}
 \]</span></p>
 <p>Ahora, dado un <span class="math inline">\(\epsilon &gt;0\)</span> bastará tomar <span class="math inline">\(\delta = \min \left\{\dfrac{1}{2}c, \dfrac{1}{2}c^2 \epsilon \right\}\)</span> para tener asegurado que si <span class="math inline">\(|x -c|&lt;\delta\)</span>, entonces <span class="math inline">\(\left|\dfrac{1}{x} -\dfrac{1}{c}\right| &lt; \epsilon\)</span>.</p>
 </div>
+</section>
+<section id="ejemplos" class="slide level2 scrollable">
+<h2>Ejemplos</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ol type="1">
+<li>Sea la función <span class="math inline">\(f\)</span> definida por <span class="math inline">\(f(x) = 3x + 2\)</span>. Si <span class="math inline">\(\lim_{x\to 2} f(x) = 8\)</span> hallar una <span class="math inline">\(\delta\)</span> para: <span class="math display">\[\varepsilon = 0.01 \text{ tal que } |f(x) - 8| &lt; 0.01 \text{ siempre que } 0 &lt; |x - 2| &lt; \delta.\]</span></li>
+</ol>
+<p><strong>Solución:</strong></p>
+<p><strong>Análisis preliminar.</strong> Para <span class="math inline">\(\varepsilon = 0.01\)</span> se debe encontrar una <span class="math inline">\(\delta &gt; 0\)</span> tal que: <span class="math display">\[0 &lt; |x - 2| &lt; \delta \implies |f(x) - 8| &lt; \varepsilon\]</span></p>
+<p>Considerando la desigualdad de la derecha se tiene: <span class="math display">\[
+\begin{align*}
+|(3x + 2) - 8| &lt; \varepsilon &amp;\iff |3x - 6| &lt; \varepsilon \\
+&amp;\iff |3(x - 2)| &lt; \varepsilon \\
+&amp;\iff 3|x - 2| &lt; \varepsilon \\
+&amp;\iff |x - 2| &lt; \frac{\varepsilon}{3}
+\end{align*}
+\]</span></p>
+<p>Como se quiere que <span class="math inline">\(3|x - 2| &lt; \varepsilon\)</span> siempre que <span class="math inline">\(0 &lt; |x - 2| &lt; \delta\)</span> entonces conviene elegir: <span class="math display">\[\delta = \frac{\varepsilon}{3}\]</span></p>
+<p>Es decir: <span class="math display">\[3\delta = \varepsilon\]</span></p>
+</div><div class="column" style="width:40%;">
+<p><img data-src="Images/epsilon.png"> <img data-src="Images/epsilon1.png"></p>
+</div></div>
+</section>
+<section id="prueba-formal" class="slide level2">
+<h2><strong>Prueba formal:</strong></h2>
+<p>Sea <span class="math inline">\(\varepsilon = 0.01\)</span>. Elegir <span class="math inline">\(\delta = \frac{\varepsilon}{3}\)</span>. Entonces <span class="math inline">\(0 &lt; |x - 2| &lt; \delta\)</span> implica que: <span class="math display">\[
+\begin{align*}
+|(3x + 2) - 8| &amp;= |3x - 6| \\
+&amp;= |3(x - 2)| \\
+&amp;= 3|x - 2| \\
+&amp;&lt; 3\delta \\
+&amp;= \varepsilon
+\end{align*}
+\]</span></p>
+<p>Por tanto: <span class="math display">\[|(3x + 2) - 8| &lt; 0.01\]</span></p>
+<p>En este ejemplo el problema ha consistido en encontrar una <span class="math inline">\(\delta\)</span> para una <span class="math inline">\(\varepsilon\)</span> establecida. Si para cualquier <span class="math inline">\(\varepsilon\)</span> se encuentra una <span class="math inline">\(\delta\)</span> correspondiente entonces se habrá demostrado que el límite es <span class="math inline">\(8\)</span>.</p>
 </section>
 <section id="ejemplo-1-enunciado-1" class="slide level2">
 <h2>Ejemplo 1 Enunciado</h2>
@@ -1740,6 +1810,36 @@ g(x) =
 <p><strong>Ejemplo 7</strong>. La función <span class="math inline">\(\log: (0,+\infty) \rightarrow \mathbb{R}\)</span>, es continua para todo <span class="math inline">\(x_0 \in (0,+\infty)\)</span>, puesto que, igual que con la exponencial, en su día demostramos que si <span class="math inline">\(x_n \rightarrow x_0\)</span>, con <span class="math inline">\(x_n &gt; 0\)</span>, entonces <span class="math inline">\(\log x_n \rightarrow \log x_0\)</span></p>
 </div>
 </section>
+<section id="la-funcion-por-partes" class="slide level2">
+<h2>La funcion por partes</h2>
+<p>La función <span class="math inline">\(f(x)\)</span> es continua en todo <span class="math inline">\(\mathfrak{R}\)</span></p>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p><span class="math display">\[
+f(x)=
+\begin{cases}
+0 &amp; \text{si } x=0 \\
+1-x &amp; \text{si } 0&lt;x&lt;1 \\
+1 &amp; \text{si } x=1
+\end{cases}
+\]</span></p>
+<div class="fragment" data-index="2">
+<p><l class="definition"> <strong>Definición</strong> </l></p>
+<div style="background: #fdf6e3; padding:0.2em;">
+<p>Sean <span class="math inline">\(f: A\subset \mathfrak{R} \rightarrow \mathbb{R}\)</span> y <span class="math inline">\(x_0 \in A\)</span>, <strong><span class="math inline">\(f\)</span> es continua en <span class="math inline">\(x_0\)</span></strong> si para cada <span class="math inline">\(\epsilon &gt;0\)</span> existe un <span class="math inline">\(\delta &gt;0\)</span> tal que para todo <span class="math inline">\(x \in A\)</span> que verifique que <span class="math inline">\(|x-x_0|&lt;\delta\)</span>, entonces <span class="math inline">\(|f(x)-f(x_0)|&lt; \epsilon\)</span>.</p>
+<p>Diremos que <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(A\)</span>, si es continua para <span class="alert">todo</span> <span class="math inline">\(x\in A\)</span>.</p>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="fragment" data-index="3" style="margin-top:-1.5em;">
+<p><img data-src="Images/func-01.png" style="width:80.0%"></p>
+<p>(Gráfica de la función <span class="math inline">\(f(x)\)</span>)</p>
+</div>
+<div class="fragment" data-index="4">
+<p>Que en los puntos del intervalo <span class="math inline">\([0; 1]\)</span> toma <strong>todos los valores</strong> entre <span class="math inline">\(f(0)=0\)</span> y <span class="math inline">\(f(1)=1\)</span>, pero <strong>no es continua</strong> en <span class="math inline">\([0; 1]\)</span>.</p>
+</div>
+</div></div>
+</section>
 <section id="la-función-sin-x-es-continua." class="slide level2">
 <h2>La función <span class="math inline">\(\sin x\)</span> es continua.</h2>
 <p><l class="prop"> <strong>Proposición</strong> </l></p>
@@ -1992,19 +2092,15 @@ f(c) - \frac{f(c)}{2} &lt; f(x) &lt; f(c) + \frac{f(c)}{2} \\
 <h2>CEROS DE UNA FUNCIÓN</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div style="margin-top: 15px; font-size: 1em;">
-<p style="color: black; font-weight: bold;">
-Se dice que <span class="math inline">\(k \in \mathfrak{R}\)</span> es un <span style="color: red;">cero</span> de <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> si <span class="math inline">\(\mathbf{f(k) = 0}\)</span>. En términos geométricos, los <span style="color: red;">ceros</span> de “<span class="math inline">\(f\)</span>” son los puntos en que la gráfica de “<span class="math inline">\(f\)</span>” <span style="color: red;">toca al eje de abscisas</span>.
-</p>
+<div class="bg" style="margin-top: 15px; font-size: 1em;">
+<p>Se dice que <span class="math inline">\(k \in \mathfrak{R}\)</span> es un <span class="alert">cero</span> de <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> si <span class="math inline">\(f(k) = 0\)</span>. En términos geométricos, los <span class="alert">ceros</span> de “<span class="math inline">\(f\)</span>” son los puntos en que la gráfica de “<span class="math inline">\(f\)</span>” <span class="alert">toca al eje de abscisas</span>.</p>
 </div>
 <div style="text-align: center; margin: 15px;font-size: 0.7em">
-<p><img data-src="Images/cero.png" style="width:80.0%"><br>
+<p><img data-src="Images/cero.png" style="width:70.0%"><br>
 <span class="math display">\[f(k_1) = f(k_2) = f(k_3) = 0\]</span></p>
 </div>
-<div style="margin-top: 30px; font-size: 1em;">
-<p style="color: black; font-weight: bold;">
-Si <span class="math inline">\(k \in \mathfrak{R}\)</span> es un <span style="color: red;">cero</span> de “<span class="math inline">\(f\)</span>”, se dice es una <span style="color: red;">raíz</span> de la ecuación <span class="math inline">\(f(x) = 0\)</span>.
-</p>
+<div class="bg" style="margin-top: -2em; font-size: 1em;">
+<p>Si <span class="math inline">\(k \in \mathfrak{R}\)</span> es un <span class="alert">cero</span> de “<span class="math inline">\(f\)</span>”, se dice es una <span class="alert">raíz</span> de la ecuación <span class="math inline">\(f(x) = 0\)</span>.</p>
 </div>
 </div><div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
@@ -2016,23 +2112,21 @@ Si <span class="math inline">\(k \in \mathfrak{R}\)</span> es un <span style="co
 </div>
 </div>
 </div>
-<div style="margin-top: 10px; font-size: 0.65em;">
+<div class="bg" style="margin-top: -3em; font-size: 0.75em;">
 <p>
-<span style="color: magenta; font-weight: bold;">Por ejemplo</span>, si <span class="math inline">\(f(x) = x^2 - 5x + 6\)</span>, los únicos <span style="color: red;">ceros</span> de “<span class="math inline">\(f\)</span>” son <span class="math inline">\(2\)</span> y <span class="math inline">\(3\)</span>
+<span style="color: magenta; font-weight: bold;">Por ejemplo</span>, si <span class="math inline">\(f(x) = x^2 - 5x + 6\)</span>, los únicos <span class="alert">ceros</span> de “<span class="math inline">\(f\)</span>” son <span class="math inline">\(2\)</span> y <span class="math inline">\(3\)</span>
 </p>
 <p><span class="math display">\[
 \text{pues } f(x) = x^2 - 5x + 6 = 0 \implies x = \frac{5 \pm \sqrt{25 - 24}}{2} = \begin{cases} 2 \\ 3 \end{cases}
 \]</span></p>
-<p>
-<span style="color: magenta; font-weight: bold;">Por ejemplo</span>, si <span class="math inline">\(g(x) = e^x\)</span>, la función “<span class="math inline">\(g\)</span>” carece de <span style="color: red;">ceros</span>, pues <span class="math inline">\(\forall x \in \mathbb{R}\)</span> sucede que <span class="math inline">\(g(x) = e^x &gt; 0\)</span>.
-</p>
+<p><span style="color: magenta; font-weight: bold;">Por ejemplo</span>, si <span class="math inline">\(g(x) = e^x\)</span>, la función “<span class="math inline">\(g\)</span>” carece de <span class="alert">ceros</span>, pues <span class="math inline">\(\forall x \in \mathfrak{R}\)</span> sucede que <span class="math inline">\(g(x) = e^x &gt; 0\)</span>.</p>
 </div>
 </div></div>
 </section>
 <section id="ejercicio-demostración-formal-teorema-de-bolzano" class="slide level2 scrollable">
 <h2>Ejercicio: Demostración Formal (Teorema de Bolzano)</h2>
 <div class="bg" style="background-color: #fdf6e3;padding:0.1em; font-size:1.2em;margin-top:0em">
-<p>Demostrar la existencia de al menos una raíz real negativa para el polinomio <span class="math inline">\(P(x)=x4−4x2−1\)</span>. en el <span class="math inline">\([-3, 0]\)</span>.</p>
+<p>Demostrar la existencia de al menos una raíz real negativa para el polinomio <span class="math inline">\(P(x)=x^4−4x2−1\)</span>. en el <span class="math inline">\([-3, 0]\)</span>.</p>
 </div>
 <div class="bg" style="background-color: none;padding:0.25em; font-size:0.9em;">
 <p><strong>Variables y Suposiciones:</strong> La función <span class="math inline">\(f(x)\)</span> es polinómica, por lo tanto, es <strong>continua en todo <span class="math inline">\(\mathfrak{R}\)</span></strong>, en <span class="math inline">\([-3, 0]\)</span>.<strong>Estrategia de Demostración:</strong> Evaluar <span class="math inline">\(f(x)\)</span> en el extremo superior (<span class="math inline">\(x=0\)</span>) para obtener un signo. Evaluar <span class="math inline">\(f(x)\)</span> en el extremo inferior (<span class="math inline">\(x=-3\)</span>) para obtener el signo opuesto. <strong>Objetivo</strong>:Demostrar la existencia de <strong>al menos una raíz real negativa</strong> para el polinomio <span class="math inline">\(P(x) = x^4 - 4x^2 - 1\)</span>.</p>
@@ -2072,6 +2166,18 @@ f(2) = 2^3 + 2^2 + k(2) - 6 = 8 + 4 + 2k - 6 = 6 + 2k.
 <p>Por lo tanto, por el <strong>Teorema de Bolzano</strong>, existe al menos un <span class="math inline">\(c \in (a, 2)\)</span> tal que <span class="math inline">\(f(c) = 0.\)</span></p>
 <p>Puesto que <span class="math inline">\(c \in (a, 2)\)</span> y <span class="math inline">\(a &lt; 2\)</span>, se concluye que <span class="math inline">\(c\)</span> es una raíz real menor que 2. <span class="math inline">\(\square\)</span></p>
 </div>
+</section>
+<section id="pruebe-que-la-ecuación-ex---8-0-tiene-alguna-raíz-real-en-2-3." class="slide level2">
+<h2>Pruebe que la ecuación <span class="math inline">\(e^x - 8 = 0\)</span> tiene alguna raíz real en <span class="math inline">\((2; 3)\)</span>.</h2>
+<p>Sea <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> tal que <span class="math inline">\(f(x) = e^x - 8\)</span>.</p>
+<p>Como “<span class="math inline">\(f\)</span>” es continua en todo punto, es <strong>continua</strong> <span class="math inline">\([2; 3]\)</span>; además, los valores de “<span class="math inline">\(f\)</span>” en los extremos de <span class="math inline">\([2; 3]\)</span> tienen <strong>signo distinto</strong>:</p>
+<p><span class="math display">\[
+\begin{aligned}
+&amp;f(2) = e^2 - 8 &lt; 0 \\
+&amp;f(3) = e^3 - 8 &gt; 0
+\end{aligned}
+\]</span></p>
+<p>Así, según <strong>Bolzano</strong>, hay al menos un punto <span class="math inline">\(c \in (2; 3)\)</span> tal que <span class="math inline">\(f(c) = 0\)</span>, y decir <span class="math inline">\(f(c) = 0\)</span> es decir <span class="math inline">\(e^c - 8 = 0\)</span>; o sea: <span class="math inline">\(e^c = 8\)</span>.</p>
 </section>
 <section id="ejemplo-4" class="slide level2 scrollable">
 <h2>Ejemplo</h2>
@@ -2124,6 +2230,10 @@ f(-1.5) \cdot f(-1.375)&lt;0 \\
 <h2>Teorema de los valores intermedios</h2>
 <p><l class="prop"> <strong>Proposición: Teorema de los valores intermedios</strong></l></p>
 <p>Sea <span class="math inline">\(f:[a,b] \rightarrow \mathbb{R}\)</span> continua y sean <span class="math inline">\(x_1,x_2 \in [a,b]\)</span> tales que <span class="math inline">\(x_1 &lt; x_2\)</span> y <span class="math inline">\(f(x_1)\neq f(x_2)\)</span>, entonces <span class="math inline">\(f\)</span> toma todos los valores comprendidos entre <span class="math inline">\(f(x_1)\)</span> y <span class="math inline">\(f(x_2)\)</span>.</p>
+
+<img data-src="Images/func-02.png" style="width:80.0%" class="r-stretch"></section>
+<section id="section-1" class="slide level2">
+<h2></h2>
 <div class="dem">
 <p><strong>Demostración</strong>.</p>
 <p>En primer lugar hay que tener en cuenta que <span class="math inline">\(x_1 &lt; x_2\)</span> no significa que <span class="math inline">\(f(x_1)&lt;f(x_2)\)</span>.</p>
@@ -2167,12 +2277,12 @@ f(-1.5) \cdot f(-1.375)&lt;0 \\
 <p>Por el principio de los intervalos anidados, existe <span class="math inline">\(c\)</span> tal que <span class="math inline">\(\lim_{n \rightarrow \infty} a_n = c = \lim_{n \rightarrow \infty} b_n\)</span>. Dado que <span class="math inline">\(a_n \leq x_n \leq b_n\)</span>, tendremos que <span class="math inline">\(\lim_{n \rightarrow \infty} x_n = c\)</span> como, por otra parte <span class="math inline">\(f(x_n) &gt; n\)</span>, resulta que <span class="math inline">\(f(x_n)  \rightarrow \infty\)</span>, lo que contradice que <span class="math inline">\(f\)</span> sea continua, puesto que debería ser <span class="math inline">\(f(x_n) \rightarrow f(c)\)</span>.</p>
 </div>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div style="text-align: center; color: black; background-color: yellow; padding: 10px; border-radius: 5px; font-size: 1em; font-weight: bold;">
 <p>TEOREMA DE WEIERSTRASS</p>
 </div>
-<div style="margin-top: 15px; font-size: 0.75em; color: black; font-weight: bold;">
+<div style="margin-top: 15px; font-size: 1em; color: black; font-weight: bold;">
 <p style="text-align: justify;">
 Si la función “<span class="math inline">\(f\)</span>” es <span style="color: red;">continua en el cerrado <span class="math inline">\([a;b]\)</span></span>, entre los valores que toma “<span class="math inline">\(f\)</span>” en los puntos de <span class="math inline">\([a;b]\)</span> hay un <span style="color: red;">mínimo <span class="math inline">\(K_1\)</span></span> que no supera a ningún otro, y un <span style="color: red;">máximo <span class="math inline">\(K_2\)</span></span> no superado por ningún otro.
 </p>
@@ -2191,20 +2301,20 @@ De <span class="math inline">\(K_2\)</span> se dice que es el <span style="color
 <div class="column" style="width:50%;">
 <p><img data-src="Images/acotada1.png"></p>
 </div><div class="column" style="width:50%;">
-<div style="background-color: yellow; padding: 15px; border: 2px solid black; flex-grow: 1; font-size: 0.75em; max-width: 400px;margin-top:3em">
+<div style="background-color: yellow; padding: 15px; border: 2px solid black; flex-grow: 1; font-size: 1em; max-width: 400px;margin-top:3em">
 <p style="margin: 0;">
 <span style="color: red; font-weight: bold;">El máximo absoluto (global)</span> de <span class="math inline">\(f(x) = 1/x\)</span> en <span class="math inline">\([2;3]\)</span> es “<span class="math inline">\(1/2\)</span>”, y “<span class="math inline">\(f\)</span>” toma ese valor en el punto <span class="math inline">\(x = 2\)</span>; el <span style="color: red; font-weight: bold;">mínimo absoluto (global)</span> es “<span class="math inline">\(1/3\)</span>”, y “<span class="math inline">\(f\)</span>” toma ese valor en el punto <span class="math inline">\(x = 3\)</span>.
 </p>
 </div>
 </div></div>
 </div>
-<div style="margin-top: 20px; font-size: 0.75em; color: black; font-weight: bold;">
+<div style="margin-top: 20px; font-size: 1em; color: black; font-weight: bold;">
 <p style="text-align: justify;">
 Se introduce la palabra <span style="color: red; font-weight: bold;">absoluto (global)</span> para distinguir <span class="math inline">\(K_1\)</span> y <span class="math inline">\(K_2\)</span> de los máximos y mínimos <span style="color: red; font-weight: bold;">relativos (locales)</span> que estudiaremos más adelante.
 </p>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-3" class="slide level2">
 <h2></h2>
 </section>
 <section id="teorema-del-extremo" class="slide level2">
@@ -2349,15 +2459,9 @@ Demuestra la proposición anterior para <span class="math inline">\(f\)</span> d
 <section id="funciones-inversas" class="slide level2">
 <h2>Funciones inversas</h2>
 <p>Recordemos que una <strong>aplicación biyectiva</strong> o <strong>correspondencia uno a uno</strong> es una aplicación que es, a la vez, inyectiva y exhaustiva.</p>
+<div style="font-size:1em;">
 <div class="center">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Images/biyectiva.png" width="400"></p>
-</figure>
-</div>
-</div>
+<p><img data-src="Images/biyectiva.png" style="width:50.0%"></p>
 </div>
 </div>
 <p>Una propiedad importante de esta aplicaciones biyectivas es que se puede invertir el sentido de las flechas y el resultado continua siendo una aplicación biyectiva.</p>
@@ -2389,15 +2493,9 @@ Demuestra la proposición anterior para <span class="math inline">\(f\)</span> d
 <section id="funciones-inversas-3" class="slide level2">
 <h2>Funciones inversas</h2>
 <p>Las gràficas de una función, <span class="math inline">\(f\)</span>, y la de su inversa, <span class="math inline">\(f^{-1}\)</span> són simétricas respecto de la recta <span class="math inline">\(y=x\)</span>:</p>
+<div style="font-size:1em;">
 <div class="center">
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="Images/finversa.png" width="400"></p>
-</figure>
-</div>
-</div>
+<p><img data-src="Images/finversa.png" style="width:50.0%"></p>
 </div>
 </div>
 </section>

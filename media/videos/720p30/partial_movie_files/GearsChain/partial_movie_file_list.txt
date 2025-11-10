@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/elvissanchez/Documents/GitHub/curso-calculo-I/media/videos/720p30/partial_movie_files/GearsChain/2016333726_1777797865_223132457.mp4'
+file 'file:/Users/elvissanchez/Documents/GitHub/curso-calculo-I/media/videos/720p30/partial_movie_files/GearsChain/543634251_629069705_625031941.mp4'
+file 'file:/Users/elvissanchez/Documents/GitHub/curso-calculo-I/media/videos/720p30/partial_movie_files/GearsChain/543634251_3394500337_1996239553.mp4'
+file 'file:/Users/elvissanchez/Documents/GitHub/curso-calculo-I/media/videos/720p30/partial_movie_files/GearsChain/543634251_3037189686_3455513356.mp4'

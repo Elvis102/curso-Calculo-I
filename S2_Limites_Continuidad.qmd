@@ -859,6 +859,9 @@ Por lo tanto, hemos probado que $\lim_{x \to c} \frac{1}{x} = \frac{1}{c}$.
 Hemos demostrado que para cualquier $\epsilon > 0$ dado, podemos encontrar un $\delta = \min\left\{ \frac{c}{2}, \frac{\epsilon c^2}{2} \right\}$ tal que si $0 < |x - c| < \delta$, entonces $\left| \frac{1}{x} - \frac{1}{c} \right| < \epsilon$.
 :::
 
+
+
+
 ## Límite de una función en un punto: Ejemplos
 
 <div class="example"> **Ejemplos**
@@ -929,6 +932,59 @@ Finalmente, en lo que se refiere al tercer apartado, es suficiente tener en cuen
 
 </div>
 
+## Definición de límites
+
+::: columns
+
+::: {.column width="50%" style="font-size:0.75em;margin-top:-1em;"}
+Anteriormente se ha establecido que $\lim_{x \to c} f(x) = L$ significa que la diferencia entre $f(x)$ y $L$ se puede hacer tan pequeña como se quiera siempre que $x$ esté próxima a $c$ con $x \neq c$. Ahora se cuenta con elementos que posibilitarán una mejor comprensión de la **definición precisa de límite** en la que se utilizan las letras griegas $\epsilon$ (**épsilon**) y $\delta$ (**delta**) para representar pequeños números positivos arbitrarios.
+
+Para expresar que $f(x)$ y $L$ difieren menos que $\epsilon$ se escribe:
+
+$$|f(x) - L| < \epsilon$$
+
+Es decir:
+
+$$L - \epsilon < f(x) < L + \epsilon$$
+
+Por tanto, $f(x)$ pertenece al intervalo abierto $(L - \epsilon, L + \epsilon)$ (véase figura 2.15).
+
+Para expresar que $x$ está próximo a $c$, pero $x \neq c$, para algún $\delta$, significa que $x$ pertenece al intervalo abierto $(c - \delta, c + \delta)$ donde $x \neq c$, es decir:
+
+$$0 < |x - c| < \delta$$
+
+Donde $0 < |x - c| < \delta$ indica que $c - \delta < x < c + \delta$ y $0 < |x - c|$ precisa la exclusión de $x = c$ (véase figura 2.16).
+:::
+
+::: {.column width="50%" style="font-size:0.75em;margin-top:-2em;"}
+
+
+::: {layout="[40,50]"}
+![](Images/epsilon.png)
+
+![](Images/epsilon1.png)
+
+:::
+
+Para una función $f$ definida en todo punto de un intervalo abierto $I$ que contiene a $c$, con la posible excepción de $c$.
+
+El $\lim_{x \to c} f(x) = L$ si para cualquier $\epsilon > 0$, no importa qué tan pequeña sea, existe una $\delta > 0$ tal que $|f(x) - L| < \epsilon$ siempre que $0 < |x - c| < \delta$, es decir,
+
+$$0 < |x - c| < \delta \quad \Rightarrow \quad |f(x) - L| < \epsilon.$$
+
+En esta definición de límite se establece que los valores de la función $f(x)$ se aproximan a un límite $L$ cuando $x$ se aproxima a un número $c$, de tal manera que el valor absoluto de la diferencia entre $f(x)$ y $L$ se hace tan pequeña como se quiera tomando valores de $x$ muy próximos a $c$ pero no iguales a $c$.
+:::
+
+:::
+
+
+
+
+
+
+
+
+
 ## Ejemplo de la propiedad $\epsilon-\delta$
 
 <div class="example"> **Ejemplo**
@@ -948,6 +1004,64 @@ $$
 Ahora, dado un $\epsilon >0$ bastará tomar $\delta = \min \left\{\dfrac{1}{2}c, \dfrac{1}{2}c^2 \epsilon \right\}$ para tener asegurado que si $|x -c|<\delta$, entonces $\left|\dfrac{1}{x} -\dfrac{1}{c}\right| < \epsilon$.
 
 </div>
+
+## Ejemplos  {.scrollable}
+
+::: columns
+
+::: {.column width="60%"}
+1. Sea la función $f$ definida por $f(x) = 3x + 2$. Si $\lim_{x\to 2} f(x) = 8$ hallar una $\delta$ para:
+   $$\varepsilon = 0.01 \text{ tal que } |f(x) - 8| < 0.01 \text{ siempre que } 0 < |x - 2| < \delta.$$
+
+**Solución:**
+
+**Análisis preliminar.** Para $\varepsilon = 0.01$ se debe encontrar una $\delta > 0$ tal que:
+$$0 < |x - 2| < \delta \implies |f(x) - 8| < \varepsilon$$
+
+Considerando la desigualdad de la derecha se tiene:
+$$
+\begin{align*}
+|(3x + 2) - 8| < \varepsilon &\iff |3x - 6| < \varepsilon \\
+&\iff |3(x - 2)| < \varepsilon \\
+&\iff 3|x - 2| < \varepsilon \\
+&\iff |x - 2| < \frac{\varepsilon}{3}
+\end{align*}
+$$
+
+Como se quiere que $3|x - 2| < \varepsilon$ siempre que $0 < |x - 2| < \delta$ entonces conviene elegir:
+$$\delta = \frac{\varepsilon}{3}$$
+
+Es decir:
+$$3\delta = \varepsilon$$
+:::
+::: {.column width="40%"}
+![](Images/epsilon.png)
+![](Images/epsilon1.png)
+:::
+
+:::
+
+
+
+
+## **Prueba formal:**
+
+Sea $\varepsilon = 0.01$. Elegir $\delta = \frac{\varepsilon}{3}$. Entonces $0 < |x - 2| < \delta$ implica que:
+$$
+\begin{align*}
+|(3x + 2) - 8| &= |3x - 6| \\
+&= |3(x - 2)| \\
+&= 3|x - 2| \\
+&< 3\delta \\
+&= \varepsilon
+\end{align*}
+$$
+
+Por tanto:
+$$|(3x + 2) - 8| < 0.01$$
+
+En este ejemplo el problema ha consistido en encontrar una $\delta$ para una $\varepsilon$ establecida. Si para cualquier $\varepsilon$ se encuentra una $\delta$ correspondiente entonces se habrá demostrado que el límite es $8$.
+
 
 ## Ejemplo 1 Enunciado
 
@@ -2033,6 +2147,54 @@ es discontinua en todo punto $x \in \mathbb{R}$, puesto que si $x \in \mathbb{Q}
 
 </div>
 
+## La funcion por partes
+
+La función $f(x)$ es continua en todo $\mathfrak{R}$
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+$$
+f(x)=
+\begin{cases}
+0 & \text{si } x=0 \\
+1-x & \text{si } 0<x<1 \\
+1 & \text{si } x=1
+\end{cases}
+$$
+
+::: {.fragment index="2"}
+<l class="definition"> **Definición** </l>
+
+::: {style="background: #fdf6e3; padding:0.2em;"}
+
+Sean $f: A\subset \mathfrak{R} \rightarrow \mathbb{R}$ y $x_0 \in A$, **$f$ es continua en $x_0$** si para cada $\epsilon >0$ existe un $\delta >0$ tal que para todo $x \in A$ que verifique que $|x-x_0|<\delta$, entonces $|f(x)-f(x_0)|< \epsilon$.
+
+Diremos que $f$ es continua en $A$, si es continua para [todo]{.alert} $x\in A$.
+
+:::
+:::
+
+:::
+
+::: {.column width="40%"}
+
+::: {.fragment index="3" style="margin-top:-1.5em;"}
+![](Images/func-01.png){width="80%"}
+
+(Gráfica de la función $f(x)$)
+:::
+
+::: {.fragment index="4"}
+Que en los puntos del intervalo $[0; 1]$ toma **todos los valores** entre $f(0)=0$ y $f(1)=1$, pero **no es continua** en $[0; 1]$.
+:::
+
+:::
+
+:::
+
+
 
 ## La función $\sin x$ es continua.
 
@@ -2347,30 +2509,21 @@ Demuestra el teorema de Bolzano en el caso que sea $f(a) >0$ y $f(b)<0$.
 ::: columns
 
 ::: {.column width="50%"}
-<div style="margin-top: 15px; font-size: 1em;">
 
-<p style="color: black; font-weight: bold;">
-Se dice que $k \in \mathfrak{R}$ es un <span style="color: red;">cero</span> de $f: \mathfrak{R} \to \mathfrak{R}$ si $\mathbf{f(k) = 0}$. En términos geométricos, los <span style="color: red;">ceros</span> de "$f$" son los puntos en que la gráfica de "$f$" <span style="color: red;">toca al eje de abscisas</span>.
-</p>
-
-
-</div>
+::: {.bg style="margin-top: 15px; font-size: 1em;"} 
+Se dice que $k \in \mathfrak{R}$ es un [cero]{.alert} de $f: \mathfrak{R} \to \mathfrak{R}$ si $f(k) = 0$. En términos geométricos, los [ceros]{.alert} de "$f$" son los puntos en que la gráfica de "$f$" [toca al eje de abscisas]{.alert}.
+:::
 
 
 <div style="text-align: center; margin: 15px;font-size: 0.7em">
-  ![](Images/cero.png){width="80%"}    
+  ![](Images/cero.png){width="70%"}    
   $$f(k_1) = f(k_2) = f(k_3) = 0$$
 </div>
 
-<div style="margin-top: 30px; font-size: 1em;">
 
-<p style="color: black; font-weight: bold;">
-Si $k \in \mathfrak{R}$ es un <span style="color: red;">cero</span> de "$f$", se dice es una <span style="color: red;">raíz</span> de la ecuación $f(x) = 0$.
-</p>
-
-
-
-</div>
+::: {.bg style="margin-top: -2em; font-size: 1em;"} 
+Si $k \in \mathfrak{R}$ es un [cero]{.alert} de "$f$", se dice es una [raíz]{.alert} de la ecuación $f(x) = 0$.
+:::
 
 :::
 
@@ -2407,9 +2560,9 @@ plt.ylabel('Eje Y')
 plt.axhline(0, color='gray', linestyle='--', linewidth=1.8, label='Asíntota horizontal (y=0)')
 plt.axvline(0, color='gray', linestyle='--', linewidth=1.8, label='Asíntota vertical (x=0)')
 plt.xlim(-1, 5);
-plt.ylim(-1, 4);
+plt.ylim(-1, 2);
 plt.xticks(np.arange(-1, 5, 1));
-plt.yticks(np.arange(-1, 4, 1));
+plt.yticks(np.arange(-1, 2, 1));
 # Agregar puntos en las raíces
 roots_x = [2,3]
 roots_y = [0,0]
@@ -2417,27 +2570,28 @@ plt.scatter(roots_x, roots_y, color='red', s=80, marker='o', label='Raíces')
 plt.grid(True)
 plt.legend()
 ```
-<div style="margin-top: 10px; font-size: 0.65em;">
+::: {.bg style="margin-top: -3em; font-size: 0.75em;"}
 <p>
-<span style="color: magenta; font-weight: bold;">Por ejemplo</span>, si $f(x) = x^2 - 5x + 6$, los únicos <span style="color: red;">ceros</span> de "$f$" son $2$ y $3$
+[Por ejemplo]{style="color: magenta; font-weight: bold;"}, si $f(x) = x^2 - 5x + 6$, los únicos [ceros]{.alert} de "$f$" son $2$ y $3$
 </p>
 
 $$
 \text{pues } f(x) = x^2 - 5x + 6 = 0 \implies x = \frac{5 \pm \sqrt{25 - 24}}{2} = \begin{cases} 2 \\ 3 \end{cases}
 $$
 
-<p>
-<span style="color: magenta; font-weight: bold;">Por ejemplo</span>, si $g(x) = e^x$, la función "$g$" carece de <span style="color: red;">ceros</span>, pues $\forall x \in \mathbb{R}$ sucede que $g(x) = e^x > 0$.
-</p>
 
-</div>
+[Por ejemplo]{style="color: magenta; font-weight: bold;"}, si $g(x) = e^x$, la función "$g$" carece de [ceros]{.alert}, pues $\forall x \in \mathfrak{R}$ sucede que $g(x) = e^x > 0$.
+
+
+:::
+
 :::
 :::
 
 ## Ejercicio: Demostración Formal (Teorema de Bolzano) {.scrollable}
 
 ::: {.bg style="background-color: #fdf6e3;padding:0.1em; font-size:1.2em;margin-top:0em"}
-Demostrar la existencia de al menos una raíz real negativa para el polinomio $P(x)=x4−4x2−1$. en el $[-3, 0]$.
+Demostrar la existencia de al menos una raíz real negativa para el polinomio $P(x)=x^4−4x2−1$. en el $[-3, 0]$.
 :::
 
 ::: {.bg style="background-color: none;padding:0.25em; font-size:0.9em;"}
@@ -2509,6 +2663,22 @@ Por lo tanto, por el **Teorema de Bolzano**, existe al menos un $c \in (a, 2)$ t
 Puesto que $c \in (a, 2)$ y $a < 2$, se concluye que $c$ 
 es una raíz real menor que 2. $\square$
 :::
+
+## Pruebe que la ecuación $e^x - 8 = 0$ tiene alguna raíz real en $(2; 3)$.
+
+
+Sea $f: \mathfrak{R} \to \mathfrak{R}$ tal que $f(x) = e^x - 8$.
+
+Como "$f$" es continua en todo punto, es **continua** $[2; 3]$; además, los valores de "$f$" en los extremos de $[2; 3]$ tienen **signo distinto**:
+
+$$
+\begin{aligned}
+&f(2) = e^2 - 8 < 0 \\
+&f(3) = e^3 - 8 > 0
+\end{aligned}
+$$
+
+Así, según **Bolzano**, hay al menos un punto $c \in (2; 3)$ tal que $f(c) = 0$, y decir $f(c) = 0$ es decir $e^c - 8 = 0$; o sea: $e^c = 8$.
 
 
 ## Ejemplo {.scrollable}
@@ -2613,6 +2783,10 @@ Seguimos así hasta alcanzar un valor que este por debajo de la **tolerancia** d
 
 Sea $f:[a,b] \rightarrow \mathbb{R}$ continua y sean $x_1,x_2 \in [a,b]$ tales que $x_1 < x_2$ y $f(x_1)\neq f(x_2)$, entonces $f$ toma todos los valores comprendidos entre $f(x_1)$ y $f(x_2)$.
 
+![](Images/func-02.png){width="80%"}
+
+##
+
 <div class="dem"> **Demostración**.
 
 En primer lugar  hay que tener en cuenta que  $x_1 < x_2$ no significa que $f(x_1)<f(x_2)$. 
@@ -2678,7 +2852,8 @@ Por el principio de los intervalos anidados, existe $c$ tal que $\lim_{n \righta
 TEOREMA DE WEIERSTRASS
 </div>
 
-<div style="margin-top: 15px; font-size: 0.75em; color: black; font-weight: bold;">
+<div style="margin-top: 15px; font-size: 1em; color: black; font-weight: bold;">
+
 <p style="text-align: justify;">
 Si la función "$f$" es <span style="color: red;">continua en el cerrado $[a;b]$</span>, entre los valores que toma "$f$" en los puntos de $[a;b]$ hay un <span style="color: red;">mínimo $K_1$</span> que no supera a ningún otro, y un <span style="color: red;">máximo $K_2$</span> no superado por ningún otro.
 </p>
@@ -2704,7 +2879,7 @@ De $K_2$ se dice que es el <span style="color: red; font-weight: bold;">máximo 
 ![](Images/acotada1.png)
 :::
 ::: {.column width="50%"} 
-<div style="background-color: yellow; padding: 15px; border: 2px solid black; flex-grow: 1; font-size: 0.75em; max-width: 400px;margin-top:3em">
+<div style="background-color: yellow; padding: 15px; border: 2px solid black; flex-grow: 1; font-size: 1em; max-width: 400px;margin-top:3em">
 <p style="margin: 0;">
   <span style="color: red; font-weight: bold;">El máximo absoluto (global)</span> de $f(x) = 1/x$ en $[2;3]$ es "$1/2$", y "$f$" toma ese valor en el punto $x = 2$; el <span style="color: red; font-weight: bold;">mínimo absoluto (global)</span> es "$1/3$", y "$f$" toma ese valor en el punto $x = 3$.
 </p>
@@ -2714,7 +2889,7 @@ De $K_2$ se dice que es el <span style="color: red; font-weight: bold;">máximo 
 
 </div>
 
-<div style="margin-top: 20px; font-size: 0.75em; color: black; font-weight: bold;">
+<div style="margin-top: 20px; font-size: 1em; color: black; font-weight: bold;">
 <p style="text-align: justify;">
 Se introduce la palabra <span style="color: red; font-weight: bold;">absoluto (global)</span> para distinguir $K_1$ y $K_2$ de los máximos y mínimos <span style="color: red; font-weight: bold;">relativos (locales)</span> que estudiaremos más adelante.
 </p>
@@ -2861,11 +3036,15 @@ Demuestra la proposición anterior para $f$ decreciente. </div>
 
 Recordemos que una **aplicación biyectiva** o **correspondencia uno a uno** es una aplicación que es, a la vez, inyectiva y exhaustiva.
 
-<div class="center">
-```{r, echo=FALSE, label=biy,fig.cap="",out.width = "400px"}
-knitr::include_graphics("Images/biyectiva.png",dpi=1200)
-```
-</div>
+
+
+::: {style="font-size:1em;"}
+::: center
+![](Images/biyectiva.png){width="50%"}
+:::
+:::
+
+
 Una propiedad importante de esta aplicaciones biyectivas es que se puede invertir el sentido de las flechas y el resultado continua siendo una aplicación biyectiva. 
 
 ## Funciones inversas
@@ -2905,14 +3084,11 @@ En el caso de funciones, es decir, aplicaciones entre conjuntos de números, la 
 
 Las gràficas de una función, $f$, y la de su inversa, $f^{-1}$ són simétricas respecto de la recta $y=x$:
 
-<div class="center">
-
-```{r, echo=FALSE, label=finversa,fig.cap="",out.width = "400px"}
-knitr::include_graphics("Images/finversa.png",dpi=1200)
-```
-</div>
-
-
+::: {style="font-size:1em;"}
+::: center
+![](Images/finversa.png){width="50%"}
+:::
+:::
 
 ## Funciones monótonas e inversas
 

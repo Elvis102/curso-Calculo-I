@@ -5,17 +5,24 @@ subtitle: La Derivada
 toc: false
 format:
   revealjs: 
+    #aspectratio: 149
+    width: 1600   
     theme: [default, clean.scss]
     slide-number: true
     slide-tone: false
-    chalkboard: 
-      buttons: true
+    chalkboard:
+      chalk-width: 2          # grosor de la tiza (más pequeño = más delgado)
+      boardmarker-width: 2    # grosor del marcador
     footer: | 
       © 2025 Elvis Sánchez – Universidad Técnica de Machala
+    dependencies:
+      - name: d3
+        version: 7
+        src: "https://d3js.org/d3.v7.min.js"
   html:
-   embed-resources: true
-   self-contained: true
-   pdf-max-pages-per-slide : true
+    embed-resources: true
+    self-contained: true
+    pdf-max-pages-per-slide: true
  
 author:
   - name: Elvis M. Sánchez Rogel
@@ -25,16 +32,187 @@ author:
 date: last-modified
 logo: Images/Utmach-logo.png
 lang: es
-
-#runtime: shiny_prerendered
+server: shiny
 ---
-
+```{r}
+#| context: setup
+addResourcePath("Images", "Images")
+```
 ```{r}
 library(reticulate)
-use_python("/opt/anaconda3/bin/python",required = TRUE)
+use_condaenv("manim-env", required = TRUE)
 ```
 
 # Derivada de una función en un punto del dominio de la misma {.my-slide}
+
+## Regla de la cadena
+
+```{r}
+#| panel: sidebar
+
+# 0. CONTROL DE POSICIÓN/ANIMACIÓN
+sliderInput("x_angle_slider", "Posición/Rotación de Rueda X:", 
+            min = 0, max = 360, value = 0, step = 1, animate = 
+            animationOptions(interval = 100, loop = TRUE))
+
+# --- Sección X -> U (du/dx) ---
+sliderInput("ratio_xu", "Radio de X/U (Magnitud du/dx):", 
+            min = 0.5, max = 3, value = 2, step = 0.1)
+
+checkboxInput("cross_xu", "Correa cruzada x-u (Sentido inverso -)", value = FALSE)
+
+# --- Sección U -> Y (dy/du) ---
+sliderInput("ratio_uy", "Radio de U/Y (Magnitud dy/du):", 
+            min = 0.5, max = 3, value = 1.5, step = 0.1)
+
+checkboxInput("cross_uy", "Correa cruzada u-y (Sentido inverso -)", value = FALSE)
+
+```
+
+```{r}
+#| panel: fill
+# El gráfico ocupa el espacio principal
+plotOutput('simulacion_plot', height = "400px")
+
+# El texto de resultados
+h4(textOutput("derivative_output"))
+```
+
+```{r}
+#| context: setup
+# Necesario para la función draw.circle en el plot
+library(plotrix)
+```
+
+```{r}
+#| context: server
+
+# --- 1. FUNCIÓN GEOMÉTRICA NO REACTIVA ---
+# Dibuja una correa (recta o cruzada) entre dos ruedas usando trigonometría.
+draw_belt <- function(cx1, cy1, r1, cx2, cy2, r2, is_crossed, color) {
+  
+  d <- sqrt((cx2 - cx1)^2 + (cy2 - cy1)^2)
+  alpha <- atan2(cy2 - cy1, cx2 - cx1)
+  
+  if (d < abs(r1 - r2) + 0.1) {
+      # Evitar errores si las ruedas están demasiado cerca para la geometría
+      return() 
+  }
+
+  if (!is_crossed) { # Correa Recta (Directa)
+    beta <- acos((r1 - r2) / d)
+    
+    # Puntos de tangencia en Rueda 1 y 2
+    T1ax <- cx1 + r1 * cos(alpha + pi/2 - beta); T1ay <- cy1 + r1 * sin(alpha + pi/2 - beta)
+    T1bx <- cx1 + r1 * cos(alpha - pi/2 - beta); T1by <- cy1 + r1 * sin(alpha - pi/2 - beta)
+    
+    T2ax <- cx2 + r2 * cos(alpha + pi/2 - beta); T2ay <- cy2 + r2 * sin(alpha + pi/2 - beta)
+    T2bx <- cx2 + r2 * cos(alpha - pi/2 - beta); T2by <- cy2 + r2 * sin(alpha - pi/2 - beta)
+    
+    # Dibujar las dos líneas rectas
+    segments(T1ax, T1ay, T2ax, T2ay, col = color, lwd = 2)
+    segments(T1bx, T1by, T2bx, T2by, col = color, lwd = 2)
+    
+  } else { # Correa Cruzada (Invertida)
+    r_sum <- r1 + r2
+    if (d < r_sum + 0.1) return() # Evitar errores si la suma de radios es mayor a la distancia
+    
+    beta <- acos(r_sum / d)
+    
+    # Puntos de tangencia en Rueda 1
+    T1ax <- cx1 + r1 * cos(alpha + beta); T1ay <- cy1 + r1 * sin(alpha + beta)
+    T1bx <- cx1 + r1 * cos(alpha - beta); T1by <- cy1 + r1 * sin(alpha - beta)
+    
+    # Puntos de tangencia en Rueda 2 (se cruzan)
+    T2ax <- cx2 + r2 * cos(alpha - beta); T2ay <- cy2 + r2 * sin(alpha - beta) 
+    T2bx <- cx2 + r2 * cos(alpha + beta); T2by <- cy2 + r2 * sin(alpha + beta) 
+    
+    # Dibujar las dos líneas cruzadas
+    segments(T1ax, T1ay, T2ax, T2ay, col = color, lwd = 2)
+    segments(T1bx, T1by, T2bx, T2by, col = color, lwd = 2)
+  }
+}
+
+# --- 2. CÁLCULOS REACTIVOS ---
+
+# Razón de cambio du/dx (Magnitud * Signo)
+du_dx_calc <- reactive({
+  ratio <- input$ratio_xu
+  sign <- ifelse(input$cross_xu, -1, 1)
+  return(sign * ratio)
+})
+
+# Razón de cambio dy/du (Magnitud * Signo)
+dy_du_calc <- reactive({
+  ratio <- input$ratio_uy
+  sign <- ifelse(input$cross_uy, -1, 1)
+  return(sign * ratio)
+})
+
+# Resultado final: dy/dx
+dy_dx_calc <- reactive({
+  return(du_dx_calc() * dy_du_calc())
+})
+
+# --- 3. SALIDAS DE TEXTO (Output) ---
+
+output$derivative_output <- renderText({
+  paste("du/dx =", round(du_dx_calc(), 3), 
+        "| dy/du =", round(dy_du_calc(), 3),
+        "| **dy/dx (Regla Cadena)** =", round(dy_dx_calc(), 3))
+})
+
+# --- 4. SALIDA GRÁFICA (Plot) ---
+
+output$simulacion_plot <- renderPlot({
+  
+  # CONFIGURACIÓN ESTÁTICA
+  CX <- c(-10, 0, 10)  # Centros X
+  CY <- c(10, -5, 5)   # Centros Y
+  R <- c(4, 2, 3.5)    # Radios
+  wheel_colors <- c("blue", "red", "red")
+  
+  # Inicializar el gráfico
+  par(mar = c(0, 0, 0, 0)) 
+  plot(NULL, xlim = c(-15, 15), ylim = c(-10, 15), type = "n", 
+       asp = 1, xlab = "", ylab = "", axes = FALSE)
+  
+  # CÁLCULOS DINÁMICOS DE ÁNGULO
+  angle_x_rad <- input$x_angle_slider * pi / 180 # Convierte grados a radianes
+  
+  angle_u_rad <- angle_x_rad * du_dx_calc()
+  angle_y_rad <- angle_u_rad * dy_du_calc() 
+  
+  Angles <- c(angle_x_rad, angle_u_rad, angle_y_rad)
+  
+  # DIBUJO DE RUEDAS Y POSICIÓN
+  for (i in 1:3) {
+    # Círculo de la rueda
+    draw.circle(CX[i], CY[i], R[i], col = "white", border = wheel_colors[i], lwd = 2)
+    
+    # Indicador de posición (línea verde que rota)
+    x_end <- CX[i] + R[i] * cos(Angles[i])
+    y_end <- CY[i] + R[i] * sin(Angles[i])
+    segments(CX[i], CY[i], x_end, y_end, col = "darkgreen", lwd = 3)
+    
+    # Punto central
+    points(CX[i], CY[i], pch = 19, col = "blue")
+  }
+  
+  # DIBUJO DE CORREAS
+  # A. Correa X a U 
+  draw_belt(CX[1], CY[1], R[1], CX[2], CY[2], R[2], input$cross_xu, color="darkblue")
+  
+  # B. Correa U a Y 
+  draw_belt(CX[2], CY[2], R[2], CX[3], CY[3], R[3], input$cross_uy, color="darkred")
+  
+  # TEXTOS de las funciones
+  text(CX[1], CY[1] + R[1] + 1, expression(x), cex = 1.5, col="darkblue")
+  text(CX[2], CY[2] - R[2] - 1, expression(u), cex = 1.5, col="darkred")
+  text(CX[3], CY[3] + R[3] + 1, expression(y), cex = 1.5, col="darkred")
+  
+})
+```
 
 ## Introducción
 
@@ -147,10 +325,13 @@ $$
 :::
 
 ## Ejemplo
+
 ::: example
+
 **Derivada del monomio de grado $n$**
 
 La derivada de la función anterior en `Wolfram Alpha` se muestra en el enlace siguiente:
+
 ::: center
 [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=derivative+of+x%5En)
 :::
@@ -159,7 +340,7 @@ La derivada de la función anterior en `Wolfram Alpha` se muestra en el enlace s
 
 
 ## Ejemplos
-::: example
+::: {.example style="font-size: 0.9em;"}
 **Derivada del valor absoluto**
 
 Consideremos la función $f(x)=|x|$, valor absoluto de $x$, definida en todo $\mathbb{R}$ como:
@@ -222,7 +403,7 @@ Sea $f$ una función real de variable real y sea $x_0$ un punto del dominio de $
 
 
 ## Derivabilidad implica continuidad
-::: dem
+::: {.dem style="font-size: 0.82em;"}
 **Demostración.**
 
 Definimos la función siguiente en un entorno de punto $x_0$:
@@ -282,7 +463,7 @@ $$
 
 Sean $f$ y $g$ dos funciones reales de variable real y sea $x_0$ un punto del dominio de $f$ y de $g$. Si $f$ y $g$ son derivables en $x_0$, también lo es la función producto $f\cdot g$, y se verifica que: $(f\cdot g)'(x_0)=f'(x_0)\cdot g(x_0)+f(x_0)\cdot g'(x_0)$.
 
-::: dem
+::: {.dem style="font-size: 0.75em;"}
 **Demostración:**
 $$
 \begin{array}{rl}
@@ -297,7 +478,7 @@ $$
 
 Sean $f$ y $g$ dos funciones reales de variable real y sea $x_0$ un punto del dominio de $f$ y de $g$ tal que $g'(x_0)\neq 0$. Si $f$ y $g$ son derivables en $x_0$, también lo es la función cociente $\frac{f}{g}$, y se verifica que: $\left(\frac{f}{g}\right)'(x_0)=\frac{f'(x_0)\cdot g(x_0)-f(x_0)\cdot g'(x_0)}{g(x_0)^2}$.
 
-::: dem
+::: {.dem style="font-size: 0.75em;"}
 **Demostración:**
 $$
 \begin{array}{rl}
@@ -315,7 +496,7 @@ Sea $f$ una función real de variable real y $x_0$ un punto del dominio de $f$. 
 $$g'(f(x_0))=\frac{1}{f'(x_0)}.$$
 
 ## Derivada de la función inversa
-::: dem
+::: {.dem style="font-size: 0.75em;"}
 **Demostración:**
 
 El valor de $g'(f(x_0))$ es:
@@ -329,7 +510,7 @@ $$
 ::: 
 
 ## Ejemplo
-::: example
+::: {.example style="font-size: 0.75em;"}
 **Ejemplo: derivada de la función $g(x)=\sqrt[n]{x}$.**
 
 La función $g(x)=\sqrt[n]{x}$ es la inversa de la función $f(x)=x^n$ ya que:
@@ -351,7 +532,7 @@ La derivada de la función $g(x)$ en `Wolfram Alpha` se muestra en el enlace sig
 
 
 ## Ejemplo
-::: example
+::: {.example style="font-size: 0.75em;"}
 **Ejemplo: derivada de la función $\tan x$.**
 
 La función $\tan x$ está definida como $\frac{\sin x}{\cos x}$.
@@ -359,7 +540,7 @@ La función $\tan x$ está definida como $\frac{\sin x}{\cos x}$.
 Calculemos primero la derivada de la función $\sin x$ en un valor $x_0$:
 $$
 \begin{array}{rl}
-(\sin)'(x_0) & \displaystyle =\lim_{x\to x_0}\frac{\sin x-\sin x_0}{x-x_0}=\lim_{x\to x_0}\frac{2\cos\left(\frac{x+x_0}{2}\right)\cdot\sin\left(\frac{x-x_0}{2}\right)}{x-x_0}=2\cdot \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{x-x_0} \\ & \displaystyle = \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{\frac{x-x_0}{2}} = \cos(x_0),
+(\sin)'(x_0) & \displaystyle =\lim_{x\to x_0}\frac{\sin x-\sin x_0}{x-x_0}=\lim_{x\to x_0}\frac{2\cos\left(\frac{x+x_0}{2}\right)\cdot\sin\left(\frac{x-x_0}{2}\right)}{x-x_0}=2\cdot \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{x-x_0} \\ & \displaystyle = \cos(x_0)\lim_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{\frac{x-x_0}{2}} = \cos(x_0)\lim_{t\to 0}\frac{\sin t}{t} = \cos(x_0),
 \end{array}
 $$
 usando que $\lim\limits_{x\to x_0}\frac{\sin\left(\frac{x-x_0}{2}\right)}{\frac{x-x_0}{2}}=1.$ La expresión anterior se deduce del hecho de que $\lim\limits_{t\to 0} \frac{\sin t}{t}=1$. 
@@ -370,7 +551,7 @@ Si se hace el cambio de variable $t=\frac{x-x_0}{2}$ y teniendo en cuenta que co
 ::: 
 
 ## Ejemplo
-::: example
+::: {.example style="font-size: 0.75em;"}
 **Ejemplo: derivada de la función $\tan x$.**
 
 Para calcular la derivada de la función $\cos x$, usamos una técnica similar:
@@ -403,9 +584,9 @@ Sean $f$ y $g$ dos funciones reales de variable real. Sea $x_0$ un punto del dom
 $$(g\circ f)'(x_0)=g'(f(x_0))\cdot f'(x_0).$$
 
 
-##  Derivada de la función compuesta. Regla de la cadena
+##  Derivada de la función compuesta. Regla de la cadena 
 
-::: dem
+::: {.dem style="font-size: 0.75em;"}
 **Demostración:**
 $$
 \begin{array}{rl}
@@ -416,11 +597,47 @@ En el último cálculo, podemos afirmar que el límite $\displaystyle\lim_{x\to 
 $$
 \lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)} =\lim_{f(x)\to f(x_0)}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=g'(f(x_0)).
 $$
-
 ::: 
 
+## Interactivo {.scrollable}
+
+```{r}
+#| panel: sidebar
+vars <- setdiff(names(iris), "Species")
+selectInput('xcol', 'X Variable', vars)
+selectInput('ycol', 'Y Variable', vars, selected = vars[[2]])
+numericInput('clusters', 'Cluster count', 3, min = 1, max = 9)
+```
+
+```{r}
+#| panel: fill
+plotOutput('plot1')
+```
+
+```{r}
+#| context: server
+selectedData <- reactive({
+    iris[, c(input$xcol, input$ycol)]
+  })
+
+clusters <- reactive({
+  kmeans(selectedData(), input$clusters)
+})
+
+output$plot1 <- renderPlot({
+  palette(c("#E41A1C", "#377EB8", "#4DAF4A", "#984EA3",
+    "#FF7F00", "#FFFF33", "#A65628", "#F781BF", "#999999"))
+
+  par(mar = c(5.1, 4.1, 0, 1))
+  plot(selectedData(),
+       col = clusters()$cluster,
+       pch = 20, cex = 3)
+  points(clusters()$centers, pch = 4, cex = 4, lwd = 4)
+})
+```
+
 ## Ejemplo
-::: example
+::: {.example style="font-size: 0.75em;"}
 **Ejemplo**
 
 Hallemos la derivada de la función $h(x)=\arctan (x^3+x^2+1)$.
@@ -442,34 +659,47 @@ $$
 ::: 
 
 ## Ejemplo
-::: example
-**Ejemplo**
+::: {.example style="font-size: 0.75em;"}
+**Ejemplo: derivada de la función $h(x)=\arctan (x^3+x^2+1)$.**
 
-Para hallar $g'(y)$, tenemos que escribir $y=\tan x$, y, por tanto, $x=\arctan y$:
-$$
-g'(y)=\cos^2(\arctan y)=\frac{1}{1+\tan^2 (\arctan y)}=\frac{1}{1+y^2},
-$$
-donde hemos usado la siguiente relación trigonométrica: $\cos^2\alpha = \frac{1}{1+\tan^2\alpha}$.
-
-La derivada de la función $h(x)$ usando la **regla de la cadena** será:
+Hallemos el valor de $g'(\tan(x))$ en $x=\frac{\pi}{4}$:
 $$
 \begin{array}{rl}
-h'(x) & =(g\circ f)'(x)=g'(f(x))\cdot f'(x)=\frac{1}{1+f(x)^2}\cdot (3 x^2+2x)=\frac{3x^2+2x}{1+(x^3+x^2+1)^2}\\ & =\frac{3x^2+2x}{x^6+2 x^5+x^4+2 x^3+2 x^2+2}.
+g'(\tan(x)) & =\cos^2(x), \\
+g'(\tan(\frac{\pi}{4})) & =\cos^2(\frac{\pi}{4})=\frac{1}{2}.
 \end{array}
 $$
 
-
-La derivada de la función $h(x)$ en `Wolfram Alpha` se muestra en el enlace siguiente: <l class="center">
-[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=derivative+of+arctan%28x%5E3%2Bx%5E2%2B1%29)
-</l>
+Calculemos ahora el valor de $f'(\tan(x))$ en $x=\frac{\pi}{4}$:
+$$
+\begin{array}{rl}
+f'(x) & = 3x^2+2x, \\
+f'(\tan(\frac{\pi}{4})) & = 3\tan^2(\frac{\pi}{4})+2\tan(\frac{\pi}{4})=3+2=5.
+\end{array}
+$$
 ::: 
 
-## Tablas de derivadas
+## Ejemplo
+::: {.example style="font-size: 0.75em;"}
+**Ejemplo: derivada de la función $h(x)=\arctan (x^3+x^2+1)$.**
 
-Si vais al enlace siguiente [tablas de derivadas](https://www.google.com/search?tbm=isch&sxsrf=ACYBGNQqojnjJv8BaCiJGV99iyRexZsPcg%3A1578831703469&source=hp&biw=2560&bih=1268&ei=Vw8bXsXVGoKkgweJ7qO4Bw&q=tablas+de+derivadas&oq=tablas+de+der&gs_l=img.3.0.35i39j0l5j0i5i30l4.5860.8647..10003...2.0..0.70.862.13......0....1..gws-wiz-img.....10..35i362i39j0i131.bUJ_Ou6rWlA) y escribís "tablas de derivadas" en la casilla de búsqueda, encontraréis un montón de tablas de derivadas para las funciones más usadas.
+Hallemos el valor de $h'(\frac{\pi}{4})$:
+$$
+\begin{array}{rl}
+h'(x) & =(g\circ f)'(x)=g'(f(x))\cdot f'(x), \\
+h'(\frac{\pi}{4}) & =g'(f(\tan(\frac{\pi}{4})))\cdot f'(\tan(\frac{\pi}{4}))=g'(\tan(\frac{\pi}{4}))\cdot f'(\tan(\frac{\pi}{4})) \\
+& =\frac{1}{5}\cdot 5=1.
+\end{array}
+$$
+La derivada de la función $h(x)$ en `Wolfram Alpha` se muestra en el enlace siguiente:
+<l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=derivative+of+arctan%28x%5E3%2Bx%5E2%2B1%29)
+</l>
+
+::: 
 
 
-# Teoremas de derivación {.my-slide}
+## Teoremas de derivación {.my-slide}
 
 ## Derivación y extremos
 
@@ -609,201 +839,6 @@ Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teo
 ::: dem
 **Demostración**
 
-Es decir, para todo $x\in (x_0-\delta,x_0+\delta)$, $g(x)=\frac{f(x)-f(x_0)}{x-x_0}>0$.
-
-Esto es equivalente a decir que el numerador y el denominador de la fracción anterior tienen el mismo signo, dicho en otras palabras:
-
-* si $x\in (x_0-\delta,x_0+\delta)$ y $x>x_0$, entonces $f(x) > f(x_0)$ y,
-* si $x\in (x_0-\delta,x_0+\delta)$ y $x<x_0$, entonces $f(x) < f(x_0)$.
-
-Las condiciones anteriores contradicen el hecho que $x_0$ sea un extremo ya que hemos encontrado valores en un entorno del mismo que superan $f(x_0)$ y valores del mismo entorno que son menores que $f(x_0)$. 
-En conclusión, llegamos a una contradicción al suponer que $g(x_0)=f'(x_0)>0$.
-
-::: exercise
-**Ejercicio**
-
-Suponer que $g(x_0)=f'(x_0)<0$ y ver que se llega a una contradicción razonando de manera similar.
-::: 
-
-::: 
-
-## Derivación y extremos
-
-::: dem
-**Demostración**
-
-Al no poder ser que $f'(x_0)>$ ni $f'(x_0)<0$, necesariamente $f'(x_0)=0$ tal como queríamos demostrar.
-::: 
-
-<l class="observ"> Observación. </l> 
-
-El recíproco del teorema anterior es falso. Es decir, el hecho que $f'(x_0)$ sea $0$, no implica que $x_0$ sea un **extremo relativo** de la función.
-
-::: example
-**Ejemplo**
-
-Considerar, por ejemplo, la función $f(x)=x^2\cdot \sin(x)$. Si derivamos dicha función, obtenemos:
-$$
-f'(x)=2x\sin(x)+x^2\cos(x).
-$$
-Vemos que $f'(0)=0$. En cambio $f$ no tiene ningún extremo en este punto tal como se observa en el gráfico de su función:
-::: 
-
-
-
-## Derivación y extremos
-::: example
-**Ejemplo**
-```{r,echo=FALSE,fig.align='center'}
-xmin=-2
-xmax=2
-ymin=-2.5
-ymax=2.5
-tolx=0.01*(xmax-xmin)
-toly=0.05*(ymax-ymin)
-quantsx=4
-quantsy=4
-f = function(x){x^2*sin(x)}
-plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
-x=seq(from=xmin,to=xmax,by=0.01)
-#points(x,f(x),type="l")
-lines(c(0,0),c(ymin,ymax))
-lines(c(xmin,xmax),c(0,0))
-text(xmax-3*tolx,-3*tolx,"x")
-text(toly,ymax+toly/2,"y")
-for (i in 0:(quantsx)){
-  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
-  text(xmin+((xmax-xmin)/quantsx)*i,-1*toly,xmin+((xmax-xmin)/quantsx)*i,cex=0.75)}
-
-
-for (i in 0:(quantsy)){
-  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
-  text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)
-  }
-lines(x,f(x),col="red")
-text(pi,1.3,"f(x)")
-```
-
-
-::: 
-
-## Derivación y extremos
-::: example
-**Ejemplo**
-
-Para ver que el 0 no es extremo relativo, es facil ver que para $x\in (0,\pi)$, $f(x)\geq 0$ y para $x\in (-\pi,0)$, $f(x)\leq 0$. Comprobémoslo para unos cuantos valores en `python`, para $x=-0.2,-0.1,0.1,0.2$:
-```{python}
-from sympy import * 
-  
-def f(x):
- return(x**2*sin(x))
-```
-
-::: 
-
-## Derivación y extremos
-::: example
-**Ejemplo**
-
-```{python}
-for x in [-0.2,-0.1,0.1,0.2]:
-  print('f({x})={res}'.format(x=x, res=f(x)))
-```
-::: 
-
-## Derivación y extremos
-::: example
-**Ejemplo**
-
-El cálculo de la derivada de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
-[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=derivative+of+x%5E2*sin%28x%29)</l>
-
-
-
-El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
-[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+x%5E2*sin%28x%29%2C+where+x+is+between+-2+and+2)
-</l>
-
-::: 
-
-## Derivación y extremos
-::: definition
-Definición de crecimiento de una función. 
-:::
-
-Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Diremos que $f$ es **estrictamente creciente** en el punto $x_0$ si existe un entorno de $x_0$, es decir, existe un valor $\delta >0$ tal que para todo $x$ de dicho entorno diferente de $x_0$, o si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, con $x\neq x_0$, se verifica que el cociente siguiente es positivo: $\frac{f(x)-f(x_0)}{x-x_0}>0$.
-
-::: observ
-Observación. 
-:::
-
-La definición anterior es equivalente a decir que existe un valor $\delta >0$ tal que si $x\in (x_0,x_0+\delta)$ o $x>x_0$, entonces $f(x)>f(x_0)$ y si $x\in (x_0-\delta, x_0)$ o $x<x_0$, entonces $f(x)<f(x_0)$. Ver el gráfico siguiente.
-
-
-## Derivación y extremos
-::: center
-```{r, echo=FALSE, label=der2,fig.cap="",out.width = "650px"}
-knitr::include_graphics("Images/Derivada2.png",dpi=1200)
-```
-::: 
-
-
-## Derivación y extremos
-::: definition
-Definición de decrecimiento de una función. 
-:::
-
-Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Diremos que $f$ es **estrictamente decreciente** en el punto $x_0$ si existe un entorno de $x_0$, es decir, existe un valor $\delta >0$ tal que para todo $x$ de dicho entorno diferente de $x_0$, o si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, con $x\neq x_0$, se verifica que el cociente siguiente es negativo: $\frac{f(x)-f(x_0)}{x-x_0}<0$.
-
-::: observ
-Observación. 
-:::
-
-La definición anterior es equivalente a decir que existe un valor $\delta >0$ tal que si $x\in (x_0,x_0+\delta)$ o $x>x_0$, entonces $f(x)<f(x_0)$ y si $x\in (x_0-\delta, x_0)$ o $x<x_0$, entonces $f(x)>f(x_0)$. Ver gráfico siguiente.
-
-## Derivación y extremos
-::: center
-```{r, echo=FALSE, label=der3,fig.cap="",out.width = "650px"}
-knitr::include_graphics("Images/Derivada3.png",dpi=1200)
-```
-::: 
-
-## Derivación y extremos
-::: observ
-Observación. 
-::: 
-
-Si la desigualdad  $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$ no es estricta, se dice que $f$ es **creciente**.
-
-
-::: observ
-Observación.
-:::
-
-Si la desigualdad $\frac{f(x)-f(x_0)}{x-x_0}\leq 0$ no es estricta, se dice que $f$ es **decreciente**.
-
-
-
-## Derivación y extremos
-::: prop
-Proposición
-:::
-
-Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
-
-::: dem
-**Demostración**
-
-Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
-$$
-\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
-$$
-::: 
-
-## Derivación y extremos
-::: dem
-**Demostración**
-
 La última condición se puede escribir de la siguiente manera:
 $$
 f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
@@ -822,200 +857,33 @@ de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, 
 Proposición.
 :::
 
-Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)<0$ o $f$ tiene **derivada negativa** en $x_0$, entonces $f$ es **estrictamente decreciente** en $x_0$.
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
 
-::: exercise
-**Ejercicio**
-
-Demostrar la proposición anterior usando la misma técnica que para demostrar que si $f'(x_0)>0$, entonces $f$ es **estrictamente creciente** en $x_0$.
-::: 
-
-## Ejemplo
-::: example
-**Ejemplo**
-
-Consideremos la función siguiente de un ejemplo anterior: $f(x)=\sin(x)-\cos(x)$.
-
-La derivada de la función $f$ vale: $f'(x)=\cos(x)+\sin(x)$.
-
-Dicha función se anula en los **extremos** $x=-\frac{5}{4}\pi,-\frac{\pi}{4},\frac{3}{4}\pi$ y $\frac{7}{4}\pi$:
-```{python}
-def df(x):
- return(cos(x)+sin(x))
- 
-for x in [-5*pi/4,-pi/4,3*pi/4,7*pi/4]:
-  print("f'({x})={res}".format(x=x, res=df(x)))
-```
-::: 
-
-## Ejemplo
-::: example
-
-En los puntos $x=-\frac{3}{2}\pi$ y $x=\frac{\pi}{2}$ la función es **estrictamente creciente** al tener derivada positiva en dichos puntos:
-```{python}
-for x in [-3*pi/2,pi/2]:
-  print("f'({x})={res}".format(x=x, res=df(x)))
-```
-
-En cambio, en los puntos $x=-\frac{\pi}{2}$ y $\frac{3}{2}\pi$ la función es **estrictamente decreciente** al tener derivada negativa en dichos puntos:
-```{python}
-for x in [-pi/2,3*pi/2]:
-  print("f'({x})={res}".format(x=x, res=df(x)))
-```
-::: 
-
-## Teoremas de Rolle y del valor medio
-
-Las proposiciones vistas hasta ahora nos permiten determinar el comportamiento local de una función en un punto en términos de su crecimiento dependiendo del signo de la derivada de dicha función en dicho punto.
-
-Vamos a ver dos resultados que nos permiten determinar las propiedades globales de la función en todo su dominio a partir del comportamiento de la función derivada de dicha función.
-
-El teorema de Rolle dice que si los valores de una función derivable en todo el interior de un intervalo, los valores coinciden en los extremos del mismo, necesariamente ha de tener al menos un máximo o un mínimo Intuitivamente, el resultado es claro ya que si suponemos por ejemplo que la función crece en su extremo izquierdo $a$, como $f(a)=f(b)$, donde $b$ es su extremo derecho, en algún momento tiene que decrecer. Por tanto, en *dicho momento*, la función tendrá un extremo o un máximo en este caso.
-
-## Teoremas de Rolle y del valor medio
-::: center
-```{r, echo=FALSE, label=rolle1,fig.cap="",out.width = "650px"}
-knitr::include_graphics("Images/Rolle1.png",dpi=1200)
-```
-::: 
-
-## Teoremas de Rolle y del valor medio
-El teorema del valor medio dice que dada una función derivable en todo su dominio, ha de existir un punto en el que recta tangente en dicho punto sea paralela a la recta que pasa por los extremos del dominio de la función.
-
-En el gráfico siguiente la recta verde es la recta que pasa por los extremos de la función (en azul) y la recta roja es la recta tangente al punto $c$ que pertenece al dominio de la función.
-
-
-## Teoremas de Rolle y del valor medio
-::: center
-```{r, echo=FALSE, label=valormedio1,fig.cap="",out.width = "650px"}
-knitr::include_graphics("Images/ValorMedio1.png",dpi=1200)
-```
-::: 
-
-## Teorema de Rolle
-::: prop
-Teorema de Rolle.
-:::
-
-Sea $f: [a,b]\longrightarrow \mathbb{R}$ una función real de variable real. Supongamos que $f$ es continua en todo su dominio $[a,b]$ y derivable en los puntos del interior $(a,b)$. Supongamos además que las imágenes en los extremos coinciden, es decir, $f(a)=f(b)$. Entonces existe al menos un punto $c\in (a,b)$ tal que $f'(c)=0$.
-
-::: observ
-Observación.
-:::
-
-En el dominio de definición de $f$ están incluidos los extremos del intervalo.
-
-## Teorema de Rolle
 ::: dem
 **Demostración**
 
-Como la función $f$ es continua en el intervalo cerrado $[a,b]$, deducimos que $f$ tiene un máximo absoluto $M$ y un mínimo absoluto $m$. 
-
-Pueden ocurrir dos casos:
-
-* Que el máximo absoluto se alcance en el extremo $a$ y el mínimo, en el extremo $b$, con $f(a)=M$ y $f(b)=m$ o al revés, es decir, que el máximo absoluto se alcance en el extremo $b$ y el mínimo, en el extremo $a$, con $f(a)=m$ y $f(b)=M$. Como $f(a)=f(b)$, resulta que $M=m$ y la única función en un intervalo en donde su máximo coincide con su mínimo es la función constante. En este caso $f'(x)=0$, para todo $x\in (a,b)$ como ya vimos anteriormente y el teorema quedaría demostrado en este caso.
-* Supongamos que el máximo o el mínimo de la función se alcanza en un punto $c\in (a,b)$ del interior del intervalo. Por un teorema visto anteriormente, tenemos que $f'(c)=0$ y el teorema quedaría demostrado también en este caso.
-::: 
-
-## Teorema del valor medio de Cauchy
-::: prop
-Teorema del valor medio de Cauchy.
-:::
-
-Sean $f,g:[a,b]\longrightarrow \mathbb{R}$ dos funciones continuas en $[a,b]$ y derivables en $(a,b)$. Entonces, existe un punto $c\in (a,b)$ del interior del intervalo tal que:
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
 $$
-f'(c)\cdot (g(b)-g(a)) = g'(c)\cdot (f(b)-f(a)).
-$$
-
-## Teorema del valor medio de Cauchy
-::: dem
-**Demostración**
-
-Consideramos la función siguiente:
-$$
-h(x)=f(x)\cdot (g(b)-g(a))-g(x)\cdot (f(b)-f(a)),
-$$
-que será continua en $[a,b]$ y derivable en $(a,b)$ al ser suma de productos de funciones continuas y derivables por constantes.
-
-La idea es aplicar el **teorema de Rolle** a la función $h(x)$. Calculemos $h(a)$ y $h(b)$:
-$$
-\begin{array}{rl}
-h(a) & = f(a)\cdot (g(b)-g(a))-g(a)\cdot (f(b)-f(a)) = f(a)\cdot g(b)-g(a)\cdot f(b),\\
-h(b) & = f(b)\cdot (g(b)-g(a))-g(b)\cdot (f(b)-f(a)) = -f(b)\cdot g(a)+g(b)\cdot f(a).
-\end{array}
-$$
-Se cumple, por tanto, que $h(a)=h(b)$. Aplicando el **teorema de Rolle** a la función $h$, tenemos que existe un punto $c\in (a,b)$ tal que $h'(c)=0$:
-$$
-h'(c)=f'(c)\cdot (g(b)-g(a))-g'(c)\cdot (f(b)-f(a))=0,
-$$
-de donde deducimos lo que dice la tesis del teorema:
-$$
-f'(c)\cdot (g(b)-g(a)) = g'(c)\cdot (f(b)-f(a)).
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
 $$
 ::: 
-
-## Teorema del valor medio de Lagrange
-::: prop
-Corolario: Teorema del valor medio de Lagrange.
-:::
-
-Sea $f:[a,b]\longrightarrow \mathbb{R}$ una función continua en $[a,b]$ y derivable en $(a,b)$. Entonces, existe un punto $c\in (a,b)$ del interior del intervalo tal que:
-$$
-f(b)-f(a)=f'(c)\cdot (b-a).
-$$
-
-::: exercise
-**Ejercicio**
-
-Demostrar el teorema del valor medio de Lagrange.
-
-Indicación: considerar $f(x)$ la función del teorema, $g(x)=x$ y aplicar el **teorema del valor medio de Cauchy**.
-::: 
-
-## Teorema del valor medio de Lagrange
-::: observ
-Observación.
-:::
-
-El **Teorema del valor medio de Lagrange** es equivalente a afirmar lo que hemos dicho anteriormente: si $f$ es derivable en el intervalo abierto y continua en el cerrado, existe un punto $c$ del interior del intervalo tal que $f'(c)=\frac{f(b)-f(a)}{b-a}$, es decir, la pendiente de la recta tangente en el punto $c$ coincide con la pendiente de la recta que pasa por los extremos $(a,f(a))$ y $(b,f(b))$. 
-
-Es decir, la recta tangente en el punto $c$ es paralela a la recta que pasa por los extremos del intervalo de definición de la función $f$.
 
 ## Consecuencias de los teoremas
-::: prop
-Corolario.
-:::
-
-Sea $f:[a,b]\longrightarrow \mathbb{R}$ una función continua en $[a,b]$ y derivable en $(a,b)$ tal que $f'(x)=0$ para todo $x\in (a,b)$. Entonces $f$ es constante.
-
 ::: dem
 **Demostración**
 
-Sea $x\in (a,b]$. Veamos que $f(x)=f(a)$ y, por tanto, $f$ será constante.
-
-Para ello, consideremos la función $f$ restringida al intervalo $[a,x]$, $f:[a,x]\longrightarrow\mathbb{R}$, que será continua en $[a,x]$ y derivable en $(a,x)$. Si aplicamos el **teorema del valor medio de Lagrange**, tenemos que existe un $c\in (a,x)$ tal que:
+La última condición se puede escribir de la siguiente manera:
 $$
-f(x)-f(a)=f'(c)\cdot (x-a)=0,
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
 $$
-ya que nos dicen que $f'(c)=0$ al ser la derivada nula en cualquier punto del intervalo $(a,b)$.
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
 
-Deducimos, por tanto, que $f(x)=f(a)$, condición que equivale a que la función $f$ es constante.
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
 ::: 
-
-
-## Consecuencias de los teoremas
-<l class="prop">Corolario.</l>
-
-Sean $f, g:[a,b]\longrightarrow \mathbb{R}$ funciones continuas en $[a,b]$ y derivables en $(a,b)$ tal que $f'(x)=g'(x)$ para todo $x\in (a,b)$. Entonces $f(x)-g(x)$ es constante.
-
-::: exercise
-**Ejercicio**
-
-Demostrar el corolario anterior.
-
-Indicación: aplicar el resultado que hemos visto antes a la función $h(x)=f(x)-g(x)$.
-::: 
-
 
 ## Consecuencias de los teoremas
 ::: prop
@@ -1052,13 +920,218 @@ $$
 ::: 
 
 ## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es decreciente en $(a,b)$ si, y sólo si, $f'(x)\leq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: exercise
+**Ejercicio**
+
+Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función $f$ es creciente.
+::: 
+
+## Ejemplo
+::: example
+**Ejemplo**
+
+Consideremos la función siguiente definida en el intervalo $(-2\pi,2\pi)$: 
+$$
+\begin{array}{rl}
+f:(-2\pi,2\pi) & \longrightarrow \mathbb{R},\\
+ x& \longrightarrow \sin(x)-\cos(x).
+\end{array}
+$$
+El gráfico de dicha función puede observase en la figura siguiente.
+
+Vemos que tiene dos **máximos relativos** en los valores $x=-\frac{5}{4}\pi$ y $x=\frac{3}{4}\pi$ y dos **mínimos relativos** en los valores $x=-\frac{\pi}{4}$ y $x=\frac{7}{4}\pi$. 
+
+Observamos que dichos máximos y mínimos son **absolutos**.
+
+El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi)
+</l>
+::: 
+
+
+## Ejemplo
+::: example
+```{r,echo=FALSE,fig.align='center'}
+xmin=-2*pi
+xmax=2*pi
+ymin=-1.5
+ymax=1.5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){sin(x)-cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-2*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+  ii=-2+0.5*i}
+text(xmin+((xmax-xmin)/quantsx)*0,-1.5*toly,expression(-2*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*1,-2.5*toly,expression(-frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*2,-1.5*toly,expression(-pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*3,-2.5*toly,expression(-frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*4+0.1,-1.5*toly,0,cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*5,-2.5*toly,expression(frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*6,-1.5*toly,expression(pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*7,-2.5*toly,expression(frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*8,-1.5*toly,expression(2*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*1.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-5*pi/4,-5*pi/4),c(0,f(-5*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*1.5,-2.5*toly,expression(-frac(5,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*3.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-pi/4,-pi/4),c(0,f(-pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*3.5,2.5*toly,expression(-frac(pi,4)),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*5.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(3*pi/4,3*pi/4),c(0,f(3*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*5.5,-2.5*toly,expression(frac(3,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*7.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(7*pi/4,7*pi/4),c(0,f(7*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*7.5,2.5*toly,expression(frac(7,4)*pi),cex=0.75)
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  if (i==3){text(2.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*3,ymin+((ymax-ymin)/quantsy)*3,cex=0.75)}
+  else
+    {text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+  }
+lines(x,f(x),col="red")
+text(pi,1.3,"f(x)")
+```
+
+
+::: 
+
+
+## Derivación y extremos
+<l class="prop">Teorema.</l>
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$ que sea **extremo relativo** de la función. Entonces si $f$ es **derivable** en el punto $x_0$, se verifica que $f'(x_0)=0$.
+
+Intuitivamente, el teorema anterior nos dice que si la función $f$ tiene un comportamiento **suave** en el extremo $x_0$, la recta tangente en este punto tiene que ser **horizontal**, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior. 
+
+
+## Derivación y extremos
 
 ::: dem
 **Demostración**
 
-En resumen, el cociente $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$ siempre es positivo, condición que equivale a afirmar que $f$ es creciente en $x_0$.
+Como $f$ es derivable en el punto $x_0$, sabemos que existe el límite siguiente $\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$.
 
-De hecho, hubiera sido suficiente demostrar que el cociente anterior es positivo en un entorno de $x_0$ pero hemos demostrado más, hemos visto que dicho cociente siempre es positivo sea cual sea el valor $x\in (a,b)$ del intervalo.
+Decir que $f$ es derivable en $x_0$ es equivalente a decir que la función siguiente:
+$$
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, & \mbox{si }x\neq x_0,\\
+f'(x_0), &\mbox{si }x=x_0,
+\end{cases}
+$$
+es continua en $x_0$.
+
+Veamos a continuación que necesariamente $g(x_0)=f'(x_0)=0$ y quedará demostrado el teorema.
+
+Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teorema de conservación del signo de funciones continuas, existirá un entorno de $x_0$, es decir, existirá un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, $g(x)>0$ también será positiva para todos los valores $x$ de dicho entorno.
+
+
+::: 
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Derivación y extremos
+::: prop
+Proposición.
+:::
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
+
+::: dem
+**Demostración**
+
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
+$$
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
+$$
+::: 
+
+## Consecuencias de los teoremas
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es creciente en $(a,b)$ si, y sólo si, $f'(x)\geq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: dem
+**Demostración**
+
+$\Rightarrow$ Supongamos que la función $f$ es creciente en $(a,b)$. Esto significa que fijado $x_0\in (a,b)$ en el intervalo, existe un entorno de $x_0$, es decir, existe un $\delta >0$, tal que para todo valor $x\in (x_0-\delta,x_0+\delta)$, se verifica que $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$.
+
+Entonces, usando que $\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$, tendremos que $f'(x_0)\geq 0$, tal como queríamos ver.
+::: 
+
+## Consecuencias de los teoremas
+
+::: dem
+**Demostración**
+
+$\Leftarrow$ Supongamos ahora que $f'(x_0)\geq 0$, para todo valor $x_0\in (a,b)$ dentro del intervalo. Veamos que $f$ es creciente en $x_0$. 
+
+Sea $x>x_0$. Si aplicamos el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x_0,x]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+Sea ahora $x<x_0$. Si volvemos a aplicar el el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x,x_0]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+
 ::: 
 
 ## Consecuencias de los teoremas
@@ -1079,232 +1152,1079 @@ Demostrar el corolario anterior usando la misma técnica de demostración para e
 ::: example
 **Ejemplo**
 
-Consideremos la función vista anteriormente $f(x)=\sin (x)-\cos(x)$ definida en el intervalo $(-\pi,\pi)$.
-
-Como $f(-\pi)=1=f(\pi)$, aplicando el **teorema de Rolle**, sabemos que existe como mínimo un punto $c$ tal que $f'(c)=0$. De hecho, hay dos como hemos visto anteriormente: $c=-\frac{\pi}{4}$ y $c=\frac{3}{4}\pi$:
+Consideremos la función siguiente definida en el intervalo $(-2\pi,2\pi)$: 
 $$
 \begin{array}{rl}
-f'(x) & =\cos(x)+\sin(x),\\
-f'\left(-\frac{\pi}{4}\right) & =\cos\left(-\frac{\pi}{4}\right)+\sin\left(-\frac{\pi}{4}\right)=\frac{\sqrt{2}}{2}-\frac{\sqrt{2}}{2}=0,\\
-f'\left(\frac{3\pi}{4}\right) & =\cos\left(\frac{3\pi}{4}\right)+\sin\left(\frac{3\pi}{4}\right)=-\frac{\sqrt{2}}{2}+\frac{\sqrt{2}}{2}=0.
+f:(-2\pi,2\pi) & \longrightarrow \mathbb{R},\\
+ x& \longrightarrow \sin(x)-\cos(x).
 \end{array}
 $$
-Si ahora consideramos la función anterior pero definida en el intervalo $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$, tenemos que existe un punto $c$ tal que:
-$$
-f'(c)=\cos(c)+\sin(c)=\frac{f\left(\frac{\pi}{2}\right)-f\left(-\frac{\pi}{2}\right)}{\frac{\pi}{2}-\left(-\frac{\pi}{2}\right)}=\frac{1-(-1)}{\pi}=\frac{2}{\pi}.
-$$
+El gráfico de dicha función puede observase en la figura siguiente.
+
+Vemos que tiene dos **máximos relativos** en los valores $x=-\frac{5}{4}\pi$ y $x=\frac{3}{4}\pi$ y dos **mínimos relativos** en los valores $x=-\frac{\pi}{4}$ y $x=\frac{7}{4}\pi$. 
+
+Observamos que dichos máximos y mínimos son **absolutos**.
+
+El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi)
+</l>
 ::: 
+
 
 ## Ejemplo
 ::: example
-Hallemos a continuación el valor $c$:
-$$
-\begin{array}{rl}
-\cos(c)+\sin(c) & = \frac{2}{\pi}, \\
-\cos(c) & = \frac{2}{\pi}-\sin(c), \\
-\pm \sqrt{1-\sin^2(c)} & = \frac{2}{\pi}-\sin(c), \\
-1-\sin^2(c)  & = \left(\frac{2}{\pi}-\sin(c)\right)^2 = \frac{4}{\pi^2}+\sin^2(c)-\frac{4}{\pi}\sin(c),\\
-2\sin^2(c)-\frac{4}{\pi}\sin(c)+\frac{4}{\pi^2}-1 & = 0,\\
-\sin(c) & = \frac{\frac{4}{\pi}\pm \sqrt{\frac{16}{\pi^2}-8\cdot\left(\frac{4}{\pi^2}-1\right)}}{4},\\
-\sin(c) & = \frac{\frac{4}{\pi}\pm \sqrt{8-\frac{16}{\pi^2}}}{4}=\frac{4\pm\sqrt{8\pi^2-16}}{4\pi}=\frac{2\pm\sqrt{2\pi^2-4}}{2\pi}.
-\end{array}
-$$
-::: 
+```{r,echo=FALSE,fig.align='center'}
+xmin=-2*pi
+xmax=2*pi
+ymin=-1.5
+ymax=1.5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){sin(x)-cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-2*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+  ii=-2+0.5*i}
+text(xmin+((xmax-xmin)/quantsx)*0,-1.5*toly,expression(-2*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*1,-2.5*toly,expression(-frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*2,-1.5*toly,expression(-pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*3,-2.5*toly,expression(-frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*4+0.1,-1.5*toly,0,cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*5,-2.5*toly,expression(frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*6,-1.5*toly,expression(pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*7,-2.5*toly,expression(frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*8,-1.5*toly,expression(2*pi),cex=0.75)
 
-## Ejemplo
-::: example
+lines(rep(xmin+((xmax-xmin)/quantsx)*1.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-5*pi/4,-5*pi/4),c(0,f(-5*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*1.5,-2.5*toly,expression(-frac(5,4)*pi),cex=0.75)
 
-El valor de $\cos(c)$ será:
-$$
-\begin{array}{rl}
-\cos(c) & =\pm\sqrt{1-\left(\frac{2\pm\sqrt{2\pi^2-4}}{2\pi}\right)^2} = \pm\sqrt{1-\frac{2\pi^2\pm 4\sqrt{2\pi^2-4}}{4\pi^2}}=\pm\sqrt{\frac{2\pi^2\mp4\sqrt{2\pi^2-4}}{4\pi^2}}\\ 
-& =\pm\sqrt{\frac{(2\mp\sqrt{2\pi^2-4})^2}{4\pi^2}} = \pm\frac{(2\mp\sqrt{2\pi^2-4})}{2\pi}.
-\end{array}
-$$
-Entonces las parejas $(\sin(c),\cos(c))$ son las siguientes:
+lines(rep(xmin+((xmax-xmin)/quantsx)*3.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-pi/4,-pi/4),c(0,f(-pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*3.5,2.5*toly,expression(-frac(pi,4)),cex=0.75)
 
-* si $\sin(c)=\frac{2+\sqrt{2\pi^2-4}}{2\pi}$, entonces $\cos(c)=\frac{2-\sqrt{2\pi^2-4}}{2\pi}$,
-* si $\sin(c)=\frac{2-\sqrt{2\pi^2-4}}{2\pi}$, entonces $\cos(c)=\frac{2+\sqrt{2\pi^2-4}}{2\pi}$.
+lines(rep(xmin+((xmax-xmin)/quantsx)*5.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(3*pi/4,3*pi/4),c(0,f(3*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*5.5,-2.5*toly,expression(frac(3,4)*pi),cex=0.75)
 
-El primer caso no puede ser ya que $\cos(c)<0$ y como estamos en el intervalo $\left(-\frac{\pi}{2},\frac{\pi}{2}\right)$, la función coseno es positiva.
+lines(rep(xmin+((xmax-xmin)/quantsx)*7.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(7*pi/4,7*pi/4),c(0,f(7*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*7.5,2.5*toly,expression(frac(7,4)*pi),cex=0.75)
 
-Sólo será solución el segundo caso, donde el valor de $c$ será aproximadamente: `r round(asin((2-sqrt(2*pi^2-4))/(2*pi)),3)`.
-::: 
-
-## Ejemplo
-
-::: example
-
-Comprobemos usando `python` que el valor de $c$ hallado es el correcto:
-
-```{python}
-from numpy import * 
-c=arcsin((2-sqrt(2*pi**2-4))/(2*pi))
-derivada_c = sin(c)+cos(c)
-k=2/pi
-print('El valor de c es: {c}'.format(c=c))
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  if (i==3){text(2.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*3,ymin+((ymax-ymin)/quantsy)*3,cex=0.75)}
+  else
+    {text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+  }
+lines(x,f(x),col="red")
+text(pi,1.3,"f(x)")
 ```
-:::
-
-## Ejemplo
-::: example
-```{python}
-print('El valor de la derivada de f en c es:{x}'.format(x=derivada_c))
-print('El valor de 2/pi es:{k}'.format(k=k))
-```
-:::
-
-## Regla de L'Hôpital
-
-Una de las aplicaciones más importantes de las derivadas es su aplicación al cálculo de límites de funciones.
-
-La regla de L'Hôpital permite resolver indeterminaciones usando derivadas:
-
-## Regla de L'Hôpital
-::: prop
-Teorema: regla de L'Hôpital.
-:::
-
-Sean $f,g:(a,b)\longrightarrow\mathbb{R}$ dos funciones derivables en un punto $c\in (a,b)$. Supongamos:
-
-* $f(c)=g(c)=0$,
-* $g(x)\neq 0$ y $g'(x)\neq 0$ para todo punto $x$ del entorno de $c$ diferente de $c$,
-
-Si se verifican las condiciones anteriores y el límite siguiente existe $\displaystyle\lim_{x\to c}\frac{f'(x)}{g'(x)}$ y vale $L$, entonces también existe el límite $\displaystyle\lim_{x\to c}\frac{f(x)}{g(x)}$ y vale $L$.
 
 
-## Regla de L'Hôpital
+::: 
+
+
+## Derivación y extremos
+<l class="prop">Teorema.</l>
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$ que sea **extremo relativo** de la función. Entonces si $f$ es **derivable** en el punto $x_0$, se verifica que $f'(x_0)=0$.
+
+Intuitivamente, el teorema anterior nos dice que si la función $f$ tiene un comportamiento **suave** en el extremo $x_0$, la recta tangente en este punto tiene que ser **horizontal**, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior. 
+
+
+## Derivación y extremos
+
 ::: dem
 **Demostración**
 
-Sea $\delta >0$ tal que $(c-\delta,c+\delta)\subseteq (a,b)$ y donde se cumplen las condiciones del teorema. 
+Como $f$ es derivable en el punto $x_0$, sabemos que existe el límite siguiente $\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$.
 
-Sea $x\in (c-\delta,c+\delta)$ un punto del entorno. En el intervalo $[c,x]$ se cumplen las hipótesis del **Teorema del valor medio de Cauchy**, ya que $f$ y $g$ son derivables en $(c,x)$ al serlo en todo el entorno $(c-\delta,c+\delta)$, y continuas en $[c,x]$, ya que como son derivables en todo el entorno, serán continuas y como $[c,x]\subset (c-\delta,c+\delta)$, también serán continuas en el intervalo $[c,x]$.
+Decir que $f$ es derivable en $x_0$ es equivalente a decir que la función siguiente:
+$$
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, & \mbox{si }x\neq x_0,\\
+f'(x_0), &\mbox{si }x=x_0,
+\end{cases}
+$$
+es continua en $x_0$.
 
-Usando por tanto el **Teorema del valor medio de Cauchy**, podemos afirmar que existe un punto $d\in (c,x)$ tal que:
-$$
-f'(d)\cdot (g(d)-g(c))=g'(d)\cdot (f(d)-f(c)).
-$$
-Recordemos que $f(c)=g(c)=0$, $f'(d)\neq 0$ y $g'(d)\neq 0$ ya que suponíamos que las derivadas $f'$ y $g'$ no se anulaban en el entorno de $c$. Usando las condiciones anteriores, podemos simplificar la expresión anterior de la siguiente manera:
-$$
-\frac{f'(d)}{g'(d)}=\frac{f(d)}{g(d)}.
-$$
-:::
+Veamos a continuación que necesariamente $g(x_0)=f'(x_0)=0$ y quedará demostrado el teorema.
 
-## Regla de L'Hôpital
-::: dem
+Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teorema de conservación del signo de funciones continuas, existirá un entorno de $x_0$, es decir, existirá un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, $g(x)>0$ también será positiva para todos los valores $x$ de dicho entorno.
 
-Si hacemos tender $x\to c$, como $d\in (c,x)$, tendremos que $d\to c$. Por tanto,
-$$
-\lim_{x\to c}\frac{f(x)}{g(x)}=\lim_{x\to c}\frac{f'(x)}{g'(x)}=L,
-$$
-por hipótesis. 
 
-En resumen, si existe $\displaystyle \lim_{x\to c}\frac{f'(x)}{g'(x)}$, también existe el límite $\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)}$ y los dos coinciden.
 ::: 
 
-::: observ
-Observación.
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Derivación y extremos
+::: prop
+Proposición.
 :::
 
-El teorema sigue siendo cierto en el caso en que $a$, $b$, $c$ o $L$ son $\pm \infty$. Es decir, si existe el límite $\displaystyle \lim_{x\to \pm\infty}\frac{f'(x)}{g'(x)}$, también existe el límite $\displaystyle \lim_{x\to \pm\infty}\frac{f(x)}{g(x)}$ y los dos coinciden y pueden tener como resultado $\pm\infty$.
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
+
+::: dem
+**Demostración**
+
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
+$$
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
+$$
+::: 
+
+## Consecuencias de los teoremas
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x" del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es creciente en $(a,b)$ si, y sólo si, $f'(x)\geq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: dem
+**Demostración**
+
+$\Rightarrow$ Supongamos que la función $f$ es creciente en $(a,b)$. Esto significa que fijado $x_0\in (a,b)$ en el intervalo, existe un entorno de $x_0$, es decir, existe un $\delta >0$, tal que para todo valor $x\in (x_0-\delta,x_0+\delta)$, se verifica que $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$.
+
+Entonces, usando que $\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$, tendremos que $f'(x_0)\geq 0$, tal como queríamos ver.
+::: 
+
+## Consecuencias de los teoremas
+
+::: dem
+**Demostración**
+
+$\Leftarrow$ Supongamos ahora que $f'(x_0)\geq 0$, para todo valor $x_0\in (a,b)$ dentro del intervalo. Veamos que $f$ es creciente en $x_0$. 
+
+Sea $x>x_0$. Si aplicamos el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x_0,x]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+Sea ahora $x<x_0$. Si volvemos a aplicar el el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x,x_0]$ tenemos que existe un punto $c" tal que: 
+$$
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es decreciente en $(a,b)$ si, y sólo si, $f'(x)\leq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: exercise
+**Ejercicio**
+
+Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función $f$ es creciente.
+::: 
 
 ## Ejemplo
 ::: example
 **Ejemplo**
 
-Calculemos el valor del límite siguiente $\displaystyle\lim_{x\to 0}\frac{\sin x-x}{x-x\cos x}$.
-
-Observemos que si sustituimos por el valor $0$, obtenemos la indeterminación $\frac{0}{0}$.
-
-Usando la regla de L'Hôpital, calculemos el límite anterior:
-$$
-\lim_{x\to 0}\frac{\sin x-x}{x-x\cos x} = \lim_{x\to 0}\frac{\cos x-1}{1-\cos x+x\sin x}=\frac{0}{0}.
-$$
-Nos vuelve a dar la indeterminación $\frac{0}{0}$. Aplicando la regla de L'Hôpital por segunda vez, obtenemos:
-$$
-\lim_{x\to 0}\frac{\cos x-1}{1-\cos x+x\sin x} =\lim_{x\to 0}\frac{-\sin x}{\sin x+\sin x+x\cos x}=\lim_{x\to 0}\frac{-\sin x}{2\sin x+x\cos x}=\frac{0}{0}.
-$$
-:::
-
-## Ejemplo
-::: example
-Nos vuelve a dar la indeterminación $\frac{0}{0}$. Aplicando la regla de L'Hôpital por tercera vez, obtenemos:
-$$
-\lim_{x\to 0}\frac{-\sin x}{2\sin x+x\cos x} =\lim_{x\to 0}\frac{-\cos x}{2\cos x+\cos x-x\sin x}=\frac{-1}{3}.
-$$
-El límite tiene el valor $-\frac{1}{3}$.
-
-El límite anterior en `Wolfram Alpha` se muestra en el enlace siguiente:
-
-::: center
-[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=limit+of+%28sin%28x%29-x%29%2F%28x-x*cos%28x%29%29+when+x+tends+to+0)
-:::
-
-:::
-
-## Regla de L'Hôpital
-<div class="box">
-<div class="important">
-<i class="fa fa-exclamation-triangle"> ¡Cuidado! </i>
-</div>
-La Regla de L'Hôpital sólo se puede aplicar en un sentido. Es decir, si existe el límite $\displaystyle \lim_{x\to c}\frac{f'(x)}{g'(x)}$, bajo las condiciones del teorema anterior, existe el $\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)}$ y son iguales; ahora bien, si no existe el límite $\displaystyle \lim_{x\to c}\frac{f'(x)}{g'(x)}$, no podemos decir nada acerca del límite $\displaystyle \lim_{x\to c}\frac{f(x)}{g(x)}$. Véase el ejemplo siguiente.
-</div>
-
-## Ejemplo
-::: example
-**Ejemplo**
-
-Consideremos el límite siguiente:
-$\displaystyle\lim_{x\to 0}\frac{x^2\sin\left(\frac{1}{x}\right)}{\sin x}.$
-
-Si sustituimos $x$ por $0$ en el límite anterior obtenemos el valor $\frac{0}{0}$, pensad que $\displaystyle\lim_{x\to 0}x^2\sin\left(\frac{1}{x}\right)=0$ vale $0$ ya que es el límite de una funció que tiende a 0 ($x^2$) por una función acotada $\left(\sin\left(\frac{1}{x}\right)\right)$.
-
-Apliquemos pues la regla de l'Hôpital:
+Consideremos la función siguiente definida en el intervalo $(-2\pi,2\pi)$: 
 $$
 \begin{array}{rl}
-\displaystyle\lim_{x\to 0}\frac{\left(x^2\sin\left(\frac{1}{x}\right)\right)'}{(\sin x)'} & \displaystyle =\lim_{x\to 0}\frac{2x\sin\left(\frac{1}{x}\right)+x^2\cdot \left(-\frac{1}{x^2}\cos\left(\frac{1}{x}\right)\right)}{\cos x}=
-\lim_{x\to 0}\frac{2x\sin\left(\frac{1}{x}\right)-\cos\left(\frac{1}{x}\right)}{\cos x} \\ & \displaystyle =\lim_{x\to 0} \frac{2x\sin\left(\frac{1}{x}\right)}{\cos x}-\lim_{x\to 0}\frac{\cos\left(\frac{1}{x}\right)}{\cos x} = 0-\lim_{x\to 0}\frac{\cos\left(\frac{1}{x}\right)}{\cos x} = -\lim_{x\to 0}\frac{\cos\left(\frac{1}{x}\right)}{\cos x}.
+f:(-2\pi,2\pi) & \longrightarrow \mathbb{R},\\
+ x& \longrightarrow \sin(x)-\cos(x).
 \end{array}
 $$
-El límite $\displaystyle \lim_{x\to 0} \frac{2x\sin\left(\frac{1}{x}\right)}{\cos x}$ vale $0$ ya que el denominador tiende a $1$ cuando $x\to 0$ y el numerador es el límite de una función que tiende a $0$ ($2x$) por una función acotada $\left(\sin\left(\frac{1}{x}\right)\right)$.
+El gráfico de dicha función puede observase en la figura siguiente.
 
-:::
+Vemos que tiene dos **máximos relativos** en los valores $x=-\frac{5}{4}\pi$ y $x=\frac{3}{4}\pi$ y dos **mínimos relativos** en los valores $x=-\frac{\pi}{4}$ y $x=\frac{7}{4}\pi$. 
 
-## Ejemplo
-::: example
-El límite del cociente de derivadas no existe ya que si consideramos la sucesión $x_n=\frac{1}{2\pi n}\longrightarrow 0$, si $n\to\infty$, el límite de la sucesión $\frac{\cos\left(\frac{1}{x_n}\right)}{\cos x_n}$ vale:
-$$
--\lim_{n\to\infty}\frac{\cos (2\pi n)}{\cos\left(\frac{1}{2\pi n}\right)}=-1.
-$$
-En cambio, si consideramos la sucesión $y_n =\frac{1}{\frac{\pi}{2}+2\pi n}\longrightarrow 0$, si $n\to\infty$, el límite de la sucesión $\frac{\cos\left(\frac{1}{y_n}\right)}{\cos y_n}$ vale:
-$$
--\lim_{n\to\infty}\frac{\cos \left(\frac{\pi}{2}+2\pi n\right)}{\cos\left(\frac{1}{\frac{\pi}{2}+2\pi n}\right)}=0.
-$$
+Observamos que dichos máximos y mínimos son **absolutos**.
 
-:::
+El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi)
+</l>
+::: 
+
 
 ## Ejemplo
 ::: example
-A continuación estaríamos tentados a decir que nuestro límite inicial $\displaystyle\lim_{x\to 0}\frac{x^2\sin\left(\frac{1}{x}\right)}{\sin x}$ no existe pero esto es falso ya que:
-$$
-\lim_{x\to 0}\frac{x^2\sin\left(\frac{1}{x}\right)}{\sin x}= \lim_{x\to 0}\frac{x}{\sin x}\cdot \lim_{x\to 0}
- x\sin\left(\frac{1}{x}\right)=1\cdot 0=0!
-$$
-El primer límite $\displaystyle \lim_{x\to 0}\frac{x}{\sin x}$ vale $1$ ya que vimos en su momento que $\displaystyle \lim_{x\to 0}\frac{\sin x}{x}=1$, por tanto, si hacemos el límite de su recíproco también será $1$: $\displaystyle \lim_{x\to 0}\frac{x}{\sin x}=1$.
+```{r,echo=FALSE,fig.align='center'}
+xmin=-2*pi
+xmax=2*pi
+ymin=-1.5
+ymax=1.5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){sin(x)-cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-2*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+  ii=-2+0.5*i}
+text(xmin+((xmax-xmin)/quantsx)*0,-1.5*toly,expression(-2*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*1,-2.5*toly,expression(-frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*2,-1.5*toly,expression(-pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*3,-2.5*toly,expression(-frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*4+0.1,-1.5*toly,0,cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*5,-2.5*toly,expression(frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*6,-1.5*toly,expression(pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*7,-2.5*toly,expression(frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*8,-1.5*toly,expression(2*pi),cex=0.75)
 
-El segundo límite $\displaystyle \lim_{x\to 0} x\sin\left(\frac{1}{x}\right)$ vale $0$ ya que es el límite de una función que tiende a $0$ ($x$) por una función acotada $\left(\sin\left(\frac{1}{x}\right)\right)$.
+lines(rep(xmin+((xmax-xmin)/quantsx)*1.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-5*pi/4,-5*pi/4),c(0,f(-5*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*1.5,-2.5*toly,expression(-frac(5,4)*pi),cex=0.75)
 
+lines(rep(xmin+((xmax-xmin)/quantsx)*3.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-pi/4,-pi/4),c(0,f(-pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*3.5,2.5*toly,expression(-frac(pi,4)),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*5.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(3*pi/4,3*pi/4),c(0,f(3*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*5.5,-2.5*toly,expression(frac(3,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*7.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(7*pi/4,7*pi/4),c(0,f(7*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*7.5,2.5*toly,expression(frac(7,4)*pi),cex=0.75)
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  if (i==3){text(2.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*3,ymin+((ymax-ymin)/quantsy)*3,cex=0.75)}
+  else
+    {text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+  }
+lines(x,f(x),col="red")
+text(pi,1.3,"f(x)")
+```
+
+
+::: 
+
+
+## Derivación y extremos
+<l class="prop">Teorema.</l>
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$ que sea **extremo relativo** de la función. Entonces si $f$ es **derivable** en el punto $x_0$, se verifica que $f'(x_0)=0$.
+
+Intuitivamente, el teorema anterior nos dice que si la función $f$ tiene un comportamiento **suave** en el extremo $x_0$, la recta tangente en este punto tiene que ser **horizontal**, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior. 
+
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+Como $f$ es derivable en el punto $x_0$, sabemos que existe el límite siguiente $\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$.
+
+Decir que $f$ es derivable en $x_0$ es equivalente a decir que la función siguiente:
+$$
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, & \mbox{si }x\neq x_0,\\
+f'(x_0), &\mbox{si }x=x_0,
+\end{cases}
+$$
+es continua en $x_0$.
+
+Veamos a continuación que necesariamente $g(x_0)=f'(x_0)=0$ y quedará demostrado el teorema.
+
+Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teorema de conservación del signo de funciones continuas, existirá un entorno de $x_0$, es decir, existirá un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, $g(x)>0$ también será positiva para todos los valores $x$ de dicho entorno.
+
+
+::: 
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x" del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Derivación y extremos
+::: prop
+Proposición.
 :::
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
+
+::: dem
+**Demostración**
+
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
+$$
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
+$$
+::: 
+
+## Consecuencias de los teoremas
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0" tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es creciente en $(a,b)$ si, y sólo si, $f'(x)\geq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: dem
+**Demostración**
+
+$\Rightarrow$ Supongamos que la función $f$ es creciente en $(a,b)$. Esto significa que fijado $x_0\in (a,b)$ en el intervalo, existe un entorno de $x_0$, es decir, existe un $\delta >0$, tal que para todo valor $x\in (x_0-\delta,x_0+\delta)$, se verifica que $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$.
+
+Entonces, usando que $\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$, tendremos que $f'(x_0)\geq 0$, tal como queríamos ver.
+::: 
+
+## Consecuencias de los teoremas
+
+::: dem
+**Demostración**
+
+$\Leftarrow$ Supongamos ahora que $f'(x_0)\geq 0$, para todo valor $x_0\in (a,b)$ dentro del intervalo. Veamos que $f$ es creciente en $x_0$. 
+
+Sea $x>x_0$. Si aplicamos el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x_0,x]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+Sea ahora $x<x_0$. Si volvemos a aplicar el el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x,x_0]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es decreciente en $(a,b)$ si, y sólo si, $f'(x)\leq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: exercise
+**Ejercicio**
+
+Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función $f$ es creciente.
+::: 
 
 ## Ejemplo
 ::: example
-En resumen, que no exista el límite una vez aplicada la regla de l'Hôpital no significa que no exista el límite inicial que nos hemos planteado.
+**Ejemplo**
 
-El límite anterior en `Wolfram Alpha` se muestra en el enlace siguiente:
+Consideremos la función siguiente definida en el intervalo $(-2\pi,2\pi)$: 
+$$
+\begin{array}{rl}
+f:(-2\pi,2\pi) & \longrightarrow \mathbb{R},\\
+ x& \longrightarrow \sin(x)-\cos(x).
+\end{array}
+$$
+El gráfico de dicha función puede observase en la figura siguiente.
 
-::: center
-[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=limit+of+%28x%5E2*sin%281%2Fx%29%29%2Fsin%28x%29+when+x+tends+to+0)
+Vemos que tiene dos **máximos relativos** en los valores $x=-\frac{5}{4}\pi$ y $x=\frac{3}{4}\pi$ y dos **mínimos relativos** en los valores $x=-\frac{\pi}{4}$ y $x=\frac{7}{4}\pi$. 
+
+Observamos que dichos máximos y mínimos son **absolutos**.
+
+El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi)
+</l>
+::: 
+
+
+## Ejemplo
+::: example
+```{r,echo=FALSE,fig.align='center'}
+xmin=-2*pi
+xmax=2*pi
+ymin=-1.5
+ymax=1.5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){sin(x)-cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-2*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+  ii=-2+0.5*i}
+text(xmin+((xmax-xmin)/quantsx)*0,-1.5*toly,expression(-2*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*1,-2.5*toly,expression(-frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*2,-1.5*toly,expression(-pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*3,-2.5*toly,expression(-frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*4+0.1,-1.5*toly,0,cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*5,-2.5*toly,expression(frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*6,-1.5*toly,expression(pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*7,-2.5*toly,expression(frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*8,-1.5*toly,expression(2*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*1.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-5*pi/4,-5*pi/4),c(0,f(-5*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*1.5,-2.5*toly,expression(-frac(5,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*3.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-pi/4,-pi/4),c(0,f(-pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*3.5,2.5*toly,expression(-frac(pi,4)),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*5.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(3*pi/4,3*pi/4),c(0,f(3*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*5.5,-2.5*toly,expression(frac(3,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*7.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(7*pi/4,7*pi/4),c(0,f(7*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*7.5,2.5*toly,expression(frac(7,4)*pi),cex=0.75)
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  if (i==3){text(2.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*3,ymin+((ymax-ymin)/quantsy)*3,cex=0.75)}
+  else
+    {text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+  }
+lines(x,f(x),col="red")
+text(pi,1.3,"f(x)")
+```
+
+
+::: 
+
+
+## Derivación y extremos
+<l class="prop">Teorema.</l>
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$ que sea **extremo relativo** de la función. Entonces si $f$ es **derivable** en el punto $x_0$, se verifica que $f'(x_0)=0$.
+
+Intuitivamente, el teorema anterior nos dice que si la función $f$ tiene un comportamiento **suave** en el extremo $x_0$, la recta tangente en este punto tiene que ser **horizontal**, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior. 
+
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+Como $f$ es derivable en el punto $x_0$, sabemos que existe el límite siguiente $\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$.
+
+Decir que $f$ es derivable en $x_0$ es equivalente a decir que la función siguiente:
+$$
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, & \mbox{si }x\neq x_0,\\
+f'(x_0), &\mbox{si }x=x_0,
+\end{cases}
+$$
+es continua en $x_0$.
+
+Veamos a continuación que necesariamente $g(x_0)=f'(x_0)=0$ y quedará demostrado el teorema.
+
+Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teorema de conservación del signo de funciones continuas, existirá un entorno de $x_0$, es decir, existirá un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, $g(x)>0$ también será positiva para todos los valores $x$ de dicho entorno.
+
+
+::: 
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x" del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Derivación y extremos
+::: prop
+Proposición.
 :::
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
+
+::: dem
+**Demostración**
+
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
+$$
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
+$$
+::: 
+
+## Consecuencias de los teoremas
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
 :::
 
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es creciente en $(a,b)$ si, y sólo si, $f'(x)\geq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: dem
+**Demostración**
+
+$\Rightarrow$ Supongamos que la función $f$ es creciente en $(a,b)$. Esto significa que fijado $x_0\in (a,b)$ en el intervalo, existe un entorno de $x_0$, es decir, existe un $\delta >0$, tal que para todo valor $x\in (x_0-\delta,x_0+\delta)$, se verifica que $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$.
+
+Entonces, usando que $\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$, tendremos que $f'(x_0)\geq 0$, tal como queríamos ver.
+::: 
+
+## Consecuencias de los teoremas
+
+::: dem
+**Demostración**
+
+$\Leftarrow$ Supongamos ahora que $f'(x_0)\geq 0$, para todo valor $x_0\in (a,b)$ dentro del intervalo. Veamos que $f$ es creciente en $x_0$. 
+
+Sea $x>x_0$. Si aplicamos el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x_0,x]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+Sea ahora $x<x_0$. Si volvemos a aplicar el el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x,x_0]$ tenemos que existe un punto $c" tal que: 
+$$
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es decreciente en $(a,b)$ si, y sólo si, $f'(x)\leq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: exercise
+**Ejercicio**
+
+Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función $f$ es creciente.
+::: 
+
+## Ejemplo
+::: example
+**Ejemplo**
+
+Consideremos la función siguiente definida en el intervalo $(-2\pi,2\pi)$: 
+$$
+\begin{array}{rl}
+f:(-2\pi,2\pi) & \longrightarrow \mathbb{R},\\
+ x& \longrightarrow \sin(x)-\cos(x).
+\end{array}
+$$
+El gráfico de dicha función puede observase en la figura siguiente.
+
+Vemos que tiene dos **máximos relativos** en los valores $x=-\frac{5}{4}\pi$ y $x=\frac{3}{4}\pi$ y dos **mínimos relativos** en los valores $x=-\frac{\pi}{4}$ y $x=\frac{7}{4}\pi$. 
+
+Observamos que dichos máximos y mínimos son **absolutos**.
+
+El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi)
+</l>
+::: 
+
+
+## Ejemplo
+::: example
+```{r,echo=FALSE,fig.align='center'}
+xmin=-2*pi
+xmax=2*pi
+ymin=-1.5
+ymax=1.5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){sin(x)-cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-2*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+  ii=-2+0.5*i}
+text(xmin+((xmax-xmin)/quantsx)*0,-1.5*toly,expression(-2*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*1,-2.5*toly,expression(-frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*2,-1.5*toly,expression(-pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*3,-2.5*toly,expression(-frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*4+0.1,-1.5*toly,0,cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*5,-2.5*toly,expression(frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*6,-1.5*toly,expression(pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*7,-2.5*toly,expression(frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*8,-1.5*toly,expression(2*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*1.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-5*pi/4,-5*pi/4),c(0,f(-5*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*1.5,-2.5*toly,expression(-frac(5,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*3.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-pi/4,-pi/4),c(0,f(-pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*3.5,2.5*toly,expression(-frac(pi,4)),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*5.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(3*pi/4,3*pi/4),c(0,f(3*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*5.5,-2.5*toly,expression(frac(3,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*7.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(7*pi/4,7*pi/4),c(0,f(7*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*7.5,2.5*toly,expression(frac(7,4)*pi),cex=0.75)
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  if (i==3){text(2.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*3,ymin+((ymax-ymin)/quantsy)*3,cex=0.75)}
+  else
+    {text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+  }
+lines(x,f(x),col="red")
+text(pi,1.3,"f(x)")
+```
+
+
+::: 
+
+
+## Derivación y extremos
+<l class="prop">Teorema.</l>
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$ que sea **extremo relativo** de la función. Entonces si $f$ es **derivable** en el punto $x_0$, se verifica que $f'(x_0)=0$.
+
+Intuitivamente, el teorema anterior nos dice que si la función $f$ tiene un comportamiento **suave** en el extremo $x_0$, la recta tangente en este punto tiene que ser **horizontal**, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior. 
+
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+Como $f$ es derivable en el punto $x_0$, sabemos que existe el límite siguiente $\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$.
+
+Decir que $f$ es derivable en $x_0$ es equivalente a decir que la función siguiente:
+$$
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, & \mbox{si }x\neq x_0,\\
+f'(x_0), &\mbox{si }x=x_0,
+\end{cases}
+$$
+es continua en $x_0$.
+
+Veamos a continuación que necesariamente $g(x_0)=f'(x_0)=0$ y quedará demostrado el teorema.
+
+Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teorema de conservación del signo de funciones continuas, existirá un entorno de $x_0$, es decir, existirá un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, $g(x)>0$ también será positiva para todos los valores $x$ de dicho entorno.
+
+
+::: 
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x" del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Derivación y extremos
+::: prop
+Proposición.
+:::
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
+
+::: dem
+**Demostración**
+
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
+$$
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
+$$
+::: 
+
+## Consecuencias de los teoremas
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es creciente en $(a,b)$ si, y sólo si, $f'(x)\geq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: dem
+**Demostración**
+
+$\Rightarrow$ Supongamos que la función $f$ es creciente en $(a,b)$. Esto significa que fijado $x_0\in (a,b)$ en el intervalo, existe un entorno de $x_0$, es decir, existe un $\delta >0$, tal que para todo valor $x\in (x_0-\delta,x_0+\delta)$, se verifica que $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$.
+
+Entonces, usando que $\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$, tendremos que $f'(x_0)\geq 0$, tal como queríamos ver.
+::: 
+
+## Consecuencias de los teoremas
+
+::: dem
+**Demostración**
+
+$\Leftarrow$ Supongamos ahora que $f'(x_0)\geq 0$, para todo valor $x_0\in (a,b)$ dentro del intervalo. Veamos que $f$ es creciente en $x_0$. 
+
+Sea $x>x_0$. Si aplicamos el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x_0,x]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+Sea ahora $x<x_0$. Si volvemos a aplicar el el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x,x_0]$ tenemos que existe un punto $c" tal que: 
+$$
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es decreciente en $(a,b)$ si, y sólo si, $f'(x)\leq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: exercise
+**Ejercicio**
+
+Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función $f$ es creciente.
+::: 
+
+## Ejemplo
+::: example
+**Ejemplo**
+
+Consideremos la función siguiente definida en el intervalo $(-2\pi,2\pi)$: 
+$$
+\begin{array}{rl}
+f:(-2\pi,2\pi) & \longrightarrow \mathbb{R},\\
+ x& \longrightarrow \sin(x)-\cos(x).
+\end{array}
+$$
+El gráfico de dicha función puede observase en la figura siguiente.
+
+Vemos que tiene dos **máximos relativos** en los valores $x=-\frac{5}{4}\pi$ y $x=\frac{3}{4}\pi$ y dos **mínimos relativos** en los valores $x=-\frac{\pi}{4}$ y $x=\frac{7}{4}\pi$. 
+
+Observamos que dichos máximos y mínimos son **absolutos**.
+
+El gráfico de la función anterior puede verse en `Wolfram Alpha` en el enlace siguiente: <l class="center">
+[![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=plot+of+sin%28x%29-cos%28x%29%2C+where++x+is+between+-2+pi+and+2+pi)
+</l>
+::: 
+
+
+## Ejemplo
+::: example
+```{r,echo=FALSE,fig.align='center'}
+xmin=-2*pi
+xmax=2*pi
+ymin=-1.5
+ymax=1.5
+tolx=0.01*(xmax-xmin)
+toly=0.05*(ymax-ymin)
+quantsx=8
+quantsy=6
+f = function(x){sin(x)-cos(x)}
+plot(c(xmin-tolx,xmax+tolx,xmin-tolx,xmax+tolx),c(ymin-toly,ymin-toly,ymax+toly,ymax+toly),type="n",xlab="",ylab="",xaxt="n",yaxt="n",axes=FALSE)
+x=seq(from=xmin,to=xmax,by=0.01)
+#points(x,f(x),type="l")
+lines(c(0,0),c(ymin,ymax))
+lines(c(xmin,xmax),c(0,0))
+text(xmax-3*tolx,-2*tolx,"x")
+text(toly,ymax+toly/2,"y")
+for (i in 0:(quantsx)){
+  lines(rep(xmin+((xmax-xmin)/quantsx)*i,2),c(-0.5*toly,+0.5*toly))
+  ii=-2+0.5*i}
+text(xmin+((xmax-xmin)/quantsx)*0,-1.5*toly,expression(-2*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*1,-2.5*toly,expression(-frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*2,-1.5*toly,expression(-pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*3,-2.5*toly,expression(-frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*4+0.1,-1.5*toly,0,cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*5,-2.5*toly,expression(frac(pi,2)),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*6,-1.5*toly,expression(pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*7,-2.5*toly,expression(frac(3,2)*pi),cex=0.75)
+text(xmin+((xmax-xmin)/quantsx)*8,-1.5*toly,expression(2*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*1.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-5*pi/4,-5*pi/4),c(0,f(-5*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*1.5,-2.5*toly,expression(-frac(5,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*3.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(-pi/4,-pi/4),c(0,f(-pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*3.5,2.5*toly,expression(-frac(pi,4)),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*5.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(3*pi/4,3*pi/4),c(0,f(3*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*5.5,-2.5*toly,expression(frac(3,4)*pi),cex=0.75)
+
+lines(rep(xmin+((xmax-xmin)/quantsx)*7.5,2),c(-0.5*toly,+0.5*toly))
+lines(c(7*pi/4,7*pi/4),c(0,f(7*pi/4)),lty=2,col="blue")
+text(xmin+((xmax-xmin)/quantsx)*7.5,2.5*toly,expression(frac(7,4)*pi),cex=0.75)
+
+for (i in 0:(quantsy)){
+  lines(c(-tolx,tolx),ymin+rep(((ymax-ymin)/quantsy)*i,2))
+  if (i==3){text(2.5*tolx,0.1+ymin+((ymax-ymin)/quantsy)*3,ymin+((ymax-ymin)/quantsy)*3,cex=0.75)}
+  else
+    {text(3*tolx,ymin+((ymax-ymin)/quantsy)*i,ymin+((ymax-ymin)/quantsy)*i,cex=0.75)}
+  }
+lines(x,f(x),col="red")
+text(pi,1.3,"f(x)")
+```
+
+
+::: 
+
+
+## Derivación y extremos
+<l class="prop">Teorema.</l>
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$ que sea **extremo relativo** de la función. Entonces si $f$ es **derivable** en el punto $x_0$, se verifica que $f'(x_0)=0$.
+
+Intuitivamente, el teorema anterior nos dice que si la función $f$ tiene un comportamiento **suave** en el extremo $x_0$, la recta tangente en este punto tiene que ser **horizontal**, es decir, su pendiente tiene que ser nula, tal como podemos observar en los extremos del ejemplo anterior. 
+
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+Como $f$ es derivable en el punto $x_0$, sabemos que existe el límite siguiente $\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$.
+
+Decir que $f$ es derivable en $x_0$ es equivalente a decir que la función siguiente:
+$$
+g(x)=\begin{cases}
+\frac{f(x)-f(x_0)}{x-x_0}, & \mbox{si }x\neq x_0,\\
+f'(x_0), &\mbox{si }x=x_0,
+\end{cases}
+$$
+es continua en $x_0$.
+
+Veamos a continuación que necesariamente $g(x_0)=f'(x_0)=0$ y quedará demostrado el teorema.
+
+Supongamos que $g(x_0)>0$. Como la función $g$ es continua en $x_0$, por el teorema de conservación del signo de funciones continuas, existirá un entorno de $x_0$, es decir, existirá un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)\subseteq (a,b)$, $g(x)>0$ también será positiva para todos los valores $x$ de dicho entorno.
+
+
+::: 
+
+## Derivación y extremos
+
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0$ tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x" del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Derivación y extremos
+::: prop
+Proposición.
+:::
+
+Sea $f: (a,b)\longrightarrow \mathbb{R}$ una función real de variable real. Sea $x_0\in (a,b)$ un valor del dominio de $f$. Supongamos que $f$ es derivable en $x_0$. Entonces si $f'(x_0)>0$ o $f$ tiene **derivada positiva** en $x_0$, entonces $f$ es **estrictamente creciente** en $x_0$.
+
+::: dem
+**Demostración**
+
+Como $\displaystyle f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}>0$, usando la definición de límite tenemos que:
+$$
+\forall \epsilon >0,\ \exists\delta >0\ \mbox{t.q. si }|x-x_0|<\delta,\mbox{ entonces }\left|f'(x_0)-\frac{f(x)-f(x_0)}{x-x_0}\right|< \epsilon.
+$$
+::: 
+
+## Consecuencias de los teoremas
+::: dem
+**Demostración**
+
+La última condición se puede escribir de la siguiente manera:
+$$
+f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon.
+$$
+Como $f'(x_0)>0$, siempre es posible hallar un $\epsilon >0$ tal que $f'(x_0)-\epsilon>0$.
+
+Para este $\epsilon >0$, podemos encontrar un entorno de $x_0$, es decir, un $\delta >0" tal que si $x\in (x_0-\delta,x_0+\delta)$, entonces:
+$$
+0<f'(x_0)-\epsilon < \frac{f(x)-f(x_0)}{x-x_0} < f'(x_0)+\epsilon,
+$$
+de donde deducimos que $\frac{f(x)-f(x_0)}{x-x_0}>0$ para todo $x$ del entorno, $x\in (x_0-\delta,x_0+\delta)$, lo que equivale a decir que $f$ es estrictamente creciente en $x_0$.
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es creciente en $(a,b)$ si, y sólo si, $f'(x)\geq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: dem
+**Demostración**
+
+$\Rightarrow$ Supongamos que la función $f$ es creciente en $(a,b)$. Esto significa que fijado $x_0\in (a,b)$ en el intervalo, existe un entorno de $x_0$, es decir, existe un $\delta >0$, tal que para todo valor $x\in (x_0-\delta,x_0+\delta)$, se verifica que $\frac{f(x)-f(x_0)}{x-x_0}\geq 0$.
+
+Entonces, usando que $\displaystyle f'(x_0)=\lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$, tendremos que $f'(x_0)\geq 0$, tal como queríamos ver.
+::: 
+
+## Consecuencias de los teoremas
+
+::: dem
+**Demostración**
+
+$\Leftarrow$ Supongamos ahora que $f'(x_0)\geq 0$, para todo valor $x_0\in (a,b)$ dentro del intervalo. Veamos que $f$ es creciente en $x_0$. 
+
+Sea $x>x_0$. Si aplicamos el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x_0,x]$ tenemos que existe un punto $c$ tal que: 
+$$
+f'(c)=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+Sea ahora $x<x_0$. Si volvemos a aplicar el el **teorema del valor medio de Lagrange** a la función $f$ restringida al intervalo $[x,x_0]$ tenemos que existe un punto $c" tal que: 
+$$
+f'(c)=\frac{f(x_0)-f(x)}{x_0-x}=\frac{f(x)-f(x_0)}{x-x_0}\geq 0.
+$$
+
+::: 
+
+## Consecuencias de los teoremas
+::: prop
+Corolario.
+:::
+
+Sea $f:(a,b)\longrightarrow \mathbb{R}$ una función  derivable en todo punto del intervalo $(a,b)$.
+Entonces, $f$ es decreciente en $(a,b)$ si, y sólo si, $f'(x)\leq 0$, para todo $x\in (a,b)$ del intervalo.
+
+::: exercise
+**Ejercicio**
+
+Demostrar el corolario anterior usando la misma técnica de demostración para el caso en que la función $f$ es creciente.
+::: 
+
+## Ejemplo
+::: example
+**Ejemplo**
+
+Consideremos
