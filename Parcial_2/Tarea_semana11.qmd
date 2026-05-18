@@ -1,0 +1,183 @@
+---
+title: "Tarea autonóma"
+subtitle: "La derivada"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+## Pregunta 1: Aplicando las reglas del Producto y de la Cadena, determine la derivada de $f(x) = x^3 \cdot \cos(x^2)$.
+
+
+## Pregunta 2: Derivabilidad en un Punto (Continuidad y Derivadas Laterales)
+
+Encuentre el valor de la suma $a+b$ para que la función $f(x) = \begin{cases} a x^2 + b & \text{si } x < 1 \\ 4x - 1 & \text{si } x \geq 1 \end{cases}$ sea derivable en $x=1$.
+
+**Sugerencia:** Tome en cuenta continuidad y derivadas laterales.
+
+## Pregunta 3: Utilice la regla de la derivada de la función inversa para calcular $g'(8)$, donde $g(x) = \sqrt[3]{x}$ es la inversa de $f(x)=x^3$.
+
+
+{{< pagebreak >}}
+
+## Ejercicios de Derivación Avanzada (Cálculo)
+
+Este conjunto de ejercicios requiere la aplicación combinada de las reglas de derivación (Cadena, Producto, Cociente) y el análisis de la derivabilidad en un punto.
+
+### Pregunta 1: Regla de la Cadena Anidada
+
+Utilice la Regla de la Cadena anidada para calcular la derivada de $f(x) = \tan(\sqrt{x^2+1})$.
+
+* **A.** $$f'(x) = \frac{x}{(x^2+1)\sqrt{x^2+1}} \cdot \sec^2(\sqrt{x^2+1})$$
+* **B.** $$f'(x) = \frac{x}{\sqrt{x^2+1}} \cdot \sec^2(\sqrt{x^2+1})$$
+* **C.** $$f'(x) = \sec^2(\sqrt{x^2+1})$$
+* **D.** $$f'(x) = \frac{2x}{\sqrt{x^2+1}} \cdot \sec^2(\sqrt{x^2+1})$$
+
+**Respuesta Correcta:** B
+**Racional:** Se aplica $f'(x) = \sec^2(\sqrt{x^2+1}) \cdot (\sqrt{x^2+1})'$. La derivada de la raíz es $\frac{(x^2+1)'}{2\sqrt{x^2+1}} = \frac{2x}{2\sqrt{x^2+1}} = \frac{x}{\sqrt{x^2+1}}$.
+
+---
+
+### Pregunta 2: Reglas del Cociente y de la Cadena
+
+Calcule la derivada de la función $f(x) = \frac{x^2}{\sqrt{2x+1}}$ utilizando las reglas del Cociente y de la Cadena.
+
+* **A.** $$f'(x) = \frac{3x^2+2x}{(2x+1)\sqrt{2x+1}}$$
+* **B.** $$f'(x) = \frac{2x\sqrt{2x+1} - x^2\frac{1}{\sqrt{2x+1}}}{2x+1}$$
+* **C.** $$f'(x) = \frac{2x}{\sqrt{2x+1}}$$
+* **D.** $$f'(x) = \frac{4x^2+2x}{(2x+1)^{3/2}}$$
+
+**Respuesta Correcta:** A
+**Racional:** Aplicando la Regla del Cociente y simplificando se obtiene: $f'(x) = \frac{2x\sqrt{2x+1} - x^2\left(\frac{1}{\sqrt{2x+1}}\right)}{2x+1} = \frac{2x(2x+1) - x^2}{(2x+1)^{3/2}} = \frac{4x^2+2x - x^2}{(2x+1)^{3/2}} = \frac{3x^2+2x}{(2x+1)\sqrt{2x+1}}$.
+
+---
+
+### Pregunta 3: Reglas del Producto y de la Cadena
+
+Aplicando las reglas del Producto y de la Cadena, determine la derivada de $f(x) = x^3 \cdot \cos(x^2)$.
+
+* **A.** $$f'(x) = 3x^2\cos(x^2) + x^3\sin(x^2)$$
+* **B.** $$f'(x) = 3x^2\cos(x^2) - 2x^4\sin(x^2)$$
+* **C.** $$f'(x) = 3x^2\cos(2x)$$
+* **D.** $$f'(x) = 3x^2\cos(x^2) - x^3\sin(x^2)$$
+
+**Respuesta Correcta:** B
+**Racional:** Se aplica $(fg)' = f'g + fg'$:
+$f'(x) = (3x^2)\cos(x^2) + x^3 \cdot (-\sin(x^2) \cdot 2x) = 3x^2\cos(x^2) - 2x^4\sin(x^2)$.
+
+---
+
+### Pregunta 4: Derivabilidad en un Punto (Continuidad y Derivadas Laterales)
+
+Encuentre el valor de la suma $a+b$ para que la función $f(x) = \begin{cases} a x^2 + b & \text{si } x < 1 \\ 4x - 1 & \text{si } x \geq 1 \end{cases}$ sea derivable en $x=1$.
+
+* **A.** $a+b=3$
+* **B.** $a+b=4$
+* **C.** $a+b=2$
+* **D.** La función no puede ser derivable con ningún valor de $a$ y $b$.
+
+**Respuesta Correcta:** A
+**Racional:**
+1.  **Continuidad** en $x=1$: $a(1)^2 + b = 4(1) - 1 \implies a+b = 3$.
+2.  **Derivabilidad** en $x=1$: $f'(x^{-}) = 2ax$ y $f'(x^{+}) = 4$. Igualando en $x=1$: $2a(1) = 4 \implies a=2$.
+3.  Sustituyendo $a=2$ en la ecuación de continuidad: $2+b=3 \implies b=1$.
+4.  La suma es $a+b = 2+1 = 3$.
+
+---
+
+### Pregunta 5: Derivada de la Función Inversa
+
+Utilice la regla de la derivada de la función inversa para calcular $g'(8)$, donde $g(x) = \sqrt[3]{x}$ es la inversa de $f(x)=x^3$.
+
+* **A.** $$g'(8) = \frac{1}{12}$$
+* **B.** $$g'(8) = 12$$
+* **C.** $$g'(8) = \frac{1}{3}$$
+* **D.** $$g'(8) = \frac{1}{4}$$
+
+**Respuesta Correcta:** A
+**Racional:** Utilizamos $g'(y_0) = \frac{1}{f'(x_0)}$.
+1.  Encuentre $x_0$: $f(x_0)=8 \implies x_0^3=8 \implies x_0=2$.
+2.  Calcule $f'(x)$: $f'(x)=3x^2$.
+3.  Evalúe $f'(x_0)$: $f'(2)=3(2)^2=12$.
+4.  Calcule $g'(8)$: $g'(8) = \frac{1}{12}$.
+
+---
+
+### Pregunta 6: Ecuación de la Recta Tangente
+
+Determine la ecuación de la recta tangente a la función $f(x) = \sqrt{x^2+9}$ en el punto donde $x=4$.
+
+* **A.** $$y = \frac{4}{5}x + \frac{9}{5}$$
+* **B.** $$y = \frac{4}{5}x - \frac{1}{5}$$
+* **C.** $$y = 5x + 4$$
+* **D.** $$y = 4x + 9$$
+
+**Respuesta Correcta:** A
+**Racional:**
+1.  Punto: $x_0=4$, $y_0=f(4)=\sqrt{4^2+9}=5$. Punto $(4, 5)$.
+2.  Pendiente $m=f'(4)$: $f'(x)=\frac{2x}{2\sqrt{x^2+9}} = \frac{x}{\sqrt{x^2+9}}$. $m=f'(4)=\frac{4}{5}$.
+3.  Ecuación: $y-5 = \frac{4}{5}(x-4) \implies y = \frac{4}{5}x - \frac{16}{5} + 5 = \frac{4}{5}x + \frac{25-16}{5} = \frac{4}{5}x + \frac{9}{5}$.
+
+---
+
+### Pregunta 7: Identificación de la Derivada por Definición
+
+El límite $\lim_{h\to 0}\frac{\tan(\pi+h)-\tan(\pi)}{h}$ representa la derivada de una función $f(x)$ en un punto $x_0$. Identifique $f(x)$ y $x_0$.
+
+* **A.** $$f(x) = \tan x, \quad x_0 = \pi$$
+* **B.** $$f(x) = \sin x, \quad x_0 = \pi$$
+* **C.** $$f(x) = \tan x, \quad x_0 = 0$$
+* **D.** La derivada es $\lim_{x\to \pi}\frac{\tan x - \tan \pi}{x-\pi}$.
+
+**Respuesta Correcta:** A
+**Racional:** Comparando con la definición $\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}$, es claro que $f(x)=\tan x$ y el punto de evaluación es $x_0=\pi$.
+
+---
+
+### Pregunta 8: Regla de la Cadena Compuesta
+
+Calcule la derivada de la función $f(x) = (\sin x + \cos x)^5$.
+
+* **A.** $$f'(x) = 5(\sin x + \cos x)^4$$
+* **B.** $$f'(x) = 5(\sin x + \cos x)^4 \cdot (\cos x - \sin x)$$
+* **C.** $$f'(x) = 5(\sin x + \cos x)^4 \cdot (\cos x + \sin x)$$
+* **D.** $$f'(x) = (\cos x - \sin x)^5$$
+
+**Respuesta Correcta:** B
+**Racional:** Se aplica la Regla de la Cadena para $u^n$: $n u^{n-1} u'$.
+$u = \sin x + \cos x$, y $u' = \cos x - \sin x$.
+$f'(x) = 5(\sin x + \cos x)^{4} \cdot (\cos x - \sin x)$.
+
+---
+
+### Pregunta 9: Derivabilidad y Recta Tangente Vertical
+
+Determine si la función $f(x) = \sqrt[3]{x}$ es derivable en $x=0$.
+
+* **A.** Sí, y $f'(0)=1$.
+* **B.** Sí, y $f'(0)=0$.
+* **C.** No, porque el límite del cociente de diferencias en $x=0$ tiende a $\infty$, lo que significa que la recta tangente es vertical.
+* **D.** No, porque la función no es continua en $x=0$.
+
+**Respuesta Correcta:** C
+**Racional:** La derivada es $f'(x) = \frac{1}{3}x^{-2/3} = \frac{1}{3\sqrt[3]{x^2}}$. Cuando $x \to 0$, $f'(x) \to \infty$. Esto indica una recta tangente vertical en $x=0$, por lo que la función no es derivable en el sentido estricto (la derivada no existe como número real).
+
+---
+
+### Pregunta 10: Condiciones de Existencia de la Derivada del Cociente
+
+Sean $f(x)$ y $g(x)$ dos funciones derivables. ¿Cuál es la condición *necesaria* para que la derivada del cociente $\left(\frac{f}{g}\right)'(x_0)$ exista?
+
+* **A.** $$f'(x_0) \ne 0$$
+* **B.** $$g(x_0) \ne 0$$
+* **C.** $$g'(x_0) \ne 0$$
+* **D.** Tanto $f(x_0)$ como $g(x_0)$ deben ser diferentes de cero.
+
+**Respuesta Correcta:** B
+**Racional:** La fórmula es $\frac{f'g - fg'}{g^2}$. La condición necesaria para que la derivada (y la función cociente original) esté definida en $x_0$ es que el denominador $g(x_0)$ sea diferente de cero.

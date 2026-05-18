@@ -43,176 +43,32 @@ library(reticulate)
 use_condaenv("manim-env", required = TRUE)
 ```
 
-# Derivada de una función en un punto del dominio de la misma {.my-slide}
+# Derivada de una función  {.my-slide}
 
-## Regla de la cadena
 
-```{r}
-#| panel: sidebar
+## Diferenciación: Resumen de la sección y objetivos
 
-# 0. CONTROL DE POSICIÓN/ANIMACIÓN
-sliderInput("x_angle_slider", "Posición/Rotación de Rueda X:", 
-            min = 0, max = 360, value = 0, step = 1, animate = 
-            animationOptions(interval = 100, loop = TRUE))
+En esta presentación, aprenderás:
 
-# --- Sección X -> U (du/dx) ---
-sliderInput("ratio_xu", "Radio de X/U (Magnitud du/dx):", 
-            min = 0.5, max = 3, value = 2, step = 0.1)
+  - El concepto y definición de una "derivada" en cálculo.
 
-checkboxInput("cross_xu", "Correa cruzada x-u (Sentido inverso -)", value = FALSE)
+  - Terminología y notación de las derivadas.
 
-# --- Sección U -> Y (dy/du) ---
-sliderInput("ratio_uy", "Radio de U/Y (Magnitud dy/du):", 
-            min = 0.5, max = 3, value = 1.5, step = 0.1)
+  - Derivadas de la mayoría de las funciones.
 
-checkboxInput("cross_uy", "Correa cruzada u-y (Sentido inverso -)", value = FALSE)
+  - Puntos críticos.
 
-```
+## Los fundamentos del cálculo {.title-line}
 
-```{r}
-#| panel: fill
-# El gráfico ocupa el espacio principal
-plotOutput('simulacion_plot', height = "400px")
+## {auto-animate=true background-color="rgb(255, 255, 255)" .white-canvas}
 
-# El texto de resultados
-h4(textOutput("derivative_output"))
-```
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/1-Section-summary-and-goals_DUBBED_ES/slide_0004_00-00-16.jpg){#slide-img width="100%"}
+:::
 
-```{r}
-#| context: setup
-# Necesario para la función draw.circle en el plot
-library(plotrix)
-```
+---
 
-```{r}
-#| context: server
 
-# --- 1. FUNCIÓN GEOMÉTRICA NO REACTIVA ---
-# Dibuja una correa (recta o cruzada) entre dos ruedas usando trigonometría.
-draw_belt <- function(cx1, cy1, r1, cx2, cy2, r2, is_crossed, color) {
-  
-  d <- sqrt((cx2 - cx1)^2 + (cy2 - cy1)^2)
-  alpha <- atan2(cy2 - cy1, cx2 - cx1)
-  
-  if (d < abs(r1 - r2) + 0.1) {
-      # Evitar errores si las ruedas están demasiado cerca para la geometría
-      return() 
-  }
-
-  if (!is_crossed) { # Correa Recta (Directa)
-    beta <- acos((r1 - r2) / d)
-    
-    # Puntos de tangencia en Rueda 1 y 2
-    T1ax <- cx1 + r1 * cos(alpha + pi/2 - beta); T1ay <- cy1 + r1 * sin(alpha + pi/2 - beta)
-    T1bx <- cx1 + r1 * cos(alpha - pi/2 - beta); T1by <- cy1 + r1 * sin(alpha - pi/2 - beta)
-    
-    T2ax <- cx2 + r2 * cos(alpha + pi/2 - beta); T2ay <- cy2 + r2 * sin(alpha + pi/2 - beta)
-    T2bx <- cx2 + r2 * cos(alpha - pi/2 - beta); T2by <- cy2 + r2 * sin(alpha - pi/2 - beta)
-    
-    # Dibujar las dos líneas rectas
-    segments(T1ax, T1ay, T2ax, T2ay, col = color, lwd = 2)
-    segments(T1bx, T1by, T2bx, T2by, col = color, lwd = 2)
-    
-  } else { # Correa Cruzada (Invertida)
-    r_sum <- r1 + r2
-    if (d < r_sum + 0.1) return() # Evitar errores si la suma de radios es mayor a la distancia
-    
-    beta <- acos(r_sum / d)
-    
-    # Puntos de tangencia en Rueda 1
-    T1ax <- cx1 + r1 * cos(alpha + beta); T1ay <- cy1 + r1 * sin(alpha + beta)
-    T1bx <- cx1 + r1 * cos(alpha - beta); T1by <- cy1 + r1 * sin(alpha - beta)
-    
-    # Puntos de tangencia en Rueda 2 (se cruzan)
-    T2ax <- cx2 + r2 * cos(alpha - beta); T2ay <- cy2 + r2 * sin(alpha - beta) 
-    T2bx <- cx2 + r2 * cos(alpha + beta); T2by <- cy2 + r2 * sin(alpha + beta) 
-    
-    # Dibujar las dos líneas cruzadas
-    segments(T1ax, T1ay, T2ax, T2ay, col = color, lwd = 2)
-    segments(T1bx, T1by, T2bx, T2by, col = color, lwd = 2)
-  }
-}
-
-# --- 2. CÁLCULOS REACTIVOS ---
-
-# Razón de cambio du/dx (Magnitud * Signo)
-du_dx_calc <- reactive({
-  ratio <- input$ratio_xu
-  sign <- ifelse(input$cross_xu, -1, 1)
-  return(sign * ratio)
-})
-
-# Razón de cambio dy/du (Magnitud * Signo)
-dy_du_calc <- reactive({
-  ratio <- input$ratio_uy
-  sign <- ifelse(input$cross_uy, -1, 1)
-  return(sign * ratio)
-})
-
-# Resultado final: dy/dx
-dy_dx_calc <- reactive({
-  return(du_dx_calc() * dy_du_calc())
-})
-
-# --- 3. SALIDAS DE TEXTO (Output) ---
-
-output$derivative_output <- renderText({
-  paste("du/dx =", round(du_dx_calc(), 3), 
-        "| dy/du =", round(dy_du_calc(), 3),
-        "| **dy/dx (Regla Cadena)** =", round(dy_dx_calc(), 3))
-})
-
-# --- 4. SALIDA GRÁFICA (Plot) ---
-
-output$simulacion_plot <- renderPlot({
-  
-  # CONFIGURACIÓN ESTÁTICA
-  CX <- c(-10, 0, 10)  # Centros X
-  CY <- c(10, -5, 5)   # Centros Y
-  R <- c(4, 2, 3.5)    # Radios
-  wheel_colors <- c("blue", "red", "red")
-  
-  # Inicializar el gráfico
-  par(mar = c(0, 0, 0, 0)) 
-  plot(NULL, xlim = c(-15, 15), ylim = c(-10, 15), type = "n", 
-       asp = 1, xlab = "", ylab = "", axes = FALSE)
-  
-  # CÁLCULOS DINÁMICOS DE ÁNGULO
-  angle_x_rad <- input$x_angle_slider * pi / 180 # Convierte grados a radianes
-  
-  angle_u_rad <- angle_x_rad * du_dx_calc()
-  angle_y_rad <- angle_u_rad * dy_du_calc() 
-  
-  Angles <- c(angle_x_rad, angle_u_rad, angle_y_rad)
-  
-  # DIBUJO DE RUEDAS Y POSICIÓN
-  for (i in 1:3) {
-    # Círculo de la rueda
-    draw.circle(CX[i], CY[i], R[i], col = "white", border = wheel_colors[i], lwd = 2)
-    
-    # Indicador de posición (línea verde que rota)
-    x_end <- CX[i] + R[i] * cos(Angles[i])
-    y_end <- CY[i] + R[i] * sin(Angles[i])
-    segments(CX[i], CY[i], x_end, y_end, col = "darkgreen", lwd = 3)
-    
-    # Punto central
-    points(CX[i], CY[i], pch = 19, col = "blue")
-  }
-  
-  # DIBUJO DE CORREAS
-  # A. Correa X a U 
-  draw_belt(CX[1], CY[1], R[1], CX[2], CY[2], R[2], input$cross_xu, color="darkblue")
-  
-  # B. Correa U a Y 
-  draw_belt(CX[2], CY[2], R[2], CX[3], CY[3], R[3], input$cross_uy, color="darkred")
-  
-  # TEXTOS de las funciones
-  text(CX[1], CY[1] + R[1] + 1, expression(x), cex = 1.5, col="darkblue")
-  text(CX[2], CY[2] - R[2] - 1, expression(u), cex = 1.5, col="darkred")
-  text(CX[3], CY[3] + R[3] + 1, expression(y), cex = 1.5, col="darkred")
-  
-})
-```
 
 ## Introducción
 
@@ -243,6 +99,927 @@ knitr::include_graphics("Images/Derivada1.png",dpi=1200)
 ```
 :::
 
+
+
+
+## Concepto de derivados
+
+```{=html}
+<!-- Pegar dentro de un bloque ```{=html} en Quarto -->
+<div id="cd-wrap" style="max-width:calc(100% - 130px);box-sizing:border-box;zoom:0.85;">
+<div style="border:1px solid #ddd;border-radius:10px;padding:.9rem 1.2rem;margin-bottom:.75rem;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:white;">
+  <span style="font-size:14px;font-weight:600;">Choose the example:</span>
+  <select id="exSel" style="font-size:13px;padding:5px 8px;min-width:190px;border-radius:6px;border:1px solid #ccc;">
+    <option value="pw1">Piecewise Linear Function 1</option>
+    <option value="pw2">Piecewise Linear Function 2</option>
+    <option value="nl">Nonlinear Function</option>
+  </select>
+  <span style="font-size:14px;font-weight:600;">Number of points:</span>
+  <div style="display:flex;align-items:center;gap:4px;">
+    <button class="ncb2" id="nMinus">−</button>
+    <span id="nPts" style="min-width:28px;text-align:center;font-size:14px;font-weight:600;border:1px solid #ccc;border-radius:4px;padding:2px 8px;">8</span>
+    <button class="ncb2" id="nPlus">+</button>
+  </div>
+  <label style="display:flex;align-items:center;gap:6px;font-size:14px;cursor:pointer;">
+    <input type="checkbox" id="animChk" style="width:15px;height:15px;"> Animation
+  </label>
+</div>
+
+<!-- Gráfica d(t) -->
+<div style="border:1px solid #ccc;border-radius:10px;padding:.4rem;margin-bottom:.6rem;position:relative;background:white;">
+  <canvas id="cvD" style="width:100%;display:block;" height="215"></canvas>
+  <div style="position:absolute;top:24px;left:14px;font-size:11px;font-style:italic;color:#666;">d (m)</div>
+  <div style="position:absolute;bottom:38px;right:12px;font-size:11px;font-style:italic;color:#666;">t (s)</div>
+  <div style="position:absolute;bottom:6px;right:34px;display:flex;gap:2px;">
+    <button class="cb2" onclick="zV('d',-1)">−</button><button class="cb2" onclick="rVw('d')">o</button><button class="cb2" onclick="zV('d',1)">+</button>
+    <button class="cb2" onclick="pV('d',-1,0)">←</button><button class="cb2" onclick="pV('d',0,-1)">↓</button><button class="cb2" onclick="pV('d',0,1)">↑</button><button class="cb2" onclick="pV('d',1,0)">→</button>
+  </div>
+</div>
+
+<!-- Gráfica v(t) -->
+<div style="border:1px solid #ccc;border-radius:10px;padding:.4rem;position:relative;background:white;">
+  <canvas id="cvV" style="width:100%;display:block;" height="195"></canvas>
+  <div style="position:absolute;top:24px;left:14px;font-size:11px;font-style:italic;color:#666;">v (m/s)</div>
+  <div style="position:absolute;bottom:38px;right:12px;font-size:11px;font-style:italic;color:#666;">t (s)</div>
+  <div style="position:absolute;bottom:6px;right:34px;display:flex;gap:2px;">
+    <button class="cb2" onclick="zV('v',-1)">−</button><button class="cb2" onclick="rVw('v')">o</button><button class="cb2" onclick="zV('v',1)">+</button>
+    <button class="cb2" onclick="pV('v',-1,0)">←</button><button class="cb2" onclick="pV('v',0,-1)">↓</button><button class="cb2" onclick="pV('v',0,1)">↑</button><button class="cb2" onclick="pV('v',1,0)">→</button>
+  </div>
+</div>
+
+<p style="font-size:11px;color:#999;text-align:center;margin:4px 0 0;">
+  Arrastra los puntos negros para editar · punto naranja muestra la derivada local
+</p>
+</div><!-- /cd-wrap -->
+
+<style>
+.cb2{background:#f0f0f0;border:1px solid #bbb;color:#333;font-size:11px;width:20px;height:20px;
+     border-radius:3px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;}
+.cb2:hover{background:#e0e0e0;}.cb2:active{transform:scale(0.9);}
+.ncb2{background:#f0f0f0;border:1px solid #bbb;color:#333;font-size:14px;width:26px;height:26px;
+      border-radius:4px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;}
+.ncb2:hover{background:#e0e0e0;}
+</style>
+
+<script>
+(function(){
+
+const PRESETS={
+  pw1:{tmax:21,ymin:-10,ymax:75,pts8:[[0,0],[2,5],[5,10],[7,40],[9,50],[15,50],[17,55],[20,68]],vmin:-2,vmax:20},
+  pw2:{tmax:21,ymin:-10,ymax:75,pts8:[[0,2],[3,10],[5,50],[7,50],[9,30],[12,40],[15,60],[20,68]],vmin:-12,vmax:20},
+  nl: {tmax:10,ymin:-12,ymax:70,pts8:null,vmin:-28,vmax:18}
+};
+function nlD(t){return -1.2*t*t*t+9*t*t-5*t+2;}
+function nlV(t){return -3.6*t*t+18*t-5;}
+
+let mode='pw1',nPts=8,animId=null,animT=0,dragIdx=-1,dragging=false;
+let ptIdx=4,ptX=4;
+const VS={d:{zoom:1,ox:0,oy:0},v:{zoom:1,ox:0,oy:0}};
+let pts=[];
+
+function initPts(){
+  const pr=PRESETS[mode];
+  if(mode==='nl'){pts=[];return;}
+  const base=pr.pts8,tmax=pr.tmax-1;
+  if(nPts===base.length){pts=base.map(p=>[...p]);return;}
+  pts=[];
+  for(let i=0;i<nPts;i++){
+    const t=i*tmax/(nPts-1);
+    let d=0;
+    for(let j=0;j<base.length-1;j++){
+      if(t>=base[j][0]&&t<=base[j+1][0]){
+        const fr=(t-base[j][0])/(base[j+1][0]-base[j][0]);
+        d=base[j][1]+fr*(base[j+1][1]-base[j][1]);break;
+      }
+    }
+    pts.push([+t.toFixed(2),+d.toFixed(1)]);
+  }
+}
+
+function getDView(){
+  const pr=PRESETS[mode],v=VS.d;
+  const xr=pr.tmax/v.zoom,yr=(pr.ymax-pr.ymin)/v.zoom;
+  return{xmin:pr.tmax/2+v.ox-xr/2,xmax:pr.tmax/2+v.ox+xr/2,
+         ymin:(pr.ymin+pr.ymax)/2+v.oy-yr/2,ymax:(pr.ymin+pr.ymax)/2+v.oy+yr/2};
+}
+function getVView(){
+  const pr=PRESETS[mode],v=VS.v;
+  const xr=pr.tmax/v.zoom,yr=(pr.vmax-pr.vmin)/v.zoom;
+  return{xmin:pr.tmax/2+v.ox-xr/2,xmax:pr.tmax/2+v.ox+xr/2,
+         ymin:(pr.vmin+pr.vmax)/2+v.oy-yr/2,ymax:(pr.vmin+pr.vmax)/2+v.oy+yr/2};
+}
+
+function zV(w,d){const v=VS[w];v.zoom*=d>0?1.4:1/1.4;v.zoom=Math.max(0.1,Math.min(20,v.zoom));render();}
+function pV(w,dx,dy){
+  const v=VS[w],pr=PRESETS[mode];
+  v.ox+=dx*pr.tmax/v.zoom*0.12;
+  const yr=w==='d'?(pr.ymax-pr.ymin):(pr.vmax-pr.vmin);
+  v.oy+=dy*yr/v.zoom*0.12;render();
+}
+function rVw(w){VS[w]={zoom:1,ox:0,oy:0};render();}
+
+// Expose to global for onclick handlers
+window.zV=zV; window.pV=pV; window.rVw=rVw;
+
+// Padding: left for y-labels, bottom for x-labels
+const PAD={l:48,r:20,t:20,b:32};
+
+function toC(cv,xmin,xmax,ymin,ymax,x,y){
+  const W=cv.width-PAD.l-PAD.r, H=cv.height-PAD.t-PAD.b;
+  return[PAD.l+(x-xmin)/(xmax-xmin)*W, PAD.t+H-(y-ymin)/(ymax-ymin)*H];
+}
+function fromCX(cv,xmin,xmax,cx){return xmin+(cx-PAD.l)/(cv.width-PAD.l-PAD.r)*(xmax-xmin);}
+function fromCY(cv,ymin,ymax,cy){return ymin+(cv.height-PAD.b-cy)/(cv.height-PAD.t-PAD.b)*(ymax-ymin);}
+function rsz(cv){cv.width=Math.floor(cv.parentElement.getBoundingClientRect().width-12);}
+
+// ── Step calculation ─────────────────────────────────────────────────────────
+// majorStep: labeled ticks every N units
+// minorStep: small ticks between labeled ones (always 1 unit when major > 1)
+function getSteps(xmin, xmax, availPx) {
+  const range = xmax - xmin;
+  // Minimum pixel gap between major labels to avoid overlap
+  const minPxBetweenLabels = 36;
+  const maxMajors = Math.floor(availPx / minPxBetweenLabels);
+  // Try steps: 1, 2, 5, 10, 20, 50 ...
+  const candidates = [];
+  for(let mag=0; mag<=4; mag++){
+    const m=Math.pow(10,mag);
+    [1,2,5].forEach(n=>candidates.push(n*m));
+  }
+  let major=1;
+  for(const c of candidates){
+    if(Math.floor(range/c)<=maxMajors){major=c;break;}
+  }
+  // Minor ticks: subdivide major by 5 if major>=5, else by major (so step=1)
+  let minor;
+  if(major>=10) minor=major/5;       // e.g. major=10 → minor=2
+  else if(major>=5) minor=major/5;   // major=5 → minor=1
+  else minor=major/5>0.5?major/5:major; // major=1 → minor=0.2 (or keep 1)
+  // But minimum minor is 1 for integer data; avoid sub-integer clutter
+  if(minor<1 && range>5) minor=1;
+  return {major, minor};
+}
+
+function getYSteps(ymin, ymax, availPx){
+  const range=ymax-ymin;
+  const minPx=28;
+  const maxMajors=Math.floor(availPx/minPx);
+  const candidates=[];
+  for(let mag=-1;mag<=4;mag++){
+    const m=Math.pow(10,mag);
+    [1,2,5].forEach(n=>candidates.push(n*m));
+  }
+  let major=1;
+  for(const c of candidates){
+    if(Math.floor(range/c)<=maxMajors){major=c;break;}
+  }
+  let minor=major>=10?major/5:major>=5?major/5:major;
+  if(minor<1&&range>10) minor=1;
+  return {major,minor};
+}
+
+// ── Draw axes with ticks ──────────────────────────────────────────────────────
+function drawAxes(ctx,cv,xmin,xmax,ymin,ymax){
+  const W=cv.width, H=cv.height;
+  const pL=PAD.l, pR=W-PAD.r, pT=PAD.t, pB=H-PAD.b;
+  const plotW=pR-pL, plotH=pB-pT;
+
+  ctx.clearRect(0,0,W,H);
+
+  const {major:xs, minor:xm}=getSteps(xmin,xmax,plotW);
+  const {major:ys, minor:ym}=getYSteps(ymin,ymax,plotH);
+
+  // ── Minor grid (very faint) + minor ticks ──
+  ctx.strokeStyle='rgba(0,0,0,0.04)'; ctx.lineWidth=0.4;
+  for(let x=Math.ceil(xmin/xm)*xm; x<=xmax+xm*0.01; x+=xm){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW;
+    if(cx<pL||cx>pR) continue;
+    ctx.beginPath();ctx.moveTo(cx,pT);ctx.lineTo(cx,pB);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ym)*ym; y<=ymax+ym*0.01; y+=ym){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH;
+    if(cy<pT||cy>pB) continue;
+    ctx.beginPath();ctx.moveTo(pL,cy);ctx.lineTo(pR,cy);ctx.stroke();
+  }
+
+  // ── Major grid lines ──
+  ctx.strokeStyle='rgba(0,0,0,0.08)'; ctx.lineWidth=0.6;
+  for(let x=Math.ceil(xmin/xs)*xs; x<=xmax+xs*0.01; x+=xs){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW;
+    if(cx<pL||cx>pR) continue;
+    ctx.beginPath();ctx.moveTo(cx,pT);ctx.lineTo(cx,pB);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ys)*ys; y<=ymax+ys*0.01; y+=ys){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH;
+    if(cy<pT||cy>pB) continue;
+    ctx.beginPath();ctx.moveTo(pL,cy);ctx.lineTo(pR,cy);ctx.stroke();
+  }
+
+  // ── Y axis (left edge) ──
+  ctx.strokeStyle='#555'; ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(pL,pT);ctx.lineTo(pL,pB);ctx.stroke();
+  // arrow up
+  ctx.beginPath();ctx.moveTo(pL-4,pT+8);ctx.lineTo(pL,pT-1);ctx.lineTo(pL+4,pT+8);ctx.stroke();
+
+  // ── X axis (bottom edge) ──
+  ctx.beginPath();ctx.moveTo(pL,pB);ctx.lineTo(pR,pB);ctx.stroke();
+  // arrow right
+  ctx.beginPath();ctx.moveTo(pR-8,pB-4);ctx.lineTo(pR+1,pB);ctx.lineTo(pR-8,pB+4);ctx.stroke();
+
+  // ── Y minor ticks (short, no label) ──
+  ctx.strokeStyle='#888'; ctx.lineWidth=0.8;
+  for(let y=Math.ceil(ymin/ym)*ym; y<=ymax+ym*0.01; y+=ym){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH;
+    if(cy<pT||cy>pB) continue;
+    const isMajor=Math.abs(y%(xs>0?ys:ys))<ys*0.01; // skip — drawn below
+    ctx.beginPath();ctx.moveTo(pL-3,cy);ctx.lineTo(pL,cy);ctx.stroke();
+  }
+
+  // ── Y major ticks + labels ──
+  ctx.strokeStyle='#555'; ctx.lineWidth=1;
+  ctx.fillStyle='#333'; ctx.font='11px sans-serif';
+  ctx.textAlign='right'; ctx.textBaseline='middle';
+  for(let y=Math.ceil(ymin/ys)*ys; y<=ymax+ys*0.01; y+=ys){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH;
+    if(cy<pT||cy>pB) continue;
+    ctx.beginPath();ctx.moveTo(pL-6,cy);ctx.lineTo(pL,cy);ctx.stroke();
+    if(Math.abs(y)<ys*0.01) continue; // skip zero label if at edge
+    ctx.fillText(+parseFloat(y.toPrecision(5))+'', pL-9, cy);
+  }
+
+  // ── X minor ticks (short, no label) ──
+  ctx.strokeStyle='#888'; ctx.lineWidth=0.8;
+  for(let x=Math.ceil(xmin/xm)*xm; x<=xmax+xm*0.01; x+=xm){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW;
+    if(cx<pL||cx>pR) continue;
+    ctx.beginPath();ctx.moveTo(cx,pB);ctx.lineTo(cx,pB+3);ctx.stroke();
+  }
+
+  // ── X major ticks + labels ──
+  ctx.strokeStyle='#555'; ctx.lineWidth=1;
+  ctx.fillStyle='#333'; ctx.font='11px sans-serif';
+  ctx.textAlign='center'; ctx.textBaseline='top';
+  for(let x=Math.ceil(xmin/xs)*xs; x<=xmax+xs*0.01; x+=xs){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW;
+    if(cx<pL||cx>pR) continue;
+    ctx.beginPath();ctx.moveTo(cx,pB);ctx.lineTo(cx,pB+6);ctx.stroke();
+    if(Math.abs(x)<xs*0.01) continue;
+    ctx.fillText(+parseFloat(x.toPrecision(5))+'', cx, pB+7);
+  }
+}
+
+function drawCart(ctx,cx,cy){
+  ctx.save();ctx.translate(cx,cy);
+  ctx.fillStyle='#2a9d8f';ctx.strokeStyle='#1a7a6e';ctx.lineWidth=1;
+  ctx.beginPath();
+  if(ctx.roundRect) ctx.roundRect(-18,-12,36,16,3);
+  else ctx.rect(-18,-12,36,16);
+  ctx.fill();ctx.stroke();
+  ctx.fillStyle='#1a7a6e';
+  [-10,10].forEach(wx=>{
+    ctx.beginPath();ctx.arc(wx,5,5,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#ccc';ctx.beginPath();ctx.arc(wx,5,2,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#1a7a6e';
+  });
+  ctx.fillStyle='rgba(255,255,255,0.4)';
+  ctx.beginPath();
+  if(ctx.roundRect) ctx.roundRect(-8,-9,14,8,2);
+  else ctx.rect(-8,-9,14,8);
+  ctx.fill();ctx.restore();
+}
+
+function drawTriangle(ctx,cx0,cy0,cx1,cy1){
+  ctx.fillStyle='rgba(42,157,143,0.18)';
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.lineTo(cx1,cy1);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='rgba(42,157,143,0.85)';ctx.lineWidth=1.5;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx1,cy0);ctx.lineTo(cx1,cy1);ctx.stroke();
+}
+
+function clipPlot(ctx,cv){
+  ctx.save();
+  ctx.beginPath();ctx.rect(PAD.l,PAD.t,cv.width-PAD.l-PAD.r,cv.height-PAD.t-PAD.b);ctx.clip();
+}
+
+function drawDGraph(ctx,cv,vw){
+  const{xmin,xmax,ymin,ymax}=vw;
+  drawAxes(ctx,cv,xmin,xmax,ymin,ymax);
+
+  if(mode==='nl'){
+    clipPlot(ctx,cv);
+    ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+    let st=false;
+    for(let i=0;i<=cv.width*2;i++){
+      const t=xmin+i/(cv.width*2)*(xmax-xmin);
+      const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,t,nlD(t));
+      st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+    }
+    ctx.stroke();
+    const t0=ptX,d0=nlD(t0),v0=nlV(t0);
+    const[tx0,ty0]=toC(cv,xmin,xmax,ymin,ymax,xmin,d0+v0*(xmin-t0));
+    const[tx1,ty1]=toC(cv,xmin,xmax,ymin,ymax,xmax,d0+v0*(xmax-t0));
+    ctx.strokeStyle='#2a9d8f';ctx.lineWidth=2;
+    ctx.beginPath();ctx.moveTo(tx0,ty0);ctx.lineTo(tx1,ty1);ctx.stroke();
+    ctx.restore();
+    const[dx0,dy0]=toC(cv,xmin,xmax,ymin,ymax,t0,d0);
+    ctx.strokeStyle='rgba(42,157,143,0.7)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+    ctx.beginPath();ctx.moveTo(dx0,dy0);ctx.lineTo(PAD.l,dy0);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(dx0,dy0);ctx.lineTo(dx0,cv.height-PAD.b);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(dx0,dy0,7,0,Math.PI*2);ctx.fill();
+    drawCart(ctx,PAD.l-22,dy0);
+
+  } else {
+    clipPlot(ctx,cv);
+    ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+    pts.forEach(([t,d],i)=>{
+      const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,t,d);
+      i===0?ctx.moveTo(cx,cy):ctx.lineTo(cx,cy);
+    });
+    ctx.stroke();
+    ctx.restore();
+    pts.forEach(([t,d])=>{
+      const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,t,d);
+      ctx.fillStyle='#111';ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fill();
+    });
+    if(ptIdx<pts.length){
+      const[t0,d0]=pts[ptIdx];
+      const hasNext=ptIdx<pts.length-1;
+      const t1=hasNext?pts[ptIdx+1][0]:t0, d1=hasNext?pts[ptIdx+1][1]:d0;
+      const dt=+(t1-t0).toFixed(2), dd=+(d1-d0).toFixed(1);
+      const[cx0,cy0]=toC(cv,xmin,xmax,ymin,ymax,t0,d0);
+      const[cx1,cy1]=toC(cv,xmin,xmax,ymin,ymax,t1,d1);
+      if(hasNext&&Math.abs(dt)>0.01){
+        drawTriangle(ctx,cx0,cy0,cx1,cy1);
+        ctx.fillStyle='#2a9d8f';ctx.font='12px sans-serif';
+        ctx.textAlign='left';ctx.textBaseline='middle';
+        ctx.fillText('Δd = '+dd, cx1+6, (cy0+cy1)/2);
+        ctx.textAlign='center';ctx.textBaseline='top';
+        ctx.fillText('Δt = '+dt, (cx0+cx1)/2, cy0+4);
+      }
+      ctx.strokeStyle='rgba(42,157,143,0.7)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+      ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(PAD.l,cy0);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx0,cv.height-PAD.b);ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0,cy0,7,0,Math.PI*2);ctx.fill();
+      drawCart(ctx,PAD.l-22,cy0);
+    }
+  }
+}
+
+function drawVGraph(ctx,cv,vw){
+  const{xmin,xmax,ymin,ymax}=vw;
+  drawAxes(ctx,cv,xmin,xmax,ymin,ymax);
+
+  if(mode==='nl'){
+    clipPlot(ctx,cv);
+    ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+    let st=false;
+    for(let i=0;i<=cv.width*2;i++){
+      const t=xmin+i/(cv.width*2)*(xmax-xmin);
+      const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,t,nlV(t));
+      st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+    }
+    ctx.stroke();ctx.restore();
+    const v0=nlV(ptX);
+    const[cx0,cy0]=toC(cv,xmin,xmax,ymin,ymax,ptX,v0);
+    ctx.strokeStyle='rgba(42,157,143,0.7)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+    ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(PAD.l,cy0);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx0,cv.height-PAD.b);ctx.stroke();
+    ctx.setLineDash([]);
+    ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0,cy0,7,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#2a9d8f';ctx.font='12px sans-serif';
+    ctx.textAlign='left';ctx.textBaseline='bottom';
+    ctx.fillText("v(t) = d'(t) = "+v0.toFixed(2), cx0+10, cy0-4);
+
+  } else {
+    for(let i=0;i<pts.length-1;i++){
+      const[t0,d0]=pts[i],[t1,d1]=pts[i+1];
+      const slope=(d1-d0)/(t1-t0);
+      const[cx0,cy0]=toC(cv,xmin,xmax,ymin,ymax,t0,slope);
+      const[cx1]=toC(cv,xmin,xmax,ymin,ymax,t1,slope);
+      ctx.strokeStyle='#111';ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.stroke();
+      [cx0,cx1].forEach(cx=>{
+        ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.fillStyle='white';
+        ctx.beginPath();ctx.arc(cx,cy0,4,0,Math.PI*2);ctx.fill();ctx.stroke();
+      });
+    }
+    if(ptIdx<pts.length-1){
+      const[t0,d0]=pts[ptIdx],[t1,d1]=pts[ptIdx+1];
+      const slope=(d1-d0)/(t1-t0);
+      const tmid=(t0+t1)/2;
+      const[cx0,cy0]=toC(cv,xmin,xmax,ymin,ymax,tmid,slope);
+      ctx.strokeStyle='rgba(42,157,143,0.7)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+      ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(PAD.l,cy0);ctx.stroke();
+      ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx0,cv.height-PAD.b);ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0,cy0,7,0,Math.PI*2);ctx.fill();
+      ctx.fillStyle='#2a9d8f';ctx.font='12px sans-serif';
+      ctx.textAlign='left';ctx.textBaseline='bottom';
+      ctx.fillText('Δd/Δt = '+slope.toFixed(1), cx0+10, cy0-4);
+    }
+  }
+}
+
+function render(){
+  const cd=document.getElementById('cvD'),cv2=document.getElementById('cvV');
+  rsz(cd);rsz(cv2);
+  drawDGraph(cd.getContext('2d'),cd,getDView());
+  drawVGraph(cv2.getContext('2d'),cv2,getVView());
+}
+
+function getXY(cv,e){
+  const r=cv.getBoundingClientRect();
+  return[(e.touches?e.touches[0].clientX:e.clientX)-r.left,
+         (e.touches?e.touches[0].clientY:e.clientY)-r.top];
+}
+
+const cdEl=document.getElementById('cvD');
+cdEl.addEventListener('mousedown',e=>startDrag(e));
+cdEl.addEventListener('touchstart',e=>{startDrag(e);e.preventDefault();},{passive:false});
+cdEl.addEventListener('mousemove',e=>doDrag(e));
+cdEl.addEventListener('touchmove',e=>{doDrag(e);e.preventDefault();},{passive:false});
+
+function startDrag(e){
+  const vd=getDView();const[mx,my]=getXY(cdEl,e);
+  if(mode==='nl'){
+    const[cx,cy]=toC(cdEl,vd.xmin,vd.xmax,vd.ymin,vd.ymax,ptX,nlD(ptX));
+    if(Math.hypot(mx-cx,my-cy)<14){dragging=true;dragIdx=-1;}return;
+  }
+  dragIdx=-1;
+  pts.forEach(([t,d],i)=>{
+    const[cx,cy]=toC(cdEl,vd.xmin,vd.xmax,vd.ymin,vd.ymax,t,d);
+    if(Math.hypot(mx-cx,my-cy)<14){dragIdx=i;dragging=true;ptIdx=i;}
+  });
+}
+function doDrag(e){
+  if(!dragging)return;
+  const vd=getDView();const[mx,my]=getXY(cdEl,e);
+  if(mode==='nl'){ptX=Math.max(0.1,Math.min(9.9,fromCX(cdEl,vd.xmin,vd.xmax,mx)));render();return;}
+  if(dragIdx<0)return;
+  const pr=PRESETS[mode];
+  const tMin=dragIdx>0?pts[dragIdx-1][0]+0.5:0;
+  const tMax=dragIdx<pts.length-1?pts[dragIdx+1][0]-0.5:pr.tmax-1;
+  pts[dragIdx][0]=Math.max(tMin,Math.min(tMax,+fromCX(cdEl,vd.xmin,vd.xmax,mx).toFixed(1)));
+  pts[dragIdx][1]=Math.max(pr.ymin,Math.min(pr.ymax,+fromCY(cdEl,vd.ymin,vd.ymax,my).toFixed(1)));
+  render();
+}
+window.addEventListener('mouseup',()=>{dragging=false;dragIdx=-1;});
+window.addEventListener('touchend',()=>{dragging=false;dragIdx=-1;});
+
+document.getElementById('cvV').addEventListener('mousedown',e=>{
+  const cv2=document.getElementById('cvV'),vv=getVView();
+  const[mx]=getXY(cv2,e);
+  if(mode==='nl'){ptX=Math.max(0.1,Math.min(9.9,fromCX(cv2,vv.xmin,vv.xmax,mx)));render();return;}
+  const t=fromCX(cv2,vv.xmin,vv.xmax,mx);
+  let best=0,bestD=Infinity;
+  for(let i=0;i<pts.length-1;i++){
+    const d=Math.abs(t-(pts[i][0]+pts[i+1][0])/2);
+    if(d<bestD){bestD=d;best=i;}
+  }
+  ptIdx=best;render();
+});
+
+document.getElementById('exSel').addEventListener('change',function(){
+  mode=this.value;VS.d={zoom:1,ox:0,oy:0};VS.v={zoom:1,ox:0,oy:0};
+  initPts();ptIdx=Math.floor(nPts/2);ptX=4;render();
+});
+document.getElementById('nMinus').addEventListener('click',()=>{
+  if(mode==='nl')return;
+  if(nPts>3){nPts--;document.getElementById('nPts').textContent=nPts;
+    initPts();ptIdx=Math.min(ptIdx,nPts-2);render();}
+});
+document.getElementById('nPlus').addEventListener('click',()=>{
+  if(mode==='nl')return;
+  if(nPts<15){nPts++;document.getElementById('nPts').textContent=nPts;
+    initPts();ptIdx=Math.min(ptIdx,nPts-2);render();}
+});
+document.getElementById('animChk').addEventListener('change',function(){
+  if(this.checked){
+    animT=0;
+    (function step(){
+      animT+=0.0125;
+      if(mode==='nl'){ptX=Math.max(0.1,Math.min(9.9,PRESETS.nl.tmax*(0.1+0.4*(1+Math.sin(animT)))));}
+      else{ptIdx=Math.max(0,Math.min(pts.length-2,Math.floor((pts.length-1)*(0.5+0.5*Math.sin(animT)))));}
+      render();animId=requestAnimationFrame(step);
+    })();
+  }else{if(animId)cancelAnimationFrame(animId);animId=null;}
+});
+
+window.addEventListener('resize',render);
+initPts();render();
+})();
+</script>
+
+```
+
+## Aproximacion de la derivada de una función en un punto
+
+```{=html}
+<div id="ap-wrap" style="max-width:calc(100% - 130px);box-sizing:border-box;">
+
+<!-- Descripción compacta -->
+<p style="font-size:12px;color:#444;margin:0 0 7px;line-height:1.5;">
+  Compara <strong>Δf/Δx</strong> (aproximación) vs. <strong>df/dx</strong> (exacta).
+  Arrastra el <span style="color:#111;font-weight:600;">punto negro</span> para cambiar Δx ·
+  <span style="color:#e8930a;font-weight:600;">naranja</span> o <span style="color:#2a9d8f;font-weight:600;">azul</span> para mover el triángulo.
+</p>
+
+<!-- Gráficas en paralelo -->
+<div style="display:flex;gap:8px;align-items:stretch;">
+
+  <!-- Gráfica f(x) -->
+  <div style="flex:1;min-width:0;border:1px solid #ccc;border-radius:10px;padding:.4rem;position:relative;background:white;">
+    <canvas id="cvF2" style="width:100%;display:block;" height="310"></canvas>
+    <div style="position:absolute;top:22px;left:14px;font-size:11px;font-style:italic;color:#666;">f</div>
+    <div style="position:absolute;bottom:38px;right:12px;font-size:11px;font-style:italic;color:#666;">x</div>
+    <div style="position:absolute;bottom:6px;right:34px;display:flex;gap:2px;">
+      <button class="cb3" onclick="zA('f',-1)">−</button><button class="cb3" onclick="rA('f')">o</button><button class="cb3" onclick="zA('f',1)">+</button>
+      <button class="cb3" onclick="pA('f',-1,0)">←</button><button class="cb3" onclick="pA('f',0,-1)">↓</button><button class="cb3" onclick="pA('f',0,1)">↑</button><button class="cb3" onclick="pA('f',1,0)">→</button>
+    </div>
+  </div>
+
+  <!-- Gráfica df/dx -->
+  <div style="flex:1;min-width:0;border:1px solid #ccc;border-radius:10px;padding:.4rem;position:relative;background:white;">
+    <canvas id="cvD2" style="width:100%;display:block;" height="310"></canvas>
+    <div style="position:absolute;top:22px;left:14px;font-size:11px;font-style:italic;color:#666;">df/dx</div>
+    <div style="position:absolute;bottom:38px;right:12px;font-size:11px;font-style:italic;color:#666;">x</div>
+    <div style="position:absolute;bottom:6px;right:34px;display:flex;gap:2px;">
+      <button class="cb3" onclick="zA('d',-1)">−</button><button class="cb3" onclick="rA('d')">o</button><button class="cb3" onclick="zA('d',1)">+</button>
+      <button class="cb3" onclick="pA('d',-1,0)">←</button><button class="cb3" onclick="pA('d',0,-1)">↓</button><button class="cb3" onclick="pA('d',0,1)">↑</button><button class="cb3" onclick="pA('d',1,0)">→</button>
+    </div>
+  </div>
+
+</div><!-- /flex row -->
+</div><!-- /ap-wrap -->
+
+<style>
+.cb3{background:#f0f0f0;border:1px solid #bbb;color:#333;font-size:11px;width:20px;height:20px;
+     border-radius:3px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;}
+.cb3:hover{background:#e0e0e0;}.cb3:active{transform:scale(0.9);}
+</style>
+
+<script>
+(function(){
+
+// ── Function: f(x) = -1.2x³ + 9x² - 5x + 2 ─────────────────────────────────
+function f(x)  { return -1.2*x*x*x + 9*x*x - 5*x + 2; }
+function df(x) { return -3.6*x*x  + 18*x  - 5; }
+
+// View state
+const VA = {
+  f: {zoom:1, ox:0, oy:0, xmin:0, xmax:9.5, ymin:-12, ymax:70},
+  d: {zoom:1, ox:0, oy:0, xmin:0, xmax:9.5, ymin:-28, ymax:18}
+};
+
+// Interaction state
+let x0 = 3.0;   // orange/blue point (base)
+let dx = 1.0;   // Δx controlled by black point
+// Clamp helpers
+function clampX0(){ x0 = Math.max(0.2, Math.min(9.0, x0)); }
+function clampDx(){ dx = Math.max(0.05, Math.min(5.0, dx)); }
+
+let dragging = null; // 'orange', 'black', 'blue'
+
+// ── View helpers ─────────────────────────────────────────────────────────────
+function getView(w){
+  const v=VA[w], base=VA[w];
+  const xr=(base.xmax-base.xmin)/v.zoom;
+  const yr=(base.ymax-base.ymin)/v.zoom;
+  const xc=(base.xmin+base.xmax)/2+v.ox;
+  const yc=(base.ymin+base.ymax)/2+v.oy;
+  return{xmin:xc-xr/2, xmax:xc+xr/2, ymin:yc-yr/2, ymax:yc+yr/2};
+}
+function zA(w,d){const v=VA[w];v.zoom*=d>0?1.4:1/1.4;v.zoom=Math.max(0.1,Math.min(20,v.zoom));render();}
+function pA(w,dx2,dy){
+  const v=VA[w];
+  const xr=(VA[w].xmax-VA[w].xmin)/v.zoom*0.12;
+  const yr=(VA[w].ymax-VA[w].ymin)/v.zoom*0.12;
+  v.ox+=dx2*xr; v.oy+=dy*yr; render();
+}
+function rA(w){VA[w].zoom=1;VA[w].ox=0;VA[w].oy=0;render();}
+window.zA=zA; window.pA=pA; window.rA=rA;
+
+// ── Canvas helpers ────────────────────────────────────────────────────────────
+const PAD={l:52,r:20,t:24,b:32};
+function toC(cv,xmin,xmax,ymin,ymax,x,y){
+  const W=cv.width-PAD.l-PAD.r, H=cv.height-PAD.t-PAD.b;
+  return[PAD.l+(x-xmin)/(xmax-xmin)*W, PAD.t+H-(y-ymin)/(ymax-ymin)*H];
+}
+function fromCX(cv,xmin,xmax,cx){ return xmin+(cx-PAD.l)/(cv.width-PAD.l-PAD.r)*(xmax-xmin); }
+function rsz(cv){ cv.width=Math.floor(cv.parentElement.getBoundingClientRect().width-12); }
+
+// ── Step helpers ─────────────────────────────────────────────────────────────
+function getMajorX(range,px){ for(const s of [0.5,1,2,5,10,20]){ if(Math.ceil(range/s)<=Math.floor(px/36)) return s; } return 10; }
+function getMajorY(range,px){ for(const s of [1,2,5,10,20,50]){ if(Math.ceil(range/s)<=Math.floor(px/28)) return s; } return 10; }
+
+// ── Draw axes ─────────────────────────────────────────────────────────────────
+function drawAxes(ctx,cv,xmin,xmax,ymin,ymax){
+  const W=cv.width,H=cv.height,pL=PAD.l,pR=W-PAD.r,pT=PAD.t,pB=H-PAD.b;
+  const plotW=pR-pL, plotH=pB-pT;
+  ctx.clearRect(0,0,W,H);
+  const xs=getMajorX(xmax-xmin,plotW), ys=getMajorY(ymax-ymin,plotH);
+  const xm=xs>1?1:xs, ym=ys>1?1:ys;
+
+  // minor grid
+  ctx.strokeStyle='rgba(0,0,0,0.04)';ctx.lineWidth=0.4;
+  for(let x=Math.ceil(xmin/xm)*xm;x<=xmax+xm*.01;x+=xm){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pT);ctx.lineTo(cx,pB);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ym)*ym;y<=ymax+ym*.01;y+=ym){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL,cy);ctx.lineTo(pR,cy);ctx.stroke();
+  }
+  // major grid
+  ctx.strokeStyle='rgba(0,0,0,0.08)';ctx.lineWidth=0.7;
+  for(let x=Math.ceil(xmin/xs)*xs;x<=xmax+xs*.01;x+=xs){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pT);ctx.lineTo(cx,pB);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ys)*ys;y<=ymax+ys*.01;y+=ys){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL,cy);ctx.lineTo(pR,cy);ctx.stroke();
+  }
+  // axes
+  ctx.strokeStyle='#555';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(pL,pT);ctx.lineTo(pL,pB);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pL-4,pT+8);ctx.lineTo(pL,pT-1);ctx.lineTo(pL+4,pT+8);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pL,pB);ctx.lineTo(pR,pB);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pR-8,pB-4);ctx.lineTo(pR+1,pB);ctx.lineTo(pR-8,pB+4);ctx.stroke();
+  // Y minor ticks
+  ctx.strokeStyle='#888';ctx.lineWidth=0.8;
+  for(let y=Math.ceil(ymin/ym)*ym;y<=ymax+ym*.01;y+=ym){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL-3,cy);ctx.lineTo(pL,cy);ctx.stroke();
+  }
+  // Y major ticks + labels
+  ctx.strokeStyle='#555';ctx.lineWidth=1;
+  ctx.fillStyle='#333';ctx.font='11px sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';
+  for(let y=Math.ceil(ymin/ys)*ys;y<=ymax+ys*.01;y+=ys){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL-6,cy);ctx.lineTo(pL,cy);ctx.stroke();
+    if(Math.abs(y)<ys*.01)continue;
+    ctx.fillText(+parseFloat(y.toPrecision(4))+'',pL-9,cy);
+  }
+  // X minor ticks
+  ctx.strokeStyle='#888';ctx.lineWidth=0.8;
+  for(let x=Math.ceil(xmin/xm)*xm;x<=xmax+xm*.01;x+=xm){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pB);ctx.lineTo(cx,pB+3);ctx.stroke();
+  }
+  // X major ticks + labels
+  ctx.strokeStyle='#555';ctx.lineWidth=1;
+  ctx.fillStyle='#333';ctx.textAlign='center';ctx.textBaseline='top';
+  for(let x=Math.ceil(xmin/xs)*xs;x<=xmax+xs*.01;x+=xs){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pB);ctx.lineTo(cx,pB+6);ctx.stroke();
+    if(Math.abs(x)<xs*.01)continue;
+    ctx.fillText(+parseFloat(x.toPrecision(4))+'',cx,pB+7);
+  }
+}
+
+function clipPlot(ctx,cv){
+  ctx.save();ctx.beginPath();
+  ctx.rect(PAD.l,PAD.t,cv.width-PAD.l-PAD.r,cv.height-PAD.t-PAD.b);ctx.clip();
+}
+
+// ── Draw f(x) graph ───────────────────────────────────────────────────────────
+function drawFGraph(ctx,cv,vw){
+  const{xmin,xmax,ymin,ymax}=vw;
+  drawAxes(ctx,cv,xmin,xmax,ymin,ymax);
+
+  const x1 = x0 + dx;
+  const y0 = f(x0), y1 = f(x1);
+  const slope_exact  = df(x0);          // tangent slope
+  const slope_approx = (y1-y0)/dx;      // secant slope = Δf/Δx
+  const Df = y1 - y0;
+
+  // ── Clip for curves and lines ──
+  clipPlot(ctx,cv);
+
+  // Black curve f(x)
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+  let st=false;
+  for(let i=0;i<=cv.width*2;i++){
+    const xt=xmin+i/(cv.width*2)*(xmax-xmin);
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,xt,f(xt));
+    st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+  }
+  ctx.stroke();
+
+  // Teal secant line (approximation): passes through (x0,y0) with slope Δf/Δx, extended
+  const teal='#2a9d8f';
+  const[sl0x,sl0y]=toC(cv,xmin,xmax,ymin,ymax,xmin,y0+slope_approx*(xmin-x0));
+  const[sl1x,sl1y]=toC(cv,xmin,xmax,ymin,ymax,xmax,y0+slope_approx*(xmax-x0));
+  ctx.strokeStyle=teal;ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(sl0x,sl0y);ctx.lineTo(sl1x,sl1y);ctx.stroke();
+
+  // Orange tangent line (exact derivative): passes through (x0,y0) with slope df(x0)
+  const[tl0x,tl0y]=toC(cv,xmin,xmax,ymin,ymax,xmin,y0+slope_exact*(xmin-x0));
+  const[tl1x,tl1y]=toC(cv,xmin,xmax,ymin,ymax,xmax,y0+slope_exact*(xmax-x0));
+  ctx.strokeStyle='#e8930a';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(tl0x,tl0y);ctx.lineTo(tl1x,tl1y);ctx.stroke();
+
+  ctx.restore(); // end clip
+
+  // ── Triangle Δf / Δx ──
+  const[cx0,cy0]=toC(cv,xmin,xmax,ymin,ymax,x0,y0);
+  const[cx1,cy1]=toC(cv,xmin,xmax,ymin,ymax,x1,y1);
+  // right angle at (x1, y0)
+  ctx.fillStyle='rgba(42,157,143,0.18)';
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.lineTo(cx1,cy1);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='rgba(42,157,143,0.9)';ctx.lineWidth=1.5;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.stroke(); // Δx leg
+  ctx.beginPath();ctx.moveTo(cx1,cy0);ctx.lineTo(cx1,cy1);ctx.stroke(); // Δf leg
+
+  // Triangle labels
+  ctx.fillStyle=teal;ctx.font='12px sans-serif';ctx.setLineDash([]);
+  const midX=(cx0+cx1)/2, midY=(cy0+cy1)/2;
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('Δx', midX, Math.min(cy0,cy1)-16);
+  ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillText('Δf', cx1+5, midY);
+
+  // Dashed drop line from x0
+  ctx.strokeStyle='rgba(42,157,143,0.6)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx0,cv.height-PAD.b);ctx.stroke();
+  ctx.setLineDash([]);
+
+  // ── Top-left labels: Δx= and Δf= ──
+  ctx.fillStyle='#333';ctx.font='12px sans-serif';ctx.textAlign='left';ctx.textBaseline='top';
+  ctx.fillText('Δx =', PAD.l+6, PAD.t+6);
+  ctx.fillText('Δf  =', PAD.l+6, PAD.t+22);
+  ctx.fillStyle='#555';
+  ctx.fillText(dx.toFixed(2),  PAD.l+50, PAD.t+6);
+  ctx.fillText(Df.toFixed(2),  PAD.l+50, PAD.t+22);
+
+  // ── Dots ──
+  // Orange dot at (x0, y0)
+  ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0,cy0,7,0,Math.PI*2);ctx.fill();
+  // Black dot at (x1, y1) — controls Δx
+  const[bx,by]=toC(cv,xmin,xmax,ymin,ymax,x1,y1);
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(bx,by,7,0,Math.PI*2);ctx.fill();
+  // Blue/teal dot at (x1, y0) — right-angle corner (also draggable for position)
+  ctx.fillStyle=teal;ctx.strokeStyle='white';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.arc(cx1,cy0,6,0,Math.PI*2);ctx.fill();ctx.stroke();
+}
+
+// ── Draw df/dx graph ──────────────────────────────────────────────────────────
+function drawDGraph(ctx,cv,vw){
+  const{xmin,xmax,ymin,ymax}=vw;
+  drawAxes(ctx,cv,xmin,xmax,ymin,ymax);
+
+  const x1 = x0+dx;
+  const exact_at_x0   = df(x0);
+  const approx_at_x0  = (f(x1)-f(x0))/dx;
+
+  const teal='#2a9d8f';
+
+  clipPlot(ctx,cv);
+
+  // Black curve: exact derivative df(x)
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+  let st=false;
+  for(let i=0;i<=cv.width*2;i++){
+    const xt=xmin+i/(cv.width*2)*(xmax-xmin);
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,xt,df(xt));
+    st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+  }
+  ctx.stroke();
+
+  // Teal curve: approximation Δf/Δx as function of x0 position
+  // For each x, compute (f(x+dx)-f(x))/dx
+  ctx.strokeStyle=teal;ctx.lineWidth=2;ctx.beginPath();
+  st=false;
+  for(let i=0;i<=cv.width*2;i++){
+    const xt=xmin+i/(cv.width*2)*(xmax-xmin);
+    const approx=(f(xt+dx)-f(xt))/dx;
+    if(!isFinite(approx)){st=false;continue;}
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,xt,approx);
+    st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+  }
+  ctx.stroke();
+
+  ctx.restore();
+
+  // Dashed horizontal reference lines
+  const[cx0e,cy0e]=toC(cv,xmin,xmax,ymin,ymax,x0,exact_at_x0);
+  const[cx0a,cy0a]=toC(cv,xmin,xmax,ymin,ymax,x0,approx_at_x0);
+  ctx.strokeStyle='rgba(42,157,143,0.5)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+  ctx.beginPath();ctx.moveTo(PAD.l,cy0a);ctx.lineTo(cx0a,cy0a);ctx.stroke();
+  ctx.strokeStyle='rgba(232,147,10,0.5)';
+  ctx.beginPath();ctx.moveTo(PAD.l,cy0e);ctx.lineTo(cx0e,cy0e);ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Teal dot: Δf/Δx at x0
+  ctx.fillStyle=teal;ctx.beginPath();ctx.arc(cx0a,cy0a,7,0,Math.PI*2);ctx.fill();
+  // Orange dot: df/dx at x0
+  ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0e,cy0e,7,0,Math.PI*2);ctx.fill();
+
+  // Labels next to dots
+  ctx.font='12px sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillStyle=teal;
+  ctx.fillText('Δf/Δx', cx0a+10, cy0a-7);
+  ctx.fillStyle='#e8930a';
+  ctx.fillText('df/dx', cx0e+10, cy0e+7);
+
+  // Bottom-left values
+  const bx=PAD.l+6, bH=cv.height-PAD.b;
+  ctx.fillStyle='#333';ctx.font='12px sans-serif';ctx.textAlign='left';
+  ctx.textBaseline='bottom';
+  ctx.fillText('df/dx =', bx, bH-48);
+  ctx.fillText(exact_at_x0.toFixed(2), bx+8, bH-32);
+  ctx.fillText('Δf/Δx =', bx, bH-18);
+  ctx.fillText(approx_at_x0.toFixed(2), bx+8, bH-2);
+
+  // Legend bottom right
+  const lx=cv.width-PAD.r-180, ly=cv.height-PAD.b-38;
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(lx,ly+6);ctx.lineTo(lx+30,ly+6);ctx.stroke();
+  ctx.fillStyle='#333';ctx.font='12px sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillText('derivada exacta', lx+34, ly+6);
+  ctx.strokeStyle=teal;ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(lx,ly+22);ctx.lineTo(lx+30,ly+22);ctx.stroke();
+  ctx.fillText('aproximación de la derivada', lx+34, ly+22);
+}
+
+function render(){
+  const cf=document.getElementById('cvF2'), cd=document.getElementById('cvD2');
+  rsz(cf); rsz(cd);
+  const vf=getView('f'), vd=getView('d');
+  drawFGraph(cf.getContext('2d'), cf, vf);
+  drawDGraph(cd.getContext('2d'), cd, vd);
+}
+
+// ── Drag interaction ──────────────────────────────────────────────────────────
+function getXY(cv,e){
+  const r=cv.getBoundingClientRect();
+  return[(e.touches?e.touches[0].clientX:e.clientX)-r.left,
+         (e.touches?e.touches[0].clientY:e.clientY)-r.top];
+}
+
+const cvF=document.getElementById('cvF2');
+
+cvF.addEventListener('mousedown', e=>startD(e));
+cvF.addEventListener('touchstart', e=>{startD(e);e.preventDefault();},{passive:false});
+cvF.addEventListener('mousemove', e=>doD(e));
+cvF.addEventListener('touchmove', e=>{doD(e);e.preventDefault();},{passive:false});
+
+function startD(e){
+  const vw=getView('f');
+  const[mx,my]=getXY(cvF,e);
+  const y0v=f(x0), y1v=f(x0+dx);
+  const[ox,oy]=toC(cvF,vw.xmin,vw.xmax,vw.ymin,vw.ymax,x0,y0v);     // orange
+  const[bx,by]=toC(cvF,vw.xmin,vw.xmax,vw.ymin,vw.ymax,x0+dx,y1v);  // black
+  const[tx,ty]=toC(cvF,vw.xmin,vw.xmax,vw.ymin,vw.ymax,x0+dx,y0v);  // teal corner
+
+  dragging=null;
+  if(Math.hypot(mx-bx,my-by)<14) dragging='black';
+  else if(Math.hypot(mx-ox,my-oy)<14) dragging='orange';
+  else if(Math.hypot(mx-tx,my-ty)<14) dragging='blue';
+}
+
+function doD(e){
+  if(!dragging) return;
+  const vw=getView('f');
+  const[mx]=getXY(cvF,e);
+  const xt=fromCX(cvF,vw.xmin,vw.xmax,mx);
+  if(dragging==='black'){
+    // black dot controls Δx = x1 - x0
+    dx = Math.max(0.05, Math.min(5.0, xt - x0));
+  } else {
+    // orange or blue: move x0, keep Δx
+    x0 = Math.max(0.2, Math.min(9.0-dx, xt));
+  }
+  render();
+}
+
+window.addEventListener('mouseup',  ()=>dragging=null);
+window.addEventListener('touchend', ()=>dragging=null);
+
+// Also allow dragging from d-graph (moves x0)
+const cvD=document.getElementById('cvD2');
+cvD.addEventListener('mousedown', e=>{
+  dragging='orange_d';
+  doDD(e);
+});
+cvD.addEventListener('mousemove', e=>{ if(dragging==='orange_d') doDD(e); });
+cvD.addEventListener('touchstart', e=>{dragging='orange_d';doDD(e);e.preventDefault();},{passive:false});
+cvD.addEventListener('touchmove', e=>{if(dragging==='orange_d')doDD(e);e.preventDefault();},{passive:false});
+function doDD(e){
+  const vw=getView('d');
+  const[mx]=getXY(cvD,e);
+  x0=Math.max(0.2,Math.min(9.0-dx,fromCX(cvD,vw.xmin,vw.xmax,mx)));
+  render();
+}
+
+window.addEventListener('resize', render);
+render();
+})();
+</script>
+```
 
 ## Definición de derivada de una función en un punto
 
@@ -293,6 +1070,7 @@ $$
 Para comprobar la afirmación anterior, basta considerar el cambio de variable siguiente $x=x_0+h$, de donde $h=x-x_0$ y aplicar la definición de derivada.
 
 Fijaos que decir que $h$ tiende a cero es equivalente a decir que $x$ tiende a $x_0$.
+
 
 
 ## Ejemplos
@@ -361,6 +1139,372 @@ $$
 \lim_{x\to 0^-}\frac{|x|}{x}=\lim_{x\to 0^-}\frac{-x}{x}=\lim_{x\to 0^-} -1 =-1.
 $$
 :::
+
+## Derivados comunes
+
+```{=html}
+<div id="dc-wrap" style="max-width:calc(100% - 130px);box-sizing:border-box;zoom:0.9;">
+<div style="background:white;border:1px solid #ddd;border-radius:10px;padding:1rem 1.5rem;margin-bottom:1rem;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+  <span style="font-size:15px;font-weight:600;">Choose the example: \(f(x) =\)</span>
+  <select id="fnSelect" style="font-size:14px;padding:6px 10px;min-width:160px;border:1px solid #ccc;border-radius:6px;">
+    <option value="x2">x^2</option>
+    <option value="x3">x^3</option>
+    <option value="poly">2x^3 - 3x^2 + 5</option>
+    <option value="inv">1/x</option>
+    <option value="ex">exp(x)</option>
+    <option value="lnx">log(x)</option>
+    <option value="sinx">sin(x)</option>
+    <option value="cosx">cos(x)</option>
+    <option value="abs">abs(x)</option>
+    <option value="x13">x^(1/3)</option>
+  </select>
+  <label style="display:flex;align-items:center;gap:6px;font-size:14px;color:#555;cursor:pointer;">
+    <input type="checkbox" id="animCheck" style="width:16px;height:16px;"> Animation
+  </label>
+</div>
+
+<!-- Gráfica f(x) -->
+<div style="background:white;border:1px solid #ccc;border-radius:10px;padding:0.5rem;margin-bottom:0.75rem;position:relative;">
+  <div id="label1" style="position:absolute;top:10px;left:18px;font-size:14px;color:#111;z-index:2;"></div>
+  <canvas id="cvF" style="width:100%;display:block;" height="280"></canvas>
+  <div style="position:absolute;bottom:30px;right:8px;font-size:11px;font-style:italic;color:#666;">f</div>
+  <div style="position:absolute;bottom:14px;right:8px;font-size:11px;font-style:italic;color:#666;">x</div>
+  <div style="position:absolute;bottom:8px;right:36px;display:flex;gap:2px;align-items:center;">
+    <button class="cb" onclick="zC('f',-1)">−</button>
+    <button class="cb" onclick="rV('f')">o</button>
+    <button class="cb" onclick="zC('f',1)">+</button>
+    <button class="cb" onclick="pC('f',-1,0)">←</button>
+    <button class="cb" onclick="pC('f',0,-1)">↓</button>
+    <button class="cb" onclick="pC('f',0,1)">↑</button>
+    <button class="cb" onclick="pC('f',1,0)">→</button>
+  </div>
+</div>
+
+<!-- Gráfica df/dx -->
+<div style="background:white;border:1px solid #ccc;border-radius:10px;padding:0.5rem;margin-bottom:0.5rem;position:relative;">
+  <div id="label2" style="position:absolute;top:10px;left:18px;font-size:13px;color:#111;z-index:2;max-width:280px;line-height:1.8;"></div>
+  <canvas id="cvDf" style="width:100%;display:block;" height="260"></canvas>
+  <div style="position:absolute;bottom:30px;right:8px;font-size:11px;font-style:italic;color:#666;">df/dx</div>
+  <div style="position:absolute;bottom:14px;right:8px;font-size:11px;font-style:italic;color:#666;">x</div>
+  <div style="position:absolute;bottom:8px;right:36px;display:flex;gap:2px;align-items:center;">
+    <button class="cb" onclick="zC('df',-1)">−</button>
+    <button class="cb" onclick="rV('df')">o</button>
+    <button class="cb" onclick="zC('df',1)">+</button>
+    <button class="cb" onclick="pC('df',-1,0)">←</button>
+    <button class="cb" onclick="pC('df',0,-1)">↓</button>
+    <button class="cb" onclick="pC('df',0,1)">↑</button>
+    <button class="cb" onclick="pC('df',1,0)">→</button>
+  </div>
+</div>
+
+<p style="font-size:12px;color:#888;text-align:center;margin:0 0 4px;">
+  Arrastra el punto naranja · usa los botones para zoom y desplazamiento
+</p>
+</div><!-- /dc-wrap -->
+
+<style>
+.cb{background:#f0f0f0;border:1px solid #bbb;color:#333;font-size:12px;width:22px;height:22px;
+    border-radius:4px;cursor:pointer;padding:0;line-height:1;display:inline-flex;
+    align-items:center;justify-content:center;}
+.cb:hover{background:#e0e0e0;}
+.cb:active{transform:scale(0.92);}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<script>
+window.MathJax={
+  tex:{inlineMath:[['\\(','\\)']]},
+  svg:{fontCache:'global'},
+  startup:{ready(){MathJax.startup.defaultReady();setTimeout(renderLabels,100);}}
+};
+
+const cbrt=x=>x>=0?Math.pow(x,1/3):-Math.pow(-x,1/3);
+
+const FN={
+  x2:  {f:x=>x*x,             df:x=>2*x,
+         lf:'f(x)=x^{2}',     ldf:'\\dfrac{df}{dx}=2x',
+         xmin:-8,xmax:8,       ymin:-5,  ymax:70,  dRng:null,   special:null},
+  x3:  {f:x=>x**3,            df:x=>3*x*x,
+         lf:'f(x)=x^{3}',     ldf:'\\dfrac{df}{dx}=3x^{2}',
+         xmin:-5,xmax:5,       ymin:-130,ymax:130, dRng:null,   special:null},
+  poly:{f:x=>2*x**3-3*x*x+5,  df:x=>6*x*x-6*x,
+         lf:'f(x)=2x^{3}-3x^{2}+5', ldf:'\\dfrac{df}{dx}=6x^{2}-6x',
+         xmin:-4,xmax:5,       ymin:-30, ymax:60,  dRng:null,   special:null},
+  inv: {f:x=>x!==0?1/x:NaN,   df:x=>x!==0?-1/(x*x):NaN,
+         lf:'f(x)=\\dfrac{1}{x}', ldf:'\\dfrac{df}{dx}=-\\dfrac{1}{x^{2}}',
+         xmin:-18,xmax:18,     ymin:-5,  ymax:5,   dRng:[-15,2],special:'inv'},
+  ex:  {f:Math.exp,            df:Math.exp,
+         lf:'f(x)=e^{x}',     ldf:'\\dfrac{df}{dx}=e^{x}',
+         xmin:-5,xmax:4,       ymin:-5,  ymax:60,  dRng:null,   special:null},
+  lnx: {f:x=>x>0?Math.log(x):NaN, df:x=>x>0?1/x:NaN,
+         lf:'f(x)=\\log(x)',   ldf:'\\dfrac{df}{dx}=\\dfrac{1}{x}',
+         xmin:-1,xmax:10,      ymin:-4,  ymax:4,   dRng:null,   special:null},
+  sinx:{f:Math.sin,            df:Math.cos,
+         lf:'f(x)=\\sin(x)',   ldf:'\\dfrac{df}{dx}=\\cos(x)',
+         xmin:-7,xmax:7,       ymin:-2,  ymax:2,   dRng:null,   special:null},
+  cosx:{f:Math.cos,            df:x=>-Math.sin(x),
+         lf:'f(x)=\\cos(x)',   ldf:'\\dfrac{df}{dx}=-\\sin(x)',
+         xmin:-7,xmax:7,       ymin:-2,  ymax:2,   dRng:null,   special:null},
+  abs: {f:Math.abs,            df:x=>x>0?1:x<0?-1:NaN,
+         lf:'f(x)=|x|',
+         ldf:'\\dfrac{df}{dx}=\\begin{cases}1 & x>0\\\\-1 & x<0\\\\\\text{no existe} & x=0\\end{cases}',
+         xmin:-8,xmax:8,       ymin:-1,  ymax:9,   dRng:[-2,2], special:'abs'},
+  x13: {f:cbrt,                df:x=>x!==0?(1/3)*Math.pow(Math.abs(x),-2/3):NaN,
+         lf:'f(x)=x^{1/3}',
+         ldf:'\\dfrac{df}{dx}=\\begin{cases}\\tfrac{1}{3}x^{-2/3} & x\\neq 0\\\\\\text{no existe} & x=0\\end{cases}',
+         xmin:-6,xmax:6,       ymin:-2,  ymax:2,   dRng:[0,10], special:'x13'}
+};
+
+const VS={f:{zoom:1,ox:0,oy:0},df:{zoom:1,ox:0,oy:0}};
+let curKey='x2',ptX=4,animId=null,animT=0,drag=false;
+const c1=document.getElementById('cvF'),c2=document.getElementById('cvDf');
+const ctx1=c1.getContext('2d'),ctx2=c2.getContext('2d');
+
+function getView(w){
+  const fn=FN[curKey],v=VS[w];
+  let ymin,ymax;
+  if(w==='f'){ymin=fn.ymin;ymax=fn.ymax;}
+  else if(fn.dRng){ymin=fn.dRng[0];ymax=fn.dRng[1];}
+  else{
+    const dv=[];
+    for(let x=fn.xmin;x<=fn.xmax;x+=0.15){
+      const vv=fn.df(x);
+      if(isFinite(vv)&&!isNaN(vv)&&Math.abs(vv)<300)dv.push(vv);
+    }
+    if(dv.length){
+      const mn=Math.min(...dv),mx=Math.max(...dv),p=(mx-mn)*0.3||2;
+      ymin=mn-p;ymax=mx+p;
+    }else{ymin=-15;ymax=15;}
+  }
+  const xr=(fn.xmax-fn.xmin)/v.zoom,yr=(ymax-ymin)/v.zoom;
+  const xc=(fn.xmin+fn.xmax)/2+v.ox,yc=(ymin+ymax)/2+v.oy;
+  return{xmin:xc-xr/2,xmax:xc+xr/2,ymin:yc-yr/2,ymax:yc+yr/2};
+}
+
+function zC(w,d){
+  const v=VS[w];
+  v.zoom*=d>0?1.4:1/1.4;
+  v.zoom=Math.max(0.05,Math.min(100,v.zoom));
+  render();
+}
+function pC(w,dx,dy){
+  const fn=FN[curKey],v=VS[w];
+  const xs=(fn.xmax-fn.xmin)/v.zoom*0.15;
+  const yr=(fn.dRng?fn.dRng[1]-fn.dRng[0]:w==='f'?fn.ymax-fn.ymin:20)/v.zoom*0.15;
+  v.ox+=dx*xs;v.oy+=dy*yr;render();
+}
+function rV(w){VS[w]={zoom:1,ox:0,oy:0};render();}
+
+function toC(cv,xmin,xmax,ymin,ymax,px,py){
+  const w=cv.width,h=cv.height,p={l:52,r:28,t:28,b:36};
+  return[p.l+(px-xmin)/(xmax-xmin)*(w-p.l-p.r),
+         h-p.b-(py-ymin)/(ymax-ymin)*(h-p.t-p.b)];
+}
+function fromCX(cv,xmin,xmax,cx){return xmin+(cx-52)/(cv.width-80)*(xmax-xmin);}
+function rsz(cv){cv.width=Math.floor(cv.parentElement.getBoundingClientRect().width-16);}
+
+function nStep(range){
+  const r=range/6,m=Math.pow(10,Math.floor(Math.log10(r))),n=r/m;
+  return n<1.5?m:n<3.5?2*m:n<7.5?5*m:10*m;
+}
+
+function drawAxes(ctx,cv,xmin,xmax,ymin,ymax){
+  const w=cv.width,h=cv.height,p={l:52,r:28,t:28,b:36};
+  ctx.clearRect(0,0,w,h);
+  const xs=nStep(xmax-xmin),ys=nStep(ymax-ymin);
+  ctx.strokeStyle='rgba(0,0,0,0.07)';ctx.lineWidth=0.5;
+  for(let x=Math.ceil(xmin/xs-0.01)*xs;x<=xmax+xs*0.01;x+=xs){
+    const[cx]=toC(cv,xmin,xmax,ymin,ymax,x,0);
+    ctx.beginPath();ctx.moveTo(cx,p.t);ctx.lineTo(cx,h-p.b);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ys-0.01)*ys;y<=ymax+ys*0.01;y+=ys){
+    const[,cy]=toC(cv,xmin,xmax,ymin,ymax,0,y);
+    ctx.beginPath();ctx.moveTo(p.l,cy);ctx.lineTo(w-p.r,cy);ctx.stroke();
+  }
+  ctx.strokeStyle='#555';ctx.lineWidth=1.5;
+  const[ox,oy0]=toC(cv,xmin,xmax,ymin,ymax,0,ymin);
+  const[,oy1]=toC(cv,xmin,xmax,ymin,ymax,0,ymax);
+  const[x0,ay]=toC(cv,xmin,xmax,ymin,ymax,xmin,0);
+  const[x1]=toC(cv,xmin,xmax,ymin,ymax,xmax,0);
+  if(ox>=p.l&&ox<=w-p.r){
+    ctx.beginPath();ctx.moveTo(ox,oy0);ctx.lineTo(ox,oy1);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(ox-5,oy1+8);ctx.lineTo(ox,oy1-2);ctx.lineTo(ox+5,oy1+8);ctx.stroke();
+  }
+  if(ay>=p.t&&ay<=h-p.b){
+    ctx.beginPath();ctx.moveTo(x0,ay);ctx.lineTo(x1,ay);ctx.stroke();
+    ctx.beginPath();ctx.moveTo(x1-8,ay-4);ctx.lineTo(x1+2,ay);ctx.lineTo(x1-8,ay+4);ctx.stroke();
+  }
+  ctx.fillStyle='#444';ctx.font='11px sans-serif';
+  ctx.textAlign='right';
+  for(let y=Math.ceil(ymin/ys-0.01)*ys;y<=ymax+ys*0.01;y+=ys){
+    if(Math.abs(y)<ys*0.01)continue;
+    const[,cy]=toC(cv,xmin,xmax,ymin,ymax,0,y);
+    if(cy>p.t+4&&cy<h-p.b-4)
+      ctx.fillText(+parseFloat(y.toPrecision(4))+'',p.l-4,cy+4);
+  }
+  ctx.textAlign='center';
+  for(let x=Math.ceil(xmin/xs-0.01)*xs;x<=xmax+xs*0.01;x+=xs){
+    if(Math.abs(x)<xs*0.01)continue;
+    const[cx]=toC(cv,xmin,xmax,ymin,ymax,x,0);
+    if(cx>p.l+4&&cx<w-p.r-4)
+      ctx.fillText(+parseFloat(x.toPrecision(4))+'',cx,h-p.b+14);
+  }
+}
+
+function drawCurve(ctx,cv,fn,xmin,xmax,ymin,ymax){
+  const w=cv.width,h=cv.height,p={l:52,r:28,t:28,b:36};
+  ctx.save();ctx.beginPath();ctx.rect(p.l,p.t,w-p.l-p.r,h-p.t-p.b);ctx.clip();
+  ctx.strokeStyle='#111';ctx.lineWidth=2;
+  const steps=w*3;let started=false,prevY=null;
+  ctx.beginPath();
+  for(let i=0;i<=steps;i++){
+    const x=xmin+(i/steps)*(xmax-xmin),y=fn(x);
+    if(isNaN(y)||!isFinite(y)){started=false;prevY=null;continue;}
+    if(prevY!==null&&Math.abs(y-prevY)>(ymax-ymin)*1.5){started=false;}
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,x,y);
+    if(!started){ctx.moveTo(cx,cy);started=true;}else ctx.lineTo(cx,cy);
+    prevY=y;
+  }
+  ctx.stroke();ctx.restore();
+}
+
+function drawOpenCircle(ctx,cv,xmin,xmax,ymin,ymax,px,py){
+  const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,px,py);
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.fillStyle='white';
+  ctx.beginPath();ctx.arc(cx,cy,5,0,Math.PI*2);ctx.fill();ctx.stroke();
+}
+
+function drawAbsDf(ctx,cv,xmin,xmax,ymin,ymax){
+  const[ox]=toC(cv,xmin,xmax,ymin,ymax,0,0);
+  const[x0]=toC(cv,xmin,xmax,ymin,ymax,xmin,0);
+  const[x1]=toC(cv,xmin,xmax,ymin,ymax,xmax,0);
+  const[,yp]=toC(cv,xmin,xmax,ymin,ymax,0,1);
+  const[,ym]=toC(cv,xmin,xmax,ymin,ymax,0,-1);
+  ctx.strokeStyle='#111';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(ox,yp);ctx.lineTo(x1,yp);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(x0,ym);ctx.lineTo(ox,ym);ctx.stroke();
+  drawOpenCircle(ctx,cv,xmin,xmax,ymin,ymax,0,1);
+  drawOpenCircle(ctx,cv,xmin,xmax,ymin,ymax,0,-1);
+}
+
+function drawTangent(ctx,cv,fn,dfn,px,xmin,xmax,ymin,ymax){
+  const py=fn(px),slope=dfn(px);
+  if(isNaN(py)||isNaN(slope)||!isFinite(slope)||!isFinite(py))return;
+  const w=cv.width,h=cv.height,p={l:52,r:28,t:28,b:36};
+  const[dx,dy]=toC(cv,xmin,xmax,ymin,ymax,px,py);
+  ctx.save();ctx.beginPath();ctx.rect(p.l,p.t,w-p.l-p.r,h-p.t-p.b);ctx.clip();
+  const[tx0,ty0]=toC(cv,xmin,xmax,ymin,ymax,xmin,py+slope*(xmin-px));
+  const[tx1,ty1]=toC(cv,xmin,xmax,ymin,ymax,xmax,py+slope*(xmax-px));
+  ctx.strokeStyle='#4a7fd4';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(tx0,ty0);ctx.lineTo(tx1,ty1);ctx.stroke();
+  ctx.restore();
+  ctx.strokeStyle='rgba(74,127,212,0.6)';ctx.lineWidth=1;ctx.setLineDash([5,5]);
+  ctx.beginPath();ctx.moveTo(dx,dy);ctx.lineTo(dx,h-p.b);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(dx,dy);
+  ctx.lineTo(toC(cv,xmin,xmax,ymin,ymax,xmin,py)[0],dy);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(dx,dy,7,0,Math.PI*2);ctx.fill();
+}
+
+function drawDot(ctx,cv,dfn,px,xmin,xmax,ymin,ymax){
+  const dy=dfn(px);if(isNaN(dy)||!isFinite(dy))return;
+  const h=cv.height,p={b:36};
+  const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,px,dy);
+  ctx.strokeStyle='rgba(74,127,212,0.6)';ctx.lineWidth=1;ctx.setLineDash([5,5]);
+  ctx.beginPath();ctx.moveTo(cx,cy);ctx.lineTo(cx,h-p.b);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(cx,cy);
+  ctx.lineTo(toC(cv,xmin,xmax,ymin,ymax,xmin,dy)[0],cy);ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx,cy,7,0,Math.PI*2);ctx.fill();
+}
+
+function renderLabels(){
+  const fn=FN[curKey];
+  const e1=document.getElementById('label1');
+  const e2=document.getElementById('label2');
+  e1.innerHTML='\\('+fn.lf+'\\)';
+  e2.innerHTML='\\('+fn.ldf+'\\)';
+  if(window.MathJax&&MathJax.typesetPromise)
+    MathJax.typesetPromise([e1,e2]).catch(()=>{});
+}
+
+function render(){
+  const fn=FN[curKey];
+  rsz(c1);rsz(c2);
+  const vf=getView('f'),vdf=getView('df');
+  drawAxes(ctx1,c1,vf.xmin,vf.xmax,vf.ymin,vf.ymax);
+  drawCurve(ctx1,c1,fn.f,vf.xmin,vf.xmax,vf.ymin,vf.ymax);
+  drawTangent(ctx1,c1,fn.f,fn.df,ptX,vf.xmin,vf.xmax,vf.ymin,vf.ymax);
+  drawAxes(ctx2,c2,vdf.xmin,vdf.xmax,vdf.ymin,vdf.ymax);
+  if(fn.special==='abs')
+    drawAbsDf(ctx2,c2,vdf.xmin,vdf.xmax,vdf.ymin,vdf.ymax);
+  else
+    drawCurve(ctx2,c2,fn.df,vdf.xmin,vdf.xmax,vdf.ymin,vdf.ymax);
+  drawDot(ctx2,c2,fn.df,ptX,vdf.xmin,vdf.xmax,vdf.ymin,vdf.ymax);
+}
+
+function clamp(){
+  const fn=FN[curKey];
+  ptX=Math.max(fn.xmin+0.3,Math.min(fn.xmax-0.3,ptX));
+  if((curKey==='abs'||curKey==='x13')&&Math.abs(ptX)<0.25)ptX=ptX<0?-0.4:0.4;
+  if(curKey==='inv'&&Math.abs(ptX)<0.3)ptX=ptX<0?-0.5:0.5;
+  if(curKey==='lnx'&&ptX<0.1)ptX=0.15;
+}
+
+function getCX(cv,e){
+  const r=cv.getBoundingClientRect();
+  return(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+}
+function nearDot(cv,e,w){
+  const v=getView(w);
+  return Math.abs(fromCX(cv,v.xmin,v.xmax,getCX(cv,e))-ptX)<(v.xmax-v.xmin)*0.06;
+}
+
+[[c1,'f'],[c2,'df']].forEach(([cv,w])=>{
+  cv.addEventListener('mousedown',e=>{if(nearDot(cv,e,w))drag=true;});
+  cv.addEventListener('touchstart',e=>{
+    if(nearDot(cv,e,w)){drag=true;e.preventDefault();}
+  },{passive:false});
+  cv.addEventListener('mousemove',e=>{
+    if(!drag)return;
+    const v=getView(w);ptX=fromCX(cv,v.xmin,v.xmax,getCX(cv,e));clamp();render();
+  });
+  cv.addEventListener('touchmove',e=>{
+    if(!drag)return;e.preventDefault();
+    const v=getView(w);ptX=fromCX(cv,v.xmin,v.xmax,getCX(cv,e));clamp();render();
+  },{passive:false});
+});
+window.addEventListener('mouseup',()=>drag=false);
+window.addEventListener('touchend',()=>drag=false);
+
+const defPt={x2:4,x3:2,poly:2,inv:1,ex:1,lnx:3,sinx:1.5,cosx:1,abs:3,x13:2};
+
+document.getElementById('fnSelect').addEventListener('change',e=>{
+  curKey=e.target.value;
+  VS.f={zoom:1,ox:0,oy:0};VS.df={zoom:1,ox:0,oy:0};
+  ptX=defPt[curKey]||4;clamp();render();renderLabels();
+});
+
+document.getElementById('animCheck').addEventListener('change',e=>{
+  if(e.target.checked){
+    animT=0;
+    function step(){
+      const fn=FN[curKey];animT+=0.025;
+      ptX=fn.xmin*0.65+(fn.xmax-fn.xmin)*0.80*(0.5+0.5*Math.sin(animT));
+      clamp();render();animId=requestAnimationFrame(step);
+    }
+    animId=requestAnimationFrame(step);
+  }else{
+    if(animId)cancelAnimationFrame(animId);animId=null;
+  }
+});
+
+window.addEventListener('resize',render);
+render();
+if(window.MathJax&&MathJax.typesetPromise){renderLabels();}
+</script>
+```
+
 
 ## Ejemplos
 ::: example
@@ -597,7 +1741,324 @@ En el último cálculo, podemos afirmar que el límite $\displaystyle\lim_{x\to 
 $$
 \lim_{x\to x_0}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)} =\lim_{f(x)\to f(x_0)}\frac{g(f(x))-g(f(x_0))}{f(x)-f(x_0)}=g'(f(x_0)).
 $$
-::: 
+:::
+
+## [**Derivadas comunes**]{.bg style="--col:#ffff00"} {.scrollable}
+
+```{=html}
+<div id="dc-explorador">
+<style>
+#dc-explorador *{box-sizing:border-box;margin:0;padding:0}
+#dc-explorador{font-family:'Segoe UI',Arial,sans-serif;background:#fff;color:#1a1a1a;padding:0;width:100%;max-width:100%}
+#dc-explorador .dc-wrap{background:#fff;border-radius:14px;padding:1rem 1.5rem;max-width:100%;margin:0;box-shadow:0 4px 18px rgba(0,0,0,.08);zoom:1.15}
+#dc-explorador .slide-title{font-size:20px;font-weight:600;color:#1a1a1a;border-left:5px solid #1D9E75;padding-left:14px;margin-bottom:.3rem}
+#dc-explorador .slide-subtitle{font-size:12px;color:#888;padding-left:19px;margin-bottom:.9rem}
+#dc-explorador .tabs{display:flex;gap:8px;margin-bottom:1rem;flex-wrap:wrap}
+#dc-explorador .tb{padding:6px 18px;border-radius:8px;border:1px solid #ccc;background:#fff;color:#555;font-size:13px;cursor:pointer;transition:all .18s}
+#dc-explorador .tb:hover{background:#e8f5ef;border-color:#1D9E75;color:#0F6E56}
+#dc-explorador .tb.active{background:#1D9E75;color:#fff;border-color:#1D9E75}
+#dc-explorador .tp{display:none}
+#dc-explorador .tp.active{display:block}
+/* ── Tabla ── */
+#dc-explorador .cat-section{margin-bottom:1rem}
+#dc-explorador .cat-header{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:4px 10px;border-radius:6px;margin-bottom:6px;display:inline-block}
+#dc-explorador .cat-alg{background:#e1f5ee;color:#0F6E56}
+#dc-explorador .cat-exp{background:#E6F1FB;color:#185FA5}
+#dc-explorador .cat-trig{background:#fde8e8;color:#9B2335}
+#dc-explorador .cat-inv{background:#f3e8ff;color:#6B21A8}
+#dc-explorador .drv-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+#dc-explorador .drv-card{background:#f9f9f9;border:1px solid #e8e8e8;border-radius:10px;padding:.6rem .85rem;transition:all .2s;cursor:default}
+#dc-explorador .drv-card:hover{border-color:#1D9E75;background:#f0faf5;transform:translateY(-1px);box-shadow:0 2px 8px rgba(0,0,0,.07)}
+#dc-explorador .drv-f{font-size:14px;font-family:'Courier New',monospace;color:#222;margin-bottom:3px}
+#dc-explorador .drv-arrow{font-size:11px;color:#aaa;margin-bottom:2px}
+#dc-explorador .drv-fp{font-size:14px;font-family:'Courier New',monospace;font-weight:700;color:#0F6E56}
+#dc-explorador .drv-note{font-size:10px;color:#aaa;margin-top:3px;font-style:italic}
+/* ── Explorador ── */
+#dc-explorador .exp-layout{display:grid;grid-template-columns:160px 1fr 1fr;gap:10px;align-items:start}
+#dc-explorador .fn-list{display:flex;flex-direction:column;gap:5px}
+#dc-explorador .fn-btn{padding:6px 10px;border-radius:8px;border:1px solid #e0e0e0;background:#fff;font-size:12px;text-align:left;cursor:pointer;transition:all .15s;font-family:'Courier New',monospace;color:#333}
+#dc-explorador .fn-btn:hover{border-color:#1D9E75;background:#f0faf5}
+#dc-explorador .fn-btn.active{border-color:#1D9E75;background:#1D9E75;color:#fff;font-weight:700}
+#dc-explorador .canvas-box{background:#f5f7f5;border-radius:10px;padding:.5rem;text-align:center}
+#dc-explorador .canvas-label{font-size:11px;color:#888;margin-bottom:4px}
+#dc-explorador .exp-info{background:#f0faf5;border-radius:10px;padding:.75rem .9rem;font-size:13px}
+#dc-explorador .exp-fn{font-size:16px;font-family:'Courier New',monospace;color:#222;margin-bottom:.35rem}
+#dc-explorador .exp-fp{font-size:16px;font-family:'Courier New',monospace;color:#0F6E56;font-weight:700;margin-bottom:.5rem}
+#dc-explorador .exp-note{font-size:12px;color:#666;line-height:1.55;border-top:1px solid #d4eee2;padding-top:.5rem;margin-top:.5rem}
+/* ── Reglas ── */
+#dc-explorador .rules-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+#dc-explorador .rule-card{background:#fff;border:1px solid #e0e0e0;border-radius:12px;padding:.85rem 1rem}
+#dc-explorador .rule-card:hover{border-color:#1D9E75;background:#f0faf5}
+#dc-explorador .rule-name{font-size:12px;font-weight:700;color:#0F6E56;margin-bottom:.4rem;text-transform:uppercase;letter-spacing:.04em}
+#dc-explorador .rule-formula{font-size:14px;font-family:'Courier New',monospace;color:#222;background:#f5f7f5;border-radius:7px;padding:.4rem .7rem;margin-bottom:.4rem;line-height:1.5}
+#dc-explorador .rule-note{font-size:11px;color:#777;line-height:1.5}
+#dc-explorador .footer-note{font-size:11px;color:#bbb;text-align:center;margin-top:1rem}
+@media(max-width:700px){
+  #dc-explorador .exp-layout{grid-template-columns:1fr}
+  #dc-explorador .rules-grid{grid-template-columns:1fr}
+  #dc-explorador .drv-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+<div class="dc-wrap">
+  <div class="slide-title">Derivadas comunes</div>
+  <div class="slide-subtitle">Cálculo I · Universidad Técnica de Machala · 2026-1</div>
+  <div class="tabs">
+    <button class="tb active" onclick="dcShowTab('tabla')">Tabla de referencia</button>
+    <button class="tb" onclick="dcShowTab('explorador')">Explorador gráfico</button>
+    <button class="tb" onclick="dcShowTab('reglas')">Reglas de derivación</button>
+  </div>
+
+  <!-- TAB 1: Tabla -->
+  <div id="dc-tab-tabla" class="tp active">
+    <div class="cat-section">
+      <span class="cat-header cat-alg">Algebraicas &amp; Potencias</span>
+      <div class="drv-grid">
+        <div class="drv-card"><div class="drv-f">f(x) = c</div><div class="drv-arrow">↓ derivada</div><div class="drv-fp">f'(x) = 0</div><div class="drv-note">c constante</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = 1</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = xⁿ</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = n·xⁿ⁻¹</div><div class="drv-note">n ∈ ℝ</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = √x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = 1/(2√x)</div><div class="drv-note">x &gt; 0</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = 1/x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = −1/x²</div><div class="drv-note">x ≠ 0</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = |x|</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = x/|x|</div><div class="drv-note">x ≠ 0</div></div>
+      </div>
+    </div>
+    <div class="cat-section">
+      <span class="cat-header cat-exp">Exponenciales y Logarítmicas</span>
+      <div class="drv-grid">
+        <div class="drv-card"><div class="drv-f">f(x) = eˣ</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = eˣ</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = aˣ</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = aˣ·ln a</div><div class="drv-note">a &gt; 0, a ≠ 1</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = ln x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = 1/x</div><div class="drv-note">x &gt; 0</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = log_a x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = 1/(x·ln a)</div><div class="drv-note">x &gt; 0</div></div>
+      </div>
+    </div>
+    <div class="cat-section">
+      <span class="cat-header cat-trig">Trigonométricas</span>
+      <div class="drv-grid">
+        <div class="drv-card"><div class="drv-f">f(x) = sin x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = cos x</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = cos x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = −sin x</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = tan x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = sec² x</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = cot x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = −csc² x</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = sec x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = sec x·tan x</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = csc x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = −csc x·cot x</div></div>
+      </div>
+    </div>
+    <div class="cat-section">
+      <span class="cat-header cat-inv">Trigonométricas Inversas</span>
+      <div class="drv-grid">
+        <div class="drv-card"><div class="drv-f">f(x) = arcsin x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = 1/√(1−x²)</div><div class="drv-note">|x| &lt; 1</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = arccos x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = −1/√(1−x²)</div><div class="drv-note">|x| &lt; 1</div></div>
+        <div class="drv-card"><div class="drv-f">f(x) = arctan x</div><div class="drv-arrow">↓</div><div class="drv-fp">f'(x) = 1/(1+x²)</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 2: Explorador gráfico -->
+  <div id="dc-tab-explorador" class="tp">
+    <div class="exp-layout">
+      <div class="fn-list" id="dc-fn-list"></div>
+      <div>
+        <div class="canvas-box">
+          <div class="canvas-label" id="dc-lbl-f">f(x)</div>
+          <canvas id="dc-canvas-f" width="280" height="180" style="width:100%;max-width:280px"></canvas>
+        </div>
+      </div>
+      <div>
+        <div class="canvas-box">
+          <div class="canvas-label" id="dc-lbl-fp">f'(x)</div>
+          <canvas id="dc-canvas-fp" width="280" height="180" style="width:100%;max-width:280px"></canvas>
+        </div>
+        <div class="exp-info" style="margin-top:8px">
+          <div class="exp-fn" id="dc-info-f"></div>
+          <div class="exp-fp" id="dc-info-fp"></div>
+          <div class="exp-note" id="dc-info-note"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: Reglas -->
+  <div id="dc-tab-reglas" class="tp">
+    <div class="rules-grid">
+      <div class="rule-card">
+        <div class="rule-name">Linealidad</div>
+        <div class="rule-formula">(αf + βg)' = α·f' + β·g'</div>
+        <div class="rule-note">La derivada de una combinación lineal es la combinación lineal de las derivadas. α, β constantes.</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-name">Regla del producto</div>
+        <div class="rule-formula">(f·g)' = f'·g + f·g'</div>
+        <div class="rule-note">Ejemplo: (x²·sin x)' = 2x·sin x + x²·cos x</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-name">Regla del cociente</div>
+        <div class="rule-formula">(f/g)' = (f'·g − f·g') / g²</div>
+        <div class="rule-note">Ejemplo: (sin x / x)' = (cos x·x − sin x) / x²</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-name">Regla de la cadena</div>
+        <div class="rule-formula">(g∘f)'(x) = g'(f(x))·f'(x)</div>
+        <div class="rule-note">Ejemplo: (sin(x²))' = cos(x²)·2x</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-name">Función inversa</div>
+        <div class="rule-formula">(f⁻¹)'(y) = 1 / f'(f⁻¹(y))</div>
+        <div class="rule-note">Ejemplo: (arcsin x)' = 1/√(1−x²) se obtiene de (sin⁻¹)'</div>
+      </div>
+      <div class="rule-card">
+        <div class="rule-name">Derivada de orden superior</div>
+        <div class="rule-formula">f''(x) = (f')'(x)</div>
+        <div class="rule-note">Se aplican las mismas reglas iterativamente. fⁿ(x) = n-ésima derivada.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-note">© 2025 Elvis Sánchez – Universidad Técnica de Machala</div>
+</div>
+<script>
+(function(){
+/* ── Tabs ── */
+function dcShowTab(n){
+  var root=document.getElementById('dc-explorador');
+  root.querySelectorAll('.tp').forEach(function(p){p.classList.remove('active');});
+  root.querySelectorAll('.tabs .tb').forEach(function(b){
+    b.classList.toggle('active',b.getAttribute('onclick')==="dcShowTab('"+n+"')");
+  });
+  document.getElementById('dc-tab-'+n).classList.add('active');
+  if(n==='explorador') initExplorador();
+}
+window.dcShowTab=dcShowTab;
+
+/* ── Explorador data ── */
+var FNS=[
+  { key:'x2',  label:'x²',      fp_label:'2x',
+    f:function(x){return x*x;},  fp:function(x){return 2*x;},
+    xmin:-3, xmax:3, note:'Función cuadrática. Su derivada es lineal: la pendiente crece linealmente.' },
+  { key:'x3',  label:'x³',      fp_label:'3x²',
+    f:function(x){return x*x*x;},fp:function(x){return 3*x*x;},
+    xmin:-2.5, xmax:2.5, note:'Función cúbica. La derivada es cuadrática — siempre ≥ 0, salvo en x=0.' },
+  { key:'sqx', label:'√x',      fp_label:'1/(2√x)',
+    f:function(x){return Math.sqrt(x);},fp:function(x){return x>0?1/(2*Math.sqrt(x)):NaN;},
+    xmin:0.01, xmax:6, note:'Solo definida para x ≥ 0. La derivada crece hasta ∞ cuando x→0⁺.' },
+  { key:'ex',  label:'eˣ',      fp_label:'eˣ',
+    f:function(x){return Math.exp(x);}, fp:function(x){return Math.exp(x);},
+    xmin:-3, xmax:2.5, note:'La función exponencial es su propia derivada — tasa de cambio proporcional al valor.' },
+  { key:'lnx', label:'ln x',    fp_label:'1/x',
+    f:function(x){return x>0?Math.log(x):NaN;},fp:function(x){return x>0?1/x:NaN;},
+    xmin:0.15, xmax:6, note:'La derivada 1/x es decreciente — la función logarítmica crece cada vez más lento.' },
+  { key:'sinx',label:'sin x',   fp_label:'cos x',
+    f:function(x){return Math.sin(x);},fp:function(x){return Math.cos(x);},
+    xmin:-2*Math.PI, xmax:2*Math.PI, note:'La derivada de sin es cos — desfase de π/2. Los máximos de sin son ceros de cos.' },
+  { key:'cosx',label:'cos x',   fp_label:'−sin x',
+    f:function(x){return Math.cos(x);},fp:function(x){return -Math.sin(x);},
+    xmin:-2*Math.PI, xmax:2*Math.PI, note:'La derivada de cos es −sin — desfase inverso. Los ceros de cos son máximos de |sin|.' },
+  { key:'atanx',label:'arctan x',fp_label:'1/(1+x²)',
+    f:function(x){return Math.atan(x);},fp:function(x){return 1/(1+x*x);},
+    xmin:-5, xmax:5, note:'La derivada 1/(1+x²) tiene máximo en x=0 y tiende a 0 cuando |x|→∞.' },
+];
+
+var curFn=FNS[0];
+var initialized=false;
+
+function initExplorador(){
+  if(initialized) return;
+  initialized=true;
+  var list=document.getElementById('dc-fn-list');
+  list.innerHTML='';
+  FNS.forEach(function(fn,i){
+    var btn=document.createElement('button');
+    btn.className='fn-btn'+(i===0?' active':'');
+    btn.textContent=fn.label;
+    btn.onclick=function(){selectFn(fn);};
+    list.appendChild(btn);
+  });
+  selectFn(FNS[0]);
+}
+
+function selectFn(fn){
+  curFn=fn;
+  document.querySelectorAll('#dc-explorador .fn-btn').forEach(function(b){
+    b.classList.toggle('active',b.textContent===fn.label);
+  });
+  document.getElementById('dc-lbl-f').textContent='f(x) = '+fn.label;
+  document.getElementById('dc-lbl-fp').textContent="f'(x) = "+fn.fp_label;
+  document.getElementById('dc-info-f').textContent='f(x) = '+fn.label;
+  document.getElementById('dc-info-fp').textContent="f'(x) = "+fn.fp_label;
+  document.getElementById('dc-info-note').textContent=fn.note;
+  drawFn('dc-canvas-f', fn.f, fn.xmin, fn.xmax, '#185FA5');
+  drawFn('dc-canvas-fp',fn.fp,fn.xmin, fn.xmax, '#E05C5C');
+}
+
+function drawFn(canvasId, fn, xmin, xmax, color){
+  var canvas=document.getElementById(canvasId);
+  if(!canvas) return;
+  var W=canvas.width, H=canvas.height;
+  var ctx=canvas.getContext('2d');
+  ctx.clearRect(0,0,W,H);
+
+  // Sample values
+  var N=300;
+  var vals=[];
+  for(var i=0;i<=N;i++){
+    var x=xmin+(xmax-xmin)*i/N;
+    var y=fn(x);
+    vals.push({x:x,y:y});
+  }
+  var ys=vals.map(function(v){return isNaN(v.y)?null:v.y;}).filter(function(v){return v!==null;});
+  if(ys.length===0) return;
+  var ymin=Math.min.apply(null,ys), ymax=Math.max.apply(null,ys);
+  var pad=Math.max((ymax-ymin)*0.15, 0.5);
+  ymin-=pad; ymax+=pad;
+
+  var toPixX=function(x){return 30+(W-40)*(x-xmin)/(xmax-xmin);};
+  var toPixY=function(y){return 10+(H-25)*(ymax-y)/(ymax-ymin);};
+
+  // Grid
+  ctx.strokeStyle='#eee';ctx.lineWidth=1;
+  for(var xi=0;xi<=4;xi++){
+    var px=30+(W-40)*xi/4;
+    ctx.beginPath();ctx.moveTo(px,10);ctx.lineTo(px,H-15);ctx.stroke();
+  }
+  for(var yi=0;yi<=3;yi++){
+    var py=10+(H-25)*yi/3;
+    ctx.beginPath();ctx.moveTo(30,py);ctx.lineTo(W-10,py);ctx.stroke();
+  }
+
+  // Axes
+  ctx.strokeStyle='#999';ctx.lineWidth=1;
+  var zero_y=toPixY(0);
+  if(zero_y>10&&zero_y<H-15){
+    ctx.beginPath();ctx.moveTo(30,zero_y);ctx.lineTo(W-10,zero_y);ctx.stroke();
+  }
+  var zero_x=toPixX(0);
+  if(zero_x>30&&zero_x<W-10){
+    ctx.beginPath();ctx.moveTo(zero_x,10);ctx.lineTo(zero_x,H-15);ctx.stroke();
+  }
+
+  // Curve
+  ctx.strokeStyle=color;ctx.lineWidth=2;ctx.lineJoin='round';
+  ctx.beginPath();
+  var started=false;
+  for(var j=0;j<vals.length;j++){
+    var v=vals[j];
+    if(isNaN(v.y)||v.y>ymax*3||v.y<ymin*3){started=false;continue;}
+    var px2=toPixX(v.x),py2=toPixY(v.y);
+    if(!started){ctx.moveTo(px2,py2);started=true;}
+    else ctx.lineTo(px2,py2);
+  }
+  ctx.stroke();
+
+  // Axis labels
+  ctx.fillStyle='#999';ctx.font='9px sans-serif';ctx.textAlign='center';
+  ctx.fillText(xmin.toFixed(1),32,H-4);
+  ctx.fillText(xmax.toFixed(1),W-12,H-4);
+  ctx.textAlign='right';
+  ctx.fillText(ymax.toFixed(1),28,14);
+  ctx.fillText(ymin.toFixed(1),28,H-16);
+}
+
+})();
+</script>
+</div>
+```
 
 ## Interactivo {.scrollable}
 

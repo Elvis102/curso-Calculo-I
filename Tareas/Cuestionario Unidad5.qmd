@@ -1,0 +1,65 @@
+---
+title: "Cuestionario Unidad 5: aplicasiones de la derivada"
+author: "Cálculo I"
+date: "Octubre 2025"
+format:
+  pdf:
+    documentclass: article
+    geometry:
+      - a4paper
+      - margin=1in
+  html:
+    toc: true
+    embed-resources: true    
+---
+
+1. ¿Cuál es la interpretación geométrica de la derivada f'(x) en un punto?
+
+A) La pendiente de la recta tangente a la curva en ese punto
+B) El área bajo la curva en ese punto
+C) La distancia entre dos puntos de la curva
+D) El valor máximo de la función
+
+**solucion:**
+"respuesta": "A",
+                "explicacion": "La derivada f'(x) representa la pendiente de la recta tangente a la curva y=f(x) en el punto x."
+
+2. Si la velocidad de un objeto está dada por v(t) = 3t² - 6t + 2, ¿cuál es su aceleración en t=2?
+
+A) 6 m/s²
+B) 12 m/s²
+C) 0 m/s²
+D) 18 m/s²
+
+"respuesta": "A",
+                "explicacion": "La aceleración es a(t) = v'(t) = 6t - 6. En t=2: a(2) = 6(2) - 6 = 6 m/s²"
+
+3. Para encontrar los máximos y mínimos de una función, ¿qué condición debe cumplirse?
+
+A) f'(x) = 0 o f'(x) no existe (puntos críticos)
+B) f(x) = 0
+C) f''(x) > 0
+D) f(x) es continua
+
+ "respuesta": "A",
+                "explicacion": "Los extremos locales ocurren en puntos críticos donde f'(x) = 0 o f'(x) no existe."
+
+4. Una empresa determina que su costo marginal es C'(x) = 50 + 0.2x. ¿Qué representa esta función?
+
+A) El costo de producir una unidad adicional",
+B) El costo total de producción",
+C) La ganancia por unidad vendida",
+D) El precio de venta del producto"
+
+"respuesta": "A",
+                "explicacion": "El costo marginal C'(x) representa el costo aproximado de producir una unidad adicional."
+
+5. Si f''(x) < 0 en un intervalo, ¿qué podemos concluir sobre la función f(x)?
+
+A) f(x) es cóncava hacia abajo en ese intervalo",
+B) f(x) es creciente en ese intervalo",
+C) f(x) tiene un mínimo en ese intervalo",
+D) f(x) es una función lineal"
+
+"respuesta": "A",
+                "explicacion": "La segunda derivada negativa indica que la función es cóncava hacia abajo (convexa)."

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-08-29">
+  <meta name="dcterms.date" content="2026-04-14">
   <title>Cálculo Diferencial</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="S1.1_Numeros_Reales_files/libs/revealjs/dist/theme/quarto-acfa0bf1e819483bfadc4ce1f10e619d.css">
+  <link rel="stylesheet" href="S1.1_Numeros_Reales_files/libs/revealjs/dist/theme/quarto-6041a369e854034077ee6651b09d1e62.css">
   <link href="S1.1_Numeros_Reales_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="S1.1_Numeros_Reales_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="S1.1_Numeros_Reales_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -147,7 +147,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-08-29</p>
+  <p class="date">2026-04-14</p>
 </section>
 <section>
 <section id="introducción" class="title-slide slide level1 my-slide center">
@@ -396,6 +396,275 @@ x, &amp; \text{si } x \geq 0 \\
 </div>
 </div></div>
 </section>
+<section id="valor-absoluto" class="slide level2 scrollable">
+<h2><span class="bg" style="--col:#ffff00"><strong>Valor absoluto</strong></span></h2>
+<div id="va-explorador">
+<style>
+  #va-explorador * { box-sizing: border-box; }
+  #va-explorador {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: #ffffff;
+    color: #1a1a1a;
+    padding: 1rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+  #va-explorador .va-titulo {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    color: #1a1a1a;
+  }
+  #va-explorador .va-subtitulo {
+    font-size: 13px;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  #va-explorador .va-slider-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 1.25rem;
+  }
+  #va-explorador .va-slider-label {
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap;
+  }
+  #va-explorador input[type=range] {
+    flex: 1;
+    accent-color: #378ADD;
+    height: 4px;
+    cursor: pointer;
+  }
+  #va-explorador .va-slider-val {
+    font-size: 22px;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: right;
+    color: #1a1a1a;
+  }
+  #va-explorador svg#va-recta {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+    overflow: visible;
+  }
+  #va-explorador .va-cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+  #va-explorador .va-card {
+    background: #f5f5f3;
+    border-radius: 8px;
+    padding: 0.1rem 0.25rem;
+    text-align: center;
+  }
+  #va-explorador .va-card-label {
+    font-size: 11px;
+    color: #777;
+    margin-bottom: 4px;
+  }
+  #va-explorador .va-card-val {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1a1a1a;
+  }
+  #va-explorador .va-card-sub {
+    font-size: 11px;
+    color: #999;
+    margin-top: 3px;
+  }
+  #va-explorador .va-explicacion {
+    border-left: 3px solid #378ADD;
+    padding: 0.75rem 1rem;
+    background: #f0f6fd;
+    border-radius: 0 6px 6px 0;
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.65;
+    min-height: 60px;
+  }
+  #va-explorador .va-definicion {
+    margin-top: 1.25rem;
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 8px;
+    padding: 0.9rem 1.1rem;
+    font-size: 13px;
+    color: #444;
+  }
+  #va-explorador .va-definicion strong { color: #1a1a1a; }
+  #va-explorador .va-rama {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  #va-explorador .va-rama-badge {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+  #va-explorador .va-rama-pos  { background: #e1f5ee; color: #0F6E56; }
+  #va-explorador .va-rama-neg  { background: #e6f1fb; color: #185FA5; }
+  #va-explorador .va-rama-text { font-family: 'Courier New', monospace; font-size: 13px; }
+  #va-explorador .va-rama-activa { font-weight: 700; }
+</style>
+
+<p class="va-titulo">Explorador: valor absoluto en la recta real</p>
+<p class="va-subtitulo">Mueve el deslizador para ver qué rama de la definición se activa.</p>
+
+<div class="va-slider-row">
+  <span class="va-slider-label">x =</span>
+  <input type="range" min="-10" max="10" step="1" value="-4" id="va-sl">
+  <span class="va-slider-val" id="va-aval">−4</span>
+</div>
+
+<svg id="va-recta" viewbox="0 0 500 100">
+  <line x1="20" y1="52" x2="480" y2="52" stroke="#ccc" stroke-width="1.5"></line>
+  <g id="va-ticks"></g>
+  <line id="va-dist-line" x1="250" y1="38" x2="250" y2="38" stroke="#378ADD" stroke-width="3.5" stroke-linecap="round"></line>
+  <text id="va-dist-label" x="250" y="25" text-anchor="middle" font-size="12" fill="#185FA5" font-weight="600"></text>
+  <circle cx="250" cy="52" r="4" fill="#aaa"></circle>
+  <text x="250" y="72" text-anchor="middle" font-size="11" fill="#888">0</text>
+  <circle id="va-punto" cx="170" cy="52" r="7" fill="#378ADD"></circle>
+  <text id="va-punto-label" x="170" y="92" text-anchor="middle" font-size="12" fill="#185FA5" font-weight="600"></text>
+</svg>
+
+<div class="va-cards">
+  <div class="va-card">
+    <p class="va-card-label">valor de x</p>
+    <p class="va-card-val" id="va-show-a">−4</p>
+    <p class="va-card-sub" id="va-caso-texto">x &lt; 0</p>
+  </div>
+  <div class="va-card">
+    <p class="va-card-label">regla aplicada</p>
+    <p class="va-card-val" id="va-show-regla" style="font-size:15px;">|x| = −x</p>
+    <p class="va-card-sub" id="va-show-sust">−(−4) = 4</p>
+  </div>
+  <div class="va-card">
+    <p class="va-card-label">|x| = distancia</p>
+    <p class="va-card-val" id="va-show-abs" style="color:#185FA5;">4</p>
+    <p class="va-card-sub">siempre ≥ 0</p>
+  </div>
+</div>
+
+<div class="va-explicacion" id="va-explicacion"></div>
+
+<div class="va-definicion">
+  <strong>Definición formal</strong> — rama activa resaltada:
+  <div class="va-rama" id="va-rama-pos">
+    <span class="va-rama-badge va-rama-pos">x ≥ 0</span>
+    <span class="va-rama-text" id="va-txt-pos">|x| = x</span>
+  </div>
+  <div class="va-rama" id="va-rama-neg">
+    <span class="va-rama-badge va-rama-neg">x &lt; 0</span>
+    <span class="va-rama-text" id="va-txt-neg">|x| = −x</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  const sl = document.getElementById('va-sl');
+
+  function px(val) { return 250 + val * 23; }
+
+  function buildTicks() {
+    const g = document.getElementById('va-ticks');
+    for (let i = -10; i <= 10; i++) {
+      const cx = px(i);
+      const ln = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      ln.setAttribute('x1', cx); ln.setAttribute('y1', 47);
+      ln.setAttribute('x2', cx); ln.setAttribute('y2', 57);
+      ln.setAttribute('stroke', '#ddd'); ln.setAttribute('stroke-width', '1');
+      g.appendChild(ln);
+      if (i % 5 === 0 && i !== 0) {
+        const t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        t.setAttribute('x', cx); t.setAttribute('y', 70);
+        t.setAttribute('text-anchor', 'middle');
+        t.setAttribute('font-size', '10'); t.setAttribute('fill', '#aaa');
+        t.textContent = i; g.appendChild(t);
+      }
+    }
+  }
+
+  function fmt(n) {
+    if (n < 0) return '−' + Math.abs(n);
+    if (n === 0) return '0';
+    return String(n);
+  }
+
+  function update() {
+    const a     = parseInt(sl.value);
+    const abs_a = Math.abs(a);
+    const cx    = px(a);
+
+    document.getElementById('va-aval').textContent    = fmt(a);
+    document.getElementById('va-show-a').textContent  = fmt(a);
+    document.getElementById('va-show-abs').textContent = abs_a;
+
+    const punto = document.getElementById('va-punto');
+    punto.setAttribute('cx', cx);
+    punto.setAttribute('fill', a >= 0 ? '#1D9E75' : '#378ADD');
+
+    const pl = document.getElementById('va-punto-label');
+    pl.setAttribute('x', cx);
+    pl.textContent = 'x = ' + fmt(a);
+    pl.setAttribute('fill', a >= 0 ? '#0F6E56' : '#185FA5');
+
+    const dl = document.getElementById('va-dist-line');
+    dl.setAttribute('x1', Math.min(250, cx));
+    dl.setAttribute('x2', Math.max(250, cx));
+    dl.setAttribute('stroke', a >= 0 ? '#1D9E75' : (a === 0 ? '#aaa' : '#378ADD'));
+
+    const dlab = document.getElementById('va-dist-label');
+    dlab.textContent = abs_a > 0 ? '|x| = ' + abs_a : '';
+    dlab.setAttribute('x', (250 + cx) / 2);
+    dlab.setAttribute('fill', a >= 0 ? '#0F6E56' : '#185FA5');
+
+    let casoTexto, regla, sust, expl;
+
+    if (a > 0) {
+      casoTexto = 'x > 0  (positivo)';
+      regla     = '|x| = x';
+      sust      = 'ya es positivo';
+      expl      = 'x es positivo, está a la derecha del cero. La distancia al origen es simplemente x. No hay nada que corregir: la definición devuelve x tal cual.';
+    } else if (a < 0) {
+      casoTexto = 'x < 0  (negativo)';
+      regla     = '|x| = −x';
+      sust      = '−(' + fmt(a) + ') = ' + abs_a;
+      expl      = 'x es negativo, está a la izquierda del cero. Para obtener la distancia (siempre positiva) aplicamos −x, que invierte el signo: −(' + fmt(a) + ') = ' + abs_a + '. El resultado es positivo.';
+    } else {
+      casoTexto = 'x = 0  (neutro)';
+      regla     = '|0| = 0';
+      sust      = 'distancia cero';
+      expl      = 'x es igual a cero, está exactamente en el origen. Su distancia al cero es 0. Ambas ramas coinciden: |0| = 0 = −0 = 0. Es el único número que satisface las tres condiciones a la vez.';
+    }
+
+    document.getElementById('va-caso-texto').textContent  = casoTexto;
+    document.getElementById('va-show-regla').textContent  = regla;
+    document.getElementById('va-show-sust').textContent   = sust;
+    document.getElementById('va-explicacion').textContent = expl;
+
+    const posActiva = a >= 0;
+    document.getElementById('va-txt-pos').classList.toggle('va-rama-activa', posActiva);
+    document.getElementById('va-txt-neg').classList.toggle('va-rama-activa', !posActiva);
+    document.getElementById('va-rama-pos').style.opacity = posActiva ? '1' : '0.35';
+    document.getElementById('va-rama-neg').style.opacity = !posActiva ? '1' : '0.35';
+  }
+
+  buildTicks();
+  sl.addEventListener('input', update);
+  update();
+})();
+</script>
+</div>
+</section>
 <section id="aplicaciones-del-valor-absoluto" class="slide level2 scrollable">
 <h2><span class="bg" style="--col:#ffff00"><strong>Aplicaciones del valor absoluto</strong></span></h2>
 <h3 id="cuál-es-la-distancia-entre-dos-puntos">¿Cuál es la distancia entre dos puntos?</h3>
@@ -549,10 +818,249 @@ B^*_r(c)=\{ x \in \mathfrak{R} \quad 0 &lt; \mid x-c\mid &lt; r \}=(c-r,c) \cup 
 <li><p>Asociativa: <span class="math inline">\(a \cdot (b \cdot c) = (a\cdot b)\cdot c\)</span> para todos los <span class="math inline">\(a,b,c \in \mathbb{R}\)</span></p></li>
 <li><p>Existe un elemento neutro, <span class="math inline">\(1 \in \mathbb{R}\)</span>, para el producto: <span class="math inline">\(a\cdot1=a=1\cdot a\)</span>.</p></li>
 <li><p>Para cada <span class="math inline">\(a \in \mathbb{R}\)</span>, <span class="math inline">\(a\neq 0\)</span>, existe un elemento <span class="math inline">\(\dfrac{1}{a} = a^{-1} \in \mathbb{R}\)</span>, inverso de <span class="math inline">\(a\)</span>, tal que <span class="math inline">\(a \cdot a^{-1}=1=a ^{-1}\cdot a\)</span></p></li>
-<li><p>El producto es distributivo respecto de la suma: <span class="math inline">\(a\cdot (b+c) = a\cdot b + a \cdot c\)</span> para todos los <span class="math inline">\(a,b,c \in \mathbb{R}\)</span>. :::</p></li>
+<li><p>El producto es distributivo respecto de la suma: <span class="math inline">\(a\cdot (b+c) = a\cdot b + a \cdot c\)</span> para todos los <span class="math inline">\(a,b,c \in \mathbb{R}\)</span>.</p></li>
 </ul>
-
 </div>
+</section>
+<section id="propiedades-del-valor-absoluto" class="slide level2">
+<h2>Propiedades del valor absoluto</h2>
+<p>Sean <span class="math inline">\(a, b \in \mathfrak{R}\)</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Propiedad</th>
+<th>Nombre</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td><span class="math inline">\(|a| \geq 0\)</span></td>
+<td>No negatividad</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td><span class="math inline">\(|a| = 0 \iff a = 0\)</span></td>
+<td>Definitud</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td><span class="math inline">\(|-a| = |a|\)</span></td>
+<td>Simetría</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td><span class="math inline">\(|ab| = |a||b|\)</span></td>
+<td>Multiplicatividad</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td><span class="math inline">\(\left|\dfrac{a}{b}\right| = \dfrac{|a|}{|b|},\ b\neq 0\)</span></td>
+<td>División</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td><span class="math inline">\(|a+b| \leq |a|+|b|\)</span></td>
+<td>Desigualdad triangular</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td><span class="math inline">\(|a-b| \leq |a|+|b|\)</span></td>
+<td>Corolario triangular</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td><span class="math inline">\(\big||a|-|b|\big| \leq |a-b|\)</span></td>
+<td>Desigualdad inversa</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="propiedad-1-no-negatividad-a-geq-0" class="slide level2">
+<h2>Propiedad 1 — No negatividad: <span class="math inline">\(|a| \geq 0\)</span></h2>
+<p>Cada demostración usa únicamente la definición:<span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong></p>
+<p>Sea <span class="math inline">\(a \in \mathfrak{R}\)</span> un número real arbitrario, tenemos dos casos debido a que <span class="math inline">\(a\)</span> puedo ser positivo (o cero) ó negativo.</p>
+<ul>
+<li><p><strong>Caso 1:</strong> Si <span class="math inline">\(a \geq 0\)</span>, entonces <span class="math inline">\(|a| = a \geq 0\)</span>. ✓</p></li>
+<li><p><strong>Caso 2:</strong> Si <span class="math inline">\(a &lt; 0\)</span>, entonces <span class="math inline">\(|a| = -a\)</span>. Como <span class="math inline">\(a &lt; 0\)</span>, multiplicar por <span class="math inline">\(-1\)</span> invierte la desigualdad: <span class="math inline">\(-a &gt; 0 \geq 0\)</span>. ✓</p></li>
+</ul>
+<p>En ambos casos <span class="math inline">\(|a| \geq 0\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-2-definitud-a-0-iff-a-0" class="slide level2">
+<h2>Propiedad 2 — Definitud: <span class="math inline">\(|a| = 0 \iff a = 0\)</span></h2>
+<p>Cada demostración usa únicamente la definición:<span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong> Como se trata de una doble implicación, procederemos en ambas direcciones:</p>
+<p><span class="math inline">\((\Rightarrow)\)</span> Supongamos que <span class="math inline">\(|a| = 0\)</span>. Analicemos los posibles casos para a según la definición:</p>
+<ul>
+<li><p><strong>Caso 1:</strong> Si <span class="math inline">\(a &gt; 0\)</span>, entonces <span class="math inline">\(|a| = a\)</span>. Pero como suponemos <span class="math inline">\(|a| = 0\)</span>, tendríamos que <span class="math inline">\(0 &gt; 0\)</span>, lo cual es una <strong>contradicción</strong>.</p></li>
+<li><p><strong>Caso 2:</strong> Si <span class="math inline">\(a &lt; 0\)</span>, entonces <span class="math inline">\(|a| = -a\)</span>. Dado que <span class="math inline">\(a\)</span> es negativo, <span class="math inline">\(-a\)</span> es positivo, por lo que <span class="math inline">\(|a| &gt; 0\)</span>. Esto contradice nuevamente que <span class="math inline">\(|a| = 0\)</span>.</p></li>
+</ul>
+<p>Por lo tanto, la única posibilidad lógica es que <strong><span class="math inline">\(a = 0\)</span></strong>.</p>
+<p><span class="math inline">\((\Leftarrow)\)</span> Recíprocamente, si <span class="math inline">\(a = 0\)</span>, aplicando directamente la definición de valor absoluto (específicamente el caso <span class="math inline">\(a \geq 0\)</span>), obtenemos que <span class="math inline">\(|0| = 0\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-3-simetría--a-a" class="slide level2">
+<h2>Propiedad 3 — Simetría: <span class="math inline">\(|-a| = |a|\)</span></h2>
+<p>Cada demostración usa únicamente la definición:<span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong> Para demostrar que <span class="math inline">\(|-a| = |a|\)</span>, analizaremos el comportamiento de <span class="math inline">\(a\)</span> según los tres casos posibles de su definición:</p>
+<ul>
+<li><p><strong>Caso 1: Si <span class="math inline">\(a &gt; 0\)</span></strong> En este caso, por definición tenemos que <span class="math inline">\(|a| = a\)</span>. Como <span class="math inline">\(a\)</span> es positivo, entonces <span class="math inline">\(-a\)</span> es negativo (<span class="math inline">\(-a &lt; 0\)</span>). Aplicando la definición para valores negativos: <span class="math display">\[|-a| = -(-a) = a\]</span> Por lo tanto, <span class="math inline">\(|-a| = |a|\)</span>.</p></li>
+<li><p><strong>Caso 2: Si <span class="math inline">\(a &lt; 0\)</span></strong> Aquí, por definición se tiene que <span class="math inline">\(|a| = -a\)</span>. Si <span class="math inline">\(a\)</span> es negativo, su opuesto <span class="math inline">\(-a\)</span> es positivo (<span class="math inline">\(-a &gt; 0\)</span>). Aplicando la definición para valores positivos: <span class="math display">\[|-a| = -a\]</span> Como en ambos lados obtenemos <span class="math inline">\(-a\)</span>, se cumple que <span class="math inline">\(|-a| = |a|\)</span>.</p></li>
+<li><p><strong>Caso 3: Si <span class="math inline">\(a = 0\)</span></strong> Si <span class="math inline">\(a\)</span> es cero, entonces <span class="math inline">\(-a = -0 = 0\)</span>. Sustituyendo directamente: <span class="math display">\[|-0| = |0| = 0\]</span> Lo que confirma que <span class="math inline">\(|-a| = |a|\)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="propiedad-3-simetría--a-a-1" class="slide level2">
+<h2>Propiedad 3 — Simetría: <span class="math inline">\(|-a| = |a|\)</span></h2>
+<h3 id="contuniación">contuniación</h3>
+<div class="dem">
+<p>Dado que la igualdad se cumple para todos los casos posibles de <span class="math inline">\(a\)</span> en los números reales, queda demostrado que <strong><span class="math inline">\(|-a| = |a|\)</span></strong>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-4-multiplicatividad-ab-ab" class="slide level2">
+<h2>Propiedad 4 — Multiplicatividad: <span class="math inline">\(|ab| = |a||b|\)</span></h2>
+<p>Cada demostración usa únicamente la definición: <span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong> Para demostrar que <span class="math inline">\(|ab| = |a||b|\)</span>, analizaremos las cuatro combinaciones posibles de signos para <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span>. En cada caso, compararemos el resultado de <span class="math inline">\(|ab|\)</span> con el producto de los valores absolutos individuales:</p>
+<ul>
+<li><p><strong>Caso 1: <span class="math inline">\(a \geq 0\)</span> y <span class="math inline">\(b \geq 0\)</span></strong> Como ambos son no negativos, su producto <span class="math inline">\(ab \geq 0\)</span>. Por definición: <span class="math display">\[|ab| = ab \quad \text{y} \quad |a||b| = (a)(b) = ab\]</span> Ambas expresiones coinciden.</p></li>
+<li><p><strong>Caso 2: <span class="math inline">\(a \geq 0\)</span> y <span class="math inline">\(b &lt; 0\)</span></strong> En este caso, el producto es no positivo (<span class="math inline">\(ab \leq 0\)</span>). Aplicando la definición: <span class="math display">\[|ab| = -(ab) = a(-b)\]</span> Dado que <span class="math inline">\(|a| = a\)</span> y <span class="math inline">\(|b| = -b\)</span>, sustituimos y obtenemos: <span class="math display">\[|ab| = |a||b|\]</span></p></li>
+</ul>
+</div>
+</section>
+<section id="propiedad-4-multiplicatividad-ab-ab-1" class="slide level2">
+<h2>Propiedad 4 — Multiplicatividad: <span class="math inline">\(|ab| = |a||b|\)</span></h2>
+<h3 id="continuación">continuación</h3>
+<div class="dem">
+<ul>
+<li><p><strong>Caso 3: <span class="math inline">\(a &lt; 0\)</span> y <span class="math inline">\(b \geq 0\)</span></strong> Similar al anterior, el producto <span class="math inline">\(ab \leq 0\)</span>. Entonces: <span class="math display">\[|ab| = -(ab) = (-a)b\]</span> Como <span class="math inline">\(|a| = -a\)</span> y <span class="math inline">\(|b| = b\)</span>, la igualdad se mantiene: <span class="math display">\[|ab| = |a||b|\]</span></p></li>
+<li><p><strong>Caso 4: <span class="math inline">\(a &lt; 0\)</span> y <span class="math inline">\(b &lt; 0\)</span></strong> Aquí, el producto de dos negativos es positivo (<span class="math inline">\(ab &gt; 0\)</span>). Por lo tanto: <span class="math display">\[|ab| = ab\]</span> Por otro lado, <span class="math inline">\(|a| = -a\)</span> y <span class="math inline">\(|b| = -b\)</span>. Al multiplicarlos: <span class="math display">\[|a||b| = (-a)(-b) = ab\]</span> Nuevamente, <span class="math inline">\(|ab| = |a||b|\)</span>.</p></li>
+</ul>
+<p><strong>Conclusión:</strong> Habiendo agotado todos los casos posibles, se concluye que <strong><span class="math inline">\(|ab| = |a||b|\)</span></strong> para cualesquiera <span class="math inline">\(a, b \in \mathbb{R}\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-5-división-leftdfracabright-dfracab-con-b-neq-0" class="slide level2">
+<h2>Propiedad 5 — División: <span class="math inline">\(\left|\dfrac{a}{b}\right| = \dfrac{|a|}{|b|}\)</span>, con <span class="math inline">\(b \neq 0\)</span></h2>
+<p>Cada demostración usa únicamente la definición: <span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong> En lugar de analizar casos individuales, utilizaremos la <strong>Propiedad 4 (Multiplicatividad)</strong> sobre una identidad conocida.</p>
+<p>Partimos de la relación fundamental entre división y multiplicación: <span class="math display">\[\left( \frac{a}{b} \right) \cdot b = a\]</span></p>
+<ol type="1">
+<li><strong>Aplicamos valor absoluto</strong> a ambos lados de la igualdad: <span class="math display">\[\left| \frac{a}{b} \cdot b \right| = |a|\]</span></li>
+</ol>
+</div>
+</section>
+<section id="propiedad-5-división-leftdfracabright-dfracab-con-b-neq-0-1" class="slide level2">
+<h2>Propiedad 5 — División: <span class="math inline">\(\left|\dfrac{a}{b}\right| = \dfrac{|a|}{|b|}\)</span>, con <span class="math inline">\(b \neq 0\)</span></h2>
+<h3 id="continuación-1">continuación</h3>
+<div class="dem">
+<ol start="2" type="1">
+<li><p><strong>Aplicamos la propiedad de multiplicatividad</strong> (<span class="math inline">\(|x \cdot y| = |x| \cdot |y|\)</span>) en el lado izquierdo: <span class="math display">\[\left| \frac{a}{b} \right| \cdot |b| = |a|\]</span></p></li>
+<li><p><strong>Despejamos el término deseado:</strong> Dado que por hipótesis <span class="math inline">\(b \neq 0\)</span>, la <strong>Propiedad 2 (Definitud)</strong> nos asegura que <span class="math inline">\(|b| \neq 0\)</span>. Por lo tanto, podemos dividir ambos lados de la ecuación entre <span class="math inline">\(|b|\)</span> sin incurrir en una indeterminación: <span class="math display">\[\left| \frac{a}{b} \right| = \frac{|a|}{|b|}\]</span></p></li>
+</ol>
+<p><strong>Conclusión:</strong> La propiedad queda demostrada para todo <span class="math inline">\(b \neq 0\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-6-desigualdad-triangular-ab-leq-ab" class="slide level2">
+<h2>Propiedad 6 — Desigualdad triangular: <span class="math inline">\(|a+b| \leq |a|+|b|\)</span></h2>
+<p>Cada demostración usa únicamente la definición:<span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<p>¡importante!. La demostración estándar usa un lema previo.</p>
+<p><strong>Lema:</strong> Para todo <span class="math inline">\(x \in \mathbb{R}\)</span>, se cumple <span class="math inline">\(x \leq |x|\)</span> y <span class="math inline">\(-x \leq |x|\)</span>.</p>
+<div class="dem">
+<p><em>Demostración del lema:</em></p>
+<p>Para cualquier número real <span class="math inline">\(x\)</span>, se cumplen siempre las siguientes dos condiciones:</p>
+<ul>
+<li><p>Si <span class="math inline">\(x \geq 0\)</span>: <span class="math inline">\(|x| = x\)</span>, entonces <span class="math inline">\(x = |x|\)</span> y <span class="math inline">\(-x \leq 0 \leq x = |x|\)</span>. ✓</p></li>
+<li><p>Si <span class="math inline">\(x &lt; 0\)</span>: <span class="math inline">\(|x| = -x &gt; 0 &gt; x\)</span>, entonces <span class="math inline">\(x &lt; |x|\)</span> y <span class="math inline">\(-x = |x|\)</span>. ✓</p></li>
+</ul>
+<p><strong>Breve explicación:</strong> Si <span class="math inline">\(x\)</span> es positivo, es igual a su valor absoluto; si es negativo, es menor que su valor absoluto (que es positivo). Lo mismo ocurre para su opuesto.</p>
+</div>
+</section>
+<section id="propiedad-6-desigualdad-triangular-ab-leq-ab-1" class="slide level2">
+<h2>Propiedad 6 — Desigualdad triangular: <span class="math inline">\(|a+b| \leq |a|+|b|\)</span></h2>
+<h3 id="continuación-2">continuación</h3>
+<div class="dem">
+<p><strong>Demostración de la propiedad.</strong></p>
+<p>Por el lema aplicado a <span class="math inline">\(a\)</span> y a <span class="math inline">\(b\)</span>:</p>
+<p><span class="math display">\[a \leq |a|, \quad b \leq |b| \implies a + b \leq |a| + |b| \tag{i}\]</span></p>
+<p><span class="math display">\[-a \leq |a|, \quad -b \leq |b| \implies -(a+b) \leq |a| + |b| \tag{ii}\]</span></p>
+<p>De (i) y (ii) tenemos que tanto <span class="math inline">\(a+b\)</span> como <span class="math inline">\(-(a+b)\)</span> son menores o iguales que <span class="math inline">\(|a|+|b|\)</span>. Pero por definición:</p>
+<p><span class="math display">\[|a+b| = \begin{cases} a+b &amp; \text{si } a+b \geq 0 \\ -(a+b) &amp; \text{si } a+b &lt; 0 \end{cases}\]</span></p>
+<p>En cualquier caso <span class="math inline">\(|a+b| \leq |a|+|b|\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-7-corolario-a---b-leq-a-b" class="slide level2">
+<h2>Propiedad 7 — Corolario: <span class="math inline">\(|a - b| \leq |a| + |b|\)</span></h2>
+<p>Cada demostración usa únicamente la definición:<span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong> utilizaremos la <strong>Propiedad 6 (Desigualdad Triangular)</strong> mediante un proceso de sustitución.</p>
+<p>Podemos reescribir la resta <span class="math inline">\(a - b\)</span> como una suma de la siguiente manera: <span class="math display">\[|a - b| = |a + (-b)|\]</span></p>
+<p>Aplicamos la propiedad (desigualda triangular) a los términos <span class="math inline">\(a\)</span> y <span class="math inline">\((-b)\)</span>: <span class="math display">\[|a + (-b)| \leq |a| + |-b|\]</span></p>
+<p>Ahora por la <strong>Propiedad 3</strong> (simetría), sabemos que el valor absoluto de un número es igual al de su opuesto (<span class="math inline">\(|-b| = |b|\)</span>). Sustituyendo este valor en la expresión anterior, obtenemos: <span class="math display">\[|a| + |-b| = |a| + |b|\]</span></p>
+<p>Por lo tanto, uniendo ambos pasos, confirmamos que: <span class="math display">\[|a - b| \leq |a| + |b|\]</span> <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="propiedad-8-desigualdad-inversa-biga-bbig-leq-a-b" class="slide level2">
+<h2>Propiedad 8 — Desigualdad inversa: <span class="math inline">\(\big||a|-|b|\big| \leq |a-b|\)</span></h2>
+<p>Cada demostración usa únicamente la definición:<span class="math inline">\(|a| = \begin{cases} a &amp; \text{si } a \geq 0 \\ -a &amp; \text{si } a &lt; 0 \end{cases}\)</span></p>
+<div class="dem">
+<p><strong>Demostración.</strong> Utilizaremos la <strong>Desigualdad Triangular</strong> de forma estratégica mediante una descomposición aditiva. Procederemos en dos partes:</p>
+<p><strong>Parte 1: Análisis para <span class="math inline">\(a\)</span></strong> Podemos expresar <span class="math inline">\(a\)</span> como la suma <span class="math inline">\((a - b) + b\)</span>. Aplicando la desigualdad triangular (<span class="math inline">\(|x+y| \leq |x| + |y|\)</span>): <span class="math display">\[|a| = |(a - b) + b| \leq |a - b| + |b|\]</span> Si restamos <span class="math inline">\(|b|\)</span> en ambos lados, obtenemos nuestra primera relación: <span class="math display">\[(i) \quad |a| - |b| \leq |a - b|\]</span></p>
+</div>
+</section>
+<section id="propiedad-8-desigualdad-inversa-biga-bbig-leq-a-b-1" class="slide level2">
+<h2>Propiedad 8 — Desigualdad inversa: <span class="math inline">\(\big||a|-|b|\big| \leq |a-b|\)</span></h2>
+<div class="dem">
+<p><strong>Parte 2: Análisis para <span class="math inline">\(b\)</span> (Análogo)</strong> De igual forma, expresamos <span class="math inline">\(b\)</span> como <span class="math inline">\((b - a) + a\)</span>: <span class="math display">\[|b| = |(b - a) + a| \leq |b - a| + |a|\]</span> Restando <span class="math inline">\(|a|\)</span> en ambos lados: <span class="math display">\[|b| - |a| \leq |b - a|\]</span> Como sabemos que <span class="math inline">\(|b - a| = |a - b|\)</span> (por simetría), y multiplicando por <span class="math inline">\(-1\)</span> (lo que invierte la desigualdad), tenemos: <span class="math display">\[(ii) \quad -(|a| - |b|) \leq |a - b|\]</span></p>
+<p><strong>Conclusión: Aplicando la definición</strong> Hemos demostrado que tanto la expresión <span class="math inline">\((|a| - |b|)\)</span> como su opuesto <span class="math inline">\(-(|a| - |b|)\)</span> son menores o iguales a <span class="math inline">\(|a - b|\)</span>.</p>
+<p>Por la definición de valor absoluto, el término <span class="math inline">\(||a| - |b||\)</span> debe ser igual a uno de esos dos valores. Como ambos cumplen la cota, concluimos que: <span class="math display">\[||a| - |b|| \leq |a - b|\]</span></p>
+<p><span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</section>
+<section id="interpretación-geométrica-de-las-más-importantes" class="slide level2">
+<h2>Interpretación geométrica de las más importantes</h2>
+<table class="caption-top">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Propiedad</th>
+<th>Significado en la recta real</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(|a|\)</span></td>
+<td>Distancia de <span class="math inline">\(a\)</span> al origen</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(|a-b|\)</span></td>
+<td>Distancia entre los puntos <span class="math inline">\(a\)</span> y <span class="math inline">\(b\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(\|a+b\| \leq \|a\|+\|b\|\)</span></td>
+<td>El camino directo nunca es más largo que el camino en dos tramos</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(\big\||a|-|b\|\big| \leq \|a-b\|\)</span></td>
+<td>La diferencia de distancias al origen no supera la distancia entre los puntos</td>
+</tr>
+</tbody>
+</table>
+
 </section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

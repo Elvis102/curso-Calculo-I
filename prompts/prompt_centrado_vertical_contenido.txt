@@ -1,0 +1,37 @@
+Te paso el código de una diapositiva Quarto revealjs que tiene un problema de centrado vertical.
+
+**Contexto del proyecto:**
+- Archivo: `S3-Derivada.qmd`
+- Tema SCSS: `clean.scss`
+- Las diapositivas de sección usan `## Título {.title-line}`
+- El título `.title-line` tiene `font-size: 4.2rem` y ocupa espacio vertical significativo
+- Las diapositivas usan revealjs con formato Quarto
+
+**Problema a resolver:**
+El contenido de la diapositiva aparece muy arriba (desplazado hacia el título) en lugar de centrado verticalmente en el espacio disponible.
+
+**Causa típica:**
+El contenedor del contenido usa `height: XXvh` (ej: `height: 65vh`), que es un valor fijo relativo al viewport. Pero el título `.title-line` ya ha consumido espacio vertical antes del contenedor, por lo que el contenido se posiciona dentro de ese `XXvh` pero visualmente aparece más arriba de lo esperado.
+
+**Solución:**
+Reemplazar `height: XXvh` por `flex: 1; min-height: 0` en el contenedor flex del contenido. Esto permite que el contenedor se expanda para ocupar **todo el espacio disponible** entre el título y el borde inferior de la diapositiva. Combinado con `justify-content: center`, el contenido queda perfectamente centrado en el espacio restante.
+
+**Ejemplo de código problemático:**
+```qmd
+## Conclusiones {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; height: 65vh; padding: 0 5em; gap: 1.8em;"}
+  ... contenido ...
+:::
+```
+
+**Ejemplo de código corregido:**
+```qmd
+## Conclusiones {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 5em; gap: 1.8em;"}
+  ... contenido ...
+:::
+```
+
+**Nota adicional:** Si el contenido sigue sin centrarse bien, también se puede reducir el padding superior del slide o ajustar el `gap` entre elementos.

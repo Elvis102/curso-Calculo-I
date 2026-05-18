@@ -1,0 +1,175 @@
+---
+title: "Cuestionari_1"
+subtitle: "La derivada-Conceptos"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+
+##  Cuestionario de Cálculo: Derivada de una Función en un Punto
+
+Este cuestionario evalúa la comprensión de la definición y las propiedades fundamentales de la derivada de una función en un punto, basándose en el material proporcionado.
+
+---
+
+### **Pregunta 1**
+
+¿Cuál de las siguientes expresiones representa la definición formal de la derivada de una función $f(x)$ en un punto $x_0$?
+
+* **A.** $$\lim_{x\to x_0}f(x)$$
+* **B.** $$\frac{f(x_0+h)-f(x_0)}{h}$$
+* **C.** $$\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}$$
+* **D.** $$\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}$$
+
+**Respuesta Correcta:** **C**
+**Racional:** Esta es una notación alternativa válida para la derivada de $f$ en $x_0$, donde la variable $x$ tiende a $x_0$. La notación equivalente $\lim_{h\to 0}\frac{f(x_0+h)-f(x_0)}{h}$ también es correcta (no se presenta como opción, pero **C** es correcta según el material).
+
+---
+
+### **Pregunta 2**
+
+Geométricamente, ¿qué representa el valor de la derivada de una función $f(x)$ en el punto $x_0$?
+
+* **A.** La ordenada al origen de la recta tangente en $x_0$.
+* **B.** El valor de la función $f(x_0)$.
+* **C.** La pendiente de la recta tangente a la gráfica de $f(x)$ en $x_0$.
+* **D.** El límite de la función en ese punto.
+
+**Respuesta Correcta:** **C**
+**Racional:** La derivada $f'(x_0)$ se define para formalizar la noción de la **pendiente de la recta tangente** a la gráfica de $f(x)$ en el punto $(x_0, f(x_0))$.
+
+---
+
+### **Pregunta 3**
+
+Utilizando la propiedad de la derivada de un monomio, si $f(x) = x^4$, ¿cuál es su derivada $f'(x)$ en un punto $x_0$ genérico?
+
+* **A.** $x^3$
+* **B.** $4x^4$
+* **C.** $4x^3$
+* **D.** $x^5/5$
+
+**Respuesta Correcta:** **C**
+**Racional:** Aplicando la fórmula de la derivada de un monomio $(\frac{\text{d}}{\text{d}x}) (x^n) = n\cdot x^{n-1}$, se obtiene $4 \cdot x^{4-1} = 4x^3$.
+
+---
+
+### **Pregunta 4**
+
+El teorema de "Derivabilidad implica continuidad" establece que si una función $f$ es derivable en un punto $x_0$, entonces:
+
+* **A.** $f$ debe ser continua en $x_0$.
+* **B.** $f$ no puede ser derivable en ningún otro punto.
+* **C.** La recíproca también es cierta, es decir, la continuidad implica derivabilidad.
+* **D.** La derivada $f'(x_0)$ debe ser igual a cero.
+
+**Respuesta Correcta:** **A**
+**Racional:** La demostración del teorema establece que la derivabilidad es una condición más fuerte que la continuidad; si $f$ es derivable en $x_0$, automáticamente es continua en $x_0$.
+
+---
+
+### **Pregunta 5**
+
+La función $f(x) = |x^2 - 9|$ no es derivable en ciertos puntos de su dominio. ¿En cuál de los siguientes puntos falla la derivabilidad?
+
+* **A.** $x=0$
+* **B.** $x=1$
+* **C.** $x=3$
+* **D.** Es derivable en todo su dominio, $\mathbb{R}$.
+
+**Respuesta Correcta:** **C**
+**Racional:** La derivabilidad falla donde el argumento del valor absoluto es cero, creando una 'punta' donde las derivadas laterales no coinciden. $x^2 - 9 = 0$ cuando $x=3$ o $x=-3$.
+
+---
+
+### **Pregunta 6**
+
+Utilice la Regla de la Cadena para hallar la derivada de la función $h(x) = \cos(4x^2+1)$.
+
+* **A.** $-\sin(4x^2+1)$
+* **B.** $8x \sin(4x^2+1)$
+* **C.** $-8x \sin(4x^2+1)$
+* **D.** $-\sin(8x)$
+
+**Respuesta Correcta:** **C**
+**Racional:** Se aplica la Regla de la Cadena $(g \circ f)'(x) = g'(f(x)) \cdot f'(x)$.
+* Derivada de la función exterior ($\cos u$): $-\sin u$
+* Derivada de la función interior ($4x^2+1$): $8x$
+* Resultado: $-\sin(4x^2+1) \cdot 8x$.
+
+---
+
+### **Pregunta 7**
+
+Aplique la regla de la derivada del cociente para calcular $f'(x)$ si $f(x) = \frac{1}{x+1}$.
+
+* **A.** $\frac{1}{(x+1)^2}$
+* **B.** $-\frac{1}{(x+1)^2}$
+* **C.** $-\frac{x+1}{x}$
+* **D.** $\frac{x+1}{(x+1)^2}$
+
+**Respuesta Correcta:** **B**
+**Racional:** Usando $(\frac{f}{g})' = \frac{f'g - fg'}{g^2}$, con $f=1$ y $g=x+1$.
+* $f'=0$ y $g'=1$.
+* $f'(x) = \frac{0(x+1) - 1(1)}{(x+1)^2} = -\frac{1}{(x+1)^2}$.
+
+---
+
+### **Pregunta 8**
+
+Para que la función $f(x) = \begin{cases} ax + 3 & \text{si } x < 2 \\ x^2 + 1 & \text{si } x \geq 2 \end{cases}$ sea continua en $x=2$, ¿cuál debe ser el valor de la constante $a$?
+
+* **A.** $a=1$
+* **B.** $a=2$
+* **C.** $a=-1$
+* **D.** $a=0$
+
+**Respuesta Correcta:** **A**
+**Racional:** Para la continuidad, los límites laterales deben ser iguales al valor de la función en el punto:
+* $\lim_{x \to 2^{-}} (ax+3) = 2a+3$
+* $\lim_{x \to 2^{+}} (x^2+1) = 2^2+1 = 5$
+* Igualando: $2a+3 = 5 \implies 2a = 2 \implies a=1$.
+
+---
+
+### **Pregunta 9**
+
+Considerando la función del ejercicio anterior con $a=1$, ¿es la función $f(x) = \begin{cases} x + 3 & \text{si } x < 2 \\ x^2 + 1 & \text{si } x \geq 2 \end{cases}$ derivable en $x=2$?
+
+* **A.** Sí, y $f'(2)=1$.
+* **B.** Sí, y $f'(2)=4$.
+* **C.** No, porque las derivadas laterales $f'(2^{-})$ y $f'(2^{+})$ no son iguales.
+* **D.** No, porque la función no es continua en $x=2$.
+
+**Respuesta Correcta:** **C**
+**Racional:** Una función es derivable solo si sus derivadas laterales coinciden:
+* Derivada izquierda ($x<2$): $(x+3)' = 1 \implies f'(2^{-})=1$
+* Derivada derecha ($x>2$): $(x^2+1)' = 2x \implies f'(2^{+})=2(2)=4$
+* Como $1 \neq 4$, la derivada no existe en $x=2$.
+
+---
+
+### **Pregunta 10**
+
+Sea $f(x)$ una función derivable en $x_0$ con $f'(x_0) \neq 0$, y sea $g(y)$ su función inversa. ¿Cuál es la fórmula para la derivada de la función inversa $g$ evaluada en $y_0 = f(x_0)$?
+
+* **A.** $g'(y_0) = f'(x_0)$
+* **B.** $g'(y_0) = \frac{1}{f'(x_0)}$
+* **C.** $g'(y_0) = -f'(x_0)$
+* **D.** $g'(y_0) = f(x_0) \cdot f'(x_0)$
+
+**Respuesta Correcta:** **B**
+**Racional:** La fórmula de la derivada de la función inversa es $g'(f(x_0)) = \frac{1}{f'(x_0)}$, siempre que $f'(x_0) \neq 0$.
+
+---
+
+### **Próximo Paso**
+
+¿Te gustaría que **genere las soluciones a este cuestionario en un formato separado (clave de respuestas)**, o que **prepare un conjunto de ejercicios de derivación más complejos** que apliquen estas propiedades?

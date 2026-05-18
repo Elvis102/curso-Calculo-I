@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2025-10-29">
+  <meta name="dcterms.date" content="2026-05-05">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="S2_Limites_Continuidad_files/libs/revealjs/dist/theme/quarto-5ae54f486db3b0423dab074a324b234c.css">
+  <link rel="stylesheet" href="S2_Limites_Continuidad_files/libs/revealjs/dist/theme/quarto-dbdb0093d72ad1264ed4bdfdcb5adeef.css">
   <link href="S2_Limites_Continuidad_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="S2_Limites_Continuidad_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="S2_Limites_Continuidad_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -212,7 +212,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2025-10-29</p>
+  <p class="date">2026-05-05</p>
 </section>
 <section class="slide level2">
 
@@ -225,18 +225,123 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <h1>Límites</h1>
 
 </section>
-<section id="límite-de-una-función" class="slide level2">
-<h2>Límite de una función</h2>
-<p>El límite se enfoca en el <strong>comportamiento</strong> de la función en las <strong>proximidades</strong> de un <span class="alert">punto</span>, no necesariamente en el valor exacto de la <span class="alert">función en ese punto</span>.</p>
+<section id="límites-1" class="slide level2">
+<h2>Límites</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>Límites en geometría y álgebra.</p>
+<p>En este presentación, aprenderás</p>
 <ul>
-<li><strong>Concepto:</strong> Imagina que te acercas a un punto en el eje <span class="math inline">\(x\)</span> desde la izquierda y la derecha. El límite es el valor al que la función (<span class="math inline">\(y\)</span>) se va acercando.</li>
-<li><strong>Existencia:</strong> Un límite puede <span class="alert">existir</span> incluso si la <span class="alert">función no está definida</span> en el punto en cuestión. Por ejemplo, en una función con un agujero. .</li>
-<li><strong>Notación:</strong> <span class="math inline">\(\displaystyle\lim_{x \to a} f(x) = L\)</span></li>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">La interpretación geométrica de los límites.</span></p></li>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">Cómo encontrar límites “fáciles” mediante inspección visual.</span></p></li>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">Notación para los límites.</span></p></li>
 </ul>
+</div>
+</section>
+<section id="section" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="rgb(255, 255, 255)">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slider-0.png" id="slide-img" style="width:50.0%"></p>
+</div>
+</section>
+<section id="section-1" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="rgb(255, 255, 255)">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0014_00-00-52.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-2" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0029_00-01-30.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-3" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0030_00-01-37.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-4" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0031_00-01-40.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-5" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0038_00-01-56.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-6" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0049_00-02-31.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-7" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0050_00-02-35.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-8" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0056_00-02-49.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-9" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0057_00-02-51.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-10" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0059_00-02-55.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-11" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0116_00-05-24.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-12" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0128_00-05-45.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-13" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0131_00-05-53.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-14" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0161_00-06-59.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-15" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0176_00-07-35.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-16" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Limits%20in%20geometry%20and%20algebra_DUBBED_ES/slide_0179_00-07-41.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
 </section>
 <section id="límite-de-una-función-en-un-punto" class="slide level2">
 <h2>Límite de una función en un punto</h2>
-<div style="font-size: 1em;">
+<div style="font-size: 1.5em;">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -254,11 +359,10 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 </div>
 </div>
-<div class="bg" style="padding:0em; margin-top:0em; font-size:0.8em;margin-top:-1em">
-<p><strong>Recuerda:</strong> al escribir <span class="math inline">\(x\to c\)</span> queremos indicar que <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(c\)</span> indistintamente por la derecha o por la izquierda.</p>
-<p>Además, Si los límites laterales de <strong><span class="math inline">\(f\)</span></strong> en <strong><span class="math inline">\(c\)</span></strong> son distintos diremos que <strong><span class="math inline">\(f\)</span></strong> <span class="alert">no tiene límite</span> en el punto <strong><span class="math inline">\(c\)</span></strong>.</p>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:0.85em;margin-top:-1em">
+<p><strong>Recuerda:</strong> al escribir <span class="math inline">\(x\to c\)</span> queremos indicar que <span class="math inline">\(x\)</span> se aproxima a <span class="math inline">\(c\)</span> indistintamente por la derecha o por la izquierda. Además, Si los límites laterales de <strong><span class="math inline">\(f\)</span></strong> en <strong><span class="math inline">\(c\)</span></strong> son distintos diremos que <strong><span class="math inline">\(f\)</span></strong> <span class="alert">no tiene límite</span> en el punto <strong><span class="math inline">\(c\)</span></strong>.</p>
 </div>
-<div class="bg" style="padding:0em; margin-top:-0.9em; font-size:0.75em;">
+<div class="bg" style="padding:0em; margin-top:0em; font-size:0.75em;">
 <div class="r-stack">
 <div class="fragment" data-fragment-index="1">
 <div class="center">
@@ -272,6 +376,1042 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 </div>
 </div>
+</section>
+<section id="taller-experimental-python" class="slide level2">
+<h2>Taller experimental python</h2>
+<ul>
+<li>Using Python: derivatives and applications</li>
+</ul>
+</section>
+<section id="límites-fáciles-por-sustitución-o-factorización" class="slide level2">
+<h2>Límites “fáciles” por sustitución o factorización</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p><span style="color:#107895; font-size:1.15em; font-weight:500;">En esta presentación, aprenderás</span></p>
+<ul>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">Cómo encontrar los límites de problemas <strong>“fáciles”</strong>.</span></p></li>
+<li><p><span class="fragment" style="color:#B8860B; font-size:1.05em;">Cómo factorizar polinomios para encontrar límites de funciones racionales.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="conéctalo" class="slide level2 title-line">
+<h2>Conéctalo</h2>
+<div class="r-stack" style="font-size: 3em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{2}} \left( \color{teal}{x}^2 + 3\color{teal}{x} - 10 \right) =\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{2}} \left( \color{teal}{x}^2 + 3\color{teal}{x} - 10 \right) = \color{blue}{0}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1.5em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="límites-por-factorización" class="slide level2 title-line">
+<h2>Límites por factorización</h2>
+<div class="r-stack" style="width: 100%;">
+<div class="fragment fade-out" data-fragment-index="3" style="font-size: 1.8em; width: 100%; text-align: left;">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{\color{teal}{x}^2 + 3\color{teal}{x} - 10}{\color{teal}{x} - 2}\]</span></p>
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[= \lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{(\color{teal}{x}+5)(\color{teal}{x}-2)}{\color{teal}{x}-2}\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[= \lim_{\color{teal}{x} \to \color{maroon}{2}} (\color{teal}{x}+5) = \color{blue}{7}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="width: 100%;">
+<div class="columns">
+<div class="column" style="font-size: 2em;">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{\color{teal}{x}^2 + 3\color{teal}{x} - 10}{\color{teal}{x} - 2}\]</span> <span class="math display">\[= \lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{(\color{teal}{x}+5)(\color{teal}{x}-2)}{\color{teal}{x}-2}\]</span> <span class="math display">\[= \lim_{\color{teal}{x} \to \color{maroon}{2}} (\color{teal}{x}+5) = \color{blue}{7}\]</span></p>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-4-3.png" class="quarto-figure quarto-figure-center" width="720"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</div>
+</section>
+<section id="cómo-encontrar-este-límite" class="slide level2 title-line">
+<h2>Cómo encontrar este Límite</h2>
+<div style="display:flex; align-items:center; justify-content:center; height:80%;">
+<div class="columns">
+<div class="column" style="font-size: 2em; text-align:center;">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{purple}{?}\]</span></p>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-5-5.png" class="quarto-figure quarto-figure-center" width="528"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="cómo-encontrar-este-límite-solución" class="slide level2 title-line">
+<h2>Cómo encontrar este Límite-solución</h2>
+<div style="display:flex; align-items:center; justify-content:center; height:80%;">
+<div class="columns">
+<div class="column" style="font-size: 2em; text-align:center;">
+<p><span class="math display">\[\lim_{\color{maroon}{x} \to \color{maroon}{2}^-} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{-1}\]</span></p>
+<p><span class="math display">\[\lim_{\color{maroon}{x} \to \color{maroon}{2}^+} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{+1}\]</span></p>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-6-7.png" class="quarto-figure quarto-figure-center" width="528"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="límites-laterales-e-infinitos" class="slide level2">
+<h2>Límites laterales e infinitos</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>En esta presentación, aprenderás</p>
+<ul>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">La diferencia entre límites laterales (unilaterales) y bilaterales.</span></p></li>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">Cómo describir límites al infinito.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="cómo-encontrar-este-límite-1" class="slide level2 title-line">
+<h2>Cómo encontrar este Límite</h2>
+<div style="display:flex; align-items:center; justify-content:center; height:80%;">
+<div class="columns">
+<div class="column" style="font-size: 2em; text-align:center;">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{purple}{?}\]</span></p>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-7-9.png" class="quarto-figure quarto-figure-center" width="528"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="cómo-encontrar-este-límite-solución-1" class="slide level2 title-line">
+<h2>Cómo encontrar este Límite-solución</h2>
+<div style="display:flex; align-items:center; justify-content:center; height:80%;">
+<div class="columns">
+<div class="column" style="font-size: 2em; text-align:center;">
+<p><span class="math display">\[\lim_{\color{maroon}{x} \to \color{maroon}{2}^-} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{-1}\]</span></p>
+<p><span class="math display">\[\lim_{\color{maroon}{x} \to \color{maroon}{2}^+} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{+1}\]</span></p>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-8-11.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="dos-límites-unilaterales" class="slide level2 title-line">
+<h2>Dos límites unilaterales</h2>
+<div style="display:flex; align-items:center; justify-content:center; height:80%;">
+<div class="columns">
+<div class="column" style="font-size: 1.6em;">
+<p><span class="math display">\[\color{teal}{H}(\color{teal}{x}) = \begin{cases} 1, &amp; \color{teal}{x} &gt; 0 \\ 0, &amp; \color{teal}{x} \leq 0 \end{cases}\]</span></p>
+<div class="fragment" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{0}^-} \color{teal}{H}(\color{teal}{x}) = \color{blue}{0}\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="2">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{0}^+} \color{teal}{H}(\color{teal}{x}) = \color{blue}{+1}\]</span></p>
+</div>
+<div class="fragment" data-fragment-index="3">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{0}} \color{teal}{H}(\color{teal}{x}) = \color{teal}{\textit{d.n.e.}}\]</span></p>
+</div>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-9-13.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="límtes-unilaterales-al-infinito" class="slide level2 title-line">
+<h2>Límtes unilaterales al infinito</h2>
+<div class="r-stack" style="width:100%;">
+<div class="fragment fade-out" data-fragment-index="1" style="text-align:center;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-10-15.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="width:100%;">
+<div class="columns">
+<div class="column" style="font-size:1.35em;">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}^-} \color{teal}{f}(\color{teal}{x}) = \color{blue}{\infty}\]</span> <span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}^+} \color{teal}{f}(\color{teal}{x}) = \color{blue}{\infty}\]</span> <span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}} \color{teal}{f}(\color{teal}{x}) = \color{blue}{\infty}\]</span></p>
+</div><div class="column" style="width:28%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-11-17.png" class="quarto-figure quarto-figure-center" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:28%;">
+<div class="fragment" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-12-19.png" class="quarto-figure quarto-figure-center" width="336"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="font-size:1.35em;">
+<div class="fragment" data-fragment-index="3">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}^-} \color{teal}{f}(\color{teal}{x}) = \color{blue}{-\infty}\]</span> <span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}^+} \color{teal}{f}(\color{teal}{x}) = \color{blue}{+\infty}\]</span> <span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}} \color{teal}{f}(\color{teal}{x}) = \color{teal}{\textit{n.e.}}\]</span></p>
+</div>
+</div></div>
+</div>
+</div>
+</section>
+<section id="section-17" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0082_00-03-28.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-18" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0098_00-04-09.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-19" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0111_00-04-36.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-20" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0114_00-04-43.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-21" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0124_00-05-03.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-22" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0131_00-05-18.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-23" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0140_00-05-42.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-24" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0151_00-06-12.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-25" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0157_00-06-27.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-26" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/5-One-sided%20limits%20and%20infinities_DUBBED_ES/slide_0166_00-06-47.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="continuidad-y-discontinuidades-revisadas" class="slide level2">
+<h2>Continuidad y discontinuidades, revisadas</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>En este presentación, aprenderás</p>
+<ul>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">La definición —y la prueba formal— de continuidad.</span></p></li>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">Definiciones basadas en límites de diferentes tipos de discontinuidades.</span></p></li>
+<li><p><span class="fragment" style="color:#107895; font-size:1.05em;">Un recordatorio de que las funciones pueden ser continuas y discontinuas en diferentes subdominios.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="definición-de-continuidad" class="slide level2 title-line">
+<h2>Definición de continuidad</h2>
+<div class="columns" style="align-items:flex-start; margin-top:0.8em;">
+<div style="font-size:1.3em; line-height:2.2em;">
+<p>Una función <span class="math inline">\(f(\color{teal}{x})\)</span> es continua en <span class="math inline">\(\color{teal}{x}=\color{maroon}{a}\)</span> si se cumplen las siguientes <strong>tres condiciones</strong>;</p>
+<p>de lo contrario, la función es <strong>discontinua</strong> en el punto <span class="math inline">\(\color{maroon}{a}\)</span>.</p>
+</div><div class="column" style="font-size:1.2em;">
+<div style="font-size:1.3em; line-height:2.2em;">
+<p><strong>1.</strong> <span class="math inline">\(\;f(\color{maroon}{a})\)</span> está definida.</p>
+<p><strong>2.</strong> <span class="math inline">\(\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x})\)</span> existe.</p>
+<p><strong>3.</strong> <span class="math inline">\(\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = f(\color{maroon}{a})\)</span>.</p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="r-stack" style="width:100%; text-align:center;">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-13-21.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-14-23.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-15-25.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="section-27" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/10-Continuity%20and%20discontinuities-revisited_DUBBED_ES/slide_0122_00-05-04.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-28" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/10-Continuity%20and%20discontinuities-revisited_DUBBED_ES/slide_0141_00-05-41.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-29" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/10-Continuity%20and%20discontinuities-revisited_DUBBED_ES/slide_0142_00-05-45.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-30" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/10-Continuity%20and%20discontinuities-revisited_DUBBED_ES/slide_0152_00-06-06.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="dos-límites-trigonométricos-fundamentales" class="slide level2">
+<h2>Dos Límites Trigonométricos Fundamentales</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<h3 id="objetivos-de-aprendizaje">Objetivos de aprendizaje</h3>
+<p>En esta sesión exploraremos:</p>
+<ul>
+<li><strong>Fundamentos:</strong> Dos límites trigonométricos críticos para la derivación.</li>
+<li><strong>Intuición:</strong> El papel de la <strong>representación gráfica</strong> como herramienta de verificación y memoria.</li>
+</ul>
+</div><div class="column" style="width:40%;">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>¿Por qué importa?</strong></p>
+</div>
+<div class="callout-content">
+<p>“Una imagen vale más que mil fórmulas cuando la memoria falla”.</p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="dos-límites-trigonométricos-importantes" class="slide level2 title-line">
+<h2>Dos límites trigonométricos importantes</h2>
+<div style="display:flex; align-items:center; justify-content:center; height:80%;">
+<div class="columns">
+<div class="column" style="font-size: 1.7em; text-align:center;">
+<div class="r-stack" style="width:100%; text-align:center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}}\right)\]</span></p>
+<p><span class="math inline">\(\\[1.5em]\)</span> <span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}}\right)\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}}\right) = \color{blue}{0}\]</span> <span class="math inline">\(\\[1.5em]\)</span> <span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}}\right) = \color{blue}{1}\]</span></p>
+</div>
+</div>
+</div><div class="column" style="font-size: 2em; text-align:center;">
+<div class="fragment fade-in" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-16-27.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-17-29.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</div>
+</section>
+<section id="límites-trigonométricos-importantes" class="slide level2 title-line">
+<h2>límites trigonométricos importantes</h2>
+<div style="display:flex; flex-direction:column; justify-content:space-evenly; height:88%;">
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-18-31.png" class="quarto-figure quarto-figure-center" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-19-33.png" class="quarto-figure quarto-figure-center" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="vizualización-fracsinphiphi" class="slide level2 title-line">
+<h2>Vizualización <span class="math inline">\(\frac{\sin(\phi)}{\phi}\)</span></h2>
+<div class="columns">
+<div class="column" style="text-align:center;">
+<div class="r-stack" style="font-size: 3em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-20-35.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-21-37.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="font-size:0.65em; text-align:left;">
+<div class="fragment fade-in" data-fragment-index="2" style="margin-bottom:0.8em;">
+<p><strong>Desigualdad geométrica:</strong> <span class="math display">\[\sin(\color{teal}{\phi}) &lt; \color{teal}{\phi} &lt; \tan(\color{teal}{\phi})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-bottom:0.8em;">
+<p>Dividiendo por <span class="math inline">\(\sin(\color{teal}{\phi}) &gt; 0\)</span>: <span class="math display">\[1 &lt; \frac{\color{teal}{\phi}}{\sin(\color{teal}{\phi})} &lt; \frac{1}{\cos(\color{teal}{\phi})}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-bottom:0.8em;">
+<p>Invirtiendo: <span class="math display">\[\cos(\color{teal}{\phi}) &lt; \frac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}} &lt; 1\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<p>Cuando <span class="math inline">\(\color{teal}{\phi} \to \color{maroon}{0}\)</span>, <span class="math inline">\(\cos(\color{teal}{\phi}) \to 1\)</span>, por el <strong>Teorema del Emparedado</strong>: <span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}} = \color{blue}{1}\]</span></p>
+</div>
+</div></div>
+</section>
+<section id="otro-límite-trigonométrico-importante" class="slide level2 title-line">
+<h2>Otro Límite trigonométrico importante</h2>
+<div class="columns">
+<div class="column" style="text-align:center;">
+<div class="r-stack" style="font-size: 3em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-22-39.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-23-41.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="font-size:0.65em; text-align:left;">
+<div class="fragment fade-in" data-fragment-index="2" style="margin-bottom:0.6em;">
+<p><strong>Paso 1:</strong> Identidad del ángulo medio <span class="math display">\[\cos(\color{teal}{\phi}) - 1 = -2\sin^2\!\left(\frac{\color{teal}{\phi}}{2}\right)\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-bottom:0.6em;">
+<p><strong>Paso 2:</strong> Reescribimos el límite <span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{-2\sin^2(\frac{\color{teal}{\phi}}{2})}{\color{teal}{\phi}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-bottom:0.6em;">
+<p><strong>Paso 3:</strong> Multiplicamos y dividimos por <span class="math inline">\(\frac{\color{teal}{\phi}}{2}\)</span> <span class="math display">\[= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left[ -\sin\!\left(\frac{\color{teal}{\phi}}{2}\right) \cdot \frac{\sin(\frac{\color{teal}{\phi}}{2})}{\frac{\color{teal}{\phi}}{2}} \right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="margin-bottom:0.6em;">
+<p><strong>Paso 4:</strong> Aplicamos el límite conocido <span class="math inline">\(\displaystyle\lim_{u\to 0}\frac{\sin u}{u}=1\)</span> <span class="math display">\[= \left(\lim_{\color{teal}{\phi} \to \color{maroon}{0}} -\sin\!\left(\frac{\color{teal}{\phi}}{2}\right)\right) \cdot \color{blue}{1}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6">
+<p><strong>Resultado final:</strong> <span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}} = \color{blue}{0}\]</span></p>
+</div>
+</div></div>
+</section>
+<section id="desarrollo-de-la-demostración" class="slide level2 title-line">
+<h2>Desarrollo de la demostración</h2>
+<div class="columns">
+<div class="column" style="text-align:center;">
+<div class="r-stack" style="font-size: 3em; width: 100%; text-align: center;">
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-24-43.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="font-size:0.65em; text-align:left;">
+<div class="fragment fade-in" data-fragment-index="2" style="margin-bottom:0.6em;">
+<p><strong>Paso 1:</strong> Multiplicar por el conjugado: <span class="math inline">\(\displaystyle\frac{\cos(\phi)+1}{\cos(\phi)+1}\)</span> <span class="math display">\[\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}} \cdot \frac{\cos(\color{teal}{\phi})+1}{\cos(\color{teal}{\phi})+1}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-bottom:0.6em;">
+<p><span class="math display">\[= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos^2(\color{teal}{\phi})-1}{\color{teal}{\phi}\,(\cos(\color{teal}{\phi})+1)}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-bottom:0.6em;">
+<p><strong>Paso 2:</strong> Usamos la identidad <span class="math inline">\(\cos^2(\phi)-1 = -\sin^2(\phi)\)</span> <span class="math display">\[= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{-\sin^2(\color{teal}{\phi})}{\color{teal}{\phi}\,(\cos(\color{teal}{\phi})+1)}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="margin-bottom:0.6em;">
+<p><span class="math display">\[= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left[ \frac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}} \cdot \frac{-\sin(\color{teal}{\phi})}{\cos(\color{teal}{\phi})+1} \right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="margin-bottom:0.6em;">
+<p><strong>Paso 3:</strong> Aplicamos el límite conocido <span class="math inline">\(\displaystyle\lim_{u\to 0}\frac{\sin u}{u}=1\)</span> <span class="math display">\[= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left[ \color{blue}{1} \cdot \frac{-\sin(\color{teal}{\phi})}{\cos(\color{teal}{\phi})+1} \right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="7">
+<p><span class="math display">\[= \frac{-\sin(\color{maroon}{0})}{\cos(\color{maroon}{0})+1} = \frac{0}{1+1} = \color{blue}{0}\]</span> <span class="math display">\[\therefore \quad \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}} = \color{blue}{0}\]</span></p>
+</div>
+</div></div>
+</section>
+<section id="teorema-del-emparedado-squeeze-theorem" class="slide level2">
+<h2>Teorema del emparedado (Squeeze theorem)</h2>
+<p>En este presentación, aprenderás:</p>
+<ul>
+<li><p>Los conceptos geométricos y algebraicos del teorema del emparedado (también conocido como teorema de la compresión o del sándwich).</p></li>
+<li><p>Varios ejemplos sencillos del teorema del emparedado.</p></li>
+<li><p>Cuándo no es útil el teorema del emparedado.</p></li>
+<li><p>El propósito del teorema del emparedado en el cálculo.</p></li>
+</ul>
+</section>
+<section id="section-31" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0005_00-00-39.jpg" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-32" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0006_00-01-06.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-33" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0009_00-02-11.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-34" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0010_00-02-13.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-35" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0011_00-02-37.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-36" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0014_00-03-06.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-37" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0017_00-03-54.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-38" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0018_00-04-33.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-39" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0021_00-05-33.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-40" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0022_00-05-40.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-41" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0024_00-05-57.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-42" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0027_00-06-39.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-43" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0034_00-07-30.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-44" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0035_00-07-37.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-45" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0038_00-07-55.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-46" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0041_00-08-37.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-47" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0042_00-08-45.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-48" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0044_00-08-59.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-49" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0046_00-09-25.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-50" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0047_00-10-08.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-51" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/15-Squeeze_theorem_DUBBED_ES/slide_0050_00-10-31.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="por-qué-usar-el-teorema-del-emparedado" class="slide level2 title-line">
+<h2>¿Por qué usar el teorema del emparedado?</h2>
+<ul>
+<li><p>Deducir el límite de una función que, de otro modo, sería imposible de calcular (por ejemplo, funciones trigonométricas).</p></li>
+<li><p>Hallar la derivada de una función en un punto que, de otra manera, sería imposible de obtener.</p></li>
+</ul>
+</section>
+<section id="posibilidades-de-límites-finitos" class="slide level2">
+<h2>Posibilidades de límites finitos</h2>
+<p>En este presentación , aprenderás:</p>
+<ul>
+<li><p>Las posibilidades de los comportamientos de los límites.</p></li>
+<li><p>Cómo interpretar los resultados de los límites.</p></li>
+</ul>
+</section>
+<section id="posibles-límites" class="slide level2 title-line">
+<h2>Posibles límites</h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 1: “Easy”</strong> — Sustitución directa</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \color{blue}{c}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-25-45.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-52" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 2: Nonzero over zero</strong> — Asíntota vertical</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \frac{c}{0} \quad \Rightarrow \quad \pm\infty\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-26-47.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-53" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 3: Indeterminate</strong> — Forma <span class="math inline">\(\frac{0}{0}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{0}} \frac{\sin(\color{teal}{x})}{\color{teal}{x}} = \color{blue}{1}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-27-49.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-54" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 4: Infinite over finite</strong> — Crecimiento sin límite</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{\infty}{c} \quad \Rightarrow \quad \pm\infty\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-28-51.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-55" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 5: Finite over infinite</strong> — Tiende a cero</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\cos(\color{teal}{x})}{\color{teal}{x}} = \color{blue}{0}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-29-53.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-56" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 6: Infinite over infinite</strong> — Regla de L’Hôpital</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{e^{\color{teal}{x}}}{\color{teal}{x}^3} = \color{blue}{\infty}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-30-55.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="section-57" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="#ffffff">
+<h2 data-id="quarto-animate-title"></h2>
+<div class="r-stack" style="font-size: 2em; width: 100%; text-align: center;">
+<div class="fragment fade-out" data-fragment-index="1">
+<p><strong>Caso 7: Finite over finite</strong> — Carrera balanceada</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\color{teal}{x}^2}{2\color{teal}{x}^2} = \color{blue}{\frac{1}{2}}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-up" data-fragment-index="2" style="margin-top:-1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-31-57.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="tabla-de-posibilidades-de-límites" class="slide level2">
+<h2>Tabla de posibilidades de límites</h2>
+<div style="font-size: 0.9em; text-align: center; padding: 0.5em;">
+<div style="border-bottom: 1px solid #333; padding-bottom: 0.3em; margin-bottom: 0.8em;">
+<p><span style="font-size: 1.3em; color: #666;">Limits possibilities</span></p>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1.5fr 1.2fr 1.5fr; gap: 0.5em; text-align: left;">
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Label</p>
+</div>
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Case</p>
+</div>
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Outcomes</p>
+</div>
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Example</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B; padding: 0.3em 0;">
+<p>“Easy”</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \color{maroon}{c}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B; padding: 0.3em 0;">
+<p><span class="math inline">\(c\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{\color{teal}{x}+3}{\color{teal}{x}-1} = \frac{5}{1}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #B8860B; padding: 0.3em 0;">
+<p>Nonzero over zero</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \frac{c}{0}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #8B0000; padding: 0.3em 0;">
+<p><span class="math inline">\(-\infty, \infty,\)</span> undefined</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{2^+}} \frac{\color{teal}{x}+2}{\color{teal}{x}-2} = \infty\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: #B8860B; padding: 0.3em 0;">
+<p>Indeterminate</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \frac{0}{0}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: #8B0000; padding: 0.3em 0;">
+<p>Try algebra or L’Hopital’s rule</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{0}} \frac{\sin(\color{teal}{x})}{\color{teal}{x}} = 1\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="tabla-de-posibilidades-de-límites-continuación" class="slide level2">
+<h2>Tabla de posibilidades de límites (continuación)</h2>
+<div style="font-size: 0.9em; text-align: center; padding: 0.5em;">
+<div style="border-bottom: 1px solid #333; padding-bottom: 0.3em; margin-bottom: 0.8em;">
+<p><span style="font-size: 1.3em; color: #666;">Limits possibilities</span></p>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1.5fr 1.2fr 1.5fr; gap: 0.5em; text-align: left;">
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Label</p>
+</div>
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Case</p>
+</div>
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Outcomes</p>
+</div>
+<div style="font-weight: bold; color: #1a237e; font-size: 1.1em;">
+<p>Example</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B; padding: 0.3em 0;">
+<p>Infinite over finite</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{\infty}{\color{maroon}{c}}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color: #8B0000; padding: 0.3em 0;">
+<p><span class="math inline">\(-\infty, \infty,\)</span> undefined</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\sqrt{\color{teal}{x}}}{2} = \infty\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #B8860B; padding: 0.3em 0;">
+<p>Finite over infinite</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{c}{\infty}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #8B0000; padding: 0.3em 0;">
+<p><span class="math inline">\(0\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\cos(\color{teal}{x})}{\color{teal}{x}} = 0\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: #B8860B; padding: 0.3em 0;">
+<p>Infinite over infinite</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{\infty}{\infty}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: #8B0000; padding: 0.3em 0;">
+<p>Try algebra or L’Hopital’s rule</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{e^{\color{teal}{x}}}{\color{teal}{x}^3} = 0\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="color: #B8860B; padding: 0.3em 0;">
+<p>Finite over finite</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{c}{d}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="color: #8B0000; padding: 0.3em 0;">
+<p>Balanced race to infinity</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="padding: 0.3em 0;">
+<p><span class="math inline">\(\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\color{teal}{x}^2}{2\color{teal}{x}^2} = \frac{1}{2}\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="límite-de-una-función" class="slide level2">
+<h2>Límite de una función</h2>
+<p>El límite se enfoca en el <strong>comportamiento</strong> de la función en las <strong>proximidades</strong> de un <span class="alert">punto</span>, no necesariamente en el valor exacto de la <span class="alert">función en ese punto</span>.</p>
+<ul>
+<li><strong>Concepto:</strong> Imagina que te acercas a un punto en el eje <span class="math inline">\(x\)</span> desde la izquierda y la derecha. El límite es el valor al que la función (<span class="math inline">\(y\)</span>) se va acercando.</li>
+<li><strong>Existencia:</strong> Un límite puede <span class="alert">existir</span> incluso si la <span class="alert">función no está definida</span> en el punto en cuestión. Por ejemplo, en una función con un agujero. .</li>
+<li><strong>Notación:</strong> <span class="math inline">\(\displaystyle\lim_{x \to a} f(x) = L\)</span></li>
+</ul>
 </section>
 <section id="el-problema-del-límite-y-su-naturaleza" class="slide level2">
 <h2>El Problema del Límite y su Naturaleza</h2>
@@ -1623,7 +2763,7 @@ Toda raíz de índice par de un número <span class="math inline">\(&lt; 0\)</sp
 </ul>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-58" class="slide level2">
 <h2></h2>
 <div style="text-align: center; color: yellow; background-color: #2980b9; padding: 4px; border-radius: 5px; font-size: 1.2em; font-weight: bold;">
 <p>CONTINUIDAD EN UN INTERVALO</p>
@@ -1668,7 +2808,7 @@ Sea <span class="math inline">\(f: \mathfrak{R} \to \mathfrak{R}\)</span> tal qu
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
 </figure>
 </div>
 </div>
@@ -2107,7 +3247,7 @@ f(c) - \frac{f(c)}{2} &lt; f(x) &lt; f(c) + \frac{f(c)}{2} \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+<p><img data-src="S2_Limites_Continuidad_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
 </figure>
 </div>
 </div>
@@ -2232,7 +3372,7 @@ f(-1.5) \cdot f(-1.375)&lt;0 \\
 <p>Sea <span class="math inline">\(f:[a,b] \rightarrow \mathbb{R}\)</span> continua y sean <span class="math inline">\(x_1,x_2 \in [a,b]\)</span> tales que <span class="math inline">\(x_1 &lt; x_2\)</span> y <span class="math inline">\(f(x_1)\neq f(x_2)\)</span>, entonces <span class="math inline">\(f\)</span> toma todos los valores comprendidos entre <span class="math inline">\(f(x_1)\)</span> y <span class="math inline">\(f(x_2)\)</span>.</p>
 
 <img data-src="Images/func-02.png" style="width:80.0%" class="r-stretch"></section>
-<section id="section-1" class="slide level2">
+<section id="section-59" class="slide level2">
 <h2></h2>
 <div class="dem">
 <p><strong>Demostración</strong>.</p>
@@ -2277,7 +3417,7 @@ f(-1.5) \cdot f(-1.375)&lt;0 \\
 <p>Por el principio de los intervalos anidados, existe <span class="math inline">\(c\)</span> tal que <span class="math inline">\(\lim_{n \rightarrow \infty} a_n = c = \lim_{n \rightarrow \infty} b_n\)</span>. Dado que <span class="math inline">\(a_n \leq x_n \leq b_n\)</span>, tendremos que <span class="math inline">\(\lim_{n \rightarrow \infty} x_n = c\)</span> como, por otra parte <span class="math inline">\(f(x_n) &gt; n\)</span>, resulta que <span class="math inline">\(f(x_n)  \rightarrow \infty\)</span>, lo que contradice que <span class="math inline">\(f\)</span> sea continua, puesto que debería ser <span class="math inline">\(f(x_n) \rightarrow f(c)\)</span>.</p>
 </div>
 </section>
-<section id="section-2" class="slide level2">
+<section id="section-60" class="slide level2">
 <h2></h2>
 <div style="text-align: center; color: black; background-color: yellow; padding: 10px; border-radius: 5px; font-size: 1em; font-weight: bold;">
 <p>TEOREMA DE WEIERSTRASS</p>
@@ -2314,7 +3454,7 @@ Se introduce la palabra <span style="color: red; font-weight: bold;">absoluto (g
 </p>
 </div>
 </section>
-<section id="section-3" class="slide level2">
+<section id="section-61" class="slide level2">
 <h2></h2>
 </section>
 <section id="teorema-del-extremo" class="slide level2">

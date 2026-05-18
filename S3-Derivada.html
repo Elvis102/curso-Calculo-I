@@ -1,0 +1,2793 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<script src="S3-Derivada_files/libs/clipboard/clipboard.min.js"></script>
+<script src="S3-Derivada_files/libs/quarto-html/tabby.min.js"></script>
+<script src="S3-Derivada_files/libs/quarto-html/popper.min.js"></script>
+<script src="S3-Derivada_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="S3-Derivada_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="S3-Derivada_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="S3-Derivada_files/libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.40">
+
+  <meta name="author" content="Elvis M. Sánchez Rogel">
+  <meta name="dcterms.date" content="2026-05-06">
+  <title>Cálculo I</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="S3-Derivada_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="S3-Derivada_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="S3-Derivada_files/libs/revealjs/dist/theme/quarto-dbdb0093d72ad1264ed4bdfdcb5adeef.css">
+  <link href="S3-Derivada_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="S3-Derivada_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="S3-Derivada_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="S3-Derivada_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="S3-Derivada_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="S3-Derivada_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Cálculo I</h1>
+  <p class="subtitle">La Derivada</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a>
+</div>
+<div class="quarto-title-author-email">
+<a href="mailto:emsanchez@utmachala.edu.ec">emsanchez@utmachala.edu.ec</a>
+</div>
+        <p class="quarto-title-affiliation">
+            Universidad Técnica de Machala
+          </p>
+    </div>
+</div>
+
+  <p class="date">2026-05-06</p>
+</section>
+<section>
+<section id="derivada" class="title-slide slide level1 my-slide center">
+<h1>Derivada</h1>
+
+</section>
+<section id="diferenciación-resumen-de-la-sección-y-objetivos" class="slide level2 bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<h2>Diferenciación: Resumen de la sección y objetivos</h2>
+<p>En esta presentación, aprenderás:</p>
+<ul>
+<li><p>El concepto y definición de una “derivada” en cálculo.</p></li>
+<li><p>Terminología y notación de las derivadas.</p></li>
+<li><p>Derivadas de la mayoría de las funciones.</p></li>
+<li><p>Puntos críticos.</p></li>
+</ul>
+</section>
+<section id="section" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="rgb(255, 255, 255)">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/1-Section-summary-and-goals_DUBBED_ES/slide_0004_00-00-16.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="términos-y-condiciones" class="slide level2 title-line">
+<h2>Términos y Condiciones</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.8fr; column-gap: 1.5em; row-gap: 3em; align-content: center; align-items: center; height: 75vh; padding: 0 2em;">
+<p><span style="color: #b8860b; font-size: 1.8em; font-weight: bold; text-align: right;"><strong>Derivada:</strong></span></p>
+<p><span style="color: #c0392b; font-size: 1.8em;">La secuencia de pendientes instantáneas.</span></p>
+<p><span style="color: #c0392b; font-size: 1.8em; font-weight: bold; text-align: right;"><strong>Diferenciación:</strong></span></p>
+<p><span style="color: #c0392b; font-size: 1.8em;">El proceso de encontrar la derivada.</span></p>
+</div>
+</section>
+<section id="pendiente-de-una-recta" class="slide level2 title-line">
+<h2>Pendiente de una recta</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>En esta presentación, aprenderás:</p>
+<ul>
+<li><p>El concepto y la definición de una pendiente.</p></li>
+<li><p>Por qué LA pendiente no es útil para muchas funciones.</p></li>
+<li><p>El papel de los límites en el cálculo de la derivada.</p></li>
+</ul>
+</div>
+</section>
+<section id="pendiente" class="slide level2 title-line">
+<h2>Pendiente</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.3fr; flex: 1; min-height: 0; gap: 0.5em; padding: 0 0.5em; align-items: start; font-size: 1em;">
+<div>
+<div class="r-stack">
+<!-- Graph A: línea limpia (estado base) -->
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="604"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- Graph B: con etiquetas p₁, p₂ y líneas punteadas doradas (frag 2) -->
+<div class="fragment fade-in" data-fragment-index="2" style="background: white;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-3-3.png" class="quarto-figure quarto-figure-center" width="604"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.3em; padding-top: 1.2em; align-items: start; font-size: 1.4em;">
+<div style="display: flex; flex-direction: column; gap: 0.4em;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f({\color{teal} x}) = {\color{red} m}{\color{teal} x} + {\color{blue} b}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod} y_2}-{\color{goldenrod} y_1}}{{\color{teal} x_2}-{\color{teal} x_1}}\]</span> <span class="math display">\[= \frac{{\color{goldenrod} \Delta y}}{{\color{teal} \Delta x}}\]</span></p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.4em;">
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod} 6}-{\color{goldenrod} 1}}{{\color{teal} 3}-({\color{teal} -1})}\]</span> <span class="math display">\[= \frac{{\color{goldenrod} 5}}{{\color{teal} 4}}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="display: grid; grid-template-columns: 1fr 1.3fr; flex: 1; min-height: 0; gap: 0.5em; padding: 0 0.5em; align-items: start; font-size: 0.85em;">
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-4-5.png" class="quarto-figure quarto-figure-center" width="604"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.5em; padding-top: 1.2em; font-size: 1.7em;">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod} 6}-{\color{goldenrod} 1}}{{\color{teal} 3}-({\color{teal} -1})} = \frac{{\color{goldenrod} 5}}{{\color{teal} 4}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[{\color{red} m_1} = \frac{{\color{goldenrod} 2}-{\color{goldenrod} 1}}{{\color{teal} 1}-({\color{teal} -1})} = \frac{{\color{goldenrod} 1}}{{\color{teal} 2}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[{\color{red} m_2} = \frac{{\color{goldenrod} 6}-{\color{goldenrod} 2}}{{\color{teal} 3}-{\color{teal} 1}} = \frac{{\color{goldenrod} 4}}{{\color{teal} 2}}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="section-1" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="rgb(255, 255, 255)">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Slope%20of%20a%20line_DUBBED_ES/slide_0032_00-05-46.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-2" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="rgb(255, 255, 255)">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Slope%20of%20a%20line_DUBBED_ES/slide_0036_00-06-10.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="section-3" class="slide level2 white-canvas" data-auto-animate="true" data-background-color="rgb(255, 255, 255)">
+<h2 data-id="quarto-animate-title"></h2>
+<div style="text-align:center; margin:0; padding:0;">
+<p><img data-src="imgs/2-Slope%20of%20a%20line_DUBBED_ES/slide_0039_00-06-27.jpg" id="slide-img" style="width:100.0%"></p>
+</div>
+</section>
+<section id="conclusiones" class="slide level2 title-line">
+<h2>Conclusiones</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 5em; gap: 1.8em;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span style="color: #b8860b; font-size: 1.5em;">La pendiente es ideal para una línea recta.</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span style="color: #8B1A1A; font-size: 1.5em;">La pendiente para una línea curva o definida por partes es informativa pero imprecisa..</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span style="color: #107895; font-size: 1.5em;"><strong>Calcular pendientes de secciones (segmentos).</strong></span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span style="color: #107895; font-size: 1.5em;">La derivada es la “serie de pendientes” a medida que el ancho del segmento <span class="math inline">\(\to 0\)</span></span></p>
+</div>
+</div>
+</section>
+<section id="desde-la-pendiente-a-derivada" class="slide level2 title-line">
+<h2>Desde la pendiente a derivada</h2>
+<div style="display: grid; grid-template-columns: 9em 1fr; align-items: center; align-content: center; flex: 1; min-height: 0; padding: 0 1em; row-gap: 0.1em; font-size: 0.85em;">
+<div class="fragment fade-in" data-fragment-index="5" style="color:#c0392b; font-style:italic; font-size:0.85em; line-height:1.4; text-align:right; padding-right:0.7em;">
+<p><strong>Pendiente</strong> cuando <span class="math inline">\(\color{blue}{\Delta} \color{blue}{x}\)</span> es grande.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.15em 0.7em; justify-self: start;">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod}{y_2}-\color{goldenrod}{y_1}}}{{\color{teal}{x_2}-\color{teal}{x_1}}} = \frac{\Delta{\color{goldenrod}{y}}}{{\color{blue}{\Delta}  \color{blue}{x}}}\]</span></p>
+</div>
+<div>
+
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="margin-left: 3em;">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod}{y_2}-\color{goldenrod}{y_1}}}{{\color{teal}{x_2}-\color{teal}{x_1}}} = \frac{\Delta{\color{goldenrod}{y}}}{{\color{blue}{\Delta}  \color{blue}{x}}}\]</span></p>
+</div>
+<div>
+
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 3em;">
+<p><span class="math display">\[= \frac{f({\color{teal} x} + {\color{blue} \Delta} {\color{blue} x}) - f({\color{teal} x})}{{\color{blue} \Delta} {\color{blue} x}}\]</span></p>
+</div>
+<div>
+
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 3em;">
+<p><span class="math display">\[= \frac{f({\color{teal} x}+{\color{blue} h}) - f({\color{teal} x})}{{\color{blue} h}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="color:#c0392b; font-style:italic; font-size:0.85em; line-height:1.4; text-align:right; padding-right:0.7em;margin-top: -2.5em;">
+<p><strong>Derivada</strong> cuando <span class="math inline">\(\color{blue}{\Delta} \color{blue}{x}\)</span> → 0, es infinitesimal.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-left: 3em;">
+<p><span class="math display">\[\frac{dy}{dx} = \lim_{{\color{blue} h} \to {\color{maroon}{0}}}\left[\frac{f({\color{teal} x}+{\color{blue} h})-f({\color{teal} x})}{{\color{blue} h}}\right] = {\color{blue}{\text{...}}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.15em 0.7em; justify-self: start;margin-top: -2.5em;">
+<p><span class="math display">\[\frac{dy}{dx} = \lim_{{\color{blue} h} \to {\color{maroon}{0}}}\left[\frac{f({\color{teal} x}+{\color{blue} h})-f({\color{teal} x})}{{\color{blue} h}}\right] = {\color{blue}{\text{...}}}\]</span></p>
+</div>
+</div>
+</section>
+<section id="ejemplo-de-cálculo-de-la-derivada-1a" class="slide level2 title-line">
+<h2>Ejemplo de cálculo de la derivada 1a</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.2fr; flex: 1; min-height: 0; gap: 0.5em; padding: 0 0.5em; align-items: start; font-size: 0.88em;">
+<!-- Columna izquierda: gráfico + función -->
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-5-7.png" width="604"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f({\color{teal} x}) = \frac{5}{4}{\color{teal} x} + \frac{9}{4}\]</span></p>
+</div>
+</div>
+<!-- Columna derecha: ecuaciones -->
+<div style="display: flex; flex-direction: column; justify-content: flex-start; gap: 0.4em; padding-top: 1em;">
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[{\color{red} m} = \lim_{{\color{teal} h} \to 1}\left[\frac{f({\color{teal} x}+{\color{teal} h})-f({\color{teal} x})}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[= \left[\frac{\left(\dfrac{5}{4}({\color{maroon} 0}+1)+\dfrac{9}{4}\right)-\left(\dfrac{5}{4}\cdot{\color{maroon} 0}+\dfrac{9}{4}\right)}{{\color{teal} 1}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math display">\[= \left(\frac{5}{4}+\frac{9}{4}\right)-\frac{9}{4}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<p><span class="math display">\[{\color{blue} = \frac{5}{4}}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-de-cálculo-de-la-derivada-1b" class="slide level2 title-line">
+<h2>Ejemplo de cálculo de la derivada 1b</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.3fr; flex: 1; min-height: 0; gap: 0.5em; padding: 0 0.5em; align-items: start; font-size: 0.82em;">
+<!-- Columna izquierda: gráfico + función (estado base) -->
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-6-9.png" width="604"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[f({\color{teal} x}) = \frac{5}{4}{\color{teal} x} + \frac{9}{4}\]</span></p>
+</div>
+<!-- Columna derecha: ecuaciones (base + fragmentos) -->
+<div style="display: flex; flex-direction: column; gap: 0.35em; padding-top: 0.5em;">
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}} = \lim_{{\color{teal} h} \to 0}\left[\frac{f({\color{teal} x}+{\color{teal} h})-f({\color{teal} x})}{{\color{teal} h}}\right]\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[= \lim_{{\color{teal} h} \to 0}\left[\frac{\left(\tfrac{5}{4}({\color{teal} x}+{\color{teal} h})+\tfrac{9}{4}\right)-\left(\tfrac{5}{4}{\color{teal} x}+\tfrac{9}{4}\right)}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[= \lim_{{\color{teal} h} \to 0}\left[\frac{\tfrac{5}{4}{\color{teal} x}+\tfrac{5}{4}{\color{teal} h}+\tfrac{9}{4}-\tfrac{5}{4}{\color{teal} x}-\tfrac{9}{4}}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[= \lim_{{\color{teal} h} \to 0}\left[\frac{\tfrac{5}{4}{\color{teal} h}}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math display">\[{\color{blue} = \frac{5}{4}}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-de-cálculo-de-la-derivada-2" class="slide level2 title-line">
+<h2>Ejemplo de cálculo de la derivada 2</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.3fr; flex: 1; min-height: 0; gap: 0.5em; padding: 0 0.5em; align-items: start; font-size: 0.82em;">
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-7-11.png" class="quarto-figure quarto-figure-center" width="556"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math display">\[f({\color{teal} x}) = {\color{teal} x}^2\]</span></p>
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}} = \lim_{{\color{teal} h} \to 0}\left[\frac{({\color{teal} x}+{\color{teal} h})^2 - {\color{teal} x}^2}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.35em; padding-top: 0.5em;font-size: 1.3em;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[= \lim_{{\color{teal} h} \to 0}\left[\frac{{\color{teal} x}^2 + 2{\color{teal} x}{\color{teal} h} + {\color{teal} h}^2 - {\color{teal} x}^2}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[= \lim_{{\color{teal} h} \to 0}\left[\frac{{\color{teal} h}(2{\color{teal} x} + {\color{teal} h})}{{\color{teal} h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[= \lim_{{\color{teal} h} \to 0}\left[2{\color{teal} x} + {\color{teal} h}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math display">\[{\frac{d{\color{goldenrod}{y}}}{{d\color{teal}{x}}} = 2{\color{teal}{x}}}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="graficando-la-derivada" class="slide level2 title-line">
+<h2>Graficando la derivada</h2>
+<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; flex: 1; min-height: 0; gap: 0.3em; padding: 0.2em 0.5em; font-size: 0.8em;">
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-8-13.png" class="quarto-figure quarto-figure-center" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-9-15.png" class="quarto-figure quarto-figure-center" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-10-17.png" class="quarto-figure quarto-figure-center" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-11-19.png" class="quarto-figure quarto-figure-center" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="recapitulando" class="slide level2 title-line">
+<h2>Recapitulando</h2>
+<div style="display: grid; grid-template-columns: 9em 1fr; align-items: center; align-content: center; flex: 1; min-height: 0; padding: 0 1em; row-gap: 0.1em; font-size: 0.85em;">
+<div class="fragment fade-in" data-fragment-index="5" style="color:#c0392b; font-style:italic; font-size:0.85em; line-height:1.4; text-align:right; padding-right:0.7em;">
+<p><strong>Pendiente</strong> cuando <span class="math inline">\(\color{blue}{\Delta} \color{blue}{x}\)</span> es grande.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.15em 0.7em; justify-self: start;">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod}{y_2}-\color{goldenrod}{y_1}}}{{\color{teal}{x_2}-\color{teal}{x_1}}} = \frac{\Delta{\color{goldenrod}{y}}}{{\color{blue}{\Delta}  \color{blue}{x}}}\]</span></p>
+</div>
+<div>
+
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="margin-left: 3em;">
+<p><span class="math display">\[{\color{red} m} = \frac{{\color{goldenrod}{y_2}-\color{goldenrod}{y_1}}}{{\color{teal}{x_2}-\color{teal}{x_1}}} = \frac{\Delta{\color{goldenrod}{y}}}{{\color{blue}{\Delta}  \color{blue}{x}}}\]</span></p>
+</div>
+<div>
+
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 3em;">
+<p><span class="math display">\[= \frac{f({\color{teal} x} + {\color{blue} \Delta} {\color{blue} x}) - f({\color{teal} x})}{{\color{blue} \Delta} {\color{blue} x}}\]</span></p>
+</div>
+<div>
+
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 3em;">
+<p><span class="math display">\[= \frac{f({\color{teal} x}+{\color{blue} h}) - f({\color{teal} x})}{{\color{blue} h}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="color:#c0392b; font-style:italic; font-size:0.85em; line-height:1.4; text-align:right; padding-right:0.7em;margin-top: -2.5em;">
+<p><strong>Derivada</strong> cuando <span class="math inline">\(\color{blue}{\Delta} \color{blue}{x}\)</span> → 0, es infinitesimal.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-left: 3em;">
+<p><span class="math display">\[\frac{dy}{dx} = \lim_{{\color{blue} h} \to {\color{maroon}{0}}}\left[\frac{f({\color{teal} x}+{\color{blue} h})-f({\color{teal} x})}{{\color{blue} h}}\right] = {\color{blue}{\text{...}}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.15em 0.7em; justify-self: start;margin-top: -2.5em;">
+<p><span class="math display">\[\frac{dy}{dx} = \lim_{{\color{blue} h} \to {\color{maroon}{0}}}\left[\frac{f({\color{teal} x}+{\color{blue} h})-f({\color{teal} x})}{{\color{blue} h}}\right] = {\color{blue}{\text{...}}}\]</span></p>
+</div>
+</div>
+</section>
+<section id="definición-formal-de-la-derivada" class="slide level2 title-line">
+<h2>Definición formal de la derivada</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 5em; gap: 1em; font-size: 1.3em;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span style="color: #b8860b; font-size: 1.2em;">La relación entre la pendiente y la derivada.</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span style="color: #8B1A1A; font-size: 1.2em; font-weight: bold; text-align: right;">La definición formal de una derivada (pista: ¡pendiente + límite!).</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span style="color: #107895; font-size: 1.2em;">La definición formal de una derivada (pista: ¡pendiente + límite!).</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span style="color:#107895; font-size: 1.2em; font-weight: bold; text-align: right;">Algunos ejemplos de cálculo de la derivada.</span></p>
+</div>
+</div>
+</section>
+<section id="la-derivada-de-una-constante-es-0-demostración" class="slide level2">
+<h2>La derivada de una constante es 0 (demostración)</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>En esta presentación</p>
+<ul>
+<li><p>Demostrarás lo que dice el título…</p></li>
+<li><p>Tendrás la oportunidad de ganar más experiencia con la definición de límite de las derivadas.</p></li>
+<li><p>Aprenderás cómo usar la definición de derivadas en demostraciones.</p></li>
+</ul>
+</div>
+</section>
+<section id="derivada-de-una-constante" class="slide level2 title-line">
+<h2>Derivada de una constante</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.8em; font-size: 1.3em;">
+<p><span class="math display">\[{\color{goldenrod} f}({\color{teal} x}) = {\color{red} c}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="width: 75%; height: 3px; background-color: #1a237e; border-radius: 2px;">
+
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[\frac{d}{d{\color{teal} x}}{\color{goldenrod} f}({\color{teal} x}) = 0\]</span></p>
+</div>
+</div>
+</section>
+<section id="proof-usando-la-definición-de-límite-de-la-derivada" class="slide level2 title-line">
+<h2>Proof usando la definición de límite de la derivada</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.5em; font-size: 1.3em;">
+<p><span class="math display">\[{\color{goldenrod} f}({\color{teal} x}) = {\color{red} c}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\frac{d{\color{goldenrod} f}}{d{\color{teal} x}} = \lim_{{\color{blue} h} \to 0} \frac{{\color{goldenrod} f}({\color{teal} x}+{\color{blue} h}) - {\color{goldenrod} f}({\color{teal} x})}{{\color{blue} h}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[= \lim_{{\color{blue} h} \to 0} \frac{{\color{red} c} - {\color{red} c}}{{\color{blue} h}} = 0\]</span></p>
+</div>
+</div>
+</section>
+<section id="la-derivada-de-una-constante-es-0-demostración-1" class="slide level2">
+<h2>La derivada de una constante es 0 (demostración)</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>En esta presentación, has:</p>
+<ul>
+<li><p>Demostrado lo que dice el título…</p></li>
+<li><p>Tenido la oportunidad de ganar más experiencia con la definición de límite de las derivadas.</p></li>
+<li><p>prendido cómo usar la definición de derivadas en demostraciones.</p></li>
+</ul>
+</div>
+</section>
+<section id="varias-notaciones-de-la-derivada" class="slide level2 title-line">
+<h2>Varias notaciones de la derivada</h2>
+<p>En esta presentación, aprenderás:</p>
+<ul>
+<li><p>Varias notaciones diferentes de diferenciación.</p></li>
+<li><p>Algunas ventajas y desventajas de cada notación.</p></li>
+<li><p>La interpretación geométrica de la derivada.</p></li>
+</ul>
+</section>
+<section id="diferentes-notaciones-de-la-derivada" class="slide level2 title-line">
+<h2>Diferentes notaciones de la derivada</h2>
+<div style="display: grid; grid-template-columns: 9em 1fr 1fr; flex: 1; min-height: 0; gap: 1em; padding: 0 1em; align-items: start; font-size: 1.2em;">
+<div style="display: flex; flex-direction: column; gap: 1.4em; padding-top: 0.8em; border-right: 2px solid #ccc; padding-right: 0.8em; font-size: 1.1em;">
+<p><span style="color: #b8860b; font-weight: bold;"><strong>Leibniz</strong></span> <span style="color: #555;">Lagrange</span> <span style="color: #555;">Newton</span> <span style="color: #555;">Euler</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="display: flex; flex-direction: column; gap: 0.5em; padding-top: 0.4em;">
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}} = \frac{d{\color{goldenrod} f}}{d{\color{teal} x}} = \frac{d}{d{\color{teal} x}}{\color{goldenrod} f}({\color{teal} x})\]</span></p>
+<p><span class="math display">\[\frac{d^2{\color{goldenrod} y}}{d{\color{teal} x}^2}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}} = \frac{d{\color{goldenrod} y}}{d{\color{teal} u}} \cdot \frac{d{\color{teal} u}}{d{\color{teal} x}}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding-top: 0.4em; font-size: 0.9em;">
+<p><strong><span style="color: #1a237e;">Ventajas:</span></strong></p>
+<ul>
+<li>Clara (inequívoca)</li>
+<li>Fácil para la regla de la cadena</li>
+</ul>
+<p><strong><span style="color: #107895;">Desventajas:</span></strong></p>
+<ul>
+<li>Ocupa más espacio</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="display: grid; grid-template-columns: 9em 1fr 1fr; flex: 1; min-height: 0; gap: 1em; padding: 0 1em; align-items: start; font-size: 1.2em;">
+<div style="display: flex; flex-direction: column; gap: 1.4em; padding-top: 0.8em; border-right: 2px solid #ccc; padding-right: 0.8em; font-size: 1.1em;">
+<p><span style="color: #555;">Leibniz</span> <span style="color: #b8860b; font-weight: bold;"><strong>Lagrange</strong></span> <span style="color: #555;">Newton</span> <span style="color: #555;">Euler</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="display: flex; flex-direction: column; gap: 0.5em; padding-top: 0.4em;">
+<p><span class="math display">\[{\color{goldenrod} f}'({\color{teal} x}) = {\color{goldenrod} f}' = {\color{goldenrod} f}_{\color{teal} x}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[{\color{goldenrod} f}'' = {\color{goldenrod} f}_{{\color{teal} x}{\color{teal} x}}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding-top: 0.4em; font-size: 0.9em;">
+<p><strong><span style="color: #1a237e;">Ventajas:</span></strong></p>
+<ul>
+<li>Simple y elegante</li>
+<li>Conveniente para derivadas parciales</li>
+</ul>
+<p><strong><span style="color: #107895;">Desventajas:</span></strong></p>
+<ul>
+<li>Puede ser ambigua (omite la variable)</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="display: grid; grid-template-columns: 9em 1fr 1fr; flex: 1; min-height: 0; gap: 1em; padding: 0 1em; align-items: start; font-size: 1.2em;">
+<div style="display: flex; flex-direction: column; gap: 1.4em; padding-top: 0.8em; border-right: 2px solid #ccc; padding-right: 0.8em; font-size: 1.1em;">
+<p><span style="color: #555;">Leibniz</span> <span style="color: #555;">Lagrange</span> <span style="color: #b8860b; font-weight: bold;"><strong>Newton</strong></span> <span style="color: #555;">Euler</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="display: flex; flex-direction: column; gap: 0.5em; padding-top: 0.4em;">
+<p><span class="math display">\[\dot{{\color{goldenrod} y}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[\ddot{{\color{goldenrod} y}}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding-top: 0.4em; font-size: 0.9em;">
+<p><strong><span style="color: #1a237e;">Ventajas:</span></strong></p>
+<ul>
+<li>Concisa</li>
+<li>Usada principalmente para derivadas temporales en física</li>
+</ul>
+<p><strong><span style="color: #107895;">Desventajas:</span></strong></p>
+<ul>
+<li>No se usa para derivadas parciales</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="display: grid; grid-template-columns: 9em 1fr 1fr; flex: 1; min-height: 0; gap: 1em; padding: 0 1em; align-items: start; font-size: 1.2em;">
+<div style="display: flex; flex-direction: column; gap: 1.4em; padding-top: 0.8em; border-right: 2px solid #ccc; padding-right: 0.8em; font-size: 1.1em;">
+<p><span style="color: #555;">Leibniz</span> <span style="color: #555;">Lagrange</span> <span style="color: #555;">Newton</span> <span style="color: #b8860b; font-weight: bold;"><strong>Euler</strong></span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="display: flex; flex-direction: column; gap: 0.5em; padding-top: 0.4em;">
+<p><span class="math display">\[D{\color{goldenrod} f} = D{\color{goldenrod} f}({\color{teal} x})\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[D^2{\color{goldenrod} f}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding-top: 0.4em; font-size: 0.9em;">
+<p><strong><span style="color: #1a237e;">Ventajas:</span></strong></p>
+<ul>
+<li>Simple</li>
+</ul>
+<p><strong><span style="color: #107895;">Desventajas:</span></strong></p>
+<ul>
+<li>Usada con poca frecuencia</li>
+<li>Puede confundirse con el dominio</li>
+<li>No se usa para derivadas parciales</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="display: grid; grid-template-columns: 9em 1fr; flex: 1; min-height: 0; gap: 0.5em; padding: 0 2em; align-items: center; font-size: 1.2em;">
+<div style="display: flex; flex-direction: column; gap: 1.6em; border-right: 2px solid #ccc; padding-right: 0.8em; font-size: 1.2em;">
+<p><span style="color: #555;">Leibniz</span> <span style="color: #555;">Lagrange</span> <span style="color: #555;">Newton</span> <span style="color: #555;">Euler</span></p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 1.3em; padding-left: 1.3em;">
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}}\]</span> <span class="math display">\[{\color{goldenrod} f}'\]</span> <span class="math display">\[\dot{{\color{goldenrod} y}}\]</span> <span class="math display">\[D{\color{goldenrod} f}\]</span></p>
+</div>
+</div>
+</section>
+<section id="dos-términos-geómetricos-importamtes" class="slide level2 title-line">
+<h2>Dos términos geómetricos importamtes</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.2fr; flex: 1; min-height: 0; gap: 1em; padding: 0 0.5em; align-items: center;">
+<!-- Columna izquierda: gráfica con r-stack -->
+<div>
+<div class="r-stack">
+<!-- Graph A: parábola limpia (base) -->
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-12-21.png" class="quarto-figure quarto-figure-center" width="460"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- Graph B: parábola + recta secante azul (frag 1) -->
+<div class="fragment fade-in" data-fragment-index="1" style="background: white;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-13-23.png" class="quarto-figure quarto-figure-center" width="460"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- Graph C: parábola + recta tangente roja (frag 2) -->
+<div class="fragment fade-in" data-fragment-index="2" style="background: white;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-14-25.png" class="quarto-figure quarto-figure-center" width="460"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- Graph D: función seno + tangente roja (frag 3) -->
+<div class="fragment fade-in" data-fragment-index="3" style="background: white;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-15-27.png" class="quarto-figure quarto-figure-center" width="528"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Columna derecha: definiciones (siempre visibles) -->
+<div style="display: flex; flex-direction: column; gap: 1.8em; padding: 1em 1em;">
+<div>
+<p><span style="color: #1a237e; font-size: 1.3em; font-weight: bold;"><strong>Recta secante</strong></span></p>
+<p><span style="color: #333; font-size: 1.2em;">pasa a través de dos puntos.</span></p>
+</div>
+<div>
+<p><span style="color: #c0392b; font-size: 1.3em; font-weight: bold;"><strong>Recta tangente</strong></span></p>
+<p><span style="color: #c0392b; font-size: 1.2em;">pasa a través de un punto.</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="interpretación-de-gráficas-de-derivadas" class="slide level2 title-line">
+<h2>Interpretación de gráficas de derivadas</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em">
+<p>En este presentación, aprenderás:</p>
+<ul>
+<li><p>Cómo interpretar gráficas de derivadas.</p></li>
+<li><p>Que las gráficas de las funciones y sus derivadas no se ven necesariamente iguales.</p></li>
+</ul>
+</div>
+</section>
+<section id="gráfico-de-la-función-vs-derivada" class="slide level2 title-line">
+<h2>Gráfico de la función vs derivada</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; gap: 2.2em; padding: 0 3em;">
+<div style="font-size: 1.5em; line-height: 1.5; color: #c0392b;">
+<ul>
+<li>La gráfica de la <span style="color: #b8860b;"><strong>función</strong></span> muestra los valores de la función en cada punto del eje x.</li>
+</ul>
+</div>
+<div style="font-size: 1.5em; line-height: 1.5; color: #b8860b;">
+<ul>
+<li>La gráfica de la <span style="color: #1a237e;"><strong>derivada</strong></span> muestra la <span style="color: #1a237e;"><strong>pendiente de la recta tangente</strong></span> a la función en cada punto del eje x.</li>
+</ul>
+</div>
+</div>
+</section>
+<section id="función-vs-derivada-ejemplo-1" class="slide level2 title-line">
+<h2>Función vs derivada: Ejemplo 1</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-16-29.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-17-31.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="función-vs-derivada-ejemplo-2" class="slide level2 title-line">
+<h2>Función vs derivada: Ejemplo 2</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-18-33.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-19-35.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="función-vs-derivada-ejemplo-3" class="slide level2 title-line">
+<h2>Función vs derivada: Ejemplo 3</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-20-37.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-21-39.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="función-vs-derivada-ejemplo-4" class="slide level2 title-line">
+<h2>Función vs derivada: Ejemplo 4</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-22-41.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-23-43.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="función-vs-derivada-ejemplo-5" class="slide level2 title-line">
+<h2>Función vs derivada: Ejemplo 5</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-24-45.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-25-47.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="puntos-general-a-considerar" class="slide level2 title-line">
+<h2>Puntos general a considerar</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; gap: 1.8em; padding: 0 3em;">
+<div style="font-size: 1.5em; line-height: 1.5; color: #b8860b;">
+<p>El signo de la derivada muestra dónde la función es <span style="color: #c0392b;">creciente</span> y <span style="color: #c0392b;">decreciente</span>.</p>
+</div>
+<div style="font-size: 1.5em; line-height: 1.5;">
+<p>Los <span style="color: #1a237e;">cruces por cero de la derivada</span> se denominan “puntos críticos” e indican <span style="color: #1565c0;">cambios cualitativos</span> en la función.</p>
+</div>
+</div>
+</section>
+<section id="interpretación-de-gráficas-de-derivadas-1" class="slide level2 title-line">
+<h2>Interpretación de gráficas de derivadas</h2>
+<p>En esta presentación, has aprendido:</p>
+<ul>
+<li><p><span style="font-size: 1.5em; line-height: 1.5; color: #c0392b;">Cómo interpretar gráficas de derivadas.</span></p></li>
+<li><p><span style="font-size: 1.5em; line-height: 1.5; color: #1a237e;">Que las gráficas de las funciones y sus derivadas no se ven necesariamente iguales.</span></p></li>
+</ul>
+</section>
+<section id="derivadas-de-polinomios" class="slide level2 title-line">
+<h2>Derivadas de polinomios</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 1em; font-size: 1.5em;">
+<p><span style="color: goldenrod; font-size: 1.1em;">En esta presentación, aprenderás</span></p>
+<ul>
+<li><p><span style="color: #c0392b;"><span style="color: #c0392b;">Un truco simple para calcular la derivada de expresiones polinómicas.</span></span></p></li>
+<li><p><span style="color: navy;">Que este “truco simple” en realidad se llama la “regla de la potencia.”</span></p></li>
+<li><p><span style="color: teal;">Que las derivadas de polinomios pares son polinomios impares, y viceversa.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="derivadas-de-polinomios-1" class="slide level2 title-line">
+<h2>Derivadas de Polinomios</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.8em; font-size: 1.7em;">
+<p><span class="math display">\[f({\color{teal} x}) = {\color{goldenrod} c}{\color{teal} x}^{\color{red} r}\]</span></p>
+<p><span class="math display">\[f'({\color{teal} x}) = {\color{red} r}{\color{goldenrod} c}{\color{teal} x}^{{\color{red} r}-1}\]</span></p>
+</div>
+</section>
+<section id="derivada-de-polinomios" class="slide level2 title-line">
+<h2>Derivada de polinomios:</h2>
+<div style="display: grid; grid-template-columns: 1fr 1.2fr; flex: 1; min-height: 0; gap: 0; align-items: stretch; border: 1.5px solid #aaa; border-radius: 6px; overflow: hidden; font-size: 0.92em;">
+<!-- Panel izquierdo: gráfico -->
+<div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-26-49.png" class="quarto-figure quarto-figure-center" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel derecho: desarrollo algebraico -->
+<div style="display: flex; flex-direction: column; justify-content: center; padding: 1em 1.2em; gap: 0.3em; font-size: 0.9em;">
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}} = \lim_{h \to 0} f(x) =  \left[\frac{({\color{teal} x}+h)^2 - {\color{teal} x}^2}{h}\right]\]</span></p>
+<p><span class="math display">\[= \left[\frac{{\color{teal} x}^2 + 2{\color{teal} x}h + h^2 - {\color{teal} x}^2}{h}\right]\]</span></p>
+<p><span class="math display">\[= \left[\frac{h(2{\color{teal} x} + h)}{h}\right]\]</span></p>
+<p><span class="math display">\[= 2{\color{teal} x} + h =  2{\color{teal} x}\]</span></p>
+<div style="border: 2px dashed #951210; border-radius: 6px; padding: 0.2em 0.8em; align-self: start; margin-top: -4em;">
+<p><span class="math display">\[\frac{d{\color{goldenrod} y}}{d{\color{teal} x}} = 2{\color{teal} x}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="derivada-de-polinomios-1" class="slide level2 title-line">
+<h2>Derivada de polinomios:</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 2em; font-size: 1.7em;">
+<!-- Fila 1: base = LHS, frag 1 = ecuación completa -->
+<div class="r-stack">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(3{\color{teal}x}^4\right) =\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(3{\color{teal}x}^4\right) = 12{\color{teal}x}^3\]</span></p>
+</div>
+</div>
+<!-- Fila 2: frag 2 = LHS, frag 3 = ecuación completa -->
+<div class="r-stack" style="font-size: 0.85em;">
+<div class="fragment fade-in" data-fragment-index="2" style="background: white;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(3{\color{teal}x}^4 + 2.5{\color{teal}x}^3 - 7{\color{teal}x}^2 + {\color{teal}x} + 10\right) =\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background: white;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(3{\color{teal}x}^4 + 2.5{\color{teal}x}^3 - 7{\color{teal}x}^2 + {\color{teal}x} + 10\right) = 12{\color{teal}x}^3 + 7.5{\color{teal}x}^2 - 14{\color{teal}x} + 1 + 0\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="derivada-de-compuestos-o-productos" class="slide level2 title-line">
+<h2>Derivada de compuestos o productos</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 2em; font-size: 1.7em;">
+<p><span class="math display">\[f({\color{teal}x}) = \sin^3({\color{teal}x}^2)\]</span></p>
+<p><span class="math display">\[f({\color{teal}x}) = 4{\color{teal}x}^3 e^{\sqrt{{\color{teal}x}}}\]</span></p>
+</div>
+</section>
+<section id="derivada-de-polinomios1" class="slide level2 title-line">
+<h2>Derivada de polinomios1:</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; flex: 1; min-height: 0; gap: 1.8em; padding: 0 4em; font-size: 1.7em;">
+<!-- Fila 1: base=LHS, frag 1=completa -->
+<div class="r-stack">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(-4{\color{teal}x}^2 + 3{\color{teal}x}^5 - \pi\right) =\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(-4{\color{teal}x}^2 + 3{\color{teal}x}^5 - \pi\right) = -8{\color{teal}x} + 15{\color{teal}x}^4\]</span></p>
+</div>
+</div>
+<!-- Fila 2: base=LHS (indentada), frag 1=completa -->
+<div class="r-stack" style="margin-left: 3em;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(e^\pi {\color{teal}x}^2 - \pi^e {\color{teal}x}^4\right) =\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left(e^\pi {\color{teal}x}^2 - \pi^e {\color{teal}x}^4\right) = 2e^\pi {\color{teal}x} - 4\pi^e {\color{teal}x}^3\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="derivada-de-polinomios2" class="slide level2 title-line">
+<h2>Derivada de polinomios2:</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.3em; font-size: 0.78em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = 2{\color{teal}x}^3\)</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math inline">\(\frac{d{\color{goldenrod}y}}{d{\color{teal}x}} = \lim_{{\color{maroon}h}\to 0}\left[\frac{2({\color{teal}x}+{\color{maroon}h})^3 - 2{\color{teal}x}^3}{{\color{maroon}h}}\right]\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math inline">\(= \lim_{{\color{maroon}h}\to 0}\left[\frac{2({\color{teal}x}+{\color{maroon}h})({\color{teal}x}+{\color{maroon}h})({\color{teal}x}+{\color{maroon}h}) - 2{\color{teal}x}^3}{{\color{maroon}h}}\right]\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math inline">\(= \lim_{{\color{maroon}h}\to 0}\left[\frac{2({\color{teal}x}^2+{\color{maroon}h}^2+2{\color{teal}x}{\color{maroon}h})({\color{teal}x}+{\color{maroon}h}) - 2{\color{teal}x}^3}{{\color{maroon}h}}\right]\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math inline">\(= \lim_{{\color{maroon}h}\to 0}\left[\frac{2({\color{teal}x}^3+{\color{teal}x}^2{\color{maroon}h}+{\color{maroon}h}^2{\color{teal}x}+{\color{maroon}h}^3+2{\color{teal}x}^2{\color{maroon}h}+2{\color{teal}x}{\color{maroon}h}^2) - 2{\color{teal}x}^3}{{\color{maroon}h}}\right]\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<p><span class="math inline">\(= \lim_{{\color{maroon}h}\to 0}\left[\frac{2{\color{teal}x}^3+2{\color{teal}x}^2{\color{maroon}h}+2{\color{teal}x}{\color{maroon}h}^2+2{\color{maroon}h}^3+4{\color{teal}x}^2{\color{maroon}h}+4{\color{teal}x}{\color{maroon}h}^2 - 2{\color{teal}x}^3}{{\color{maroon}h}}\right]\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6">
+<p><span class="math inline">\(= \lim_{{\color{maroon}h}\to 0}\left[\frac{{\color{maroon}h}(2{\color{teal}x}^2+2{\color{teal}x}{\color{maroon}h}+2{\color{maroon}h}^2+4{\color{teal}x}^2+4{\color{teal}x}{\color{maroon}h})}{{\color{maroon}h}}\right]\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="7">
+<p><span class="math inline">\(= \lim_{{\color{maroon}h}\to 0} 6{\color{teal}{x}}^2 +{\color{maroon}{h}}(6{\color{teal}{x}}+2 {\color{maroon}{h}})=6x\)</span></p>
+</div>
+</div>
+</section>
+<section id="regla-de-la-potencia" class="slide level2 title-line">
+<h2>Regla de la potencia</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.5em; font-size: 1.5em;">
+<p><span class="math display">\[f({\color{teal}x}) = {\color{goldenrod}c}{\color{teal}x}^{\color{red}r}\]</span></p>
+<p><span class="math display">\[f'({\color{teal}x}) = {\color{red}r}{\color{goldenrod}c}{\color{teal}x}^{{\color{red}r}-1}\]</span></p>
+</div>
+</section>
+<section id="paridad-alterna-de-las-derivadas-de-polinomios" class="slide level2 title-line">
+<h2>Paridad alterna de las derivadas de polinomios</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 1.2em; font-size: 1.35em;">
+<ul>
+<li><p><span style="color: goldenrod;">Un polinomio</span><span style="color: teal;"><strong>par</strong></span><span style="color: goldenrod;">tiene una derivada</span><span style="color: navy;"><strong>impar</strong></span><span style="color: goldenrod;">.</span></p></li>
+<li><p><span style="color: goldenrod;">Un polinomio</span><span style="color: teal;"><strong>impar</strong></span><span style="color: goldenrod;">tiene una derivada</span><span style="color: navy;"><strong>par</strong></span><span style="color: goldenrod;">.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="paridad-alterna-de-las-derivadas-de-polinomios-ejemplo" class="slide level2 title-line">
+<h2>Paridad alterna de las derivadas de polinomios: Ejemplo</h2>
+
+<img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-27-51.png" class="quarto-figure quarto-figure-center r-stretch" width="1440"></section>
+<section id="derivada-de-polinomios-2" class="slide level2 title-line">
+<h2>Derivada de polinomios</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 1em; font-size: 1.15em;">
+<p><span style="color: goldenrod; font-size: 1.1em;">En esta presentación aprendiste</span></p>
+<ul>
+<li><p><span style="color: #c0392b;"><span style="color: #c0392b;">Un truco simple para calcular la derivada de expresiones polinómicas.</span></span></p></li>
+<li><p><span style="color: navy;">Que este “truco simple” en realidad se llama la “regla de la potencia.”</span></p></li>
+<li><p><span style="color: teal;">Que las derivadas de polinomios pares son polinomios impares, y viceversa.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="linealidad-de-la-diferenciación" class="slide level2">
+<h2>Linealidad de la diferenciación</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em">
+<p>En esta presentación, aprenderás:</p>
+<ul>
+<li><p>Que la diferenciación es una operación lineal, lo que significa que los múltiplos escalares y las sumas se pueden separar.</p></li>
+<li><p>Cómo demostrar la linealidad en SymPy.</p></li>
+</ul>
+</div>
+</section>
+<section id="linealidad-de-la-diferenciación-1" class="slide level2 title-line">
+<h2>Linealidad de la diferenciación</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.2em; font-size: 1.7em;">
+<p><span class="math display">\[\frac{d}{d{\color{teal} x}}\left[{\color{goldenrod} a}f({\color{teal} x}) + {\color{red} b}g({\color{teal} x})\right]\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[{\color{goldenrod} a}f'({\color{teal} x}) + {\color{red} b}g'({\color{teal} x})\]</span></p>
+</div>
+</div>
+</section>
+<section id="ejercicio-1-derivado-de-terminos-sumados" class="slide level2 title-line">
+<h2>Ejercicio 1: Derivado de terminos sumados</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.2em; font-size: 1.3em;">
+<p><span class="math display">\[{\color{goldenrod} f}({\color{teal} x}) = {\color{goldenrod} a}{\color{teal} x}^2 + {\color{red} b}{\color{teal} x}^3 + {\color{blue} c}e^{2{\color{teal} x}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="border: 1px solid #aaa; border-radius: 6px; padding: 1em 2em; font-size: 0.78em; line-height: 2; background: white; text-align: left;">
+<p><strong>Derivative of combined function:</strong> <span class="math inline">\(2ax + 3bx^2 + 2ce^{2x}\)</span></p>
+<p>Derivative of <span class="math inline">\(ax^2\)</span> is <span class="math inline">\(2ax\)</span><br> Derivative of <span class="math inline">\(bx^3\)</span> is <span class="math inline">\(3bx^2\)</span><br> Derivative of <span class="math inline">\(ce^{2x}\)</span> is <span class="math inline">\(2ce^{2x}\)</span></p>
+<p><strong>Combination of individual components:</strong> <span class="math inline">\(2ax + 3bx^2 + 2ce^{2x}\)</span></p>
+</div>
+</div>
+</section>
+<section id="taller-1-de-programación-linealidad-de-la-diferenciación" class="slide level2 title-line">
+<h2>Taller 1: de programación: Linealidad de la diferenciación</h2>
+<div class="sourceCode" id="cb1" style="font-size: 1.4em;" data-code-line-numbers="1-5|7-15|16-21|22-24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href=""></a><span class="im">import</span> sympy <span class="im">as</span> sym</span>
+<span id="cb1-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a><span class="im">from</span> IPython.display <span class="im">import</span> Math,display</span>
+<span id="cb1-6"><a href=""></a></span>
+<span id="cb1-7"><a href=""></a><span class="co"># two functions and two scalars</span></span>
+<span id="cb1-8"><a href=""></a>x,a,b,c <span class="op">=</span> sym.symbols(<span class="st">'x,a,b,c'</span>)</span>
+<span id="cb1-9"><a href=""></a></span>
+<span id="cb1-10"><a href=""></a><span class="co"># one function with summed terms</span></span>
+<span id="cb1-11"><a href=""></a>fun <span class="op">=</span> a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>x<span class="op">**</span><span class="dv">3</span> <span class="op">+</span> c<span class="op">*</span>sym.exp(<span class="dv">2</span><span class="op">*</span>x)</span>
+<span id="cb1-12"><a href=""></a></span>
+<span id="cb1-13"><a href=""></a><span class="co"># derivative</span></span>
+<span id="cb1-14"><a href=""></a>display(Math(<span class="st">'</span><span class="ch">\\</span><span class="st">text{Derivative of combined function: }</span><span class="sc">%s</span><span class="st">'</span> <span class="op">%</span>sym.latex(sym.diff(fun,x))))</span>
+<span id="cb1-15"><a href=""></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb1-16"><a href=""></a></span>
+<span id="cb1-17"><a href=""></a>combined <span class="op">=</span> <span class="st">''</span></span>
+<span id="cb1-18"><a href=""></a><span class="cf">for</span> piece <span class="kw">in</span> fun.args:</span>
+<span id="cb1-19"><a href=""></a>  display(Math(<span class="st">'</span><span class="ch">\\</span><span class="st">text{Derivative of } </span><span class="sc">%s</span><span class="st"> </span><span class="ch">\\</span><span class="st">text{ is } </span><span class="sc">%s</span><span class="st">'</span></span>
+<span id="cb1-20"><a href=""></a>               <span class="op">%</span>(sym.latex(piece),sym.latex(sym.diff(piece,x)))))</span>
+<span id="cb1-21"><a href=""></a>  combined <span class="op">+=</span> sym.latex(sym.diff(piece,x)) <span class="op">+</span> <span class="st">' + '</span></span>
+<span id="cb1-22"><a href=""></a></span>
+<span id="cb1-23"><a href=""></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb1-24"><a href=""></a>display(Math(<span class="st">'</span><span class="ch">\\</span><span class="st">text{Combination of individual components: }</span><span class="sc">%s</span><span class="st">'</span> <span class="op">%</span>combined[:<span class="op">-</span><span class="dv">2</span>]))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="margin-top: 1.5em; font-size: 0.82em; color: #2c3e50;">
+<p><strong>Resultado de la ejecución:</strong></p>
+</div>
+<div class="cell" style="font-size: 0.5em;">
+<p><span class="math display">\[\text{Derivative of combined function: }2 a x + 3 b x^{2} + 2 c e^{2 x}\]</span></p>
+<p><span class="math display">\[\text{Derivative of } a x^{2} \text{ is } 2 a x\]</span></p>
+<p><span class="math display">\[\text{Derivative of } b x^{3} \text{ is } 3 b x^{2}\]</span></p>
+<p><span class="math display">\[\text{Derivative of } c e^{2 x} \text{ is } 2 c e^{2 x}\]</span></p>
+<p><span class="math display">\[\text{Combination of individual components: }2 a x + 3 b x^{2} + 2 c e^{2 x}\]</span></p>
+</div>
+</section>
+<section id="ejercicio-2-múltiplos-escalares" class="slide level2 title-line">
+<h2>Ejercicio 2: Múltiplos escalares</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; font-size: 1.7em;">
+<p><span class="math display">\[\frac{d}{d{\color{teal} x}}\left({\color{goldenrod} a}{\color{teal} x}^2\right) = {\color{goldenrod} a}\left(\frac{d}{d{\color{teal} x}}{\color{teal} x}^2\right)\]</span></p>
+</div>
+</section>
+<section id="taller-2-de-programación-linealidad-de-la-diferenciación" class="slide level2 title-line">
+<h2>Taller 2: de programación: Linealidad de la diferenciación</h2>
+<div class="sourceCode" id="cb2" style="font-size: 1.4em;" data-code-line-numbers="1|3-4|6-8"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href=""></a><span class="im">import</span> sympy <span class="im">as</span> sym</span>
+<span id="cb2-2"><a href=""></a></span>
+<span id="cb2-3"><a href=""></a><span class="bu">print</span>(<span class="st">"f'[ax**2] :"</span>)</span>
+<span id="cb2-4"><a href=""></a><span class="bu">print</span>(sym.diff( a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> ,x))</span>
+<span id="cb2-5"><a href=""></a></span>
+<span id="cb2-6"><a href=""></a><span class="bu">print</span>(<span class="st">' '</span>)</span>
+<span id="cb2-7"><a href=""></a><span class="bu">print</span>(<span class="st">"a * f'[x**2] :"</span>)</span>
+<span id="cb2-8"><a href=""></a><span class="bu">print</span>(a<span class="op">*</span>sym.diff( x<span class="op">**</span><span class="dv">2</span> ,x))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="margin-top: 1.5em; font-size: 0.82em; color: #2c3e50;">
+<p><strong>Resultado de la ejecución:</strong></p>
+</div>
+<div class="cell" style="font-size: 1em;">
+<p><span class="math display">\[\frac{d}{dx}\bigl[a x^{2}\bigr] = 2 a x\]</span></p>
+<p><span class="math display">\[a \cdot \frac{d}{dx}\bigl[x^{2}\bigr] = 2 a x\]</span></p>
+</div>
+</section>
+<section id="ejercicio-3-prueba-de-linealidad-completa" class="slide level2 title-line">
+<h2>Ejercicio 3: Prueba de linealidad completa</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; font-size: 1.4em;">
+<p><span class="math display">\[\frac{d}{d{\color{teal} x}}\left({\color{goldenrod} a}{\color{teal} x}^2 + {\color{red} b}\cos{\color{teal} x}\right) = {\color{goldenrod} a}\frac{d}{d{\color{teal} x}}\left({\color{teal} x}^2\right) + {\color{red} b}\frac{d}{d{\color{teal} x}}\left(\cos{\color{teal} x}\right)\]</span></p>
+</div>
+</section>
+<section id="taller-3-de-programación-linealidad-de-la-diferenciación" class="slide level2 title-line">
+<h2>Taller 3: de programación: Linealidad de la diferenciación</h2>
+<div class="sourceCode" id="cb3" style="font-size: 1.4em;" data-code-line-numbers="1-5|7-8|10-13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb3-2"><a href=""></a><span class="im">import</span> sympy <span class="im">as</span> sym</span>
+<span id="cb3-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb3-4"><a href=""></a></span>
+<span id="cb3-5"><a href=""></a><span class="im">from</span> IPython.display <span class="im">import</span> Math,display</span>
+<span id="cb3-6"><a href=""></a></span>
+<span id="cb3-7"><a href=""></a>display(Math(<span class="st">"</span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{d}{dx}</span><span class="st">(ax^2 + b</span><span class="ch">\\</span><span class="st">cos(x)) = </span><span class="sc">%s</span><span class="st">"</span></span>
+<span id="cb3-8"><a href=""></a>             <span class="op">%</span>sym.latex(sym.diff( a<span class="op">*</span>x<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> b<span class="op">*</span>sym.cos(x) ,x))))</span>
+<span id="cb3-9"><a href=""></a></span>
+<span id="cb3-10"><a href=""></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb3-11"><a href=""></a></span>
+<span id="cb3-12"><a href=""></a>display(Math(<span class="st">"a</span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{d}{dx}</span><span class="st">(x^2) + b</span><span class="ch">\\</span><span class="st">frac</span><span class="sc">{d}{dx}</span><span class="st">(</span><span class="ch">\\</span><span class="st">cos(x)) = </span><span class="sc">%s</span><span class="st">"</span></span>
+<span id="cb3-13"><a href=""></a>             <span class="op">%</span>sym.latex(a<span class="op">*</span>sym.diff(x<span class="op">**</span><span class="dv">2</span>,x) <span class="op">+</span> b<span class="op">*</span>sym.diff(sym.cos(x),x) ) ))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div style="margin-top: 1.5em; font-size: 0.82em; color: #2c3e50;">
+<p><strong>Resultado de la ejecución:</strong></p>
+</div>
+<p><span class="math display">\[\frac{d}{dx}(ax^2 + b\cos(x)) = 2 a x - b \sin{\left(x \right)}\]</span></p>
+<p><span class="math display">\[a\frac{d}{dx}(x^2) + b\frac{d}{dx}(\cos(x)) = 2 a x - b \sin{\left(x \right)}\]</span></p>
+</section>
+<section id="por-qué-la-diferenciación-es-lineal" class="slide level2 title-line">
+<h2>¿Por qué la diferenciación es lineal?</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 2em;">
+<p><span style="color: #b8860b; font-size: 2em; font-weight: bold;">La demostración está en la siguiente sección :)</span></p>
+<p><span style="color: #c0392b; font-size: 1.4em;">Presentación “Linealidad de la diferenciación (demostración)”</span></p>
+</div>
+</section>
+<section id="derivadas-de-coseno-y-seno" class="slide level2">
+<h2>Derivadas de coseno y seno</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em">
+<p>En esta presentación, aprenderás:</p>
+<ul>
+<li><p><span style="color: #b8860b;font-weight: bold;">El “círculo” de las derivadas trigonométricas.</span></p></li>
+<li><p><span style="color: #c0392b; ">Intuición geométrica para las derivadas de seno y coseno.</span></p></li>
+<li><p><span style="color: #1a237e;">Que las demostraciones de derivadas pueden ser tediosas…</span></p></li>
+</ul>
+</div>
+</section>
+<section id="derivadas-circulares" class="slide level2 title-line">
+<h2>Derivadas circulares</h2>
+<div style="display: flex; flex-direction: row; flex: 1; min-height: 0; align-items: center; padding: 0.5em 2.5em; gap: 3em;">
+<div style="display: flex; flex-direction: column; gap: 0.6em; font-size: 1.3em;">
+<p><span class="math display">\[[\cos({\color{teal}x})]' = -\sin({\color{teal}x})\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[[-\sin({\color{teal}x})]' = -\cos({\color{teal}x})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[[-\cos({\color{teal}x})]' = \sin({\color{teal}x})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[[\sin({\color{teal}x})]' = \cos({\color{teal}x})\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-31-53.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="intuición-geométrica-seno-y-coseno" class="slide level2 title-line">
+<h2>Intuición geométrica seno y coseno</h2>
+
+<img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-32-55.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<section id="demostración-de-que-cosx--sinx" class="slide level2 title-line">
+<h2>Demostración de que cos’(x) = -sin(x)</h2>
+<div style="display: flex; flex-direction: column; justify-content: flex-start; flex: 1; min-height: 0; padding: 0.4em 2em; gap: 0.3em; font-size: 0.88em;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = \cos({\color{teal}x})\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\frac{d{\color{goldenrod}y}}{d{\color{teal}x}} = \lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{teal}x}+{\color{maroon}h}) - \cos({\color{teal}x})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{teal}x})\cos({\color{maroon}h}) - \sin({\color{teal}x})\sin({\color{maroon}h}) - \cos({\color{teal}x})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{teal}x})\cos({\color{maroon}h}) - \cos({\color{teal}x}) - \sin({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{teal}x})(\cos({\color{maroon}h}) - 1) - \sin({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+</div>
+</section>
+<section id="demostración-de-que-cosx--sinx-1" class="slide level2 title-line">
+<h2>Demostración de que cos’(x) = -sin(x)</h2>
+<div style="display: flex; flex-direction: column; justify-content: flex-start; flex: 1; min-height: 0; padding: 0.4em 2em; gap: 0.25em; font-size: 0.85em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{teal}x})(\cos({\color{maroon}h}) - 1) - \sin({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="margin-left: 1.2em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{teal}x})(\cos({\color{maroon}h}) - 1)}{{\color{maroon}h}}\right] - \lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 1.2em;">
+<p><span class="math display">\[= \cos({\color{teal}x})\lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{maroon}h}) - 1}{{\color{maroon}h}}\right] - \sin({\color{teal}x})\lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 1.2em;">
+<p><span class="math display">\[= \cos({\color{teal}x})\times 0 - \sin({\color{teal}x})\times 1\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-left: 1.2em;">
+<p><span class="math display">\[= -\sin({\color{teal}x})\]</span></p>
+</div>
+</div>
+</section>
+<section id="demostración-de-que-sinx-cosx" class="slide level2 title-line">
+<h2>Demostración de que sin’(x) = cos(x)</h2>
+<div style="display: flex; flex-direction: column; justify-content: flex-start; flex: 1; min-height: 0; padding: 0.4em 2em; gap: 0.3em; font-size: 0.88em;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = \sin({\color{teal}x})\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\frac{d{\color{goldenrod}y}}{d{\color{teal}x}} = \lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{teal}x}+{\color{maroon}h}) - \sin({\color{teal}x})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{teal}x})\cos({\color{maroon}h}) + \cos({\color{teal}x})\sin({\color{maroon}h}) - \sin({\color{teal}x})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{teal}x})\cos({\color{maroon}h}) - \sin({\color{teal}x}) + \cos({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{teal}x})(\cos({\color{maroon}h}) - 1) + \cos({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+</div>
+</section>
+<section id="demostración-de-que-sinx-cosx-parte-2" class="slide level2 title-line">
+<h2>Demostración de que sin’(x) = cos(x) parte 2</h2>
+<div style="display: flex; flex-direction: column; justify-content: flex-start; flex: 1; min-height: 0; padding: 0.4em 2em; gap: 0.25em; font-size: 0.85em;">
+<p><span class="math display">\[= \lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{teal}x})(\cos({\color{maroon}h}) - 1) + \cos({\color{teal}x})\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="margin-left: 1.2em;">
+<p><span class="math display">\[= \sin({\color{teal}x})\lim_{{\color{maroon}h}\to 0}\left[\frac{\cos({\color{maroon}h}) - 1}{{\color{maroon}h}}\right] + \cos({\color{teal}x})\lim_{{\color{maroon}h}\to 0}\left[\frac{\sin({\color{maroon}h})}{{\color{maroon}h}}\right]\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 1.2em;">
+<p><span class="math display">\[= \sin({\color{teal}x})\times 0 + \cos({\color{teal}x})\times 1\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 1.2em;">
+<p><span class="math display">\[= \cos({\color{teal}x})\]</span></p>
+</div>
+</div>
+</section>
+<section id="qué-pasa-con-las-otras-funciones-trigonometricas" class="slide level2 title-line">
+<h2>Qué pasa con las otras funciones trigonometricas?</h2>
+
+<img data-src="imgs/11-Derivatives%20of%20cosine%20and%20sine_DUBBED_ES/otras_trig.png" style="width:100.0%" class="r-stretch"><p><a href="https://es.wikipedia.org/wiki/Derivaci%C3%B3n_de_funciones_trigonom%C3%A9tricas">Fuente: Derivación de funciones trigonométricas - Wikipedia</a></p>
+</section>
+<section id="derivadas-de-valor-absoluto-y-raíz-cuadrada" class="slide level2">
+<h2>Derivadas de valor absoluto y raíz cuadrada</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em">
+<p>En esta presentación, aprenderás</p>
+<ul>
+<li><p>Derivadas de dos funciones comunes adicionales.</p></li>
+<li><p>La notación y definición de la función “signum” (signo).</p></li>
+<li><p>Una pista sobre la regla de la potencia.</p></li>
+</ul>
+</div>
+</section>
+<section id="derivada-de-la-función-valor-absoluto" class="slide level2 title-line">
+<h2>Derivada de la función valor absoluto</h2>
+<div style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.3em 1.5em; gap: 2em; align-items: flex-start;">
+<div style="display: flex; flex-direction: column; gap: 0.1em; font-size: 1.05em; flex: 1;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = |{\color{teal}x}|\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="margin-left: 2.5em;">
+<p><span class="math display">\[= \begin{cases} -{\color{teal}x} &amp; \text{if } {\color{teal}x} &lt; 0 \\ {\color{teal}x} &amp; \text{if } {\color{teal}x} \geq 0 \end{cases}\]</span></p>
+</div>
+<p><span class="math display">\[{\color{goldenrod}f}'({\color{teal}x}) = \text{sgn}({\color{teal}x})\]</span></p>
+<div class="r-stack" style="margin-left: 2.5em;">
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[= \begin{cases} -1 &amp; \text{if } {\color{teal}x} &lt; 0 \\ 1 &amp; \text{if } {\color{teal}x} &gt; 0 \\ \phantom{\text{d.n.e.}} &amp; \text{if } {\color{teal}x} = 0 \end{cases}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background: white;">
+<p><span class="math display">\[= \begin{cases} -1 &amp; \text{if } {\color{teal}x} &lt; 0 \\ 1 &amp; \text{if } {\color{teal}x} &gt; 0 \\ \text{n.existe.} &amp; \text{if } {\color{teal}x} = 0 \end{cases}\]</span></p>
+</div>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.5em; align-items: center; flex-shrink: 0;">
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-33-57.png" width="499"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-34-59.png" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="definicón-de-la-función-signo-signum" class="slide level2 title-line">
+<h2>Definicón de la función signo (signum)</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.5em; font-size: 1.7em;">
+<p><span class="math display">\[\text{sgn} = \begin{cases} -1 &amp; \text{if } {\color{teal}x} &lt; 0 \\ 1 &amp; \text{if } {\color{teal}x} &gt; 0 \\ 0 &amp; \text{if } {\color{teal}x} = 0 \end{cases}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\text{sgn} = \frac{|{\color{teal}x}|}{{\color{teal}x}}\]</span></p>
+</div>
+</div>
+</section>
+<section id="derivada-de-la-función-raíz-cuadrada" class="slide level2 title-line">
+<h2>Derivada de la función raíz cuadrada</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.2em; font-size: 1.3em;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = \sqrt{{\color{teal}x}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[= {\color{teal}x}^{1/2}\]</span></p>
+</div>
+<p><span class="math display">\[{\color{goldenrod}f}'({\color{teal}x}) = \frac{1}{2\sqrt{{\color{teal}x}}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[= \tfrac{1}{2}\,{\color{teal}x}^{-1/2}\]</span></p>
+</div>
+</div>
+</section>
+<section id="regla-de-la-potencia-1" class="slide level2 title-line">
+<h2>Regla de la potencia</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 1.5em; font-size: 1.5em;">
+<p><span class="math display">\[f({\color{teal}x}) = {\color{goldenrod}c}{\color{teal}x}^{\color{red}r}\]</span></p>
+<p><span class="math display">\[f'({\color{teal}x}) = {\color{red}r}{\color{goldenrod}c}{\color{teal}x}^{{\color{red}r}-1}\]</span></p>
+</div>
+</section>
+<section id="derivada-de-la-función-raíz-cuadrada-1" class="slide level2 title-line">
+<h2>Derivada de la función raíz cuadrada</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.2em; font-size: 1.3em;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = \sqrt{{\color{teal}x}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[= {\color{teal}x}^{1/2}\]</span></p>
+</div>
+<p><span class="math display">\[{\color{goldenrod}f}'({\color{teal}x}) = \frac{1}{2\sqrt{{\color{teal}x}}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[= \tfrac{1}{2}\,{\color{teal}x}^{-1/2}\]</span></p>
+</div>
+</div>
+</section>
+<section id="derivadas-de-log-y-exp" class="slide level2">
+<h2>Derivadas de log y exp</h2>
+<div class="bg" style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em">
+<p>En esta presentación, aprenderás:</p>
+<ul>
+<li><p>La derivada del logaritmo natural.</p></li>
+<li><p>La derivada del logaritmo en cualquier otra base.</p></li>
+<li><p>La derivada de exp(x).</p></li>
+</ul>
+</div>
+</section>
+<section id="derivadas-de-log-y-exp-1" class="slide level2 title-line">
+<h2>Derivadas de log y exp:</h2>
+<div style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.3em 1em; gap: 1.5em; align-items: flex-start;">
+<div style="display: flex; flex-direction: column; gap: 0.15em; font-size: 1.2em; flex: 0 0 14em; padding-top: 0.6em;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = \ln({\color{teal}x})\]</span></p>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-left: 1.5em;">
+<p><span class="math display">\[{\color{goldenrod}f}' = \frac{1}{{\color{teal}x}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = \log_{\color{red}B}({\color{teal}x})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-left: 1.5em;">
+<p><span class="math display">\[{\color{goldenrod}f}' = \frac{1}{{\color{teal}x}\ln({\color{red}B})}\]</span></p>
+</div>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.4em; flex: 1;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-35-61.png" width="432"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-36-63.png" width="432"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="derivada-de-ex" class="slide level2 title-line">
+<h2>Derivada de <span class="math inline">\(e^x\)</span></h2>
+<div style="display: grid; grid-template-columns: 13em 1fr; grid-template-rows: 1fr 1fr; flex: 1; min-height: 0; padding: 0.3em 1em; gap: 0.3em 1em; align-items: center;">
+<div style="font-size: 1.15em; text-align: center;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}) = e^{\color{teal}x}\]</span></p>
+</div>
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-37-65.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="font-size: 1.15em; text-align: center;">
+<p><span class="math display">\[{\color{goldenrod}f}' = e^{\color{teal}x}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-38-67.png" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dato-interesante-sobre-ex" class="slide level2 title-line">
+<h2>Dato interesante sobre <span class="math inline">\(e^x\)</span></h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 0.6em; font-size: 1.5em;">
+<ul>
+<li><span style="color: goldenrod;">exp(x) es la única función que es igual a su derivada.</span></li>
+</ul>
+<div class="fragment fade-in" data-fragment-index="1">
+<ul>
+<li><p><span style="color: teal;">(Excepto por y=0, pero eso es realmente y=0e<sup>x</sup>)</span></p></li>
+<li><p><span style="color: navy;">(La demostración se basa en integración.)</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="puntos-criticos-definiciones-y-aplicaciones" class="slide level2 title-line">
+<h2>Puntos criticos: definiciones y aplicaciones</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;">
+<p><span style="color: goldenrod;">En este video, aprenderás</span></p>
+<ul>
+<li><p><span style="color: #c0392b;"><span style="color: #c0392b;">Qué hace que un punto sea “crítico.”</span></span></p></li>
+<li><p><span style="color: navy;">Los diferentes tipos de puntos críticos.</span></p></li>
+<li><p><span style="color: teal;">Por qué los puntos críticos son importantes en el cálculo.</span></p></li>
+</ul>
+</div>
+</section>
+<section id="ejemplos-de-puntos-criticos" class="slide level2 title-line">
+<h2>Ejemplos de puntos criticos?</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0;">
+<div class="r-stack">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-39-69.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-40-71.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="qué-son-los-puntos-criticos" class="slide level2 title-line">
+<h2>Qué son los puntos criticos?</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 1em; font-size: 1.2em;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: goldenrod; line-height: 1.5;">
+<ul>
+<li>Puntos de una función donde la derivada es indefinida o igual a 0 (<em>f’</em>=0), <em>y la función está definida.</em></li>
+</ul>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #c0392b; line-height: 1.5;">
+<ul>
+<li>Geométricamente, son los valores del eje x donde la pendiente es una línea horizontal o no existe.</li>
+</ul>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="display: flex; flex-direction: column; gap: 0.4em; color: navy; padding-left: 1em;">
+<ul>
+<li><p><span style="font-style: italic;"><em>Punto</em> crítico: La coordenada del eje x.</span></p></li>
+<li><p><span style="font-style: italic;"><em>Valor</em> crítico: El valor de la función en el eje y (<em>¡no el valor de la derivada!</em>).</span></p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="como-encontrar-puntos-criticos" class="slide level2 title-line">
+<h2>Como encontrar puntos criticos?</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 0.5em; font-size: 1.3em;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: goldenrod; font-weight: bold;">
+<p>Algebraico:</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #c0392b; margin-left: 2em;">
+<ol type="1">
+<li>Calcular la derivada y resolver para f’(x)=0.</li>
+</ol>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: #c0392b; margin-left: 2em;">
+<ol start="2" type="1">
+<li>Inspeccionar la función en busca de discontinuidades.</li>
+</ol>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="color: navy; font-weight: bold; margin-top: 0.5em;">
+<p>Geométrico:</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="color: teal; margin-left: 2em;">
+<p>Observar la gráfica en busca de curvaturas o discontinuidades.</p>
+</div>
+</div>
+</section>
+<section id="tipos-de-puntos-criticos" class="slide level2 title-line">
+<h2>Tipos de puntos criticos</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0;">
+<div class="r-stack">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-41-73.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-42-75.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background: white;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-43-77.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="porqué-son-utiles-los-puntos-criticos" class="slide level2 title-line">
+<h2>Porqué son utiles los puntos criticos?</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.6em; font-size: 1.5em; font-weight: bold;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B;">
+<p>Ayudan a caracterizar una función (e.g., para bosquejar su gráfica).</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #c0392b;">
+<p>Se usan en optimización (minimizar errores/costos, maximizar área/ganancias).</p>
+</div>
+</div>
+</section>
+<section id="puntos-críticos-en-derivadas-superiores." class="slide level2 title-line">
+<h2>Puntos críticos en derivadas superiores.?</h2>
+<div style="display: flex; flex-direction: row; align-items: center; flex: 1; min-height: 0; padding: 0 1.5em; gap: 2em;">
+<div style="display: flex; flex-direction: column; gap: 0.6em; flex: 1; font-weight: bold; font-size: 1.05em;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B; font-size: 1.5em;">
+<p>¡Super importante!</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #c0392b;">
+<p>Los puntos críticos de derivadas de orden superior (<span class="math inline">\(f''=0\)</span>) indican puntos de inflexión.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="color: blue;">
+<p>Más sobre esto en la siguiente sección :)</p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-44-79.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-1" class="slide level2 title-line">
+<h2>Ejemplo: 1</h2>
+<div style="display: flex; flex-direction: row; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 2em;font-size: 1.3em;">
+<div style="display: flex; flex-direction: column; flex: 1; gap: 0.1em;">
+<p><span class="math display">\[f({\color{teal}x}) = 3{\color{teal}x} + 6\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f'({\color{teal}x}) = 3\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="padding-left: 2.5em;">
+<p><span class="math display">\[3 = 0\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-top: 0em; font-weight: bold; color: #B8860B;font-size: 1em;">
+<p>La derivada nunca es 0 y siempre está definida.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="font-weight: bold; color: #c0392b;font-size: 1em;">
+<p>¡No hay puntos críticos!</p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-45-81.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-2" class="slide level2 title-line">
+<h2>Ejemplo: 2</h2>
+<div style="display: flex; flex-direction: row; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 2em;font-size: 1.3em;">
+<div style="display: flex; flex-direction: column; flex: 1; gap: 0.1em;">
+<p><span class="math display">\[f({\color{teal}x}) = 3{\color{teal}x}^2 + 2\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f'({\color{teal}x}) = 6{\color{teal}x}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding-left: 2.5em;">
+<p><span class="math display">\[6{\color{teal}x} = 0\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="padding-left: 2.5em;">
+<p><span class="math display">\[{\color{teal}x} = 0\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-top: 0.1em; font-weight: bold; color: #B8860B;">
+<p>Un punto crítico en <span class="math inline">\(x=0\)</span>.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="font-weight: bold; color: #c0392b;">
+<p>Punto crítico/valor: <span class="math inline">\((0,\,2)\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-46-83.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-3" class="slide level2 title-line">
+<h2>Ejemplo: 3</h2>
+<div style="display: flex; flex-direction: row; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1em;">
+<div style="display: flex; flex-direction: column; flex: 1; gap: 0.1em;font-size: 1.15em;">
+<p><span class="math display">\[f({\color{teal}x}) = \cos({\color{teal}x})\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f'({\color{teal}x}) = -\sin({\color{teal}x})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-top: 0em;">
+<p><span class="math display">\[\sin({\color{teal}x}) = 0\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="padding-left: 2.5em;">
+<p><span class="math display">\[{\color{teal}x} = {\color{goldenrod}k}\pi, \quad {\color{goldenrod}k} \in \mathbb{Z}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="margin-top: 0em; font-weight: bold; color: #B8860B;">
+<p>¡Infinitos puntos críticos!</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="font-weight: bold; color: #c0392b;">
+<p>Infinitos mínimos/máximos locales.</p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<div class="r-stack">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-47-85.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="background: white;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-48-87.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-4" class="slide level2 title-line">
+<h2>Ejemplo: 4</h2>
+<div style="display: flex; flex-direction: row; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 2em;">
+<div style="display: flex; flex-direction: column; flex: 1; gap: 0.1em;font-size: 1.3em;">
+<p><span class="math display">\[f({\color{teal}x}) = e^{{\color{teal}x}}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f'({\color{teal}x}) = e^{{\color{teal}x}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="padding-left: 2.5em;">
+<p><span class="math display">\[e^{{\color{teal}x}} = 0\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-top: 0.6em; font-weight: bold; color: #B8860B;">
+<p>La derivada nunca es 0 y siempre está definida.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="font-weight: bold; color: #c0392b;margin-top: -1em;">
+<p>¡No hay puntos críticos!</p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-49-89.png" width="720"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-5" class="slide level2 title-line">
+<h2>Ejemplo: 5</h2>
+<div style="display: flex; flex-direction: row; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 2em; font-size: 0.95em;">
+<div style="display: flex; flex-direction: column; flex: 1; gap: 0.05em;">
+<p><span class="math display">\[f({\color{teal}x}) = {\color{teal}x}^3 - 2{\color{teal}x}^2 + 1/2\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f'({\color{teal}x}) = 3{\color{teal}x}^2 - 4{\color{teal}x}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[3{\color{teal}x}^2 - 4{\color{teal}x} = 0\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[(3{\color{teal}x} - 4){\color{teal}x} = 0 \qquad\quad 3{\color{teal}x} = 4 \qquad\quad {\color{teal}x} = 4/3\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-top: 0.2em; font-weight: bold; color: #B8860B;">
+<p>Puntos críticos en <span class="math inline">\(x=\{0,\, 4/3\}\)</span>.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="font-weight: bold; color: #c0392b;">
+<p>Puntos críticos/valores: <span class="math inline">\((0,\,1/2)\)</span>, <span class="math inline">\((4/3,\,-37/54)\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-50-91.png" width="624"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo-6" class="slide level2 title-line">
+<h2>Ejemplo: 6</h2>
+<div style="display: flex; flex-direction: row; align-items: flex-start; flex: 1; min-height: 0; padding: 0.3em 1.5em; gap: 1.5em; font-size: 0.83em;">
+<div style="display: flex; flex-direction: column; flex: 1; gap: 0.15em;">
+<p><span class="math display">\[f({\color{teal}x}) = \begin{cases} {\color{teal}x}/2 &amp; \text{if } {\color{teal}x} &lt; 0 \\ {\color{teal}x}^2 + 1 &amp; \text{if } 0 \leq {\color{teal}x} &lt; 3 \\ -\ln({\color{teal}x}) &amp; \text{otherwise} \end{cases}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[f'({\color{teal}x}) = \begin{cases} 1/2 &amp; \text{if } {\color{teal}x} &lt; 0 \\ 2{\color{teal}x} &amp; \text{if } 0 \leq {\color{teal}x} &lt; 3 \\ -1/{\color{teal}x} &amp; \text{otherwise} \end{cases}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin-top: 0.4em; line-height: 1.9;">
+<p><span class="math inline">\(1/2 = 0 \quad\to\)</span> no p.c.</p>
+<p><span class="math inline">\(2{\color{teal}x} = 0 \quad\to\)</span> p.c. en <span class="math inline">\({\color{teal}x} = 0\)</span></p>
+<p><span class="math inline">\(-1/{\color{teal}x} = 0 \quad\to\)</span> no p.c.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="margin-top: 0.5em; font-weight: bold; color: #B8860B;">
+<p>Puntos críticos en <span class="math inline">\(x=0\)</span>. Discontinuidades en <span class="math inline">\(x=0,\,3\)</span>.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="font-weight: bold; color: #c0392b;margin-top: -1em;">
+<p>Puntos críticos/valores: <span class="math inline">\((0,\,1)\)</span>, <span class="math inline">\(\bigl(3,\,-\ln 3\bigr)\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S3-Derivada_files/figure-revealjs/unnamed-chunk-51-93.png" width="816"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="de-donde-vienen-las-matemáticas" class="title-slide slide level1 title-line center">
+<h1>De donde vienen las matemáticas?</h1>
+
+</section>
+<section id="las-matemáticas-son-descubiertas-o-inventadas" class="slide level2">
+<h2>¿Las matemáticas son descubiertas o inventadas?</h2>
+<p>En este presentación, aprenderás</p>
+<ul>
+<li><p>Un antiguo debate filosófico sobre las matemáticas y la naturaleza.</p></li>
+<li><p>Las posturas dominantes sobre el tema.</p></li>
+<li><p>¡¡¡LA RESPUESTA VERDADERA DEFINITIVA!!!! (es broma, jajaja)</p></li>
+</ul>
+</section>
+<section id="las-matemáticas-son-como-super-gigantes" class="slide level2 tile-line">
+<h2>Las matemáticas son como super gigantes</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.8em; font-size: 1.05em; font-weight: bold;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B;">
+<p>No cabe duda de que las matemáticas nos permiten entender y controlar la naturaleza.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #c0392b;">
+<p>La pregunta es si las matemáticas existen independientemente de los humanos (y otras inteligencias), o si son inventadas por los humanos para describir y resolver problemas.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: blue;">
+<p>Es un debate filosófico que probablemente no puede resolverse, y parece no tener implicaciones para las matemáticas aplicadas.</p>
+</div>
+</div>
+</section>
+<section id="posiciones-sobre-este-debate" class="slide level2 title-line">
+<h2>Posiciones sobre este debate</h2>
+<div style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
+<div class="r-stack" style="flex: 1; min-height: 0; width: 100%;">
+<div style="display: flex; flex-direction: row; width: 100%; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<p>Las matemáticas son inventadas.</p>
+<p>Las matemáticas son descubiertas.</p>
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+<p>Funciona; no me importa.</p>
+</div>
+<div style="width: 64%;">
+
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="font-weight: bold;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%;">
+
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="font-weight: bold;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>La naturaleza simplemente ‘es’; las matemáticas son un lenguaje que inventamos para describirla.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="font-weight: bold;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>La naturaleza simplemente ‘es’; las matemáticas son un lenguaje que inventamos para describirla.</p>
+</div>
+<div style="color: #c0392b;">
+<p>Las matemáticas son un conjunto de estructuras y reglas que inventamos, como el ajedrez o el fútbol o las leyes fiscales.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="font-weight: bold;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>La naturaleza simplemente ‘es’; las matemáticas son un lenguaje que inventamos para describirla.</p>
+</div>
+<div style="color: #c0392b;">
+<p>Las matemáticas son un conjunto de estructuras y reglas que inventamos, como el ajedrez o el fútbol o las leyes fiscales.</p>
+</div>
+<div style="color: blue;">
+<p>Las personas eligen los éxitos de las matemáticas e ignoran el espacio mucho más grande de matemáticas sin relevancia física.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%;">
+
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Las matemáticas son el lenguaje del universo.</p>
+</div>
+<div style="color: #c0392b;">
+<p>Son estructuras que existen independientes de nosotros desde el Big Bang. Como átomos, gravedad, radiación…</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="7" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Las matemáticas son el lenguaje del universo.</p>
+</div>
+<div style="color: #c0392b;">
+<p>Son estructuras que existen independientes de nosotros desde el Big Bang. Como átomos, gravedad, radiación…</p>
+</div>
+<div style="color: blue;">
+<p>Los humanos han descubierto una fracción de ese lenguaje universal fundamental. (Posibles interpretaciones religiosas.)</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="8" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%;">
+
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="9" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Hay algunas estructuras matemáticas intrínsecas a la naturaleza.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="10" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Hay algunas estructuras matemáticas intrínsecas a la naturaleza.</p>
+</div>
+<div style="color: #c0392b;">
+<p>Los humanos han inventado otras matemáticas sin relación con nada en el universo.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="11" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Hay algunas estructuras matemáticas intrínsecas a la naturaleza.</p>
+</div>
+<div style="color: #c0392b;">
+<p>Los humanos han inventado otras matemáticas sin relación con nada en el universo.</p>
+</div>
+<div style="color: blue;">
+<p>Si alguna vez conocemos inteligencias alienígenas, encontraríamos algo en común y muchas matemáticas únicas.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="12" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%;">
+
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="13" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Las matemáticas han permitido triunfos increíbles en tecnología (comunicaciones, medicina, transporte, entretenimiento) que han mejorado enormemente la vida humana.</p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="14" style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 0.5em; align-items: flex-start;">
+<div style="width: 36%; display: flex; flex-direction: column; gap: 1.8em; font-size: 1.05em; text-align: center; padding-top: 1.5em;">
+<div style="color: #aaa;">
+<p>Las matemáticas son inventadas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Las matemáticas son descubiertas.</p>
+</div>
+<div style="color: #aaa;">
+<p>Parcialmente descubiertas, parcialmente inventadas.</p>
+</div>
+<div style="font-weight: bold;">
+<p>Funciona; no me importa.</p>
+</div>
+</div>
+<div style="width: 64%; display: flex; flex-direction: column; gap: 1em; font-size: 0.95em; font-weight: bold; padding: 1.5em 0.5em 0.5em;">
+<div style="color: #B8860B;">
+<p>Las matemáticas han permitido triunfos increíbles en tecnología (comunicaciones, medicina, transporte, entretenimiento) que han mejorado enormemente la vida humana.</p>
+</div>
+<div style="color: #c0392b;">
+<p>‘De dónde vienen las matemáticas’ es un debate esotérico y filosófico que no contribuye al progreso.</p>
+</div>
+<div style="color: blue;">
+<p>La respuesta es incognoscible y este debate es una distracción inútil.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="las-matemáticas-son-como-super-gigantes-1" class="slide level2 tile-line">
+<h2>Las matemáticas son como super gigantes</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.8em; font-size: 1.2em; font-weight: bold;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: #B8860B;">
+<p>No cabe duda de que las matemáticas nos permiten entender y controlar la naturaleza.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #c0392b;">
+<p>La pregunta es si las matemáticas existen independientemente de los humanos (y otras inteligencias), o si son inventadas por los humanos para describir y resolver problemas.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="color: blue;">
+<p>Es un debate filosófico que probablemente no puede resolverse, y parece no tener implicaciones para las matemáticas aplicadas.</p>
+</div>
+</div>
+
+</section></section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="Images/Utmach-logo.png" class="slide-logo"></p>
+<div class="footer footer-default">
+<p>© 2025 Elvis Sánchez – Universidad Técnica de Machala</p>
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="S3-Derivada_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="S3-Derivada_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="S3-Derivada_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="S3-Derivada_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true,"chalkWidth":2,"boardmarkerWidth":2,"chalk-color":"#333333","boardmarker-color":"#333333","grid":false},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1600,
+
+        height: 900,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    
+    <script>
+      // htmlwidgets need to know to resize themselves when slides are shown/hidden.
+      // Fire the "slideenter" event (handled by htmlwidgets.js) when the current
+      // slide changes (different for each slide format).
+      (function () {
+        // dispatch for htmlwidgets
+        function fireSlideEnter() {
+          const event = window.document.createEvent("Event");
+          event.initEvent("slideenter", true, true);
+          window.document.dispatchEvent(event);
+        }
+
+        function fireSlideChanged(previousSlide, currentSlide) {
+          fireSlideEnter();
+
+          // dispatch for shiny
+          if (window.jQuery) {
+            if (previousSlide) {
+              window.jQuery(previousSlide).trigger("hidden");
+            }
+            if (currentSlide) {
+              window.jQuery(currentSlide).trigger("shown");
+            }
+          }
+        }
+
+        // hookup for slidy
+        if (window.w3c_slidy) {
+          window.w3c_slidy.add_observer(function (slide_num) {
+            // slide_num starts at position 1
+            fireSlideChanged(null, w3c_slidy.slides[slide_num - 1]);
+          });
+        }
+
+      })();
+    </script>
+
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copiado");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copiado");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>

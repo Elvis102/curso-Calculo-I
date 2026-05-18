@@ -5,10 +5,13 @@ subtitle: Aplicaciones de la Derivada
 toc: false
 format:
   revealjs: 
+    width: 1600  
     theme: [default, clean.scss]
     slide-number: true
     slide-tone: false
     chalkboard: 
+      chalk-width: 2 
+      boardmarker-width: 2
       buttons: true
     footer: | 
       © 2025 Elvis Sánchez – Universidad Técnica de Machala
@@ -87,7 +90,7 @@ En este caso decimos que el polinomio $P_n(x)$ tiene en el punto $x_0$ **orden d
 </div>
 
 ## Introducción
-::: example
+::: {.example style="font-size:0.85em;"}
 **Ejemplo ilustrativo**
 
 En el enlace siguiente  [![](Images/wolfram.png)](https://www.wolframalpha.com/input/?i=taylors+series+of+sin%28x%29+at+x%3D0) se muestra la función $f(x)=\sin x$ (en rojo) y los polinomios de grado $1$, $P_1(x)$ (la recta en azul discontinua), de grado $3$, $P_3(x)$ (la curva en azul discontinua) para $x_0=0$. El polinomio $P_2(x)$ coincide con el polinomio de grado $1$ en este caso ya que el coeficiente de $x^2$ vale $0$ como veremos más adelante.
@@ -193,7 +196,7 @@ Concluimos por tanto que la derivada $n+1$-ésima del polinomio $P_{n+1}(x)$ ser
 ::: 
 
 ## Ejemplo
-::: example
+::: {.example style="font-size:0.85em;"}
 **Ejemplo**
 
 Consideremos la función $f(x)=\sin (x)$ y el punto $x_0=0$. Vamos a hallar el polinomio de Taylor de grado $n$ de $f(x)$ en $x_0=0$.
@@ -210,7 +213,7 @@ Intentemos escribir el resultado anterior de forma más "compacta". Decir que $n
 :::
 
 ## Ejemplo
-::: example
+::: {.example style="font-size:0.75em;"}
 
 Observemos además que los valores de $n$ para los que la derivada $n$-ésima valía $1$, ($n=1,5,9,\ldots$) corresponde a valores de $k$ par ya que $1=2\cdot 0+1,\ 5=2\cdot 2+1,\ 9=2\cdot 4+1,\ldots$ y los valores de $n$ para los que la derivada $n$-ésima valía $-1$ ($n=3,7,11,\ldots$) corresponde a valores de $k$ impar ya que $3=2\cdot 1+1,\ 7=2\cdot 3+1,\ 11=2\cdot 5+1,\ldots$
 
@@ -232,7 +235,7 @@ $$
 :::
 
 ## Ejemplo
-::: example
+::: {.example style="font-size:0.85em;"}
 Si eliminamos los términos correspondientes a derivadas pares al ser nulos, nos queda la expresión siguiente:
 $$
 P_n(x)=x-\frac{x^3}{3!}+\frac{x^5}{5!}+\cdots + \frac{(-1)^k x^{2k+1}}{(2k+1)!}=\sum_{i=0}^k \frac{(-1)^i x^{2i+1}}{(2i+1)!},
@@ -251,7 +254,7 @@ $$
 :::
 
 ## Ejemplo
-::: example
+::: {.example style="font-size:0.85em;"}
 * $n$ impar. En este caso, el polinomio de Taylor de grado $n$ es el siguiente:
 $$
 P_n(x)=f(0)+f'(0)\cdot x+\frac{f''(0)}{2!}\cdot x^2+\cdots + \frac{f^{n}(0)}{n!}\cdot x^n.
@@ -1294,7 +1297,7 @@ En resumen, acabamos de demostrar que $x_0$ es un punto de inflexión, tal como 
 
 
 ## Ejemplo
-::: example
+::: {.example style="font-size:0.7em;"}
 **Ejemplo: estudio de la concavidad y convexidad de una función cúbica**
 
 Consideremos una **funció cúbica** general dependiente de cuatro **parámetros**: $f(x)=a x^3+b x^2+c x+d$, definida en todo el conjunto de números reales $\mathbb{R}$, donde $a,b,c$ y $d$ son los parámetros de los que depende donde suponemos que $a\neq 0$.
@@ -1694,7 +1697,7 @@ Saber en qué regiones una función es **cóncava o convexa**, ayuda de forma si
 
 Vamos a dar un método parecido al estudio del **crecimiento y decrecimiento** de una función cambiando los papeles de $f'$ por $f''$.
 
-Recordemos que una función es **convexa** en una región de $\mathbb{R}$ si su derivada segunda es **positiva** y es **convexa**, si es **negativa**.
+Recordemos que una función es **convexa** en una región de $\mathbb{R}$ si su derivada segunda es **positiva** y es **cóncava**, si es **negativa**.
 
 Recordemos también que los **puntos de inflexión** deben verificar que su derivada segunda debe ser nula. El primer paso será, pues, calcular los ceros de la ecuación $f''(x)=0$ calculando de esta manera los candidatos a **puntos de inflexión**.
 

@@ -45,18 +45,160 @@ use_python("/opt/anaconda3/bin/python")
 
 # Límites {.my-slide}
 
+## Límites
 
-## Límite de una función
+::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
 
-El límite se enfoca en el **comportamiento** de la función en las **proximidades** de un [punto]{.alert}, no necesariamente en el valor exacto de la [función en ese punto]{.alert}.
+Límites en geometría y álgebra.
 
-  * **Concepto:** Imagina que te acercas a un punto en el eje $x$ desde la izquierda y la derecha. El límite es el valor al que la función ($y$) se va acercando.
-  * **Existencia:** Un límite puede [existir]{.alert} incluso si la [función no está definida]{.alert} en el punto en cuestión. Por ejemplo, en una función con un agujero. .
-  * **Notación:** $\displaystyle\lim_{x \to a} f(x) = L$
+En este presentación, aprenderás
+
+  - [La interpretación geométrica de los límites.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+  - [Cómo encontrar límites "fáciles" mediante inspección visual.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+  - [Notación para los límites.]{style="color:#107895; font-size:1.05em;" .fragment}
+:::
+
+## {auto-animate=true background-color="rgb(255, 255, 255)" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slider-0.png){#slide-img width="50%"}
+:::
+
+---
+
+## {auto-animate=true background-color="rgb(255, 255, 255)" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0014_00-00-52.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0029_00-01-30.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0030_00-01-37.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0031_00-01-40.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0038_00-01-56.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0049_00-02-31.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0050_00-02-35.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0056_00-02-49.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0057_00-02-51.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0059_00-02-55.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0116_00-05-24.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0128_00-05-45.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0131_00-05-53.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0161_00-06-59.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0176_00-07-35.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/2-Limits in geometry and algebra_DUBBED_ES/slide_0179_00-07-41.jpg){#slide-img width="100%"}
+:::
+
+---
 
 ## Límite de una función en un punto
 
-::: {.callout-note style="font-size: 1em;"}
+::: {.callout-note style="font-size: 1.5em;"}
 
 Si $f:A \subset \mathfrak{R} \longrightarrow \mathfrak{R}$ está definida en [todo punto de un entorno reducido]{.alert} del punto $c \in \mathfrak{R}$, diremos que $L$ es el límite de $f$ en $c$ si $\displaystyle{\lim_{x \rightarrow c^{-}} f(x) = \lim_{x \rightarrow c^{+}} f(x) = L}$.
 
@@ -66,13 +208,11 @@ $$
 $$
 :::
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:0.8em;margin-top:-1em"}
-**Recuerda:** al escribir $x\to c$ queremos indicar que $x$ se aproxima a $c$ indistintamente por la derecha o por la izquierda.
-
-Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos que **$f$** [no tiene límite]{.alert} en el punto **$c$**.
+::: {.bg style="padding:0em; margin-top:0em; font-size:0.85em;margin-top:-1em"}
+**Recuerda:** al escribir $x\to c$ queremos indicar que $x$ se aproxima a $c$ indistintamente por la derecha o por la izquierda. Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos que **$f$** [no tiene límite]{.alert} en el punto **$c$**.
 :::
 
-::: {.bg style="padding:0em; margin-top:-0.9em; font-size:0.75em;"}
+::: {.bg style="padding:0em; margin-top:0em; font-size:0.75em;"}
 
 ::: {.r-stack}
 
@@ -90,6 +230,2210 @@ Además, Si los límites laterales de **$f$** en **$c$** son distintos diremos q
 
 :::
 :::
+
+## Taller experimental python
+
+- Using Python: derivatives and applications
+
+## Límites "fáciles" por sustitución o factorización
+
+::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
+[En esta presentación, aprenderás]{style="color:#107895; font-size:1.15em; font-weight:500;"}
+
+- [Cómo encontrar los límites de problemas **"fáciles"**.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+- [Cómo factorizar polinomios para encontrar límites de funciones racionales.]{style="color:#B8860B; font-size:1.05em;" .fragment}
+:::
+
+## Conéctalo {.title-line}
+
+:::{.r-stack style="font-size: 3em; width: 100%; text-align: center;"}
+:::{.fragment .fade-out data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{2}} \left( \color{teal}{x}^2 + 3\color{teal}{x} - 10 \right) =$$
+:::
+
+:::{.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{2}} \left( \color{teal}{x}^2 + 3\color{teal}{x} - 10 \right) = \color{blue}{0}$$
+:::
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1.5em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+#plt.rcParams["text.usetex"] = True
+
+x = np.linspace(-9, 10, 400)
+y = x**2 + 3*x - 10
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+
+# Ejes X e Y resaltados
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.plot(2, 0, "o", color="red", markersize=9, zorder=5)
+ax.annotate("$(2,\\ f(2)=0)$", xy=(2, 0), xytext=(3, 4),
+            fontsize=13, color="red",
+            arrowprops=dict(arrowstyle="-", color="red", lw=1.2))
+
+ax.set_xlim(-10, 5)
+ax.set_ylim(-15, 35)
+ax.set_xticks(np.arange(-9, 6, 1))
+ax.set_yticks(np.arange(-10, 31, 10))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$X$", fontsize=14, labelpad=8)
+ax.text(0, 35, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+::: 
+
+## Límites por factorización {.title-line}
+
+:::{.r-stack style="width: 100%;"}
+
+:::{.fragment .fade-out data-fragment-index=3 style="font-size: 1.8em; width: 100%; text-align: left;"}
+$$\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{\color{teal}{x}^2 + 3\color{teal}{x} - 10}{\color{teal}{x} - 2}$$
+
+:::{.fragment data-fragment-index=1}
+$$= \lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{(\color{teal}{x}+5)(\color{teal}{x}-2)}{\color{teal}{x}-2}$$
+:::
+
+:::{.fragment data-fragment-index=2}
+$$= \lim_{\color{teal}{x} \to \color{maroon}{2}} (\color{teal}{x}+5) = \color{blue}{7}$$
+:::
+:::
+
+:::{.fragment .fade-in data-fragment-index=3 style="width: 100%;"}
+::::columns
+::: {.column style="font-size: 2em;"} 
+$$\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{\color{teal}{x}^2 + 3\color{teal}{x} - 10}{\color{teal}{x} - 2}$$
+$$= \lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{(\color{teal}{x}+5)(\color{teal}{x}-2)}{\color{teal}{x}-2}$$
+$$= \lim_{\color{teal}{x} \to \color{maroon}{2}} (\color{teal}{x}+5) = \color{blue}{7}$$
+:::
+
+:::column
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x1 = np.linspace(-5, 1.95, 300)
+x2 = np.linspace(2.05, 5, 300)
+y1 = x1 + 5
+y2 = x2 + 5
+
+fig, ax = plt.subplots(figsize=(7.5, 7.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x1, y1, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(x2, y2, color="#B8860B", linewidth=2.5, zorder=3)
+
+# Círculo abierto en (2, 7) — hueco por indeterminación
+ax.plot(2, 7, "o", color="white", markersize=11, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+
+ax.set_xlim(-3, 5)
+ax.set_ylim(-10, 10)
+ax.set_xticks(np.arange(-3, 5, 1))
+ax.set_yticks(np.arange(-10, 20, 5))
+ax.tick_params(labelsize=11)
+ax.set_xlabel("$x$", fontsize=13, labelpad=8)
+ax.text(0.1, 15, "$f(x)$", fontsize=14, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+::::
+:::
+
+:::
+
+## Cómo encontrar este Límite {.title-line}
+
+:::{style="display:flex; align-items:center; justify-content:center; height:80%;"}
+::::columns
+::: {.column style="font-size: 2em; text-align:center;"}
+$$\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{purple}{?}$$
+:::
+
+::: column
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(5.5, 5.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+# Rama izquierda: f(x) = -1 para x < 2
+ax.plot([-3, 2], [-1, -1], color="#B8860B", linewidth=2.5, zorder=3)
+# Rama derecha: f(x) = 1 para x > 2
+ax.plot([2, 5], [1, 1], color="#B8860B", linewidth=2.5, zorder=3)
+
+# Círculos abiertos en x=2
+ax.plot(2, -1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+ax.plot(2,  1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+
+ax.set_xlim(-3, 5)
+ax.set_ylim(-1.5, 1.5)
+ax.set_xticks([-2, 0, 2, 4])
+ax.set_yticks([-1.5, -1, -0.5, 0, 0.5, 1, 1.5])
+ax.tick_params(labelsize=12)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+::::
+:::
+
+## Cómo encontrar este Límite-solución {.title-line}
+
+:::{style="display:flex; align-items:center; justify-content:center; height:80%;"}
+::::columns
+::: {.column style="font-size: 2em; text-align:center;"}
+$$\lim_{\color{maroon}{x} \to \color{maroon}{2}^-} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{-1}$$
+
+$$\lim_{\color{maroon}{x} \to \color{maroon}{2}^+} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{+1}$$
+:::
+
+:::column
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(5.5, 5.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+# Rama izquierda: f(x) = -1 para x < 2
+ax.plot([-3, 2], [-1, -1], color="#B8860B", linewidth=2.5, zorder=3)
+# Rama derecha: f(x) = 1 para x > 2
+ax.plot([2, 5], [1, 1], color="#B8860B", linewidth=2.5, zorder=3)
+
+# Círculos abiertos en x=2
+ax.plot(2, -1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+ax.plot(2,  1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+
+ax.set_xlim(-3, 5)
+ax.set_ylim(-1.5, 1.5)
+ax.set_xticks([-2, 0, 2, 4])
+ax.set_yticks([-1.5, -1, -0.5, 0, 0.5, 1, 1.5])
+ax.tick_params(labelsize=12)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+::::
+:::
+
+
+## Límites laterales e infinitos
+
+::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
+
+En esta presentación, aprenderás
+
+  - [La diferencia entre límites laterales (unilaterales) y bilaterales.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+  - [Cómo describir límites al infinito.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+:::
+
+
+
+## Cómo encontrar este Límite {.title-line}
+
+:::{style="display:flex; align-items:center; justify-content:center; height:80%;"}
+::::columns
+::: {.column style="font-size: 2em; text-align:center;"}
+$$\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{purple}{?}$$
+:::
+
+::: column
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(5.5, 5.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+# Rama izquierda: f(x) = -1 para x < 2
+ax.plot([-3, 2], [-1, -1], color="#B8860B", linewidth=2.5, zorder=3)
+# Rama derecha: f(x) = 1 para x > 2
+ax.plot([2, 5], [1, 1], color="#B8860B", linewidth=2.5, zorder=3)
+
+# Círculos abiertos en x=2
+ax.plot(2, -1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+ax.plot(2,  1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+
+ax.set_xlim(-3, 5)
+ax.set_ylim(-1.5, 1.5)
+ax.set_xticks([-2, 0, 2, 4])
+ax.set_yticks([-1.5, -1, -0.5, 0, 0.5, 1, 1.5])
+ax.tick_params(labelsize=12)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+::::
+:::
+
+## Cómo encontrar este Límite-solución {.title-line}
+
+:::{style="display:flex; align-items:center; justify-content:center; height:80%;"}
+::::columns
+::: {.column style="font-size: 2em; text-align:center;"}
+$$\lim_{\color{maroon}{x} \to \color{maroon}{2}^-} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{-1}$$
+
+$$\lim_{\color{maroon}{x} \to \color{maroon}{2}^+} \frac{|\color{teal}{x} - 2|}{\color{teal}{x} - 2} = \color{blue}{+1}$$
+:::
+
+:::column
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(7, 7))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+# Rama izquierda: f(x) = -1 para x < 2
+ax.plot([-3, 2], [-1, -1], color="#B8860B", linewidth=2.5, zorder=3)
+# Rama derecha: f(x) = 1 para x > 2
+ax.plot([2, 5], [1, 1], color="#B8860B", linewidth=2.5, zorder=3)
+
+# Círculos abiertos en x=2
+ax.plot(2, -1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+ax.plot(2,  1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+
+ax.set_xlim(-3, 5)
+ax.set_ylim(-1.5, 1.5)
+ax.set_xticks([-2, 0, 2, 4])
+ax.set_yticks([-1.5, -1, -0.5, 0, 0.5, 1, 1.5])
+ax.tick_params(labelsize=12)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+::::
+:::
+
+## Dos límites unilaterales {.title-line}
+
+:::{style="display:flex; align-items:center; justify-content:center; height:80%;"}
+::::columns
+::: {.column style="font-size: 1.6em;"}
+
+$$\color{teal}{H}(\color{teal}{x}) = \begin{cases} 1, & \color{teal}{x} > 0 \\ 0, & \color{teal}{x} \leq 0 \end{cases}$$
+
+:::{.fragment data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{0}^-} \color{teal}{H}(\color{teal}{x}) = \color{blue}{0}$$
+:::
+
+:::{.fragment data-fragment-index=2}
+$$\lim_{\color{teal}{x} \to \color{maroon}{0}^+} \color{teal}{H}(\color{teal}{x}) = \color{blue}{+1}$$
+:::
+
+:::{.fragment data-fragment-index=3}
+$$\lim_{\color{teal}{x} \to \color{maroon}{0}} \color{teal}{H}(\color{teal}{x}) = \color{teal}{\textit{d.n.e.}}$$
+:::
+:::
+
+:::column
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(5, 5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+# Rama izquierda: H(x) = 0 para x <= 0 (punto lleno en x=0)
+ax.plot([-2, 0], [0, 0], color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(0, 0, "o", color="#B8860B", markersize=10, zorder=5)
+
+# Rama derecha: H(x) = 1 para x > 0 (círculo abierto en x=0)
+ax.plot([0, 2], [1, 1], color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(0, 1, "o", color="white", markersize=10, zorder=5,
+        markeredgecolor="#B8860B", markeredgewidth=2.2)
+
+ax.set_xlim(-2, 2)
+ax.set_ylim(-0.3, 1.5)
+ax.set_xticks([-2, -1, 0, 1, 2])
+ax.set_yticks([0, 1])
+ax.tick_params(labelsize=12)
+ax.set_xlabel("$x$", fontsize=13, labelpad=8)
+ax.set_ylabel("$H(x)$", fontsize=13, labelpad=10)
+ax.text(0.85, 1.35, '"Función Heaviside"',
+        fontsize=18, color="#107895", fontweight="bold",
+        transform=ax.transAxes, ha="right", va="top")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+::::
+:::
+
+## Límtes unilaterales al infinito {.title-line}
+
+:::{.r-stack style="width:100%;"}
+
+:::{.fragment .fade-out data-fragment-index=1 style="text-align:center;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+a, eps = 1.0, 0.05
+x_L = np.linspace(-2, a - eps, 300)
+x_R = np.linspace(a + eps, 3.5, 300)
+y_L = np.clip(x_L**2 / (x_L - a)**2, -1, 12)
+y_R = np.clip(x_R**2 / (x_R - a)**2, -1, 12)
+
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.plot(x_L, y_L, color="#B8860B", linewidth=2.5)
+ax.plot(x_R, y_R, color="#B8860B", linewidth=2.5)
+ax.axvline(a, color="gray", linestyle="--", linewidth=1.2, zorder=2)
+ax.set_xlim(-2, 3.5)
+ax.set_ylim(-0.3, 12)
+ax.set_xticks([a]); ax.set_xticklabels(["$a$"], fontsize=14)
+ax.set_yticks([])
+for spine in ax.spines.values(): spine.set_visible(False)
+plt.tight_layout(); plt.show()
+```
+:::
+
+:::{.fragment .fade-in data-fragment-index=1 style="width:100%;"}
+:::: {.columns}
+::: {.column width="22%" style="font-size:1.35em;"}
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}^-} \color{teal}{f}(\color{teal}{x}) = \color{blue}{\infty}$$
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}^+} \color{teal}{f}(\color{teal}{x}) = \color{blue}{\infty}$$
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}} \color{teal}{f}(\color{teal}{x}) = \color{blue}{\infty}$$
+:::
+
+::: {.column width="28%"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+a, eps = 1.0, 0.05
+x_L = np.linspace(-2, a - eps, 300)
+x_R = np.linspace(a + eps, 3.5, 300)
+y_L = np.clip(x_L**2 / (x_L - a)**2, -1, 12)
+y_R = np.clip(x_R**2 / (x_R - a)**2, -1, 12)
+
+fig, ax = plt.subplots(figsize=(3.5, 4))
+ax.plot(x_L, y_L, color="#B8860B", linewidth=2.5)
+ax.plot(x_R, y_R, color="#B8860B", linewidth=2.5)
+ax.axvline(a, color="gray", linestyle="--", linewidth=1.2, zorder=2)
+ax.set_xlim(-2, 3.5)
+ax.set_ylim(-0.3, 12)
+ax.set_xticks([a]); ax.set_xticklabels(["$a$"], fontsize=12)
+ax.set_yticks([])
+for spine in ax.spines.values(): spine.set_visible(False)
+plt.tight_layout(); plt.show()
+```
+:::
+
+::: {.column width="28%"}
+:::{.fragment data-fragment-index=2}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+a, eps = 1.0, 0.05
+x_L = np.linspace(-2, a - eps, 300)
+x_R = np.linspace(a + eps, 3.5, 300)
+y_L = np.clip(x_L / (x_L - a), -12, 12)
+y_R = np.clip(x_R / (x_R - a), -12, 12)
+
+fig, ax = plt.subplots(figsize=(3.5, 4))
+ax.plot(x_L, y_L, color="#B8860B", linewidth=2.5)
+ax.plot(x_R, y_R, color="#B8860B", linewidth=2.5)
+ax.axvline(a, color="gray", linestyle="--", linewidth=1.2, zorder=2)
+ax.set_xlim(-2, 3.5)
+ax.set_ylim(-12, 12)
+ax.set_xticks([a]); ax.set_xticklabels(["$a$"], fontsize=12)
+ax.set_yticks([])
+for spine in ax.spines.values(): spine.set_visible(False)
+plt.tight_layout(); plt.show()
+```
+:::
+:::
+
+::: {.column width="22%" style="font-size:1.35em;"}
+:::{.fragment data-fragment-index=3}
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}^-} \color{teal}{f}(\color{teal}{x}) = \color{blue}{-\infty}$$
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}^+} \color{teal}{f}(\color{teal}{x}) = \color{blue}{+\infty}$$
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}} \color{teal}{f}(\color{teal}{x}) = \color{teal}{\textit{n.e.}}$$
+:::
+:::
+::::
+:::
+
+:::
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0082_00-03-28.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0098_00-04-09.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0111_00-04-36.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0114_00-04-43.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0124_00-05-03.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0131_00-05-18.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0140_00-05-42.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0151_00-06-12.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0157_00-06-27.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/5-One-sided limits and infinities_DUBBED_ES/slide_0166_00-06-47.jpg){#slide-img width="100%"}
+:::
+
+---
+
+
+## Continuidad y discontinuidades, revisadas
+
+::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
+
+En este presentación, aprenderás
+
+  - [La definición —y la prueba formal— de continuidad.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+  - [Definiciones basadas en límites de diferentes tipos de discontinuidades.]{style="color:#107895; font-size:1.05em;" .fragment}
+
+  - [Un recordatorio de que las funciones pueden ser continuas y discontinuas en diferentes subdominios.]{style="color:#107895; font-size:1.05em;" .fragment}
+:::
+
+
+## Definición de continuidad {.title-line}
+
+:::: {.columns style="align-items:flex-start; margin-top:0.8em;"}
+
+::: {style="font-size:1.3em; line-height:2.2em;"}
+Una función $f(\color{teal}{x})$ es continua en $\color{teal}{x}=\color{maroon}{a}$ si se cumplen las siguientes **tres condiciones**;
+
+de lo contrario, la función es **discontinua** en el punto $\color{maroon}{a}$.
+:::
+
+::: {.column width="50%" style="font-size:1.2em;"}
+
+::: {style="font-size:1.3em; line-height:2.2em;"}
+**1.** $\;f(\color{maroon}{a})$ está definida.
+
+**2.** $\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x})$ existe.
+
+**3.** $\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = f(\color{maroon}{a})$.
+:::
+
+:::
+
+::: {.column width="50%"}
+
+::: {.r-stack style="width:100%; text-align:center;"}
+
+::: {.fragment .fade-in-then-out data-fragment-index="1"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = 1.8
+x = np.linspace(-0.3, 3.8, 500)
+y = 0.08*x**3 - 0.5*x + 0.6*np.sin(2*x)
+
+fig, ax = plt.subplots(figsize=(5, 4))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x, y, color="#0b1cb8", linewidth=2.5, zorder=3)
+y_a = 0.08*a**3 - 0.5*a + 0.6*np.sin(2*a)
+ax.plot([a, a], [0, y_a], color="gray", linewidth=1.2, linestyle="--", alpha=0.45, zorder=1)
+
+ax.set_xlim(-0.3, 3.8)
+ax.set_ylim(-2.0, 3.5)
+ax.set_xticks([])
+ax.set_yticks([])
+
+ax.text(0.1, 3.4, "$f(x)$", fontsize=18, ha='left', va='top')
+ax.text(a, 0.45, "$a$", fontsize=18, ha='center', va='top', color='maroon')
+ax.set_xlabel("$X$", fontsize=14, labelpad=4)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in-then-out data-fragment-index="2"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = 1.8
+y_clip = 8.0
+x_left  = np.linspace(-0.3, a - 0.06, 300)
+x_right = np.linspace(a + 0.06, 3.8, 300)
+
+fig, ax = plt.subplots(figsize=(5, 4))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x_left,  1/(x_left  - a)**2, color="#0b1cb8", linewidth=2.5, zorder=3)
+ax.plot(x_right, 1/(x_right - a)**2, color="#0b1cb8", linewidth=2.5, zorder=3)
+
+ax.axvline(a, color="gray", linewidth=1.2, linestyle="--", alpha=0.45, zorder=1)
+ax.annotate("", xy=(a, y_clip + 0.5), xytext=(a, y_clip - 1.2),
+            arrowprops=dict(arrowstyle="-|>", color="gray", lw=1.0, alpha=0.55))
+
+ax.set_xlim(-0.3, 3.8)
+ax.set_ylim(-0.5, y_clip + 0.8)
+ax.set_xticks([])
+ax.set_yticks([])
+
+ax.text(0.1, y_clip + 0.6, "$f(x)$", fontsize=14, ha='left', va='top')
+ax.text(a, -0.15, "$a$", fontsize=18, ha='center', va='top', color='maroon')
+ax.set_xlabel("$X$", fontsize=18, labelpad=4)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index="3"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = 1.8
+limit_val = 0.5
+fa_val    = 2.2
+
+x_full = np.linspace(-0.3, 3.8, 600)
+y_full = (x_full - a)**2 + limit_val
+mask   = np.abs(x_full - a) > 0.07
+
+fig, ax = plt.subplots(figsize=(5, 4))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x_full[mask], y_full[mask], color="#0b1cb8", linewidth=2.5, zorder=3)
+
+ax.plot(a, limit_val, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=11, zorder=5)
+ax.plot(a, fa_val, 'o', color='maroon', markersize=11, zorder=5)
+ax.annotate("$f(a)$", xy=(a, fa_val), xytext=(a + 0.55, fa_val + 0.35),
+            fontsize=12, color='maroon',
+            arrowprops=dict(arrowstyle="-", color='maroon', lw=1.2))
+
+ax.set_xlim(-0.3, 3.8)
+ax.set_ylim(-0.4, 3.6)
+ax.set_xticks([])
+ax.set_yticks([])
+
+ax.text(0.1, 3.5, "$f(x)$", fontsize=18, ha='left', va='top')
+ax.text(a, -0.1, "$a$", fontsize=18, ha='center', va='top', color='maroon')
+ax.set_xlabel("$X$", fontsize=18, labelpad=4)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+::::
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/10-Continuity and discontinuities-revisited_DUBBED_ES/slide_0122_00-05-04.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/10-Continuity and discontinuities-revisited_DUBBED_ES/slide_0141_00-05-41.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/10-Continuity and discontinuities-revisited_DUBBED_ES/slide_0142_00-05-45.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/10-Continuity and discontinuities-revisited_DUBBED_ES/slide_0152_00-06-06.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## Dos Límites Trigonométricos Fundamentales
+
+::: {.columns}
+
+:::: {.column width="60%"}
+### Objetivos de aprendizaje
+En esta sesión exploraremos:
+
+* **Fundamentos:** Dos límites trigonométricos críticos para la derivación.
+* **Intuición:** El papel de la **representación gráfica** como herramienta de verificación y memoria.
+::::
+
+:::: {.column width="40%"}
+::: {.callout-note icon=false}
+## ¿Por qué importa?
+"Una imagen vale más que mil fórmulas cuando la memoria falla".
+:::
+::::
+
+:::
+
+---
+
+## Dos límites trigonométricos importantes {.title-line}
+
+:::{style="display:flex; align-items:center; justify-content:center; height:80%;"}
+
+::: columns 
+
+::: {.column width="40%" style="font-size: 1.7em; text-align:center;" }
+
+::: {.r-stack style="width:100%; text-align:center;"}
+::: {.fragment .fade-out data-fragment-index=1}
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}}\right)$$
+
+$\\[1.5em]$
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}}\right)$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}}\right) = \color{blue}{0}$$
+$\\[1.5em]$
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left(\dfrac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}}\right) = \color{blue}{1}$$
+:::
+:::
+
+:::
+
+::: {.column width="60%" style="font-size: 2em; text-align:center;"}
+
+::: {.fragment .fade-in data-fragment-index=2}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 2.8
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.08
+x_l = np.linspace(-2*np.pi, -eps, 400)
+x_r = np.linspace(eps, 2*np.pi, 400)
+y_l = (np.cos(x_l) - 1) / x_l
+y_r = (np.cos(x_r) - 1) / x_r
+
+fig, ax = plt.subplots(figsize=(6, 2.8))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#1f0bb8", linewidth=2.5, zorder=3)
+ax.plot(x_r, y_r, color="#1f0bb8", linewidth=2.5, zorder=3)
+ax.plot(0, 0, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=9, zorder=5)
+
+ticks = [-2*np.pi, -np.pi, 0, np.pi, 2*np.pi]
+labels = [r'$-2\pi$', r'$-\pi$', r'$0$', r'$\pi$', r'$2\pi$']
+ax.set_xticks(ticks)
+ax.set_xticklabels(labels, fontsize=10)
+ax.set_xlim(-2*np.pi - 0.4, 2*np.pi + 0.4)
+ax.set_ylim(-1.2, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=9)
+ax.text(0.98, 0.97, r"$f(\phi)=(\cos(\phi)-1)/\phi$", fontsize=12,
+        transform=ax.transAxes, ha='right', va='top')
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 2.8
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.08
+x_l = np.linspace(-2*np.pi, -eps, 400)
+x_r = np.linspace(eps, 2*np.pi, 400)
+y_l = np.sin(x_l) / x_l
+y_r = np.sin(x_r) / x_r
+
+fig, ax = plt.subplots(figsize=(6, 2.8))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#1f0bb8", linewidth=2.5, zorder=3)
+ax.plot(x_r, y_r, color="#1f0bb8", linewidth=2.5, zorder=3)
+ax.plot(0, 1, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=9, zorder=5)
+
+ticks = [-2*np.pi, -np.pi, 0, np.pi, 2*np.pi]
+labels = [r'$-2\pi$', r'$-\pi$', r'$0$', r'$\pi$', r'$2\pi$']
+ax.set_xticks(ticks)
+ax.set_xticklabels(labels, fontsize=10)
+ax.set_xlim(-2*np.pi - 0.4, 2*np.pi + 0.4)
+ax.set_ylim(-1.2, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=9)
+ax.text(0.98, 0.97, r"$f(\phi)=\sin(\phi)/\phi$", fontsize=12,
+        transform=ax.transAxes, ha='right', va='top')
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+:::
+
+## límites trigonométricos importantes {.title-line}
+
+:::{style="display:flex; flex-direction:column; justify-content:space-evenly; height:88%;"}
+
+::: {.fragment .fade-in data-fragment-index=1}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 9
+#| fig-height: 2.4
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.3
+x_l = np.linspace(-60, -eps, 2000)
+x_r = np.linspace(eps, 60, 2000)
+y_l = (np.cos(x_l) - 1) / x_l
+y_r = (np.cos(x_r) - 1) / x_r
+
+fig, ax = plt.subplots(figsize=(9, 2.4))
+ax.grid(False)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#140bb8", linewidth=2.0, zorder=3)
+ax.plot(x_r, y_r, color="#140bb8", linewidth=2.0, zorder=3)
+ax.plot(0, 0, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.0, markersize=8, zorder=5)
+
+ax.set_xticks([-60, -40, -20, 0, 20, 40, 60])
+ax.set_xticklabels(['-60', '-40', '-20', '0', '20', '40', '60'], fontsize=10)
+ax.set_xlim(-65, 65)
+ax.set_ylim(-1.3, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=10)
+ax.text(0.98, 0.95, r"$f(\phi)=(\cos(\phi)-1)/\phi$", fontsize=16,
+        transform=ax.transAxes, ha='right', va='top')
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 9
+#| fig-height: 2.4
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.3
+x_l = np.linspace(-60, -eps, 2000)
+x_r = np.linspace(eps, 60, 2000)
+y_l = np.sin(x_l) / x_l
+y_r = np.sin(x_r) / x_r
+
+fig, ax = plt.subplots(figsize=(9, 2.4))
+ax.grid(False)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#140bb8", linewidth=2.0, zorder=3)
+ax.plot(x_r, y_r, color="#140bb8", linewidth=2.0, zorder=3)
+ax.plot(0, 1, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.0, markersize=8, zorder=5)
+
+ax.set_xticks([-60, -40, -20, 0, 20, 40, 60])
+ax.set_xticklabels(['-60', '-40', '-20', '0', '20', '40', '60'], fontsize=10)
+ax.set_xlim(-65, 65)
+ax.set_ylim(-1.3, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=10)
+ax.text(0.98, 0.95, r"$f(\phi)=\sin(\phi)/\phi$", fontsize=16,
+        transform=ax.transAxes, ha='right', va='top')
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+## Vizualización $\frac{\sin(\phi)}{\phi}$ {.title-line}
+
+
+
+:::: columns
+
+::: {.column width="55%" style="text-align:center;"}
+
+:::{.r-stack style="font-size: 3em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5.5
+import numpy as np
+import matplotlib.pyplot as plt
+
+phi = 0.8  # angle in radians
+theta = np.linspace(0, phi, 100)
+
+fig, ax = plt.subplots(figsize=(6, 5.5))
+ax.set_aspect('equal')
+
+# Unit circle
+circle = np.linspace(0, 2*np.pi, 400)
+ax.plot(np.cos(circle), np.sin(circle), color="#B8860B", linewidth=2.5, zorder=3)
+
+# Radius lines
+ax.plot([0, np.cos(phi)], [0, np.sin(phi)], color="#107895", linewidth=2, zorder=4)
+ax.plot([0, 1], [0, 0], color="#107895", linewidth=2, zorder=4)
+
+# Arc (sector)
+ax.fill_between(np.cos(theta), np.sin(theta), 0, alpha=0.08, color="#107895")
+ax.plot(np.cos(theta), np.sin(theta), color="#107895", linewidth=2.5, linestyle="--", zorder=4)
+
+# Angle arc
+arc_angles = np.linspace(0, phi, 80)
+arc_r = 0.25
+ax.plot(arc_r*np.cos(arc_angles), arc_r*np.sin(arc_angles), color="maroon", linewidth=2, zorder=5)
+ax.text(0.32*np.cos(phi/2), 0.32*np.sin(phi/2), r"$\phi$", fontsize=18, color="maroon", ha="center", va="center")
+
+# Point on circle
+ax.plot(np.cos(phi), np.sin(phi), "o", color="red", markersize=10, zorder=6)
+ax.annotate(r"$P$", xy=(np.cos(phi), np.sin(phi)), xytext=(np.cos(phi)+0.25, np.sin(phi)+0.15),
+            fontsize=16, color="red", arrowprops=dict(arrowstyle="-", color="red", lw=1.2))
+
+ax.set_xlim(-1.5, 1.8)
+ax.set_ylim(-0.3, 1.8)
+ax.set_xticks([-1, 0, 1])
+ax.set_yticks([0, 1])
+ax.tick_params(labelsize=11)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.75, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5.5
+import numpy as np
+import matplotlib.pyplot as plt
+
+phi = 0.8
+theta = np.linspace(0, phi, 100)
+
+fig, ax = plt.subplots(figsize=(6, 5.5))
+ax.set_aspect('equal')
+
+# Unit circle
+circle = np.linspace(0, 2*np.pi, 400)
+ax.plot(np.cos(circle), np.sin(circle), color="#B8860B", linewidth=2.5, zorder=3)
+
+# Radius lines
+ax.plot([0, np.cos(phi)], [0, np.sin(phi)], color="#107895", linewidth=2, zorder=4)
+ax.plot([0, 1], [0, 0], color="#107895", linewidth=2, zorder=4)
+
+# Arc (sector)
+ax.fill_between(np.cos(theta), np.sin(theta), 0, alpha=0.08, color="#107895")
+ax.plot(np.cos(theta), np.sin(theta), color="#107895", linewidth=2.5, linestyle="--", zorder=4)
+
+# Angle arc
+arc_angles = np.linspace(0, phi, 80)
+arc_r = 0.25
+ax.plot(arc_r*np.cos(arc_angles), arc_r*np.sin(arc_angles), color="maroon", linewidth=2, zorder=5)
+ax.text(0.32*np.cos(phi/2), 0.32*np.sin(phi/2), r"$\phi$", fontsize=18, color="maroon", ha="center", va="center")
+
+# Point on circle
+ax.plot(np.cos(phi), np.sin(phi), "o", color="red", markersize=10, zorder=6)
+ax.annotate(r"$P$", xy=(np.cos(phi), np.sin(phi)), xytext=(np.cos(phi)+0.25, np.sin(phi)+0.15),
+            fontsize=16, color="red", arrowprops=dict(arrowstyle="-", color="red", lw=1.2))
+
+# --- sin(phi) vertical segment ---
+ax.plot([np.cos(phi), np.cos(phi)], [0, np.sin(phi)], color="teal", linewidth=3, zorder=5)
+ax.text(np.cos(phi)+0.08, np.sin(phi)/2, r"$\sin(\phi)$", fontsize=16, color="teal", ha="left", va="center")
+
+# --- arc length φ on circle ---
+ax.plot(np.cos(theta), np.sin(theta), color="darkorange", linewidth=3.5, zorder=4)
+mid_idx = len(theta)//2
+ax.text(np.cos(theta[mid_idx])*1.15, np.sin(theta[mid_idx])*1.15, r"$\phi$", fontsize=16, color="darkorange", ha="center", va="center")
+
+# --- tan(phi) segment ---
+tan_phi = np.tan(phi)
+ax.plot([1, 1], [0, tan_phi], color="#f03813", linewidth=3, zorder=5)
+ax.text(1.08, tan_phi/2, r"$\tan(\phi)$", fontsize=16, color="#f03813", ha="left", va="center")
+
+# Tick mark at x=1
+ax.plot([1, 1], [-0.05, 0.05], color="gray", linewidth=1.5, zorder=2)
+
+ax.set_xlim(-1.5, 2.2)
+ax.set_ylim(-0.3, 1.8)
+ax.set_xticks([-1, 0, 1])
+ax.set_yticks([0, 1])
+ax.tick_params(labelsize=11)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.75, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+::: {.column width="45%" style="font-size:0.65em; text-align:left;"}
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin-bottom:0.8em;"}
+**Desigualdad geométrica:**
+$$\sin(\color{teal}{\phi}) < \color{teal}{\phi} < \tan(\color{teal}{\phi})$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="margin-bottom:0.8em;"}
+Dividiendo por $\sin(\color{teal}{\phi}) > 0$:
+$$1 < \frac{\color{teal}{\phi}}{\sin(\color{teal}{\phi})} < \frac{1}{\cos(\color{teal}{\phi})}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="margin-bottom:0.8em;"}
+Invirtiendo:
+$$\cos(\color{teal}{\phi}) < \frac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}} < 1$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=5}
+Cuando $\color{teal}{\phi} \to \color{maroon}{0}$, $\cos(\color{teal}{\phi}) \to 1$, por el **Teorema del Emparedado**:
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}} = \color{blue}{1}$$
+:::
+
+:::
+
+::::
+
+
+
+
+## Otro Límite trigonométrico importante {.title-line}
+
+
+
+:::: columns
+
+::: {.column width="50%" style="text-align:center;"}
+
+:::{.r-stack style="font-size: 3em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.08
+x_l = np.linspace(-2*np.pi, -eps, 400)
+x_r = np.linspace(eps, 2*np.pi, 400)
+y_l = (np.cos(x_l) - 1) / x_l
+y_r = (np.cos(x_r) - 1) / x_r
+
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(x_r, y_r, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(0, 0, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=9, zorder=5)
+
+ticks = [-2*np.pi, -np.pi, 0, np.pi, 2*np.pi]
+labels = [r'$-2\pi$', r'$-\pi$', r'$0$', r'$\pi$', r'$2\pi$']
+ax.set_xticks(ticks)
+ax.set_xticklabels(labels, fontsize=11)
+ax.set_xlim(-2*np.pi - 0.4, 2*np.pi + 0.4)
+ax.set_ylim(-1.2, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=11)
+ax.text(0.98, 0.95, r"$f(\phi)=\dfrac{\cos(\phi)-1}{\phi}$", fontsize=14,
+        transform=ax.transAxes, ha='right', va='top')
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.28, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.08
+x_l = np.linspace(-2*np.pi, -eps, 400)
+x_r = np.linspace(eps, 2*np.pi, 400)
+y_l = (np.cos(x_l) - 1) / x_l
+y_r = (np.cos(x_r) - 1) / x_r
+
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(x_r, y_r, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(0, 0, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=9, zorder=5)
+
+ticks = [-2*np.pi, -np.pi, 0, np.pi, 2*np.pi]
+labels = [r'$-2\pi$', r'$-\pi$', r'$0$', r'$\pi$', r'$2\pi$']
+ax.set_xticks(ticks)
+ax.set_xticklabels(labels, fontsize=11)
+ax.set_xlim(-2*np.pi - 0.4, 2*np.pi + 0.4)
+ax.set_ylim(-1.2, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=11)
+ax.text(0.98, 0.95, r"$f(\phi)=\dfrac{\cos(\phi)-1}{\phi}$", fontsize=14,
+        transform=ax.transAxes, ha='right', va='top')
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.28, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+# Highlight the limit point (0,0) in red
+ax.plot(0, 0, "o", color="red", markersize=11, zorder=7)
+ax.annotate(r"$\lim_{\phi\to 0}\frac{\cos(\phi)-1}{\phi}=0$",
+            xy=(0, 0), xytext=(1.5, -0.5),
+            fontsize=14, color="red",
+            arrowprops=dict(arrowstyle="->", color="red", lw=1.5))
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+::: {.column width="50%" style="font-size:0.65em; text-align:left;"}
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin-bottom:0.6em;"}
+**Paso 1:** Identidad del ángulo medio
+$$\cos(\color{teal}{\phi}) - 1 = -2\sin^2\!\left(\frac{\color{teal}{\phi}}{2}\right)$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="margin-bottom:0.6em;"}
+**Paso 2:** Reescribimos el límite
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{-2\sin^2(\frac{\color{teal}{\phi}}{2})}{\color{teal}{\phi}}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="margin-bottom:0.6em;"}
+**Paso 3:** Multiplicamos y dividimos por $\frac{\color{teal}{\phi}}{2}$
+$$= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left[ -\sin\!\left(\frac{\color{teal}{\phi}}{2}\right) \cdot \frac{\sin(\frac{\color{teal}{\phi}}{2})}{\frac{\color{teal}{\phi}}{2}} \right]$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="margin-bottom:0.6em;"}
+**Paso 4:** Aplicamos el límite conocido $\displaystyle\lim_{u\to 0}\frac{\sin u}{u}=1$
+$$= \left(\lim_{\color{teal}{\phi} \to \color{maroon}{0}} -\sin\!\left(\frac{\color{teal}{\phi}}{2}\right)\right) \cdot \color{blue}{1}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=6}
+**Resultado final:**
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}} = \color{blue}{0}$$
+:::
+
+:::
+
+::::
+
+## Desarrollo de la demostración {.title-line}
+
+:::: columns
+
+::: {.column width="50%" style="text-align:center;"}
+
+:::{.r-stack style="font-size: 3em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-in data-fragment-index=1}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+eps = 0.08
+x_l = np.linspace(-2*np.pi, -eps, 400)
+x_r = np.linspace(eps, 2*np.pi, 400)
+y_l = (np.cos(x_l) - 1) / x_l
+y_r = (np.cos(x_r) - 1) / x_r
+
+fig, ax = plt.subplots(figsize=(6, 5))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+ax.plot(x_l, y_l, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(x_r, y_r, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(0, 0, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=9, zorder=5)
+
+ticks = [-2*np.pi, -np.pi, 0, np.pi, 2*np.pi]
+labels = [r'$-2\pi$', r'$-\pi$', r'$0$', r'$\pi$', r'$2\pi$']
+ax.set_xticks(ticks)
+ax.set_xticklabels(labels, fontsize=11)
+ax.set_xlim(-2*np.pi - 0.4, 2*np.pi + 0.4)
+ax.set_ylim(-1.2, 1.3)
+ax.set_yticks([-1, 0, 1])
+ax.set_yticklabels(['-1', '0', '1'], fontsize=11)
+ax.text(0.98, 0.95, r"$f(\phi)=\dfrac{\cos(\phi)-1}{\phi}$", fontsize=14,
+        transform=ax.transAxes, ha='right', va='top')
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.28, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+::: {.column width="50%" style="font-size:0.65em; text-align:left;"}
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin-bottom:0.6em;"}
+**Paso 1:** Multiplicar por el conjugado:
+$\displaystyle\frac{\cos(\phi)+1}{\cos(\phi)+1}$
+$$\lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}} \cdot \frac{\cos(\color{teal}{\phi})+1}{\cos(\color{teal}{\phi})+1}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="margin-bottom:0.6em;"}
+
+$$= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos^2(\color{teal}{\phi})-1}{\color{teal}{\phi}\,(\cos(\color{teal}{\phi})+1)}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="margin-bottom:0.6em;"}
+
+**Paso 2:** Usamos la identidad $\cos^2(\phi)-1 = -\sin^2(\phi)$
+$$= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{-\sin^2(\color{teal}{\phi})}{\color{teal}{\phi}\,(\cos(\color{teal}{\phi})+1)}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="margin-bottom:0.6em;"}
+
+$$= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left[ \frac{\sin(\color{teal}{\phi})}{\color{teal}{\phi}} \cdot \frac{-\sin(\color{teal}{\phi})}{\cos(\color{teal}{\phi})+1} \right]$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="margin-bottom:0.6em;"}
+**Paso 3:** Aplicamos el límite conocido $\displaystyle\lim_{u\to 0}\frac{\sin u}{u}=1$
+$$= \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \left[ \color{blue}{1} \cdot \frac{-\sin(\color{teal}{\phi})}{\cos(\color{teal}{\phi})+1} \right]$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=7}
+
+$$= \frac{-\sin(\color{maroon}{0})}{\cos(\color{maroon}{0})+1} = \frac{0}{1+1} = \color{blue}{0}$$
+$$\therefore \quad \lim_{\color{teal}{\phi} \to \color{maroon}{0}} \frac{\cos(\color{teal}{\phi})-1}{\color{teal}{\phi}} = \color{blue}{0}$$
+:::
+
+:::
+
+::::
+
+## Teorema del emparedado (Squeeze theorem)
+
+En este presentación, aprenderás:
+
+  - Los conceptos geométricos y algebraicos del teorema del emparedado (también conocido como teorema de la compresión o del sándwich).
+
+  - Varios ejemplos sencillos del teorema del emparedado.
+
+  - Cuándo no es útil el teorema del emparedado.
+
+  - El propósito del teorema del emparedado en el cálculo.
+
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0005_00-00-39.jpg){width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0006_00-01-06.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0009_00-02-11.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0010_00-02-13.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0011_00-02-37.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0014_00-03-06.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0017_00-03-54.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0018_00-04-33.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0021_00-05-33.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0022_00-05-40.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0024_00-05-57.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0027_00-06-39.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0034_00-07-30.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0035_00-07-37.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0038_00-07-55.jpg){#slide-img width="100%"}
+:::
+
+---
+
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0041_00-08-37.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0042_00-08-45.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0044_00-08-59.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0046_00-09-25.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0047_00-10-08.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+::: {style="text-align:center; margin:0; padding:0;"}
+![](imgs/15-Squeeze_theorem_DUBBED_ES/slide_0050_00-10-31.jpg){#slide-img width="100%"}
+:::
+
+---
+
+## ¿Por qué usar el teorema del emparedado? {.title-line}
+
+  - Deducir el límite de una función que, de otro modo, sería imposible de calcular (por ejemplo, funciones trigonométricas).
+
+  - Hallar la derivada de una función en un punto que, de otra manera, sería imposible de obtener.
+
+
+## Posibilidades de límites finitos
+
+En este presentación , aprenderás:
+
+  - Las posibilidades de los comportamientos de los límites.
+
+  - Cómo interpretar los resultados de los límites.
+
+
+## Posibles límites {.title-line}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 1: "Easy"** — Sustitución directa
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \color{blue}{c}$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-2, 4, 400)
+y = (x + 3) / (x - 1)
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.plot(2, 5, "o", color="red", markersize=9, zorder=5)
+ax.annotate("$(2,\\ 5)$", xy=(2, 5), xytext=(2.5, 7),
+            fontsize=13, color="red",
+            arrowprops=dict(arrowstyle="-", color="red", lw=1.2))
+
+ax.set_xlim(-2, 4)
+ax.set_ylim(-5, 10)
+ax.set_xticks(np.arange(-1, 5, 1))
+ax.set_yticks(np.arange(-4, 11, 2))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 10, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 2: Nonzero over zero** — Asíntota vertical
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \frac{c}{0} \quad \Rightarrow \quad \pm\infty$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x1 = np.linspace(-1, 1.95, 300)
+x2 = np.linspace(2.05, 5, 300)
+y1 = (x1 + 2) / (x1 - 2)
+y2 = (x2 + 2) / (x2 - 2)
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x1, y1, color="#B8860B", linewidth=2.5, zorder=3)
+ax.plot(x2, y2, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.axvline(2, color="red", linestyle="--", linewidth=1.5, alpha=0.7)
+
+ax.set_xlim(-1, 5)
+ax.set_ylim(-15, 15)
+ax.set_xticks(np.arange(0, 6, 1))
+ax.set_yticks(np.arange(-10, 16, 5))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 15, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 3: Indeterminate** — Forma $\frac{0}{0}$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{0}} \frac{\sin(\color{teal}{x})}{\color{teal}{x}} = \color{blue}{1}$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-3, 3, 400)
+y = np.sin(x) / x
+y[np.abs(x) < 1e-10] = 1
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.plot(0, 1, "o", color="red", markersize=9, zorder=5)
+ax.annotate("$(0,\\ 1)$", xy=(0, 1), xytext=(0.5, 1.3),
+            fontsize=13, color="red",
+            arrowprops=dict(arrowstyle="-", color="red", lw=1.2))
+
+ax.set_xlim(-3, 3)
+ax.set_ylim(-0.5, 1.5)
+ax.set_xticks(np.arange(-2, 3, 1))
+ax.set_yticks(np.arange(0, 2, 0.5))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.5, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 4: Infinite over finite** — Crecimiento sin límite
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{\infty}{c} \quad \Rightarrow \quad \pm\infty$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0.1, 10, 400)
+y = np.sqrt(x) / 2
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 2)
+ax.set_xticks(np.arange(0, 11, 2))
+ax.set_yticks(np.arange(0, 2.5, 0.5))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 2, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 5: Finite over infinite** — Tiende a cero
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\cos(\color{teal}{x})}{\color{teal}{x}} = \color{blue}{0}$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0.1, 20, 400)
+y = np.cos(x) / x
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.axhline(0, color="blue", linestyle="--", linewidth=1.5, alpha=0.7)
+
+ax.set_xlim(0, 20)
+ax.set_ylim(-1.2, 1.2)
+ax.set_xticks(np.arange(0, 21, 5))
+ax.set_yticks(np.arange(-1, 1.5, 0.5))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1.2, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 6: Infinite over infinite** — Regla de L'Hôpital
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{e^{\color{teal}{x}}}{\color{teal}{x}^3} = \color{blue}{\infty}$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0.1, 5, 400)
+y = np.exp(x) / x**3
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.set_xlim(0, 5)
+ax.set_ylim(0, 30)
+ax.set_xticks(np.arange(0, 6, 1))
+ax.set_yticks(np.arange(0, 35, 5))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 30, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## {auto-animate=true background-color="#ffffff" .white-canvas}
+
+:::{.r-stack style="font-size: 2em; width: 100%; text-align: center;"}
+
+::: {.fragment .fade-out data-fragment-index=1}
+**Caso 7: Finite over finite** — Carrera balanceada
+:::
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\color{teal}{x}^2}{2\color{teal}{x}^2} = \color{blue}{\frac{1}{2}}$$
+:::
+
+:::
+
+:::{.fragment .fade-up data-fragment-index=2 style="margin-top:-1em;"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(0.1, 10, 400)
+y = x**2 / (2 * x**2)
+
+fig, ax = plt.subplots(figsize=(8, 4.5))
+
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+ax.axhline(0.5, color="blue", linestyle="--", linewidth=1.5, alpha=0.7)
+
+ax.set_xlim(0, 10)
+ax.set_ylim(0, 1)
+ax.set_xticks(np.arange(0, 11, 2))
+ax.set_yticks(np.arange(0, 1.1, 0.25))
+ax.tick_params(labelsize=13)
+ax.set_xlabel("$x$", fontsize=14, labelpad=8)
+ax.text(0, 1, "$f(x)$", fontsize=18, ha="left", va="bottom")
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+---
+
+## Tabla de posibilidades de límites
+
+::: {style="font-size: 0.9em; text-align: center; padding: 0.5em;"}
+
+::: {style="border-bottom: 1px solid #333; padding-bottom: 0.3em; margin-bottom: 0.8em;"}
+<span style="font-size: 1.3em; color: #666;">Limits possibilities</span>
+:::
+
+::: {style="display: grid; grid-template-columns: 1fr 1.5fr 1.2fr 1.5fr; gap: 0.5em; text-align: left;"}
+
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Label
+:::
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Case
+:::
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Outcomes
+:::
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Example
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="color: #B8860B; padding: 0.3em 0;"}
+"Easy"
+:::
+::: {.fragment .fade-in data-fragment-index=1 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \color{maroon}{c}$
+:::
+::: {.fragment .fade-in data-fragment-index=1 style="color: #B8860B; padding: 0.3em 0;"}
+$c$
+:::
+::: {.fragment .fade-in data-fragment-index=1 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{2}} \frac{\color{teal}{x}+3}{\color{teal}{x}-1} = \frac{5}{1}$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="color: #B8860B; padding: 0.3em 0;"}
+Nonzero over zero
+:::
+::: {.fragment .fade-in data-fragment-index=2 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \frac{c}{0}$
+:::
+::: {.fragment .fade-in data-fragment-index=2 style="color: #8B0000; padding: 0.3em 0;"}
+$-\infty, \infty,$ undefined
+:::
+::: {.fragment .fade-in data-fragment-index=2 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{2^+}} \frac{\color{teal}{x}+2}{\color{teal}{x}-2} = \infty$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="color: #B8860B; padding: 0.3em 0;"}
+Indeterminate
+:::
+::: {.fragment .fade-in data-fragment-index=3 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = \frac{0}{0}$
+:::
+::: {.fragment .fade-in data-fragment-index=3 style="color: #8B0000; padding: 0.3em 0;"}
+Try algebra or L'Hopital's rule
+:::
+::: {.fragment .fade-in data-fragment-index=3 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{0}} \frac{\sin(\color{teal}{x})}{\color{teal}{x}} = 1$
+:::
+
+:::
+
+:::
+
+---
+
+## Tabla de posibilidades de límites (continuación)
+
+::: {style="font-size: 0.9em; text-align: center; padding: 0.5em;"}
+
+::: {style="border-bottom: 1px solid #333; padding-bottom: 0.3em; margin-bottom: 0.8em;"}
+<span style="font-size: 1.3em; color: #666;">Limits possibilities</span>
+:::
+
+::: {style="display: grid; grid-template-columns: 1fr 1.5fr 1.2fr 1.5fr; gap: 0.5em; text-align: left;"}
+
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Label
+:::
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Case
+:::
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Outcomes
+:::
+::: {style="font-weight: bold; color: #1a237e; font-size: 1.1em;"}
+Example
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="color: #B8860B; padding: 0.3em 0;"}
+Infinite over finite
+:::
+::: {.fragment .fade-in data-fragment-index=1 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{\infty}{\color{maroon}{c}}$
+:::
+::: {.fragment .fade-in data-fragment-index=1 style="color: #8B0000; padding: 0.3em 0;"}
+$-\infty, \infty,$ undefined
+:::
+::: {.fragment .fade-in data-fragment-index=1 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\sqrt{\color{teal}{x}}}{2} = \infty$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="color: #B8860B; padding: 0.3em 0;"}
+Finite over infinite
+:::
+::: {.fragment .fade-in data-fragment-index=2 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{c}{\infty}$
+:::
+::: {.fragment .fade-in data-fragment-index=2 style="color: #8B0000; padding: 0.3em 0;"}
+$0$
+:::
+::: {.fragment .fade-in data-fragment-index=2 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\cos(\color{teal}{x})}{\color{teal}{x}} = 0$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="color: #B8860B; padding: 0.3em 0;"}
+Infinite over infinite
+:::
+::: {.fragment .fade-in data-fragment-index=3 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{\infty}{\infty}$
+:::
+::: {.fragment .fade-in data-fragment-index=3 style="color: #8B0000; padding: 0.3em 0;"}
+Try algebra or L'Hopital's rule
+:::
+::: {.fragment .fade-in data-fragment-index=3 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{e^{\color{teal}{x}}}{\color{teal}{x}^3} = 0$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="color: #B8860B; padding: 0.3em 0;"}
+Finite over finite
+:::
+::: {.fragment .fade-in data-fragment-index=4 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} f(\color{teal}{x}) = \frac{c}{d}$
+:::
+::: {.fragment .fade-in data-fragment-index=4 style="color: #8B0000; padding: 0.3em 0;"}
+Balanced race to infinity
+:::
+::: {.fragment .fade-in data-fragment-index=4 style="padding: 0.3em 0;"}
+$\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{\infty}} \frac{\color{teal}{x}^2}{2\color{teal}{x}^2} = \frac{1}{2}$
+:::
+
+:::
+
+:::
+
+---
+
+## Límite de una función
+
+El límite se enfoca en el **comportamiento** de la función en las **proximidades** de un [punto]{.alert}, no necesariamente en el valor exacto de la [función en ese punto]{.alert}.
+
+  * **Concepto:** Imagina que te acercas a un punto en el eje $x$ desde la izquierda y la derecha. El límite es el valor al que la función ($y$) se va acercando.
+  * **Existencia:** Un límite puede [existir]{.alert} incluso si la [función no está definida]{.alert} en el punto en cuestión. Por ejemplo, en una función con un agujero. .
+  * **Notación:** $\displaystyle\lim_{x \to a} f(x) = L$
+
 
 ## El Problema del Límite y su Naturaleza
 
@@ -3502,7 +5846,9 @@ $$
 :::
 
 
+# Reglas de diferenciación y Teoremas
+
+## Linealidad de la diferenciación (proof)
 
 
-
-
+## Teoremas: Diferenciabilidad implica continuidad

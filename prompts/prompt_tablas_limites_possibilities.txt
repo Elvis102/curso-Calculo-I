@@ -1,0 +1,17 @@
+Te paso una imagen de una diapositiva/tabla que quiero replicar en mi presentación Quarto revealjs.
+
+**Convenciones de mi presentación:**
+- Archivo: `S2_Limites_Continuidad.qmd`
+- Tema: `clean.scss`
+- Las diapositivas de sección usan `## Título {.title-line}`
+- Para animaciones uso fragmentos con `.fragment .fade-in data-fragment-index=N`
+- Estilo de matemáticas LaTeX: variables `x` en `\color{teal}{x}`, punto del límite en `\color{maroon}{a}`, resultado final en `\color{blue}{}`
+- Las tablas usan grid CSS con `display: grid; grid-template-columns: 1fr 1.5fr 1.2fr 1.5fr`
+- Encabezados en azul oscuro `#1a237e`, labels en dorado `#B8860B`, outcomes de indeterminación en rojo `#8B0000`
+
+**Instrucciones:**
+1. Replica exactamente el contenido de la imagen (texto, fórmulas, estructura)
+2. Agrega animaciones con fragmentos para que cada fila aparezca secuencialmente
+3. Colócala después de la sección `## [nombre de la sección anterior]` y antes de `## [nombre de la siguiente sección]`
+
+¿Puedes crear esta diapositiva?

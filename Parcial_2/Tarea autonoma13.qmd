@@ -1,0 +1,106 @@
+---
+title: "Tarea Autónoma Semana 13"
+subtitle: "La derivada"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+# 1. Calcular la derivada de las funciones siguientes:
+
+## a) $$f(x)=\frac{x+1}{x^2+1}$$
+## b) $$f(x)=\tan(x^3+x^2+x-1)$$
+## c) $$f(x)=x^x, \quad \text{para } x>0$$
+**Indicación:** considerar $g(x)=\ln f(x)$. Derivar la función $g(x)$ y a partir de la derivada de $g(x)$, hallar la derivada de la función $f(x)$.
+
+
+
+# 2. Consideremos la función $$f(x)=\frac{x^2-1}{x^2+1}$$. Hallar la recta tangente de la curva $y=f(x)$ en el punto $$(x_0=0, y_0=f(x_0)=-1)$$.
+
+{{< pagebreak >}}
+
+# 1. Calcular la derivada de las funciones siguientes:
+
+## a) $$f(x)=\frac{x+1}{x^2+1}$$
+
+**Solución a):** Se aplica la regla del cociente:
+$$
+\begin{aligned}
+f'(x) &= \frac{(x+1)'(x^2+1) - (x+1)(x^2+1)'}{(x^2+1)^2} \\
+f'(x) &= \frac{1(x^2+1) - (x+1)(2x)}{(x^2+1)^2} \\
+f'(x) &= \frac{x^2+1 - (2x^2+2x)}{(x^2+1)^2} \\
+f'(x) &= \frac{-x^2-2x+1}{(x^2+1)^2}
+\end{aligned}
+$$
+
+## b) $$f(x)=\tan(x^3+x^2+x-1)$$
+
+**Solución b):** Se aplica la regla de la cadena:
+$$
+\begin{aligned}
+f'(x) &= \sec^2(x^3+x^2+x-1) \cdot (x^3+x^2+x-1)' \\
+f'(x) &= (3x^2+2x+1) \cdot \sec^2(x^3+x^2+x-1)
+\end{aligned}
+$$
+
+## c) $$f(x)=x^x, \quad \text{para } x>0$$
+
+**Indicación:** considerar $g(x)=\ln f(x)$. Derivar la función $g(x)$ y a partir de la derivada de $g(x)$, hallar la derivada de la función $f(x)$.
+
+**Solución c) (Derivación Logarítmica):**
+1. **Aplicar logaritmo:**
+    $$g(x) = \ln f(x) = \ln(x^x) = x \ln(x)$$
+2. **Derivar g(x):** Se usa la regla del producto.
+    $$
+    \begin{aligned}
+    g'(x) &= (x)'\ln(x) + x(\ln(x))' \\
+    g'(x) &= 1 \cdot \ln(x) + x \cdot \frac{1}{x} \\
+    g'(x) &= \ln(x) + 1
+    \end{aligned}
+    $$
+3. **Despejar f'(x) a partir de $g'(x) = \frac{f'(x)}{f(x)}$:**
+    $$
+    \begin{aligned}
+    f'(x) &= f(x) \cdot g'(x) \\
+    f'(x) &= x^x (\ln(x) + 1)
+    \end{aligned}
+    $$
+
+# 2. Consideremos la función $$f(x)=\frac{x^2-1}{x^2+1}$$. Hallar la recta tangente de la curva $y=f(x)$ en el punto $$(x_0=0, y_0=f(x_0)=-1)$$.
+
+**Solución:**
+
+La ecuación de la recta tangente en un punto $(x_0, f(x_0))$ a la curva $y=f(x)$ es la siguiente:
+$$y = f(x_0) + f'(x_0) \cdot (x - x_0)$$
+
+En nuestro caso, $x_0 = 0$, $f(x_0) = -1$.
+
+**1. Cálculo de la derivada $f'(x)$ (Regla del cociente):**
+$$
+\begin{aligned}
+f'(x) &= \frac{(x^2-1)'(x^2+1) - (x^2-1)(x^2+1)'}{(x^2+1)^2} \\
+f'(x) &= \frac{2x(x^2+1) - (x^2-1)(2x)}{(x^2+1)^2} \\
+f'(x) &= \frac{2x^3+2x - (2x^3-2x)}{(x^2+1)^2} \\
+f'(x) &= \frac{4x}{(x^2+1)^2}
+\end{aligned}
+$$
+
+**2. Cálculo de la pendiente $f'(x_0)$:**
+$$f'(0) = \frac{4(0)}{(0^2+1)^2} = 0$$
+
+**3. Ecuación de la recta tangente:**
+$$
+\begin{aligned}
+y &= -1 + 0 \cdot (x - 0) \\
+y &= -1
+\end{aligned}
+$$
+
+Por tanto $f'(0) = 0$. La ecuación de la recta tangente pedida será, pues: **$y = -1$**.
+Se trataría de una recta horizontal.

@@ -1,0 +1,23 @@
+Estoy creando una presentación en Quarto revealjs para Cálculo I. Mi archivo principal es S2_Limites_Continuidad.qmd y el tema está en clean.scss.
+
+Convenciones de mi presentación:
+
+Las diapositivas de sección usan ## Título {.title-line} (h2 con líneas decorativas a los lados, fondo blanco sin franja amarilla)
+Las diapositivas normales tienen una franja amarilla de 100px a la derecha
+Para animaciones uso fragmentos con :::{.r-stack}: el primer estado tiene .fragment .fade-out, el segundo .fragment .fade-in, mismo data-fragment-index; el contenido que aparece después (gráfica, etc.) va fuera del r-stack con un data-fragment-index mayor
+Estilo de matemáticas LaTeX:
+
+Variables x: \color{teal}{x}
+Punto del límite (el número al que tiende): \color{maroon}{2}
+Resultado final: \color{blue}{0}
+Tamaño del r-stack: style="font-size: 3em; width: 100%; text-align: center;"
+Gráficas siempre en Python (matplotlib):
+
+Sin bordes (for spine in ax.spines.values(): spine.set_visible(False))
+Ejes X e Y resaltados con ax.axhline(0) y ax.axvline(0) en negro, linewidth=1.8
+Cuadrícula suave: alpha=0.15
+Curva en #B8860B, linewidth=2.5
+Etiqueta Y con ax.text() encima del axvline, en LaTeX: "$f(x)$"
+Etiqueta X con ax.set_xlabel("$x$")
+Puntos de interés en rojo con ax.annotate() apuntando al punto
+Ahora crea la diapositiva ## [TÍTULO] {.title-line} que muestre la secuencia: [DESCRIBE LOS PASOS DE LA ANIMACIÓN].

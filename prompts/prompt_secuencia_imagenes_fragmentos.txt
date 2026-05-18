@@ -1,0 +1,296 @@
+Te paso una secuencia de imágenes que muestran el estado progresivo de una diapositiva animada. Cada imagen representa un "paso" de la animación (un avance de diapositiva). Quiero que la repliques en mi presentación Quarto RevealJS usando fragmentos.
+
+**Convenciones de mi presentación:**
+- Archivo: `S6-Multivariable-differentiation.qmd`
+- Tema: `clean.scss`
+- Diapositivas de sección: `## Título {.title-line}`
+- Fragmentos: `.fragment .fade-in data-fragment-index=N`
+- El contenedor principal usa `flex: 1; min-height: 0` (NO `height: XXvh`) para centrado vertical correcto
+- ⚠️ Solo sintaxis Quarto (`:::`). NO usar etiquetas HTML (`<div>`, `<span>`)
+
+**Gráficas en fragmentos — regla obligatoria:**
+- ⚠️ NUNCA guardes archivos PNG con `plt.savefig()` para luego insertar con `![](file.png)` en los fragmentos.
+- ✅ Cada estado de la animación que requiera una gráfica debe ser un chunk Python independiente con `plt.show()` colocado DENTRO del `:::` div del fragmento.
+- Las funciones helper compartidas (setup de ejes, funciones matemáticas, colores) se definen en un chunk de setup `#| echo: false` ANTES del bloque de diapositiva, sin producir output.
+
+Estructura correcta para gráficas animadas:
+```qmd
+```{python}
+#| echo: false
+# chunk de setup: define funciones y constantes, no produce output
+import matplotlib.pyplot as plt
+import numpy as np
+def _setup_ax(ax): ...
+def _f(x): ...
+```
+
+::: {style="... flex: 1; min-height: 0; ..."}
+::: {.r-stack style="width: 100%;"}
+
+::: {style="width: 65%;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.2, 3.8))
+_setup_ax(ax)
+# estado base
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="width: 65%;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.2, 3.8))
+_setup_ax(ax)
+# estado frag 1
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+:::
+
+:::
+:::
+```
+
+**Cómo interpretar la secuencia de imágenes:**
+1. Compara imagen N con imagen N-1 para identificar qué elemento NUEVO aparece en cada paso
+2. Cada elemento nuevo = un fragmento con `data-fragment-index` incremental
+3. Si varios elementos aparecen en el mismo paso → mismo `data-fragment-index`
+4. El estado final (última imagen) muestra todos los elementos visibles simultáneamente
+
+---
+
+**PATRÓN A — Fragmentos acumulativos (sin r-stack):**
+Usar cuando las fórmulas se apilan hacia abajo y PERMANECEN VISIBLES (no se reemplazan).
+```qmd
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.4em; font-size: 0.83em;"}
+
+Fórmula base (siempre visible, sin fragment)
+
+::: {.fragment .fade-in data-fragment-index=1}
+$= \text{paso 1}$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+$= \text{paso 2}$
+:::
+
+:::
+```
+
+**PATRÓN B — r-stack con menú lateral (nav menu + contenido):**
+Usar cuando hay un menú de navegación a la izquierda que cambia de color según el paso activo,
+y el contenido de la derecha crece o cambia entre estados.
+Cada ítem del menú va en su propia `:::` div para styling individual.
+```qmd
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="display: flex; flex-direction: row; width: 100%; padding: 0.5em 1.5em; gap: 1.5em; align-items: flex-start;"}
+::: {style="width: 30%; display: flex; flex-direction: column; gap: 1.2em; font-size: 1.0em;"}
+::: {style="color: goldenrod;"}
+1. Primer paso
+:::
+::: {style="color: #aaa;"}
+2. Segundo paso
+:::
+:::
+::: {style="width: 70%; font-size: 1.15em;"}
+contenido derecho
+:::
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; display: flex; flex-direction: row; padding: 0.5em 1.5em; gap: 1.5em; align-items: flex-start;"}
+[repetir estructura con colores actualizados]
+:::
+
+:::
+:::
+```
+
+**PATRÓN D — r-stack con columna estática + columna animada (fix sangrado):**
+Usar cuando hay contenido que permanece fijo a la izquierda (box, etiquetas, ecuaciones base)
+y solo el contenido de la derecha cambia entre estados (texto → gráfica → respuesta).
+
+⚠️ **Regla crítica anti-sangrado**: NUNCA repitas contenido idéntico en cada capa del r-stack.
+El r-stack usa CSS grid (`grid-area: 1/1`); la celda toma el alto del hijo **más alto**.
+Si capas más cortas tienen `background: white` que no llena ese alto, las capas más altas sangran.
+
+**Solución:** coloca el contenido estático FUERA del r-stack como columna hermana, y usa
+`height: 100%` en cada capa para que `background: white` cubra siempre toda la celda.
+
+```qmd
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.8em 1.5em; gap: 1.5em; align-items: flex-start;"}
+
+::: {style="flex: 0 0 30%; display: flex; flex-direction: column; gap: 0.5em;"}
+[contenido ESTÁTICO izquierdo — box, etiquetas, ecuaciones base]
+
+::: {.fragment .fade-in data-fragment-index=7 style="font-size: 1.05em;"}
+[elemento que aparece tarde pero queda visible para siempre]
+:::
+:::
+
+::: {style="flex: 1; min-height: 0; display: flex; flex-direction: column;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; font-size: 1.05em;"}
+[contenido capa 1 — texto/ecuaciones]
+:::
+
+::: {.fragment .fade-in data-fragment-index=N style="background: white; width: 100%; height: 100%;"}
+[contenido capa N — gráfica u otro contenido alto]
+:::
+
+::: {.fragment .fade-in data-fragment-index=M style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; font-size: 1.05em; padding: 0.5em 1em;"}
+[contenido capa final — respuesta]
+:::
+
+:::
+
+:::
+
+:::
+```
+
+**Cuándo usar Patrón D vs Patrón B:**
+- Patrón B: el menú lateral también cambia (colores, flechas activas) → repetir en cada capa está justificado y las alturas de capas son uniformes.
+- Patrón D: hay una columna estática idéntica en todas las capas Y las capas tienen alturas muy diferentes (ej. texto corto vs gráfica alta) → sacar la columna estática previene el sangrado.
+
+**Gráficas matplotlib dentro del Patrón D — tamaño recomendado:**
+Cuando una capa del r-stack contiene una gráfica `plt.subplots()`, el tamaño de la figura
+debe ajustarse al espacio disponible en la columna derecha (≈70% del ancho, ≈80% del alto de la diapositiva).
+Una figura demasiado alta provoca que el segundo subplot quede cortado por el footer de la diapositiva.
+
+Valores recomendados para subplots verticales (2 filas):
+```python
+fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(5.5, 4.2),
+                                gridspec_kw={'hspace': 0.5})
+# fuentes compactas para no desperdiciar espacio vertical:
+ax.set_xlabel('...', fontsize=8)
+ax.set_ylabel('...', fontsize=8)
+ax.set_title('...', fontsize=9)
+ax.tick_params(labelsize=7)
+plt.tight_layout(pad=0.3)
+```
+
+Valores recomendados para un solo subplot:
+```python
+fig, ax = plt.subplots(figsize=(5.5, 3.5))
+plt.tight_layout(pad=0.4)
+```
+
+⚠️ Si el gráfico sigue cortándose: reduce `figsize` altura en pasos de 0.3 (ej. 4.2 → 3.9 → 3.6)
+antes de tocar el layout de la diapositiva. No uses `out-height` en el chunk — interfiere con el scaling.
+
+**Ecuaciones apiladas dentro de una capa `height: 100%` — evitar separación excesiva:**
+Cuando una capa del r-stack tiene `height: 100%` y contiene varias ecuaciones `$$...$$`,
+NO usar `justify-content: center` — MathJax añade márgenes propios arriba/abajo a cada
+bloque de display math, y combinado con `center` las ecuaciones se separan demasiado y la
+última queda cortada por el footer.
+
+**Solución completa (dos niveles):**
+
+1. En el contenedor de la capa: usar `justify-content: flex-start` + `padding-top` + `gap: 0` + `font-size` reducido.
+2. En cada ecuación individual: envolver en un `:::` con `margin: -0.4em 0` para cancelar los márgenes que MathJax inyecta por defecto en cada bloque `$$`.
+
+```qmd
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%;
+     display: flex; flex-direction: column; gap: 0; justify-content: flex-start;
+     padding-top: 1.5em; font-size: 0.95em;"}
+
+::: {style="margin: -0.4em 0;"}
+$$ecuación siempre visible$$
+:::
+
+::: {style="margin: -0.4em 0;"}
+$$otra ecuación siempre visible$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin: -0.4em 0;"}
+$$ecuación con fragmento$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="margin: -0.4em 0;"}
+$$siguiente ecuación$$
+:::
+
+:::
+```
+
+⚠️ El `margin: -0.4em 0` cancela parcialmente el `1em` de margen que MathJax aplica arriba y abajo.
+Si las ecuaciones siguen separadas: aumentar a `-0.5em` o `-0.6em`.
+Si quedan demasiado pegadas: reducir a `-0.3em`.
+El `padding-top: 1.5em` compensa visualmente el `flex-start` para que el bloque no quede en la esquina superior.
+
+**PATRÓN C — Ecuaciones con etiquetas laterales (grid):**
+Usar cuando hay etiquetas a la izquierda de ecuaciones alineadas en columnas.
+```qmd
+::: {style="display: grid; grid-template-columns: 9em 1fr; align-items: center; align-content: center; flex: 1; min-height: 0; padding: 0 1em; row-gap: 0.1em; font-size: 0.92em;"}
+
+::: {.fragment .fade-in data-fragment-index=N style="color:#c0392b; font-style:italic; font-size:0.85em; line-height:1.4; text-align:right; padding-right:0.7em;"}
+*Etiqueta* texto
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.15em 0.7em; justify-self: start;"}
+$$ecuación$$
+:::
+
+::: {}
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin-left: 3em;"}
+$$= \text{continuación}$$
+:::
+
+:::
+```
+
+---
+
+**Colores en LaTeX/MathJax — SOLO estas sintaxis funcionan en RevealJS:**
+```latex
+{\color{goldenrod} y}     % dorado/ámbar — funciones f, constantes a
+{\color{teal} x}          % azul-teal — variables independientes
+{\color{red} m}           % rojo — variable principal
+{\color{maroon} 0}        % granate — puntos especiales, límites
+{\color{navy} c}          % azul oscuro — puntos c, constantes
+{\color{blue} \text{...}} % azul — resultados finales
+{\color{#c0392b} b}       % hex directo — también funciona en {\color{}}
+```
+⚠️ `\frac` siempre al nivel superior — NUNCA dentro de `{\color{X}\frac{a}{b}}`.
+⚠️ NO usar `\textcolor{...}{...}` en ninguna forma — causa que MathJax muestre LaTeX crudo.
+⚠️ NO usar colores hex dentro de `\textcolor` — solo dentro de `{\color{#hex} ...}`.
+
+**Cajas punteadas alrededor de ecuaciones:**
+```qmd
+::: {.fragment .fade-in data-fragment-index=N style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.15em 0.7em; justify-self: start;"}
+$$ecuación$$
+:::
+```
+Nota: las cajas aparecen junto con la ecuación (no al final), porque agregar/quitar bordes a elementos existentes requiere JavaScript.
+
+**Prevención de desbordamiento horizontal:**
+- Usar `margin-left: 3em` (máximo) para indentar ecuaciones de continuación
+- Si la ecuación sigue desbordando, reducir `font-size` del contenedor (ej: `0.85em`)
+- Con `justify-self: start` la ecuación se alinea a la izquierda dentro de su columna
+
+**⚠️ Reglas de parseo Pandoc (crítico):**
+- Siempre incluye una **línea en blanco** antes de cada `:::` anidado dentro de un contenedor
+- Siempre incluye una **línea en blanco** entre fórmulas o párrafos consecutivos dentro de un div
+- Sin estas líneas en blanco, Pandoc NO reconoce los `:::` como divs y los renderiza como texto literal en pantalla
+
+---
+
+**Instrucciones:**
+1. Analiza la secuencia de imágenes e identifica exactamente qué elemento nuevo aparece en cada imagen
+2. Determina qué patrón usar (A, B, C o D) según el tipo de layout
+3. Asigna `data-fragment-index` comenzando en 1, incrementando por cada imagen de la secuencia
+4. Replica colores, indentación y cajas según las convenciones arriba
+5. Colócala en la sección ## [TÍTULO DE LA SECCIÓN] {.title-line} ubicada en la línea [N]
+
+¿Puedes crear esta diapositiva?

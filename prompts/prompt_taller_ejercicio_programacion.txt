@@ -1,0 +1,155 @@
+Quiero crear dos tipos de diapositivas en mi presentación Quarto RevealJS:
+1. **Taller de programación** — muestra código Python con animación de líneas y su resultado renderizado
+2. **Ejercicio** — muestra una ecuación matemática centrada
+
+---
+
+## CONVENCIONES GENERALES
+
+- Archivo: `S5-Applications.qmd`
+- Tema: `clean.scss`
+- Diapositivas de sección: `## Título {.title-line}`
+- Contenedor centrado: `flex: 1; min-height: 0` (NUNCA `height: XXvh`)
+- Colores MathJax válidos: `{\color{goldenrod} a}`, `{\color{red} b}`, `{\color{teal} x}`, `{\color{blue} ...}`, `{\color{maroon} ...}`
+- ⚠️ NUNCA usar `\textcolor{#hex}{...}` — rompe MathJax en RevealJS
+
+---
+
+## PATRÓN 1 — TALLER DE PROGRAMACIÓN
+
+Estructura de dos chunks:
+
+**Chunk A** — código visible con animación de líneas (NO ejecuta):
+```qmd
+```{.python style="font-size: 1.4em;" code-line-numbers="1-5|7-15|16-21|22-24"}
+# código del notebook ipynb aquí
+# (copiado tal cual, incluyendo display(Math(...)) si aparece)
+```
+```
+
+- Usar `{.python ...}` (con punto) → solo muestra, NO ejecuta
+- `code-line-numbers="A-B|C-D|..."` → anima el resaltado línea por línea
+- Los grupos separados por `|` = un clic cada uno
+- `style="font-size: 1.4em;"` para legibilidad en pantalla grande
+
+**Separador de resultado:**
+```qmd
+::: {style="margin-top: 1.5em; font-size: 0.82em; color: #2c3e50;"}
+**Resultado de la ejecución:**
+:::
+```
+
+**Chunk B** — ejecuta y renderiza el resultado (oculto):
+```qmd
+```{python style="font-size: 0.75em;"}
+#| echo: false
+#| results: asis
+import sympy as sym
+
+x, a, b, c = sym.symbols('x a b c')
+
+# Recrea la lógica del notebook, pero usando print() con $$...$$
+# NUNCA usar display(Math(...)) — no funciona en Quarto/reticulate
+
+# Formato estándar para imprimir resultados LaTeX:
+print(r'$$' + sym.latex(expresion) + '$$\n\n')
+
+# Para resultados con etiqueta descriptiva:
+print(r'$$\text{Derivative of } ' + sym.latex(piece) + r' \text{ is } ' + sym.latex(deriv) + '$$\n\n')
+
+# Para múltiples resultados con etiquetas:
+print(r'$$\text{(f/g)'}: ' + sym.latex(dfg) + '$$\n\n')
+print(r'$$\text{(f\'g - fg')/(g^2)}: ' + sym.latex(man_dfg) + '$$\n\n')
+```
+```
+
+**Reglas críticas del Chunk B:**
+- `#| echo: false` y `#| results: asis` son OBLIGATORIOS — el primero oculta el código, el segundo renderiza el LaTeX
+- `style="font-size: 0.75em;"` reduce el tamaño del código para mejor legibilidad
+- Cada `print()` debe terminar en `\n\n` para separar bloques de ecuación
+- **Formato de print recomendado:** `print(r'$$' + sym.latex(expresion) + '$$\n\n')`
+- Para etiquetas descriptivas usar: `print(r'$$\text{etiqueta}: ' + sym.latex(expresion) + '$$\n\n')`
+- Replicar la lógica del notebook pero con `print()` en lugar de `display(Math(...))`
+- El `combined[:-3]` elimina el último ` + ` acumulado en el loop
+
+---
+
+## PATRÓN 2 — EJERCICIO (ecuación matemática)
+
+```qmd
+## Ejercicio N: Título descriptivo {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; font-size: 1.5em;"}
+
+$$\frac{d}{d{\color{teal} x}}\left({\color{goldenrod} a}{\color{teal} x}^2\right) = {\color{goldenrod} a}\left(\frac{d}{d{\color{teal} x}}{\color{teal} x}^2\right)$$
+
+:::
+```
+
+**Reglas:**
+- Ecuación siempre centrada con `align-items: center`
+- `font-size: 1.4em` a `1.7em` dependiendo de la longitud de la ecuación
+- Colores: escalares `a` → goldenrod, `b` → red, variable `x` → teal
+- Si hay varias ecuaciones, añadir `gap: 1.2em` al contenedor flex
+
+---
+
+## INSTRUCCIONES DE USO
+
+Te paso:
+1. El **código del notebook** (`.ipynb`) (-- parte a visualizar--)
+
+[
+
+import numpy as np
+import sympy as sym
+import matplotlib.pyplot as plt
+
+from IPython.display import display,Math
+
+# better image resolution
+import matplotlib_inline.backend_inline as disPlay
+disPlay.set_matplotlib_formats('svg')
+
+x = sym.symbols('x')
+
+# the function and its derivatives
+f = x**4 - 8*x**2
+df = sym.diff(f,x)
+ddf = sym.diff(f,x,2)
+
+# find f'=0
+critPoints = np.array( sym.solve(df) )
+critPoints
+
+# lambdify and plot
+f_l = sym.lambdify(x,f)
+df_l = sym.lambdify(x,df)
+ddf_l = sym.lambdify(x,ddf)
+xx = np.linspace(-3,3,101)
+
+plt.plot(xx,f_l(xx),label="f")
+plt.plot(xx,df_l(xx),label="f'")
+plt.plot(xx,ddf_l(xx),label="f''")
+plt.plot(critPoints,df_l(critPoints),'o',label="f'=0")
+plt.plot(critPoints,ddf_l(critPoints),'d',label="f''(f'=0)")
+plt.plot(xx[[0,-1]],[0,0],'k--',linewidth=.2)
+
+plt.ylim([-50,50])
+plt.xlim(xx[[0,-1]])
+plt.legend()
+plt.show()
+
+]
+
+
+
+2. El rango de líneas para `code-line-numbers` (ej: `"1-5|8-9|13-16|11|14-16|17-18|21-23|26-31||33-36|"`) 
+3. El nombre de la sección ## Implementando la prueba de la 2da derivada {.title-line} ubicada en la linea 897
+
+Debes:
+1. Crear el **Chunk A** con el código visible y la animación de líneas indicada
+2. Añadir el separador **"Resultado de la ejecución:"**
+3. Crear el **Chunk B** que ejecuta la lógica equivalente con `print()` + `#| results: asis`
+4. Si hay un Ejercicio asociado: añadir la diapositiva con la ecuación centrada y coloreada
+5. Colocar todo en las secciones indicadas

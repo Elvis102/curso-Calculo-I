@@ -220,14 +220,14 @@ $selection-bg: #26351c !default;
   -webkit-border-radius: 10px 10px 10px 10px;
   background-color: #c9b2f8;
   padding: 10px;
-  font-size: 0.9em;
+  font-size: 0.75em;
   color: black;
 }
 
 .reveal h2 {
   //font-weight: 350;
   font-weight: bold; // lighter, permite colocar negrita titulo de diap
-  font-size: 1.4em;
+  font-size: 1.5em;
 }
 
 .reveal h3 {
@@ -457,7 +457,7 @@ $selection-bg: #26351c !default;
   right: 7px !important; /* Ajusta la posición a la derecha */
 }
 
- 
+
 .slide-background::after {
   content: ""; /* contenido vacio*/
   position: absolute;
@@ -471,3 +471,34 @@ $selection-bg: #26351c !default;
   }
 }
 
+.slide-background.white-canvas::after {
+  display: none !important;
+}
+
+.reveal .slides section.white-canvas {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+.reveal section.title-line h2 {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 4.2rem;
+  font-weight: 150;
+  color: #555;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.reveal section.title-line h2::before,
+.reveal section.title-line h2::after {
+  content: "";
+  flex: 1;
+  border-bottom: 2px solid #999;
+}
+
+.slide-background.title-line::after {
+  display: none;
+}

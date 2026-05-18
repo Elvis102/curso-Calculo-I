@@ -1,0 +1,295 @@
+Quiero crear una diapositiva en mi presentación Quarto RevealJS con un gráfico Python animado.
+Usa la secuencia de imágenes que te adjunto para identificar los estados de animación.
+
+**Convenciones de mi presentación:**
+- Archivo: `S4-Reglas_diferenciacion_teoremas.qmd`
+- Tema: `clean.scss`, diapositivas 1600×900px
+- Sección: `## Título {.title-line}` ubicada en la línea [N]
+- Fragmentos de gráfico: r-stack donde cada estado es un chunk Python separado
+- ⚠️ Solo sintaxis Quarto (`:::`). NO usar etiquetas HTML (`<div>`, `<span>`)
+- ⚠️ Todos los nombres de funciones y variables llevan prefijo único por diapositiva
+  (ej: `f_cp`, `plot_cp`, `_xs1_cp`) para evitar conflictos con otras diapositivas
+
+---
+
+## TIPO A — Curva única continua (función analítica)
+
+Usar cuando la curva se describe con UNA sola fórmula (polinomio, seno, gaussiana…)
+y los elementos que se revelan son líneas/puntos encima de esa curva.
+
+**Estructura del setup:**
+```python
+```{python}
+#| include: false
+import numpy as np
+import matplotlib.pyplot as plt
+plt.rcParams['figure.facecolor'] = 'white'
+
+GOLD_XX  = '#B8860B'
+RED_XX   = '#c0392b'
+NAVY_XX  = 'navy'
+TEAL_XX  = 'teal'
+CURVE_XX = '#1a237e'   # o 'steelblue' según el estilo
+
+def f_XX(x):
+    return ...          # fórmula analítica
+
+def df_XX(x):
+    return ...          # derivada analítica
+
+a_XX, c_XX = X, Y
+ya_XX = f_XX(a_XX)
+yc_XX = f_XX(c_XX)
+slope_XX = (yc_XX - ya_XX) / (c_XX - a_XX)
+
+# Encontrar b donde f'(b) = slope (Teorema del Valor Medio)
+_cands = np.linspace(a_XX, c_XX, 10000)
+b_XX = _cands[np.argmin(np.abs(df_XX(_cands) - slope_XX))]
+yb_XX = f_XX(b_XX)
+
+def plot_XX(show_secant=False, show_tangent=False):
+    fig, ax = plt.subplots(figsize=(9, 5.0))
+
+    x_full = np.linspace(X_MIN, X_MAX, 500)
+    ax.plot(x_full, f_XX(x_full), color=CURVE_XX, lw=2.5)
+
+    # Elementos base (siempre visibles)
+    ax.plot(a_XX, ya_XX, 'o', color=GOLD_XX, ms=10, zorder=5)
+    ax.plot(c_XX, yc_XX, 'o', color=NAVY_XX, ms=10, zorder=5)
+
+    if show_secant:
+        x_sec = np.linspace(a_XX - 0.5, c_XX + 1.0, 100)
+        y_sec = ya_XX + slope_XX * (x_sec - a_XX)
+        ax.plot(x_sec, y_sec, '--', color='#888', lw=2.0)
+        mid_x = (a_XX + c_XX) / 2
+        ax.text(mid_x, ya_XX + slope_XX*(mid_x-a_XX) + 0.55, 'Línea secante',
+                color='#555', fontsize=18, ha='center', style='italic')
+
+    if show_tangent:
+        x_tan = np.linspace(b_XX - 2.0, b_XX + 2.2, 100)
+        y_tan = yb_XX + slope_XX * (x_tan - b_XX)
+        ax.plot(x_tan, y_tan, '-', color=RED_XX, lw=2.2)
+        ax.plot(b_XX, yb_XX, 'o', color=RED_XX, ms=10, zorder=5)
+        ax.text(b_XX + 1.5, yb_XX + slope_XX*1.5 + 0.45, 'Línea tangente',
+                color=RED_XX, fontsize=18, ha='left', style='italic')
+
+    ax.set_xticks([a_XX, c_XX])
+    lbls = ax.set_xticklabels(['$a$', '$c$'], fontsize=14)
+    lbls[0].set_color(GOLD_XX); lbls[1].set_color(NAVY_XX)
+    ax.set_yticks([])
+    for sp in ['top','right','left']: ax.spines[sp].set_visible(False)
+    ax.set_xlim(X_MIN - 0.3, X_MAX + 0.5)
+    ax.set_ylim(Y_MIN, Y_MAX)
+    plt.tight_layout(pad=0.3)
+    plt.show()
+```
+```
+
+**Fórmula recomendada para TVM (secante horizontal):**
+```python
+# f(a) = f(c) = 1 → slope = 0 → b exactamente en el máximo
+f(x) = -(x - a)**2 * (x - c) / K + 1
+df(x) = -(x - a) * (3x - (a + 2c)) / K
+# Altura del máximo: yb = (c-a)³ / (4K) + 1
+```
+
+---
+
+## TIPO B — Curva por tramos (piecewise)
+
+Usar cuando la curva necesita mostrar tipos distintos de puntos críticos
+(máximos, mínimos, inflexión, esquina, discontinuidad) que no pueden modelarse
+con una sola fórmula. Cada tramo se precomputa como array antes de `plot_XX`.
+
+**Patrón de curva con 4 tramos:**
+```
+Tramo 1: Seno suave  →  mín / máx / inflexión
+Tramo 2: Cúbica      →  punto de inflexión claro (x³ trasladada)
+Tramo 3: Segmento lineal  →  subida hacia esquina (corner)
+Tramo 4: Descenso + gap + segmento derecho  →  discontinuidad
+```
+
+**Cómo conectar tramos suavemente (C¹):**
+```python
+# Para conectar f_seno con f_cubica en x_union con continuidad C¹:
+# 1. Calcula la pendiente de la cúbica en x_union: dy_union = df_cubica(x_union)
+# 2. Calcula la fase del seno que iguale esa pendiente:
+_phase = np.arccos(np.clip(dy_union / (B * W), -1, 1))
+_phi   = _phase - W * x_union
+# 3. Calcula el offset vertical para igualar el valor:
+_A    = y_union - B * np.sin(W * x_union + _phi)
+# 4. Función seno resultante:
+def f_seno(x): return _A + B * np.sin(W * x + _phi)
+```
+
+**Discontinuidad — círculo abierto + círculo cerrado:**
+```python
+# Fin del tramo izquierdo (valor excluido):
+ax.plot(x_disc, y_disc, 'o', ms=12, zorder=6,
+        color='white', markeredgecolor=NAVY_XX, markeredgewidth=2.5)
+# Inicio del tramo derecho (valor incluido):
+ax.plot(x_disc_r, f_right(x_disc_r), 'o', ms=12, zorder=6, color=NAVY_XX)
+# El tramo derecho NO debe extenderse hasta crear un segundo máximo visible;
+# limitar: _xs_right = np.linspace(x_disc_r, x_disc_r + 0.6, 50)
+```
+
+**Marcadores diferenciados por tipo de punto crítico:**
+```python
+# Usar color Y forma distintos para que no se confundan en pantalla:
+ms = 11
+ax.plot(x_max,  y_max,  's', color=GOLD_XX,  ms=ms, zorder=5)  # cuadrado dorado
+ax.plot(x_min,  y_min,  's', color=RED_XX,   ms=ms, zorder=5)  # cuadrado rojo
+ax.plot(x_infl, y_infl, 's', color=TEAL_XX,  ms=ms, zorder=5)  # cuadrado teal
+ax.plot(x_corn, y_corn, '^', color=CORN_XX,  ms=14, zorder=5)  # TRIÁNGULO púrpura
+# Círculos reservados solo para discontinuidad (open/closed)
+```
+
+**Leyenda manual con ax.text (NO usar ax.legend):**
+```python
+if show_legend:
+    items = [
+        ('Maximum',       GOLD_XX, y0),
+        ('Minimum',       RED_XX,  y0 - dy),
+        ('Discontinuity', NAVY_XX, y0 - 2*dy),
+        ('Inflection',    TEAL_XX, y0 - 3*dy),
+        ('Corner',        CORN_XX, y0 - 4*dy),
+    ]
+    for label, color, ly in items:
+        ax.text(lx, ly, label, color=color, fontsize=17,
+                fontweight='bold', ha='left', va='center')
+```
+
+**Paleta de colores para puntos críticos:**
+```python
+GOLD_XX  = '#B8860B'   # máximo suave
+RED_XX   = '#c0392b'   # mínimo
+NAVY_XX  = 'navy'      # discontinuidad
+TEAL_XX  = 'teal'      # inflexión
+CORN_XX  = '#8e44ad'   # esquina / corner  ← distinto de inflexión
+CURVE_XX = '#1a237e'   # curva principal (azul oscuro)
+```
+
+**Estructura precomputada (arrays fuera de la función):**
+```python
+# Precomputar ANTES de definir plot_XX para que no recalcule en cada render:
+_xs1_XX = np.linspace(x_start, x_union, 300)
+_ys1_XX = f_seno(_xs1_XX)
+
+_xs2_XX = np.linspace(x_union, x_cubic_end, 200)
+_ys2_XX = f_cubica(_xs2_XX)
+
+_xs3a_XX = np.array([x_cubic_end, x_corner])
+_ys3a_XX = np.array([f_cubica(x_cubic_end), y_corner])
+
+_xs3b_XX = np.array([x_corner, x_disc])
+_ys3b_XX = np.array([y_corner, y_disc])
+
+_xs4_XX = np.linspace(x_disc_r, x_disc_r + 0.6, 50)  # segmento corto post-gap
+_ys4_XX = f_right(_xs4_XX)
+
+def plot_XX(show_points=False, show_legend=False):
+    fig, ax = plt.subplots(figsize=(10, 7))
+    ax.plot(_xs1_XX, _ys1_XX, color=CURVE_XX, lw=2.5)
+    ax.plot(_xs2_XX, _ys2_XX, color=CURVE_XX, lw=2.5)
+    ax.plot(_xs3a_XX, _ys3a_XX, color=CURVE_XX, lw=2.5)
+    ax.plot(_xs3b_XX, _ys3b_XX, color=CURVE_XX, lw=2.5)
+    ax.plot(_xs4_XX,  _ys4_XX,  color=CURVE_XX, lw=2.5)
+    ...
+```
+
+---
+
+## TIPO C — Gráfico estático en panel lateral (sin animación)
+
+Cuando el gráfico acompaña texto en una columna derecha, sin fragmentos de gráfico.
+El chunk del panel llama a `plot_XX(show_X=True, show_Y=True)` directamente.
+⚠️ NUNCA usar `plt.show()` solo en el chunk del panel — siempre llamar a la función.
+
+```qmd
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.4em 1.5em; gap: 1.5em; align-items: center;"}
+
+::: {style="width: 44%; display: flex; flex-direction: column; gap: 0.75em; font-size: 0.9em;"}
+[contenido izquierdo]
+:::
+
+::: {style="flex: 1;"}
+
+```{python}
+#| echo: false
+#| fig-align: center
+plot_XX(show_secant=True, show_tangent=True)
+```
+
+:::
+
+:::
+```
+
+---
+
+## ESTRUCTURA r-stack (animación, aplica a Tipo A y B)
+
+```qmd
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%;"}
+```{python}
+#| echo: false
+#| fig-align: center
+plot_XX()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%;"}
+```{python}
+#| echo: false
+#| fig-align: center
+plot_XX(show_points=True)
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%;"}
+```{python}
+#| echo: false
+#| fig-align: center
+plot_XX(show_points=True, show_legend=True)
+```
+:::
+
+:::
+
+:::
+```
+
+Regla: cada estado del r-stack = un `plot_XX(...)` con más parámetros activos.
+El `background: white` en los fragments tapa el estado anterior.
+
+---
+
+## ERRORES COMUNES Y CÓMO EVITARLOS
+
+| Problema | Causa | Solución |
+|---|---|---|
+| La gráfica no aparece en el panel | `plt.show()` solo, sin llamar la función | Reemplazar por `plot_XX(...)` |
+| El segundo tramo crea un máximo no deseado | `_xs4` demasiado largo (llega al pico gaussiano) | Limitar: `np.linspace(x_r, x_r + 0.6, 50)` |
+| Dos marcadores se ven idénticos | Mismo color Y misma forma (`'s'`) | Cambiar color O forma (ej: `'^'` triángulo) |
+| Los cambios no aparecen tras editar | Quarto sirve figuras cacheadas | Borrar `_files/figure-revealjs/*` y re-renderizar |
+| Variable de otro slide pisa la función | Nombres genéricos (`f`, `plot`, `a`, `slope`) | Prefijo único por slide en TODO: `f_XX`, `plot_XX`, `a_XX` |
+| Arccos da fase errónea en conexión C¹ | Ambigüedad de signo en `arccos` | Verificar que la derivada calculada coincide con la pendiente esperada |
+
+---
+
+## PREGUNTAS PARA COMPLETAR LA SOLICITUD
+
+Para que pueda generar la diapositiva correctamente, responde:
+
+1. **Tipo de curva:** ¿una sola fórmula (Tipo A) o varios tramos ensamblados (Tipo B)?
+2. **Estados de animación:** ¿cuántos avances de clic? (ej: curva → +marcadores → +leyenda)
+3. **Puntos críticos a mostrar:** máximo, mínimo, inflexión, esquina, discontinuidad — ¿cuáles?
+4. **Layout:** ¿gráfico en toda la diapositiva o panel derecho junto a texto?
+5. **Línea en el archivo:** `## Nombre de sección {.title-line}` en la línea [N]
+6. **Imagen de referencia:** adjunta una o varias capturas si tienes un modelo visual
+
+¿Puedes crear esta diapositiva?

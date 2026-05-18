@@ -1,0 +1,212 @@
+---
+title: "Tarea Autónoma"
+subtitle: "La derivada"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+## 1. Calcule la derivada $f'(x)$ de la función $f(x) = x^3 \cdot \tan(2x)$ aplicando las reglas de derivación correspondientes.
+
+## 2 . Calcule la derivada $f'(x)$ de la siguiente función:
+$$f(x) = \frac{\ln(x^2 + 1)}{e^{3x}}$$
+
+## 3. Cinco Ejemplos Prácticos de Aplicación de la Tabla de Derivadas
+
+- $$f(x) = 4x^5 - 7\cos(x) + 2$$
+
+- $$g(x) = \mathbf{x^2} \cdot \mathbf{\ln(x)}$$
+
+- $$h(x) = \frac{\mathbf{\sin(x)}}{\mathbf{x^3}}$$
+
+- $$p(x) = \mathbf{(e^{2x} + 5)^4}$$
+
+- $$q(x) = \ln(\mathbf{\sin(3x)})$$
+
+{{< pagebreak >}}
+
+## 1. Pregunta de Opción Múltiple: Regla del Producto y Cadena
+
+Calcule la derivada $f'(x)$ de la función $f(x) = x^3 \cdot \tan(2x)$ aplicando las reglas de derivación correspondientes.
+
+\vspace{0.2cm}
+
+\begin{enumerate}
+    \item $f'(x) = 3x^2\tan(2x) + 2x^3\sec^2(2x)$
+    \item $f'(x) = 3x^2\tan(2x) + x^3\sec^2(2x)$
+    \item $f'(x) = 3x^2\tan(2x) - 2x^3\sec^2(2x)$
+    \item $f'(x) = \frac{3x^2\tan(2x) - x^3\sec^2(2x)}{\tan^2(2x)}$
+\end{enumerate}
+
+\vspace{0.5cm}
+
+::: callout-tip
+### Solución
+La respuesta correcta es la **Opción 1**.
+
+Se aplica la Regla del Producto $(u\cdot v)' = u'v + uv'$ y la Regla de la Cadena a $\tan(2x)$.
+
+$$
+\begin{array}{rcl}
+f'(x) & = & \frac{d}{dx}(x^3) \cdot \tan(2x) + x^3 \cdot \frac{d}{dx}(\tan(2x)) \\
+& = & (3x^2)\tan(2x) + x^3 \cdot (\sec^2(2x) \cdot 2) \\
+f'(x) & = & 3x^2\tan(2x) + 2x^3\sec^2(2x)
+\end{array}
+$$
+:::
+
+## 2. Pregunta Desafiante: Derivación Avanzada (Cociente y Cadena)
+
+::: callout-note
+### Pregunta
+Calcule la derivada $f'(x)$ de la siguiente función, aplicando las Reglas del Cociente y de la Cadena:
+$$f(x) = \frac{\ln(x^2 + 1)}{e^{3x}}$$
+:::
+
+\vspace{0.2cm}
+
+\begin{enumerate}
+    \item $f'(x) = \frac{2x - 3(x^2+1)\ln(x^2+1)}{(x^2+1)e^{3x}}$
+    \item $f'(x) = \frac{2x \cdot e^{3x} - 3e^{3x} \cdot \ln(x^2+1)}{(x^2+1)e^{6x}}$
+    \item $f'(x) = 3e^{3x} \cdot \ln(x^2+1) + e^{3x} \cdot \frac{2x}{x^2+1}$
+    \item $f'(x) = \frac{2x - 3(x^2+1)\ln(x^2+1)}{(x^2+1)e^{6x}}$
+\end{enumerate}
+
+\vspace{0.5cm}
+
+---
+
+::: callout-tip
+### Solución y Justificación
+
+\textbf{Reglas Utilizadas:} Cociente $\left(\frac{u}{v}\right)'$, Cadena para $\ln(g(x))$, y Cadena para $e^{g(x)}$.
+
+**1. Derivadas Parciales:**
+* $u(x) = \ln(x^2 + 1) \implies u'(x) = \frac{2x}{x^2 + 1}$
+* $v(x) = e^{3x} \implies v'(x) = 3e^{3x}$
+
+**2. Aplicación del Cociente:**
+$$
+f'(x) = \frac{u'v - uv'}{v^2} = \frac{\left(\frac{2x}{x^2 + 1}\right)e^{3x} - (\ln(x^2 + 1))(3e^{3x})}{(e^{3x})^2}
+$$
+
+**3. Simplificación Final:**
+Se factoriza $e^{3x}$ del numerador y se simplifica con el $e^{6x}$ del denominador, y se unifican las fracciones en el numerador:
+$$
+f'(x) = \frac{e^{3x} \left[ \frac{2x}{x^2 + 1} - 3\ln(x^2 + 1) \right]}{e^{6x}} = \mathbf{\frac{2x - 3(x^2 + 1)\ln(x^2 + 1)}{(x^2 + 1)e^{3x}}}
+$$
+
+\textbf{Respuesta Correcta:} Opción 1.
+:::
+
+## 3. Cinco Ejemplos Prácticos de Aplicación de la Tabla de Derivadas
+
+### 1. Regla de la Suma y la Constante Múltiple (Reglas 03 y 04)
+
+Esta es la aplicación más básica: derivar término a término.
+
+**Función:**
+$$f(x) = 4x^5 - 7\cos(x) + 2$$
+
+**Pasos:**
+1.  Derivamos cada término usando la regla de la suma.
+2.  Aplicamos la regla del múltiplo constante (la constante se mantiene).
+3.  Aplicamos la regla de la potencia ($x^k \Rightarrow kx^{k-1}$), la derivada del coseno ($\cos(x) \Rightarrow -\sin(x)$) y la derivada de una constante ($\text{constante} \Rightarrow 0$).
+
+**Derivada $f'(x)$:**
+$$\begin{array}{rcl}
+f'(x) & = & \frac{d}{dx}(4x^5) - \frac{d}{dx}(7\cos(x)) + \frac{d}{dx}(2) \\
+& = & 4 \cdot (5x^{5-1}) - 7 \cdot (-\sin(x)) + 0 \\
+\mathbf{f'(x)} & = & \mathbf{20x^4 + 7\sin(x)}
+\end{array}$$
+
+---
+
+### 2. Regla del Producto (Regla 05)
+
+Esta regla se aplica cuando dos funciones derivables se están multiplicando: $(u \cdot v)' = u' \cdot v + u \cdot v'$.
+
+**Función:**
+$$g(x) = \mathbf{x^2} \cdot \mathbf{\ln(x)}$$
+Donde:
+* $u(x) = x^2 \Rightarrow u'(x) = 2x$
+* $v(x) = \ln(x) \Rightarrow v'(x) = \frac{1}{x}$
+
+**Derivada $g'(x)$:**
+$$\begin{array}{rcl}
+g'(x) & = & u'(x) \cdot v(x) + u(x) \cdot v'(x) \\
+& = & (2x) \cdot \ln(x) + (x^2) \cdot \left(\frac{1}{x}\right) \\
+& = & 2x\ln(x) + x \\
+\mathbf{g'(x)} & = & \mathbf{x(2\ln(x) + 1)}
+\end{array}$$
+
+---
+
+### 3. Regla del Cociente (Regla 06)
+
+Esta regla se aplica a la división de dos funciones: $\left(\frac{u}{v}\right)' = \frac{u' \cdot v - u \cdot v'}{v^2}$.
+
+**Función:**
+$$h(x) = \frac{\mathbf{\sin(x)}}{\mathbf{x^3}}$$
+Donde:
+* $u(x) = \sin(x) \Rightarrow u'(x) = \cos(x)$
+* $v(x) = x^3 \Rightarrow v'(x) = 3x^2$
+
+**Derivada $h'(x)$:**
+$$\begin{array}{rcl}
+h'(x) & = & \frac{u'(x) \cdot v(x) - u(x) \cdot v'(x)}{(v(x))^2} \\
+& = & \frac{(\cos(x)) \cdot (x^3) - (\sin(x)) \cdot (3x^2)}{(x^3)^2} \\
+& = & \frac{x^3\cos(x) - 3x^2\sin(x)}{x^6} \\
+\mathbf{h'(x)} & = & \mathbf{\frac{x\cos(x) - 3\sin(x)}{x^4}} \quad \text{(Simplificando por } x^2 \text{)}
+\end{array}$$
+
+---
+
+### 4. Regla de la Cadena (Regla 07 / Función Compuesta)
+
+La Regla de la Cadena es esencial y se usa cuando una función está "dentro" de otra: $(g(f(x)))' = g'(f(x)) \cdot f'(x)$.
+
+**Función:**
+$$p(x) = \mathbf{(e^{2x} + 5)^4}$$
+Esta es una **función externa** elevada a 4, con una **función interna** $e^{2x} + 5$.
+
+**Pasos:**
+1.  Derivamos la función externa (potencia 4), dejando el interior intacto.
+2.  Multiplicamos por la derivada de la función interna.
+    * Derivada de la parte $\mathbf{e^{2x}}$ requiere la cadena de nuevo: $e^{2x} \cdot (2x)' = 2e^{2x}$.
+
+**Derivada $p'(x)$:**
+$$\begin{array}{rcl}
+p'(x) & = & \underbrace{4(e^{2x} + 5)^{4-1}}_{\text{Derivada externa}} \cdot \underbrace{\frac{d}{dx}(e^{2x} + 5)}_{\text{Derivada interna}} \\
+& = & 4(e^{2x} + 5)^3 \cdot (2e^{2x} + 0) \\
+\mathbf{p'(x)} & = & \mathbf{8e^{2x}(e^{2x} + 5)^3}
+\end{array}$$
+
+---
+
+### 5. Cadena con Función Trigonométrica y Logaritmo (Reglas 09 y 11)
+
+Este ejemplo combina varias reglas, incluyendo la Cadena en una función logarítmica (Regla 09: $\ln u \Rightarrow \frac{u'}{u}$) y una trigonométrica.
+
+**Función:**
+$$q(x) = \ln(\mathbf{\sin(3x)})$$
+Aquí, $u(x) = \sin(3x)$ es la función interna del logaritmo natural.
+
+**Pasos:**
+1.  Derivamos el logaritmo natural: $\frac{1}{u} \cdot u'$.
+2.  La derivada de $u = \sin(3x)$ requiere la Cadena de nuevo (derivada de $\sin(\text{algo})$).
+
+**Derivada $q'(x)$:**
+$$\begin{array}{rcl}
+q'(x) & = & \frac{1}{\sin(3x)} \cdot \frac{d}{dx}(\sin(3x)) \\
+& = & \frac{1}{\sin(3x)} \cdot \underbrace{(\cos(3x) \cdot (3x)')}_{\text{Cadena: Derivada de sin(3x)}} \\
+& = & \frac{1}{\sin(3x)} \cdot (\cos(3x) \cdot 3) \\
+& = & 3 \cdot \frac{\cos(3x)}{\sin(3x)} \\
+\mathbf{q'(x)} & = & \mathbf{3\cot(3x)}
+\end{array}$$

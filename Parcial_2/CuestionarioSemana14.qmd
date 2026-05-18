@@ -1,0 +1,81 @@
+---
+title: "Cuestionari_14"
+subtitle: "Aplicación de la derivada"
+author: "Elvis Sánchez"
+format:
+  pdf:
+    fontsize: 12pt
+    break-on-sections: true
+    documentclass: article
+    include-in-header:
+      text: |
+        \usepackage[top=2cm, left=2.5cm, right=2.5cm, bottom=2.5cm]{geometry}
+--- 
+
+### Pregunta 1: Sea $f$ una función derivable hasta orden $2n$ en un entorno de $x_0$. Si $f'(x_0)=f''(x_0)=\cdots =f^{(2n-1)}(x_0)=0$ y $f^{(2n)}(x_0)\neq 0$, ¿qué condición indica que $f$ tiene un **máximo** en $x=x_0$?
+
+-   a) $f^{(2n)}(x_0)>0$
+    
+-   b) $f^{(2n+1)}(x_0)>0$
+    
+-    c) **$f^{(2n)}(x_0)<0$**
+  
+-    d) $f'(x_0)<0$
+  
+ **Correcto C.** De acuerdo con el teorema, si la primera derivada de orden par no nula es negativa, la función presenta un **máximo** relativo en $x_0$.
+
+### Pregunta 2: De acuerdo con el teorema de crecimiento, si se cumplen las condiciones $f'(x_0)=f''(x_0)=\cdots =f^{(2n)}(x_0)=0$ y $f^{(2n+1)}(x_0)\neq 0$, ¿qué sucede si $f^{(2n+1)}(x_0)>0$?
+
+
+-   a) $f$ es decreciente en $x_0$.
+    
+-   b) $f$ es creciente en $x_0$.
+tiene un máximo en $x_0$.
+   
+-   c) **$f$ es creciente en $x_0$.**
+    
+-   d)$f$ tiene un mínimo en $x_0$.
+   
+
+**Correcto.C** Si la primera derivada no nula es de orden impar $2n+1$ y positiva, la función es **creciente** en $x_0$.
+
+### Pregunta 3: Para una función derivable tres veces con $f'''$ continua, ¿qué condición sobre la derivada segunda $f''(x_0)$ implica que la función $f$ es **cóncava** en un entorno de $x_0$?
+
+
+- a) $f''(x_0)>0$
+    
+- b) $f''(x_0)=0$ y $f'''(x_0)\neq 0$
+    
+- c) **$f''(x_0)<0$**
+    
+- d) $f'''(x_0)>0$
+    
+    
+**Correcto.C** Si la derivada segunda es negativa, la función es **cóncava** en un entorno de $x_0$.
+
+### Pregunta 4: La proposición sobre la relación entre una función **convexa** en $(a,b)$ y su recta tangente afirma que $f(x)$ siempre está por **encima** de la recta tangente. ¿Cuál es la desigualdad que representa esta afirmación para todo valor $x,\hat{x}\in (a,b)$?
+
+
+-   a) $f(x)\leq f(\hat{x})+f'(\hat{x})\cdot (x-\hat{x})$
+   
+-   b) $f(t\cdot x_1+(1-t)\cdot x_2)\leq t\cdot f(x_1)+(1-t)\cdot f(x_2)$
+    
+-   c) $f(x)\geq f(\hat{x})+f'(\hat{x})\cdot (x-\hat{x})$
+    
+-   d) $f(x_1)\geq f(x_2)$
+    
+
+**Correcto.C** Esta desigualdad establece que $f(x)$ es mayor o igual que la imagen de $x$ por la recta tangente, indicando que $f$ está por **encima** de su tangente.
+
+### Pregunta 5: ¿Qué condición caracteriza un **punto de inflexión** en $x_0$ utilizando las derivadas, suponiendo que $f$ es derivable tres veces con $f'''$ continua?
+
+
+- a) $f'(x_0)=0$ y $f''(x_0)\neq 0$
+   
+- b) $f''(x_0)<0$
+   
+- c) **$f''(x_0)=0$ y $f'''(x_0)\neq 0$**
+
+- d) $f'(x_0)=0$ y''(x_0)=0$
+    
+**Correcto.C** El texto establece que si la segunda derivada es cero y la tercera derivada es no nula, $f$ tiene un punto de inflexión en $x_0$. 
