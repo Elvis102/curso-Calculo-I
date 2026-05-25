@@ -1,7 +1,7 @@
 Te paso una secuencia de imágenes que muestran el estado progresivo de una diapositiva animada. Cada imagen representa un "paso" de la animación (un avance de diapositiva). Quiero que la repliques en mi presentación Quarto RevealJS usando fragmentos.
 
 **Convenciones de mi presentación:**
-- Archivo: `S6-Multivariable-differentiation.qmd`
+- Archivo: `S1-Funciones.qmd.qmd`
 - Tema: `clean.scss`
 - Diapositivas de sección: `## Título {.title-line}`
 - Fragmentos: `.fragment .fade-in data-fragment-index=N`
@@ -265,6 +265,10 @@ $$= \text{continuación}$$
 ⚠️ `\frac` siempre al nivel superior — NUNCA dentro de `{\color{X}\frac{a}{b}}`.
 ⚠️ NO usar `\textcolor{...}{...}` en ninguna forma — causa que MathJax muestre LaTeX crudo.
 ⚠️ NO usar colores hex dentro de `\textcolor` — solo dentro de `{\color{#hex} ...}`.
+⚠️ NUNCA anides un comando con argumento (`\text{}`, `\operatorname{}`, `\mathrm{}`) dentro de `{\color{X}...}` en math inline (`$...$`) — Pandoc falla al parsear la expresión y muestra LaTeX crudo en pantalla. Para nombres de función de múltiples letras, usa las letras directamente sin ningún comando envolvente:
+  - ✅ `${\color{#c0392b}exp}({\color{teal}x})$`
+  - ❌ `${\color{#c0392b}\operatorname{exp}}({\color{teal}x})$`
+  - ❌ `${\color{#c0392b}\text{exp}}({\color{teal}x})$`
 
 **Cajas punteadas alrededor de ecuaciones:**
 ```qmd
@@ -278,6 +282,19 @@ Nota: las cajas aparecen junto con la ecuación (no al final), porque agregar/qu
 - Usar `margin-left: 3em` (máximo) para indentar ecuaciones de continuación
 - Si la ecuación sigue desbordando, reducir `font-size` del contenedor (ej: `0.85em`)
 - Con `justify-self: start` la ecuación se alinea a la izquierda dentro de su columna
+
+**⚠️ Franja amarilla del tema (crítico):**
+El tema `clean.scss` renderiza una franja amarilla de 100 px fija en el borde derecho con `z-index: 100`,
+por encima de todo el contenido del slide (incluidos fragmentos con `background: white`).
+Para que el texto y las ecuaciones nunca queden ocultos bajo la franja, añade siempre
+`padding-right: 3em` al contenedor externo de cada slide:
+
+```qmd
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+```
+
+Este `padding-right` se propaga a todos los hijos con `width: 100%` (incluido el r-stack y
+sus capas de fragmento), dejando un margen derecho limpio sin que la franja tape el contenido.
 
 **⚠️ Reglas de parseo Pandoc (crítico):**
 - Siempre incluye una **línea en blanco** antes de cada `:::` anidado dentro de un contenedor

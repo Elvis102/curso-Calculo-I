@@ -1,0 +1,3249 @@
+---
+title: Cálculo I
+subtitle: Multivariable Differentiation
+toc: false
+format:
+  revealjs:
+    width: 1600    # Ancho en píxeles
+    height: 900    # Alto en píxeles
+    # O usar proporción de aspecto
+    aspectratio: "16:9"  # Otras opciones: "4:3", "1:1" 
+    theme: [default, clean.scss]
+    slide-number: true
+    slide-tone: false
+    chalkboard:
+      chalk-width: 2          # grosor de la tiza (más grande = trazo más continuo)
+      boardmarker-width: 2    # grosor del marcador
+      chalk-color: "#333333"  # tiza gris oscuro
+      boardmarker-color: "#333333"  # marcador del mismo color
+      grid: false             # sin cuadrícula
+    footer: | 
+      © 2025 Elvis Sánchez – Universidad Técnica de Machala
+  html:
+   embed-resources: true
+   pdf-max-pages-per-slide : true
+ 
+author:
+  - name: Elvis M. Sánchez Rogel
+    orcid: 0009-0001-6662-2211
+    email: emsanchez@utmachala.edu.ec
+    affiliations: Universidad Técnica de Machala
+date: last-modified
+logo: Images/Utmach-logo.png
+lang: es
+
+#runtime: shiny_prerendered
+---
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+use_python("/opt/anaconda3/bin/python")
+```
+
+# Preliniaminares
+
+## ¿Qué es una función? {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+
+[En este presentación, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
+● La definición de una "función" en matemáticas (recordatorio: ¡nada que ver con una función de Python!).
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
+● Terminología de funciones.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
+● Visualización de funciones.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
+● Funciones vs. salidas de funciones.
+:::
+
+:::
+
+## ¿Qué es una función? {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%; height: 100%; display: flex; flex-direction: column; padding: 0.5em 2.5em; gap: 0.6em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Función:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Una expresión o regla (o conjunto de expresiones) que asigna una variable (o conjunto de variables) a otra variable.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="margin: -0.3em 0; font-size: 1.65em;"}
+$${\color{goldenrod}y} = {\color{#c0392b}f}({\color{teal}x})$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin: -0.3em 0; font-size: 1.45em;"}
+$${\color{#c0392b}f} : {\color{teal}x} \to {\color{goldenrod}y}$$
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 0.5em 2.5em; gap: 0.6em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Función:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Una expresión o regla (o conjunto de expresiones) que asigna una variable (o conjunto de variables) a otra variable.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: row; justify-content: center; align-items: flex-start; padding-top: 0.8em; gap: 0.4em; font-size: 1.9em;"}
+
+::: {style="padding-top: 0.45em;"}
+${\color{goldenrod}y} =$
+:::
+
+::: {style="display: flex; flex-direction: column; align-items: center; gap: 0.35em;"}
+
+::: {style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.05em 0.4em;"}
+${\color{#c0392b}f}({\color{teal}x})$
+:::
+
+::: {style="color: #c0392b; font-size: 0.4em; text-align: center; line-height: 1.6;"}
+↓
+
+Función
+:::
+
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 0.5em 2.5em; gap: 0.6em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Función:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Una expresión o regla (o conjunto de expresiones) que asigna una variable (o conjunto de variables) a otra variable.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: row; justify-content: center; align-items: flex-start; padding-top: 0.8em; gap: 0.2em; font-size: 1.9em;"}
+
+::: {style="padding-top: 0.45em;"}
+${\color{goldenrod}y} =$
+:::
+
+::: {style="display: flex; flex-direction: column; align-items: center; gap: 0.35em;"}
+
+::: {style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.05em 0.35em;"}
+${\color{#c0392b}f}$
+:::
+
+::: {style="color: #c0392b; font-size: 0.4em; text-align: center; line-height: 1.6;"}
+↓
+
+Función
+:::
+
+:::
+
+::: {style="display: flex; flex-direction: column; align-items: center; gap: 0.35em;"}
+
+::: {style="border: 2px dashed teal; border-radius: 6px; padding: 0.05em 0.35em;"}
+$({\color{teal}x})$
+:::
+
+::: {style="color: teal; font-size: 0.4em; text-align: center; line-height: 1.6;"}
+↓
+
+Entrada
+
+(variable independiente)
+:::
+
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 0.5em 2.5em; gap: 0.6em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Función:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Una expresión o regla (o conjunto de expresiones) que asigna una variable (o conjunto de variables) a otra variable.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: row; justify-content: center; align-items: flex-start; padding-top: 0.8em; gap: 0.4em; font-size: 1.9em;"}
+
+::: {style="display: flex; flex-direction: column; align-items: center; gap: 0.35em;"}
+
+::: {style="border: 2px dashed goldenrod; border-radius: 6px; padding: 0.05em 0.35em;"}
+${\color{goldenrod}y}$
+:::
+
+::: {style="color: goldenrod; font-size: 0.4em; text-align: center; line-height: 1.6;"}
+↓
+
+Salida
+
+(variable dependiente)
+:::
+
+:::
+
+::: {style="padding-top: 0.45em;"}
+$=$
+:::
+
+::: {style="display: flex; flex-direction: column; align-items: center; gap: 0.35em;"}
+
+::: {style="border: 2px dashed #c0392b; border-radius: 6px; padding: 0.05em 0.35em;"}
+${\color{#c0392b}f}$
+:::
+
+::: {style="color: #c0392b; font-size: 0.4em; text-align: center; line-height: 1.6;"}
+↓
+
+Función
+:::
+
+:::
+
+::: {style="display: flex; flex-direction: column; align-items: center; gap: 0.35em;"}
+
+::: {style="border: 2px dashed teal; border-radius: 6px; padding: 0.05em 0.35em;"}
+$({\color{teal}x})$
+:::
+
+::: {style="color: teal; font-size: 0.4em; text-align: center; line-height: 1.6;"}
+↓
+
+Entrada
+
+(variable independiente)
+:::
+
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 0.5em 2.5em; gap: 0.6em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Función:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Una expresión o regla (o conjunto de expresiones) que asigna una variable (o conjunto de variables) a otra variable.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.85em; line-height: 2.1;"}
+
+${\color{#c0392b}f}({\color{teal}x})$
+
+${\color{#c0392b}g}({\color{teal}x})$
+
+${\color{#c0392b}h}({\color{teal}x})$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=7 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; padding: 0.5em 2.5em; gap: 0.6em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Función:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Una expresión o regla (o conjunto de expresiones) que asigna una variable (o conjunto de variables) a otra variable.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: row; justify-content: center; align-items: center; gap: 4em; font-size: 1.85em; line-height: 2.1;"}
+
+::: {style="display: flex; flex-direction: column;"}
+
+${\color{#c0392b}f}({\color{teal}x})$
+
+${\color{#c0392b}g}({\color{teal}x})$
+
+${\color{#c0392b}h}({\color{teal}x})$
+
+:::
+
+::: {style="display: flex; flex-direction: column;"}
+
+${\color{#c0392b}exp}({\color{teal}x})$
+
+${\color{#c0392b}ef}({\color{teal}x})$
+
+${\color{#c0392b}erf}({\color{teal}x})$
+
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=8 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em 2.5em; gap: 1em;"}
+
+::: {style="text-align: center;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Importante:
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; line-height: 1.5;"}
+Cada valor de la entrada ([x]{style="color: teal;"}) produce a lo sumo un valor de la salida ([y]{style="color: goldenrod;"}).
+:::
+
+:::
+
+::: {style="font-size: 1.7em;"}
+$${\color{goldenrod}y} = {\color{#c0392b}f}({\color{teal}x})$$
+:::
+
+:::
+
+:::
+
+:::
+
+## Visualizando funciones {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+_CR = '#c0392b'
+_BL = '#2980b9'
+_GO = 'goldenrod'
+_GR = '#0000004a'
+
+_xp = np.linspace(-2, 2, 300)
+_yp = _xp**2
+
+_th = np.linspace(0, 2*np.pi, 300)
+_xc = np.cos(_th)
+_yc = 2 + np.sin(_th)
+
+_xs = np.linspace(0, 2, 200)
+_ys_p = np.sqrt(_xs)
+_ys_n = -np.sqrt(_xs)
+
+def _ax_par(ax):
+    ax.set_xlim(-2.3, 2.3)
+    ax.set_ylim(-0.3, 4.3)
+    ax.set_xticks([-2, -1, 0, 1, 2])
+    ax.set_yticks([0, 1, 2, 3, 4])
+    ax.set_xlabel('X', color=_GR, fontsize=11)
+    ax.set_ylabel('Y', color=_GR, fontsize=11, rotation=0, labelpad=12)
+    for s in ['top', 'right']:
+        ax.spines[s].set_visible(False)
+    for s in ['bottom', 'left']:
+        ax.spines[s].set_color(_GR)
+    ax.tick_params(colors=_GR, labelsize=9)
+
+def _ax_sq(ax):
+    ax.set_xlim(-2.3, 2.3)
+    ax.set_ylim(-1.7, 1.7)
+    ax.set_xticks([-2, -1, 0, 1, 2])
+    ax.set_yticks([-1, 0, 1])
+    ax.set_xlabel('X', color=_GR, fontsize=11)
+    ax.set_ylabel('Y', color=_GR, fontsize=11, rotation=0, labelpad=12)
+    for s in ['top', 'right']:
+        ax.spines[s].set_visible(False)
+    for s in ['bottom', 'left']:
+        ax.spines[s].set_color(_GR)
+    ax.tick_params(colors=_GR, labelsize=9)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; gap: 0.8em; font-size: 1.8em;"}
+${\color{goldenrod}y} = {\color{#c0392b}f}({\color{teal}x}) = {\color{teal}x^2}$
+:::
+
+::: {style="flex: 1;"}
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; gap: 0.8em; font-size: 1.8em;"}
+${\color{goldenrod}y} = {\color{#c0392b}f}({\color{teal}x}) = {\color{teal}x^2}$
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_par(ax)
+ax.plot(_xp, _yp, color=_CR, linewidth=2)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; gap: 0.8em; font-size: 1.8em;"}
+${\color{goldenrod}y} = {\color{#c0392b}f}({\color{teal}x}) = {\color{teal}x^2}$
+
+${\color{goldenrod}y} = {\color{#c0392b}h}({\color{teal}x}) = {\color{goldenrod}\pi}$
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_par(ax)
+ax.plot(_xp, _yp, color=_CR, linewidth=2)
+ax.axhline(y=np.pi, color=_GO, linewidth=2)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%;"}
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_par(ax)
+ax.plot(_xc, _yc, color=_CR, linewidth=2)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; justify-content: center; gap: 0.6em; font-size: 1.2em;"}
+
+::: {style="color: goldenrod; font-weight: bold;"}
+Prueba de la línea vertical:
+:::
+
+::: {style="color: #c0392b;"}
+Si una línea vertical pasa por más de 1 punto, *no* es una función.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_par(ax)
+ax.plot(_xc, _yc, color=_CR, linewidth=2)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; justify-content: center; gap: 0.6em; font-size: 1.2em;"}
+
+::: {style="color: goldenrod; font-weight: bold;"}
+Prueba de la línea vertical:
+:::
+
+::: {style="color: #c0392b;"}
+Si una línea vertical pasa por más de 1 punto, *no* es una función.
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_par(ax)
+ax.plot(_xc, _yc, color=_CR, linewidth=2)
+ax.axvline(x=-0.5, color=_GO, linewidth=2, linestyle=':')
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; gap: 0.8em; font-size: 1.8em;"}
+
+
+${\color{#c0392b}f}({\color{teal}x}) = {\sqrt{\color{teal}{x}}}$
+:::
+
+::: {style="flex: 1;"}
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=7 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; gap: 0.8em; font-size: 1.8em;"}
+${\color{#c0392b}f}({\color{teal}x}) = {\sqrt{\color{teal}{x}}}$
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_sq(ax)
+ax.plot(_xs, _ys_p, color=_CR, linewidth=2)
+ax.plot(_xs, _ys_n, color=_BL, linewidth=2)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=8 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 2em;"}
+
+::: {style="flex: 0 0 42%; display: flex; flex-direction: column; gap: 0.8em; font-size: 1.8em;"}
+${\color{#c0392b}f^+}({\color{teal}x}) = {\color{#c0392b}+\sqrt{x}}$
+
+${\color{navy}f^-}({\color{teal}x}) = {\color{navy}-\sqrt{x}}$
+:::
+
+::: {style="flex: 1; display: flex; align-items: center; justify-content: center;"}
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.5, 8.5))
+_ax_sq(ax)
+ax.plot(_xs, _ys_p, color=_CR, linewidth=2)
+ax.plot(_xs, _ys_n, color=_BL, linewidth=2)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+:::
+
+## ¿Qué es una función? {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 1em 3em 1em 2em; gap: 1.2em; text-align: center;"}
+
+::: {style="font-size: 2.8em;"}
+${\color{goldenrod}y} = {\color{#c0392b}f}({\color{teal}x})$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="display: flex; flex-direction: column; gap: 0.9em; font-size: 1.1em; max-width: 55em; line-height: 1.6;"}
+
+::: {style="color: teal; font-weight: bold; font-size: 1.15em;"}
+Punto sutil:
+:::
+
+::: {style="color: navy;"}
+[$f$]{style="color: #c0392b; font-style: italic;"} es la(s) regla(s) que mapea variables independientes ([$x$]{style="color: teal;"}) hacia variables dependientes ([$y$]{style="color: goldenrod;"}).
+:::
+
+::: {style="color: goldenrod;"}
+[$y$]{style="font-style: italic;"} es un valor particular de la salida de una función para un valor particular de [$x$]{style="color: teal;"}.
+:::
+
+:::
+
+:::
+
+## Tipos de funciones que encontrará {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 3em 0.5em 2em;"}
+
+::: {style="display: flex; flex-direction: row; gap: 6em; font-size: 1.5em; line-height: 2.1;"}
+
+::: {}
+[Polinómica]{style="color: goldenrod;"}\
+[Racional]{style="color: #c0392b;"}\
+[Algebraica]{style="color: navy;"}\
+[Trigonométrica]{style="color: teal;"}\
+[Compuesta]{style="color: teal;"}\
+Por tramos\
+[Continua]{style="color: goldenrod;"}
+:::
+
+::: {}
+[Lineal]{style="color: #c0392b;"}\
+[Potencia]{style="color: navy;"}\
+[Exponencial]{style="color: teal;"}\
+[Logarítmica]{style="color: teal;"}\
+Recíproca\
+[Trascendental]{style="color: goldenrod;"}\
+[Inversa]{style="color: #c0392b;"}
+:::
+
+:::
+
+:::
+
+## Dominio y rango de una función {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 3em 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+
+[En esta presentación, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
+● La definición de "dominio" y "rango" (pista: valores permisibles de las entradas/salidas de una función).
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
+● Notaciones.
+:::
+
+:::
+
+## Dominio y rango {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 1em 3em 1em 2em; gap: 2.2em; font-size: 1.15em;"}
+
+::: {style="display: flex; flex-direction: row; align-items: baseline; gap: 1.2em;"}
+::: {style="flex: 0 0 9em; color: #888; font-style: italic; text-align: right; font-size: 1.05em;"}
+Dominio:
+:::
+::: {style="flex: 1; color: goldenrod; line-height: 1.5;"}
+Conjunto de todos los valores posibles de ${\color{teal}x}$ (entrada de la función).
+:::
+:::
+
+::: {style="display: flex; flex-direction: row; align-items: baseline; gap: 1.2em;"}
+::: {style="flex: 0 0 9em; color: #888; font-style: italic; text-align: right; font-size: 1.05em;"}
+Rango:
+:::
+::: {style="flex: 1; color: #c0392b; line-height: 1.5;"}
+Conjunto de todos los valores posibles de ${\color{goldenrod}y}$ (salida de la función).
+:::
+:::
+
+:::
+
+## Dominio y rango {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+_CR = '#c0392b'
+_TL = 'teal'
+_xp = np.linspace(-2, 2, 300)
+_yp = _xp**2
+
+def _base_ax():
+    fig, ax = plt.subplots(figsize=(5.5, 4.2))
+    ax.plot(_xp, _yp, color=_CR, linewidth=1.8)
+    ax.set_xlim(-2.3, 2.3)
+    ax.set_ylim(-0.15, 4.3)
+    ax.set_xlabel('x', fontsize=10)
+    ax.set_ylabel('y', fontsize=10, rotation=0, labelpad=12)
+    ax.set_xticks([-2, -1, 0, 1, 2])
+    ax.set_yticks([0, 1, 2, 3, 4])
+    ax.tick_params(labelsize=9)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    return fig, ax
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.5em 3em 0.5em 1.5em; gap: 1.5em; align-items: flex-start;"}
+
+::: {style="flex: 0 0 32%; display: flex; flex-direction: column; gap: 1.4em; padding-top: 2em; font-size: 1.05em; line-height: 1.55;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="color: goldenrod;"}
+**Dominio:** Todos los valores posibles de *x*.
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="color: #c0392b;"}
+**Rango:** Todos los valores de *y* mayores o iguales a 0 (no negativos).
+:::
+
+:::
+
+::: {style="flex: 1; min-height: 0; display: flex; flex-direction: column;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+fig, ax = _base_ax()
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+fig, ax = _base_ax()
+ax.annotate(
+    '', xy=(0, 4.1), xytext=(0, 0),
+    arrowprops=dict(arrowstyle='->', color=_CR, lw=2.5)
+)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+fig, ax = _base_ax()
+ax.annotate(
+    '', xy=(0, 4.1), xytext=(0, 0),
+    arrowprops=dict(arrowstyle='->', color=_TL, lw=2.5)
+)
+ax.annotate(
+    '', xy=(2.3, -0.3), xytext=(-2.3, -0.3),
+    arrowprops=dict(arrowstyle='<->', color=_TL, lw=2.5),
+    annotation_clip=False
+)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+:::
+
+## Dominio y rango en asbtracto {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.patches as mpatches
+from matplotlib.patches import Ellipse, Circle
+
+# Colores
+_CR_A = '#b34533'   # terracota — dominio
+_BL_A = '#1a3a9e'   # azul oscuro — rango
+_GO_A = '#c89020'   # dorado — "Todo x"
+_TL_A = '#00897b'   # teal — "Todo y" y flecha
+
+# Geometría de cajas (coordenadas normalizadas 0-1)
+_LBX, _LBY, _LBW, _LBH = 0.04, 0.10, 0.34, 0.78
+_RBX, _RBY, _RBW, _RBH = 0.62, 0.10, 0.34, 0.78
+_PAD = 0.022
+
+def _make_frame_ab():
+    fig, ax = plt.subplots(figsize=(10.5, 5.5))
+    ax.set_xlim(0, 1)
+    ax.set_ylim(0, 1)
+    ax.axis('off')
+    fig.patch.set_facecolor('white')
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (_LBX, _LBY), _LBW, _LBH,
+        boxstyle="round,pad=0.025", lw=2.8, ls=(0, (5, 4)),
+        ec=_GO_A, fc='none', zorder=1))
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (_RBX, _RBY), _RBW, _RBH,
+        boxstyle="round,pad=0.025", lw=2.8, ls=(0, (5, 4)),
+        ec=_TL_A, fc='none', zorder=1))
+    ax.text(_LBX+0.01, _LBY+_LBH-0.01, 'Todo x',
+            fontsize=14, color=_GO_A, style='italic', fontweight='bold',
+            va='top', ha='left', zorder=5)
+    ax.text(_RBX+_RBW-0.01, _RBY+_RBH-0.01, 'Todo y',
+            fontsize=14, color=_TL_A, style='italic', fontweight='bold',
+            va='top', ha='right', zorder=5)
+    ax.text(_LBX+_LBW/2, _LBY-0.04, r'$D(f)$',
+            fontsize=12, color=_CR_A, ha='center', va='top', style='italic', zorder=5)
+    ax.text(_RBX+_RBW/2, _RBY-0.04, r'$R(f)$',
+            fontsize=12, color=_TL_A, ha='center', va='top', style='italic', zorder=5)
+    return fig, ax
+
+def _filled_rect_ab(ax, bx, by, bw, bh, frac_y0, frac_y1, color):
+    y0 = by + bh * frac_y0 + _PAD
+    y1 = by + bh * frac_y1 - _PAD
+    if y1 - y0 <= 0:
+        return
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (bx+_PAD, y0), bw-2*_PAD, y1-y0,
+        boxstyle="round,pad=0.018", lw=0,
+        ec='none', fc=color, zorder=2))
+
+def _arrow_ab(ax, src, dst, formula, rad=-0.28):
+    ax.annotate('', xy=dst, xytext=src,
+        arrowprops=dict(arrowstyle='->', color=_TL_A, lw=3.0,
+                        connectionstyle=f'arc3,rad={rad}'), zorder=6)
+    mx = (src[0]+dst[0])/2
+    my = (src[1]+dst[1])/2 + 0.11
+    ax.text(mx, my, formula, fontsize=13, color=_TL_A,
+            ha='center', va='bottom', style='italic', zorder=6)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 0.3em 1em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+# Estado 0: f(x) = x² — dominio=ℝ (caja izq completa), rango=[0,∞) (parte superior derecha)
+fig, ax = _make_frame_ab()
+_filled_rect_ab(ax, _LBX, _LBY, _LBW, _LBH, 0.0, 1.0, _CR_A)
+_filled_rect_ab(ax, _RBX, _RBY, _RBW, _RBH, 0.44, 1.0, _BL_A)
+_arrow_ab(ax, (_LBX+_LBW+0.01, _LBY+_LBH*0.78),
+              (_RBX-0.01, _RBY+_RBH*0.78), r'$y = f(x) = x^2$')
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+# Estado 1: f(x) = √x — dominio=[0,∞) (parte sup izq), rango=[0,∞) (parte sup derecha)
+fig, ax = _make_frame_ab()
+_filled_rect_ab(ax, _LBX, _LBY, _LBW, _LBH, 0.44, 1.0, _CR_A)
+_filled_rect_ab(ax, _RBX, _RBY, _RBW, _RBH, 0.44, 1.0, _BL_A)
+_arrow_ab(ax, (_LBX+_LBW+0.01, _LBY+_LBH*0.78),
+              (_RBX-0.01, _RBY+_RBH*0.78), r'$y = f(x) = \sqrt{x}$')
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+# Estado 2: f(x) abstracta — dominio y rango como blobs irregulares
+fig, ax = _make_frame_ab()
+lcx = _LBX + _LBW*0.52
+lcy = _LBY + _LBH*0.55
+ax.add_patch(Ellipse((lcx, lcy), width=_LBW*0.62, height=_LBH*0.56,
+                     angle=-10, fc=_CR_A, ec='none', zorder=2))
+rcx = _RBX + _RBW*0.50
+rcy = _RBY + _RBH*0.62
+ax.add_patch(Ellipse((rcx, rcy), width=_RBW*0.44, height=_RBH*0.40,
+                     angle=8, fc=_BL_A, ec='none', zorder=2))
+_arrow_ab(ax, (lcx+_LBW*0.30, lcy+0.03),
+              (rcx-_RBW*0.22, rcy+0.03), r'$y = f(x)$', rad=-0.22)
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%;"}
+```{python}
+#| echo: false
+# Estado 3: f(x) = π — dominio=ℝ (caja izq completa), rango={π} (punto único)
+fig, ax = _make_frame_ab()
+_filled_rect_ab(ax, _LBX, _LBY, _LBW, _LBH, 0.0, 1.0, _CR_A)
+dot_x = _RBX + _RBW*0.52
+dot_y = _RBY + _RBH*0.62
+ax.add_patch(Circle((dot_x, dot_y), 0.026, fc=_BL_A, ec='none', zorder=3))
+_arrow_ab(ax, (_LBX+_LBW+0.01, _LBY+_LBH*0.80),
+              (dot_x-0.025, dot_y+0.01), r'$y = f(x) = \pi$', rad=-0.28)
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+## Definición de dominio {.title-line}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+_x_dd = np.linspace(0.5, 3.1, 300)
+_y_dd = _x_dd**2
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.5em 1.5em 0.5em 2em; gap: 2em; align-items: center;"}
+
+::: {style="flex: 0 0 36%; display: flex; flex-direction: column; gap: 0; justify-content: center; align-items: flex-start; font-size: 1.25em;"}
+
+::: {style="margin: -0.3em 0;"}
+$${\color{#c0392b}y} = {\color{teal}x}^2$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="margin: -0.3em 0;"}
+$${\color{teal}D} = [.5,\, 3.1]$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="margin: -0.3em 0;"}
+$${\color{#c0392b}R} = [.25,\, 9.61]$$
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; align-items: center;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(7.5, 6.8))
+ax.plot(_x_dd, _y_dd, color=_CR, linewidth=1.8)
+ax.set_xlim(-4.3, 4.3)
+ax.set_ylim(-0.3, 10.5)
+ax.set_xlabel('x', fontsize=10)
+ax.set_ylabel('y', fontsize=10, rotation=0, labelpad=12)
+ax.set_xticks([-4, -2, 0, 2, 4])
+ax.set_yticks([0, 2, 4, 6, 8, 10])
+ax.tick_params(labelsize=9)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+:::
+
+:::
+
+## Notaciones para dominio y rango {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 0.6em 2em 0.3em 2em; gap: 0.8em;"}
+
+::: {style="display: flex; flex-direction: row; gap: 3em; align-items: flex-start; font-size: 0.95em;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="flex: 0 0 28%; display: flex; flex-direction: column; gap: 0;"}
+
+::: {style="color: goldenrod; font-weight: bold; font-size: 1.05em; margin-bottom: 0.2em;"}
+Intervalo
+:::
+
+::: {style="margin: -0.45em 0;"}
+$${\color{teal}D} = (-\infty,\,+\infty)$$
+:::
+
+::: {style="margin: -0.45em 0;"}
+$${\color{#c0392b}R} = [0,\,\infty)$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="font-size: 0.72em; line-height: 1.35; padding-left: 1.4em; margin-top: 0.1em;"}
+↙ Cota inclusiva
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="font-size: 0.72em; line-height: 1.35; padding-left: 5.8em; margin-top: -0.6em;"}
+↘ Cota exclusiva
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="flex: 0 0 30%; display: flex; flex-direction: column; gap: 0;"}
+
+::: {style="color: #c0392b; font-weight: bold; font-size: 1.05em; margin-bottom: 0.2em;"}
+Desigualdad
+:::
+
+::: {style="margin: -0.45em 0;"}
+$$-\infty < {\color{teal}x} < \infty$$
+:::
+
+::: {style="margin: -0.45em 0;"}
+$${\color{#c0392b}y} \geq 0$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="flex: 1; display: flex; flex-direction: column; gap: 0;"}
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em; margin-bottom: 0.2em;"}
+Notación de conjuntos
+:::
+
+::: {style="margin: -0.45em 0;"}
+$${\color{teal}D}:\{{\color{teal}x} \mid {\color{teal}x} \in \mathbb{R}\}$$
+:::
+
+::: {style="margin: -0.45em 0;"}
+$${\color{#c0392b}R}:\{{\color{#c0392b}y} \mid {\color{#c0392b}y} \geq 0\}$$
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="font-size: 0.95em; margin-top: -0.4em;"}
+$$(-\infty,\,0) \cup (0,\,2\pi]$$
+:::
+
+:::
+
+## Funciones Lineales vs no lineales {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+
+[En esta presentación, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
+● La intuición de funciones lineales vs. no lineales.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
+● Varias definiciones algebraicas de lineal vs. no lineal.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
+● ¡Un adelanto del objetivo del cálculo diferencial!
+:::
+
+:::
+
+## Funciones Lineales vs no lineales {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.4em; font-size: 3.8em; line-height: 1.2;"}
+
+[Line]{style="color: teal;"}al
+
+No [line]{style="color: teal;"}al
+
+:::
+
+## Intuición Geómetrica: Funciones lineales vs no lineales {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.2em 1em;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+x = np.linspace(-3, 4, 600)
+
+# No lineales
+y_cr  = 0.62 * np.exp(-0.75 * (x + 0.4)**2) + 0.04 * x      # curva gaussiana (crimson)
+y_sin = 0.52 * np.sin(2.3 * x)                                 # onda sinusoidal (teal)
+
+# Lineales
+y_bl = 0.13 * x + 0.22                                         # recta azul suave
+y_go = 0.40 * x + 0.02                                         # recta dorada más inclinada
+
+fig, ax = plt.subplots(figsize=(7.8, 5.4))
+fig.patch.set_facecolor('white')
+
+# Líneas de referencia punteadas
+ax.axvline(x=-0.45, color='gray', lw=1.0, ls='--', alpha=0.6, zorder=1)
+ax.axhline(y=0.22,  color='gray', lw=1.0, ls='--', alpha=0.6, zorder=1)
+
+# Funciones no lineales
+ax.plot(x, y_cr,  color=_CR,       lw=2.3, zorder=3)
+ax.plot(x, y_sin, color='teal',    lw=2.3, zorder=3)
+
+# Funciones lineales
+ax.plot(x, y_bl,  color='#2475b0', lw=2.3, zorder=3)          # azul
+ax.plot(x, y_go,  color='goldenrod', lw=2.3, zorder=3)         # dorado
+ax.axvline(x=1.55, color='navy',   lw=2.3, zorder=3)           # vertical navy
+
+ax.set_xlim(-3, 4)
+ax.set_ylim(-0.82, 0.88)
+ax.axis('off')
+plt.tight_layout(pad=0.2)
+plt.show()
+```
+:::
+
+## Definición Algebraica #1: Lineal vs nolineal {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 1em 3.5em 1em 2em; gap: 1.5em;"}
+
+::: {style="display: flex; flex-direction: row; gap: 2.5em; flex: 0 0 auto;"}
+
+::: {style="flex: 1; border-left: 4px solid goldenrod; padding-left: 1em;"}
+[**Lineal:**]{style="color: goldenrod; font-size: 1.05em;"} La función puede simplificarse a
+
+::: {style="margin: -0.4em 0; text-align: center;"}
+$${\color{goldenrod}y} = {\color{goldenrod}m}{\color{teal}x} + {\color{goldenrod}b}$$
+:::
+:::
+
+::: {style="flex: 1; border-left: 4px solid #c0392b; padding-left: 1em;"}
+[**No lineal:**]{style="color: #c0392b; font-size: 1.05em;"} La función **NO** puede simplificarse a
+
+::: {style="margin: -0.4em 0; text-align: center;"}
+$${\color{#c0392b}y} = {\color{#c0392b}m}{\color{teal}x} + {\color{#c0392b}b}$$
+:::
+:::
+
+:::
+
+::: {.r-stack style="flex: 1; min-height: 0;"}
+
+::: {style="width: 100%; height: 100%; min-height: 8em;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 2.5em; align-items: flex-start; padding-top: 0.5em;"}
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{#c0392b}y} = 2{\color{teal}x} + 6$$
+:::
+
+:::
+
+::: {style="flex: 1;"}
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 2.5em; align-items: flex-start; padding-top: 0.5em;"}
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{#c0392b}y} = 2{\color{teal}x} + 6$$
+:::
+
+:::
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{teal}x}{\color{#c0392b}y} = 3{\color{teal}x}^2 - 4{\color{teal}x}$$
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 2.5em; align-items: flex-start; padding-top: 0.5em;"}
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{#c0392b}y} = 2\sqrt{\cos({\color{teal}x})} + 6$$
+:::
+
+:::
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{#c0392b}y} = 3{\color{teal}x}^2 - 4$$
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Definición Algebraica #1-a-: Lineal vs nolineal {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 1em 3.5em 1em 2em; gap: 1.2em;"}
+
+::: {style="display: flex; flex-direction: column; gap: 1.4em; flex: 0 0 auto;"}
+
+::: {style="display: flex; flex-direction: row; align-items: flex-start; gap: 1.5em;"}
+
+::: {style="flex: 0 0 8em; text-align: right; color: goldenrod; font-weight: bold; font-size: 1.1em;"}
+Lineal:
+:::
+
+::: {style="flex: 1;"}
+La función puede simplificarse a
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = {\color{goldenrod}m}{\color{teal}x} + {\color{goldenrod}b}$$
+:::
+:::
+
+:::
+
+::: {style="display: flex; flex-direction: row; align-items: flex-start; gap: 1.5em;"}
+
+::: {style="flex: 0 0 8em; text-align: right; color: #c0392b; font-weight: bold; font-size: 1.1em;"}
+No lineal:
+:::
+
+::: {style="flex: 1;"}
+La función **NO** puede simplificarse a
+
+::: {style="margin: -0.4em 0;"}
+$${\color{#c0392b}y} = {\color{#c0392b}m}{\color{teal}x} + {\color{#c0392b}b}$$
+:::
+:::
+
+:::
+
+:::
+
+::: {.r-stack style="flex: 1; min-height: 0;"}
+
+::: {style="width: 100%; height: 100%; min-height: 6em;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 0.8em;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = 2{\color{teal}x} + 6$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 0.8em;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = 2{\color{teal}x} + 6$$
+:::
+
+::: {style="margin: -0.4em 0;"}
+$${\color{teal}x}{\color{goldenrod}y} = 3{\color{teal}x}^2 - 4{\color{teal}x}$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 0.8em;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = 2\sqrt{\cos({\color{teal}x})} + 6$$
+:::
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = 3{\color{teal}x}^2 - 4$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding-top: 0.8em;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = \sqrt{2}{\color{teal}x} + \cos(6)$$
+:::
+
+:::
+
+:::
+
+:::
+
+## Definición Algebraica #1-b-: Lineal vs nolineal {.title-line}
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.8em 3.5em 0.8em 1.5em; gap: 2em; align-items: flex-start;"}
+
+::: {style="flex: 0 0 36%; display: flex; flex-direction: column; gap: 2.8em; padding-top: 1em;"}
+
+::: {style="display: flex; flex-direction: row; align-items: center; gap: 0.8em;"}
+
+::: {style="flex: 0 0 8em; text-align: right; color: goldenrod; font-weight: bold;"}
+Lineal:
+:::
+
+::: {style="flex: 1; margin: -0.4em 0;"}
+$$\frac{\Delta{\color{goldenrod}y}}{\Delta{\color{teal}x}} = {\color{navy}c}$$
+:::
+
+:::
+
+::: {style="display: flex; flex-direction: row; align-items: center; gap: 0.8em;"}
+
+::: {style="flex: 0 0 8em; text-align: right; color: #c0392b; font-weight: bold;"}
+No lineal:
+:::
+
+::: {style="flex: 1; margin: -0.4em 0;"}
+$$\frac{\Delta{\color{goldenrod}y}}{\Delta{\color{teal}x}} \neq {\color{navy}c}$$
+:::
+
+:::
+
+:::
+
+::: {style="flex: 1; min-height: 0; display: flex; flex-direction: column;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%; height: 100%;"}
+
+::: {style="display: flex; flex-direction: column; gap: 2em; padding-top: 1em; color: #107895; font-size: 0.95em; line-height: 1.5;"}
+La razón del cambio en la salida respecto al cambio en la entrada es **constante**.
+
+La relación entre la entrada y la salida de la función **cambia** dentro del dominio.
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 1.5em; align-items: flex-start; padding-top: 1.2em;"}
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = 2{\color{teal}x}$$
+:::
+
+:::
+
+::: {style="flex: 1;"}
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 1.5em; align-items: flex-start; padding-top: 1.2em;"}
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = 2{\color{teal}x}$$
+:::
+
+:::
+
+::: {style="flex: 1; text-align: center;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = {\color{teal}x}^2$$
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 1.5em; align-items: flex-start; padding-top: 0.5em; font-size: 0.82em;"}
+
+::: {style="flex: 1;"}
+
+::: {style="text-align: center; margin-bottom: 0.3em;"}
+$${\color{goldenrod}y} = 2{\color{teal}x}$$
+:::
+
+| ${\color{teal}x}$ | ${\color{goldenrod}y}$ | $\Delta y/\Delta x$ |
+|:---:|:---:|:---:|
+| ${\color{teal}0}$ | ${\color{goldenrod}0}$ | |
+| ${\color{teal}2}$ | ${\color{goldenrod}4}$ | ${\color{goldenrod}4/2}$ |
+| ${\color{teal}4}$ | ${\color{goldenrod}8}$ | ${\color{goldenrod}4/2}$ |
+| ${\color{teal}6}$ | ${\color{goldenrod}12}$ | ${\color{goldenrod}4/2}$ |
+
+:::
+
+::: {style="flex: 1; text-align: center; padding-top: 0.5em;"}
+
+::: {style="margin: -0.4em 0;"}
+$${\color{goldenrod}y} = {\color{teal}x}^2$$
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: row; gap: 1.5em; align-items: flex-start; padding-top: 0.5em; font-size: 0.82em;"}
+
+::: {style="flex: 1;"}
+
+::: {style="text-align: center; margin-bottom: 0.3em;"}
+$${\color{goldenrod}y} = 2{\color{teal}x}$$
+:::
+
+| ${\color{teal}x}$ | ${\color{goldenrod}y}$ | $\Delta y/\Delta x$ |
+|:---:|:---:|:---:|
+| ${\color{teal}0}$ | ${\color{goldenrod}0}$ | |
+| ${\color{teal}2}$ | ${\color{goldenrod}4}$ | ${\color{goldenrod}4/2}$ |
+| ${\color{teal}4}$ | ${\color{goldenrod}8}$ | ${\color{goldenrod}4/2}$ |
+| ${\color{teal}6}$ | ${\color{goldenrod}12}$ | ${\color{goldenrod}4/2}$ |
+
+:::
+
+::: {style="flex: 1;"}
+
+::: {style="text-align: center; margin-bottom: 0.3em;"}
+$${\color{goldenrod}y} = {\color{teal}x}^2$$
+:::
+
+| ${\color{teal}x}$ | ${\color{goldenrod}y}$ | $\Delta y/\Delta x$ |
+|:---:|:---:|:---:|
+| ${\color{teal}0}$ | ${\color{goldenrod}0}$ | |
+| ${\color{teal}2}$ | ${\color{goldenrod}4}$ | ${\color{goldenrod}4/2}$ |
+| ${\color{teal}4}$ | ${\color{goldenrod}16}$ | ${\color{goldenrod}12/2}$ |
+| ${\color{teal}6}$ | ${\color{goldenrod}36}$ | ${\color{goldenrod}20/2}$ |
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="width: 100%; height: 100%; background: white; display: flex; flex-direction: column; gap: 2em; padding-top: 1em; color: #107895; font-size: 0.95em; line-height: 1.5;"}
+La razón del cambio en la salida respecto al cambio en la entrada es **constante**.
+
+La relación entre la entrada y la salida de la función **cambia** dentro del dominio.
+:::
+
+:::
+
+:::
+
+:::
+
+## Funciones con subdominios lineales {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; justify-content: center; align-items: center; padding: 0.3em 3.5em 0.3em 1em;"}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13.5, 7.0))
+fig.patch.set_alpha(0)
+
+_gold = '#b8860b'
+_dash = '#aaaaaa'
+
+def _ax_clean(ax):
+    ax.set_facecolor('none')
+    for s in ax.spines.values():
+        s.set_visible(False)
+    ax.set_xticks([])
+    ax.set_yticks([])
+
+_ax_clean(ax1)
+_ax_clean(ax2)
+
+# LEFT: piecewise — segmento recto luego segmento curvo
+xb1 = 0.3
+xl1 = np.linspace(-2.4, xb1, 250)
+yl1 = 1.1 * xl1 - 0.2
+yb1 = 1.1 * xb1 - 0.2
+xc1 = np.linspace(xb1, 2.2, 300)
+yc1 = yb1 + 1.1*(xc1 - xb1) + 1.5*(xc1 - xb1)**2
+ax1.plot(xl1, yl1, color=_gold, lw=2.2, zorder=3)
+ax1.plot(xc1, yc1, color=_gold, lw=2.2, zorder=3)
+ax1.axhline(yb1, color=_dash, ls='--', lw=0.9)
+ax1.axvline(xb1, color=_dash, ls='--', lw=0.9)
+ax1.set_xlim(-2.6, 2.5)
+ax1.set_ylim(-3.0, 6.0)
+
+# RIGHT: dos rectas con pendientes distintas, sin curvas
+xb2 = 0.0
+xl2 = np.linspace(-2.5, xb2, 250)
+yl2 = 0.6 * xl2 - 0.15
+yb2 = 0.6 * xb2 - 0.15
+xr2 = np.linspace(xb2, 2.5, 250)
+yr2 = yb2 + 2.5 * (xr2 - xb2)
+ax2.plot(xl2, yl2, color=_gold, lw=2.2, zorder=3)
+ax2.plot(xr2, yr2, color=_gold, lw=2.2, zorder=3)
+ax2.axhline(yb2, color=_dash, ls='--', lw=0.9)
+ax2.axvline(xb2, color=_dash, ls='--', lw=0.9)
+
+plt.tight_layout(pad=1.5)
+plt.show()
+```
+
+:::
+
+## Funciones lineales vs afines {.title-line}
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.5em 3.5em 0.5em 1.5em; gap: 1.5em; align-items: center;"}
+
+::: {style="flex: 0 0 58%;"}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import matplotlib.pyplot as plt
+import numpy as np
+
+fig, ax = plt.subplots(figsize=(6.5, 4.5))
+fig.patch.set_alpha(0)
+ax.set_facecolor('none')
+for s in ax.spines.values():
+    s.set_visible(False)
+ax.set_xticks([])
+ax.set_yticks([])
+
+x = np.linspace(-2.5, 3.0, 300)
+
+# Lineal: pasa por el origen
+ax.plot(x, 1.8*x, color='#c0392b', lw=2.3, zorder=3)
+
+# Afín: no pasa por el origen (desplazada)
+ax.plot(x, 0.65*x + 1.2, color='#b8860b', lw=2.3, zorder=3)
+
+# Líneas de referencia punteadas en el origen
+ax.axhline(0, color='#aaaaaa', ls='--', lw=0.9)
+ax.axvline(0, color='#aaaaaa', ls='--', lw=0.9)
+
+ax.set_xlim(-2.5, 3.0)
+ax.set_ylim(-4.0, 5.0)
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.4em; font-size: 1.1em; padding-left: 1em;"}
+
+**En álgebra lineal:**
+
+[Lineal]{style="color: #c0392b; font-size: 1.15em; font-weight: bold;"}
+
+[Afín (no lineal)]{style="color: goldenrod; font-size: 1.15em; font-weight: bold;"}
+
+:::
+
+:::
+
+## Funciones polinomicas {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 3.5em 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+
+[En esta sección, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
+● Qué es una función polinómica.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
+● Aritmética con polinomios.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
+● La definición de una función racional.
+:::
+
+::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
+● Por qué los polinomios son tan importantes en matemáticas.
+:::
+
+:::
+
+## ¿Que son los polinomios? {.title-line}
+
+::: {.r-stack style="width: 100%; height: 100%; padding-right: 3.5em;"}
+
+::: {style="background: white; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5em;font-size: 1.35em;"}
+
+$${\color{#c0392b}y} = {\color{goldenrod}a_0} + {\color{goldenrod}a_1}{\color{teal}x} + {\color{goldenrod}a_2}{\color{teal}x}^2 + \ldots + {\color{goldenrod}a_n}{\color{teal}x}^n$$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5em;"}
+
+[**Coeficientes**]{style="color: goldenrod; font-size: 0.9em; letter-spacing: 0.05em;"}
+
+$${\color{#c0392b}y} = \boxed{{\color{goldenrod}a_0}} + \boxed{{\color{goldenrod}a_1}}{\color{teal}x} + \boxed{{\color{goldenrod}a_2}}{\color{teal}x}^2 + \ldots + \boxed{{\color{goldenrod}a_n}}{\color{teal}x}^n$$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.4em;"}
+
+$${\color{#c0392b}y} = {\color{goldenrod}a_0} + {\color{goldenrod}a_1}{\color{teal}x} + {\color{goldenrod}a_2}{\color{teal}x}^2 + \ldots + {\color{goldenrod}a_n}{\color{teal}x}^n$$
+
+$$= {\color{goldenrod}a_0}{\color{teal}x}^0 + {\color{goldenrod}a_1}{\color{teal}x}^1 + {\color{goldenrod}a_2}{\color{teal}x}^2 + \ldots + {\color{goldenrod}a_n}{\color{teal}x}^n$$
+
+::: {.fragment .fade-in data-fragment-index=3}
+
+$$= \sum_{i=0}^{n} {\color{goldenrod}a_i}{\color{teal}x}^i$$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; min-height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.8em;"}
+
+$$f({\color{teal}x}) = {\color{goldenrod}3} - {\color{goldenrod}5}{\color{teal}x} + \frac{{\color{goldenrod}5}}{6}{\color{teal}x}^2 + {\color{goldenrod}12.4}{\color{teal}x}^3$$
+
+$$g({\color{teal}x}) = {\color{goldenrod}2}{\color{teal}x} + {\color{teal}x}^3$$
+
+:::
+
+:::
+
+## visualización de polinomios {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3.5em; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-2, 2, 400)
+
+_polys = [
+    (0, r'$y = x^0$', 'goldenrod'),
+    (1, r'$y = x^1$', '#c0392b'),
+    (2, r'$y = x^2$', 'teal'),
+    (3, r'$y = x^3$', 'navy'),
+    (4, r'$y = x^4$', '#26a69a'),
+    (5, r'$y = x^5$', '#111111'),
+]
+
+fig, axes = plt.subplots(2, 3, figsize=(14, 7.2))
+fig.patch.set_alpha(0)
+
+for ax, (n, title, color) in zip(axes.flat, _polys):
+    ax.plot(x, x**n, color=color, lw=2.2, zorder=3)
+    ax.set_title(title, color=color, fontsize=13, pad=5)
+    ax.set_xlim(-2, 2)
+    ax.set_ylim(-2, 2)
+    ax.set_xticks([-2, -1, 0, 1, 2])
+    ax.set_yticks([-2, -1, 0, 1, 2])
+    ax.axhline(0, color='#cccccc', lw=0.9, zorder=1)
+    ax.axvline(0, color='#cccccc', lw=0.9, zorder=1)
+    ax.set_facecolor('none')
+    ax.tick_params(labelsize=8, colors='#666666', length=3)
+    for spine in ax.spines.values():
+        spine.set_color('#cccccc')
+        spine.set_linewidth(0.9)
+
+fig.tight_layout(pad=1.5)
+plt.show()
+```
+
+:::
+
+## Visualización de polinomios {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+_gold_v = 'goldenrod'
+_crim_v = '#c0392b'
+
+def _style_poly(ax):
+    ax.axhline(0, color='#cccccc', lw=0.8, zorder=1)
+    ax.axvline(0, color='#cccccc', lw=0.8, zorder=1)
+    ax.set_facecolor('none')
+    ax.tick_params(labelsize=8, colors='#555555', length=3)
+    for sp in ax.spines.values():
+        sp.set_color('#cccccc')
+        sp.set_linewidth(0.9)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3.5em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; justify-content: flex-start; align-items: center;"}
+
+```{python}
+#| echo: false
+x = np.linspace(-2, 2, 400)
+fig, ax = plt.subplots(figsize=(5.5, 4.2))
+ax.plot(x, x + x**2 + x**3, color=_gold_v, lw=2.2, zorder=3)
+ax.set_title(r'$y = x + x^2 + x^3$', color=_gold_v, fontsize=12, pad=5)
+_style_poly(ax)
+fig.patch.set_alpha(0)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; justify-content: flex-start; align-items: center;"}
+
+```{python}
+#| echo: false
+x = np.linspace(-2, 2, 400)
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(11.0, 4.2))
+ax1.plot(x, x + x**2 + x**3, color=_gold_v, lw=2.2, zorder=3)
+ax1.set_title(r'$y = x + x^2 + x^3$', color=_gold_v, fontsize=12, pad=5)
+_style_poly(ax1)
+ax2.plot(x, x + x**2 + 0.01*x**3, color=_crim_v, lw=2.2, zorder=3)
+ax2.set_title(r'$y = x + x^2 + .01x^3$', color=_crim_v, fontsize=12, pad=5)
+_style_poly(ax2)
+fig.patch.set_alpha(0)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; justify-content: flex-start; align-items: center;"}
+
+```{python}
+#| echo: false
+x_s = np.linspace(-2, 2, 400)
+x_l = np.linspace(-200, 200, 600)
+fig, (ax1, ax2, ax3) = plt.subplots(1, 3, figsize=(14.5, 4.2))
+ax1.plot(x_s, x_s + x_s**2 + x_s**3, color=_gold_v, lw=2.2, zorder=3)
+ax1.set_title(r'$y = x + x^2 + x^3$', color=_gold_v, fontsize=11, pad=5)
+_style_poly(ax1)
+ax2.plot(x_s, x_s + x_s**2 + 0.01*x_s**3, color=_crim_v, lw=2.2, zorder=3)
+ax2.set_title(r'$y = x + x^2 + .01x^3$', color=_crim_v, fontsize=11, pad=5)
+_style_poly(ax2)
+ax3.plot(x_l, x_l + x_l**2 + 0.01*x_l**3, color=_crim_v, lw=2.2, zorder=3)
+ax3.set_title(r'$y = x + x^2 + .01x^3$', color=_crim_v, fontsize=11, pad=5)
+_style_poly(ax3)
+fig.patch.set_alpha(0)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+## La intersección del polinomio {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+_x_ic  = np.linspace(-2, 2, 400)
+_gold_ic = 'goldenrod'
+_crim_ic = '#c0392b'
+
+def _setup_ic(ax):
+    ax.set_xlim(-2, 2)
+    ax.set_ylim(-4, 4)
+    ax.set_xticks([-2, -1, 0, 1, 2])
+    ax.set_yticks([-4, -3, -2, -1, 0, 1, 2, 3, 4])
+    ax.axhline(0, color='#cccccc', lw=0.8, zorder=1)
+    ax.axvline(0, color='#cccccc', lw=0.8, zorder=1)
+    ax.set_facecolor('none')
+    ax.tick_params(labelsize=8, colors='#555555', length=3)
+    for sp in ax.spines.values():
+        sp.set_color('#cccccc')
+        sp.set_linewidth(0.9)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3.5em; align-items: center; justify-content: center;"}
+
+::: {.r-stack style="width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;"}
+
+::: {style="margin: 0 0 -0.4em 0; font-size: 1.05em;"}
+$$y = 2 + x + x^2 + x^3$$
+:::
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.8, 5.2))
+ax.plot(_x_ic, 2 + _x_ic + _x_ic**2 + _x_ic**3, color=_gold_ic, lw=2.2, zorder=3)
+_setup_ic(ax)
+fig.patch.set_alpha(0)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;"}
+
+::: {style="margin: 0 0 -0.4em 0; font-size: 1.05em;"}
+$$y = \boxed{{\color{#c0392b}2}} + x + x^2 + x^3$$
+:::
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.8, 5.2))
+ax.plot(_x_ic, 2 + _x_ic + _x_ic**2 + _x_ic**3, color=_gold_ic, lw=2.2, zorder=3)
+ax.plot(0, 2, 'o', color=_crim_ic, markersize=8, zorder=5)
+ax.annotate('Intercept', xy=(0, 2), xytext=(0.45, 2.75),
+            fontsize=11, color=_crim_ic, fontweight='bold',
+            arrowprops=dict(arrowstyle='->', color=_crim_ic, lw=1.5))
+_setup_ic(ax)
+fig.patch.set_alpha(0)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+## Suma de polinomios {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3.5em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$\left({3-5\color{teal}x}+\frac{5}{6}{\color{teal}{x^2}}+{12.4\color{teal}{x^3}}\right) + \left({2\color{teal}{x}}+{\color{teal}{x^3}}\right) =$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$\left(3+\boxed{-5\color{teal}{x}}+\frac{5}{6}{\color{teal}{x^2}}+12.4{\color{teal}{x^3}}\right) + \left(\boxed{2{\color{teal}{x}}}+{\color{teal}x^3}\right) =$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$\left({3-5\color{teal}x}+\frac{5}{{6}}{\color{teal}x^2}+\boxed{{12.4\color{teal}{x^3}}}\right) + \left(2{\color{teal}x}+\boxed{{\color{teal}x^3}}\right) =$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$\left({3-5\color{teal}{x}}+\frac{5}{{6}}{\color{teal}x^2}+12.4{\color{teal}x^3}\right) + \left({2\color{teal}{x}}+{\color{teal}{x^3}}\right) =$$
+:::
+
+::: {style="margin: -0.3em 0 -0.3em 9em;"}
+$${3-3\color{teal}{x}}+\frac{5}{{6}}{13.4 \color{teal}{x^2}+1\color{teal}{x^3}}$$
+:::
+
+:::
+
+:::
+
+:::
+
+## Ejemplo de multiplicación de polinomios {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3.5em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$({\color{#c0392b}x^5} + 2{\color{#c0392b}x}{\color{blue}y} + {\color{blue}y^2})({\color{#c0392b}x} - 3{\color{#c0392b}x}{\color{blue}y})$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$({\color{#c0392b}x^5} + 2{\color{#c0392b}x}{\color{blue}y} + {\color{blue}y^2})({\color{#c0392b}x} - 3{\color{#c0392b}x}{\color{blue}y})$$
+:::
+
+::: {style="margin: 0.2em 0 -0.3em 0;"}
+$${\color{#c0392b}x^6} - 3{\color{#c0392b}x^6}{\color{blue}y} + 2{\color{#c0392b}x^2}{\color{blue}y} - 6{\color{#c0392b}x^2}{\color{blue}y^2} + {\color{#c0392b}x}{\color{blue}y^2} - 3{\color{#c0392b}x}{\color{blue}y^3}$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$(\boxed{{\color{#c0392b}x^5}} + 2{\color{#c0392b}x}{\color{blue}y} + {\color{blue}y^2})(\boxed{{\color{#c0392b}x}} - 3{\color{#c0392b}x}{\color{blue}y})$$
+:::
+
+::: {style="margin: 0.2em 0 -0.3em 0;"}
+$${\color{#c0392b}x^6} - 3{\color{#c0392b}x^6}{\color{blue}y} + 2{\color{#c0392b}x^2}{\color{blue}y} - 6{\color{#c0392b}x^2}{\color{blue}y^2} + {\color{#c0392b}x}{\color{blue}y^2} - 3{\color{#c0392b}x}{\color{blue}y^3}$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-start; padding: 2em 2em; gap: 0;"}
+
+::: {style="margin: -0.3em 0;"}
+$$(\boxed{{\color{#c0392b}x^5}} + 2{\color{#c0392b}x}{\color{blue}y} + {\color{blue}y^2})({\color{#c0392b}x} + \boxed{-3{\color{#c0392b}x}{\color{blue}y}})$$
+:::
+
+::: {style="margin: 0.2em 0 -0.3em 0;"}
+$${\color{#c0392b}x^6} - 3{\color{#c0392b}x^6}{\color{blue}y} + 2{\color{#c0392b}x^2}{\color{blue}y} - 6{\color{#c0392b}x^2}{\color{blue}y^2} + {\color{#c0392b}x}{\color{blue}y^2} - 3{\color{#c0392b}x}{\color{blue}y^3}$$
+:::
+
+:::
+
+:::
+
+:::
+
+## Funciones racionales {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+::: {style="margin: -0.3em 0; font-size: 1.6em;"}
+$r(x) = \frac{{\color{teal}P}(x)}{{\color{goldenrod}Q}(x)}$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+::: {style="margin: -0.3em 0; font-size: 1.6em;"}
+$r({\color{teal}x}) = \frac{P({\color{teal}x})}{Q({\color{teal}x})} = \frac{\displaystyle\sum_{i=0}^{n} {\color{orange}a_i}{\color{teal}x}^i}{\displaystyle\sum_{i=0}^{k} {\color{orange}b_i}{\color{teal}x}^i}$
+:::
+
+:::
+
+:::
+
+:::
+
+## Polinomios en la naturaleza {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 1em 3em 1em 2.5em; gap: 0.35em; font-size: 1.05em;"}
+
+- [En todos los cursos de cálculo...]{style="color: goldenrod; font-weight: 500;"}
+
+- [Filtrado de series de tiempo]{style="color: #c0392b; font-weight: 500;"}
+- [Interpolación]{style="color: navy; font-weight: 500;"}
+
+- [Velocidad de computación]{style="color: teal; font-weight: 500;"}
+
+- [Optimizaciones]{style="color: teal; font-weight: 500;"}
+
+- [Gráficos de computadora (videojuegos)]{style="font-weight: 500;"}
+
+- [Economía]{style="color: goldenrod; font-weight: 500;"}
+
+:::
+
+
+## Trascendental y las matemáticas {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding-right: 3em; gap: 1.4em; font-size: 1.5em;"}
+
+${\cos(x),\sin(x)}$
+
+${\log(x),\exp(x)}$
+
+:::
+
+## Funciones logaritmicas y exponenciales {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 1em 3em 1em 2.5em; gap: 1.1em; font-size: 1.0em;"}
+
+[**En esta sección aprenderás:**]{style="color: teal; font-size: 1.1em;"}
+
+::: {style="display: flex; flex-direction: row; align-items: flex-start; gap: 0.8em;"}
+
+[●]{style="color: teal; font-size: 1.3em; flex-shrink: 0; line-height: 1.4;"}
+
+Qué es la función exponencial natural y de dónde proviene.
+
+:::
+
+::: {style="display: flex; flex-direction: row; align-items: flex-start; gap: 0.8em;"}
+
+[●]{style="color: goldenrod; font-size: 1.3em; flex-shrink: 0; line-height: 1.4;"}
+
+[Las características de las funciones exponenciales y logarítmicas.]{style="color: goldenrod;"}
+
+:::
+
+::: {style="display: flex; flex-direction: row; align-items: flex-start; gap: 0.8em;"}
+
+[●]{style="color: #e67e22; font-size: 1.3em; flex-shrink: 0; line-height: 1.4;"}
+
+[Un repaso de logaritmos.]{style="color: #e67e22;"}
+
+:::
+
+:::
+
+## Exponencial natural {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+_x_en = np.linspace(-4, 4, 400)
+_gold_en = 'goldenrod'
+
+def _plot_en(ax):
+    ax.plot(_x_en, np.exp(_x_en), color=_gold_en, lw=2.2, zorder=3)
+    ax.set_xlim(-4.3, 4.3)
+    ax.set_ylim(-2, 62)
+    ax.set_xlabel('x', fontsize=10)
+    ax.set_ylabel('y', fontsize=10, rotation=0, labelpad=12)
+    ax.set_xticks([-4, -2, 0, 2, 4])
+    ax.set_yticks([0, 10, 20, 30, 40, 50, 60])
+    ax.set_facecolor('none')
+    ax.tick_params(labelsize=9)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; font-size: 1.6em;"}
+
+${\color{teal}e^x} = {\color{goldenrod}exp(x)}$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 1em;"}
+
+::: {style="flex: 0 0 38%;"}
+:::
+
+::: {style="flex: 1;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.5, 4.5))
+fig.patch.set_alpha(0)
+_plot_en(ax)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 1em;"}
+
+::: {style="flex: 0 0 38%; display: flex; flex-direction: column; gap: 0.7em; padding-left: 0.5em; font-size: 1.05em; font-weight: 500;"}
+
+[Siempre positiva]{style="color: goldenrod;"}
+
+:::
+
+::: {style="flex: 1;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.5, 4.5))
+fig.patch.set_alpha(0)
+_plot_en(ax)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 1em;"}
+
+::: {style="flex: 0 0 38%; display: flex; flex-direction: column; gap: 0.7em; padding-left: 0.5em; font-size: 1.05em; font-weight: 500;"}
+
+[Siempre positiva]{style="color: goldenrod;"}
+
+[Tiende a 0 cuando x → -∞]{style="color: #c0392b;"}
+
+:::
+
+::: {style="flex: 1;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.5, 4.5))
+fig.patch.set_alpha(0)
+_plot_en(ax)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: row; align-items: center; padding: 0.5em 1em;"}
+
+::: {style="flex: 0 0 38%; display: flex; flex-direction: column; gap: 0.7em; padding-left: 0.5em; font-size: 1.05em; font-weight: 500;"}
+
+[Siempre positiva]{style="color: goldenrod;"}
+
+[Tiende a 0 cuando x → -∞]{style="color: #c0392b;"}
+
+[Tiende a +∞ cuando x → +∞]{style="color: navy;"}
+
+:::
+
+::: {style="flex: 1;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(5.5, 4.5))
+fig.patch.set_alpha(0)
+_plot_en(ax)
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+:::
+
+## ¿De dónde viene $e$?
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+def _e_tbl(ax, with_data=False):
+    ax.axis('off')
+    if with_data:
+        rows = [['1',  '2.00000', '0.718282'],
+                ['2',  '2.25000', '0.468282'],
+                ['5',  '2.48832', '0.229962'],
+                ['10', '2.59374', '0.124539']]
+    else:
+        rows = [['', '', ''], ['', '', ''], ['', '', ''], ['', '', '']]
+    tbl = ax.table(
+        cellText=rows,
+        colLabels=['n', r'$\tilde{e}$', r'$e - \tilde{e}$'],
+        cellLoc='center', loc='center',
+        bbox=[0, 0.05, 1, 0.88]
+    )
+    tbl.auto_set_font_size(False)
+    _cc = ['navy', 'goldenrod', 'goldenrod']
+    for (row, col), cell in tbl.get_celld().items():
+        cell.set_edgecolor('#aaaaaa')
+        cell.set_facecolor('none')
+        if row == 0:
+            cell.get_text().set_color(_cc[col])
+            cell.get_text().set_fontweight('bold')
+            cell.get_text().set_fontsize(22)
+        elif with_data:
+            cell.get_text().set_color(_cc[col])
+            cell.get_text().set_fontsize(22)
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 1em 3em 1em 1.5em; gap: 2em; align-items: center;"}
+
+::: {style="flex: 0 0 44%; font-size: 2em;"}
+
+${\color{goldenrod}e} = \displaystyle{{\color{navy}\lim}_{{\color{navy}n\to\infty}}\left(1+\frac{1}{{\color{navy}n}}\right)^{{\color{navy}n}}}$
+
+:::
+
+::: {style="flex: 1; min-height: 0; display: flex; flex-direction: column;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(4.5, 3.0))
+fig.patch.set_alpha(0)
+_e_tbl(ax, with_data=False)
+plt.tight_layout(pad=0.2)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(4.5, 3.0))
+fig.patch.set_alpha(0)
+_e_tbl(ax, with_data=True)
+plt.tight_layout(pad=0.2)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+:::
+
+## El número $e$ en la naturaleza {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+from matplotlib.patches import FancyBboxPatch, Circle, Rectangle, Polygon
+import numpy as np
+
+_W, _H = 13.5, 5.4
+
+def _bfig(w=_W, h=_H):
+    fig, ax = plt.subplots(figsize=(w, h))
+    ax.set_xlim(0, w); ax.set_ylim(0, h)
+    ax.axis('off')
+    fig.patch.set_alpha(0); ax.set_facecolor('none')
+    return fig, ax
+
+def _bank_icon(ax, cx, cy, s, c, bg):
+    """Dibuja un edificio de banco con patches (pedestal, cuerpo con columnas, techo)."""
+    # Pedestal
+    ax.add_patch(Rectangle((cx - s*.48, cy - s*.44), s*.96, s*.10,
+                            fc=c, ec='none', zorder=4))
+    # Cuerpo
+    ax.add_patch(Rectangle((cx - s*.38, cy - s*.34), s*.76, s*.38,
+                            fc=c, ec='none', zorder=4))
+    # Separadores entre columnas (color del fondo de tarjeta = hueco visual)
+    for xoff in (-0.13, 0.13):
+        ax.add_patch(Rectangle((cx + s*xoff - s*.03, cy - s*.32),
+                               s*.06, s*.34, fc=bg, ec='none', zorder=5))
+    # Barra base del techo
+    ax.add_patch(Rectangle((cx - s*.43, cy + s*.02), s*.86, s*.07,
+                            fc=c, ec='none', zorder=4))
+    # Triángulo del techo
+    ax.add_patch(Polygon(
+        [(cx - s*.43, cy + s*.09), (cx + s*.43, cy + s*.09), (cx, cy + s*.40)],
+        fc=c, ec='none', zorder=4))
+
+def _bcard(ax, cx, cy, w, h, bg, rows):
+    ax.add_patch(FancyBboxPatch((cx - w/2, cy - h/2), w, h,
+        boxstyle="round,pad=0.2", facecolor=bg,
+        edgecolor='white', linewidth=2.5, zorder=2))
+    _bank_icon(ax, cx, cy + h * 0.39, h * 0.21, c='white', bg=bg)
+    for txt, dy, fs, fw, tc in rows:
+        ax.text(cx, cy + h * (dy - 0.10), txt, ha='center', va='center',
+                fontsize=round(fs * 24 / 20), fontweight=fw, color=tc, zorder=3)
+
+def _coin(ax, cx, cy, r, color, label, lc='white', fs=15):
+    ax.add_patch(Circle((cx, cy), r, color=color, zorder=3, ec='white', lw=2))
+    ax.text(cx, cy, label, ha='center', va='center',
+            fontsize=fs, fontweight='bold', color=lc, zorder=4)
+
+def _arr(ax, x1, x2, y, c='#888'):
+    ax.annotate('', xy=(x2, y), xytext=(x1, y),
+                arrowprops=dict(arrowstyle='->', color=c, lw=2.2))
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H , 'Si depositas $1, ¿cuánto dinero recibes al cabo de 1 año?',
+        ha='center', va='top', fontsize=20, color='#555', style='italic')
+_bcard(ax, _W/2, _H/2 - 0.15, 8.0, 4.0, '#7f8c8d', [
+    ('Banco 1',                0.33, 17, 'bold',   'white'),
+    ('100% de interés al año', 0.10, 11, 'normal', '#ddd'),
+    (r'$(1+1)^1$',            -0.12, 14, 'normal', 'white'),
+    ('= 2.00',                -0.35, 17, 'bold',   '#f1c40f'),
+])
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H, 'Si depositas $1, ¿cuánto dinero recibes al cabo de 1 año?',
+        ha='center', va='top', fontsize=20, color='#555', style='italic')
+_bcard(ax, 3.1, _H/2 - 0.15, 5.6, 4.0, '#7f8c8d', [
+    ('Banco 1',          0.33, 15, 'bold',   'white'),
+    ('100% al año',      0.10, 10, 'normal', '#ddd'),
+    (r'$(1+1)^1$',      -0.12, 13, 'normal', 'white'),
+    ('= 2.00',          -0.35, 15, 'bold',   '#f1c40f'),
+])
+_bcard(ax, 9.4, _H/2 - 0.15, 5.6, 4.0, '#2980b9', [
+    ('Banco 2',                   0.33, 15, 'bold',   'white'),
+    ('50% cada 6 meses',          0.10, 10, 'normal', '#ddd'),
+    (r'$(1+\frac{1}{2})^2$',     -0.12, 13, 'normal', 'white'),
+    ('= 2.25',                   -0.35, 15, 'bold',   '#f1c40f'),
+])
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## Banco 3 {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+_XS   = [1.6, 4.7, 7.8, 10.9]
+_LABS = ['Ahora', '4 meses', '8 meses', '1 año']
+_VALS = ['1.00', '1.33', '1.78', '2.37']
+_RED  = '#c0392b'
+_GRY  = '#7f8c8d'
+
+fig, ax = _bfig()
+ax.text(_W/2, _H - 0.35, 'Banco 3: 33.3% de interés cada 4 meses',
+        ha='center', va='top', fontsize=20, color=_RED, fontweight='bold')
+_coin(ax, _XS[0], _H/2, 0.52, _GRY, _VALS[0], fs=15)
+ax.text(_XS[0], _H/2 + 0.82, _LABS[0], ha='center', va='bottom',
+        fontsize=12, color='#555')
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H - 0.35, 'Banco 3: 33.3% de interés cada 4 meses',
+        ha='center', va='top', fontsize=20, color=_RED, fontweight='bold')
+for i in range(2):
+    c = _GRY if i == 0 else _RED
+    _coin(ax, _XS[i], _H/2, 0.52, c, _VALS[i], fs=15)
+    ax.text(_XS[i], _H/2 + 0.82, _LABS[i], ha='center', va='bottom',
+            fontsize=15, color='#555')
+_arr(ax, _XS[0] + 0.56, _XS[1] - 0.56, _H/2, c=_RED)
+ax.text((_XS[0]+_XS[1])/2, _H/2 + 0.2, r'$\times\,\frac{4}{3}$',
+        ha='center', va='bottom', fontsize=15, color=_RED)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H - 0.35, 'Banco 3: 33.3% de interés cada 4 meses',
+        ha='center', va='top', fontsize=20, color=_RED, fontweight='bold')
+for i in range(3):
+    c = _GRY if i == 0 else _RED
+    _coin(ax, _XS[i], _H/2, 0.52, c, _VALS[i], fs=15)
+    ax.text(_XS[i], _H/2 + 0.82, _LABS[i], ha='center', va='bottom',
+            fontsize=15, color='#555')
+    if i > 0:
+        _arr(ax, _XS[i-1] + 0.56, _XS[i] - 0.56, _H/2, c=_RED)
+        ax.text((_XS[i-1]+_XS[i])/2, _H/2 + 0.2, r'$\times\,\frac{4}{3}$',
+                ha='center', va='bottom', fontsize=15, color=_RED)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H - 0.35, 'Banco 3: 33.3% de interés cada 4 meses',
+        ha='center', va='top', fontsize=20, color=_RED, fontweight='bold')
+for i in range(4):
+    c = _GRY if i == 0 else _RED
+    lc = '#f1c40f' if i == 3 else 'white'
+    _coin(ax, _XS[i], _H/2, 0.52, c, _VALS[i], lc=lc, fs=15)
+    ax.text(_XS[i], _H/2 + 0.82, _LABS[i], ha='center', va='bottom',
+            fontsize=15, color='#555')
+    if i > 0:
+        _arr(ax, _XS[i-1] + 0.56, _XS[i] - 0.56, _H/2, c=_RED)
+        ax.text((_XS[i-1]+_XS[i])/2, _H/2 + 0.2, r'$\times\,\frac{4}{3}$',
+                ha='center', va='bottom', fontsize=15, color=_RED)
+ax.text(_W/2, 0.55, r'$(1+\frac{1}{3})^3 \approx 2.37$',
+        ha='center', va='center', fontsize=15, color=_RED, fontweight='bold')
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## ¿Cuál banco es mejor? {.title-line}
+
+```{python}
+#| echo: false
+_BANKS3 = [
+    (2.1,  '#7f8c8d', 'Banco 1', '100% al año',
+     r'$(1+1)^1$',           '= 2.00', '+100%'),
+    (6.25, '#2980b9', 'Banco 2', '50% cada 6 meses',
+     r'$(1+\frac{1}{2})^2$', '= 2.25', '+125%'),
+    (10.4, '#c0392b', 'Banco 3', '33.3% cada 4 meses',
+     r'$(1+\frac{1}{3})^3$', '= 2.37', '+137%'),
+]
+
+def _3banks(ax, show_pct=False):
+    for cx, bg, name, rate, fml, res, pct in _BANKS3:
+        _bcard(ax, cx, _H/2, 3.8, 4.2, bg, [
+            (name,  0.33, 13, 'bold',   'white'),
+            (rate,  0.10, 10, 'normal', '#ddd'),
+            (fml,  -0.12, 12, 'normal', 'white'),
+            (res,  -0.34, 14, 'bold',   '#f1c40f'),
+        ])
+        if show_pct:
+            ax.text(cx, _H/2 + 2.55, pct, ha='center', va='center',
+                    fontsize=16, fontweight='bold', color='#27ae60')
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_3banks(ax)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_3banks(ax, show_pct=True)
+ax.text(_W/2, -0.6, '¿Podemos hacerlo aún mejor dividiendo más el año?',
+        ha='center', va='center', fontsize=22, color='#555', style='italic')
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## Banco 12 {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H,
+        'Banco 12: paga 1/12 de interés cada mes (12 veces al año)',
+        ha='center', va='top', fontsize=20, color='#827717', fontweight='bold')
+_bcard(ax, _W/2, _H/2 - 0.2, 8.5, 4.0, '#827717', [
+    ('Banco 12',                      0.33, 17, 'bold',   'white'),
+    ('1/12 de interés cada mes',      0.10, 11, 'normal', '#ddd'),
+    (r'$(1+\frac{1}{12})^{12}$',     -0.12, 15, 'normal', 'white'),
+    ('= ?',                          -0.35, 17, 'bold',   '#f1c40f'),
+])
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;font-size: 1.35em;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H,
+        'Banco 12: paga 1/12 de interés cada mes (12 veces al año)',
+        ha='center', va='top', fontsize=24, color='#827717', fontweight='bold')
+_bcard(ax, _W/2, _H/2 - 0.2, 8.5, 4.0, '#827717', [
+    ('Banco 12',                      0.33, 17, 'bold',   'white'),
+    ('1/12 de interés cada mes',      0.10, 11, 'normal', '#ddd'),
+    (r'$(1+\frac{1}{12})^{12}$',     -0.12, 15, 'normal', 'white'),
+    (r'$\approx 2.613$',             -0.35, 17, 'bold',   '#f1c40f'),
+])
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## En general: Banco $n$ {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+_TEAL = '#16a085'
+_NXS  = [1.0, 3.3, 5.6, 7.9, 11.0]
+_NLABS_TOP = ['Ahora', r'$\frac{1}{n}$ año', r'$\frac{2}{n}$ años',
+              r'$\cdots$', '1 año']
+_NLABS_BOT = [r'$1$', r'$1+\frac{1}{n}$', r'$(1+\frac{1}{n})^2$',
+              r'$\cdots$', r'$(1+\frac{1}{n})^n$']
+
+def _ntl(ax, highlight=False):
+    ax.text(_W/2, _H - 0.35, 'Banco n: divide el año en n períodos iguales',
+            ha='center', va='top', fontsize=24, color=_TEAL, fontweight='bold')
+    ax.annotate('', xy=(_NXS[-1]+0.7, _H/2), xytext=(_NXS[0]-0.7, _H/2),
+                arrowprops=dict(arrowstyle='->', color='#ccc', lw=1.5))
+    for i, (cx, lt, lb) in enumerate(zip(_NXS, _NLABS_TOP, _NLABS_BOT)):
+        if lt == r'$\cdots$':
+            ax.text(cx, _H/2, r'$\cdots$', ha='center', va='center',
+                    fontsize=20, color='#aaa')
+            ax.text(cx, _H/2 - 0.75, r'$\cdots$', ha='center', va='top',
+                    fontsize=20, color='#aaa')
+            continue
+        lc_val = '#f1c40f' if (highlight and i == len(_NXS)-1) else 'white'
+        _coin(ax, cx, _H/2, 0.44, _TEAL, '', fs=11)
+        ax.text(cx, _H/2 + 0.68, lt, ha='center', va='bottom', fontsize=17.5, color='#555')
+        ax.text(cx, _H/2 - 0.68, lb, ha='center', va='top', fontsize=17.5,
+                color=lc_val if highlight and i == len(_NXS)-1 else _TEAL)
+
+fig, ax = _bfig()
+_ntl(ax)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_ntl(ax, highlight=True)
+ax.text(_W/2, 0.52,
+        r'Después de 1 año:  $(1+\frac{1}{n})^n$',
+        ha='center', va='center', fontsize=24, color=_TEAL, fontweight='bold')
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_ntl(ax, highlight=True)
+ax.text(_W/2, 0.68,
+        r'Después de 1 año:  $(1+\frac{1}{n})^n$',
+        ha='center', va='center', fontsize=24, color=_TEAL)
+ax.text(_W/2, 1.28,
+        r'¿Qué pasa cuando $n\to\infty$?',
+        ha='center', va='center', fontsize=20, color='#555', style='italic')
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## $n$ bancos {.title-line}
+
+```{python}
+#| echo: false
+_NE_CXS = [1.5, 3.5, 5.5, 7.0, 8.3, 9.3, 10.0, 10.7, 11.4, 12.0, 12.6]
+_NE_SZS = [1.0, 1.0, 1.0, 0.72, 0.72, 0.52, 0.52, 0.42, 0.35, 0.25, 0.2]
+_NE_CLR = ['#7f8c8d','#2980b9','#c0392b','#7f8c8d','#2980b9',
+           '#c0392b','#7f8c8d','#2980b9','#c0392b','#7f8c8d','#2980b9']
+_NE_BY  = 2.0
+_C1   = (1.5,  1.0,  ['100% de tu dinero',  '1 vez al año'],           '#7f8c8d', 2.3)
+_C2   = (3.5,  1.0,  ['1/2 de tu dinero',   '2 veces al año'],          '#2980b9', 2.3)
+_C3   = (5.5,  1.0,  ['1/3 de tu dinero',   '3 veces al año'],          '#c0392b', 2.3)
+_C12  = (9.3,  0.52, ['1/12 de tu dinero',  '12 veces al año',
+                       '(cada mes)'],                                     '#2980b9', 1.9)
+_C365 = (12.0, 0.52, ['1/365 de tu dinero', '365 veces al año',
+                       '(cada día)'],                                    '#7f8c8d', 1.9)
+
+def _ne_box(ax, cx, y_bot, lines, col, bw=2):
+    bh = 0.15 + len(lines) * 0.30
+    ax.add_patch(FancyBboxPatch((cx - bw/2, y_bot), bw, bh,
+        boxstyle='round,pad=0.08', fc='white', ec=col, lw=2, zorder=4))
+    for j, ln in enumerate(lines):
+        ax.text(cx, y_bot + bh - 0.08 - j*0.30, ln,
+                ha='center', va='top', fontsize=14, color='#333', zorder=5)
+
+def _ne_draw(nb=0, cs=None, qm=False, si=False, nf=0, it=False):
+    fig, ax = _bfig()
+    sub = 'El Banco al Final del Universo' if it else 'Muchos Bancos'
+    stc = '#e91e63' if it else '#2c3e50'
+    ax.text(_W/2, _H - 0.15, sub, ha='center', va='top',
+            fontsize=20, fontweight='bold', color=stc)
+    for i in range(min(nb, len(_NE_CXS))):
+        cx, s, col = _NE_CXS[i], _NE_SZS[i], _NE_CLR[i]
+        _bank_icon(ax, cx, _NE_BY, s, col, 'white')
+    if nb >= 6 and not qm:
+        ax.text(13.1, _NE_BY, '···', ha='left', va='center',
+                fontsize=14, color='#bbb')
+    if cs:
+        for (cx, s, lines, col, bw) in cs:
+            top = _NE_BY + s * 0.50
+            ax.plot([cx, cx], [top, top + 0.22], color=col, lw=1.5, zorder=3)
+            _ne_box(ax, cx, top + 0.22, lines, col, bw)
+    if qm:
+        ax.add_patch(Circle((12.85, _NE_BY + 0.5), 0.32,
+                            fc='#f5f5f5', ec='#555', lw=2, zorder=3))
+        ax.text(12.85, _NE_BY + 0.5, '?', ha='center', va='center',
+                fontsize=16, fontweight='bold', color='#555', zorder=4)
+    if si:
+        icx, icy = 11.8, 4.5
+        ax.add_patch(Rectangle((icx-1.0, icy-0.65), 2.0, 1.30,
+                               fc='#fce4ec', ec='#e91e63', lw=2.5,
+                               linestyle='--', zorder=3))
+        _bank_icon(ax, icx, icy+0.10, 0.55, '#e91e63', '#fce4ec')
+        ax.text(icx, icy-0.40, 'Banco', ha='center', va='center',
+                fontsize=9, fontweight='bold', color='#e91e63', zorder=5)
+        ax.text(icx, icy-0.57, r'$n\to\infty$', ha='center', va='center',
+                fontsize=10, color='#e91e63', zorder=5)
+        for bi in [0, 5, 10]:
+            if bi < nb and bi < len(_NE_CXS):
+                bx = _NE_CXS[bi]; bs = _NE_SZS[bi]
+                ax.plot([bx, icx], [_NE_BY + bs*0.44, icy - 0.65],
+                        color='#e91e63', lw=1.2, linestyle='--',
+                        alpha=0.35, zorder=2)
+    _FD = [
+        (r'$(1+1)^1 = 2$',                  '#7f8c8d'),
+        (r'$(1+\frac{1}{2})^2 = 2.25$',     '#2980b9'),
+        (r'$(1+\frac{1}{3})^3 = 2.37$',     '#c0392b'),
+        (r'$(1+\frac{1}{12})^{12} = 2.613$','#e67e22'),
+    ]
+    for k in range(nf):
+        ax.text(1.5 + k*3.0, 0.42, _FD[k][0], ha='center', va='center',
+                fontsize=13, color=_FD[k][1])
+    plt.tight_layout(pad=0)
+    return fig
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=1, cs=[_C1])
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=2, cs=[_C1, _C2])
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=3, cs=[_C1, _C2, _C3])
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, cs=[_C1, _C2, _C3])
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, cs=[_C1, _C2, _C3, _C12])
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, cs=[_C1, _C2, _C3, _C12, _C365])
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=7 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, cs=[_C1, _C2, _C3, _C12, _C365], qm=True)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=8 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, si=True, it=True)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=9 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, si=True, it=True, nf=1)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=10 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, si=True, it=True, nf=2)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=11 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, si=True, it=True, nf=3)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=12 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig = _ne_draw(nb=11, si=True, it=True, nf=4)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+
+
+
+## Convergencia a $e$ {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+_ROWS_PART = [
+    ['1',  '2.00000'],
+    ['2',  '2.25000'],
+    ['3',  '2.37037'],
+    ['12', '2.61304'],
+]
+_ROWS_FULL = _ROWS_PART + [
+    ['100',    '2.70481'],
+    ['1 000',  '2.71692'],
+    ['10 000', '2.71815'],
+    [r'$\infty$', r'$e = 2.71828...$'],
+]
+
+def _ctbl(ax, rows, hl=False):
+    ax.axis('off')
+    tbl = ax.table(
+        cellText=rows,
+        colLabels=['n', r'$(1+1/n)^n$'],
+        cellLoc='center', loc='center',
+        bbox=[0.02, 0.02, 0.96, 0.94]
+    )
+    tbl.auto_set_font_size(False)
+    for (r, c), cell in tbl.get_celld().items():
+        cell.set_edgecolor('#cccccc')
+        cell.set_facecolor('none')
+        if r == 0:
+            cell.get_text().set_color(_TEAL)
+            cell.get_text().set_fontweight('bold')
+            cell.get_text().set_fontsize(15)
+        else:
+            last = hl and r == len(rows)
+            cell.get_text().set_color('#e91e63' if last else '#333')
+            cell.get_text().set_fontsize(15)
+            cell.get_text().set_fontweight('bold' if last else 'normal')
+
+fig, (axL, axR) = plt.subplots(1, 2, figsize=(_W, _H))
+fig.patch.set_alpha(0)
+axL.set_facecolor('none'); axR.set_facecolor('none')
+_ctbl(axL, _ROWS_PART)
+axR.axis('off')
+axR.text(0.5, 0.62, r'¿Hacia dónde converge?',
+         ha='center', va='center', transform=axR.transAxes,
+         fontsize=20, color='#555', style='italic')
+axR.text(0.5, 0.38, r'$(1+\frac{1}{n})^n \to\, ?$',
+         ha='center', va='center', transform=axR.transAxes,
+         fontsize=20, color=_TEAL, fontweight='bold')
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, (axL, axR) = plt.subplots(1, 2, figsize=(_W, _H))
+fig.patch.set_alpha(0)
+axL.set_facecolor('none'); axR.set_facecolor('none')
+_ctbl(axL, _ROWS_FULL, hl=True)
+axR.axis('off')
+axR.text(0.5, 0.72, r'cuando $n\to\infty$:',
+         ha='center', va='center', transform=axR.transAxes,
+         fontsize=24, color=_TEAL)
+axR.text(0.5, 0.57, r'$(1+\frac{1}{n})^n \to$',
+         ha='center', va='center', transform=axR.transAxes,
+         fontsize=24, color=_TEAL, fontweight='bold')
+axR.text(0.5, 0.40, r'$e = 2.71828...$',
+         ha='center', va='center', transform=axR.transAxes,
+         fontsize=24, color='#e91e63', fontweight='bold')
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## El banco al final del universo {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+_PINK = '#e91e63'
+fig, ax = _bfig()
+ax.text(_W/2, _H,
+        r'¿Qué pasa si $n\to\infty$?  (infinitos períodos en un año)',
+        ha='center', va='top', fontsize=24, color='#555', style='italic')
+_bcard(ax, _W/2, _H/2 - 0.2, 9.0, 4.0, _PINK, [
+    (r'Banco $\infty$',                           0.33, 17, 'bold',   'white'),
+    ('Infinitos períodos infinitesimales',         0.10, 11, 'normal', '#fce4ec'),
+    (r'$\lim_{n\to\infty}\,(1+\frac{1}{n})^n$',  -0.12, 15, 'normal', 'white'),
+    ('= ?',                                       -0.35, 17, 'bold',   '#f1c40f'),
+])
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H - 0.4,
+        r'¿Qué pasa si $n\to\infty$?  (infinitos períodos en un año)',
+        ha='center', va='top', fontsize=20, color='#555', style='italic')
+_bcard(ax, _W/2, _H/2 - 0.2, 9.0, 4.0, _PINK, [
+    (r'Banco $\infty$',                           0.33, 17, 'bold',   'white'),
+    ('Infinitos períodos infinitesimales',         0.10, 11, 'normal', '#fce4ec'),
+    (r'$\lim_{n\to\infty}\,(1+\frac{1}{n})^n$',  -0.12, 15, 'normal', 'white'),
+    (r'$= e \approx 2.71828...$',                -0.35, 17, 'bold',   '#f1c40f'),
+])
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+ax.text(_W/2, _H,
+        r'¿Qué pasa si $n\to\infty$?  (infinitos períodos en un año)',
+        ha='center', va='top', fontsize=20, color='#555', style='italic')
+_bcard(ax, _W/2, _H/2 - 0.2, 9.0, 4.0, _PINK, [
+    (r'Banco $\infty$',                           0.33, 17, 'bold',   'white'),
+    ('Infinitos períodos infinitesimales',         0.10, 11, 'normal', '#fce4ec'),
+    (r'$\lim_{n\to\infty}\,(1+\frac{1}{n})^n$',  -0.12, 15, 'normal', 'white'),
+    (r'$= e \approx 2.71828...$',                -0.35, 17, 'bold',   '#f1c40f'),
+])
+ax.text(_W/2, -0.52,
+        r'¡El número $e$ nace del interés compuesto continuo!',
+        ha='center', va='center', fontsize=20, color='#333', style='italic')
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+## Logaritmo natural y $e$ {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+def _ln_fig(dot_xy=None):
+    fig, ax = plt.subplots(figsize=(8.0, 7.5))
+    fig.patch.set_alpha(0)
+    ax.set_facecolor('none')
+    x = np.linspace(0.001, 4, 3000)
+    ax.plot(x, np.log(x), color='goldenrod', linewidth=2.5, zorder=2)
+    ax.set_xlim(-1, 4)
+    ax.set_ylim(-7, 2)
+    ax.set_xlabel('x', fontsize=10)
+    ax.set_ylabel('y', fontsize=10, rotation=0, labelpad=12)
+    ax.axhline(0, color='#444', linewidth=0.8)
+    ax.axvline(0, color='#444', linewidth=0.8)
+    ax.tick_params(labelsize=9)
+    ax.spines[['top', 'right']].set_visible(False)
+    if dot_xy is not None:
+        ax.scatter([dot_xy[0]], [dot_xy[1]], s=320,
+                   color='goldenrod', alpha=0.55, zorder=5, edgecolors='none')
+    return fig, ax
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.5em 3em 0.5em 1.5em; gap: 1.5em; align-items: flex-start;"}
+
+::: {style="flex: 0 0 38%; display: flex; flex-direction: column; gap: 0.9em; padding-top: 2em; font-size: 1.05em; font-weight: bold;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="color: goldenrod;"}
+Indefinida para $x \leq 0$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="color: #c0392b;"}
+Tiende a $-\infty$ cuando $x \to 0$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="color: navy;"}
+Tiende a $+\infty$ cuando $x \to \infty$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="color: navy;"}
+La tasa de crecimiento disminuye
+:::
+
+:::
+
+::: {style="flex: 1; min-height: 0; display: flex; flex-direction: column;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _ln_fig(dot_xy=(0.1, np.log(0.1)))
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _ln_fig(dot_xy=(0.25, np.log(0.25)))
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _ln_fig(dot_xy=(0.05, -6.0))
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _ln_fig(dot_xy=(3.5, np.log(3.5)))
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _ln_fig(dot_xy=(3.0, np.log(3.0)))
+x0 = 3.0
+slope = 1 / x0
+dx = 0.9
+ax.plot([x0 - dx, x0 + dx],
+        [np.log(x0) - slope * dx, np.log(x0) + slope * dx],
+        color='#c0392b', linewidth=2.0, alpha=0.75, zorder=3)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+:::
+
+## Logaritmo natural y $e$ — inversas {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+def _lr_fig(show_yx=False):
+    fig, ax = plt.subplots(figsize=(8.0, 7.5))
+    fig.patch.set_alpha(0)
+    ax.set_facecolor('none')
+    x_e = np.linspace(-4, np.log(4), 400)
+    ax.plot(x_e, np.exp(x_e), color='goldenrod', lw=2.5, label='exp(x)')
+    x_l = np.linspace(0.018, 4, 400)
+    ax.plot(x_l, np.log(x_l), color='#c0392b', lw=2.5, label='ln(x)')
+    if show_yx:
+        ax.plot([-4, 4], [-4, 4], color='#888', lw=1.5, ls='--', zorder=1)
+    ax.set_xlim(-4, 4); ax.set_ylim(-4, 4)
+    ax.set_xlabel('x', fontsize=10)
+    ax.set_ylabel('y', fontsize=10, rotation=0, labelpad=12)
+    ax.axhline(0, color='#444', lw=0.8); ax.axvline(0, color='#444', lw=0.8)
+    ax.tick_params(labelsize=9)
+    ax.legend(fontsize=10, framealpha=0, loc='upper left')
+    ax.spines[['top', 'right']].set_visible(False)
+    return fig, ax
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.4em 3em 0.4em 0.5em; gap: 1em; align-items: center;"}
+
+::: {style="flex: 0 0 46%; display: flex; flex-direction: column; min-height: 0;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _lr_fig(show_yx=False)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%;"}
+
+```{python}
+#| echo: false
+fig, ax = _lr_fig(show_yx=True)
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+:::
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: column; justify-content: center; gap: 1.6em; font-size: 1.2em;"}
+
+::: {.fragment .fade-in data-fragment-index=2 style="display: flex; flex-direction: row; align-items: baseline; gap: 1.0em; flex-wrap: wrap;"}
+
+${\color{#c0392b}ln}({\color{goldenrod}e}^x) = {\color{blue}x}$
+
+::: {.fragment .fade-in data-fragment-index=3 style="font-size: 0.75em; color: #444;"}
+$D(x \in \mathbb{R}),\; R(y \in \mathbb{R})$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="display: flex; flex-direction: row; align-items: baseline; gap: 1.0em; flex-wrap: wrap;"}
+
+${\color{goldenrod}e}^{{\color{#c0392b}ln}(x)} = {\color{blue}x}$
+
+::: {.fragment .fade-in data-fragment-index=3 style="font-size: 0.75em; color: #444;"}
+$D(x > 0),\; R(y > 0)$
+:::
+
+:::
+
+:::
+
+:::
+
+## Logaritmos {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import numpy as np
+
+def _log3_fig():
+    fig, ax = plt.subplots(figsize=(8.2, 7.8))
+    fig.patch.set_alpha(0); ax.set_facecolor('none')
+    x = np.linspace(0.008, 4, 600)
+    ax.plot(x, np.log2(x),  color='goldenrod', lw=2.3, label=r'$\log_2(x)$')
+    ax.plot(x, np.log10(x), color='#c0392b',   lw=2.3, label=r'$\log_{10}(x)$')
+    ax.plot(x, np.log(x),   color='#2471a3',   lw=2.3, label=r'$\log_e(x)$')
+    ax.set_xlim(0, 4); ax.set_ylim(-6, 2)
+    ax.set_xlabel('x', fontsize=10)
+    ax.set_ylabel('y', fontsize=10, rotation=0, labelpad=12)
+    ax.axhline(0, color='#444', lw=0.8)
+    ax.tick_params(labelsize=9)
+    ax.legend(fontsize=10, framealpha=0, loc='lower right')
+    ax.spines[['top', 'right']].set_visible(False)
+    return fig, ax
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.4em 3em 0.4em 0.5em; gap: 0.5em; align-items: center;"}
+
+::: {style="flex: 0 0 40%; display: flex; flex-direction: column; justify-content: center;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="display: flex; flex-direction: column; gap: 0; font-size: 1.3em;"}
+
+::: {style="margin: -0.35em 0;"}
+$${\color{teal}x} = {\color{#c0392b}b}^{{\color{goldenrod}y}}$$
+:::
+
+::: {style="margin: -0.35em 0;"}
+$${\color{goldenrod}y} = {\color{goldenrod}log}_{{\color{#c0392b}b}}({\color{teal}x})$$
+:::
+
+::: {style="margin: -0.35em 0;"}
+$${\color{#c0392b}b} > 0$$
+:::
+
+:::
+
+:::
+
+::: {style="flex: 1; display: flex; flex-direction: column; min-height: 0;"}
+
+```{python}
+#| echo: false
+fig, ax = _log3_fig()
+plt.tight_layout(pad=0.4)
+plt.show()
+```
+
+:::
+
+:::
+
+## Selecionamos un bano  {.title-line}

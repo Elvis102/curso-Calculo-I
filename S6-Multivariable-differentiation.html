@@ -509,6 +509,195 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 </div>
 </div>
+</section>
+<section id="derivadas-parciales" class="slide level2 title-line">
+<h2>Derivadas Parciales</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;">
+<p><span style="color: goldenrod; font-weight: bold;">En este presentación, aprenderás</span></p>
+<div style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;">
+<p>● Qué significa una “derivada parcial”.</p>
+</div>
+<div style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;">
+<p>● Varias notaciones.</p>
+</div>
+<div style="display: flex; gap: 0.6em; align-items: flex-start; color: steelblue;">
+<p>● Cómo calcular derivadas parciales.</p>
+</div>
+<div style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;">
+<p>● La definición formal de derivadas parciales basada en límites.</p>
+</div>
+</div>
+</section>
+<section id="derivadas-parciales-qué-porqué-y-cómo" class="slide level2 title-line">
+<h2>Derivadas parciales: ¿Qué?, porqué y cómo</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 1em 3em; gap: 2em; font-size: 1.0em;">
+<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 1.5em;">
+<div style="flex: 0 0 10em; font-size: 1.3em; font-weight: bold; color: goldenrod; padding-top: 0.1em;">
+<p>¿Qué?</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="flex: 1; color: goldenrod; line-height: 1.5;">
+<p>Las funciones multivariables cambian a lo largo de cada variable. Las derivadas parciales revelan esos cambios.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 1.5em;">
+<div style="flex: 0 0 10em; font-size: 1.3em; font-weight: bold; color: #c0392b; padding-top: 0.1em;">
+<p>¿Por qué?</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="flex: 1; color: #c0392b; line-height: 1.5;">
+<p>Necesitamos descomponer los cambios de la función para entender sus comportamientos.</p>
+</div>
+</div>
+<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 1.5em;">
+<div style="flex: 0 0 10em; font-size: 1.3em; font-weight: bold; color: navy; padding-top: 0.1em;">
+<p>¿Cómo?</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="flex: 1; color: navy; line-height: 1.5;">
+<p>Diferencia una variable a la vez, tratando las otras variables como constantes.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="notaciones" class="slide level2 title-line">
+<h2>Notaciones</h2>
+<div style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.8em 2.5em; gap: 2em; align-items: center;">
+<div style="flex: 0 0 48%;">
+<div class="r-stack" style="width: 100%;">
+<div style="width: 100%; font-size: 1.65em;">
+<p><span class="math display">\[\frac{{\color{navy}\partial}{\color{goldenrod}f}}{{\color{teal}\partial x}} = {\color{goldenrod}f}_{\color{teal}x}\]</span></p>
+<p><span class="math display">\[\frac{{\color{navy}\partial}{\color{goldenrod}f}}{{\color{#c0392b}\partial y}} = {\color{goldenrod}f}_{\color{#c0392b}y}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white; width: 100%; font-size: 1.65em;">
+<div style="display: flex; flex-direction: row; align-items: flex-start; gap: 0.4em;">
+<div style="color: navy; font-size: 0.37em; text-align: right; line-height: 1.9; flex-shrink: 0; padding-top: 1.1em;">
+<p>“Partial”</p>
+<p>“del”</p>
+</div>
+<div>
+<p><span class="math inline">\(\displaystyle\frac{\bbox[border: 2px dashed navy]{{\color{navy}\partial}}{\color{goldenrod}f}}{{\color{teal}\partial x}} = {\color{goldenrod}f}_{\color{teal}x}\)</span></p>
+</div>
+</div>
+<p><span class="math inline">\(\displaystyle\frac{{\color{navy}\partial}{\color{goldenrod}f}}{{\color{#c0392b}\partial y}} = {\color{goldenrod}f}_{\color{#c0392b}y}\)</span></p>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="flex: 1; display: flex; flex-direction: column; gap: 1em; font-size: 1.05em;">
+<div style="color: teal; font-weight: bold; font-size: 1.15em;">
+<p>Cómo se lee en voz alta:</p>
+</div>
+<div style="display: flex; flex-direction: column; gap: 0.8em; color: #222;">
+<p>● “La derivada parcial de <em><span class="math inline">\(f\)</span></em> con respecto a <em><span class="math inline">\(x\)</span></em>.”</p>
+<p>● “Parcial <em><span class="math inline">\(f\)</span></em>, parcial <em><span class="math inline">\(x\)</span></em>.”</p>
+<p>● “Parcial <em><span class="math inline">\(x\)</span></em>.”</p>
+</div>
+</div>
+</div>
+</section>
+<section id="derivadas-de-funciones-2d-1" class="slide level2 title-line">
+<h2>Derivadas de funciones 2D</h2>
+<div style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.5em 1em; gap: 0.5em; align-items: center;">
+<div style="flex: 0 0 24%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 1.8em; font-size: 1.35em; padding-left: 1em;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\frac{\partial {\color{goldenrod} f}}{\partial {\color{teal} x}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[\frac{\partial {\color{goldenrod} f}}{\partial {\color{#c0392b} y}}\]</span></p>
+</div>
+</div>
+<div style="flex: 1; min-height: 0; display: flex; flex-direction: column;">
+<div class="r-stack" style="flex: 1; min-height: 0; width: 100%;">
+<div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S6-Multivariable-differentiation_files/figure-revealjs/unnamed-chunk-18-25.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background: white; width: 100%; height: 100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S6-Multivariable-differentiation_files/figure-revealjs/unnamed-chunk-19-27.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background: white; width: 100%; height: 100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S6-Multivariable-differentiation_files/figure-revealjs/unnamed-chunk-20-29.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="ejemplo" class="slide level2 title-line">
+<h2>Ejemplo</h2>
+<div style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
+<div class="r-stack" style="flex: 1; min-height: 0; width: 100%;">
+<div style="width: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em 2em; gap: 0; font-size: 1.3em;">
+<div style="margin: -0.35em 0;">
+<p><span class="math display">\[{\color{goldenrod}f}({\color{teal}x}, {\color{#c0392b}y}) = 2{\color{teal}x}^3 + 5{\color{#c0392b}y}^3 + \cos({\color{teal}x})\sin({\color{#c0392b}y})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="margin: -0.35em 0;">
+<p><span class="math display">\[{\color{goldenrod}f}_{\color{teal}x} = 6{\color{teal}x}^2 + \quad 0 \quad - \sin({\color{teal}x})\sin({\color{#c0392b}y})\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin: -0.35em 0;">
+<p><span class="math display">\[{\color{goldenrod}f}_{\color{#c0392b}y} = 0 \; + 15{\color{#c0392b}y}^2 + \cos({\color{teal}x})\cos({\color{#c0392b}y})\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 0.3em 1em; gap: 0.3em;">
+<div style="font-size: 0.85em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x},{\color{#c0392b}y}) = 2{\color{teal}x}^3 + 5{\color{#c0392b}y}^3 + \cos({\color{teal}x})\sin({\color{#c0392b}y})\)</span></p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S6-Multivariable-differentiation_files/figure-revealjs/unnamed-chunk-22-31.png" width="816"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-start; padding: 0.3em 1em; gap: 0.3em;">
+<div style="font-size: 0.85em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x},{\color{#c0392b}y}) = 2{\color{teal}x}^3 + 5{\color{#c0392b}y}^3 + \cos({\color{teal}x})\sin({\color{#c0392b}y})\)</span></p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S6-Multivariable-differentiation_files/figure-revealjs/unnamed-chunk-23-33.png" width="1008"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="definición-formal" class="slide level2 title-line">
+<h2>Definición formal</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.5em 2.5em; gap: 0; font-size: 1.15em;">
+<div class="fragment fade-in" data-fragment-index="1" style="margin: -0.3em 0;">
+<p><span class="math display">\[{\color{goldenrod}f}_{\color{teal}x} = \frac{{\color{navy}\partial} {\color{goldenrod}f}}{{\color{navy}\partial} {\color{teal}x}} = \lim_{{\color{navy}h} \to 0} \frac{{\color{goldenrod}f}({\color{teal}x} + {\color{navy}h},\, {\color{#c0392b}y}) - {\color{goldenrod}f}({\color{teal}x},\, {\color{#c0392b}y})}{{\color{navy}h}}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="margin: -0.3em 0;">
+<p><span class="math display">\[{\color{goldenrod}f}_{\color{#c0392b}y} = \frac{{\color{navy}\partial} {\color{goldenrod}f}}{{\color{navy}\partial} {\color{#c0392b}y}} = \lim_{{\color{navy}h} \to 0} \frac{{\color{goldenrod}f}({\color{teal}x},\, {\color{#c0392b}y} + {\color{navy}h}) - {\color{goldenrod}f}({\color{teal}x},\, {\color{#c0392b}y})}{{\color{navy}h}}\]</span></p>
+</div>
+</div>
 
 </section></section>
     </div>

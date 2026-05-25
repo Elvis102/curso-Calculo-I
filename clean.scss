@@ -459,15 +459,15 @@ $selection-bg: #26351c !default;
 
 
 .slide-background::after {
-  content: ""; /* contenido vacio*/
+  content: "";
   position: absolute;
-    top: 0;
-    right: 0;
-    width: 100px; /* anccho de cinta*/
-    height: 100%; /* alto del cinta */
-    background: #fedc00;
-    @media (max-width: 850px) {
-      width: 0px; /*regla que establece el ancho de la cinta como 0px cuando el ancho de la ventana del navegador es máximo de 900px*/
+  top: 0;
+  right: 0;
+  width: 100px;
+  height: 100%;
+  background: #fedc00;
+  @media (max-width: 850px) {
+    width: 0px;
   }
 }
 
