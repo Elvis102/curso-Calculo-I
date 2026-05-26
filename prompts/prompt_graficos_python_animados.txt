@@ -281,6 +281,100 @@ El `background: white` en los fragments tapa el estado anterior.
 
 ---
 
+## TIPO D — Animación continua con FuncAnimation (GIF auto-reproducible)
+
+Usar cuando la visualización requiere movimiento continuo (punto recorriendo una curva,
+proyecciones dinámicas, hélice 3D, etc.) en lugar de estados discretos por clic.
+
+**Principio:** `FuncAnimation` genera fotogramas; se exporta como GIF embebido en base64
+dentro del HTML. El GIF se auto-reproduce en loop sin botones ni interacción del usuario.
+
+### Estructura obligatoria del chunk
+
+```python
+```{python}
+#| echo: false
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+import base64, tempfile, os
+
+# 1. Crear figura y artistas estáticos (una sola vez)
+fig, ax = plt.subplots(figsize=(10, 6))
+# ... configurar ejes, curvas de fondo, paneles, etiquetas fijas ...
+
+# 2. Crear artistas animados (listas vacías — se rellenan en update)
+dot,  = ax.plot([], [], 'o', color='crimson', ms=9, zorder=10)
+line, = ax.plot([], [], 'r--', lw=1.5)
+# (tantos artistas como elementos se muevan)
+
+# 3. Función update(frame) — SOLO modifica artistas, no recrea figura
+def update(frame):
+    ti = t[frame]
+    dot.set_data_3d([ti], [f(ti)], [g(ti)])   # 3D
+    # dot.set_data([ti], [f(ti)])              # 2D
+    line.set_data([...], [...])
+    return dot, line   # devolver TODOS los artistas modificados
+
+# 4. Crear animación
+anim = FuncAnimation(fig, update, frames=N, interval=40, repeat=True, blit=False)
+
+# 5. Exportar GIF a archivo temporal y embeber en base64
+_tmp = tempfile.mktemp(suffix='.gif')
+anim.save(_tmp, writer='pillow', fps=25, dpi=72)
+plt.close()
+with open(_tmp, 'rb') as _f:
+    _b64 = base64.b64encode(_f.read()).decode()
+os.remove(_tmp)
+HTML(f'<img src="data:image/gif;base64,{_b64}" style="max-width:100%; max-height:75vh;" />')
+```
+```
+
+### Errores frecuentes y soluciones
+
+| Error | Causa | Solución |
+|---|---|---|
+| `TypeError: argument should be str, not BytesIO` | `anim.save(BytesIO(), ...)` — Pillow no acepta buffer | Usar `tempfile.mktemp(suffix='.gif')` y leer después |
+| La animación no se mueve (jshtml) | `to_jshtml(default_mode='loop')` configura el modo pero no auto-inicia | Usar el flujo GIF base64 en lugar de jshtml |
+| Botones de control visibles (jshtml) | La clase CSS puede diferir entre versiones de matplotlib | El GIF no tiene botones por diseño |
+| GIF demasiado pesado (>20 MB) | N grande + dpi alto | Reducir `N` o `dpi` (ej: `dpi=60`, `N=90`) |
+| Fotogramas en blanco o negros | `plt.close()` antes de `anim.save()` | Llamar `anim.save()` ANTES de `plt.close()` |
+| Artista no actualiza en 3D | `set_data([x], [y])` en lugar de `set_data_3d` | Usar `artist.set_data_3d([x], [y], [z])` para ejes 3D |
+| `blit=True` causa artefactos en 3D | blitting no es compatible con ejes 3D | Usar siempre `blit=False` en figuras 3D |
+
+### Parámetros clave
+
+```python
+N        = 180          # fotogramas (180 = 1 ciclo completo a 25 fps → ~7 s)
+interval = 40           # ms entre fotogramas en la animación JS (irrelevante para GIF)
+fps      = 25           # fotogramas por segundo en el GIF exportado
+dpi      = 72           # resolución: 72 limpio, 60 más ligero, 96 más nítido
+```
+
+### Contenedor en la diapositiva
+
+```qmd
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+# ... todo el código FuncAnimation + GIF base64 aquí ...
+```
+
+:::
+```
+
+No se necesita r-stack para este tipo — la animación es un único `<img>` que reemplaza
+estados discretos. Si se quiere combinar con fragmentos de texto, colocar el GIF en
+una columna y los textos en otra con fragmentos normales de Quarto.
+
+### Preguntas adicionales para Tipo D
+
+7. **¿Cuántos fotogramas por ciclo?** (ej: 180 para movimiento suave, 90 para render rápido)
+8. **¿Es 2D o 3D?** (condiciona `set_data` vs `set_data_3d` y `blit=False` obligatorio en 3D)
+9. **¿Qué elementos son estáticos** (se dibujan una vez fuera de `update`) **y cuáles dinámicos** (artistas vacíos inicializados antes de `update`)?
+
+---
+
 ## PREGUNTAS PARA COMPLETAR LA SOLICITUD
 
 Para que pueda generar la diapositiva correctamente, responde:

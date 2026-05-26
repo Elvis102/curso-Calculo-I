@@ -1,6 +1,6 @@
 ---
 title: Cálculo I
-subtitle: Multivariable Differentiation
+subtitle: Funciones
 toc: false
 format:
   revealjs:
@@ -3246,4 +3246,1441 @@ plt.show()
 
 :::
 
-## Selecionamos un bano  {.title-line}
+## Funciones trigonometricas  {.title-line}
+
+[En esta sesión, aprenderás]{style="color: goldenrod; font-size: 1.15em; font-weight: bold;"}
+
+::: {style="color: #c0392b; font-weight: bold; font-size: 1.05em;"}
+- Las principales funciones trigonométricas y cómo se definen.
+:::
+
+::: {style="color: navy; font-weight: bold; font-size: 1.05em;"}
+- Cómo determinar valores de $\sin$ y $\cos$ visualmente.
+- La identidad trigonométrica más importante (?).
+:::
+
+## Definición de funciones trigonométricas {.title-line}
+
+```{python}
+#| echo: false
+from matplotlib.patches import Arc as _Arc
+
+_TA = np.array([1.0, 0.5])
+_TB = np.array([4.5, 4.9])
+_TC = np.array([4.5, 0.5])
+_ANG_RAD = np.arctan2(_TB[1] - _TA[1], _TB[0] - _TA[0])
+_ANG_DEG = np.degrees(_ANG_RAD)
+
+def _draw_tri(ax, labeled=False):
+    tri = Polygon([_TA, _TB, _TC], fill=False, edgecolor='#2980b9', lw=2.8, zorder=3)
+    ax.add_patch(tri)
+    d = 0.22
+    ax.plot([_TC[0]-d, _TC[0]-d, _TC[0]], [_TC[1], _TC[1]+d, _TC[1]+d],
+            color='#2980b9', lw=1.8, zorder=4)
+    if labeled:
+        arc = _Arc(_TA, 0.9, 0.9, angle=0, theta1=0, theta2=_ANG_DEG,
+                   color='#2980b9', lw=1.8, zorder=4)
+        ax.add_patch(arc)
+        ax.text(_TA[0]+0.62, _TA[1]+0.25, r'$\theta$', fontsize=16, color='#2980b9', zorder=5)
+        mid_AB = (_TA + _TB) / 2
+        perp   = np.array([-np.sin(_ANG_RAD), np.cos(_ANG_RAD)])
+        lp     = mid_AB + perp * 0.35
+        ax.text(lp[0], lp[1], 'Hipotenusa', fontsize=13, color='teal',
+                rotation=_ANG_DEG, ha='center', va='center', zorder=5)
+        mid_BC = (_TB + _TC) / 2
+        ax.text(mid_BC[0]+0.32, mid_BC[1], 'Opuesto', fontsize=13,
+                color='#c0392b', rotation=-90, ha='center', va='bottom', zorder=5)
+        mid_AC = (_TA + _TC) / 2
+        ax.text(mid_AC[0], mid_AC[1]-0.30, 'Adyacente', fontsize=13,
+                color='goldenrod', ha='center', va='top', zorder=5)
+        _draw_trig_formulas(ax)
+
+def _draw_trig_formulas(ax):
+    x0, fs = 5.8, 18
+    data = [
+        (3.8, r'$\cos(\theta)$', 'goldenrod', r'$a$', 'goldenrod', r'$h$'),
+        (2.3, r'$\sin(\theta)$', '#c0392b',   r'$o$', 'goldenrod', r'$h$'),
+        (0.8, r'$\tan(\theta)$', '#c0392b',   r'$o$', 'goldenrod', r'$a$'),
+    ]
+    for (y0, fn, cn, num, cd, den) in data:
+        ax.text(x0,      y0, fn,    fontsize=fs, color='#333',  ha='left',   va='center')
+        ax.text(x0+2.1,  y0, r'$=$',fontsize=fs, color='#333',  ha='center', va='center')
+        ax.text(x0+3.1,  y0+0.40, num, fontsize=fs, color=cn,  ha='center', va='center')
+        ax.plot([x0+2.5, x0+3.7], [y0, y0], color='#555', lw=1.8)
+        ax.text(x0+3.1,  y0-0.40, den, fontsize=fs, color=cd,  ha='center', va='center')
+    yt = 0.8
+    ax.text(x0+4.2, yt, r'$=$', fontsize=fs, color='#333', ha='center', va='center')
+    ax.text(x0+5.5, yt+0.40, r'$\sin(\theta)$', fontsize=fs-4,
+            color='#2980b9', ha='center', va='center')
+    ax.plot([x0+4.8, x0+6.2], [yt, yt], color='#555', lw=1.8)
+    ax.text(x0+5.5, yt-0.40, r'$\cos(\theta)$', fontsize=fs-4,
+            color='#2980b9', ha='center', va='center')
+
+_CC   = np.array([2.7, 2.7])
+_CR   = 2.1
+_CANG = 55
+
+def _draw_circ(ax, teal=False):
+    ar = np.radians(_CANG)
+    th = np.linspace(0, 2*np.pi, 300)
+    ax.plot([_CC[0]-_CR-0.3, _CC[0]+_CR+0.3], [_CC[1], _CC[1]],
+            color='#e0d5c0', lw=1.0, zorder=1)
+    ax.plot([_CC[0], _CC[0]], [_CC[1]-_CR-0.3, _CC[1]+_CR+0.3],
+            color='#e0d5c0', lw=1.0, zorder=1)
+    ax.plot(_CC[0]+_CR*np.cos(th), _CC[1]+_CR*np.sin(th),
+            color='black', lw=2.0, zorder=2)
+    P  = _CC + _CR * np.array([np.cos(ar), np.sin(ar)])
+    Rv = np.array([P[0], _CC[1]])
+    ax.plot([_CC[0], Rv[0]], [_CC[1], Rv[1]], color='#2980b9', lw=2.5, zorder=3)
+    ax.plot([Rv[0],  P[0]],  [Rv[1],  P[1]],  color='#2980b9', lw=2.5, zorder=3)
+    ax.plot([_CC[0], P[0]],  [_CC[1], P[1]],  color='#2980b9', lw=2.5, zorder=3)
+    d = 0.11
+    ax.plot([Rv[0]-d, Rv[0]-d, Rv[0]], [Rv[1], Rv[1]+d, Rv[1]+d],
+            color='#2980b9', lw=1.8, zorder=4)
+    arc_th = _Arc(_CC, 0.55, 0.55, angle=0, theta1=0, theta2=float(_CANG),
+                  color='#2980b9', lw=1.8, zorder=4)
+    ax.add_patch(arc_th)
+    ax.text(_CC[0]+0.32, _CC[1]+0.12, r'$\theta$', fontsize=15, color='#2980b9', zorder=5)
+    if teal:
+        ax.plot(_CC[0]+_CR*np.cos(th), _CC[1]+_CR*np.sin(th),
+                color='teal', lw=5.5, alpha=0.85, zorder=5)
+        ax.annotate('', xy=(_CC[0]+0.35, _CC[1]-_CR-0.08),
+                    xytext=(_CC[0]-0.35, _CC[1]-_CR-0.08),
+                    arrowprops=dict(arrowstyle='->', color='teal', lw=2.2,
+                                   connectionstyle='arc3,rad=-0.5'))
+        ax.text(_CC[0]+0.72, _CC[1]-_CR-0.50, r'$2\pi$', fontsize=18,
+                color='teal', fontweight='bold', zorder=6)
+
+def _draw_sine(ax):
+    sx_l, sx_r, sy_b, sy_t = 6.8, 13.1, 0.85, 4.55
+    ym = (sy_b + sy_t) / 2
+    def x2s(v): return sx_l + (v + 2*np.pi) / (4*np.pi) * (sx_r - sx_l)
+    def y2s(v): return ym + v * (sy_t - sy_b) / 2
+    xd = np.linspace(-2*np.pi, 2*np.pi, 600)
+    ax.plot(x2s(xd), y2s(np.sin(xd)), color='goldenrod', lw=2.5, zorder=3)
+    ax.plot([sx_l, sx_r], [ym, ym], color='#666', lw=0.8, zorder=2)
+    x0s = x2s(0)
+    ax.plot([x0s, x0s], [sy_b-0.1, sy_t+0.15], color='#666', lw=0.8, zorder=2)
+    for yv, yt in [(-1, r'$-1$'), (0, r'$0$'), (1, r'$1$')]:
+        ys = y2s(yv)
+        ax.text(x0s-0.22, ys, yt, ha='right', va='center', fontsize=10, color='#444')
+        ax.plot([x0s-0.1, x0s+0.1], [ys, ys], color='#666', lw=0.8)
+    for xv, xt in [(-2*np.pi, r'$-2\pi$'), (-np.pi, r'$-\pi$'),
+                    (np.pi, r'$\pi$'), (2*np.pi, r'$2\pi$')]:
+        xs = x2s(xv)
+        ax.text(xs, ym-0.28, xt, ha='center', va='top', fontsize=10, color='#444')
+        ax.plot([xs, xs], [ym-0.1, ym+0.1], color='#666', lw=0.8)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_draw_tri(ax, labeled=False)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_draw_tri(ax, labeled=True)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_draw_circ(ax, teal=False)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_draw_circ(ax, teal=True)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background: white; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = _bfig()
+_draw_circ(ax, teal=True)
+_draw_sine(ax)
+plt.tight_layout(pad=0)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+## Animación de $\sin$ y $\cos$ {.title-line}
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em; align-items: center; justify-content: center;margin-top: -1em;"}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+from mpl_toolkits.mplot3d import Axes3D          # noqa: F401
+from mpl_toolkits.mplot3d.art3d import Poly3DCollection
+from matplotlib.animation import FuncAnimation
+from IPython.display import HTML
+
+A     = 1.0
+omega = 1.0
+T     = 2 * np.pi / omega
+N     = 180
+t     = np.linspace(0, 2.5 * T, N)
+theta = np.linspace(0, 2 * np.pi, 400)
+
+fig    = plt.figure(figsize=(16, 12))
+ax     = fig.add_subplot(111, projection='3d')
+t_max  = t[-1]
+y_wall =  A * 1.3
+z_fl   = -A * 1.3
+arc_r  =  0.32
+
+pk = dict(alpha=0.12, facecolor='lightcyan', edgecolor='steelblue', linewidth=1.5)
+ax.add_collection3d(Poly3DCollection(
+    [[(0, -A*1.1, -A*1.1), (0, y_wall, -A*1.1),
+      (0, y_wall,  A*1.15), (0, -A*1.1, A*1.15)]],
+    alpha=0.10, facecolor='lightyellow', edgecolor='steelblue', linewidth=1.5))
+ax.add_collection3d(Poly3DCollection(
+    [[(0, y_wall, A*1.15), (t_max, y_wall, A*1.15),
+      (t_max, y_wall, -A*1.1), (0, y_wall, -A*1.1)]], **pk))
+ax.add_collection3d(Poly3DCollection(
+    [[(0, -A*1.1, z_fl), (t_max, -A*1.1, z_fl),
+      (t_max, y_wall, z_fl), (0, y_wall, z_fl)]], **pk))
+
+ax.plot(t, A*np.cos(omega*t), A*np.sin(omega*t), 'b-', linewidth=2, alpha=0.25)
+ax.plot(np.zeros_like(theta), A*np.cos(theta), A*np.sin(theta), 'b-', linewidth=2.2)
+ax.plot([0,0], [-A*1.05, A*1.05], [0,0], 'k-', linewidth=1.5)
+ax.plot([0,0], [0,0], [-A*1.05, A*1.15], 'k-', linewidth=1.5)
+ax.plot(t, np.full_like(t, y_wall), A*np.sin(omega*t), 'b-', linewidth=1.8, alpha=0.35)
+ax.plot([0,0], [y_wall, y_wall], [-A*1.0, A*1.1], 'k-', linewidth=1.0, alpha=0.7)
+ax.plot(t, A*np.cos(omega*t), np.full_like(t, z_fl), 'g-', linewidth=1.8, alpha=0.35)
+ax.plot([0,0], [-A*1.0, A*1.0], [z_fl, z_fl], 'k-', linewidth=1.0, alpha=0.7)
+
+for label, tv in [('T', T), ('2T', 2*T)]:
+    ax.plot([tv,tv], [y_wall, y_wall], [-A*1.05, -A*0.92], 'k-', linewidth=1)
+    ax.text(tv, y_wall*1.04, -A*1.2, label, fontsize=9, ha='center')
+    ax.plot([tv,tv], [A*1.02, A*1.08], [z_fl, z_fl], 'k-', linewidth=1)
+
+ax.text(t_max+0.3, 0, 0,                     r'$t\ [\mathrm{s}]$',      fontsize=11)
+ax.text(0, -A*0.05, A*1.28,                   r'$\mathrm{Im}$',           fontsize=12)
+ax.text(0,  A*1.12, 0.05,                      r'$\mathrm{Re}$',           fontsize=12)
+ax.text(t_max*0.5, y_wall*1.03, A*1.1,         r'$y(t)=A\sin(\omega t)$', color='blue', fontsize=11)
+ax.text(t_max*0.5, A*0.65, z_fl-0.15,          r'$x(t)=A\cos(\omega t)$', color='blue', fontsize=11)
+ax.text(-0.5, -A*0.15, A*0.75,                 r'$z(t)=Ae^{i\omega t}$',  color='blue', fontsize=10, style='italic')
+
+helix_dot,   = ax.plot([], [], [], 'o', color='crimson', markersize=9,  zorder=10)
+sine_dot,    = ax.plot([], [], [], 'o', color='crimson', markersize=7,  zorder=10)
+cos_dot,     = ax.plot([], [], [], 'o', color='crimson', markersize=7,  zorder=10)
+circ_dot,    = ax.plot([], [], [], 'o', color='crimson', markersize=7,  zorder=10)
+radius_line, = ax.plot([], [], [], 'b-',  linewidth=1.8)
+arc_line,    = ax.plot([], [], [], 'b-',  linewidth=1.2)
+im_line,     = ax.plot([], [], [], color='steelblue', linewidth=1.8)
+proj_sine,   = ax.plot([], [], [], 'r--', linewidth=1.3, alpha=0.9)
+proj_cos,    = ax.plot([], [], [], 'r--', linewidth=1.3, alpha=0.9)
+proj_circ,   = ax.plot([], [], [], 'r--', linewidth=1.3, alpha=0.9)
+trace_line,  = ax.plot([], [], [], 'k-', linewidth=2.5, alpha=0.85)
+
+def update(frame):
+    ti  = t[frame]
+    yc  = A * np.cos(omega * ti)
+    zc  = A * np.sin(omega * ti)
+    ang = (omega * ti) % (2 * np.pi)
+    helix_dot.set_data_3d([ti], [yc], [zc])
+    sine_dot.set_data_3d( [ti], [y_wall], [zc])
+    cos_dot.set_data_3d(  [ti], [yc], [z_fl])
+    circ_dot.set_data_3d( [0],  [yc], [zc])
+    radius_line.set_data_3d([0, 0], [0, yc], [0, zc])
+    arc_a = np.linspace(0, ang, 60)
+    arc_line.set_data_3d(np.zeros(60), arc_r*np.cos(arc_a), arc_r*np.sin(arc_a))
+    im_line.set_data_3d([0, 0], [yc, yc], [0, zc])
+    proj_sine.set_data_3d( [ti, ti], [yc, y_wall], [zc, zc])
+    proj_cos.set_data_3d(  [ti, ti], [yc, yc],     [zc, z_fl])
+    proj_circ.set_data_3d( [0,  ti], [yc, yc],     [zc, zc])
+    trace_line.set_data_3d(t[:frame+1],
+                           A*np.cos(omega*t[:frame+1]),
+                           A*np.sin(omega*t[:frame+1]))
+    return (helix_dot, sine_dot, cos_dot, circ_dot,
+            radius_line, arc_line, im_line,
+            proj_sine, proj_cos, proj_circ, trace_line)
+
+ax.view_init(elev=22, azim=-55)
+ax.set_xlim([0, t_max])
+ax.set_ylim([-A*1.3, A*1.7])
+ax.set_zlim([-A*1.7, A*1.4])
+ax.set_xticks([]); ax.set_yticks([]); ax.set_zticks([])
+ax.set_box_aspect([2.5, 1, 1])
+ax.grid(False)
+ax.xaxis.pane.fill = False
+ax.yaxis.pane.fill = False
+ax.zaxis.pane.fill = False
+ax.xaxis.pane.set_edgecolor('black')
+ax.yaxis.pane.set_edgecolor('black')
+ax.zaxis.pane.set_edgecolor('black')
+
+anim = FuncAnimation(fig, update, frames=N, interval=40, repeat=True, blit=False)
+import base64, tempfile, os
+_tmp = tempfile.mktemp(suffix='.gif')
+anim.save(_tmp, writer='pillow', fps=25, dpi=100)
+plt.close()
+with open(_tmp, 'rb') as _f:
+    _b64 = base64.b64encode(_f.read()).decode()
+os.remove(_tmp)
+HTML(f'<img src="data:image/gif;base64,{_b64}" style="width:95%; height:auto; display:block; margin:0 auto;" />')
+```
+[script]('/Users/elvissanchez/Documents/GitHub/curso-Calculus unraveled-differential-calculus-with-python/calculusWithPython/calculus1_derivatives/functions/pycalc1_functions_polynomials.ipynb')
+:::
+
+## Trigonometría {.title-line}
+
+```{python}
+#| echo: false
+#| output: false
+import numpy as np, matplotlib.pyplot as plt, base64, tempfile, os
+from IPython.display import HTML
+
+_GOLD_TR = '#B8860B'
+_RED_TR  = '#c0392b'
+_BLUE_TR = 'steelblue'
+_THETA_TR = np.radians(65)
+
+def _trig_left():
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(5.0, 5.5))
+    x = np.linspace(0, 2*np.pi, 300)
+    for ax, fn, col, lbl in [(ax1, np.cos, _GOLD_TR, 'cos(x)'), (ax2, np.sin, _RED_TR, 'sin(x)')]:
+        ax.plot(x, fn(x), color=col, lw=2.5)
+        ax.axhline(0, color='black', lw=0.8)
+        ax.axhline( 1, color=col, lw=0.8, ls='--', alpha=0.5)
+        ax.axhline(-1, color=col, lw=0.8, ls='--', alpha=0.5)
+        ax.set_xlim(0, 2*np.pi); ax.set_ylim(-1.3, 1.3)
+        ax.set_xticks([0, np.pi/2, np.pi, 3*np.pi/2, 2*np.pi])
+        ax.set_xticklabels(['0', 'π/2', 'π', '3π/2', '2π'], fontsize=10)
+        ax.set_ylabel(lbl, color=col, fontsize=11, fontweight='bold')
+        ax.tick_params(axis='y', labelsize=9)
+        ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+    plt.tight_layout(pad=0.5)
+    return fig
+
+def _circ_ax(ax):
+    th = np.linspace(0, 2*np.pi, 300)
+    ax.plot(np.cos(th), np.sin(th), 'k-', lw=1.8)
+    ax.axhline(0, color=_GOLD_TR, lw=2.0)
+    ax.axvline(0, color=_RED_TR, lw=2.0)
+    ax.text( 1.2, 0,   'cos', color=_GOLD_TR, fontsize=13, fontweight='bold', va='center')
+    ax.text( 0,   1.2, 'sin', color=_RED_TR,  fontsize=13, fontweight='bold', ha='center')
+    ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5)
+    ax.set_aspect('equal'); ax.axis('off')
+
+def _trig_circ_base():
+    fig, ax = plt.subplots(figsize=(4.5, 4.5))
+    _circ_ax(ax); fig.tight_layout(); return fig
+
+def _trig_circ_dot():
+    fig, ax = plt.subplots(figsize=(4.5, 4.5))
+    _circ_ax(ax)
+    cx, cy = np.cos(_THETA_TR), np.sin(_THETA_TR)
+    ax.plot([cx, cx], [0, cy], color=_BLUE_TR, lw=2.0, ls='-')
+    ax.plot([0, cx], [cy, cy], color=_BLUE_TR, lw=2.0, ls='--')
+    ax.plot(cx, cy, 'o', color=_BLUE_TR, ms=9, zorder=5)
+    arc = np.linspace(0, _THETA_TR, 50)
+    ax.plot(0.28*np.cos(arc), 0.28*np.sin(arc), color='gray', lw=1.2)
+    ax.text(0.32, 0.1, 'θ', fontsize=12, color='gray')
+    fig.tight_layout(); return fig
+
+def _b64png(fig, dpi=130):
+    _tmp = tempfile.mktemp(suffix='.png')
+    fig.savefig(_tmp, dpi=dpi, bbox_inches='tight', facecolor='white')
+    plt.close(fig)
+    with open(_tmp, 'rb') as _f: _d = base64.b64encode(_f.read()).decode()
+    os.remove(_tmp); return _d
+```
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:1em; align-items:center;"}
+
+::: {style="flex: 0 0 52%; min-height:0;"}
+```{python}
+#| echo: false
+HTML(f'<img src="data:image/png;base64,{_b64png(_trig_left())}" style="width:100%; height:auto;" />')
+```
+:::
+
+::: {style="flex:1; min-height:0; display:flex; flex-direction:column; align-items:center; justify-content:center;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="width:100%; height:100%; background:white;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="width:100%; background:white;"}
+```{python}
+#| echo: false
+HTML(f'<img src="data:image/png;base64,{_b64png(_trig_circ_base())}" style="width:85%; height:auto; display:block; margin:0 auto;" />')
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="width:100%; background:white;"}
+```{python}
+#| echo: false
+HTML(f'<img src="data:image/png;base64,{_b64png(_trig_circ_dot())}" style="width:85%; height:auto; display:block; margin:0 auto;" />')
+```
+:::
+
+:::
+
+:::
+
+:::
+
+## Función tangente {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; align-items:center; justify-content:center;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+import numpy as np, matplotlib.pyplot as plt, base64, tempfile, os
+from IPython.display import HTML
+
+_GOLD = '#B8860B'
+_RED  = '#c0392b'
+_BLUE = 'steelblue'
+
+fig, ax = plt.subplots(figsize=(9.5, 5.5))
+x = np.linspace(-2*np.pi, 2*np.pi, 3000)
+tan_y = np.tan(x)
+tan_y[np.abs(tan_y) > 10] = np.nan
+
+ax.plot(x, np.sin(x), color=_RED,  lw=2.2, label=r'sin(θ)')
+ax.plot(x, np.cos(x), color=_GOLD, lw=2.2, label=r'cos(θ)')
+ax.plot(x, tan_y,     color=_BLUE, lw=2.2, label=r'tan(θ)')
+
+ax.set_xlim(-2*np.pi, 2*np.pi)
+ax.set_ylim(-10, 10)
+ax.set_xlabel('Angle (radian)', fontsize=12)
+ax.set_ylabel('y', fontsize=12)
+ax.set_xticks([-2*np.pi, -np.pi, 0, np.pi, 2*np.pi])
+ax.set_xticklabels(['-2π', '-π', '0', 'π', '2π'], fontsize=11)
+ax.axhline(0, color='black', lw=0.8)
+ax.axvline(0, color='black', lw=0.8)
+ax.legend(fontsize=12, framealpha=0.9, loc='upper right')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.grid(True, alpha=0.25, lw=0.5)
+plt.tight_layout()
+
+_tmp = tempfile.mktemp(suffix='.png')
+fig.savefig(_tmp, dpi=130, bbox_inches='tight', facecolor='white')
+plt.close(fig)
+with open(_tmp, 'rb') as _f: _b64 = base64.b64encode(_f.read()).decode()
+os.remove(_tmp)
+HTML(f'<img src="data:image/png;base64,{_b64}" style="width:88%; height:auto; display:block; margin:0 auto;" />')
+```
+:::
+
+## Identidad trigonométrica {.title-line}
+
+```{python}
+#| echo: false
+#| output: false
+from matplotlib.patches import Polygon as _PolyID
+
+_GID = '#B8860B'
+_RID = '#c0392b'
+_BID = 'steelblue'
+_THI = np.radians(65)
+_CXI, _CYI = np.cos(_THI), np.sin(_THI)
+
+def _circ_id(ax):
+    _th = np.linspace(0, 2*np.pi, 300)
+    ax.plot(np.cos(_th), np.sin(_th), 'k-', lw=1.8)
+    ax.axhline(0, color=_GID, lw=1.5)
+    ax.axvline(0, color=_RID, lw=1.5)
+    ax.text(1.17, 0, 'cos', color=_GID, fontsize=9, fontweight='bold', va='center')
+    ax.text(0, 1.17, 'sin', color=_RID, fontsize=9, fontweight='bold', ha='center')
+    ax.set_xlim(-1.5, 1.5); ax.set_ylim(-1.5, 1.5)
+    ax.set_aspect('equal'); ax.axis('off')
+
+def _mk_circ_id(tri=False, labeled=False):
+    fig, ax = plt.subplots(figsize=(3.3, 3.3))
+    _circ_id(ax)
+    if tri:
+        ax.add_patch(_PolyID([[0,0],[_CXI,0],[_CXI,_CYI]],
+                              fill=False, edgecolor=_BID, lw=2.0, zorder=3))
+        s = 0.06
+        ax.plot([_CXI-s, _CXI-s, _CXI], [0, s, s], color=_BID, lw=1.2)
+        if labeled:
+            ax.plot(_CXI, _CYI, 'o', color=_BID, ms=5, zorder=5)
+            ax.text(_CXI+0.05, _CYI+0.04, r'$(x_2,y_2)$', fontsize=7.5, color=_BID)
+            ax.text(-0.12, -0.15, r'$(x_1,y_1)$', fontsize=7.5, color=_BID)
+    plt.tight_layout(pad=0.2)
+```
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:1.3em;"}
+
+$$\cos(2\theta) = \cos^2(\theta) - \sin^2(\theta)$$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center; font-size:1.3em;"}
+
+$$\cos^2(\theta) + \sin^2(\theta) = 1$$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:flex-start; padding:0.8em 0.5em;"}
+
+::: {style="flex: 0 0 42%; display:flex; flex-direction:column; align-items:center;"}
+
+$$\cos^2(\theta) + \sin^2(\theta) = 1$$
+
+```{python}
+#| echo: false
+_mk_circ_id()
+plt.show()
+```
+
+:::
+
+::: {style="flex:1;"}
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:flex-start; padding:0.8em 0.5em;"}
+
+::: {style="flex: 0 0 42%; display:flex; flex-direction:column; align-items:center;"}
+
+$$\cos^2(\theta) + \sin^2(\theta) = 1$$
+
+```{python}
+#| echo: false
+_mk_circ_id(tri=True, labeled=True)
+plt.show()
+```
+
+:::
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:center; font-size:0.97em;"}
+
+$$\to {\color{steelblue}h} = \sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}$$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:100%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:flex-start; padding:0.8em 0.5em;"}
+
+::: {style="flex: 0 0 42%; display:flex; flex-direction:column; align-items:center;"}
+
+$$\cos^2(\theta) + \sin^2(\theta) = 1$$
+
+```{python}
+#| echo: false
+_mk_circ_id(tri=True, labeled=False)
+plt.show()
+```
+
+:::
+
+::: {style="flex:1; min-height:0;"}
+
+::: {.r-stack style="width:100%; height:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:1.2em; gap:0; font-size:0.87em;"}
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}\cos^2}(\theta) + {\color{#c0392b}\sin^2}(\theta) = 1$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:1.2em; gap:0; font-size:0.87em;"}
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}\cos^2}(\theta) + {\color{#c0392b}\sin^2}(\theta) = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\left(\frac{{\color{goldenrod}a}}{h}\right)^2 + \left(\frac{{\color{#c0392b}o}}{h}\right)^2 = 1$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=7 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:1.2em; gap:0; font-size:0.87em;"}
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}\cos^2}(\theta) + {\color{#c0392b}\sin^2}(\theta) = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\left(\frac{{\color{goldenrod}a}}{h}\right)^2 + \left(\frac{{\color{#c0392b}o}}{h}\right)^2 = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\sqrt{\left(\frac{{\color{goldenrod}a}}{h}\right)^2 + \left(\frac{{\color{#c0392b}o}}{h}\right)^2} = 1$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=8 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:1.2em; gap:0; font-size:0.87em;"}
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}\cos^2}(\theta) + {\color{#c0392b}\sin^2}(\theta) = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\left(\frac{{\color{goldenrod}a}}{h}\right)^2 + \left(\frac{{\color{#c0392b}o}}{h}\right)^2 = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\frac{{\color{goldenrod}a}^2}{h^2} + \frac{{\color{#c0392b}o}^2}{h^2} = 1$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=9 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:1.2em; gap:0; font-size:0.87em;"}
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}\cos^2}(\theta) + {\color{#c0392b}\sin^2}(\theta) = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\left(\frac{{\color{goldenrod}a}}{h}\right)^2 + \left(\frac{{\color{#c0392b}o}}{h}\right)^2 = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\frac{{\color{goldenrod}a}^2}{h^2} + \frac{{\color{#c0392b}o}^2}{h^2} = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\frac{{\color{goldenrod}a}^2 + {\color{#c0392b}o}^2}{h^2} = 1$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=10 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:1.2em; gap:0; font-size:0.87em;"}
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}\cos^2}(\theta) + {\color{#c0392b}\sin^2}(\theta) = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\left(\frac{{\color{goldenrod}a}}{h}\right)^2 + \left(\frac{{\color{#c0392b}o}}{h}\right)^2 = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\frac{{\color{goldenrod}a}^2}{h^2} + \frac{{\color{#c0392b}o}^2}{h^2} = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$$\frac{{\color{goldenrod}a}^2 + {\color{#c0392b}o}^2}{h^2} = 1$$
+:::
+
+::: {style="margin:-0.4em 0;"}
+$${\color{goldenrod}a}^2 + {\color{#c0392b}o}^2 = h^2$$
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Identidad trigonométrica {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; align-items:center; justify-content:center;"}
+
+::: {style="background:white; border:1px solid #c8ccd1; border-radius:3px; padding:1.3em 2em; width:88%; font-size:0.82em; line-height:1.55;"}
+
+**Angle sum and difference identities**
+
+::: {style="font-size:1em; color:#54595d; margin:0.4em 0 0.7em 0; border-left:3px solid #c8ccd1; padding-left:0.6em;"}
+*See also:* [Proofs of trigonometric identities § Angle sum identities]{style="color:#0645ad;"}, and [Small-angle difference]{style="color:#0645ad;"}
+:::
+
+These are also known as the *angle addition and subtraction theorems* (or *formulae*).
+
+$$\begin{align}
+\sin(\alpha + \beta) &= \sin\alpha\cos\beta + \cos\alpha\sin\beta \\[0.15em]
+\sin(\alpha - \beta) &= \sin\alpha\cos\beta - \cos\alpha\sin\beta \\[0.15em]
+\cos(\alpha + \beta) &= \cos\alpha\cos\beta - \sin\alpha\sin\beta \\[0.15em]
+\cos(\alpha - \beta) &= \cos\alpha\cos\beta + \sin\alpha\sin\beta
+\end{align}$$
+
+These identities are summarized in the first two rows of the following table, which also includes sum and difference identities for the other trigonometric functions.
+
+:::
+
+::: {style="font-size:0.62em; color:#72777d; margin-top:0.35em;"}
+https://en.wikipedia.org/wiki/List_of_trigonometric_identities
+:::
+
+:::
+
+## Otras funciones trigonométricas {.title-line}
+
+::: {style="display:flex; flex-direction:row; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:4.5em; font-size:2.1em;"}
+
+::: {style="display:flex; flex-direction:column; gap:0.12em; line-height:1.5;"}
+
+[sin]{style="color:#B8860B;"}
+
+[cos]{style="color:#c0392b;"}
+
+[tan]{style="color:#1a5276;"}
+
+[csc]{style="color:#17a589;"}
+
+[sec]{style="color:#1abc9c;"}
+
+[cot]{style="color:#1c2833;"}
+
+:::
+
+::: {style="display:flex; flex-direction:column; gap:0.12em; line-height:1.5;"}
+
+[asin]{style="color:#B8860B;"}
+
+[acos]{style="color:#c0392b;"}
+
+[atan]{style="color:#1a5276;"}
+
+[acsc]{style="color:#17a589;"}
+
+[asec]{style="color:#1abc9c;"}
+
+[acot]{style="color:#1c2833;"}
+
+:::
+
+:::
+
+## Funciones por partes {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.5em; font-size:1.05em;"}
+
+[En esta sesión, aprenderás]{style="color:#B8860B; font-size:1.1em; font-weight:bold;"}
+
+- [Qué es una «función por partes».]{style="color:#c0392b; font-weight:bold;"}
+- [La notación para funciones por partes.]{style="color:#1a5276; font-weight:bold;"}
+- [La función por partes simple que hace al aprendizaje profundo tan poderoso!]{style="color:#17a589; font-weight:bold;"}
+
+:::
+
+## ¿Qué es un funcion por partes? {.title-line}
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:2em; align-items:flex-start; padding-top:1.2em; padding-left:0.3em;"}
+
+::: {style="flex: 0 0 38%; display:flex; flex-direction:column; gap:1.2em; font-size:1.05em;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="line-height:1.5; font-weight:bold;"}
+[Una función por partes es una]{style="color:#B8860B;"} [función especificada en diferentes partes.]{style="color:#c0392b;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="color:#1a5276; font-weight:bold; line-height:1.5;"}
+Cada parte es una función con su propio subdominio.
+:::
+
+:::
+
+::: {style="flex:1; min-height:0; display:flex; flex-direction:column; justify-content:center; align-items:center;"}
+
+::: {.fragment .fade-in data-fragment-index=3 style="font-size:1.15em;"}
+
+$$f(x) = \begin{cases} x/2 & \text{si }\ {\color{teal}x < 0} \\[0.4em] x^2 + 1 & \text{si }\ {\color{teal}0 \leq x < 3} \\[0.4em] -\ln(x) & \text{de lo contrario} \end{cases}$$
+
+:::
+
+:::
+
+:::
+
+## Ejemplo de función por partes {.title-line}
+
+```{python}
+#| echo: false
+#| output: false
+_EG = '#B8860B'
+_ER = '#c0392b'
+_ET = 'steelblue'
+
+def _eax(ax):
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+    ax.set_xlabel('x', fontsize=10); ax.set_ylabel('y', fontsize=10)
+    ax.tick_params(labelsize=8)
+    ax.axhline(0, color='k', lw=0.5); ax.axvline(0, color='k', lw=0.5)
+
+def _e3p():
+    _, ax = plt.subplots(figsize=(4.5, 4.0))
+    x1 = np.linspace(-6, 0, 200); ax.plot(x1, x1/2, color=_EG, lw=2.5)
+    x2 = np.linspace(0, 3, 100); ax.plot(x2, x2**2+1, color=_ER, lw=2.5)
+    x3 = np.linspace(3, 6, 100); ax.plot(x3, -np.log(x3), color=_ET, lw=2.5)
+    ax.set_xlim(-6, 6); ax.set_ylim(-4, 10); _eax(ax); plt.tight_layout(pad=0.4)
+
+def _eabs():
+    _, ax = plt.subplots(figsize=(4.5, 4.0))
+    xn = np.linspace(-6, 0, 200); xp = np.linspace(0, 6, 200)
+    ax.plot(xn, -xn, color=_EG, lw=2.5); ax.plot(xp, xp, color=_ER, lw=2.5)
+    ax.set_xlim(-6, 6); ax.set_ylim(0, 6.5); _eax(ax); plt.tight_layout(pad=0.4)
+
+def _erelu():
+    _, ax = plt.subplots(figsize=(4.5, 4.0))
+    x = np.linspace(-6, 6, 300)
+    ax.plot(x, np.maximum(0, x), color=_EG, lw=2.5)
+    ax.set_xlim(-6, 6); ax.set_ylim(-1, 6.5); _eax(ax); plt.tight_layout(pad=0.4)
+```
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="width:100%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:center; padding:0.3em 3.5em 0.3em 0.5em;"}
+
+::: {style="flex: 0 0 47%;"}
+```{python}
+#| echo: false
+_e3p()
+plt.show()
+```
+:::
+
+::: {style="flex:1; text-align:center;"}
+
+$$f(x) = \begin{cases} x/2 & \text{si }\ {\color{teal}x < 0} \\[0.3em] x^2+1 & \text{si }\ {\color{teal}0 \leq x < 3} \\[0.3em] -\ln(x) & \text{en otro caso} \end{cases}$$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:90%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:center; padding:0.3em 3.5em 0.3em 0.5em;"}
+
+::: {style="flex: 0 0 47%;"}
+```{python}
+#| echo: false
+_e3p()
+plt.show()
+```
+:::
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:center;"}
+
+::: {style="display:flex; align-items:center; gap:0.45em; font-size:1.0em;"}
+
+$f(x) =$
+
+::: {style="border-left:3px solid #555; padding-left:0.45em; display:flex; flex-direction:column; gap:0.35em;"}
+
+::: {style="border:2px dashed #B8860B; border-radius:5px; padding:0.12em 0.6em;"}
+$x/2$ &nbsp; si &nbsp; ${\color{teal} x < 0}$
+:::
+
+::: {style="border:2px dashed #c0392b; border-radius:5px; padding:0.12em 0.6em;"}
+$x^2+1$ &nbsp; si &nbsp; ${\color{teal} 0 \leq x < 3}$
+:::
+
+::: {style="border:2px dashed steelblue; border-radius:5px; padding:0.12em 0.6em;"}
+$-\ln(x)$ &nbsp; en otro caso
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:90%; height:100%; text-align:center; font-size:1.2em; padding:0.3em 3.5em;"}
+
+$$f(x) = \begin{cases} x & \text{cuando }\ {\color{teal}x \geq 0} \\[0.6em] -x & \text{cuando }\ {\color{teal}x < 0} \end{cases}$$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:90%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:center; padding:0.3em 3.5em 0.3em 0.5em;"}
+
+::: {style="flex: 0 0 47%;"}
+```{python}
+#| echo: false
+_eabs()
+plt.show()
+```
+:::
+
+::: {style="flex:1; text-align:center;"}
+
+$$f(x) = \begin{cases} x & \text{cuando }\ {\color{teal}x \geq 0} \\[0.6em] -x & \text{cuando }\ {\color{teal}x < 0} \end{cases}$$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:90%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:center; padding:0.3em 3.5em 0.3em 0.5em;"}
+
+::: {style="flex: 0 0 47%;"}
+```{python}
+#| echo: false
+_eabs()
+plt.show()
+```
+:::
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:center;"}
+
+::: {style="display:flex; align-items:center; gap:0.45em; font-size:1.0em;"}
+
+$f(x) =$
+
+::: {style="border-left:3px solid #555; padding-left:0.45em; display:flex; flex-direction:column; gap:0.35em;"}
+
+::: {style="border:2px dashed #c0392b; border-radius:5px; padding:0.12em 0.6em;"}
+$x$ &nbsp; cuando &nbsp; ${\color{teal} x \geq 0}$
+:::
+
+::: {style="border:2px dashed #B8860B; border-radius:5px; padding:0.12em 0.6em;"}
+$-x$ &nbsp; cuando &nbsp; ${\color{teal} x < 0}$
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:90%; height:100%; display:flex; flex-direction:row; gap:1em; align-items:center; padding:0.3em 3.5em 0.3em 0.5em;"}
+
+::: {style="flex: 0 0 47%;"}
+```{python}
+#| echo: false
+_erelu()
+plt.show()
+```
+:::
+
+::: {style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:0.4em;"}
+
+::: {style="color:#c0392b; font-weight:bold; font-size:1.1em; text-align:center;"}
+«ReLU»\
+(unidad lineal rectificada)
+:::
+
+$$f(x) = \begin{cases} 0 & {\color{teal} ,\quad x < 0} \\[0.5em] x & {\color{teal} ,\quad x \geq 0} \end{cases}$$
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Funciones continuas y discontinuas {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.5em; font-size:1.05em;"}
+
+[En esta sesión, aprenderás]{style="color:#B8860B; font-size:1.1em; font-weight:bold;"}
+
+- [La diferencia entre funciones continuas y discontinuas.]{style="color:#c0392b; font-weight:bold;"}
+- [La definición formal y la prueba de continuidad.]{style="color:#1a5276; font-weight:bold;"}
+- [Los tres tipos de discontinuidades.]{style="color:#1a5276; font-weight:bold;"}
+
+:::
+
+## Funcones y sus discontinuidades {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+_DC2 = '#333333'
+_DG2 = '#B8860B'
+_DR2 = '#c0392b'
+_DN2 = '#1a5276'
+_DT2 = '#17a589'
+
+def _dplot(c1, c2, c3, c4, c5, c6):
+    fig, axes = plt.subplots(1, 6, figsize=(14, 3.2))
+    fig.patch.set_facecolor('white')
+    for ax in axes:
+        ax.set_facecolor('white')
+        ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+        ax.axhline(0, color='#ccc', lw=0.8)
+        ax.axvline(0, color='#ccc', lw=0.8)
+    lw = 2.5
+    ms = 7
+    x1 = np.linspace(-2, -0.05, 80)
+    x2 = np.linspace(0.05, 2, 80)
+    axes[0].plot(x1, -0.6 * np.ones_like(x1), color=c1, lw=lw)
+    axes[0].plot(x2, 0.6 * np.ones_like(x2), color=c1, lw=lw)
+    axes[0].plot(-0.05, -0.6, 'o', color=c1, ms=ms)
+    axes[0].plot(0.05, 0.6, 'o', color=c1, ms=ms)
+    axes[0].set_xlim(-2.3, 2.3)
+    axes[0].set_ylim(-1.8, 1.8)
+    x = np.linspace(-2, 2, 100)
+    axes[1].plot(x, 0.7 * x, color=c2, lw=lw)
+    axes[1].set_xlim(-2.3, 2.3)
+    axes[1].set_ylim(-1.8, 1.8)
+    x = np.linspace(-2, 2, 200)
+    axes[2].plot(x, np.sin(np.pi * x / 1.8), color=c3, lw=lw)
+    axes[2].set_xlim(-2.3, 2.3)
+    axes[2].set_ylim(-1.8, 1.8)
+    xL = np.linspace(-2, -0.12, 80)
+    xR = np.linspace(0.12, 2, 80)
+    axes[3].plot(xL, np.minimum(1 / xL**2, 7.5), color=c4, lw=lw)
+    axes[3].plot(xR, np.minimum(1 / xR**2, 7.5), color=c4, lw=lw)
+    axes[3].set_xlim(-2.3, 2.3)
+    axes[3].set_ylim(-0.5, 9)
+    xL2 = np.linspace(-2, -0.22, 80)
+    xR2 = np.linspace(0.22, 2, 80)
+    axes[4].plot(xL2, 1 / xL2, color=c5, lw=lw)
+    axes[4].plot(xR2, 1 / xR2, color=c5, lw=lw)
+    axes[4].set_xlim(-2.3, 2.3)
+    axes[4].set_ylim(-7.5, 7.5)
+    xp = np.linspace(-2, 2, 300)
+    yp = xp**2
+    axes[5].plot(xp[xp < -0.08], yp[xp < -0.08], color=c6, lw=lw)
+    axes[5].plot(xp[xp > 0.08], yp[xp > 0.08], color=c6, lw=lw)
+    axes[5].plot(0, 0, 'o', color=c6, ms=ms, mfc='white', mew=2.5)
+    axes[5].set_xlim(-2.3, 2.3)
+    axes[5].set_ylim(-0.3, 3.5)
+    plt.tight_layout(pad=0.5, w_pad=1.0)
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_dplot(_DC2, _DC2, _DC2, _DC2, _DC2, _DC2)
+plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; width:92%; font-size:0.68em; font-weight:bold; text-align:center; margin-top:0.2em;"}
+
+::: {style="width:16.67%;"}
+:::
+
+::: {style="width:33.33%;"}
+:::
+
+::: {style="width:33.33%;"}
+:::
+
+::: {style="width:16.67%;"}
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_dplot(_DC2, _DG2, _DG2, _DC2, _DC2, _DC2)
+plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; width:92%; font-size:0.68em; font-weight:bold; text-align:center; margin-top:0.2em;"}
+
+::: {style="width:16.67%;"}
+:::
+
+::: {style="width:33.33%; color:#B8860B;"}
+Continua
+:::
+
+::: {style="width:33.33%;"}
+:::
+
+::: {style="width:16.67%;"}
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_dplot(_DR2, _DG2, _DG2, _DC2, _DC2, _DC2)
+plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; width:92%; font-size:0.68em; font-weight:bold; text-align:center; margin-top:0.2em;"}
+
+::: {style="width:16.67%; color:#c0392b;"}
+Discontinuidad de salto
+:::
+
+::: {style="width:33.33%; color:#B8860B;"}
+Continua
+:::
+
+::: {style="width:33.33%;"}
+:::
+
+::: {style="width:16.67%;"}
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_dplot(_DR2, _DG2, _DG2, _DN2, _DN2, _DC2)
+plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; width:92%; font-size:0.68em; font-weight:bold; text-align:center; margin-top:0.2em;"}
+
+::: {style="width:16.67%; color:#c0392b;"}
+Discontinuidad de salto
+:::
+
+::: {style="width:33.33%; color:#B8860B;"}
+Continua
+:::
+
+::: {style="width:33.33%; color:#1a5276;"}
+Discontinuidad infinita
+:::
+
+::: {style="width:16.67%;"}
+:::
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_dplot(_DR2, _DG2, _DG2, _DN2, _DN2, _DT2)
+plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; width:92%; font-size:0.68em; font-weight:bold; text-align:center; margin-top:0.2em;"}
+
+::: {style="width:16.67%; color:#c0392b;"}
+Discontinuidad de salto
+:::
+
+::: {style="width:33.33%; color:#B8860B;"}
+Continua
+:::
+
+::: {style="width:33.33%; color:#1a5276;"}
+Discontinuidad infinita
+:::
+
+::: {style="width:16.67%; color:#17a589;"}
+Discontinuidad removible
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Ejemplos de discontinuidades {.title-line}
+
+::: {style="display:flex; flex-direction:column; align-items:center; width:100%;"}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import numpy as np
+import matplotlib.pyplot as plt
+
+fig, axes = plt.subplots(1, 3, figsize=(14, 4.5))
+fig.patch.set_facecolor('white')
+
+lw = 2.2
+ms = 8
+
+# ---------- 1. Discontinuidad de salto ----------
+ax = axes[0]
+ax.set_facecolor('white')
+ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
+for sp in ax.spines.values():
+    sp.set_visible(False)
+ax.axhline(0, color='#ccc', lw=0.8)
+ax.axvline(0, color='#ccc', lw=0.8)
+
+x_left = np.linspace(-1, -0.05, 80)
+x_right = np.linspace(0, 1, 80)
+ax.plot(x_left, x_left/2, color='#c0392b', lw=lw)
+ax.plot(x_right, x_right**2 + 1, color='#c0392b', lw=lw)
+# punto abierto en (0,0) y cerrado en (0,1)
+ax.plot(0, 0, 'o', color='#c0392b', ms=ms, mfc='white', mew=2)
+ax.plot(0, 1, 'o', color='#c0392b', ms=ms)
+ax.set_xlim(-1.2, 1.2)
+ax.set_ylim(-1.2, 2.5)
+
+# ---------- 2. Discontinuidad infinita ----------
+ax = axes[1]
+ax.set_facecolor('white')
+ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
+for sp in ax.spines.values():
+    sp.set_visible(False)
+ax.axhline(0, color='#ccc', lw=0.8)
+ax.axvline(0, color='#ccc', lw=0.8)
+
+x_left = np.linspace(0.01, np.pi/2 - 0.08, 100)
+x_right = np.linspace(np.pi/2 + 0.08, np.pi - 0.01, 100)
+ax.plot(x_left, np.tan(x_left), color='#1a5276', lw=lw)
+ax.plot(x_right, np.tan(x_right), color='#1a5276', lw=lw)
+ax.set_xlim(-0.2, np.pi + 0.2)
+ax.set_ylim(-10, 10)
+ax.set_xticks([0, np.pi])
+ax.set_xticklabels(['0', r'$\pi$'])
+
+# ---------- 3. Discontinuidad removible ----------
+ax = axes[2]
+ax.set_facecolor('white')
+ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
+for sp in ax.spines.values():
+    sp.set_visible(False)
+ax.axhline(0, color='#ccc', lw=0.8)
+ax.axvline(0, color='#ccc', lw=0.8)
+
+x = np.linspace(0.01, 6, 300)
+y = (x**2 - 2*x) / (x**2 - 4)
+# Separar en x < 2 y x > 2 para evitar la asíntota en x = -2 (fuera de rango) y el hueco en x=2
+x1 = x[x < 2]
+x2 = x[x > 2]
+ax.plot(x1, (x1**2 - 2*x1) / (x1**2 - 4), color='#17a589', lw=lw)
+ax.plot(x2, (x2**2 - 2*x2) / (x2**2 - 4), color='#17a589', lw=lw)
+# punto abierto en x=2, y = (4-4)/(4-4) -> 0/0, pero simplificando x/(x+2) = 2/4 = 0.5
+ax.plot(2, 0.5, 'o', color='#17a589', ms=ms, mfc='white', mew=2)
+ax.set_xlim(-0.5, 6.5)
+ax.set_ylim(-0.1, 0.9)
+
+plt.tight_layout(pad=2.0)
+plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; width:100%; font-size:0.85em; font-weight:bold; text-align:center; margin-top:0.5em;"}
+
+::: {style="width:33.33%; color:#c0392b;"}
+**Discontinuidad de salto**
+:::
+
+::: {style="width:33.33%; color:#1a5276;"}
+**Discontinuidad infinita**
+:::
+
+::: {style="width:33.33%; color:#17a589;"}
+**Discontinuidad removible**
+:::
+
+:::
+
+::: {style="display:flex; flex-direction:row; width:100%; font-size:0.78em; text-align:center; margin-top:0.3em; align-items:flex-start;"}
+
+::: {style="width:33.33%; padding:0 0.5em;"}
+$$
+f(x) = \begin{cases}
+\dfrac{x}{2} & \text{si } x < 0 \\[0.6em]
+x^{2} + 1 & \text{si } 0 \leq x < 1
+\end{cases}
+$$
+:::
+
+::: {style="width:33.33%; padding:0 0.5em;"}
+$$
+f(\theta) = \tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)}
+$$
+:::
+
+::: {style="width:33.33%; padding:0 0.5em;"}
+$$
+f(x) = \frac{x^{2} - 2x}{x^{2} - 4}
+$$
+:::
+
+:::
+
+:::
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+_CGOLD = '#B8860B'
+_CBLUE = '#1a5276'
+_CRED  = '#c0392b'
+
+def _cont_ax(ax):
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.tick_params(left=False, bottom=False, labelleft=False, labelbottom=False)
+    ax.axhline(0, color='#ccc', lw=0.8)
+    ax.axvline(0, color='#ccc', lw=0.8)
+
+def _plot_cont():
+    fig, ax = plt.subplots(figsize=(4.0, 3.2))
+    _cont_ax(ax)
+    x = np.linspace(-3, 3, 300)
+    y = 0.5 * np.sin(2*x) + 0.3 * np.cos(3*x) + 0.5
+    ax.plot(x, y, color=_CGOLD, lw=2.5)
+    a = 0.5
+    ya = 0.5 * np.sin(2*a) + 0.3 * np.cos(3*a) + 0.5
+    ax.plot(a, ya, 'o', color=_CRED, ms=8)
+    ax.set_xlim(-3.2, 3.2)
+    ax.set_ylim(-1, 2)
+    ax.text(a, -0.25, '$a$', ha='center', fontsize=11, color=_CRED)
+    plt.tight_layout(pad=0.3)
+    plt.show()
+
+def _plot_inf():
+    fig, ax = plt.subplots(figsize=(4.0, 3.2))
+    _cont_ax(ax)
+    a = 0.5
+    xL = np.linspace(-3, a - 0.12, 100)
+    xR = np.linspace(a + 0.12, 3, 100)
+    yL = 1.5 / (xL - a)**2
+    yR = 1.5 / (xR - a)**2
+    ax.plot(xL, np.minimum(yL, 6), color=_CBLUE, lw=2.5)
+    ax.plot(xR, np.minimum(yR, 6), color=_CBLUE, lw=2.5)
+    ax.axvline(a, color='#ccc', lw=0.8)
+    ax.set_xlim(-3.2, 3.2)
+    ax.set_ylim(-0.5, 6.5)
+    ax.text(a, -0.35, '$a$', ha='center', fontsize=11, color=_CRED)
+    plt.tight_layout(pad=0.3)
+    plt.show()
+
+def _plot_rem():
+    fig, ax = plt.subplots(figsize=(4.0, 3.2))
+    _cont_ax(ax)
+    a = 0.5
+    x = np.linspace(-3, 3, 300)
+    y = (x - a)**2 + 0.5
+    ax.plot(x, y, color=_CBLUE, lw=2.5)
+    ya = (a - a)**2 + 0.5
+    ax.plot(a, ya, 'o', color=_CBLUE, ms=8, mfc='white', mew=2)
+    ax.set_xlim(-3.2, 3.2)
+    ax.set_ylim(-0.2, 4)
+    ax.text(a, -0.25, '$a$', ha='center', fontsize=11, color=_CRED)
+    plt.tight_layout(pad=0.3)
+    plt.show()
+```
+
+## Definición formal de continuidad {.title-line}
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:1.5em; align-items:flex-start; padding-top:0.8em; padding-left:0.3em;"}
+
+::: {style="flex: 0 0 55%; display:flex; flex-direction:column; gap:0.8em;"}
+
+::: {style="color:#B8860B; font-weight:bold; font-size:1.05em; line-height:1.5;"}
+Una función $f({\color{teal}x})$ es continua en ${\color{teal}x}={\color{#c0392b}a}$ si se cumplen las siguientes tres condiciones; de lo contrario, la función es discontinua en el punto ${\color{#c0392b}a}$.
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="font-size:1.0em; line-height:1.8;"}
+
+1.  $f({\color{#c0392b}a})$ está definido.
+
+2.  $\displaystyle\lim_{{\color{teal}x}\to{\color{#c0392b}a}} f({\color{teal}x})$ existe.
+
+3.  $\displaystyle\lim_{{\color{teal}x}\to{\color{#c0392b}a}} f({\color{teal}x}) = f({\color{#c0392b}a})$.
+
+:::
+
+:::
+
+::: {style="flex:1; min-height:0; display:flex; flex-direction:column;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="width:100%; height:100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+```{python}
+#| echo: false
+_plot_cont()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+```{python}
+#| echo: false
+_plot_inf()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+```{python}
+#| echo: false
+_plot_rem()
+```
+:::
+
+:::
+
+:::
+
+:::
