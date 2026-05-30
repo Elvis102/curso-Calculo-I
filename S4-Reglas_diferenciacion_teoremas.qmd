@@ -42,13 +42,14 @@ use_python("/opt/anaconda3/bin/python")
 
 # Reglas de diferenciación 
 
-## Linealidad de la diferenciación (demostración)
+## Linealidad de la diferenciación (demostración) {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.7em;margin-top:0em"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-En este presentación, aprenderás
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-   - La demostración de que la diferenciación es una operación lineal.
+- [La demostración de que la diferenciación es una operación lineal.]{style="color: #c0392b;"}
+
 :::
 
 ## ¿Porqué la diferenciación es lineal? {.title-line}
@@ -84,16 +85,18 @@ $\displaystyle \phantom{k'} = {\color{goldenrod}a}f'({\color{teal}x}) + {\color{
 :::
 
 
-## Teorema: La derivabilidad implica continuidad
+## Teorema: La derivabilidad implica continuidad {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
-En esta presentación, aprenderás:
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  -  Que si una función es derivable en un punto, entonces también es continua en ese punto.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  -  La demostración de esa afirmación.
+- [Que si una función es derivable en un punto, entonces también es continua en ese punto.]{style="color: #c0392b;"}
 
-  -  La respuesta a la pregunta de si la continuidad implica derivabilidad.
+- [La demostración de esa afirmación.]{style="color: navy;"}
+
+- [La respuesta a la pregunta de si la continuidad implica derivabilidad.]{style="color: teal;"}
+
 :::
 
 
@@ -214,15 +217,17 @@ plt.show()
 :::
 :::
 
-## Regla de la cadena
+## Regla de la cadena {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
-En este presentación, aprenderás
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-   -  ¡La regla de la cadena! Una de las reglas de derivación más importantes.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-   -  La intuición de por qué funciona la regla de la cadena.
-:::   
+- [¡La regla de la cadena! Una de las reglas de derivación más importantes.]{style="color: #c0392b;"}
+
+- [La intuición de por qué funciona la regla de la cadena.]{style="color: navy;"}
+
+:::
 
 ## funciones compuestas {.title-line}
 
@@ -766,20 +771,16 @@ $\frac{\text{✈}}{\text{🚶}} = \frac{\text{✈}}{\text{🚗}} \cdot \frac{\te
 
 ## Regla del cociente {.title-line}
 
-::: {.fragment .fade-in data-fragment-index=0 style="font-size: 1.3em; color: goldenrod; margin-bottom: 0.5em;"}
-En esta presentación, aprenderás
-:::
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {.fragment .fade-in data-fragment-index=1 style="font-size: 1.15em; margin-top: 0.8em;"}
-- Otra regla extraña que solo tienes que memorizar...
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {.fragment .fade-in data-fragment-index=2 style="font-size: 1.15em; margin-top: 0.5em; color: darkblue;"}
-- ¡La regla del cociente, que es súper importante!
-:::
+- [Otra regla extraña que solo tienes que memorizar...]{style="color: #c0392b;"}
 
-::: {.fragment .fade-in data-fragment-index=3 style="font-size: 1.15em; margin-top: 0.5em; color: teal;"}
-- Una aplicación de la regla de la cadena, para demostrar la regla del cociente.
+- [¡La regla del cociente, que es súper importante!]{style="color: navy;"}
+
+- [Una aplicación de la regla de la cadena, para demostrar la regla del cociente.]{style="color: teal;"}
+
 :::
 
 ## La regla del cociente {.title-line}
@@ -1308,21 +1309,15 @@ plt.show()
 
 ## diferenciación implicita {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.7em;margin-top:0em"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-En esta presentación, aprenderás
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {.fragment .fade-in data-fragment-index=1}
-- La diferencia entre una función "implícita" y una función "explícita".
-:::
+- [La diferencia entre una función "implícita" y una función "explícita".]{style="color: #c0392b;"}
 
-::: {.fragment .fade-in data-fragment-index=2}
-- Por qué necesitamos la diferenciación implícita.
-:::
+- [Por qué necesitamos la diferenciación implícita.]{style="color: navy;"}
 
-::: {.fragment .fade-in data-fragment-index=3}
-- Cómo realizar la diferenciación implícita.
-:::
+- [Cómo realizar la diferenciación implícita.]{style="color: teal;"}
 
 :::
 
@@ -1800,23 +1795,15 @@ $${\color{blue}y'} = \frac{-2{\color{teal}x}\sin({\color{teal}x^2})}{\cos({\colo
 
 ## Prueba de diferenciación Implicita {.title-line}
 
-::: {style="font-size: 1.35em; padding: 0.5em 1em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod; font-weight: bold; margin-bottom: 0.5em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b; margin-bottom: 0.3em;"}
-● Recordatorios de algunas reglas de cálculo
-:::
+- [Recordatorios de algunas reglas de cálculo]{style="color: #c0392b;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Demostraciones de esas reglas usando diferenciación implícita.
-:::
+- [Demostraciones de esas reglas usando diferenciación implícita.]{style="color: navy;"}
 
-::: {style="color: navy;"}
-● ¡Más sobre la total genialidad de la diferenciación implícita!
-:::
+- [¡Más sobre la total genialidad de la diferenciación implícita!]{style="color: teal;"}
 
 :::
 
@@ -2011,29 +1998,19 @@ $$\begin{align*}
 
 :::
 
-## DesafíosCode Diferenciación implicita {background-color="#111111"}
+## DesafíosCode Diferenciación implicita {.title-line background-color="#fbfbfb"}
 
-::: {style="font-size: 1.5em; padding: 0.5em 1em; line-height: 1.8;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: #5bc8d4; font-weight: bold; margin-bottom: 0.4em;"}
-En este video, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #5bc8d4; margin-bottom: 0.3em;"}
-● Cómo implementar la diferenciación implícita en sympy.
-:::
+- [Cómo implementar la diferenciación implícita en sympy.]{style="color: #c0392b;"}
 
-::: {style="color: #f5d130; margin-bottom: 0.3em;"}
-● Cómo visualizar funciones implícitas en sympy.
-:::
+- [Cómo visualizar funciones implícitas en sympy.]{style="color: navy;"}
 
-::: {style="color: #f0a050; margin-bottom: 0.3em;"}
-● ¡Más sobre lo complicada que puede ser la diferenciación implícita!
-:::
+- [¡Más sobre lo complicada que puede ser la diferenciación implícita!]{style="color: teal;"}
 
-::: {style="color: #e8a07a;"}
-● Más sobre trabajar con números simbólicos vs. de precisión finita.
-:::
+- [Más sobre trabajar con números simbólicos vs. de precisión finita.]{style="color: #c0392b;"}
 
 :::
 
@@ -2065,23 +2042,15 @@ En este video, aprenderás
 
 ## Derivadas de Orden Superior {.title-line}
 
-::: {style="font-size: 1.5em; padding: 0.5em 1em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod; font-weight: bold; margin-bottom: 0.5em;font-size: 1.5em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b; margin-bottom: 0.3em;"}
-● Notaciones para derivadas de orden superior.
-:::
+- [Notaciones para derivadas de orden superior.]{style="color: #c0392b;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Cómo calcular derivadas de orden superior.
-:::
+- [Cómo calcular derivadas de orden superior.]{style="color: navy;"}
 
-::: {style="color: navy;"}
-● Aplicaciones de las derivadas de orden superior.
-:::
+- [Aplicaciones de las derivadas de orden superior.]{style="color: teal;"}
 
 :::
 
@@ -2270,33 +2239,13 @@ Física (posición, velocidad, aceleración)
 
 ## Regla de L'Hôpital para límites indeterminados {.title-line}
 
-::: {style="display: flex; flex-direction: row; gap: 2.5em; align-items: flex-start; margin-top: 1.8em; font-size: 1.35em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="flex: 1.5;"}
-::: {style="color: goldenrod; margin-bottom: 0.6em;"}
-En este video, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b; margin-bottom: 0.3em;"}
-● Qué es la regla de L'Hôpital.
-:::
+- [Qué es la regla de L'Hôpital.]{style="color: #c0392b;"}
 
-::: {style="color: navy;"}
-● Cuándo y cómo aplicar la regla.
-:::
-:::
-
-::: {.fragment .fade-in data-fragment-index="1" style="flex: 1; border: 2px solid #333; border-radius: 4px; padding: 0.6em 1em; font-size: 0.85em; line-height: 1.9;"}
-**Posibles grafías:**
-
-L'Hôpital's rule
-
-L'Hopital's rule
-
-L'Hospital's rule
-
-Bernoulli's rule
-:::
+- [Cuándo y cómo aplicar la regla.]{style="color: navy;"}
 
 :::
 
@@ -2935,22 +2884,16 @@ plt.show()
 
 ## Teorema de Rolle {.title-line}
 
-::: {style="font-size: 1.4em; margin-top: 1.2em; line-height: 1.7;"}
-::: {style="color: goldenrod; margin-bottom: 0.4em;"}
-En esta presentación, aprenderás
-:::
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: #c0392b;"}
-● Intuición geométrica del teorema de Rolle.
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: navy;"}
-● La definición formal del teorema.
-:::
+- [Intuición geométrica del teorema de Rolle.]{style="color: #c0392b;"}
 
-::: {style="color: navy;"}
-● Las condiciones para que el teorema de Rolle sea válido.
-:::
+- [La definición formal del teorema.]{style="color: navy;"}
+
+- [Las condiciones para que el teorema de Rolle sea válido.]{style="color: teal;"}
+
 :::
 
 ## Intuición del teorema de Rolle {.title-line}
@@ -3982,27 +3925,17 @@ $f(a) = f(c)$
 
 ## Teorema del valor medio {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.5em 2.5em; gap: 0.65em; font-size: 1.1em;font-weight: bold;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod; font-weight: bold; margin-bottom: 0.2em;"}
-En este video, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b;"}
-● Intuición geométrica del teorema del valor medio.
-:::
+- [Intuición geométrica del teorema del valor medio.]{style="color: #c0392b;"}
 
-::: {style="color: navy;"}
-● La definición formal del teorema, y por qué su nombre es confuso.
-:::
+- [La definición formal del teorema, y por qué su nombre es confuso.]{style="color: navy;"}
 
-::: {style="color: teal;"}
-● La relación entre el teorema del valor medio y el teorema de Rolle.
-:::
+- [La relación entre el teorema del valor medio y el teorema de Rolle.]{style="color: teal;"}
 
-::: {style="color: teal;"}
-● Las condiciones de validez del teorema del valor medio.
-:::
+- [Las condiciones de validez del teorema del valor medio.]{style="color: #c0392b;"}
 
 :::
 

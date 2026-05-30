@@ -1,0 +1,29 @@
+Recorre todo el archivo S3-Diferenciación-Derivada.qmd y encuentra todas las secciones cuyo encabezado comience con ## y que en su contenido inmediato contengan alguna de estas frases (o variantes sin tilde, sin coma, o con texto adicional):
+
+En este video, aprenderás
+En esta presentación, aprenderás
+En esta presentación, has aprendido
+En esta presentación aprendiste
+En este presentación
+Para cada sección encontrada, reemplaza todo el bloque de contenido (incluyendo cualquier wrapper .bg, texto plano sin wrapper, o flex-div con estilos distintos) por esta plantilla exacta, manteniendo el texto de cada bullet tal como está:
+
+
+## Título de la sección {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
+
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
+
+- [Punto 1]{style="color: #c0392b;"}
+
+- [Punto 2]{style="color: navy;"}
+
+- [Punto 3]{style="color: teal;"}
+
+:::
+Reglas adicionales:
+
+Si el encabezado no tiene {.title-line}, agrégalo.
+Si hay bullets con doble anidado [[...]{...}]{...}, elimina el anidado exterior.
+Si hay más de 3 bullets, cicla los colores: #c0392b, navy, teal, #c0392b...
+Antes de hacer cualquier cambio, muestra la lista completa de secciones encontradas con su número de línea para confirmar que no falta ninguna.

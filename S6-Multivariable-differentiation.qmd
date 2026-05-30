@@ -46,25 +46,17 @@ En esta sección, exploraremos la diferenciación de funciones de varias variabl
 
 ## Multivariable Differentiation: Resumen de la sección Y objetivos {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-[En esta sección, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
-● Cómo pensar, crear y visualizar funciones 2D.
-:::
+- [Cómo pensar, crear y visualizar funciones 2D.]{style="color: #c0392b;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
-● Cómo diferenciar funciones 2D (pista: es fácil pero requiere tiempo).
-:::
+- [Cómo diferenciar funciones 2D (pista: es fácil pero requiere tiempo).]{style="color: navy;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: steelblue;"}
-● Algunas aplicaciones de la optimización multivariable (descenso de gradiente y campos de gradiente).
-:::
+- [Algunas aplicaciones de la optimización multivariable (descenso de gradiente y campos de gradiente).]{style="color: teal;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
-● ¡Que el cálculo multivariable es hermoso de ver!
-:::
+- [¡Que el cálculo multivariable es hermoso de ver!]{style="color: #c0392b;"}
 
 :::
 
@@ -118,21 +110,15 @@ Conclusión: *Multivariable* y *multivariate* son equivalentes. *Multidimensiona
 
 ## Funciones 2D {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-[En este presentación, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
-● Qué son las funciones 2D.
-:::
+- [Qué son las funciones 2D.]{style="color: #c0392b;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
-● Cómo visualizar funciones 2D.
-:::
+- [Cómo visualizar funciones 2D.]{style="color: navy;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: steelblue;"}
-● Cómo pensar en las derivadas de funciones 2D.
-:::
+- [Cómo pensar en las derivadas de funciones 2D.]{style="color: teal;"}
 
 :::
 
@@ -641,25 +627,17 @@ plt.show()
 
 ## Derivadas Parciales {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-[En este presentación, aprenderás]{style="color: goldenrod; font-weight: bold;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: #c0392b;"}
-● Qué significa una "derivada parcial".
-:::
+- [Qué significa una "derivada parcial".]{style="color: #c0392b;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: navy;"}
-● Varias notaciones.
-:::
+- [Varias notaciones.]{style="color: navy;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: steelblue;"}
-● Cómo calcular derivadas parciales.
-:::
+- [Cómo calcular derivadas parciales.]{style="color: teal;"}
 
-::: {style="display: flex; gap: 0.6em; align-items: flex-start; color: teal;"}
-● La definición formal de derivadas parciales basada en límites.
-:::
+- [La definición formal de derivadas parciales basada en límites.]{style="color: #c0392b;"}
 
 :::
 

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2026-05-26">
+  <meta name="dcterms.date" content="2026-05-29">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -147,7 +147,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2026-05-26</p>
+  <p class="date">2026-05-29</p>
 </section>
 <section>
 <section id="preliniaminares" class="title-slide slide level1 center">
@@ -2693,60 +2693,1276 @@ f(x) = \frac{x^{2} - 2x}{x^{2} - 4}
 </div>
 </div>
 </section>
-<section id="definición-formal-de-continuidad" class="slide level2 title-line">
-<h2>Definición formal de continuidad</h2>
-<div style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:1.5em; align-items:flex-start; padding-top:0.8em; padding-left:0.3em;">
-<div style="flex: 0 0 55%; display:flex; flex-direction:column; gap:0.8em;">
-<div style="color:#B8860B; font-weight:bold; font-size:1.05em; line-height:1.5;">
+<section id="definición-de-continuidad" class="slide level2 title-line">
+<h2>Definición de continuidad</h2>
+<div class="columns" style="align-items:flex-start; margin-top:0.8em;">
+<div style="color:#B8860B; font-weight:bold; font-size:1.35em; line-height:1.5;">
 <p>Una función <span class="math inline">\(f({\color{teal}x})\)</span> es continua en <span class="math inline">\({\color{teal}x}={\color{#c0392b}a}\)</span> si se cumplen las siguientes tres condiciones; de lo contrario, la función es discontinua en el punto <span class="math inline">\({\color{#c0392b}a}\)</span>.</p>
+</div><div class="column" style="font-size:1.2em;">
+<div style="font-size:1.3em; line-height:2.2em;">
+<p><strong>1.</strong> <span class="math inline">\(\;f(\color{maroon}{a})\)</span> está definida.</p>
+<p><strong>2.</strong> <span class="math inline">\(\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x})\)</span> existe.</p>
+<p><strong>3.</strong> <span class="math inline">\(\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = f(\color{maroon}{a})\)</span>.</p>
 </div>
-<div class="fragment fade-in" data-fragment-index="1" style="font-size:1.0em; line-height:1.8;">
-<ol type="1">
-<li><p><span class="math inline">\(f({\color{#c0392b}a})\)</span> está definido.</p></li>
-<li><p><span class="math inline">\(\displaystyle\lim_{{\color{teal}x}\to{\color{#c0392b}a}} f({\color{teal}x})\)</span> existe.</p></li>
-<li><p><span class="math inline">\(\displaystyle\lim_{{\color{teal}x}\to{\color{#c0392b}a}} f({\color{teal}x}) = f({\color{#c0392b}a})\)</span>.</p></li>
-</ol>
+</div><div class="column" style="width:50%;">
+<div class="r-stack" style="width:100%; text-align:center;">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-115-177.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
 </div>
 </div>
-<div style="flex:1; min-height:0; display:flex; flex-direction:column;">
+</div>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="2">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-116-179.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-117-181.png" class="quarto-figure quarto-figure-center" width="480"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="teorema-del-valor-intermedio" class="slide level2 title-line">
+<h2>Teorema del valor intermedio</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.5em; font-size:1.35em;">
+<p><span style="color:#B8860B; font-size:1.1em; font-weight:bold;">En esta presentación, aprenderás</span></p>
+<ul>
+<li><span style="color:#c0392b; font-weight:bold;">La intuición del teorema del valor intermedio.</span></li>
+<li><span style="color:#1a5276; font-weight:bold;">La condición y la definición formal del teorema del valor intermedio.</span></li>
+<li><span style="color:#1a5276; font-weight:bold;">Una aplicación del teorema del valor intermedio para resolver ecuaciones.</span></li>
+</ul>
+</div>
+</section>
+<section id="teorema-del-valor-intermedio-intuición" class="slide level2 title-line">
+<h2>Teorema del valor intermedio: intuición</h2>
+<div style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;">
+<div class="r-stack" style="flex: 1; min-height: 0; width: 100%;">
+<div style="width: 65%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-118-183.png" width="748"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="width: 65%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-119-185.png" width="748"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="teorema-del-valor-intermedio-casos-de-falla" class="slide level2 title-line">
+<h2>Teorema del valor intermedio: casos de falla</h2>
+<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; min-height:0; padding-right:3em;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-121-187.png" width="748"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="teoreama-del-valor-intermedio-definición" class="slide level2 title-line">
+<h2>Teoreama del valor intermedio: definición</h2>
+<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; min-height:0; padding-right:3em; gap:1.2em;">
+<p><span style="color:#B8860B; font-size:1.4em; font-weight:bold; text-align:center;">Teorema del valor intermedio</span></p>
+<p><span style="color:#1a5276; font-size:1.25em; font-weight:bold; text-align:center; line-height:1.6;">Una función que es continua en <span class="math inline">\([{\color{maroon}a},\, {\color{maroon}b}]\)</span> tiene todos los valores entre <span class="math inline">\(f({\color{maroon}a})\)</span> y <span class="math inline">\(f({\color{maroon}b})\)</span>.</span></p>
+</div>
+</section>
+<section id="ejemplo-de-aplicación-raíces-de-polinomios" class="slide level2 title-line">
+<h2>Ejemplo de aplicación: raíces de polinomios</h2>
+<div style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:1.5em; align-items:flex-start; padding-top:0.5em;">
+<div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-123-189.png" width="720"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color:#1a5276; font-weight:bold; font-size:1.05em; text-align:center; margin-top:0.3em;">
+<p>Tiene raíces reales</p>
+</div>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; align-items:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-124-191.png" width="720"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color:#1a5276; font-weight:bold; font-size:1.05em; text-align:center; margin-top:0.3em;">
+<p>No tiene raíces reales</p>
+</div>
+</div>
+</div>
+</section>
+<section id="funciones-compuestas" class="slide level2 title-line">
+<h2>Funciones Compuestas</h2>
+<div style="display:flex; flex-direction:column; align-items:center; flex:1; min-height:0; padding-right:3em;">
 <div class="r-stack" style="flex:1; min-height:0; width:100%;">
-<div style="width:100%; height:100%;">
-
+<div style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-126-193.png" width="1382"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-127-195.png" width="1939"></p>
+</figure>
+</div>
+</div>
+</div>
 </div>
 <div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-115-177.png" width="384"></p>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-128-197.png" width="1939"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+</div>
+</div>
+</section>
+<section id="ejemplos-de-funciones-compuestas" class="slide level2 title-line">
+<h2>Ejemplos de funciones compuestas</h2>
+<div style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:2em; align-items:flex-start; padding-top:1.4em; padding-left:0.5em;">
+<div style="flex: 0 0 36%; display:flex; flex-direction:column; gap:0.55em; font-size:1.25em;">
+<p><span class="math inline">\({\color{goldenrod}f}(x) = 2x^2 - 4\)</span></p>
+<p><span class="math inline">\({\color{teal}g}(x) = 7x + 3\)</span></p>
+<div style="height:0.6em;">
+
+</div>
+<div style="font-size:1.4em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}(x)) =\)</span></p>
+</div>
+<div style="font-size:1.4em;">
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(x)) =\)</span></p>
+</div>
+</div>
+<div style="flex:1; min-height:0; display:flex; flex-direction:column;">
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%;">
+
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:0.8em; font-size:1.3em;">
+<div style="margin: 7em 0;">
+<p><span class="math display">\[\begin{aligned} {\color{goldenrod}f}({\color{teal}g}(x)) &amp;= 2(7x+3)^2 - 4 \\ &amp;= 2(7x+3)(7x+3) - 4 \\ &amp;= 2\left(49x^2 + 21x + 21x + 9\right) - 4 \\ &amp;= 98x^2 + 84x + 14 \end{aligned}\]</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:0.8em; font-size:1.3em;">
+<div style="margin:10.5em 0;">
+<p><span class="math display">\[\begin{aligned} {\color{teal}g}({\color{goldenrod}f}(x)) &amp;= 7(2x^2 - 4) + 3 \\ &amp;= 14x^2 - 28 + 3 \\ &amp;= 14x^2 - 25 \end{aligned}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="propiedad-conmutativa" class="slide level2 title-line">
+<h2>Propiedad Conmutativa</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:0.6em; font-size:1.9em;">
+<p><span class="math inline">\({\color{goldenrod}3} \times {\color{maroon}4} = {\color{maroon}4} \times {\color{goldenrod}3}\)</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math inline">\({\color{goldenrod}3} + {\color{maroon}4} = {\color{maroon}4} + {\color{goldenrod}3}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math inline">\({\color{goldenrod}3} - {\color{maroon}4} \neq {\color{maroon}4} - {\color{goldenrod}3}\)</span></p>
+</div>
+</div>
+</section>
+<section id="conmutatividad-bajo-la-composición" class="slide level2 title-line">
+<h2>Conmutatividad bajo la composición</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;">
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:1em;">
+<p><span style="color:#1a5276; font-weight:bold; font-size:1.5em;">En general:</span></p>
+<div style="font-size:2.0em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.4em;">
+<div style="font-size:1.45em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.4em;">
+<div style="font-size:1.45em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))\)</span></p>
+</div>
+<div style="font-size:1.1em; line-height:1.9; padding-left:1.5em; align-self:flex-start; margin-top:0.4em;">
+<p><span class="math inline">\(\quad {\color{goldenrod}f}(x) = 2x^2 - 4\)</span></p>
+<p><span class="math inline">\(\quad {\color{teal}g}(x) = 7x + 3\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}(4)) = 199\)</span></p>
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(4)) = 1918\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.4em;">
+<div style="font-size:1.45em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))\)</span></p>
+</div>
+<div style="display:flex; flex-direction:row; width:100%; align-items:flex-start; margin-top:0.4em;">
+<div style="flex:1; font-size:1.1em; line-height:1.9; padding-left:1.5em;">
+<p><span class="math inline">\(\quad {\color{goldenrod}f}(x) = 2x^2 - 4\)</span></p>
+<p><span class="math inline">\(\quad {\color{teal}g}(x) = 7x + 3\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}(4)) = 199\)</span></p>
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(4)) = 1918\)</span></p>
+</div>
+<div style="flex:1; font-size:1.1em; line-height:1.9; padding-left:1em;">
+<p><span class="math inline">\(\quad {\color{goldenrod}f}(x) = 2x + 3\)</span></p>
+<p><span class="math inline">\(\quad {\color{teal}g}(x) = \dfrac{x-3}{2}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}(x)) =\)</span></p>
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(x)) =\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="notación-de-función-compuesta" class="slide level2 title-line">
+<h2>Notación de función compuesta</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; font-size:2.2em;margin-top:3em;">
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}({\color{teal}x})) \longleftrightarrow ({\color{teal}g} \circ {\color{goldenrod}f})(x)\)</span></p>
+</div>
+</section>
+<section id="una-mirada-a-la-funcioón-copmpuesta" class="slide level2 title-line">
+<h2>Una mirada a la funcioón copmpuesta</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start; flex:1; min-height:0; padding-right:3em; padding-left:3em; gap:0.6em;">
+<div style="font-size:1.4em; line-height:2.0;">
+<p><span class="math inline">\({\color{goldenrod}f}(x) = \sin(x)\)</span></p>
+<p><span class="math inline">\({\color{#c0392b}g}(x) = \sqrt{x}\)</span></p>
+<p><span class="math inline">\({\color{#1a5276}h}(x) = 2x^2 + 5\)</span></p>
+</div>
+<div style="font-size:1.7em; margin-top:0.5em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{#c0392b}g}({\color{#1a5276}h}(x))) = \sin\!\left(\sqrt{2x^2+5}\right)\)</span></p>
+</div>
+</div>
+</section>
+<section id="inversa-como-composición-inversa" class="slide level2 title-line">
+<h2>Inversa como composición inversa</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; justify-content:center; align-items:center;">
+<div style="border:1.5px solid #aaa; border-radius:4px; padding:0.8em 1.5em; width:82%;">
+<div style="text-align:center; font-size:0.82em; color:#555; border-bottom:1px solid #ccc; margin-bottom:0.5em; padding-bottom:0.25em;">
+<p>Conmutatividad bajo la composición</p>
+</div>
+<div style="text-align:center; font-size:1.25em; margin-bottom:0.4em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))\)</span></p>
+</div>
+<div style="display:flex; flex-direction:row; gap:1.2em; font-size:0.9em; align-items:flex-start;">
+<div style="flex:1; line-height:1.85;">
+<p><span class="math inline">\(\quad {\color{goldenrod}f}(x) = 2x^2 - 4\)</span></p>
+<p><span class="math inline">\(\quad {\color{teal}g}(x) = 7x + 3\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}(4)) = 199\)</span></p>
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(4)) = 1918\)</span></p>
+</div>
+<div style="flex:1; border:2px dashed #1a5276; border-radius:5px; padding:0.45em 0.9em; line-height:1.85;">
+<p><span class="math inline">\(\quad {\color{goldenrod}f}(x) = 2x + 3\)</span></p>
+<p><span class="math inline">\(\quad {\color{teal}g}(x) = \dfrac{x-3}{2}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}g}(x)) = x\)</span></p>
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(x)) = x\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="función-inversa" class="slide level2 title-line">
+<h2>Función inversa</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:0.6em; font-size:1.55em;">
+<p><span class="math inline">\({\color{teal}g}(x)\)</span> es la inversa de <span class="math inline">\({\color{goldenrod}f}(x)\)</span> si</p>
+<p><span class="math inline">\({\color{teal}g}({\color{goldenrod}f}(x)) = x\)</span></p>
+</div>
+</section>
+<section id="notación-de-la-inversa" class="slide level2 title-line">
+<h2>Notación de la inversa</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;">
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}\)</span></p>
+<div style="margin-top:0.3em;">
+<p><span class="math inline">\(3^{-1} \times 3 = \dfrac{1}{3} \times 3 = 1\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}\)</span></p>
+<div style="margin-top:0.3em;">
+<p><span class="math inline">\({\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}\)</span></p>
+<div style="margin-top:0.3em; display:flex; flex-direction:column; gap:0.5em;">
+<p><span class="math inline">\({\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}\)</span></p>
+<div style="margin-top:0.3em; display:flex; flex-direction:column; gap:0.5em;">
+<p><span class="math inline">\({\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x}) = {\color{goldenrod}f}^0({\color{teal}x})\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="la-idea-de-la-función-inversa" class="slide level2 title-line">
+<h2>La idea de la función inversa</h2>
+<div style="display:flex; flex-direction:column; align-items:center; flex:1; min-height:0; padding-right:3em;">
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-116-179.png" width="384"></p>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-130-199.png" width="1171"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-117-181.png" width="384"></p>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-131-201.png" width="1171"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-132-203.png" width="1171"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="notando-la-inversa" class="slide level2 title-line">
+<h2>Notando la inversa</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:0.8em; gap:0.65em; font-size:1.28em;">
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}\)</span></p>
+<div style="margin-top:0.3em; display:flex; flex-direction:column; gap:0.5em;">
+<p><span class="math inline">\({\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x}) = {\color{goldenrod}f}^0({\color{teal}x})\)</span></p>
+</div>
+</div>
+</section>
+<section id="cálculo-de-la-función-inversa" class="slide level2 title-line">
+<h2>Cálculo de la función inversa</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.6em; font-size:1.1em;">
+<p><span style="color:#c0392b; font-weight:bold;">Para calcular la inversa a mano (¡o con sympy!):</span></p>
+<ol type="1">
+<li><p>Expresa la función como <span class="math inline">\({\color{goldenrod}y} = \ldots\)</span></p></li>
+<li><p>Despeja <span class="math inline">\({\color{teal}x}\)</span></p></li>
+<li><p>Intercambia <span class="math inline">\({\color{teal}x}\)</span> e <span class="math inline">\({\color{goldenrod}y}\)</span></p></li>
+</ol>
+</div>
+</section>
+<section id="cálculo-de-la-inversa-ejemplo" class="slide level2 title-line">
+<h2>Cálculo de la inversa: ejemplo</h2>
+<div style="display:flex; flex-direction:column; justify-content:flex-start; flex:1; min-height:0; padding-right:3em; padding-left:3.5em; padding-top:0.8em; gap:0.9em; font-size:1.18em;">
+<div style="text-align:center; padding-left:1em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = 2{\color{teal}x} + 3\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="display:flex; flex-direction:row; align-items:center; gap:0.7em;">
+<div style="color:#B8860B; font-weight:bold; min-width:4em;">
+<p>Paso 1</p>
+</div>
+<div style="color:#B8860B; font-size:1.6em; line-height:0.75; font-weight:300;">
+<p>{</p>
+</div>
+<div>
+<p><span class="math inline">\({\color{maroon}y} = 2{\color{teal}x} + 3\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="display:flex; flex-direction:row; align-items:center; gap:0.7em;">
+<div style="color:#B8860B; font-weight:bold; min-width:4em;">
+<p>Paso 2</p>
+</div>
+<div style="color:#B8860B; font-size:3.0em; line-height:0.75; font-weight:300;">
+<p>{</p>
+</div>
+<div style="display:flex; flex-direction:column; gap:0.35em;">
+<p><span class="math inline">\({\color{maroon}y} - 3 = 2{\color{teal}x}\)</span></p>
+<p><span class="math inline">\(({\color{maroon}y} - 3)/2 = {\color{teal}x}\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="display:flex; flex-direction:row; align-items:center; gap:0.7em;">
+<div style="color:#B8860B; font-weight:bold; min-width:4em;">
+<p>Paso 3</p>
+</div>
+<div style="color:#B8860B; font-size:1.6em; line-height:0.75; font-weight:300;">
+<p>{</p>
+</div>
+<div>
+<p><span class="math inline">\(({\color{teal}x} - 3)/2 = {\color{maroon}y} = {\color{maroon}f}^{-1}({\color{teal}x})\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="cálculo-de-la-inversa-mediante-álgebra" class="slide level2 title-line">
+<h2>Cálculo de la inversa mediante álgebra</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;">
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\theta}) = \sin(2\pi{\color{teal}\theta})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; gap:0.65em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\theta}) = \sin(2\pi{\color{teal}\theta})\)</span></p>
+<p><span class="math inline">\(\arcsin({\color{maroon}y}) = 2\pi{\color{teal}\theta}\)</span></p>
+<p><span class="math inline">\(\dfrac{\arcsin({\color{maroon}y})}{2\pi} = {\color{teal}\theta}\)</span></p>
+<p><span class="math inline">\(\dfrac{\arcsin({\color{teal}\theta})}{2\pi} = {\color{maroon}f}^{-1}({\color{teal}\theta})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:row; align-items:flex-start; gap:1em;">
+<div style="flex:0 0 44%; display:flex; flex-direction:column; padding-left:2.5em; padding-top:0.9em; gap:0.65em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\theta}) = \sin(2\pi{\color{teal}\theta})\)</span></p>
+<p><span class="math inline">\(\arcsin({\color{maroon}y}) = 2\pi{\color{teal}\theta}\)</span></p>
+<p><span class="math inline">\(\dfrac{\arcsin({\color{maroon}y})}{2\pi} = {\color{teal}\theta}\)</span></p>
+<p><span class="math inline">\(\dfrac{\arcsin({\color{teal}\theta})}{2\pi} = {\color{maroon}f}^{-1}({\color{teal}\theta})\)</span></p>
+</div>
+<div style="flex:1; display:flex; align-items:center; justify-content:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-134-205.png" width="720"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\theta}) = 2{\color{teal}\theta}\sin(2\pi{\color{teal}\theta})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; gap:0.65em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\theta}) = 2{\color{teal}\theta}\sin(2\pi{\color{teal}\theta})\)</span></p>
+<p><span class="math inline">\(\arcsin\!\left(\dfrac{{\color{maroon}y}}{2{\color{teal}\theta}}\right) = 2\pi{\color{teal}\theta}\)</span></p>
+<p><span class="math inline">\(\dfrac{\arcsin\!\left(\frac{{\color{maroon}y}}{2{\color{teal}\theta}}\right)}{2\pi} = {\color{teal}\theta}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = 3{\color{teal}x}^2 + 4\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; gap:0.55em; font-size:1.2em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = 3{\color{teal}x}^2 + 4\)</span></p>
+<p><span class="math inline">\({\color{maroon}y} - 4 = 3{\color{teal}x}^2\)</span></p>
+<p><span class="math inline">\(\dfrac{{\color{maroon}y} - 4}{3} = {\color{teal}x}^2\)</span></p>
+<p><span class="math inline">\(\sqrt{\dfrac{{\color{maroon}y} - 4}{3}} = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\(\sqrt{\dfrac{{\color{teal}x} - 4}{3}} = {\color{maroon}f}^{-1}({\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="7" style="background:white; width:100%; height:100%; display:flex; flex-direction:row; align-items:flex-start; gap:1em;">
+<div style="flex:0 0 44%; display:flex; flex-direction:column; padding-left:2.5em; padding-top:0.9em; gap:0.55em; font-size:1.0em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = 3{\color{teal}x}^2 + 4\)</span></p>
+<p><span class="math inline">\({\color{maroon}y} - 4 = 3{\color{teal}x}^2\)</span></p>
+<p><span class="math inline">\(\dfrac{{\color{maroon}y} - 4}{3} = {\color{teal}x}^2\)</span></p>
+<p><span class="math inline">\(\sqrt{\dfrac{{\color{maroon}y} - 4}{3}} = {\color{teal}x}\)</span></p>
+<p><span class="math inline">\(\sqrt{\dfrac{{\color{teal}x} - 4}{3}} = {\color{maroon}f}^{-1}({\color{teal}x})\)</span></p>
+</div>
+<div style="flex:1; display:flex; align-items:center; justify-content:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-135-207.png" width="720"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="dominios-y-rangos-de-funciones-inversas" class="slide level2 title-line">
+<h2>Dominios y rangos de funciones inversas</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:0.9em; font-size:1.25em;">
+<div style="display:flex; flex-direction:row; align-items:center;">
+<div style="width:7em; text-align:center; color:#c0392b; font-weight:bold; font-size:1.35em;">
+<p><span class="math inline">\(f(x)\)</span></p>
+</div>
+<div style="width:6em;">
+
+</div>
+<div style="width:7em; text-align:center; color:#c0392b; font-weight:bold; font-size:1.35em;">
+<p><span class="math inline">\(f^{-1}(x)\)</span></p>
+</div>
+</div>
+<div style="display:flex; flex-direction:row; align-items:center;">
+<div style="width:7em; text-align:center; color:#1a5276; font-weight:bold;">
+<p>Dominio</p>
+</div>
+<div style="width:6em; text-align:center; color:#1a5276;">
+<p><span class="math inline">\(\longrightarrow\)</span></p>
+</div>
+<div style="width:7em; text-align:center; color:#1a5276; font-weight:bold;">
+<p>Rango</p>
+</div>
+</div>
+<div style="display:flex; flex-direction:row; align-items:center;">
+<div style="width:7em; text-align:center; color:#1a5276; font-weight:bold;">
+<p>Rango</p>
+</div>
+<div style="width:6em; text-align:center; color:#1a5276;">
+<p><span class="math inline">\(\longrightarrow\)</span></p>
+</div>
+<div style="width:7em; text-align:center; color:#1a5276; font-weight:bold;">
+<p>Dominio</p>
+</div>
+</div>
+</div>
+</section>
+<section id="intuición-2-de-la-función-inversa" class="slide level2 title-line">
+<h2>Intuición: 2 de la función inversa</h2>
+<div style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:0.5em; align-items:flex-start; padding-top:0.3em;">
+<div style="flex:0 0 58%; display:flex; flex-direction:column; gap:0.3em;">
+<p><span style="color:#aaa; font-size:0.95em;">¿Qué es una inversa?</span></p>
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-137-209.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-138-211.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-139-213.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-140-215.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-141-217.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-142-219.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-143-221.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="7" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-144-223.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="10" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-145-225.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="11" style="background:white; width:100%; height:100%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-146-227.png" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:2em; gap:0.7em; font-size:1.0em; color:#666; font-style:italic;">
+<div class="fragment fade-in" data-fragment-index="8">
+<p><span class="math inline">\(g(x)\)</span> y <span class="math inline">\(f(x)\)</span> son inversas</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="9">
+<p><span class="math inline">\(g(x) = f^{-1}(x)\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="10">
+<p><span class="math inline">\(g(f(x)) = x\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="11">
+<p><span class="math inline">\(\sqrt{x^2}= x\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="12">
+<p>Para <span class="math inline">\(x &gt; 0\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="función-simétrica-par-e-impar" class="slide level2 title-line">
+<h2>Función simétrica par e impar</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.5em; font-size:1.25em;">
+<p><span style="color:#B8860B; font-size:1.1em; font-weight:bold;">En esta presentación, aprenderás</span></p>
+<ul>
+<li><span style="color:#c0392b; font-weight:bold;">Qué significa que una función sea «par» o «impar».</span></li>
+<li><span style="color:#1a5276; font-weight:bold;">Cómo determinar si una función es par o impar a partir de su geometría y su álgebra.</span></li>
+<li><span style="color:#1a5276; font-weight:bold;">Que no todas las funciones son pares o impares.</span></li>
+</ul>
+</div>
+</section>
+<section id="función-simétrica-intuición-gráfica" class="slide level2 title-line">
+<h2>Función simétrica: intuición gráfica</h2>
+<div style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:0.3em; align-items:stretch; padding-top:0.2em;">
+<div style="flex:0 0 11%; display:flex; flex-direction:column; font-size:0.95em; font-weight:bold; color:#B8860B;">
+<div class="fragment fade-in" data-fragment-index="2" style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;">
+<p>Función par</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;">
+<p>Función impar</p>
+</div>
+</div>
+<div style="flex:0 0 36%; display:flex; align-items:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-148-229.png" width="816"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.1em; gap:0.25em; font-size:0.95em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^2\)</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^2 = {\color{teal}x}^2\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<div style="margin-top:0.5em; display:flex; flex-direction:column; align-items:center; gap:0.35em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 - 4{\color{teal}x}\)</span></p>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 - 4({\color{maroon}-x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math inline">\(= -{\color{teal}x}^3 + 4{\color{teal}x}\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<p><span class="math inline">\(= -({\color{teal}x}^3 - 4{\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="función-simétrica-intuición-gráfica-1" class="slide level2 title-line">
+<h2>Función simétrica: intuición gráfica</h2>
+<div style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:0.3em; align-items:stretch; padding-top:0.2em;">
+<div style="flex:0 0 11%; display:flex; flex-direction:column; font-size:0.95em; font-weight:bold; color:#B8860B;">
+<div style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;">
+<div class="fragment fade-in" data-fragment-index="3">
+<p>Función par</p>
+</div>
+</div>
+<div style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;">
+<div class="fragment fade-in" data-fragment-index="6">
+<p>Función impar</p>
+</div>
+</div>
+</div>
+<div style="flex:0 0 36%; display:flex; align-items:center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-150-231.png" width="816"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.1em; gap:0.25em; font-size:0.95em;">
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\phi}) = \cos({\color{teal}\phi})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\pi/3}) = 1/2\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-\pi/3}) = 1/2\)</span></p>
+</div>
+<div style="margin-top:0.5em; display:flex; flex-direction:column; align-items:center; gap:0.25em;">
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\phi}) = \sin({\color{teal}\phi})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}\pi/3}) = \sqrt{3}/2\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-\pi/3}) = -\sqrt{3}/2\)</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="definiciones-de-simetría-funciones" class="slide level2 title-line">
+<h2>Definiciones de simetría funciones</h2>
+<div style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:1.1em; font-size:1.35em;">
+<div style="display:grid; grid-template-columns: auto auto; column-gap:2.5em; row-gap:0.7em; align-items:center;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span style="color:#777;">: par</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span style="color:#777;">: impar</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="display:grid; grid-template-columns: auto auto; column-gap:2.5em; row-gap:0.7em; align-items:center;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) \neq {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span style="color:#777;">: ni par ni impar</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) \neq -{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<p><span style="color:#777;">: ni par ni impar</span></p>
+</div>
+</div>
+</section>
+<section id="árbol-de-simétricas-funciones" class="slide level2 title-line">
+<h2>Árbol de simétricas funciones</h2>
+<div style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; min-height:0; padding-right:3em;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-152-233.png" width="912"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="determinación-de-simetría-mediante-álgebra" class="slide level2 title-line">
+<h2>Determinación de simetría mediante álgebra</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;">
+<div style="color:#B8860B; font-weight:bold; font-size:1.1em; padding-top:0.35em; padding-left:0.4em;">
+<p>Calcula <span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x})\)</span> y compara con <span class="math inline">\({\color{goldenrod}f}({\color{teal}x})\)</span> y <span class="math inline">\(-{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%;">
+
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+</div>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<div style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+</div>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})\)</span></p>
+</div>
+<div style="display:flex; flex-direction:row; align-items:center; gap:1.5em;">
+<div style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<p><span style="color:#2471a3; font-weight:bold; font-size:1.05em;">Par</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="determinación-de-simetría-mediante-álgebra-1" class="slide level2 title-line">
+<h2>Determinación de simetría mediante álgebra</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;">
+<div style="color:#B8860B; font-weight:bold; font-size:1.1em; padding-top:0.35em; padding-left:0.4em;">
+<p>Calcula <span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x})\)</span> y compara con <span class="math inline">\({\color{goldenrod}f}({\color{teal}x})\)</span> y <span class="math inline">\(-{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%;">
+
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -{\color{teal}x}^3 - \sin({\color{teal}x})\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -{\color{teal}x}^3 - \sin({\color{teal}x})\)</span></p>
+</div>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -({\color{teal}x}^3 + \sin({\color{teal}x}))\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="5" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -{\color{teal}x}^3 - \sin({\color{teal}x})\)</span></p>
+</div>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -({\color{teal}x}^3 + \sin({\color{teal}x}))\)</span></p>
+</div>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="6" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<div style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})\)</span></p>
+</div>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -{\color{teal}x}^3 - \sin({\color{teal}x})\)</span></p>
+</div>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= -({\color{teal}x}^3 + \sin({\color{teal}x}))\)</span></p>
+</div>
+<div style="display:flex; flex-direction:row; align-items:center; gap:1.5em;">
+<div style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<p><span style="color:#2471a3; font-weight:bold; font-size:1.05em;">Impar</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="determinación-de-simetría-mediante-álgebra-2" class="slide level2 title-line">
+<h2>Determinación de simetría mediante álgebra</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;">
+<div style="color:#B8860B; font-weight:bold; font-size:1.1em; padding-top:0.35em; padding-left:0.4em;">
+<p>Calcula <span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x})\)</span> y compara con <span class="math inline">\({\color{goldenrod}f}({\color{teal}x})\)</span> y <span class="math inline">\(-{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<div class="r-stack" style="flex:1; min-height:0; width:100%;">
+<div style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= (-{\color{teal}x}^3)(-\sin({\color{teal}x}))\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= (-{\color{teal}x}^3)(-\sin({\color{teal}x}))\)</span></p>
+</div>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;">
+<div style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+</div>
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})\)</span></p>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= (-{\color{teal}x}^3)(-\sin({\color{teal}x}))\)</span></p>
+</div>
+<div style="margin-left:2.2em;">
+<p><span class="math inline">\(= {\color{teal}x}^3\sin({\color{teal}x})\)</span></p>
+</div>
+<div style="display:flex; flex-direction:row; align-items:center; gap:1.5em;">
+<div style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;">
+<p><span class="math inline">\({\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})\)</span></p>
+</div>
+<p><span style="color:#2471a3; font-weight:bold; font-size:1.05em;">Par</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="determinación-de-simetría-mediante-álgebra-3" class="slide level2 title-line">
+<h2>Determinación de simetría mediante álgebra</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.4em; font-size: 1.15em; padding-right: 3em;">
+<p>Calcular <span class="math inline">\({\color{goldenrod}f}({\color{teal}-x})\)</span> y comparar con <span class="math inline">\({\color{goldenrod}f}({\color{teal}x})\)</span> y <span class="math inline">\(-{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p><span class="math display">\[\displaystyle {\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^{\color{maroon}3} + {\color{maroon}1}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
+<p><span class="math display">\[\displaystyle {\color{goldenrod}f}({\color{teal}-x}) = ({\color{teal}-x})^{\color{maroon}3} + {\color{maroon}1}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="3">
+<p><span class="math display">\[\displaystyle \phantom{{\color{goldenrod}f}({\color{teal}-x})} = -{\color{teal}x}^{\color{maroon}3} + {\color{maroon}1}\]</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="4">
+<p><span class="math display">\[\displaystyle {\color{goldenrod}f}({\color{teal}-x}) \neq {\color{goldenrod}f}({\color{teal}x}) \neq -{\color{goldenrod}f}({\color{teal}x})\]</span></p>
+</div>
+</div>
+</section>
+<section id="determinación-de-simetría-mediante-álgebra-4" class="slide level2 title-line">
+<h2>Determinación de simetría mediante álgebra</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1.2em; font-size: 1.35em; padding-right: 3em;margin-top:2em;">
+<p>Calcular <span class="math inline">\({\color{goldenrod}f}({\color{teal}-x})\)</span> y comparar con <span class="math inline">\({\color{goldenrod}f}({\color{teal}x})\)</span> y <span class="math inline">\(-{\color{goldenrod}f}({\color{teal}x})\)</span></p>
+<div class="fragment fade-in" data-fragment-index="1">
+<p>Y sustituir algunos valores de <span class="math inline">\({\color{teal}x}\)</span> para confirmar.</p>
+</div>
+</div>
+</section>
+<section id="determinando-la-simetría-usando-la-geometría" class="slide level2 title-line">
+<h2>Determinando la simetría usando la geometría</h2>
+<div style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;">
+<div class="r-stack" style="flex: 1; min-height: 0; width: 100%;">
+<div style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-154-235.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-155-237.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-156-239.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-157-241.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-158-243.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-159-245.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-160-247.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-161-249.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-162-251.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-163-253.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-164-255.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-165-257.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="4" style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;">
+<div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8em; width: 95%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-166-259.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-167-261.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-168-263.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-169-265.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-170-267.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S1-Funciones_files/figure-revealjs/unnamed-chunk-171-269.png" width="403"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aquin-le-importa-la-simetría" class="slide level2 title-line">
+<h2>¿Aquin le importa la simetría?</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1em; font-size: 1.45em; padding-right: 3em; text-align: center;font-weight: bold;">
+<div class="fragment fade-in" data-fragment-index="1" style="color: #b8a642; max-width: 80%;">
+<p>Las funciones pares e impares tienen propiedades especiales que son relevantes para derivadas e integrales.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="color: #8b4513; max-width: 80%;">
+<p>También son útiles para graficar y comprender el comportamiento de las funciones.</p>
+</div>
+</div>
+</section>
+<section id="descomponiendo-la-simetría" class="slide level2 title-line">
+<h2>Descomponiendo la simetría</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1.5em; font-size: 1.45em; padding-right: 3em; text-align: center;">
+<p><span class="math display">\[\displaystyle {\color{goldenrod}f}({\color{teal}x}) = \frac{{\color{goldenrod}f}_{\color{goldenrod}e}({\color{teal}x}) + {\color{goldenrod}f}_{\color{goldenrod}e}({\color{teal}-x})}{2} + \frac{{\color{goldenrod}f}_{\color{maroon}o}({\color{teal}x}) - {\color{goldenrod}f}_{\color{maroon}o}({\color{teal}-x})}{2}\]</span></p>
+<div class="fragment fade-in" data-fragment-index="1" style="color: navy; font-size: 1.45em; font-style: italic; max-width: 85%;">
+<p>Toda función puede expresarse como la suma de una función par y una función impar.</p>
 </div>
 </div>
 

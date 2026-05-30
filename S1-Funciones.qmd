@@ -777,7 +777,7 @@ plt.show()
 
 :::
 
-## Dominio y rango en asbtracto {.title-line}
+## Dominio y rango en abstracto {.title-line}
 
 ```{python}
 #| echo: false
@@ -1032,7 +1032,7 @@ $$(-\infty,\,0) \cup (0,\,2\pi]$$
 
 :::
 
-## Funciones Lineales vs no lineales {.title-line}
+## Funciones lineales vs no lineales {.title-line}
 
 ::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
 
@@ -1052,7 +1052,7 @@ $$(-\infty,\,0) \cup (0,\,2\pi]$$
 
 :::
 
-## Funciones Lineales vs no lineales {.title-line}
+## Funciones lineales vs no lineales {.title-line}
 
 ::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.4em; font-size: 3.8em; line-height: 1.2;"}
 
@@ -1062,7 +1062,7 @@ No [line]{style="color: teal;"}al
 
 :::
 
-## Intuición Geómetrica: Funciones lineales vs no lineales {.title-line}
+## Intuición geométrica: Funciones lineales vs no lineales {.title-line}
 
 ::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.2em 1em;"}
 ```{python}
@@ -1102,7 +1102,7 @@ plt.show()
 ```
 :::
 
-## Definición Algebraica #1: Lineal vs nolineal {.title-line}
+## Definición algebraica #1: Lineal vs no lineal {.title-line}
 
 ::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 1em 3.5em 1em 2em; gap: 1.5em;"}
 
@@ -1190,7 +1190,7 @@ $${\color{#c0392b}y} = 3{\color{teal}x}^2 - 4$$
 
 :::
 
-## Definición Algebraica #1-a-: Lineal vs nolineal {.title-line}
+## Definición algebraica #1-a-: Lineal vs no lineal {.title-line}
 
 ::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 1em 3.5em 1em 2em; gap: 1.2em;"}
 
@@ -1279,7 +1279,7 @@ $${\color{goldenrod}y} = \sqrt{2}{\color{teal}x} + \cos(6)$$
 
 :::
 
-## Definición Algebraica #1-b-: Lineal vs nolineal {.title-line}
+## Definición algebraica #1-b-: Lineal vs no lineal {.title-line}
 
 ::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.8em 3.5em 0.8em 1.5em; gap: 2em; align-items: flex-start;"}
 
@@ -1543,7 +1543,7 @@ plt.show()
 
 :::
 
-## Funciones polinomicas {.title-line}
+## Funciones polinómicas {.title-line}
 
 ::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.8em 3.5em 0.8em 2em; gap: 0.9em; font-size: 1.15em; line-height: 1.6;"}
 
@@ -1567,7 +1567,7 @@ plt.show()
 
 :::
 
-## ¿Que son los polinomios? {.title-line}
+## ¿Qué son los polinomios? {.title-line}
 
 ::: {.r-stack style="width: 100%; height: 100%; padding-right: 3.5em;"}
 
@@ -1609,7 +1609,7 @@ $$g({\color{teal}x}) = {\color{goldenrod}2}{\color{teal}x} + {\color{teal}x}^3$$
 
 :::
 
-## visualización de polinomios {.title-line}
+## Visualización de polinomios {.title-line}
 
 ::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3.5em; align-items: center; justify-content: center;"}
 
@@ -1971,7 +1971,7 @@ ${\log(x),\exp(x)}$
 
 :::
 
-## Funciones logaritmicas y exponenciales {.title-line}
+## Funciones logarítmicas y exponenciales {.title-line}
 
 ::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 1em 3em 1em 2.5em; gap: 1.1em; font-size: 1.0em;"}
 
@@ -3246,7 +3246,7 @@ plt.show()
 
 :::
 
-## Funciones trigonometricas  {.title-line}
+## Funciones trigonométricas {.title-line}
 
 [En esta sesión, aprenderás]{style="color: goldenrod; font-size: 1.15em; font-weight: bold;"}
 
@@ -4013,7 +4013,7 @@ https://en.wikipedia.org/wiki/List_of_trigonometric_identities
 
 :::
 
-## ¿Qué es un funcion por partes? {.title-line}
+## ¿Qué es una función por partes? {.title-line}
 
 ::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:2em; align-items:flex-start; padding-top:1.2em; padding-left:0.3em;"}
 
@@ -4233,7 +4233,7 @@ $$f(x) = \begin{cases} 0 & {\color{teal} ,\quad x < 0} \\[0.5em] x & {\color{tea
 
 :::
 
-## Funcones y sus discontinuidades {.title-line}
+## Funciones y sus discontinuidades {.title-line}
 
 ```{python}
 #| echo: false
@@ -4582,17 +4582,27 @@ def _cont_ax(ax):
     ax.axvline(0, color='#ccc', lw=0.8)
 
 def _plot_cont():
-    fig, ax = plt.subplots(figsize=(4.0, 3.2))
-    _cont_ax(ax)
-    x = np.linspace(-3, 3, 300)
-    y = 0.5 * np.sin(2*x) + 0.3 * np.cos(3*x) + 0.5
-    ax.plot(x, y, color=_CGOLD, lw=2.5)
-    a = 0.5
-    ya = 0.5 * np.sin(2*a) + 0.3 * np.cos(3*a) + 0.5
-    ax.plot(a, ya, 'o', color=_CRED, ms=8)
-    ax.set_xlim(-3.2, 3.2)
-    ax.set_ylim(-1, 2)
-    ax.text(a, -0.25, '$a$', ha='center', fontsize=11, color=_CRED)
+    a = 1.8
+    x = np.linspace(-0.3, 3.8, 500)
+    y = 0.08*x**3 - 0.5*x + 0.6*np.sin(2*x)
+    fig, ax = plt.subplots(figsize=(5, 4))
+    fig.patch.set_facecolor('white')
+    ax.set_facecolor('white')
+    ax.grid(True, color='gray', alpha=0.15, linewidth=0.8)
+    ax.axhline(0, color='black', linewidth=1.8, zorder=2)
+    ax.axvline(0, color='black', linewidth=1.8, zorder=2)
+    ax.plot(x, y, color='#0b1cb8', linewidth=2.5, zorder=3)
+    y_a = 0.08*a**3 - 0.5*a + 0.6*np.sin(2*a)
+    ax.plot([a, a], [0, y_a], color='gray', linewidth=1.2, linestyle='--', alpha=0.45, zorder=1)
+    ax.set_xlim(-0.3, 3.8)
+    ax.set_ylim(-2.0, 3.5)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    ax.text(0.1, 3.4, '$f(x)$', fontsize=18, ha='left', va='top')
+    ax.text(a, 0.45, '$a$', fontsize=18, ha='center', va='top', color=_CRED)
+    ax.set_xlabel('$X$', fontsize=14, labelpad=4)
+    for sp in ax.spines.values():
+        sp.set_visible(False)
     plt.tight_layout(pad=0.3)
     plt.show()
 
@@ -4629,24 +4639,591 @@ def _plot_rem():
     plt.show()
 ```
 
-## Definición formal de continuidad {.title-line}
+## Definición de continuidad {.title-line}
 
-::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:1.5em; align-items:flex-start; padding-top:0.8em; padding-left:0.3em;"}
+:::: {.columns style="align-items:flex-start; margin-top:0.8em;"}
 
-::: {style="flex: 0 0 55%; display:flex; flex-direction:column; gap:0.8em;"}
-
-::: {style="color:#B8860B; font-weight:bold; font-size:1.05em; line-height:1.5;"}
+::: {style="color:#B8860B; font-weight:bold; font-size:1.35em; line-height:1.5;"}
 Una función $f({\color{teal}x})$ es continua en ${\color{teal}x}={\color{#c0392b}a}$ si se cumplen las siguientes tres condiciones; de lo contrario, la función es discontinua en el punto ${\color{#c0392b}a}$.
 :::
 
-::: {.fragment .fade-in data-fragment-index=1 style="font-size:1.0em; line-height:1.8;"}
+::: {.column width="50%" style="font-size:1.2em;"}
 
-1.  $f({\color{#c0392b}a})$ está definido.
+::: {style="font-size:1.3em; line-height:2.2em;"}
+**1.** $\;f(\color{maroon}{a})$ está definida.
 
-2.  $\displaystyle\lim_{{\color{teal}x}\to{\color{#c0392b}a}} f({\color{teal}x})$ existe.
+**2.** $\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x})$ existe.
 
-3.  $\displaystyle\lim_{{\color{teal}x}\to{\color{#c0392b}a}} f({\color{teal}x}) = f({\color{#c0392b}a})$.
+**3.** $\;\displaystyle\lim_{\color{teal}{x} \to \color{maroon}{a}} f(\color{teal}{x}) = f(\color{maroon}{a})$.
+:::
 
+:::
+
+::: {.column width="50%"}
+
+::: {.r-stack style="width:100%; text-align:center;"}
+
+::: {.fragment .fade-in-then-out data-fragment-index="1"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+fig, ax = plt.subplots(figsize=(6.0, 5.2))
+_cont_ax(ax)
+x = np.linspace(-3, 3, 300)
+y = 0.5 * np.sin(2*x) + 0.3 * np.cos(3*x) + 0.5
+ax.plot(x, y, color=_CGOLD, lw=2.5)
+a = 0.5
+ya = 0.5 * np.sin(2*a) + 0.3 * np.cos(3*a) + 0.5
+ax.plot(a, ya, 'o', color=_CRED, ms=8)
+ax.set_xlim(-3.2, 3.2)
+ax.set_ylim(-1, 2)
+ax.text(a, -0.25, '$a$', ha='center', fontsize=11, color=_CRED)
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in-then-out data-fragment-index="2"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = 1.8
+y_clip = 8.0
+x_left  = np.linspace(-0.3, a - 0.06, 300)
+x_right = np.linspace(a + 0.06, 3.8, 300)
+
+fig, ax = plt.subplots(figsize=(5, 4))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x_left,  1/(x_left  - a)**2, color="#0b1cb8", linewidth=2.5, zorder=3)
+ax.plot(x_right, 1/(x_right - a)**2, color="#0b1cb8", linewidth=2.5, zorder=3)
+
+ax.axvline(a, color="gray", linewidth=1.2, linestyle="--", alpha=0.45, zorder=1)
+ax.annotate("", xy=(a, y_clip + 0.5), xytext=(a, y_clip - 1.2),
+            arrowprops=dict(arrowstyle="-|>", color="gray", lw=1.0, alpha=0.55))
+
+ax.set_xlim(-0.3, 3.8)
+ax.set_ylim(-0.5, y_clip + 0.8)
+ax.set_xticks([])
+ax.set_yticks([])
+
+ax.text(0.1, y_clip + 0.6, "$f(x)$", fontsize=14, ha='left', va='top')
+ax.text(a, -0.15, "$a$", fontsize=18, ha='center', va='top', color='maroon')
+ax.set_xlabel("$X$", fontsize=18, labelpad=4)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index="3"}
+```{python}
+#| echo: false
+#| fig-align: center
+#| results: "hide"
+#| fig-width: 6
+#| fig-height: 5
+import numpy as np
+import matplotlib.pyplot as plt
+
+a = 1.8
+limit_val = 0.5
+fa_val    = 2.2
+
+x_full = np.linspace(-0.3, 3.8, 600)
+y_full = (x_full - a)**2 + limit_val
+mask   = np.abs(x_full - a) > 0.07
+
+fig, ax = plt.subplots(figsize=(5, 4))
+ax.grid(True, color="gray", alpha=0.15, linewidth=0.8)
+ax.axhline(0, color="black", linewidth=1.8, zorder=2)
+ax.axvline(0, color="black", linewidth=1.8, zorder=2)
+
+ax.plot(x_full[mask], y_full[mask], color="#0b1cb8", linewidth=2.5, zorder=3)
+
+ax.plot(a, limit_val, 'o', color='white', markeredgecolor='#B8860B',
+        markeredgewidth=2.2, markersize=11, zorder=5)
+ax.plot(a, fa_val, 'o', color='maroon', markersize=11, zorder=5)
+ax.annotate("$f(a)$", xy=(a, fa_val), xytext=(a + 0.55, fa_val + 0.35),
+            fontsize=12, color='maroon',
+            arrowprops=dict(arrowstyle="-", color='maroon', lw=1.2))
+
+ax.set_xlim(-0.3, 3.8)
+ax.set_ylim(-0.4, 3.6)
+ax.set_xticks([])
+ax.set_yticks([])
+
+ax.text(0.1, 3.5, "$f(x)$", fontsize=18, ha='left', va='top')
+ax.text(a, -0.1, "$a$", fontsize=18, ha='center', va='top', color='maroon')
+ax.set_xlabel("$X$", fontsize=18, labelpad=4)
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout()
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+::::
+
+## Teorema del valor intermedio {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.5em; font-size:1.35em;"}
+
+[En esta presentación, aprenderás]{style="color:#B8860B; font-size:1.1em; font-weight:bold;"}
+
+- [La intuición del teorema del valor intermedio.]{style="color:#c0392b; font-weight:bold;"}
+- [La condición y la definición formal del teorema del valor intermedio.]{style="color:#1a5276; font-weight:bold;"}
+- [Una aplicación del teorema del valor intermedio para resolver ecuaciones.]{style="color:#1a5276; font-weight:bold;"}
+
+:::
+
+## Teorema del valor intermedio: intuición {.title-line}
+
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 65%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Curva general del TVI
+x = np.linspace(-1.0, 7.0, 600)
+y = 0.55 * np.sin(1.3 * x) + 0.35 * np.sin(2.8 * x + 0.8) + 0.42 * x + 0.25
+
+a = 3.6
+b = 5.6
+fa = 0.55 * np.sin(1.3 * a) + 0.35 * np.sin(2.8 * a + 0.8) + 0.42 * a + 0.25
+fb = 0.55 * np.sin(1.3 * b) + 0.35 * np.sin(2.8 * b + 0.8) + 0.42 * b + 0.25
+
+fig, ax = plt.subplots(figsize=(7.8, 6.0))
+
+ax.plot(x, y, color="#B8860B", linewidth=2.5, zorder=3)
+
+# Ejes sutiles (líneas punteadas grises)
+ax.axhline(0, color="gray", linewidth=0.9, linestyle="--", alpha=0.7, zorder=1)
+ax.axvline(0, color="gray", linewidth=0.9, linestyle="--", alpha=0.7, zorder=1)
+
+# Líneas punteadas horizontales y verticales
+ax.plot([a, a], [0, fa], color="#c0392b", linewidth=1.2, linestyle="--", zorder=2)
+ax.plot([b, b], [0, fb], color="navy", linewidth=1.2, linestyle="--", zorder=2)
+ax.plot([0, a], [fa, fa], color="#c0392b", linewidth=1.2, linestyle="--", zorder=2)
+ax.plot([0, b], [fb, fb], color="navy", linewidth=1.2, linestyle="--", zorder=2)
+
+# Puntos en la curva
+ax.plot(a, fa, 'o', color="#c0392b", markersize=6, zorder=4)
+ax.plot(b, fb, 'o', color="navy", markersize=6, zorder=4)
+
+# Etiquetas
+ax.text(-0.35, fa, r"$f(a)$", fontsize=13, ha='right', va='center', color="#c0392b")
+ax.text(-0.35, fb, r"$f(b)$", fontsize=13, ha='right', va='center', color="navy")
+ax.text(a, -0.35, r"$a$", fontsize=13, ha='center', va='top', color="#c0392b")
+ax.text(b, -0.35, r"$b$", fontsize=13, ha='center', va='top', color="navy")
+
+ax.set_xlim(-1.2, 7.2)
+ax.set_ylim(-1.0, 4.5)
+ax.set_xticks([])
+ax.set_yticks([])
+
+for spine in ax.spines.values():
+    spine.set_visible(False)
+
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="width: 65%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Ejemplo concreto: f(x) = x^2 en [2, 4]
+x = np.linspace(-5.2, 5.2, 600)
+y = x**2
+
+fig, ax = plt.subplots(figsize=(7.8, 6.0))
+
+ax.plot(x, y, color="#B8860B", linewidth=2.2, zorder=3)
+
+# Ejes con ticks
+ax.axhline(0, color="black", linewidth=1.2, zorder=2)
+ax.axvline(0, color="gray", linewidth=0.9, zorder=1)
+# Flecha en el extremo derecho del eje X
+ax.annotate('', xy=(5.8, 0), xytext=(5.2, 0),
+            arrowprops=dict(arrowstyle='->', color='black', lw=1.2))
+
+a, b = 2, 4
+fa, fb = 4, 16
+
+# Líneas punteadas
+ax.plot([a, a], [0, fa], color="#c0392b", linewidth=1.0, linestyle="--", zorder=2)
+ax.plot([b, b], [0, fb], color="navy", linewidth=1.0, linestyle="--", zorder=2)
+ax.plot([0, a], [fa, fa], color="#c0392b", linewidth=1.0, linestyle="--", zorder=2)
+ax.plot([0, b], [fb, fb], color="navy", linewidth=1.0, linestyle="--", zorder=2)
+
+# Puntos
+ax.plot(a, fa, 'o', color="#c0392b", markersize=5, zorder=4)
+ax.plot(b, fb, 'o', color="navy", markersize=5, zorder=4)
+
+# Ticks
+ax.set_xticks([-5, 0, 2, 4, 5])
+ax.set_yticks([0, 4, 10, 16, 20])
+ax.tick_params(labelsize=9, colors="gray")
+
+# Corchete para intervalo [2, 4]
+bracket_y = -2.2
+ax.plot([a, b], [bracket_y, bracket_y], color="black", linewidth=1.0)
+ax.plot([a, a], [bracket_y, bracket_y - 0.4], color="black", linewidth=1.0)
+ax.plot([b, b], [bracket_y, bracket_y - 0.4], color="black", linewidth=1.0)
+ax.text((a + b) / 2, bracket_y - 1.1, r"Interval: $[2,\,4]$",
+        fontsize=11, ha='center', va='top', color="black")
+
+ax.set_xlim(-6.0, 6.0)
+ax.set_ylim(-4.0, 23.0)
+
+for spine in ax.spines.values():
+    spine.set_color("gray")
+    spine.set_linewidth(0.9)
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
+ax.spines['left'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+
+plt.tight_layout(pad=0.5)
+plt.show()
+```
+:::
+
+:::
+
+:::
+
+## Teorema del valor intermedio: casos de falla {.title-line}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import numpy as np
+import matplotlib.pyplot as plt
+
+def _ivt_fail():
+    a = 2.0
+    b = 2.85
+
+    fig, ax = plt.subplots(figsize=(7.8, 6.5))
+    fig.patch.set_facecolor('white')
+    ax.set_facecolor('white')
+
+    # Segmento dorado (izquierda): continuo hasta x=a
+    x1 = np.linspace(-0.3, a, 200)
+    y1 = 2.0 * x1 - 4.0
+    ax.plot(x1, y1, color='#B8860B', lw=2.5)
+    ax.plot(a, 2.0*a - 4.0, 'o', color='#B8860B', ms=8, mfc='white', mew=2.5)
+
+    # Curva roja (centro): salta en a, sube rápidamente hasta b
+    x2 = np.linspace(a, b, 200)
+    y2 = 7.5*(x2 - a)**1.6 + 1.4
+    ax.plot(x2, y2, color='#c0392b', lw=2.5)
+    ax.plot(a, 1.4, 'o', color='#c0392b', ms=8, mfc='white', mew=2.5)
+
+    # Segmento teal (derecha): salta en b, decrece suavemente
+    x3 = np.linspace(b, 6.8, 200)
+    y3 = -0.35*(x3 - b) - 1.6
+    ax.plot(x3, y3, color='#1abc9c', lw=2.5)
+    ax.plot(b, -1.6, 'o', color='#1abc9c', ms=8, mfc='white', mew=2.5)
+
+    # Líneas verticales discontinuas en a y b
+    ax.vlines(a, -4.5, 10, colors='#1a5276', linestyles='--', lw=1.3, alpha=0.75)
+    ax.vlines(b, -4.5, 10, colors='#1a5276', linestyles='--', lw=1.3, alpha=0.75)
+
+    # Etiquetas a y b
+    ax.text(a, -4.95, '$a$', ha='center', fontsize=15, color='#1a5276')
+    ax.text(b, -4.95, '$b$', ha='center', fontsize=15, color='#1a5276')
+
+    ax.set_xlim(-0.5, 7.2)
+    ax.set_ylim(-4.5, 10.5)
+    ax.set_ylabel('y', fontsize=12)
+    ax.set_yticks([-4, -2, 0, 2, 4, 6, 8, 10])
+    ax.tick_params(labelbottom=False, labelsize=9)
+    ax.axhline(0, color="black", linewidth=1.5, zorder=1)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    plt.tight_layout(pad=0.3)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; min-height:0; padding-right:3em;"}
+
+```{python}
+#| echo: false
+_ivt_fail()
+```
+
+:::
+
+## Teorema del valor intermedio: definición {.title-line}
+
+::: {style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; min-height:0; padding-right:3em; gap:1.2em;"}
+
+[Teorema del valor intermedio]{style="color:#B8860B; font-size:1.4em; font-weight:bold; text-align:center;"}
+
+[Una función que es continua en $[{\color{maroon}a},\, {\color{maroon}b}]$ tiene todos los valores entre $f({\color{maroon}a})$ y $f({\color{maroon}b})$.]{style="color:#1a5276; font-size:1.25em; font-weight:bold; text-align:center; line-height:1.6;"}
+
+:::
+
+## Ejemplo de aplicación: raíces de polinomios {.title-line}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import numpy as np
+import matplotlib.pyplot as plt
+
+def _poly_ax(ax):
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.axhline(0, color='gray', lw=0.9, linestyle='--', alpha=0.65)
+    ax.axvline(0, color='gray', lw=0.9, linestyle='--', alpha=0.65)
+    ax.set_xlim(-3.2, 3.2)
+    ax.set_ylim(-20, 85)
+    ax.set_xticks([-3, -2, -1, 0, 1, 2, 3])
+    ax.tick_params(labelsize=9)
+
+def _poly_left():
+    x = np.linspace(-3, 3, 400)
+    fig, ax = plt.subplots(figsize=(7.5, 6.8))
+    fig.patch.set_facecolor('white')
+    ax.set_facecolor('white')
+    _poly_ax(ax)
+    ax.plot(x, x**4 + x + 0.4, color='#B8860B', lw=2.5)
+    ax.set_title('$f(x) = x^4 + x + .4$', fontsize=13, pad=8)
+    plt.tight_layout(pad=0.4)
+    plt.show()
+
+def _poly_right():
+    x = np.linspace(-3, 3, 400)
+    fig, ax = plt.subplots(figsize=(7.5, 6.8))
+    fig.patch.set_facecolor('white')
+    ax.set_facecolor('white')
+    _poly_ax(ax)
+    ax.plot(x, x**4 + x + 0.5, color='#B8860B', lw=2.5)
+    ax.set_title('$f(x) = x^4 + x + .5$', fontsize=13, pad=8)
+    plt.tight_layout(pad=0.4)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:1.5em; align-items:flex-start; padding-top:0.5em;"}
+
+::: {style="flex:1; display:flex; flex-direction:column; align-items:center;"}
+
+```{python}
+#| echo: false
+_poly_left()
+```
+
+::: {.fragment .fade-in data-fragment-index=1 style="color:#1a5276; font-weight:bold; font-size:1.05em; text-align:center; margin-top:0.3em;"}
+Tiene raíces reales
+:::
+
+:::
+
+::: {style="flex:1; display:flex; flex-direction:column; align-items:center;"}
+
+```{python}
+#| echo: false
+_poly_right()
+```
+
+::: {.fragment .fade-in data-fragment-index=1 style="color:#1a5276; font-weight:bold; font-size:1.05em; text-align:center; margin-top:0.3em;"}
+No tiene raíces reales
+:::
+
+:::
+
+:::
+
+
+## Funciones compuestas {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatch
+
+_CT = '#17a589'
+_CG = '#B8860B'
+_CB = '#2471a3'
+_CR = '#b84040'
+_CN = '#283593'
+
+def _circ(ax, cx, cy, r, c, lbl, fs=30):
+    ax.add_patch(mpatch.Circle((cx, cy), r, color=c, zorder=3))
+    ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+            fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _pent(ax, cx, cy, r, c, lbl, fs=26):
+    ax.add_patch(mpatch.RegularPolygon((cx, cy), numVertices=5, radius=r,
+                                        orientation=np.pi/2, color=c, zorder=3))
+    ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+            fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _rect(ax, cx, cy, w, h, c, lbl, fs=30):
+    ax.add_patch(mpatch.FancyBboxPatch((cx-w/2, cy-h/2), w, h,
+                                        boxstyle='round,pad=0.09', color=c, zorder=3))
+    ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+            fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _trap(ax, cx, cy, wt, wb, h, c, lbl='', fs=26, zo=3):
+    verts = [(cx-wb/2, cy-h/2), (cx+wb/2, cy-h/2),
+             (cx+wt/2, cy+h/2), (cx-wt/2, cy+h/2)]
+    ax.add_patch(mpatch.Polygon(verts, closed=True, color=c, zorder=zo))
+    if lbl:
+        ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+                fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _arr(ax, x1, y1, x2, y2):
+    ann = ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                      arrowprops=dict(arrowstyle='-|>', color='#222222',
+                                     lw=2.5, mutation_scale=22))
+    ann.arrow_patch.set_zorder(10)
+
+def _cf_base():
+    fig, ax = plt.subplots(figsize=(14.4, 5.4))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 14.4); ax.set_ylim(0, 5.4); ax.axis('off')
+    y = 2.7
+    _circ(ax, 1.9, y, 1.01, _CT, 'x')
+    _arr(ax, 2.90, y, 3.85, y)
+    _pent(ax, 5.25, y, 1.19, _CG, 'f(x)')
+    _arr(ax, 6.50, y, 7.51, y)
+    _rect(ax, 9.25, y, 1.94, 1.94, _CB, 'y')
+    plt.tight_layout(pad=0.2)
+    plt.show()
+
+def _cf_ext():
+    fig, ax = plt.subplots(figsize=(20.2, 5.4))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 20.2); ax.set_ylim(0, 5.4); ax.axis('off')
+    y = 2.7
+    _circ(ax, 1.35, y, 0.91, _CT, 'x')
+    _arr(ax, 2.30, y, 3.21, y)
+    _pent(ax, 4.56, y, 1.06, _CG, 'f(x)')
+    _arr(ax, 5.70, y, 6.66, y)
+    _rect(ax, 8.24, y, 1.83, 1.83, _CB, 'y')
+    _arr(ax, 9.18, y, 10.21, y)
+    _trap(ax, 12.06, y, 1.89, 1.39, 1.73, _CR, 'g(y)')
+    _arr(ax, 13.06, y, 14.14, y)
+    _rect(ax, 15.90, y, 1.83, 1.83, _CN, 'z')
+    plt.tight_layout(pad=0.2)
+    plt.show()
+
+def _cf_comp():
+    fig, ax = plt.subplots(figsize=(20.2, 8.8))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 20.2); ax.set_ylim(0, 9.1); ax.axis('off')
+    yb = 2.4; yt = 6.4; cxc = 8.69
+    # fila inferior
+    _circ(ax, 1.35, yb, 0.91, _CT, 'x')
+    _arr(ax, 2.30, yb, 3.21, yb)
+    _pent(ax, 4.56, yb, 1.06, _CG, 'f(x)')
+    _arr(ax, 5.70, yb, 6.66, yb)
+    _rect(ax, 8.24, yb, 1.83, 1.83, _CB, 'y')
+    _arr(ax, 9.18, yb, 10.21, yb)
+    _trap(ax, 12.06, yb, 1.89, 1.39, 1.73, _CR, 'g(y)')
+    _arr(ax, 13.06, yb, 14.14, yb)
+    _rect(ax, 15.90, yb, 1.83, 1.83, _CN, 'z')
+    # elemento compuesto arriba: trapecio con pentágono encima
+    _trap(ax, cxc, yt, 2.95, 2.20, 2.54, _CR, zo=3)
+    _pent(ax, cxc, yt, 1.15, _CG, 'g(f(x))', fs=20)
+    # flechas diagonales
+    _arr(ax, 1.53, yb + 0.93, cxc - 1.39, yt - 1.21)
+    _arr(ax, cxc + 1.39, yt - 1.21, 15.90 - 0.93, yb + 0.93)
+    plt.tight_layout(pad=0.2)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_cf_base()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_cf_ext()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_cf_comp()
+```
+
+:::
+
+:::
+
+:::
+
+## Ejemplos de funciones compuestas {.title-line}
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:2em; align-items:flex-start; padding-top:1.4em; padding-left:0.5em;"}
+
+::: {style="flex: 0 0 36%; display:flex; flex-direction:column; gap:0.55em; font-size:1.25em;"}
+
+${\color{goldenrod}f}(x) = 2x^2 - 4$
+
+${\color{teal}g}(x) = 7x + 3$
+
+::: {style="height:0.6em;"}
+:::
+
+::: {style="font-size:1.4em;"}
+${\color{goldenrod}f}({\color{teal}g}(x)) =$
+:::
+
+::: {style="font-size:1.4em;"}
+${\color{teal}g}({\color{goldenrod}f}(x)) =$
 :::
 
 :::
@@ -4655,32 +5232,1883 @@ Una función $f({\color{teal}x})$ es continua en ${\color{teal}x}={\color{#c0392
 
 ::: {.r-stack style="flex:1; min-height:0; width:100%;"}
 
-::: {style="width:100%; height:100%;"}
+::: {style="background:white; width:100%; height:100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:0.8em; font-size:1.3em;"}
+
+::: {style="margin: 7em 0;"}
+$$\begin{aligned} {\color{goldenrod}f}({\color{teal}g}(x)) &= 2(7x+3)^2 - 4 \\ &= 2(7x+3)(7x+3) - 4 \\ &= 2\left(49x^2 + 21x + 21x + 9\right) - 4 \\ &= 98x^2 + 84x + 14 \end{aligned}$$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; padding-top:0.8em; font-size:1.3em;"}
+
+::: {style="margin:10.5em 0;"}
+$$\begin{aligned} {\color{teal}g}({\color{goldenrod}f}(x)) &= 7(2x^2 - 4) + 3 \\ &= 14x^2 - 28 + 3 \\ &= 14x^2 - 25 \end{aligned}$$
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Propiedad conmutativa {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:0.6em; font-size:1.9em;"}
+
+${\color{goldenrod}3} \times {\color{maroon}4} = {\color{maroon}4} \times {\color{goldenrod}3}$
+
+::: {.fragment .fade-in data-fragment-index=1}
+${\color{goldenrod}3} + {\color{maroon}4} = {\color{maroon}4} + {\color{goldenrod}3}$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+${\color{goldenrod}3} - {\color{maroon}4} \neq {\color{maroon}4} - {\color{goldenrod}3}$
+:::
+
+:::
+
+## Conmutatividad bajo la composición {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; gap:1em;"}
+
+[En general:]{style="color:#1a5276; font-weight:bold; font-size:1.5em;"}
+
+::: {style="font-size:2.0em;"}
+${\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.4em;"}
+
+::: {style="font-size:1.45em;"}
+${\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.4em;"}
+
+::: {style="font-size:1.45em;"}
+${\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))$
+:::
+
+::: {style="font-size:1.1em; line-height:1.9; padding-left:1.5em; align-self:flex-start; margin-top:0.4em;"}
+
+$\quad {\color{goldenrod}f}(x) = 2x^2 - 4$
+
+$\quad {\color{teal}g}(x) = 7x + 3$
+
+${\color{goldenrod}f}({\color{teal}g}(4)) = 199$
+
+${\color{teal}g}({\color{goldenrod}f}(4)) = 1918$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.4em;"}
+
+::: {style="font-size:1.45em;"}
+${\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))$
+:::
+
+::: {style="display:flex; flex-direction:row; width:100%; align-items:flex-start; margin-top:0.4em;"}
+
+::: {style="flex:1; font-size:1.1em; line-height:1.9; padding-left:1.5em;"}
+
+$\quad {\color{goldenrod}f}(x) = 2x^2 - 4$
+
+$\quad {\color{teal}g}(x) = 7x + 3$
+
+${\color{goldenrod}f}({\color{teal}g}(4)) = 199$
+
+${\color{teal}g}({\color{goldenrod}f}(4)) = 1918$
+
+:::
+
+::: {style="flex:1; font-size:1.1em; line-height:1.9; padding-left:1em;"}
+
+$\quad {\color{goldenrod}f}(x) = 2x + 3$
+
+$\quad {\color{teal}g}(x) = \dfrac{x-3}{2}$
+
+${\color{goldenrod}f}({\color{teal}g}(x)) =$
+
+${\color{teal}g}({\color{goldenrod}f}(x)) =$
+
+:::
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Notación de función compuesta {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; font-size:2.2em;margin-top:3em;"}
+
+${\color{teal}g}({\color{goldenrod}f}({\color{teal}x})) \longleftrightarrow ({\color{teal}g} \circ {\color{goldenrod}f})(x)$
+
+:::
+
+## Una mirada a la función compuesta {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; align-items:flex-start; flex:1; min-height:0; padding-right:3em; padding-left:3em; gap:0.6em;"}
+
+::: {style="font-size:1.4em; line-height:2.0;"}
+
+${\color{goldenrod}f}(x) = \sin(x)$
+
+${\color{#c0392b}g}(x) = \sqrt{x}$
+
+${\color{#1a5276}h}(x) = 2x^2 + 5$
+
+:::
+
+::: {style="font-size:1.7em; margin-top:0.5em;"}
+
+${\color{goldenrod}f}({\color{#c0392b}g}({\color{#1a5276}h}(x))) = \sin\!\left(\sqrt{2x^2+5}\right)$
+
+:::
+
+:::
+
+## Inversa como composición inversa {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; justify-content:center; align-items:center;"}
+
+::: {style="border:1.5px solid #aaa; border-radius:4px; padding:0.8em 1.5em; width:82%;"}
+
+::: {style="text-align:center; font-size:0.82em; color:#555; border-bottom:1px solid #ccc; margin-bottom:0.5em; padding-bottom:0.25em;"}
+Conmutatividad bajo la composición
+:::
+
+::: {style="text-align:center; font-size:1.25em; margin-bottom:0.4em;"}
+${\color{goldenrod}f}({\color{teal}g}({\color{teal}x})) \neq {\color{teal}g}({\color{goldenrod}f}({\color{teal}x}))$
+:::
+
+::: {style="display:flex; flex-direction:row; gap:1.2em; font-size:0.9em; align-items:flex-start;"}
+
+::: {style="flex:1; line-height:1.85;"}
+
+$\quad {\color{goldenrod}f}(x) = 2x^2 - 4$
+
+$\quad {\color{teal}g}(x) = 7x + 3$
+
+${\color{goldenrod}f}({\color{teal}g}(4)) = 199$
+
+${\color{teal}g}({\color{goldenrod}f}(4)) = 1918$
+
+:::
+
+::: {style="flex:1; border:2px dashed #1a5276; border-radius:5px; padding:0.45em 0.9em; line-height:1.85;"}
+
+$\quad {\color{goldenrod}f}(x) = 2x + 3$
+
+$\quad {\color{teal}g}(x) = \dfrac{x-3}{2}$
+
+${\color{goldenrod}f}({\color{teal}g}(x)) = x$
+
+${\color{teal}g}({\color{goldenrod}f}(x)) = x$
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Función inversa {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:0.6em; font-size:1.55em;"}
+
+${\color{teal}g}(x)$ es la inversa de ${\color{goldenrod}f}(x)$ si
+
+${\color{teal}g}({\color{goldenrod}f}(x)) = x$
+
+:::
+
+## Notación de la inversa {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+${\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+${\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}$
+
+::: {style="margin-top:0.3em;"}
+$3^{-1} \times 3 = \dfrac{1}{3} \times 3 = 1$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+${\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}$
+
+::: {style="margin-top:0.3em;"}
+${\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+${\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}$
+
+::: {style="margin-top:0.3em; display:flex; flex-direction:column; gap:0.5em;"}
+
+${\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})$
+
+${\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:1em; gap:0.65em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+${\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}$
+
+::: {style="margin-top:0.3em; display:flex; flex-direction:column; gap:0.5em;"}
+
+${\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})$
+
+${\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})$
+
+${\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x}) = {\color{goldenrod}f}^0({\color{teal}x})$
+
+:::
+
+:::
+
+:::
+
+:::
+
+## La idea de la función inversa {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatch
+
+_IT2 = '#17a589'
+_IG2 = '#B8860B'
+_IB2 = '#2471a3'
+_IR2 = '#b84040'
+
+def _icirc(ax, cx, cy, r, c, lbl, fs=30):
+    ax.add_patch(mpatch.Circle((cx, cy), r, color=c, zorder=3))
+    ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+            fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _ipent(ax, cx, cy, r, c, lbl, fs=26):
+    ax.add_patch(mpatch.RegularPolygon((cx, cy), numVertices=5, radius=r,
+                                        orientation=np.pi/2, color=c, zorder=3))
+    ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+            fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _irect(ax, cx, cy, w, h, c, lbl, fs=30):
+    ax.add_patch(mpatch.FancyBboxPatch((cx-w/2, cy-h/2), w, h,
+                                        boxstyle='round,pad=0.09', color=c, zorder=3))
+    ax.text(cx, cy, f'${lbl}$', ha='center', va='center',
+            fontsize=fs, color='white', fontweight='bold', style='italic', zorder=5)
+
+def _iarr(ax, x1, y1, x2, y2):
+    ann = ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                      arrowprops=dict(arrowstyle='-|>', color='#222222',
+                                     lw=2.5, mutation_scale=22))
+    ann.arrow_patch.set_zorder(10)
+
+def _inv_base():
+    fig, ax = plt.subplots(figsize=(12.2, 4.7))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 12.2); ax.set_ylim(0, 4.7); ax.axis('off')
+    y = 2.35
+    _icirc(ax, 1.5, y, 0.84, _IT2, 'x')
+    _iarr(ax, 2.35, y, 3.21, y)
+    _ipent(ax, 4.3, y, 0.97, _IG2, 'f(x)')
+    _iarr(ax, 5.33, y, 6.28, y)
+    _irect(ax, 7.6, y, 1.59, 1.59, _IB2, 'y')
+    plt.tight_layout(pad=0.2)
+    plt.show()
+
+def _inv_cycle():
+    fig, ax = plt.subplots(figsize=(12.2, 7.4))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 12.2); ax.set_ylim(0, 7.4); ax.axis('off')
+    cx, cy = 2.0, 3.8
+    fx, fy = 6.1, 6.1
+    yx, yy = 10.1, 3.8
+    ix, iy = 6.1, 1.2
+    _icirc(ax, cx, cy, 0.84, _IT2, 'x')
+    _ipent(ax, fx, fy, 0.97, _IG2, 'f(x)')
+    _irect(ax, yx, yy, 1.59, 1.59, _IB2, 'y')
+    _ipent(ax, ix, iy, 0.97, _IR2, 'f^{-1}(x)', fs=20)
+    _iarr(ax, cx+0.70, cy+0.38, fx-0.84, fy-0.43)
+    _iarr(ax, fx+0.84, fy-0.43, yx-0.81, yy+0.38)
+    _iarr(ax, yx-0.81, yy-0.38, ix+0.84, iy+0.43)
+    _iarr(ax, ix-0.84, iy+0.43, cx+0.70, cy-0.38)
+    plt.tight_layout(pad=0.2)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_inv_base()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_inv_cycle()
+```
+
 :::
 
 ::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+
 ```{python}
 #| echo: false
-_plot_cont()
+_inv_base()
 ```
+
 :::
 
-::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+:::
+
+:::
+
+## Notando la inversa {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; justify-content:flex-start; align-items:flex-start; padding-left:2.5em; padding-top:0.8em; gap:0.65em; font-size:1.28em;"}
+
+${\color{#c0392b}f}^{-1}({\color{goldenrod}f}({\color{teal}x})) = {\color{teal}x}$
+
+${\color{goldenrod}f}({\color{teal}x})^{-1} = \dfrac{1}{{\color{goldenrod}f}({\color{teal}x})}$
+
+::: {style="margin-top:0.3em; display:flex; flex-direction:column; gap:0.5em;"}
+
+${\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x})$
+
+${\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}^2({\color{teal}x}) = {\color{goldenrod}f}({\color{teal}x})$
+
+${\color{#c0392b}f}^{-1}({\color{teal}x})\,{\color{goldenrod}f}({\color{teal}x}) = {\color{goldenrod}f}^0({\color{teal}x})$
+
+:::
+
+:::
+
+## Cálculo de la función inversa {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.6em; font-size:1.1em;"}
+
+[Para calcular la inversa a mano (¡o con sympy!):]{style="color:#c0392b; font-weight:bold;"}
+
+1) Expresa la función como ${\color{goldenrod}y} = \ldots$
+
+2) Despeja ${\color{teal}x}$
+
+3) Intercambia ${\color{teal}x}$ e ${\color{goldenrod}y}$
+
+:::
+
+## Cálculo de la inversa: ejemplo {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:flex-start; flex:1; min-height:0; padding-right:3em; padding-left:3.5em; padding-top:0.8em; gap:0.9em; font-size:1.18em;"}
+
+::: {style="text-align:center; padding-left:1em;"}
+${\color{goldenrod}f}({\color{teal}x}) = 2{\color{teal}x} + 3$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="display:flex; flex-direction:row; align-items:center; gap:0.7em;"}
+
+::: {style="color:#B8860B; font-weight:bold; min-width:4em;"}
+Paso 1
+:::
+
+::: {style="color:#B8860B; font-size:1.6em; line-height:0.75; font-weight:300;"}
+{
+:::
+
+::: {}
+${\color{maroon}y} = 2{\color{teal}x} + 3$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="display:flex; flex-direction:row; align-items:center; gap:0.7em;"}
+
+::: {style="color:#B8860B; font-weight:bold; min-width:4em;"}
+Paso 2
+:::
+
+::: {style="color:#B8860B; font-size:3.0em; line-height:0.75; font-weight:300;"}
+{
+:::
+
+::: {style="display:flex; flex-direction:column; gap:0.35em;"}
+
+${\color{maroon}y} - 3 = 2{\color{teal}x}$
+
+$({\color{maroon}y} - 3)/2 = {\color{teal}x}$
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="display:flex; flex-direction:row; align-items:center; gap:0.7em;"}
+
+::: {style="color:#B8860B; font-weight:bold; min-width:4em;"}
+Paso 3
+:::
+
+::: {style="color:#B8860B; font-size:1.6em; line-height:0.75; font-weight:300;"}
+{
+:::
+
+::: {}
+$({\color{teal}x} - 3)/2 = {\color{maroon}y} = {\color{maroon}f}^{-1}({\color{teal}x})$
+:::
+
+:::
+
+:::
+
+## Cálculo de la inversa mediante álgebra {.title-line}
+
 ```{python}
 #| echo: false
-_plot_inf()
+import numpy as np
+import matplotlib.pyplot as plt
+
+_CGINV2 = '#B8860B'
+_CRINV2 = '#c0392b'
+
+def _inv_plot_sin():
+    th = np.linspace(-1, 1, 500)
+    fig, ax = plt.subplots(figsize=(7.5, 6.0))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.plot(th, np.sin(2*np.pi*th), color=_CGINV2, lw=2.5, label='$f(\\theta)$')
+    ax.plot(th, np.arcsin(th)/(2*np.pi), color=_CRINV2, lw=2.5, label='$f^{-1}(\\theta)$')
+    ax.axhline(0, color='#bbb', lw=0.8); ax.axvline(0, color='#bbb', lw=0.8)
+    ax.set_xlim(-1, 1); ax.set_ylim(-1.15, 1.15)
+    ax.tick_params(labelsize=9)
+    ax.legend(fontsize=10, loc='upper right')
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+    plt.tight_layout(pad=0.4)
+    plt.show()
+
+def _inv_plot_poly():
+    xp = np.linspace(-2.5, 2.5, 400)
+    xpi = np.linspace(4, 20, 400)
+    fig, ax = plt.subplots(figsize=(7.5, 6.0))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.plot(xp, 3*xp**2 + 4, color=_CGINV2, lw=2.5, label='$f(x)$')
+    ax.plot(xpi, np.sqrt((xpi - 4) / 3), color=_CRINV2, lw=2.5, label='$f^{-1}(x)$')
+    ax.axhline(0, color='#bbb', lw=0.8); ax.axvline(0, color='#bbb', lw=0.8)
+    ax.set_xlim(-4, 6); ax.set_ylim(-5, 21)
+    ax.tick_params(labelsize=9)
+    ax.legend(fontsize=10, loc='upper right')
+    ax.spines['top'].set_visible(False); ax.spines['right'].set_visible(False)
+    plt.tight_layout(pad=0.4)
+    plt.show()
 ```
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}\theta}) = \sin(2\pi{\color{teal}\theta})$
+
 :::
 
-::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; align-items:center; justify-content:center;"}
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; gap:0.65em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}\theta}) = \sin(2\pi{\color{teal}\theta})$
+
+$\arcsin({\color{maroon}y}) = 2\pi{\color{teal}\theta}$
+
+$\dfrac{\arcsin({\color{maroon}y})}{2\pi} = {\color{teal}\theta}$
+
+$\dfrac{\arcsin({\color{teal}\theta})}{2\pi} = {\color{maroon}f}^{-1}({\color{teal}\theta})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:row; align-items:flex-start; gap:1em;"}
+
+::: {style="flex:0 0 44%; display:flex; flex-direction:column; padding-left:2.5em; padding-top:0.9em; gap:0.65em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}\theta}) = \sin(2\pi{\color{teal}\theta})$
+
+$\arcsin({\color{maroon}y}) = 2\pi{\color{teal}\theta}$
+
+$\dfrac{\arcsin({\color{maroon}y})}{2\pi} = {\color{teal}\theta}$
+
+$\dfrac{\arcsin({\color{teal}\theta})}{2\pi} = {\color{maroon}f}^{-1}({\color{teal}\theta})$
+
+:::
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:center;"}
+
 ```{python}
 #| echo: false
-_plot_rem()
+_inv_plot_sin()
+```
+
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}\theta}) = 2{\color{teal}\theta}\sin(2\pi{\color{teal}\theta})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; gap:0.65em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}\theta}) = 2{\color{teal}\theta}\sin(2\pi{\color{teal}\theta})$
+
+$\arcsin\!\left(\dfrac{{\color{maroon}y}}{2{\color{teal}\theta}}\right) = 2\pi{\color{teal}\theta}$
+
+$\dfrac{\arcsin\!\left(\frac{{\color{maroon}y}}{2{\color{teal}\theta}}\right)}{2\pi} = {\color{teal}\theta}$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = 3{\color{teal}x}^2 + 4$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:flex-start; justify-content:flex-start; padding-left:2.5em; padding-top:0.9em; gap:0.55em; font-size:1.2em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = 3{\color{teal}x}^2 + 4$
+
+${\color{maroon}y} - 4 = 3{\color{teal}x}^2$
+
+$\dfrac{{\color{maroon}y} - 4}{3} = {\color{teal}x}^2$
+
+$\sqrt{\dfrac{{\color{maroon}y} - 4}{3}} = {\color{teal}x}$
+
+$\sqrt{\dfrac{{\color{teal}x} - 4}{3}} = {\color{maroon}f}^{-1}({\color{teal}x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=7 style="background:white; width:100%; height:100%; display:flex; flex-direction:row; align-items:flex-start; gap:1em;"}
+
+::: {style="flex:0 0 44%; display:flex; flex-direction:column; padding-left:2.5em; padding-top:0.9em; gap:0.55em; font-size:1.0em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = 3{\color{teal}x}^2 + 4$
+
+${\color{maroon}y} - 4 = 3{\color{teal}x}^2$
+
+$\dfrac{{\color{maroon}y} - 4}{3} = {\color{teal}x}^2$
+
+$\sqrt{\dfrac{{\color{maroon}y} - 4}{3}} = {\color{teal}x}$
+
+$\sqrt{\dfrac{{\color{teal}x} - 4}{3}} = {\color{maroon}f}^{-1}({\color{teal}x})$
+
+:::
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:center;"}
+
+```{python}
+#| echo: false
+_inv_plot_poly()
+```
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Dominios y rangos de funciones inversas {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:0.9em; font-size:1.25em;"}
+
+::: {style="display:flex; flex-direction:row; align-items:center;"}
+
+::: {style="width:7em; text-align:center; color:#c0392b; font-weight:bold; font-size:1.35em;"}
+$f(x)$
+:::
+
+::: {style="width:6em;"}
+:::
+
+::: {style="width:7em; text-align:center; color:#c0392b; font-weight:bold; font-size:1.35em;"}
+$f^{-1}(x)$
+:::
+
+:::
+
+::: {style="display:flex; flex-direction:row; align-items:center;"}
+
+::: {style="width:7em; text-align:center; color:#1a5276; font-weight:bold;"}
+Dominio
+:::
+
+::: {style="width:6em; text-align:center; color:#1a5276;"}
+$\longrightarrow$
+:::
+
+::: {style="width:7em; text-align:center; color:#1a5276; font-weight:bold;"}
+Rango
+:::
+
+:::
+
+::: {style="display:flex; flex-direction:row; align-items:center;"}
+
+::: {style="width:7em; text-align:center; color:#1a5276; font-weight:bold;"}
+Rango
+:::
+
+::: {style="width:6em; text-align:center; color:#1a5276;"}
+$\longrightarrow$
+:::
+
+::: {style="width:7em; text-align:center; color:#1a5276; font-weight:bold;"}
+Dominio
+:::
+
+:::
+
+:::
+
+## Intuición: 2 de la función inversa {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatch
+
+def _hd_out(ax, cx, cy, r=0.48):
+    ax.add_patch(mpatch.Circle((cx, cy), r, fill=False,
+                               ec='#4169E1', lw=3, zorder=3))
+
+def _hd_cap(ax, cx, cy, r=0.48):
+    ax.add_patch(mpatch.Circle((cx, cy), r, fc='#2255cc',
+                               ec='#4169E1', lw=2, zorder=3))
+    ax.add_patch(mpatch.FancyBboxPatch(
+        (cx - r*0.85, cy + r*0.62), r*1.7, r*0.32,
+        boxstyle='round,pad=0.02', fc='#112299',
+        ec='#112299', zorder=4))
+
+def _arr2(ax, x1, y1, x2, y2, lbl=''):
+    ann = ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
+                      arrowprops=dict(arrowstyle='-|>', color='#4169E1',
+                                     lw=3, mutation_scale=30))
+    ann.arrow_patch.set_zorder(10)
+    if lbl:
+        ax.text((x1+x2)/2, (y1+y2)/2 + 0.28, f'${lbl}$',
+                ha='center', va='center', fontsize=15,
+                color='#666', style='italic')
+
+def _inv2(d, m):
+    fig, ax = plt.subplots(figsize=(8.0, 4.5))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 8); ax.set_ylim(0, 4.5); ax.axis('off')
+    dy, r = 3.2, 0.52
+    dx1, dx2, dx3 = 1.0, 3.8, 6.6
+    my = 1.35
+    mx1, mx2, mx3 = 1.0, 3.8, 6.6
+    tk = dict(ha='center', va='center', fontsize=28,
+              color='#555', style='italic', weight='bold')
+    # === DIAGRAM ===
+    if d >= 1:
+        _hd_out(ax, dx1, dy, r)
+    if d >= 2:
+        _arr2(ax, dx1+r+0.08, dy, dx2-r-0.08, dy, 'f')
+        _hd_cap(ax, dx2, dy, r)
+    if d >= 3:
+        _arr2(ax, dx2+r+0.08, dy, dx3-r-0.08, dy, 'g')
+        if d == 3:
+            _hd_cap(ax, dx3, dy, r)
+        else:
+            _hd_out(ax, dx3, dy, r)
+    # === MATH ROW ===
+    if m >= 1:
+        ax.text(mx1, my, '$x$', **tk)
+    if m >= 2:
+        _arr2(ax, mx1+0.42, my, mx2-0.58, my, 'f')
+        ax.text(mx2, my, '$x^2$', **tk)
+    if m >= 3:
+        _arr2(ax, mx2+0.62, my, mx3-0.42, my, 'g')
+        ax.text(mx3, my, '$x$', **tk)
+    if m >= 4:
+        lx = (mx1 + mx2) / 2
+        ax.text(lx, my - 0.42, '$f(x)$', ha='center', va='top',
+                fontsize=12, color='#888')
+        ax.text(lx, my - 0.78, '$x^2$', ha='center', va='top',
+                fontsize=12, color='#888')
+    if m >= 5:
+        lx2 = (mx2 + mx3) / 2
+        ax.text(lx2, my - 0.42, '$g(x)$', ha='center', va='top',
+                fontsize=12, color='#888')
+        ax.text(lx2, my - 0.78, r'$\sqrt{x}$', ha='center', va='top',
+                fontsize=12, color='#888')
+    plt.tight_layout(pad=0.2)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:0.5em; align-items:flex-start; padding-top:0.3em;"}
+
+::: {style="flex:0 0 58%; display:flex; flex-direction:column; gap:0.3em;"}
+
+[¿Qué es una inversa?]{style="color:#aaa; font-size:0.95em;"}
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(0, 0)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(1, 0)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(2, 0)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(3, 0)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(4, 0)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(4, 1)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(4, 2)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=7 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(4, 3)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=10 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(4, 4)
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=11 style="background:white; width:100%; height:100%;"}
+
+```{python}
+#| echo: false
+_inv2(4, 5)
+```
+
+:::
+
+:::
+
+:::
+
+::: {style="flex:1; display:flex; flex-direction:column; justify-content:flex-start; padding-top:2em; gap:0.7em; font-size:1.0em; color:#666; font-style:italic;"}
+
+::: {.fragment .fade-in data-fragment-index=8}
+$g(x)$ y $f(x)$ son inversas
+:::
+
+::: {.fragment .fade-in data-fragment-index=9}
+$g(x) = f^{-1}(x)$
+:::
+
+::: {.fragment .fade-in data-fragment-index=10}
+$g(f(x)) = x$
+:::
+
+::: {.fragment .fade-in data-fragment-index=11}
+$\sqrt{x^2}= x$
+:::
+
+::: {.fragment .fade-in data-fragment-index=12}
+Para $x > 0$
+:::
+
+:::
+
+:::
+
+## Función simétrica par e impar {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; flex:1; min-height:0; padding-right:3em; padding-left:0.5em; gap:0.5em; font-size:1.25em;"}
+
+[En esta presentación, aprenderás]{style="color:#B8860B; font-size:1.1em; font-weight:bold;"}
+
+- [Qué significa que una función sea «par» o «impar».]{style="color:#c0392b; font-weight:bold;"}
+- [Cómo determinar si una función es par o impar a partir de su geometría y su álgebra.]{style="color:#1a5276; font-weight:bold;"}
+- [Que no todas las funciones son pares o impares.]{style="color:#1a5276; font-weight:bold;"}
+
+:::
+
+
+## Función simétrica: intuición gráfica {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+def _sym_plots():
+    x = np.linspace(-2.5, 2.5, 300)
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8.5, 10.5),
+                                    gridspec_kw={'hspace': 0.55})
+    fig.patch.set_facecolor('white')
+    for ax in (ax1, ax2):
+        ax.set_facecolor('white')
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+        ax.tick_params(left=False, labelleft=False, bottom=False)
+        ax.axhline(0, color='black', lw=1.2)
+        ax.axvline(0, color='black', lw=1.2)
+    ax1.plot(x, x**2, color='#B8860B', lw=2.5)
+    ax1.set_xlim(-2.5, 2.5); ax1.set_ylim(-0.5, 7.0)
+    ax1.set_xticks([0]); ax1.tick_params(labelbottom=True, labelsize=11)
+    ax2.plot(x, x**3 - 4*x, color='#B8860B', lw=2.5)
+    ax2.set_xlim(-2.5, 2.5); ax2.set_ylim(-6.5, 6.5)
+    ax2.set_xticks([0]); ax2.tick_params(labelbottom=True, labelsize=11)
+    plt.tight_layout(pad=0.4)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:0.3em; align-items:stretch; padding-top:0.2em;"}
+
+::: {style="flex:0 0 11%; display:flex; flex-direction:column; font-size:0.95em; font-weight:bold; color:#B8860B;"}
+
+::: {.fragment .fade-in data-fragment-index=2 style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;"}
+Función par
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;"}
+Función impar
+:::
+
+:::
+
+::: {style="flex:0 0 36%; display:flex; align-items:center;"}
+
+```{python}
+#| echo: false
+_sym_plots()
+```
+
+:::
+
+::: {style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.1em; gap:0.25em; font-size:0.95em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^2$
+
+::: {.fragment .fade-in data-fragment-index=1}
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^2 = {\color{teal}x}^2$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+${\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})$
+:::
+
+::: {style="margin-top:0.5em; display:flex; flex-direction:column; align-items:center; gap:0.35em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 - 4{\color{teal}x}$
+
+
+::: {.fragment .fade-in data-fragment-index=3}
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 - 4({\color{maroon}-x})$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4}
+$= -{\color{teal}x}^3 + 4{\color{teal}x}$
+:::
+
+::: {.fragment .fade-in data-fragment-index=5}
+$= -({\color{teal}x}^3 - 4{\color{teal}x})$
+:::
+
+::: {.fragment .fade-in data-fragment-index=6}
+${\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})$
+:::
+
+:::
+
+:::
+
+:::
+
+## Función simétrica: intuición gráfica {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+
+def _sym_trig():
+    x = np.linspace(-2*np.pi, 2*np.pi, 400)
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8.5, 10.5),
+                                    gridspec_kw={'hspace': 0.55})
+    fig.patch.set_facecolor('white')
+    for ax in (ax1, ax2):
+        ax.set_facecolor('white')
+        for sp in ax.spines.values():
+            sp.set_visible(False)
+        ax.tick_params(left=False, labelleft=False, bottom=False)
+        ax.axhline(0, color='black', lw=1.2)
+        ax.axvline(0, color='black', lw=1.2)
+    ax1.plot(x, np.cos(x), color='#B8860B', lw=2.5)
+    ax1.set_xlim(-2*np.pi, 2*np.pi); ax1.set_ylim(-1.3, 1.3)
+    ax1.set_xticks([0]); ax1.tick_params(labelbottom=True, labelsize=11)
+    ax2.plot(x, np.sin(x), color='#B8860B', lw=2.5)
+    ax2.set_xlim(-2*np.pi, 2*np.pi); ax2.set_ylim(-1.3, 1.3)
+    ax2.set_xticks([0]); ax2.tick_params(labelbottom=True, labelsize=11)
+    plt.tight_layout(pad=0.4)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:row; flex:1; min-height:0; padding-right:3em; gap:0.3em; align-items:stretch; padding-top:0.2em;"}
+
+::: {style="flex:0 0 11%; display:flex; flex-direction:column; font-size:0.95em; font-weight:bold; color:#B8860B;"}
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;"}
+::: {.fragment .fade-in data-fragment-index=3}
+Función par
+:::
+:::
+
+::: {style="flex:1; display:flex; align-items:center; justify-content:flex-end; padding-right:0.4em; text-align:right; line-height:1.3;"}
+::: {.fragment .fade-in data-fragment-index=6}
+
+Función impar
+:::
+:::
+
+:::
+
+::: {style="flex:0 0 36%; display:flex; align-items:center;"}
+
+```{python}
+#| echo: false
+_sym_trig()
+```
+
+:::
+
+::: {style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.1em; gap:0.25em; font-size:0.95em;"}
+
+::: {.fragment .fade-in data-fragment-index=1}
+${\color{goldenrod}f}({\color{teal}\phi}) = \cos({\color{teal}\phi})$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+${\color{goldenrod}f}({\color{teal}\pi/3}) = 1/2$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3}
+${\color{goldenrod}f}({\color{maroon}-\pi/3}) = 1/2$
+:::
+
+::: {style="margin-top:0.5em; display:flex; flex-direction:column; align-items:center; gap:0.25em;"}
+
+::: {.fragment .fade-in data-fragment-index=4}
+${\color{goldenrod}f}({\color{teal}\phi}) = \sin({\color{teal}\phi})$
+:::
+
+::: {.fragment .fade-in data-fragment-index=5}
+${\color{goldenrod}f}({\color{teal}\pi/3}) = \sqrt{3}/2$
+:::
+
+::: {.fragment .fade-in data-fragment-index=6}
+${\color{goldenrod}f}({\color{maroon}-\pi/3}) = -\sqrt{3}/2$
+:::
+
+:::
+
+:::
+
+:::
+
+## Definiciones de simetría de funciones {.title-line}
+
+::: {style="display:flex; flex-direction:column; justify-content:center; align-items:center; flex:1; min-height:0; padding-right:3em; gap:1.1em; font-size:1.35em;"}
+
+::: {style="display:grid; grid-template-columns: auto auto; column-gap:2.5em; row-gap:0.7em; align-items:center;"}
+
+${\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})$
+
+[:  par]{style="color:#777;"}
+
+${\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})$
+
+[:  impar]{style="color:#777;"}
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="display:grid; grid-template-columns: auto auto; column-gap:2.5em; row-gap:0.7em; align-items:center;"}
+
+${\color{goldenrod}f}({\color{maroon}-x}) \neq {\color{goldenrod}f}({\color{teal}x})$
+
+[:  ni par ni impar]{style="color:#777;"}
+
+${\color{goldenrod}f}({\color{maroon}-x}) \neq -{\color{goldenrod}f}({\color{teal}x})$
+
+[:  ni par ni impar]{style="color:#777;"}
+
+:::
+
+:::
+
+## Árbol de funciones simétricas {.title-line}
+
+```{python}
+#| echo: false
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatch
+
+def _sym_tree():
+    fig, ax = plt.subplots(figsize=(9.5, 6.8))
+    fig.patch.set_facecolor('white'); ax.set_facecolor('white')
+    ax.set_xlim(0, 9.5); ax.set_ylim(0, 7.2); ax.axis('off')
+
+    _CG = '#B8860B'
+    _CN = '#1a237e'
+    _CR = '#c0392b'
+    _CT = '#17a589'
+
+    def box(cx, cy, w, h, color, text, fs=19):
+        ax.add_patch(mpatch.FancyBboxPatch(
+            (cx-w/2, cy-h/2), w, h,
+            boxstyle='round,pad=0.12', fill=False,
+            edgecolor=color, linewidth=2.5, linestyle='--', zorder=3))
+        ax.text(cx, cy, text, ha='center', va='center',
+                fontsize=fs, color=color, fontweight='bold', zorder=4)
+
+    def tree(x_top, y_top, y_branch, children, color, lw=2.3):
+        ax.plot([x_top, x_top], [y_top, y_branch],
+                color=color, lw=lw, zorder=2, solid_capstyle='butt')
+        xs = [c[0] for c in children]
+        ax.plot([min(xs), max(xs)], [y_branch, y_branch],
+                color=color, lw=lw, zorder=2)
+        for cx, cy_top in children:
+            ax.plot([cx, cx], [y_branch, cy_top + 0.18],
+                    color=color, lw=lw, zorder=2, solid_capstyle='butt')
+            ax.annotate('', xy=(cx, cy_top), xytext=(cx, cy_top + 0.18),
+                        arrowprops=dict(arrowstyle='-|>', color=color,
+                                       lw=lw, mutation_scale=18))
+
+    # Nodos
+    f_cx, f_cy, f_h = 4.75, 6.0, 0.78
+    s_cx, s_cy, s_h = 2.4, 3.9, 0.78
+    n_cx, n_cy, n_h = 7.3, 3.9, 0.78
+    p_cx, p_cy, p_h = 1.4, 1.7, 0.68
+    i_cx, i_cy, i_h = 3.4, 1.7, 0.68
+
+    box(f_cx, f_cy, 2.6, f_h, _CG, 'Función', 20)
+    box(s_cx, s_cy, 2.8, s_h, _CN, 'Simétrica', 19)
+    box(n_cx, n_cy, 3.2, n_h, _CR, 'No simétrica', 18)
+    box(p_cx, p_cy, 1.8, p_h, _CT, 'Par', 18)
+    box(i_cx, i_cy, 1.8, p_h, _CT, 'Impar', 18)
+
+    # Conexiones
+    tree(f_cx, f_cy - f_h/2, 4.55,
+         [(s_cx, s_cy + s_h/2), (n_cx, n_cy + n_h/2)], _CG)
+    tree(s_cx, s_cy - s_h/2, 2.8,
+         [(p_cx, p_cy + p_h/2), (i_cx, i_cy + i_h/2)], _CN)
+
+    plt.tight_layout(pad=0.2)
+    plt.show()
+```
+
+::: {style="display:flex; flex-direction:column; align-items:center; justify-content:center; flex:1; min-height:0; padding-right:3em;"}
+
+```{python}
+#| echo: false
+_sym_tree()
+```
+
+:::
+
+## Determinación de simetría mediante álgebra {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {style="color:#B8860B; font-weight:bold; font-size:1.1em; padding-top:0.35em; padding-left:0.4em;"}
+Calcula ${\color{goldenrod}f}({\color{maroon}-x})$ y compara con ${\color{goldenrod}f}({\color{teal}x})$ y $-{\color{goldenrod}f}({\color{teal}x})$
+:::
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+:::
+
+${\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+::: {style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;"}
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+:::
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^4 + {\color{maroon}|{-x}|}\cos({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= {\color{teal}x}^4 + |{\color{teal}x}|\cos({\color{teal}x})$
+:::
+
+::: {style="display:flex; flex-direction:row; align-items:center; gap:1.5em;"}
+
+::: {style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;"}
+${\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})$
+:::
+
+[Par]{style="color:#2471a3; font-weight:bold; font-size:1.05em;"}
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Determinación de simetría mediante álgebra {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {style="color:#B8860B; font-weight:bold; font-size:1.1em; padding-top:0.35em; padding-left:0.4em;"}
+Calcula ${\color{goldenrod}f}({\color{maroon}-x})$ y compara con ${\color{goldenrod}f}({\color{teal}x})$ y $-{\color{goldenrod}f}({\color{teal}x})$
+:::
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%;"}
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= -{\color{teal}x}^3 - \sin({\color{teal}x})$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= -{\color{teal}x}^3 - \sin({\color{teal}x})$
+:::
+
+::: {style="margin-left:2.2em;"}
+$= -({\color{teal}x}^3 + \sin({\color{teal}x}))$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=5 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= -{\color{teal}x}^3 - \sin({\color{teal}x})$
+:::
+
+::: {style="margin-left:2.2em;"}
+$= -({\color{teal}x}^3 + \sin({\color{teal}x}))$
+:::
+
+${\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=6 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+::: {style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;"}
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3 + \sin({\color{teal}x})$
+:::
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3 + \sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= -{\color{teal}x}^3 - \sin({\color{teal}x})$
+:::
+
+::: {style="margin-left:2.2em;"}
+$= -({\color{teal}x}^3 + \sin({\color{teal}x}))$
+:::
+
+::: {style="display:flex; flex-direction:row; align-items:center; gap:1.5em;"}
+
+::: {style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;"}
+${\color{goldenrod}f}({\color{maroon}-x}) = -{\color{goldenrod}f}({\color{teal}x})$
+:::
+
+[Impar]{style="color:#2471a3; font-weight:bold; font-size:1.05em;"}
+
+:::
+
+:::
+
+:::
+
+:::
+
+## Determinación de simetría mediante álgebra {.title-line}
+
+::: {style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em;"}
+
+::: {style="color:#B8860B; font-weight:bold; font-size:1.1em; padding-top:0.35em; padding-left:0.4em;"}
+Calcula ${\color{goldenrod}f}({\color{maroon}-x})$ y compara con ${\color{goldenrod}f}({\color{teal}x})$ y $-{\color{goldenrod}f}({\color{teal}x})$
+:::
+
+::: {.r-stack style="flex:1; min-height:0; width:100%;"}
+
+::: {style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})$
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= (-{\color{teal}x}^3)(-\sin({\color{teal}x}))$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})$
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= (-{\color{teal}x}^3)(-\sin({\color{teal}x}))$
+:::
+
+::: {style="margin-left:2.2em;"}
+$= {\color{teal}x}^3\sin({\color{teal}x})$
+:::
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background:white; width:100%; height:100%; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; padding-top:0.9em; gap:0.5em; font-size:1.12em;"}
+
+::: {style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;"}
+${\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^3\sin({\color{teal}x})$
+:::
+
+${\color{goldenrod}f}({\color{maroon}-x}) = ({\color{maroon}-x})^3\sin({\color{maroon}-x})$
+
+::: {style="margin-left:2.2em;"}
+$= (-{\color{teal}x}^3)(-\sin({\color{teal}x}))$
+:::
+
+::: {style="margin-left:2.2em;"}
+$= {\color{teal}x}^3\sin({\color{teal}x})$
+:::
+
+::: {style="display:flex; flex-direction:row; align-items:center; gap:1.5em;"}
+
+::: {style="border:2px dashed #2471a3; border-radius:6px; padding:0.1em 0.7em;"}
+${\color{goldenrod}f}({\color{maroon}-x}) = {\color{goldenrod}f}({\color{teal}x})$
+:::
+
+[Par]{style="color:#2471a3; font-weight:bold; font-size:1.05em;"}
+
+:::
+
+:::
+
+:::
+
+:::
+
+
+## Determinación de simetría mediante álgebra {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.4em; font-size: 1.15em; padding-right: 3em;"}
+
+Calcular ${\color{goldenrod}f}({\color{teal}-x})$ y comparar con ${\color{goldenrod}f}({\color{teal}x})$ y $-{\color{goldenrod}f}({\color{teal}x})$
+
+::: {.fragment .fade-in data-fragment-index=1}
+$$\displaystyle {\color{goldenrod}f}({\color{teal}x}) = {\color{teal}x}^{\color{maroon}3} + {\color{maroon}1}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=2}
+$$\displaystyle {\color{goldenrod}f}({\color{teal}-x}) = ({\color{teal}-x})^{\color{maroon}3} + {\color{maroon}1}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=3}
+$$\displaystyle \phantom{{\color{goldenrod}f}({\color{teal}-x})} = -{\color{teal}x}^{\color{maroon}3} + {\color{maroon}1}$$
+:::
+
+::: {.fragment .fade-in data-fragment-index=4}
+$$\displaystyle {\color{goldenrod}f}({\color{teal}-x}) \neq {\color{goldenrod}f}({\color{teal}x}) \neq -{\color{goldenrod}f}({\color{teal}x})$$
+:::
+
+:::
+
+## Determinación de simetría mediante álgebra {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1.2em; font-size: 1.35em; padding-right: 3em;margin-top:2em;"}
+
+Calcular ${\color{goldenrod}f}({\color{teal}-x})$ y comparar con ${\color{goldenrod}f}({\color{teal}x})$ y $-{\color{goldenrod}f}({\color{teal}x})$
+
+::: {.fragment .fade-in data-fragment-index=1}
+Y sustituir algunos valores de ${\color{teal}x}$ para confirmar.
+:::
+
+:::
+
+## Determinando la simetría usando la geometría {.title-line}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import matplotlib.pyplot as plt
+import numpy as np
+
+def _setup_ax(ax, xlim=(-5, 5)):
+    ax.set_xlim(xlim)
+    ax.spines['top'].set_visible(False)
+    ax.spines['right'].set_visible(False)
+    ax.spines['left'].set_position(('data', 0))
+    ax.spines['bottom'].set_position(('data', 0))
+    ax.tick_params(labelsize=7)
+
+def _draw_symmetry_even(ax, y_pos, arrow_y):
+    """Dibuja línea vertical punteada y flecha horizontal roja para simetría par"""
+    ax.axvline(x=0, color='#c0392b', linestyle='--', linewidth=1, alpha=0.7)
+    ax.annotate('', xy=(-2.5, arrow_y), xytext=(2.5, arrow_y),
+                arrowprops=dict(arrowstyle='<->', color='#8b0000', lw=3))
+
+def _draw_symmetry_odd(ax, y_pos, arrow_y):
+    """Dibuja línea vertical punteada, flecha horizontal roja y flecha vertical azul para simetría impar"""
+    ax.axvline(x=0, color='#c0392b', linestyle='--', linewidth=1, alpha=0.7)
+    ax.axhline(y=0, color='#2e8b57', linestyle='--', linewidth=1, alpha=0.7)
+    ax.annotate('', xy=(-2.5, arrow_y), xytext=(2.5, arrow_y),
+                arrowprops=dict(arrowstyle='<->', color='#8b0000', lw=3))
+    ax.annotate('', xy=(0, -y_pos*0.8), xytext=(0, y_pos*0.8),
+                arrowprops=dict(arrowstyle='<->', color='#1f5f8b', lw=3))
+
+x = np.linspace(-5, 5, 400)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em;"}
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;"}
+::: {style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(0, 30)
+y = x**2
+ax.plot(x, y, color='#b8a642', linewidth=2)
+ax.set_title(r'$y = x^2$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([0, 10, 20, 30])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.cos(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+ax.set_title(r'$y = \cos(x)$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
 ```
 :::
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;"}
+::: {style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(0, 30)
+y = x**2
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 15, 15)
+ax.set_title(r'$y = x^2$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([0, 10, 20, 30])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.cos(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 0.5, 0.5)
+ax.set_title(r'$y = \cos(x)$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;"}
+::: {style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(0, 30)
+y = x**2
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 15, 15)
+ax.set_title(r'$y = x^2$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([0, 10, 20, 30])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-120, 120)
+y = x**3
+ax.plot(x, y, color='#b8a642', linewidth=2)
+ax.set_title(r'$y = x^3$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-100, 0, 100])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.cos(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 0.5, 0.5)
+ax.set_title(r'$y = \cos(x)$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.sin(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+ax.set_title(r'$y = \sin(x)$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;"}
+::: {style="display: grid; grid-template-columns: 1fr 1fr; gap: 1em; width: 90%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(0, 30)
+y = x**2
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 15, 15)
+ax.set_title(r'$y = x^2$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([0, 10, 20, 30])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-120, 120)
+y = x**3
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_odd(ax, 60, 60)
+ax.set_title(r'$y = x^3$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-100, 0, 100])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.cos(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 0.5, 0.5)
+ax.set_title(r'$y = \cos(x)$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.sin(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_odd(ax, 0.5, 0.5)
+ax.set_title(r'$y = \sin(x)$', color='#b8a642', fontsize=10)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+:::
+
+::: {.fragment .fade-in data-fragment-index=4 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 0.5em;"}
+::: {style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.8em; width: 95%;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(0, 30)
+y = x**2
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 15, 15)
+ax.set_title(r'$y = x^2$', color='#b8a642', fontsize=9)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([0, 10, 20, 30])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-120, 120)
+y = x**3
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_odd(ax, 60, 60)
+ax.set_title(r'$y = x^3$', color='#b8a642', fontsize=9)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-100, 0, 100])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-5, 150)
+y = np.exp(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+ax.axhline(y=0, color='#2e8b57', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=0, color='#c0392b', linestyle='--', linewidth=1, alpha=0.7)
+ax.set_title(r'$y = e^x$', color='#b8a642', fontsize=9)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([0, 50, 100, 150])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.cos(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_even(ax, 0.5, 0.5)
+ax.set_title(r'$y = \cos(x)$', color='#b8a642', fontsize=9)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.sin(x)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+_draw_symmetry_odd(ax, 0.5, 0.5)
+ax.set_title(r'$y = \sin(x)$', color='#b8a642', fontsize=9)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+
+```{python}
+#| echo: false
+#| results: 'hide'
+fig, ax = plt.subplots(figsize=(4.2, 3.2))
+_setup_ax(ax, (-5, 5))
+ax.set_ylim(-1.5, 1.5)
+y = np.sin(x + np.cos(x)**2)
+ax.plot(x, y, color='#b8a642', linewidth=2)
+ax.axhline(y=0, color='#2e8b57', linestyle='--', linewidth=1, alpha=0.7)
+ax.axvline(x=0, color='#c0392b', linestyle='--', linewidth=1, alpha=0.7)
+ax.set_title(r'$y = \sin(x + \cos(x)^2)$', color='#b8a642', fontsize=9)
+ax.set_xticks([-5, 0, 5])
+ax.set_yticks([-1, 0, 1])
+plt.tight_layout(pad=0.3)
+plt.show()
+```
+:::
+:::
+
+:::
+:::
+
+## ¿A quién le importa la simetría? {.title-line}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1em; font-size: 1.45em; padding-right: 3em; text-align: center;font-weight: bold;"}
+
+::: {.fragment .fade-in data-fragment-index=1 style="color: #b8a642; max-width: 80%;"}
+Las funciones pares e impares tienen propiedades especiales que son relevantes para derivadas e integrales.
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="color: #8b4513; max-width: 80%;"}
+También son útiles para graficar y comprender el comportamiento de las funciones.
+:::
 
 :::
 
+## Descomponiendo la simetría {.title-line}
+
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 1.5em; font-size: 1.45em; padding-right: 3em; text-align: center;"}
+
+$$\displaystyle {\color{goldenrod}f}({\color{teal}x}) = \frac{{\color{goldenrod}f}_{\color{goldenrod}e}({\color{teal}x}) + {\color{goldenrod}f}_{\color{goldenrod}e}({\color{teal}-x})}{2} + \frac{{\color{goldenrod}f}_{\color{maroon}o}({\color{teal}x}) - {\color{goldenrod}f}_{\color{maroon}o}({\color{teal}-x})}{2}$$
+
+::: {.fragment .fade-in data-fragment-index=1 style="color: navy; font-size: 1.45em; font-style: italic; max-width: 85%;"}
+Toda función puede expresarse como la suma de una función par y una función impar.
 :::
 
 :::

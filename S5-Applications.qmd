@@ -44,21 +44,15 @@ use_python("/opt/anaconda3/bin/python")
 
 ## Aplicaciones: Resumen de la sección y objetivos {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.7em;margin-top:0em"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-En esta presentación, aprenderás
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {.fragment .fade-in data-fragment-index=1 style="color: #c0392b;"}
-● Cómo las derivadas hacen que los problemas difíciles sean más fáciles.
-:::
+- [Cómo las derivadas hacen que los problemas difíciles sean más fáciles.]{style="color: #c0392b;"}
 
-::: {.fragment .fade-in data-fragment-index=2 style="color: navy;"}
-● Cómo usar las derivadas para resolver problemas difíciles.
-:::
+- [Cómo usar las derivadas para resolver problemas difíciles.]{style="color: navy;"}
 
-::: {.fragment .fade-in data-fragment-index=3 style="color: teal;"}
-● Cómo resolver problemas complejos utilizando derivadas.
-:::
+- [Cómo resolver problemas complejos utilizando derivadas.]{style="color: teal;"}
 
 :::
 
@@ -118,21 +112,16 @@ $\Rightarrow$
 
 ## ¡Funciones corriendo al infinito y más allá! {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.7em;margin-top:0em"}
-En esta presentación, aprenderás
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {.fragment .fade-in data-fragment-index=1 style="color: #c0392b;"}
-● Cómo comparar qué tan rápido crecen las funciones hacia el infinito.
-::: 
+- [Cómo comparar qué tan rápido crecen las funciones hacia el infinito.]{style="color: #c0392b;"}
 
-::: {.fragment .fade-in data-fragment-index=2 style="color: navy;"}
-● Una aplicación de la regla de L'Hôpital.
-:::
+- [Una aplicación de la regla de L'Hôpital.]{style="color: navy;"}
 
-::: {.fragment .fade-in data-fragment-index=3 style="color: teal;"}
-● ¡Por qué $e^x$ crece hacia el infinito tan rápido!
-:::
+- [¡Por qué $e^x$ crece hacia el infinito tan rápido!]{style="color: teal;"}
+
 :::
 
 ## La carrera ha comenzado {.title-line}
@@ -315,27 +304,17 @@ $$\lim_{{\color{teal}x} \to \infty} \frac{{\color{goldenrod}f}'}{{\color{maroon}
 
 ## La prueba de la segunda derivada {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 3em; gap: 0.5em; font-size: 1.1em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="font-size: 1.2em; color: goldenrod; font-weight: bold; margin-bottom: 0.3em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {.fragment .fade-in data-fragment-index=1 style="color: #c0392b;"}
-- Qué es la prueba de la "segunda derivada".
-:::
+- [Qué es la prueba de la "segunda derivada".]{style="color: #c0392b;"}
 
-::: {.fragment .fade-in data-fragment-index=2 style="color: #1a5276;"}
-- Cómo usar la prueba de 2.' para evaluar un punto crítico.
-:::
+- [Cómo usar la prueba de 2.' para evaluar un punto crítico.]{style="color: navy;"}
 
-::: {.fragment .fade-in data-fragment-index=3 style="color: #148777;"}
-- Intuición de por qué funciona la prueba de 2.' (advertencia: no es muy intuitiva).
-:::
+- [Intuición de por qué funciona la prueba de 2.' (advertencia: no es muy intuitiva).]{style="color: teal;"}
 
-::: {.fragment .fade-in data-fragment-index=4 style="color: #117a65;"}
-- Cuándo y por qué la prueba de 2.' es inconclusa.
-:::
+- [Cuándo y por qué la prueba de 2.' es inconclusa.]{style="color: #c0392b;"}
 
 :::
 
@@ -874,23 +853,13 @@ plt.show()
 
 ## DesafioCode: Prueba de la 2da derivada {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; align-items: flex-start; flex: 1; min-height: 0; padding: 0.5em 3em; gap: 0.5em; font-size: 1.1em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="font-size: 1.2em; color: goldenrod; font-weight: bold; margin-bottom: 0.3em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="display: flex; flex-direction: column; gap: 0.3em; font-size: 1.05em;"}
+- [How to implement the second derivative test in python.]{style="color: #c0392b;"}
 
-::: {style="color: #c0392b;"}
-• How to implement the second derivative test in python.
-:::
-
-::: {style="color: navy;"}
-• More about working with sympy.
-:::
-
-:::
+- [More about working with sympy.]{style="color: navy;"}
 
 :::
 
@@ -1065,52 +1034,31 @@ $$f(2) > 0 \;\Longrightarrow\; f(2) \text{ es un mínimo local}$$
 
 ## Aproximación Lineal {.title-line}
 
-::: {style="font-size: 1.35em; padding: 0.5em 1em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="font-size: 1.2em; color: goldenrod; font-weight: bold; margin-bottom: 0.3em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="display: flex; flex-direction: column; gap: 0.3em; font-size: 1.05em;"}
+- [Qué significa aproximar linealmente una función.]{style="color: #c0392b;"}
 
-::: {style="color: #c0392b; margin-bottom: 0.3em;"}
-● Qué significa aproximar linealmente una función.
-:::
+- [Por qué son importantes las aproximaciones lineales.]{style="color: navy;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Por qué son importantes las aproximaciones lineales.
-:::
-
-::: {style="color: navy;"}
-● La fórmula para las aproximaciones lineales (pista: ¡involucra la derivada!).
-:::
-
-:::
+- [La fórmula para las aproximaciones lineales (pista: ¡involucra la derivada!).]{style="color: teal;"}
 
 :::
 
 ## ¿Qué es una aproximar linealmente Lineal? {.title-line}
 
-::: {style="font-size: 1.35em; padding: 0.5em 1em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod; font-weight: bold; margin-bottom: 0.5em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b; margin-bottom: 0.3em;"}
-● Las funciones no lineales pueden aproximarse bien mediante funciones lineales si $dx$ es "suficientemente pequeño".
-:::
+- [Las funciones no lineales pueden aproximarse bien mediante funciones lineales si $dx$ es "suficientemente pequeño".]{style="color: #c0392b;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Las funciones no lineales pueden ser difíciles de calcular, requieren mucho tiempo y son propensas a imprecisiones numéricas.
-:::
+- [Las funciones no lineales pueden ser difíciles de calcular, requieren mucho tiempo y son propensas a imprecisiones numéricas.]{style="color: navy;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Las funciones lineales son fáciles, rápidas y precisas.
-:::
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● (Las aproximaciones lineales eran extremadamente importantes antes de las computadoras, pero se siguen usando ahora).
-:::
+- [Las funciones lineales son fáciles, rápidas y precisas.]{style="color: teal;"}
+
+- [(Las aproximaciones lineales eran extremadamente importantes antes de las computadoras, pero se siguen usando ahora).]{style="color: #c0392b;"}
 
 :::
 
@@ -1829,23 +1777,15 @@ plot_lw_dark()
 
 ## El método de Newton para encontrar raíces {.title-line}
 
-::: {style="font-size: 1.35em; padding: 0.5em 1em; line-height: 1.6;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod; font-weight: bold; margin-bottom: 0.5em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b; margin-bottom: 0.3em;"}
-● Qué son las "raíces" de una función.
-:::
+- [Qué son las "raíces" de una función.]{style="color: #c0392b;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Cómo estimar raíces usando el método de Newton.
-:::
+- [Cómo estimar raíces usando el método de Newton.]{style="color: navy;"}
 
-::: {style="color: navy; margin-bottom: 0.3em;"}
-● Posibles escenarios de falla y estrategias de mitigación.
-:::
+- [Posibles escenarios de falla y estrategias de mitigación.]{style="color: teal;"}
 
 :::
 
@@ -2259,23 +2199,15 @@ F(x) no tiene raíces reales
 
 ## Resolución de problemas de optimización simple {.title-line}
 
-::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding: 0.5em 2.5em; gap: 0.65em; font-size: 1.2em; justify-content: center;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod; font-weight: bold; font-size: 1.1em;"}
-En esta presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b;"}
-● Un tipo típico de problema de cálculo de tarea/examen.
-:::
+- [Un tipo típico de problema de cálculo de tarea/examen.]{style="color: #c0392b;"}
 
-::: {style="color: navy;"}
-● Cómo resolver problemas de maximización.
-:::
+- [Cómo resolver problemas de maximización.]{style="color: navy;"}
 
-::: {style="color: teal;"}
-● Que plantear el problema suele ser la parte difícil.
-:::
+- [Que plantear el problema suele ser la parte difícil.]{style="color: teal;"}
 
 :::
 
@@ -2772,19 +2704,13 @@ Sin embargo, la visualización/*grid-search* no puede escalar a problemas multiv
 
 ## Optimizar para áreas de superficie {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.5em 3em; gap: 0.8em; font-size: 1.5em;font-weight: bold;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod;"}
-En este presentación, aprenderás
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-::: {style="color: #c0392b;"}
-● Adquirir experiencia con problemas simples de optimización.
-:::
+- [Adquirir experiencia con problemas simples de optimización.]{style="color: #c0392b;"}
 
-::: {style="color: steelblue;"}
-● Aprender sobre agricultores y jardineros ;)
-:::
+- [Aprender sobre agricultores y jardineros ;)]{style="color: navy;"}
 
 :::
 
@@ -3281,15 +3207,13 @@ $${\color{goldenrod} y} = \frac{400}{10\sqrt{3}} \approx 23.1$$
 
 ## Optimizar para volumen {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0.5em 3em; gap: 1.2em; font-size: 1.5em;font-weight: bold;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {style="color: goldenrod;"}
-En esta presentación vas a:
-:::
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
 - [Ganar más experiencia con problemas simples de optimización.]{style="color: #c0392b;"}
 
-- [Ver que pequeños cambios en la descripción del problema pueden llevar a cambios significativos en el resultado.]{style="color: steelblue;"}
+- [Ver que pequeños cambios en la descripción del problema pueden llevar a cambios significativos en el resultado.]{style="color: navy;"}
 
 :::
 
@@ -3792,14 +3716,13 @@ $${\color{teal} x}{\color{goldenrod} y} = 200/\sqrt[3]{400} \approx 27.14$$
 
 ## Descenso de gardiente {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 1em 2.5em; gap: 0.6em;font-size: 1.5em; font-weight: bold;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-
-
-[En esta presentación vas a aprender:]{style="color: goldenrod; font-weight: bold; font-size: 1.1em;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
 - [Qué significa el "descenso de gradiente" y por qué lo necesitamos.]{style="color: #c0392b;"}
-- [El algoritmo de descenso de gradiente.]{style="color: steelblue;"}
+
+- [El algoritmo de descenso de gradiente.]{style="color: navy;"}
 
 :::
 

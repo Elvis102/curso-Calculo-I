@@ -43,19 +43,20 @@ use_python("/opt/anaconda3/bin/python")
 
 # Derivada {.my-slide}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
+## Diferenciación: Resumen de la sección y objetivos {.title-line}
 
-## Diferenciación: Resumen de la sección y objetivos
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-En esta presentación, aprenderás:
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  - El concepto y definición de una "derivada" en cálculo.
+- [El concepto y definición de una "derivada" en cálculo.]{style="color: #c0392b;"}
 
-  - Terminología y notación de las derivadas.
+- [Terminología y notación de las derivadas.]{style="color: navy;"}
 
-  - Derivadas de la mayoría de las funciones.
+- [Derivadas de la mayoría de las funciones.]{style="color: teal;"}
 
-  - Puntos críticos.
+- [Puntos críticos.]{style="color: #c0392b;"}
+
 :::
 
 ## {auto-animate=true background-color="rgb(255, 255, 255)" .white-canvas}
@@ -82,14 +83,15 @@ En esta presentación, aprenderás:
 
 ## Pendiente de una recta {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
-En esta presentación, aprenderás:
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-   - El concepto y la definición de una pendiente.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-   - Por qué LA pendiente no es útil para muchas funciones.
+- [El concepto y la definición de una pendiente.]{style="color: #c0392b;"}
 
-   - El papel de los límites en el cálculo de la derivada.
+- [Por qué la pendiente no es útil para muchas funciones.]{style="color: navy;"}
+
+- [El papel de los límites en el cálculo de la derivada.]{style="color: teal;"}
 
 :::
 
@@ -752,16 +754,18 @@ $$\frac{dy}{dx} = \lim_{{\color{blue} h} \to {\color{maroon}{0}}}\left[\frac{f({
 
 :::
 
-## La derivada de una constante es 0 (demostración)
+## La derivada de una constante es 0 (demostración) {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
-En esta presentación
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  -  Demostrarás lo que dice el título...
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  -  Tendrás la oportunidad de ganar más experiencia con la definición de límite de las derivadas.
+- [Demostrarás lo que dice el título...]{style="color: #c0392b;"}
 
-  -  Aprenderás cómo usar la definición de derivadas en demostraciones.
+- [Tendrás la oportunidad de ganar más experiencia con la definición de límite de las derivadas.]{style="color: navy;"}
+
+- [Aprenderás cómo usar la definición de derivadas en demostraciones.]{style="color: teal;"}
+
 :::
 
 ## Derivada de una constante {.title-line}
@@ -798,13 +802,17 @@ $$= \lim_{{\color{blue} h} \to 0} \frac{{\color{red} c} - {\color{red} c}}{{\col
 
 ## Varias notaciones de la derivada {.title-line}
 
-En esta presentación, aprenderás:
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  -  Varias notaciones diferentes de diferenciación.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  -  Algunas ventajas y desventajas de cada notación.
+- [Varias notaciones diferentes de diferenciación.]{style="color: #c0392b;"}
 
-  -  La interpretación geométrica de la derivada.
+- [Algunas ventajas y desventajas de cada notación.]{style="color: navy;"}
+
+- [La interpretación geométrica de la derivada.]{style="color: teal;"}
+
+:::
 
 ## Diferentes notaciones de la derivada {.title-line}
 
@@ -1098,14 +1106,15 @@ plt.tight_layout(); plt.show()
 
 ## Interpretación de gráficas de derivadas {.title-line}
 
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em"}
-En este presentación, aprenderás:
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  - Cómo interpretar gráficas de derivadas.
+- [Cómo interpretar gráficas de derivadas.]{style="color: #c0392b;"}
 
-  - Que las gráficas de las funciones y sus derivadas no se ven necesariamente iguales.
-::: 
+- [Que las gráficas de las funciones y sus derivadas no se ven necesariamente iguales.]{style="color: navy;"}
+
+:::
 
 ## Gráfico de la función vs derivada {.title-line}
 
@@ -1427,22 +1436,26 @@ Los [cruces por cero de la derivada]{style="color: #1a237e;"} se denominan "punt
 
 ## Interpretación de gráficas de derivadas {.title-line}
 
-En esta presentación, has aprendido:
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  - [Cómo interpretar gráficas de derivadas.]{style="font-size: 1.5em; line-height: 1.5; color: #c0392b;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  - [Que las gráficas de las funciones y sus derivadas no se ven necesariamente iguales.]{style="font-size: 1.5em; line-height: 1.5; color: #1a237e;"}
+- [Cómo interpretar gráficas de derivadas.]{style="color: #c0392b;"}
+
+- [Que las gráficas de las funciones y sus derivadas no se ven necesariamente iguales.]{style="color: navy;"}
+
+:::
 
 
 
 
 ## Derivadas de polinomios {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 1em; font-size: 1.5em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-[En esta presentación, aprenderás]{style="color: goldenrod; font-size: 1.1em;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-- [[Un truco simple para calcular la derivada de expresiones polinómicas.]{style="color: #c0392b;"}]{style="color: #c0392b;"}
+- [Un truco simple para calcular la derivada de expresiones polinómicas.]{style="color: #c0392b;"}
 
 - [Que este "truco simple" en realidad se llama la "regla de la potencia."]{style="color: navy;"}
 
@@ -1682,11 +1695,11 @@ plt.show()
 
 ## Derivada de polinomios {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 1em; font-size: 1.15em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-[En esta presentación aprendiste]{style="color: goldenrod; font-size: 1.1em;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-- [[Un truco simple para calcular la derivada de expresiones polinómicas.]{style="color: #c0392b;"}]{style="color: #c0392b;"}
+- [Un truco simple para calcular la derivada de expresiones polinómicas.]{style="color: #c0392b;"}
 
 - [Que este "truco simple" en realidad se llama la "regla de la potencia."]{style="color: navy;"}
 
@@ -1698,15 +1711,16 @@ plt.show()
 
 
 
-## Linealidad de la diferenciación 
+## Linealidad de la diferenciación {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.4em;margin-top:0em"}
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-En esta presentación, aprenderás:
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  -  Que la diferenciación es una operación lineal, lo que significa que los múltiplos escalares y las sumas se pueden separar.
+- [Que la diferenciación es una operación lineal, lo que significa que los múltiplos escalares y las sumas se pueden separar.]{style="color: #c0392b;"}
 
-  - Cómo demostrar la linealidad en SymPy.
+- [Cómo demostrar la linealidad en SymPy.]{style="color: navy;"}
+
 :::
 
 ## Linealidad de la diferenciación {.title-line}
@@ -1884,17 +1898,18 @@ print(r'$$a\frac{d}{dx}(x^2) + b\frac{d}{dx}(\cos(x)) = ' + sym.latex(a*sym.diff
 
 :::
 
-## Derivadas de coseno y seno
+## Derivadas de coseno y seno {.title-line}
 
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em"}
-En esta presentación, aprenderás:
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  -  [El "círculo" de las derivadas trigonométricas.]{style="color: #b8860b;font-weight: bold;"}
+- [El "círculo" de las derivadas trigonométricas.]{style="color: #c0392b;"}
 
-  - [Intuición geométrica para las derivadas de seno y coseno.]{style="color: #c0392b; "}
+- [Intuición geométrica para las derivadas de seno y coseno.]{style="color: navy;"}
 
-  - [Que las demostraciones de derivadas pueden ser tediosas...]{style="color: #1a237e;"}
+- [Que las demostraciones de derivadas pueden ser tediosas...]{style="color: teal;"}
+
 :::
 
 ## Derivadas circulares {.title-line}
@@ -2114,16 +2129,18 @@ $$= \cos({\color{teal}x})$$
 
 [Fuente: Derivación de funciones trigonométricas - Wikipedia](https://es.wikipedia.org/wiki/Derivaci%C3%B3n_de_funciones_trigonom%C3%A9tricas)
 
-## Derivadas de valor absoluto y raíz cuadrada
+## Derivadas de valor absoluto y raíz cuadrada {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em"}
-En esta presentación, aprenderás
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  -  Derivadas de dos funciones comunes adicionales.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  - La notación y definición de la función "signum" (signo).
+- [Derivadas de dos funciones comunes adicionales.]{style="color: #c0392b;"}
 
-  - Una pista sobre la regla de la potencia.
+- [La notación y definición de la función "signum" (signo).]{style="color: navy;"}
+
+- [Una pista sobre la regla de la potencia.]{style="color: teal;"}
+
 :::
 
 
@@ -2272,16 +2289,18 @@ $$= \tfrac{1}{2}\,{\color{teal}x}^{-1/2}$$
 
 :::
 
-## Derivadas de log y exp
+## Derivadas de log y exp {.title-line}
 
-::: {.bg style="padding:0em; margin-top:0em; font-size:1.5em;margin-top:0em"}
-En esta presentación, aprenderás:
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  - La derivada del logaritmo natural.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  - La derivada del logaritmo en cualquier otra base.
+- [La derivada del logaritmo natural.]{style="color: #c0392b;"}
 
-  - La derivada de exp(x).
+- [La derivada del logaritmo en cualquier otra base.]{style="color: navy;"}
+
+- [La derivada de exp(x).]{style="color: teal;"}
+
 :::
 
 ## Derivadas de log y exp: {.title-line}
@@ -2450,9 +2469,9 @@ plt.tight_layout(); plt.show()
 
 ::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-[En este video, aprenderás]{style="color: goldenrod;"}
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-- [[Qué hace que un punto sea "crítico."]{style="color: #c0392b;"}]{style="color: #c0392b;"}
+- [Qué hace que un punto sea "crítico."]{style="color: #c0392b;"}
 
 - [Los diferentes tipos de puntos críticos.]{style="color: navy;"}
 
@@ -3311,15 +3330,19 @@ plt.tight_layout(); plt.show()
 
 # De donde vienen las matemáticas? {.title-line}
 
-## ¿Las matemáticas son descubiertas o inventadas?
+## ¿Las matemáticas son descubiertas o inventadas? {.title-line}
 
-En este presentación, aprenderás
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;"}
 
-  - Un antiguo debate filosófico sobre las matemáticas y la naturaleza.
+[En esta presentación, aprenderás]{style="color: goldenrod;"}
 
-  - Las posturas dominantes sobre el tema.
+- [Un antiguo debate filosófico sobre las matemáticas y la naturaleza.]{style="color: #c0392b;"}
 
-  - ¡¡¡LA RESPUESTA VERDADERA DEFINITIVA!!!! (es broma, jajaja)
+- [Las posturas dominantes sobre el tema.]{style="color: navy;"}
+
+- [¡¡¡LA RESPUESTA VERDADERA DEFINITIVA!!!! (es broma, jajaja)]{style="color: teal;"}
+
+:::
 
 ## Las matemáticas son como super gigantes {.tile-line}
 
