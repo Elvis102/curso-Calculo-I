@@ -1,0 +1,495 @@
+## Intuición de los límites {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+
+# ── Constantes compartidas ──────────────────────────────────────────
+C, L, EPS = 2.0, 1.5, 0.95
+D1, D2    = 0.40, 0.58          # δ₁ (izq) < δ₂ (der)
+D         = D1                   # δ = min(δ₁, δ₂)
+
+BLUE_Z = '#90c8f0'
+GOLD_Z = '#fffde7'
+RED_F  = '#c0392b'
+
+def _f(x):
+    return L + np.sin(2.0 * (x - C))
+
+def _base(ax, xlo, xhi):
+    ylo, yhi = 0.25, 2.75
+    ax.set_xlim(xlo, xhi); ax.set_ylim(ylo, yhi)
+    ax.set_xticks([]); ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_linewidth(0.5)
+
+    ax.axhspan(L + EPS, yhi,  alpha=0.40, color=BLUE_Z, zorder=0)
+    ax.axhspan(ylo, L - EPS,  alpha=0.40, color=BLUE_Z, zorder=0)
+
+    for y, col in [(L+EPS,'steelblue'),(L,'navy'),(L-EPS,'steelblue')]:
+        ax.axhline(y, color=col, ls='--', lw=0.9, zorder=1)
+    ax.axvline(C, color='gray', ls='--', lw=0.7, zorder=1)
+
+    xs = np.linspace(xlo, xhi, 800)
+    ys = _f(xs)
+    mask = np.abs(xs - C) > 0.011
+    ax.plot(xs[mask], ys[mask], color=RED_F, lw=1.5, zorder=2)
+    ax.plot(C, L, 'o', ms=6.5, mfc='white', mec=RED_F, mew=1.8, zorder=4)
+
+def _zona(ax, xlo, xhi):
+    mx = (xlo + xhi) / 2
+    ax.text(mx, L+EPS+0.11, 'Zona prohibida',
+            ha='center', va='bottom', fontsize=8.2, color='steelblue', fontweight='bold')
+    ax.text(mx, L-EPS-0.11, 'Zona prohibida',
+            ha='center', va='top',    fontsize=8.2, color='steelblue', fontweight='bold')
+
+def _ylabels_box(ax, xlo, xhi, lbl):
+    lx = xlo + 0.06*(xhi-xlo)
+    ax.text(lx, L+EPS, f'{lbl}+ε', ha='left', va='center',
+            fontsize=8.5, color='steelblue', fontweight='bold')
+    ax.text(lx, L-EPS, f'{lbl}-ε', ha='left', va='center',
+            fontsize=8.5, color='steelblue', fontweight='bold')
+    bw = 0.22*(xhi-xlo)
+    ax.add_patch(mpatches.FancyBboxPatch(
+        (lx, L-0.14), bw, 0.28,
+        boxstyle='round,pad=0.02', fc='#FFD700', ec='goldenrod',
+        lw=1.2, transform=ax.transData, zorder=2))
+    ax.text(lx + bw/2, L, lbl, ha='center', va='center',
+            fontsize=10, color='navy', fontweight='bold', zorder=3)
+```
+
+::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0; padding-right: 3em; gap: 0.2em;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="width: 100%; display: flex; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.2, 3.15), facecolor='white')
+
+# ── Gráfica izquierda: límite por la izquierda (L₁) ──────────────
+xlo1, xhi1 = C - D1 - 0.55, C + 0.22
+_base(ax1, xlo1, xhi1)
+_zona(ax1, xlo1, xhi1)
+_ylabels_box(ax1, xlo1, xhi1, 'L₁')
+ax1.axvspan(C-D1, C, alpha=0.30, color=GOLD_Z, zorder=0)
+ax1.axvline(C-D1, color='goldenrod', ls='--', lw=0.9, zorder=1)
+dot1 = C - 0.18
+ax1.plot(dot1, _f(dot1), 'o', color='goldenrod', ms=7, zorder=3)
+ax1.text(C-D1, 0.34, 'c–δ₁', ha='center', va='bottom',
+         fontsize=8.5, color='goldenrod', fontweight='bold')
+ax1.text(C,    0.34, 'c',    ha='center', va='bottom', fontsize=9, color='gray')
+
+# ── Gráfica derecha: límite por la derecha (L₂) ──────────────────
+xlo2, xhi2 = C - 0.22, C + D2 + 0.55
+_base(ax2, xlo2, xhi2)
+_zona(ax2, xlo2, xhi2)
+_ylabels_box(ax2, xlo2, xhi2, 'L₂')
+ax2.axvspan(C, C+D2, alpha=0.30, color=GOLD_Z, zorder=0)
+ax2.axvline(C+D2, color='goldenrod', ls='--', lw=0.9, zorder=1)
+dot2 = C + 0.18
+ax2.plot(dot2, _f(dot2), 'o', color='goldenrod', ms=7, zorder=3)
+ax2.text(C,    0.34, 'c',     ha='center', va='bottom', fontsize=9, color='gray')
+ax2.text(C+D2, 0.34, 'c+δ₂', ha='center', va='bottom',
+         fontsize=8.5, color='goldenrod', fontweight='bold')
+
+fig.subplots_adjust(wspace=0.06, left=0.01, right=0.99, top=0.97, bottom=0.04)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; display: flex; justify-content: center;"}
+
+```{python}
+#| echo: false
+fig, ax = plt.subplots(figsize=(8.0, 3.15), facecolor='white')
+xlo, xhi = C - D1 - 0.70, C + D2 + 0.70
+_base(ax, xlo, xhi)
+_zona(ax, xlo, xhi)
+
+# Franja δ y lineas δ₁, δ₂ externas
+ax.axvspan(C-D, C+D, alpha=0.30, color=GOLD_Z, zorder=0)
+ax.axvline(C-D,  color='goldenrod', ls='--', lw=1.0, zorder=1)
+ax.axvline(C+D,  color='goldenrod', ls='--', lw=1.0, zorder=1)
+ax.axvline(C-D1, color='gray',      ls=':',  lw=0.7, zorder=1)
+ax.axvline(C+D2, color='gray',      ls=':',  lw=0.7, zorder=1)
+
+# Flecha + etiqueta L (azul marino)
+lx = xlo + 0.04*(xhi-xlo)
+bx = xlo + 0.23*(xhi-xlo)
+ax.annotate('', xy=(bx, L), xytext=(bx + 0.18*(xhi-xlo), L),
+            arrowprops=dict(arrowstyle='->', color='navy', lw=1.5))
+ax.text(lx, L, 'L', ha='left', va='center',
+        fontsize=12, color='navy', fontweight='bold')
+
+# Flechas ε (doble sentido)
+ex = bx + 0.07*(xhi-xlo)
+for y0, y1 in [(L, L+EPS), (L-EPS, L)]:
+    ax.annotate('', xy=(ex, y1), xytext=(ex, y0),
+                arrowprops=dict(arrowstyle='<->', color=RED_F, lw=1.1))
+ax.text(ex - 0.025*(xhi-xlo), L + EPS/2, 'ε', ha='right', va='center',
+        fontsize=10, color=RED_F, fontweight='bold')
+ax.text(ex - 0.025*(xhi-xlo), L - EPS/2, 'ε', ha='right', va='center',
+        fontsize=10, color=RED_F, fontweight='bold')
+
+# Y labels
+ax.text(lx, L+EPS, 'L+ε', ha='left', va='center',
+        fontsize=9, color='steelblue', fontweight='bold')
+ax.text(lx, L-EPS, 'L–ε', ha='left', va='center',
+        fontsize=9, color='steelblue', fontweight='bold')
+
+# Puntos de aproximación
+for dx in [-0.18, 0.18]:
+    ax.plot(C+dx, _f(C+dx), 'o', color='goldenrod', ms=7, zorder=3)
+
+# Etiquetas eje X
+yb = 0.34
+ax.text(C-D1, yb, 'c–δ₁', ha='center', va='bottom', fontsize=7.5,
+        color='gray', fontstyle='italic')
+ax.text(C-D,  yb, 'c–δ',  ha='center', va='bottom', fontsize=8.5,
+        color='goldenrod', fontweight='bold')
+ax.text(C,    yb, 'c',    ha='center', va='bottom', fontsize=9.5, color='gray')
+ax.text(C+D,  yb, 'c+δ',  ha='center', va='bottom', fontsize=8.5,
+        color='goldenrod', fontweight='bold')
+ax.text(C+D2, yb, 'c+δ₂', ha='center', va='bottom', fontsize=7.5,
+        color='gray', fontstyle='italic')
+
+fig.subplots_adjust(left=0.02, right=0.98, top=0.97, bottom=0.05)
+plt.show()
+```
+
+:::
+
+:::
+
+::: {style="display: flex; flex-direction: column; gap: 0.35em; padding: 0.15em 0.8em; font-size: 0.83em;"}
+
+::: {style="display: flex; flex-direction: row; gap: 0.9em;"}
+
+::: {style="flex: 1; background: #ffe8e8; border: 1.5px solid #c0392b; border-radius: 6px; padding: 0.35em 0.8em; text-align: center; line-height: 1.7;"}
+$\forall\,\varepsilon > 0,\;\exists\,\delta_1 > 0 \;/\; |f(x) - L_1| < \varepsilon \;\text{ si }\; x \in (c-\delta_1;\,c)$
+:::
+
+::: {style="flex: 1; background: #e8f8e8; border: 1.5px solid #27ae60; border-radius: 6px; padding: 0.35em 0.8em; text-align: center; line-height: 1.7;"}
+$\forall\,\varepsilon > 0,\;\exists\,\delta_2 > 0 \;/\; |f(x) - L_2| < \varepsilon \;\text{ si }\; x \in (c;\,c+\delta_2)$
+:::
+
+:::
+
+[Si $L_1 = L_2 = L$, elegido $\varepsilon > 0$, tomando $0 < \delta < \min\{\delta_1;\,\delta_2\}$, es $\;|f(x)-L| < \varepsilon\;$ si $\;x \in (c{-}\delta;\,c)\cup(c;\,c{+}\delta)$, o sea, si $\;0 < |x-c| < \delta$]{style="color: navy; line-height: 1.5;"}
+
+::: {style="background: #fff9c4; border: 2.5px solid goldenrod; border-radius: 8px; padding: 0.4em 1em; text-align: center;"}
+$\forall\,\varepsilon > 0,\;\exists\,\delta > 0 \;/\; |f(x) - L| < \varepsilon \;\text{ si }\; 0 < |x - c| < \delta$
+:::
+
+:::
+
+:::
+
+## Grafcios de limites {.title-line}
+
+```{python}
+#| echo: false
+import matplotlib.pyplot as plt
+import matplotlib.patches as mpatches
+import numpy as np
+
+# ── Constantes compartidas ──────────────────────────────────────────
+C, L, EPS = 2.0, 1.5, 0.95
+D1, D2    = 0.40, 0.58          # δ₁ (izq) < δ₂ (der)
+D         = D1                   # δ = min(δ₁, δ₂)
+
+BLUE_Z = '#90c8f0'
+GOLD_Z = '#fffde7'
+RED_F  = '#c0392b'
+NAVY   = 'navy'
+GOLD   = 'goldenrod'
+GRAY   = 'gray'
+
+def _f_unif(x):
+    """Función que se aproxima a L desde ambos lados"""
+    return L + 0.6 * np.sin(2.5 * (x - C)) * np.exp(-0.5 * (x - C)**2)
+
+def _base_unif(ax, xlo, xhi):
+    ylo, yhi = 0.25, 2.75
+    ax.set_xlim(xlo, xhi)
+    ax.set_ylim(ylo, yhi)
+    ax.set_xticks([])
+    ax.set_yticks([])
+    for sp in ax.spines.values():
+        sp.set_linewidth(0.5)
+    
+    # Líneas horizontales de referencia
+    ax.axhline(L + EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+    ax.axhline(L, color=NAVY, ls='-', lw=0.9, zorder=1)
+    ax.axhline(L - EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+    
+    # Línea vertical en c
+    ax.axvline(C, color=GRAY, ls='--', lw=0.7, zorder=1)
+    
+    # Función
+    xs = np.linspace(xlo, xhi, 800)
+    ys = _f_unif(xs)
+    mask = np.abs(xs - C) > 0.015
+    ax.plot(xs[mask], ys[mask], color=RED_F, lw=1.8, zorder=2)
+    
+    # Punto hueco en (c, L)
+    ax.plot(C, L, 'o', ms=7, mfc='white', mec=RED_F, mew=1.8, zorder=4)
+
+def _zona_prohibida(ax, xlo, xhi):
+    """Dibuja las zonas prohibidas (bandas azules)"""
+    ylo, yhi = 0.25, 2.75
+    ax.axhspan(L + EPS, yhi, alpha=0.35, color=BLUE_Z, zorder=0)
+    ax.axhspan(ylo, L - EPS, alpha=0.35, color=BLUE_Z, zorder=0)
+    
+    mx = (xlo + xhi) / 2
+    ax.text(mx, L + EPS + 0.12, 'Zona prohibida',
+            ha='center', va='bottom', fontsize=8, color='steelblue', fontweight='bold')
+    ax.text(mx, L - EPS - 0.12, 'Zona prohibida',
+            ha='center', va='top', fontsize=8, color='steelblue', fontweight='bold')
+
+def _ylabels_L(ax, xlo, xhi):
+    """Etiquetas L+ε, L, L-ε a la izquierda"""
+    lx = xlo + 0.05 * (xhi - xlo)
+    ax.text(lx, L + EPS, 'L+ε', ha='left', va='center',
+            fontsize=9, color='steelblue', fontweight='bold')
+    ax.text(lx, L - EPS, 'L–ε', ha='left', va='center',
+            fontsize=9, color='steelblue', fontweight='bold')
+```
+
+::: {style="display: flex; flex-direction: row; flex: 1; min-height: 0; padding: 0.5em 3em 0.5em 1.5em; gap: 1.5em; align-items: flex-start;"}
+
+::: {style="flex: 0 0 28%; display: flex; flex-direction: column; gap: 0.6em; padding-top: 1em; font-size: 0.95em;"}
+
+::: {style="background: #ffe8e8; border: 1.5px solid #c0392b; border-radius: 6px; padding: 0.4em 0.7em; text-align: center; line-height: 1.5;"}
+$\forall\,\varepsilon > 0,\;\exists\,\delta_1 > 0 \;/\; |f(x) - L_1| < \varepsilon \;\text{ si }\; x \in (c-\delta_1,\,c)$
+:::
+
+::: {style="background: #e8f8e8; border: 1.5px solid #27ae60; border-radius: 6px; padding: 0.4em 0.7em; text-align: center; line-height: 1.5;"}
+$\forall\,\varepsilon > 0,\;\exists\,\delta_2 > 0 \;/\; |f(x) - L_2| < \varepsilon \;\text{ si }\; x \in (c,\,c+\delta_2)$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: #fff9c4; border: 2px solid goldenrod; border-radius: 6px; padding: 0.4em 0.7em; text-align: center; line-height: 1.5; font-size: 0.92em;"}
+Si $L_1 = L_2 = L$, elegido $\varepsilon > 0$, tomando $0 < \delta < \min\{\delta_1,\,\delta_2\}$
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: #fff9c4; border: 2.5px solid goldenrod; border-radius: 6px; padding: 0.35em 0.6em; text-align: center; line-height: 1.4; font-size: 0.88em;"}
+$\forall\,\varepsilon > 0,\;\exists\,\delta > 0 \;/\; |f(x) - L| < \varepsilon \;\text{ si }\; 0 < |x - c| < \delta$
+:::
+
+:::
+
+::: {style="flex: 1; min-height: 0; display: flex; flex-direction: column;"}
+
+::: {.r-stack style="flex: 1; min-height: 0; width: 100%;"}
+
+::: {style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+```{python}
+#| echo: false
+# Estado 0: Dos gráficas separadas - límites laterales
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9.0, 3.6), facecolor='white')
+
+# ── Gráfica izquierda: límite por la izquierda (L₁) ──────────────
+xlo1, xhi1 = C - D1 - 0.55, C + 0.25
+ylo, yhi = 0.25, 2.75
+ax1.set_xlim(xlo1, xhi1)
+ax1.set_ylim(ylo, yhi)
+ax1.set_xticks([])
+ax1.set_yticks([])
+for sp in ax1.spines.values():
+    sp.set_linewidth(0.5)
+
+# Zonas prohibidas
+ax1.axhspan(L + EPS, yhi, alpha=0.35, color=BLUE_Z, zorder=0)
+ax1.axhspan(ylo, L - EPS, alpha=0.35, color=BLUE_Z, zorder=0)
+
+# Líneas horizontales
+ax1.axhline(L + EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+ax1.axhline(L, color=NAVY, ls='-', lw=0.9, zorder=1)
+ax1.axhline(L - EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+ax1.axvline(C, color=GRAY, ls='--', lw=0.7, zorder=1)
+
+# Función (solo lado izquierdo visible)
+xs1 = np.linspace(xlo1, C - 0.015, 400)
+ys1 = _f_unif(xs1)
+ax1.plot(xs1, ys1, color=RED_F, lw=1.8, zorder=2)
+ax1.plot(C, L, 'o', ms=7, mfc='white', mec=RED_F, mew=1.8, zorder=4)
+
+# Franja dorada δ₁
+ax1.axvspan(C - D1, C, alpha=0.35, color=GOLD_Z, zorder=0)
+ax1.axvline(C - D1, color=GOLD, ls='--', lw=0.9, zorder=1)
+
+# Etiquetas
+lx1 = xlo1 + 0.06 * (xhi1 - xlo1)
+ax1.text(lx1, L + EPS, 'L₁+ε', ha='left', va='center', fontsize=8.5, color='steelblue', fontweight='bold')
+ax1.text(lx1, L - EPS, 'L₁–ε', ha='left', va='center', fontsize=8.5, color='steelblue', fontweight='bold')
+
+# Caja dorada con L₁
+bw = 0.20 * (xhi1 - xlo1)
+ax1.add_patch(mpatches.FancyBboxPatch(
+    (lx1, L - 0.12), bw, 0.24,
+    boxstyle='round,pad=0.015', fc='#FFD700', ec=GOLD,
+    lw=1.2, transform=ax1.transData, zorder=2))
+ax1.text(lx1 + bw/2, L, 'L₁', ha='center', va='center',
+         fontsize=10, color=NAVY, fontweight='bold', zorder=3)
+
+# Punto x y etiquetas
+ax1.plot(C - 0.15, _f_unif(C - 0.15), 'o', color=GOLD, ms=7, zorder=3)
+ax1.text(C - D1, 0.32, 'c–δ₁', ha='center', va='bottom', fontsize=8.5, color=GOLD, fontweight='bold')
+ax1.text(C, 0.32, 'c', ha='center', va='bottom', fontsize=9, color=GRAY)
+ax1.text(C - 0.08, 0.32, 'x', ha='center', va='bottom', fontsize=9, color=GOLD, fontweight='bold')
+
+# ── Gráfica derecha: límite por la derecha (L₂) ──────────────────
+xlo2, xhi2 = C - 0.25, C + D2 + 0.55
+ax2.set_xlim(xlo2, xhi2)
+ax2.set_ylim(ylo, yhi)
+ax2.set_xticks([])
+ax2.set_yticks([])
+for sp in ax2.spines.values():
+    sp.set_linewidth(0.5)
+
+# Zonas prohibidas
+ax2.axhspan(L + EPS, yhi, alpha=0.35, color=BLUE_Z, zorder=0)
+ax2.axhspan(ylo, L - EPS, alpha=0.35, color=BLUE_Z, zorder=0)
+
+# Líneas horizontales
+ax2.axhline(L + EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+ax2.axhline(L, color=NAVY, ls='-', lw=0.9, zorder=1)
+ax2.axhline(L - EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+ax2.axvline(C, color=GRAY, ls='--', lw=0.7, zorder=1)
+
+# Función (solo lado derecho visible)
+xs2 = np.linspace(C + 0.015, xhi2, 400)
+ys2 = _f_unif(xs2)
+ax2.plot(xs2, ys2, color=RED_F, lw=1.8, zorder=2)
+ax2.plot(C, L, 'o', ms=7, mfc='white', mec=RED_F, mew=1.8, zorder=4)
+
+# Franja dorada δ₂
+ax2.axvspan(C, C + D2, alpha=0.35, color=GOLD_Z, zorder=0)
+ax2.axvline(C + D2, color=GOLD, ls='--', lw=0.9, zorder=1)
+
+# Etiquetas
+lx2 = xlo2 + 0.06 * (xhi2 - xlo2)
+ax2.text(lx2, L + EPS, 'L₂+ε', ha='left', va='center', fontsize=8.5, color='steelblue', fontweight='bold')
+ax2.text(lx2, L - EPS, 'L₂–ε', ha='left', va='center', fontsize=8.5, color='steelblue', fontweight='bold')
+
+# Caja dorada con L₂
+bw2 = 0.20 * (xhi2 - xlo2)
+ax2.add_patch(mpatches.FancyBboxPatch(
+    (lx2, L - 0.12), bw2, 0.24,
+    boxstyle='round,pad=0.015', fc='#FFD700', ec=GOLD,
+    lw=1.2, transform=ax2.transData, zorder=2))
+ax2.text(lx2 + bw2/2, L, 'L₂', ha='center', va='center',
+         fontsize=10, color=NAVY, fontweight='bold', zorder=3)
+
+# Punto x y etiquetas
+ax2.plot(C + 0.15, _f_unif(C + 0.15), 'o', color=GOLD, ms=7, zorder=3)
+ax2.text(C, 0.32, 'c', ha='center', va='bottom', fontsize=9, color=GRAY)
+ax2.text(C + 0.08, 0.32, 'x', ha='center', va='bottom', fontsize=9, color=GOLD, fontweight='bold')
+ax2.text(C + D2, 0.32, 'c+δ₂', ha='center', va='bottom', fontsize=8.5, color=GOLD, fontweight='bold')
+
+fig.subplots_adjust(wspace=0.08, left=0.02, right=0.98, top=0.95, bottom=0.05)
+plt.show()
+```
+
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: center; align-items: center;"}
+
+```{python}
+#| echo: false
+# Estado 1: Gráfica unificada con δ = min(δ₁, δ₂)
+fig, ax = plt.subplots(figsize=(8.5, 3.8), facecolor='white')
+
+xlo, xhi = C - D1 - 0.65, C + D2 + 0.65
+ylo, yhi = 0.25, 2.75
+ax.set_xlim(xlo, xhi)
+ax.set_ylim(ylo, yhi)
+ax.set_xticks([])
+ax.set_yticks([])
+for sp in ax.spines.values():
+    sp.set_linewidth(0.5)
+
+# Zonas prohibidas
+ax.axhspan(L + EPS, yhi, alpha=0.35, color=BLUE_Z, zorder=0)
+ax.axhspan(ylo, L - EPS, alpha=0.35, color=BLUE_Z, zorder=0)
+
+# Líneas horizontales
+ax.axhline(L + EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+ax.axhline(L, color=NAVY, ls='-', lw=0.9, zorder=1)
+ax.axhline(L - EPS, color='steelblue', ls='--', lw=0.9, zorder=1)
+
+# Líneas verticales
+ax.axvline(C, color=GRAY, ls='--', lw=0.7, zorder=1)
+ax.axvline(C - D1, color=GRAY, ls=':', lw=0.7, zorder=1)   # δ₁ externo
+ax.axvline(C + D2, color=GRAY, ls=':', lw=0.7, zorder=1)   # δ₂ externo
+ax.axvline(C - D, color=GOLD, ls='--', lw=1.0, zorder=1)   # δ interno
+ax.axvline(C + D, color=GOLD, ls='--', lw=1.0, zorder=1)   # δ interno
+
+# Franja dorada δ
+ax.axvspan(C - D, C + D, alpha=0.35, color=GOLD_Z, zorder=0)
+
+# Función completa
+xs = np.linspace(xlo, xhi, 800)
+ys = _f_unif(xs)
+mask = np.abs(xs - C) > 0.015
+ax.plot(xs[mask], ys[mask], color=RED_F, lw=1.8, zorder=2)
+ax.plot(C, L, 'o', ms=7, mfc='white', mec=RED_F, mew=1.8, zorder=4)
+
+# Etiquetas L a la izquierda con flecha
+lx = xlo + 0.04 * (xhi - xlo)
+ax.text(lx, L, 'L', ha='left', va='center', fontsize=12, color=NAVY, fontweight='bold')
+
+# Flecha hacia L
+bx = xlo + 0.18 * (xhi - xlo)
+ax.annotate('', xy=(bx, L), xytext=(bx + 0.15 * (xhi - xlo), L),
+            arrowprops=dict(arrowstyle='->', color=NAVY, lw=1.5))
+
+# Flechas epsilon (doble sentido)
+ex = bx + 0.06 * (xhi - xlo)
+ax.annotate('', xy=(ex, L + EPS), xytext=(ex, L),
+            arrowprops=dict(arrowstyle='<->', color=RED_F, lw=1.1))
+ax.annotate('', xy=(ex, L), xytext=(ex, L - EPS),
+            arrowprops=dict(arrowstyle='<->', color=RED_F, lw=1.1))
+ax.text(ex - 0.02 * (xhi - xlo), L + EPS/2, 'ε', ha='right', va='center',
+        fontsize=10, color=RED_F, fontweight='bold')
+ax.text(ex - 0.02 * (xhi - xlo), L - EPS/2, 'ε', ha='right', va='center',
+        fontsize=10, color=RED_F, fontweight='bold')
+
+# Etiquetas Y
+ax.text(lx, L + EPS, 'L+ε', ha='left', va='center', fontsize=9, color='steelblue', fontweight='bold')
+ax.text(lx, L - EPS, 'L–ε', ha='left', va='center', fontsize=9, color='steelblue', fontweight='bold')
+
+# Puntos de aproximación dorados
+for dx in [-0.18, 0.18]:
+    ax.plot(C + dx, _f_unif(C + dx), 'o', color=GOLD, ms=7, zorder=3)
+
+# Etiquetas eje X
+ax.text(C - D1, 0.30, 'c–δ₁', ha='center', va='bottom', fontsize=7.5, color=GRAY, fontstyle='italic')
+ax.text(C - D, 0.30, 'c–δ', ha='center', va='bottom', fontsize=8.5, color=GOLD, fontweight='bold')
+ax.text(C, 0.30, 'c', ha='center', va='bottom', fontsize=9.5, color=GRAY)
+ax.text(C + D, 0.30, 'c+δ', ha='center', va='bottom', fontsize=8.5, color=GOLD, fontweight='bold')
+ax.text(C + D2, 0.30, 'c+δ₂', ha='center', va='bottom', fontsize=7.5, color=GRAY, fontstyle='italic')
+
+# Flechas de intervalo en el eje X (c-δ a c+δ)
+ax.annotate('', xy=(C - 0.05, 0.42), xytext=(C - D + 0.05, 0.42),
+            arrowprops=dict(arrowstyle='<->', color=RED_F, lw=1.2))
+ax.annotate('', xy=(C + D - 0.05, 0.42), xytext=(C + 0.05, 0.42),
+            arrowprops=dict(arrowstyle='<->', color=RED_F, lw=1.2))
+
+fig.subplots_adjust(left=0.03, right=0.97, top=0.95, bottom=0.08)
+plt.show()
+```
+
+:::
+
+:::
+
+:::
+
+:::

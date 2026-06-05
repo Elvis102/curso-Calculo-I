@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2026-05-29">
+  <meta name="dcterms.date" content="2026-06-05">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -212,7 +212,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2026-05-29</p>
+  <p class="date">2026-06-05</p>
 </section>
 <section>
 <section id="derivada" class="title-slide slide level1 my-slide center">
@@ -605,6 +605,463 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 </div>
 </section>
+<section id="introducción-a-la-derivada" class="slide level2 title-line">
+<h2>Introducción a la derivada</h2>
+<p>La derivada de una función sirve para formalizar la noción de <strong>recta tangente</strong> en un punto <span class="math inline">\(x_0\)</span> para una función <span class="math inline">\(f(x)\)</span>.</p>
+<p>En el gráfico siguiente, podemos observar un ejemplo del dibujo de una función junto con la recta tangente en un punto <span class="math inline">\(x_0\)</span> de su dominio.</p>
+<p>La pendiente de la recta tangente (en rojo) vendría a representar lo que denominaremos la derivada de la función <span class="math inline">\(f(x)\)</span> en <span class="math inline">\(x=x_0\)</span>.</p>
+</section>
+<section id="introducción" class="slide level2">
+<h2>Introducción</h2>
+
+<img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-12-21.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<section id="introducción-1" class="slide level2">
+<h2>Introducción</h2>
+<div class="center">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="Images/Derivada1.png" width="650"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="aproximacion-de-la-derivada-de-una-función-en-un-punto" class="slide level2">
+<h2>Aproximacion de la derivada de una función en un punto</h2>
+<div id="ap-wrap" style="max-width:calc(100% - 130px);box-sizing:border-box;">
+
+<!-- Descripción compacta -->
+<p style="font-size:24px;color:#444;margin:0 0 7px;line-height:1.5;">
+  Compara <strong>Δf/Δx</strong> (aproximación) vs. <strong>df/dx</strong> (exacta).
+  Arrastra el <span style="color:#111;font-weight:600;">punto negro</span> para cambiar Δx ·
+  <span style="color:#e8930a;font-weight:600;">naranja</span> o <span style="color:#2a9d8f;font-weight:600;">azul</span> para mover el triángulo.
+</p>
+
+<!-- Gráficas en paralelo -->
+<div style="display:flex;gap:8px;align-items:stretch;">
+
+  <!-- Gráfica f(x) -->
+  <div style="flex:1;min-width:0;border:1px solid #ccc;border-radius:10px;padding:.4rem;position:relative;background:white;">
+    <canvas id="cvF2" style="width:100%;display:block;" height="310"></canvas>
+    <div style="position:absolute;top:22px;left:14px;font-size:11px;font-style:italic;color:#666;">f</div>
+    <div style="position:absolute;bottom:38px;right:12px;font-size:11px;font-style:italic;color:#666;">x</div>
+    <div style="position:absolute;bottom:6px;right:34px;display:flex;gap:2px;">
+      <button class="cb3" onclick="zA('f',-1)">−</button><button class="cb3" onclick="rA('f')">o</button><button class="cb3" onclick="zA('f',1)">+</button>
+      <button class="cb3" onclick="pA('f',-1,0)">←</button><button class="cb3" onclick="pA('f',0,-1)">↓</button><button class="cb3" onclick="pA('f',0,1)">↑</button><button class="cb3" onclick="pA('f',1,0)">→</button>
+    </div>
+  </div>
+
+  <!-- Gráfica df/dx -->
+  <div style="flex:1;min-width:0;border:1px solid #ccc;border-radius:10px;padding:.4rem;position:relative;background:white;">
+    <canvas id="cvD2" style="width:100%;display:block;" height="310"></canvas>
+    <div style="position:absolute;top:22px;left:14px;font-size:11px;font-style:italic;color:#666;">df/dx</div>
+    <div style="position:absolute;bottom:38px;right:12px;font-size:11px;font-style:italic;color:#666;">x</div>
+    <div style="position:absolute;bottom:6px;right:34px;display:flex;gap:2px;">
+      <button class="cb3" onclick="zA('d',-1)">−</button><button class="cb3" onclick="rA('d')">o</button><button class="cb3" onclick="zA('d',1)">+</button>
+      <button class="cb3" onclick="pA('d',-1,0)">←</button><button class="cb3" onclick="pA('d',0,-1)">↓</button><button class="cb3" onclick="pA('d',0,1)">↑</button><button class="cb3" onclick="pA('d',1,0)">→</button>
+    </div>
+  </div>
+
+</div><!-- /flex row -->
+</div><!-- /ap-wrap -->
+
+<style>
+.cb3{background:#f0f0f0;border:1px solid #bbb;color:#333;font-size:11px;width:20px;height:20px;
+     border-radius:3px;cursor:pointer;padding:0;display:inline-flex;align-items:center;justify-content:center;}
+.cb3:hover{background:#e0e0e0;}.cb3:active{transform:scale(0.9);}
+</style>
+
+<script>
+(function(){
+
+// ── Function: f(x) = -1.2x³ + 9x² - 5x + 2 ─────────────────────────────────
+function f(x)  { return -1.2*x*x*x + 9*x*x - 5*x + 2; }
+function df(x) { return -3.6*x*x  + 18*x  - 5; }
+
+// View state
+const VA = {
+  f: {zoom:1, ox:0, oy:0, xmin:0, xmax:9.5, ymin:-12, ymax:70},
+  d: {zoom:1, ox:0, oy:0, xmin:0, xmax:9.5, ymin:-28, ymax:18}
+};
+
+// Interaction state
+let x0 = 3.0;   // orange/blue point (base)
+let dx = 1.0;   // Δx controlled by black point
+// Clamp helpers
+function clampX0(){ x0 = Math.max(0.2, Math.min(9.0, x0)); }
+function clampDx(){ dx = Math.max(0.05, Math.min(5.0, dx)); }
+
+let dragging = null; // 'orange', 'black', 'blue'
+
+// ── View helpers ─────────────────────────────────────────────────────────────
+function getView(w){
+  const v=VA[w], base=VA[w];
+  const xr=(base.xmax-base.xmin)/v.zoom;
+  const yr=(base.ymax-base.ymin)/v.zoom;
+  const xc=(base.xmin+base.xmax)/2+v.ox;
+  const yc=(base.ymin+base.ymax)/2+v.oy;
+  return{xmin:xc-xr/2, xmax:xc+xr/2, ymin:yc-yr/2, ymax:yc+yr/2};
+}
+function zA(w,d){const v=VA[w];v.zoom*=d>0?1.4:1/1.4;v.zoom=Math.max(0.1,Math.min(20,v.zoom));render();}
+function pA(w,dx2,dy){
+  const v=VA[w];
+  const xr=(VA[w].xmax-VA[w].xmin)/v.zoom*0.12;
+  const yr=(VA[w].ymax-VA[w].ymin)/v.zoom*0.12;
+  v.ox+=dx2*xr; v.oy+=dy*yr; render();
+}
+function rA(w){VA[w].zoom=1;VA[w].ox=0;VA[w].oy=0;render();}
+window.zA=zA; window.pA=pA; window.rA=rA;
+
+// ── Canvas helpers ────────────────────────────────────────────────────────────
+const PAD={l:52,r:20,t:24,b:32};
+function toC(cv,xmin,xmax,ymin,ymax,x,y){
+  const W=cv.width-PAD.l-PAD.r, H=cv.height-PAD.t-PAD.b;
+  return[PAD.l+(x-xmin)/(xmax-xmin)*W, PAD.t+H-(y-ymin)/(ymax-ymin)*H];
+}
+function fromCX(cv,xmin,xmax,cx){ return xmin+(cx-PAD.l)/(cv.width-PAD.l-PAD.r)*(xmax-xmin); }
+function rsz(cv){ cv.width=Math.floor(cv.parentElement.getBoundingClientRect().width-12); }
+
+// ── Step helpers ─────────────────────────────────────────────────────────────
+function getMajorX(range,px){ for(const s of [0.5,1,2,5,10,20]){ if(Math.ceil(range/s)<=Math.floor(px/36)) return s; } return 10; }
+function getMajorY(range,px){ for(const s of [1,2,5,10,20,50]){ if(Math.ceil(range/s)<=Math.floor(px/28)) return s; } return 10; }
+
+// ── Draw axes ─────────────────────────────────────────────────────────────────
+function drawAxes(ctx,cv,xmin,xmax,ymin,ymax){
+  const W=cv.width,H=cv.height,pL=PAD.l,pR=W-PAD.r,pT=PAD.t,pB=H-PAD.b;
+  const plotW=pR-pL, plotH=pB-pT;
+  ctx.clearRect(0,0,W,H);
+  const xs=getMajorX(xmax-xmin,plotW), ys=getMajorY(ymax-ymin,plotH);
+  const xm=xs>1?1:xs, ym=ys>1?1:ys;
+
+  // minor grid
+  ctx.strokeStyle='rgba(0,0,0,0.04)';ctx.lineWidth=0.4;
+  for(let x=Math.ceil(xmin/xm)*xm;x<=xmax+xm*.01;x+=xm){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pT);ctx.lineTo(cx,pB);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ym)*ym;y<=ymax+ym*.01;y+=ym){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL,cy);ctx.lineTo(pR,cy);ctx.stroke();
+  }
+  // major grid
+  ctx.strokeStyle='rgba(0,0,0,0.08)';ctx.lineWidth=0.7;
+  for(let x=Math.ceil(xmin/xs)*xs;x<=xmax+xs*.01;x+=xs){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pT);ctx.lineTo(cx,pB);ctx.stroke();
+  }
+  for(let y=Math.ceil(ymin/ys)*ys;y<=ymax+ys*.01;y+=ys){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL,cy);ctx.lineTo(pR,cy);ctx.stroke();
+  }
+  // axes
+  ctx.strokeStyle='#555';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(pL,pT);ctx.lineTo(pL,pB);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pL-4,pT+8);ctx.lineTo(pL,pT-1);ctx.lineTo(pL+4,pT+8);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pL,pB);ctx.lineTo(pR,pB);ctx.stroke();
+  ctx.beginPath();ctx.moveTo(pR-8,pB-4);ctx.lineTo(pR+1,pB);ctx.lineTo(pR-8,pB+4);ctx.stroke();
+  // Y minor ticks
+  ctx.strokeStyle='#888';ctx.lineWidth=0.8;
+  for(let y=Math.ceil(ymin/ym)*ym;y<=ymax+ym*.01;y+=ym){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL-3,cy);ctx.lineTo(pL,cy);ctx.stroke();
+  }
+  // Y major ticks + labels
+  ctx.strokeStyle='#555';ctx.lineWidth=1;
+  ctx.fillStyle='#333';ctx.font='11px sans-serif';ctx.textAlign='right';ctx.textBaseline='middle';
+  for(let y=Math.ceil(ymin/ys)*ys;y<=ymax+ys*.01;y+=ys){
+    const cy=pB-(y-ymin)/(ymax-ymin)*plotH; if(cy<pT||cy>pB)continue;
+    ctx.beginPath();ctx.moveTo(pL-6,cy);ctx.lineTo(pL,cy);ctx.stroke();
+    if(Math.abs(y)<ys*.01)continue;
+    ctx.fillText(+parseFloat(y.toPrecision(4))+'',pL-9,cy);
+  }
+  // X minor ticks
+  ctx.strokeStyle='#888';ctx.lineWidth=0.8;
+  for(let x=Math.ceil(xmin/xm)*xm;x<=xmax+xm*.01;x+=xm){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pB);ctx.lineTo(cx,pB+3);ctx.stroke();
+  }
+  // X major ticks + labels
+  ctx.strokeStyle='#555';ctx.lineWidth=1;
+  ctx.fillStyle='#333';ctx.textAlign='center';ctx.textBaseline='top';
+  for(let x=Math.ceil(xmin/xs)*xs;x<=xmax+xs*.01;x+=xs){
+    const cx=pL+(x-xmin)/(xmax-xmin)*plotW; if(cx<pL||cx>pR)continue;
+    ctx.beginPath();ctx.moveTo(cx,pB);ctx.lineTo(cx,pB+6);ctx.stroke();
+    if(Math.abs(x)<xs*.01)continue;
+    ctx.fillText(+parseFloat(x.toPrecision(4))+'',cx,pB+7);
+  }
+}
+
+function clipPlot(ctx,cv){
+  ctx.save();ctx.beginPath();
+  ctx.rect(PAD.l,PAD.t,cv.width-PAD.l-PAD.r,cv.height-PAD.t-PAD.b);ctx.clip();
+}
+
+// ── Draw f(x) graph ───────────────────────────────────────────────────────────
+function drawFGraph(ctx,cv,vw){
+  const{xmin,xmax,ymin,ymax}=vw;
+  drawAxes(ctx,cv,xmin,xmax,ymin,ymax);
+
+  const x1 = x0 + dx;
+  const y0 = f(x0), y1 = f(x1);
+  const slope_exact  = df(x0);          // tangent slope
+  const slope_approx = (y1-y0)/dx;      // secant slope = Δf/Δx
+  const Df = y1 - y0;
+
+  // ── Clip for curves and lines ──
+  clipPlot(ctx,cv);
+
+  // Black curve f(x)
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+  let st=false;
+  for(let i=0;i<=cv.width*2;i++){
+    const xt=xmin+i/(cv.width*2)*(xmax-xmin);
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,xt,f(xt));
+    st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+  }
+  ctx.stroke();
+
+  // Teal secant line (approximation): passes through (x0,y0) with slope Δf/Δx, extended
+  const teal='#2a9d8f';
+  const[sl0x,sl0y]=toC(cv,xmin,xmax,ymin,ymax,xmin,y0+slope_approx*(xmin-x0));
+  const[sl1x,sl1y]=toC(cv,xmin,xmax,ymin,ymax,xmax,y0+slope_approx*(xmax-x0));
+  ctx.strokeStyle=teal;ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(sl0x,sl0y);ctx.lineTo(sl1x,sl1y);ctx.stroke();
+
+  // Orange tangent line (exact derivative): passes through (x0,y0) with slope df(x0)
+  const[tl0x,tl0y]=toC(cv,xmin,xmax,ymin,ymax,xmin,y0+slope_exact*(xmin-x0));
+  const[tl1x,tl1y]=toC(cv,xmin,xmax,ymin,ymax,xmax,y0+slope_exact*(xmax-x0));
+  ctx.strokeStyle='#e8930a';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(tl0x,tl0y);ctx.lineTo(tl1x,tl1y);ctx.stroke();
+
+  ctx.restore(); // end clip
+
+  // ── Triangle Δf / Δx ──
+  const[cx0,cy0]=toC(cv,xmin,xmax,ymin,ymax,x0,y0);
+  const[cx1,cy1]=toC(cv,xmin,xmax,ymin,ymax,x1,y1);
+  // right angle at (x1, y0)
+  ctx.fillStyle='rgba(42,157,143,0.18)';
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.lineTo(cx1,cy1);ctx.closePath();ctx.fill();
+  ctx.strokeStyle='rgba(42,157,143,0.9)';ctx.lineWidth=1.5;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx1,cy0);ctx.stroke(); // Δx leg
+  ctx.beginPath();ctx.moveTo(cx1,cy0);ctx.lineTo(cx1,cy1);ctx.stroke(); // Δf leg
+
+  // Triangle labels
+  ctx.fillStyle=teal;ctx.font='12px sans-serif';ctx.setLineDash([]);
+  const midX=(cx0+cx1)/2, midY=(cy0+cy1)/2;
+  ctx.textAlign='center';ctx.textBaseline='top';
+  ctx.fillText('Δx', midX, Math.min(cy0,cy1)-16);
+  ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillText('Δf', cx1+5, midY);
+
+  // Dashed drop line from x0
+  ctx.strokeStyle='rgba(42,157,143,0.6)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+  ctx.beginPath();ctx.moveTo(cx0,cy0);ctx.lineTo(cx0,cv.height-PAD.b);ctx.stroke();
+  ctx.setLineDash([]);
+
+  // ── Top-left labels: Δx= and Δf= ──
+  ctx.fillStyle='#333';ctx.font='12px sans-serif';ctx.textAlign='left';ctx.textBaseline='top';
+  ctx.fillText('Δx =', PAD.l+6, PAD.t+6);
+  ctx.fillText('Δf  =', PAD.l+6, PAD.t+22);
+  ctx.fillStyle='#555';
+  ctx.fillText(dx.toFixed(2),  PAD.l+50, PAD.t+6);
+  ctx.fillText(Df.toFixed(2),  PAD.l+50, PAD.t+22);
+
+  // ── Dots ──
+  // Orange dot at (x0, y0)
+  ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0,cy0,7,0,Math.PI*2);ctx.fill();
+  // Black dot at (x1, y1) — controls Δx
+  const[bx,by]=toC(cv,xmin,xmax,ymin,ymax,x1,y1);
+  ctx.fillStyle='#111';ctx.beginPath();ctx.arc(bx,by,7,0,Math.PI*2);ctx.fill();
+  // Blue/teal dot at (x1, y0) — right-angle corner (also draggable for position)
+  ctx.fillStyle=teal;ctx.strokeStyle='white';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.arc(cx1,cy0,6,0,Math.PI*2);ctx.fill();ctx.stroke();
+}
+
+// ── Draw df/dx graph ──────────────────────────────────────────────────────────
+function drawDGraph(ctx,cv,vw){
+  const{xmin,xmax,ymin,ymax}=vw;
+  drawAxes(ctx,cv,xmin,xmax,ymin,ymax);
+
+  const x1 = x0+dx;
+  const exact_at_x0   = df(x0);
+  const approx_at_x0  = (f(x1)-f(x0))/dx;
+
+  const teal='#2a9d8f';
+
+  clipPlot(ctx,cv);
+
+  // Black curve: exact derivative df(x)
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.beginPath();
+  let st=false;
+  for(let i=0;i<=cv.width*2;i++){
+    const xt=xmin+i/(cv.width*2)*(xmax-xmin);
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,xt,df(xt));
+    st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+  }
+  ctx.stroke();
+
+  // Teal curve: approximation Δf/Δx as function of x0 position
+  // For each x, compute (f(x+dx)-f(x))/dx
+  ctx.strokeStyle=teal;ctx.lineWidth=2;ctx.beginPath();
+  st=false;
+  for(let i=0;i<=cv.width*2;i++){
+    const xt=xmin+i/(cv.width*2)*(xmax-xmin);
+    const approx=(f(xt+dx)-f(xt))/dx;
+    if(!isFinite(approx)){st=false;continue;}
+    const[cx,cy]=toC(cv,xmin,xmax,ymin,ymax,xt,approx);
+    st?ctx.lineTo(cx,cy):(ctx.moveTo(cx,cy),st=true);
+  }
+  ctx.stroke();
+
+  ctx.restore();
+
+  // Dashed horizontal reference lines
+  const[cx0e,cy0e]=toC(cv,xmin,xmax,ymin,ymax,x0,exact_at_x0);
+  const[cx0a,cy0a]=toC(cv,xmin,xmax,ymin,ymax,x0,approx_at_x0);
+  ctx.strokeStyle='rgba(42,157,143,0.5)';ctx.lineWidth=1;ctx.setLineDash([5,4]);
+  ctx.beginPath();ctx.moveTo(PAD.l,cy0a);ctx.lineTo(cx0a,cy0a);ctx.stroke();
+  ctx.strokeStyle='rgba(232,147,10,0.5)';
+  ctx.beginPath();ctx.moveTo(PAD.l,cy0e);ctx.lineTo(cx0e,cy0e);ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Teal dot: Δf/Δx at x0
+  ctx.fillStyle=teal;ctx.beginPath();ctx.arc(cx0a,cy0a,7,0,Math.PI*2);ctx.fill();
+  // Orange dot: df/dx at x0
+  ctx.fillStyle='#e8930a';ctx.beginPath();ctx.arc(cx0e,cy0e,7,0,Math.PI*2);ctx.fill();
+
+  // Labels next to dots
+  ctx.font='12px sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillStyle=teal;
+  ctx.fillText('Δf/Δx', cx0a+10, cy0a-7);
+  ctx.fillStyle='#e8930a';
+  ctx.fillText('df/dx', cx0e+10, cy0e+7);
+
+  // Bottom-left values
+  const bx=PAD.l+6, bH=cv.height-PAD.b;
+  ctx.fillStyle='#333';ctx.font='12px sans-serif';ctx.textAlign='left';
+  ctx.textBaseline='bottom';
+  ctx.fillText('df/dx =', bx, bH-48);
+  ctx.fillText(exact_at_x0.toFixed(2), bx+8, bH-32);
+  ctx.fillText('Δf/Δx =', bx, bH-18);
+  ctx.fillText(approx_at_x0.toFixed(2), bx+8, bH-2);
+
+  // Legend bottom right
+  const lx=cv.width-PAD.r-180, ly=cv.height-PAD.b-38;
+  ctx.strokeStyle='#111';ctx.lineWidth=2;ctx.setLineDash([]);
+  ctx.beginPath();ctx.moveTo(lx,ly+6);ctx.lineTo(lx+30,ly+6);ctx.stroke();
+  ctx.fillStyle='#333';ctx.font='12px sans-serif';ctx.textAlign='left';ctx.textBaseline='middle';
+  ctx.fillText('derivada exacta', lx+34, ly+6);
+  ctx.strokeStyle=teal;ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(lx,ly+22);ctx.lineTo(lx+30,ly+22);ctx.stroke();
+  ctx.fillText('aproximación de la derivada', lx+34, ly+22);
+}
+
+function render(){
+  const cf=document.getElementById('cvF2'), cd=document.getElementById('cvD2');
+  rsz(cf); rsz(cd);
+  const vf=getView('f'), vd=getView('d');
+  drawFGraph(cf.getContext('2d'), cf, vf);
+  drawDGraph(cd.getContext('2d'), cd, vd);
+}
+
+// ── Drag interaction ──────────────────────────────────────────────────────────
+function getXY(cv,e){
+  const r=cv.getBoundingClientRect();
+  return[(e.touches?e.touches[0].clientX:e.clientX)-r.left,
+         (e.touches?e.touches[0].clientY:e.clientY)-r.top];
+}
+
+const cvF=document.getElementById('cvF2');
+
+cvF.addEventListener('mousedown', e=>startD(e));
+cvF.addEventListener('touchstart', e=>{startD(e);e.preventDefault();},{passive:false});
+cvF.addEventListener('mousemove', e=>doD(e));
+cvF.addEventListener('touchmove', e=>{doD(e);e.preventDefault();},{passive:false});
+
+function startD(e){
+  const vw=getView('f');
+  const[mx,my]=getXY(cvF,e);
+  const y0v=f(x0), y1v=f(x0+dx);
+  const[ox,oy]=toC(cvF,vw.xmin,vw.xmax,vw.ymin,vw.ymax,x0,y0v);     // orange
+  const[bx,by]=toC(cvF,vw.xmin,vw.xmax,vw.ymin,vw.ymax,x0+dx,y1v);  // black
+  const[tx,ty]=toC(cvF,vw.xmin,vw.xmax,vw.ymin,vw.ymax,x0+dx,y0v);  // teal corner
+
+  dragging=null;
+  if(Math.hypot(mx-bx,my-by)<14) dragging='black';
+  else if(Math.hypot(mx-ox,my-oy)<14) dragging='orange';
+  else if(Math.hypot(mx-tx,my-ty)<14) dragging='blue';
+}
+
+function doD(e){
+  if(!dragging) return;
+  const vw=getView('f');
+  const[mx]=getXY(cvF,e);
+  const xt=fromCX(cvF,vw.xmin,vw.xmax,mx);
+  if(dragging==='black'){
+    // black dot controls Δx = x1 - x0
+    dx = Math.max(0.05, Math.min(5.0, xt - x0));
+  } else {
+    // orange or blue: move x0, keep Δx
+    x0 = Math.max(0.2, Math.min(9.0-dx, xt));
+  }
+  render();
+}
+
+window.addEventListener('mouseup',  ()=>dragging=null);
+window.addEventListener('touchend', ()=>dragging=null);
+
+// Also allow dragging from d-graph (moves x0)
+const cvD=document.getElementById('cvD2');
+cvD.addEventListener('mousedown', e=>{
+  dragging='orange_d';
+  doDD(e);
+});
+cvD.addEventListener('mousemove', e=>{ if(dragging==='orange_d') doDD(e); });
+cvD.addEventListener('touchstart', e=>{dragging='orange_d';doDD(e);e.preventDefault();},{passive:false});
+cvD.addEventListener('touchmove', e=>{if(dragging==='orange_d')doDD(e);e.preventDefault();},{passive:false});
+function doDD(e){
+  const vw=getView('d');
+  const[mx]=getXY(cvD,e);
+  x0=Math.max(0.2,Math.min(9.0-dx,fromCX(cvD,vw.xmin,vw.xmax,mx)));
+  render();
+}
+
+window.addEventListener('resize', render);
+render();
+})();
+</script>
+</section>
+<section id="definición-formal-de-la-derivada-1" class="slide level2 title-line">
+<h2>Definición formal de la derivada</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; align-items:center; justify-content:center;">
+<div style="background:white; border:1px solid #c8ccd1; border-radius:8px; padding:1.5em 1.5em; width:92%; font-size:0.95em; line-height:1.6; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
+<div style="font-size:1.0em; color:#34495e; line-height:1.7; text-align:justify;margin:0.4em 0; padding:0.4em; background:#f0f4f8; border-radius:6px;">
+<p>Sea <span class="math inline">\(A\)</span> un intervalo de <span class="math inline">\(\mathbb{R}\)</span> <span class="math inline">\(f:A \subset \mathbb{R} \longrightarrow \mathbb{R}\)</span> y <span class="math inline">\(c \in A\)</span> Diremos que <span class="math inline">\(f\)</span> es derivable en <span class="math inline">\(c\)</span> si existe el siguiente límite: <span class="math display">\[
+\lim_{x \to c} \frac{f(x)-f(c)}{x-c}
+\]</span></p>
+<p>al valor de este límite lo denotamos por <span class="math inline">\(f'(c)\)</span> o <span class="math inline">\(\frac{df}{dx}(c)\)</span> y lo llamamos la derivada de <span class="math inline">\(f\)</span> en <span class="math inline">\(c\)</span>.</p>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="color:#2c3e50; margin-top:0.1em;font-size:0.8em;">
+<p><span style="color:blue; font-size:1em;font-weight:bold;">Observación:</span> Ya probamos que <span class="math inline">\(\displaystyle\lim_{x \to a} g(x)=L\)</span> si y solo si <span class="math inline">\(\displaystyle\lim_{h \to 0} g(a+h)=L\)</span>. Por lo tanto, la definición de derivada también se puede escribir como: <span class="math display">\[f'(c) = \lim_{h \to 0} \frac{f(c+h)-f(c)}{c+h-c}= \lim_{h \to 0} \frac{f(c+h)-f(c)}{h}\]</span> Igualmente, probamos que <span class="math inline">\(\displaystyle\lim_{x \to a} g(x)=L\)</span> si y solo si <span class="math inline">\(\displaystyle\lim_{x \to a} g(a-h) = L\)</span>. Por lo tanto, la definición de derivada también se puede escribir como: <span class="math display">\[f'(c) = \lim_{h \to 0} \frac{f(c-h)-f(c)}{c-h-c}= \lim_{h \to 0} \frac{f(c)-f(c-h)}{h}\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="relación-entre-la-reta-tangente-y-la-derivada" class="slide level2 title-line">
+<h2>Relación entre la reta tangente y la derivada</h2>
+<div style="display:flex; flex-direction:column; flex:1; min-height:0; padding-right:3em; align-items:center; justify-content:center;">
+<div style="background:white; border:1px solid #c8ccd1; border-radius:8px; padding:1.5em 1.5em; width:92%; font-size:0.95em; line-height:1.6; box-shadow:0 4px 10px rgba(0,0,0,0.08);">
+<div style="font-size:1.0em; color:#34495e; line-height:1.7; text-align:justify;margin:0.4em 0; padding:0.4em; background:#f0f4f8; border-radius:6px;">
+<p>Si <span class="math inline">\(f:A \subset \mathbb{R} \longrightarrow \mathbb{R}\)</span> donde <span class="math inline">\(A\)</span> es un intervalo, si <span class="math inline">\(f\)</span> es derivable en todo punto <span class="math inline">\(c \in A\)</span> definimos a la <strong>recta tangente</strong> a la gráfica de <span class="math inline">\(f\)</span> en <span class="math inline">\(A\)</span> en el punto <span class="math inline">\((c,f(c))\)</span> como la recta que tiene pendiente <span class="math inline">\(f'(c)\)</span>, es decir, la recta dada por la siguiente ecuación: <span class="math display">\[
+y=f'(x)(x-c)+f(c)
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
 <section id="la-derivada-de-una-constante-es-0-demostración" class="slide level2 title-line">
 <h2>La derivada de una constante es 0 (demostración)</h2>
 <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;">
@@ -638,6 +1095,54 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="fragment fade-in" data-fragment-index="2">
 <p><span class="math display">\[= \lim_{{\color{blue} h} \to 0} \frac{{\color{red} c} - {\color{red} c}}{{\color{blue} h}} = 0\]</span></p>
 </div>
+</div>
+</section>
+<section id="ejemplos" class="slide level2">
+<h2>Ejemplos</h2>
+<div class="example">
+<p><strong>Derivada de la función constante</strong></p>
+<p>Veamos que si la función <span class="math inline">\(f\)</span> es constante en todo su dominio, <span class="math inline">\(f(x)=k\)</span>, para todo <span class="math inline">\(x\)</span> del dominio, la derivada de <span class="math inline">\(f\)</span> en cualquier punto del mismo es nula.</p>
+<p>Sea <span class="math inline">\(x_0\)</span> un punto del dominio de <span class="math inline">\(f\)</span>. La <strong>derivada</strong> de <span class="math inline">\(f\)</span> en <span class="math inline">\(x_0\)</span> será: <span class="math display">\[
+f'(x_0)=\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{k-k}{x-x_0}=\lim_{x\to x_0} 0 =0.
+\]</span></p>
+</div>
+</section>
+<section id="ejemplos-1" class="slide level2">
+<h2>Ejemplos</h2>
+<div class="example">
+<p><strong>Derivada del monomio de grado <span class="math inline">\(n\)</span></strong></p>
+<p>Calculemos la derivada de función <span class="math inline">\(f\)</span> si ésta vale <span class="math inline">\(f(x)=x^n\)</span>, donde <span class="math inline">\(n\)</span> es un valor natural mayor que <span class="math inline">\(1\)</span> (<span class="math inline">\(n=1,2,\ldots\)</span>):</p>
+<p>Sea <span class="math inline">\(x_0\)</span> un punto del dominio de <span class="math inline">\(f\)</span>. La <strong>derivada</strong> de <span class="math inline">\(f\)</span> en <span class="math inline">\(x_0\)</span> será: <span class="math display">\[
+\begin{array}{rl}
+f'(x_0) &amp; =\displaystyle\lim_{x\to x_0}\frac{f(x)-f(x_0)}{x-x_0}=\lim_{x\to x_0}\frac{x^n-x_0^n}{x-x_0}=\lim_{x\to x_0} \frac{(x-x_0)(x^{n-1}+x^{n-2}x_0+x^{n-3}x_0^2+\cdots+ x_0^{n-1})}{x-x_0} \\ &amp; \displaystyle =\lim_{x\to x_0} x^{n-1}+x^{n-2}x_0+x^{n-3}x_0^2+\cdots+ x_0^{n-1} =n\cdot x_0^{n-1}.
+\end{array}
+\]</span></p>
+</div>
+</section>
+<section id="ejemplo" class="slide level2">
+<h2>Ejemplo</h2>
+<div class="example">
+<p><strong>Derivada del monomio de grado <span class="math inline">\(n\)</span></strong></p>
+<p>La derivada de la función anterior en <code>Wolfram Alpha</code> se muestra en el enlace siguiente:</p>
+<div class="center">
+<p><a href="https://www.wolframalpha.com/input/?i=derivative+of+x%5En"><img data-src="Images/wolfram.png"></a></p>
+</div>
+</div>
+</section>
+<section id="ejemplos-2" class="slide level2">
+<h2>Ejemplos</h2>
+<div class="example" style="font-size: 0.9em;">
+<p><strong>Derivada del valor absoluto</strong></p>
+<p>Consideremos la función <span class="math inline">\(f(x)=|x|\)</span>, valor absoluto de <span class="math inline">\(x\)</span>, definida en todo <span class="math inline">\(\mathbb{R}\)</span> como: <span class="math inline">\(f(x)=\begin{cases}
+x, &amp; \mbox{si } x\geq 0, \\
+-x &amp; \mbox{si }x&lt;0.
+\end{cases}\)</span></p>
+<p>Estudiemos la derivabilidad de <span class="math inline">\(f\)</span> en <span class="math inline">\(x_0=0\)</span>, es decir, veamos si el límite siguiente existe: <span class="math inline">\(\displaystyle\lim_{x\to 0}\frac{f(x)-f(0)}{x-0}=\lim_{x\to 0}\frac{|x|}{x}\)</span>.</p>
+<p>Si hacemos el límite anterior por la derecha o para los valores <span class="math inline">\(x&gt;0\)</span>, obtenemos: <span class="math display">\[
+\lim_{x\to 0^+}\frac{|x|}{x}=\lim_{x\to 0^+}\frac{x}{x}=\lim_{x\to 0^+}1 =1.
+\]</span> En cambio, si lo hacemos por la izquierda o para los valores <span class="math inline">\(x&lt;0\)</span>, obtenemos: <span class="math display">\[
+\lim_{x\to 0^-}\frac{|x|}{x}=\lim_{x\to 0^-}\frac{-x}{x}=\lim_{x\to 0^-} -1 =-1.
+\]</span></p>
 </div>
 </section>
 <section id="varias-notaciones-de-la-derivada" class="slide level2 title-line">
@@ -776,7 +1281,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-12-21.png" class="quarto-figure quarto-figure-center" width="460"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="460"></p>
 </figure>
 </div>
 </div>
@@ -788,7 +1293,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-13-23.png" class="quarto-figure quarto-figure-center" width="460"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-14-3.png" class="quarto-figure quarto-figure-center" width="460"></p>
 </figure>
 </div>
 </div>
@@ -800,7 +1305,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-14-25.png" class="quarto-figure quarto-figure-center" width="460"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-15-5.png" class="quarto-figure quarto-figure-center" width="460"></p>
 </figure>
 </div>
 </div>
@@ -812,7 +1317,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-15-27.png" class="quarto-figure quarto-figure-center" width="528"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-16-7.png" class="quarto-figure quarto-figure-center" width="528"></p>
 </figure>
 </div>
 </div>
@@ -865,7 +1370,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-16-29.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-17-9.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -875,7 +1380,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-17-31.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-18-11.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -890,7 +1395,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-18-33.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-19-13.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -900,7 +1405,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-19-35.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-20-15.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -915,7 +1420,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-20-37.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-21-17.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -925,7 +1430,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-21-39.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-22-19.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -940,7 +1445,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-22-41.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-23-21.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -950,7 +1455,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-23-43.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-24-23.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -965,7 +1470,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-24-45.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-25-25.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -975,7 +1480,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-25-47.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-26-27.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1031,7 +1536,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-26-49.png" class="quarto-figure quarto-figure-center" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-27-29.png" class="quarto-figure quarto-figure-center" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1142,7 +1647,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <section id="paridad-alterna-de-las-derivadas-de-polinomios-ejemplo" class="slide level2 title-line">
 <h2>Paridad alterna de las derivadas de polinomios: Ejemplo</h2>
 
-<img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-27-51.png" class="quarto-figure quarto-figure-center r-stretch" width="1440"></section>
+<img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-28-31.png" class="quarto-figure quarto-figure-center r-stretch" width="1440"></section>
 <section id="derivada-de-polinomios-2" class="slide level2 title-line">
 <h2>Derivada de polinomios</h2>
 <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;">
@@ -1310,7 +1815,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-31-53.png" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-32-33.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1321,7 +1826,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <section id="intuición-geométrica-seno-y-coseno" class="slide level2 title-line">
 <h2>Intuición geométrica seno y coseno</h2>
 
-<img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-32-55.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
+<img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-33-35.png" class="quarto-figure quarto-figure-center r-stretch" width="864"></section>
 <section id="demostración-de-que-cosx--sinx" class="slide level2 title-line">
 <h2>Demostración de que cos’(x) = -sin(x)</h2>
 <div style="display: flex; flex-direction: column; justify-content: flex-start; flex: 1; min-height: 0; padding: 0.4em 2em; gap: 0.3em; font-size: 0.88em;">
@@ -1431,7 +1936,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-33-57.png" width="499"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-34-37.png" width="499"></p>
 </figure>
 </div>
 </div>
@@ -1442,7 +1947,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-34-59.png" width="480"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-35-39.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1524,7 +2029,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-35-61.png" width="432"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-36-41.png" width="432"></p>
 </figure>
 </div>
 </div>
@@ -1534,7 +2039,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-36-63.png" width="432"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-37-43.png" width="432"></p>
 </figure>
 </div>
 </div>
@@ -1554,7 +2059,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-37-65.png" width="576"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-38-45.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1568,7 +2073,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-38-67.png" width="576"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-39-47.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -1609,7 +2114,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-39-69.png" width="960"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-40-49.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1619,7 +2124,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-40-71.png" width="960"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-41-51.png" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1682,7 +2187,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-42-73.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-43-53.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1693,7 +2198,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-43-75.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-44-55.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1704,7 +2209,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-44-77.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-45-57.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -1743,7 +2248,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-45-79.png" width="672"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-46-59.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1774,7 +2279,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-46-81.png" width="624"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-47-61.png" width="624"></p>
 </figure>
 </div>
 </div>
@@ -1808,7 +2313,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-47-83.png" width="624"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-48-63.png" width="624"></p>
 </figure>
 </div>
 </div>
@@ -1843,7 +2348,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-48-85.png" width="624"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-49-65.png" width="624"></p>
 </figure>
 </div>
 </div>
@@ -1853,7 +2358,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-49-87.png" width="624"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-50-67.png" width="624"></p>
 </figure>
 </div>
 </div>
@@ -1886,7 +2391,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-50-89.png" width="720"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-51-69.png" width="720"></p>
 </figure>
 </div>
 </div>
@@ -1920,7 +2425,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-51-91.png" width="624"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-52-71.png" width="624"></p>
 </figure>
 </div>
 </div>
@@ -1953,7 +2458,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-52-93.png" width="816"></p>
+<p><img data-src="S3-Diferenciación-Derivada_files/figure-revealjs/unnamed-chunk-53-73.png" width="816"></p>
 </figure>
 </div>
 </div>

@@ -52,9 +52,17 @@ use_python("/opt/anaconda3/bin/python")
 
 :::
 
+## Linealidad de la diferenciación {.title-line background-color="#ffffff"}
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; font-size: 2em;"}
+
+$$\frac{d}{d{\color{teal}x}}\left[{\color{goldenrod}a}f({\color{teal}x}) + {\color{red}b}g({\color{teal}x})\right] = {\color{goldenrod}a}f'({\color{teal}x}) + {\color{red}b}g'({\color{teal}x})$$
+
+:::
+
 ## ¿Porqué la diferenciación es lineal? {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.4em; font-size: 0.83em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 0.5em; gap: 0.01em; font-size: 0.95em;margin-top: -1.7em;"}
 
 $k({\color{teal}x}) = {\color{goldenrod}a}f({\color{teal}x}) + {\color{red}b}g({\color{teal}x})$
 
@@ -102,13 +110,17 @@ $\displaystyle \phantom{k'} = {\color{goldenrod}a}f'({\color{teal}x}) + {\color{
 
 ## El Teorema {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; font-size: 1.3em; font-weight: bold; color: #B8860B; line-height: 1.5;"}
-Si la derivada existe en un punto $x_0$, entonces la función es continua en $x_0$.
+::: {style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 1.3em; font-size: 1.35em;"}
+
+[Si la derivada existe en un punto $x_0$ de una función $f$,]{style="color: teal;font-weight: bold;"}
+
+[entonces la función $f$ es continua en $x_0$.]{style="color: #c0392b;font-weight: bold;"}
+
 :::
 
 ## Recordatorio sobre límites {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 2.5em; font-size: 1.3em;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em; font-size: 3em;"}
 
 ::: {.fragment .fade-in data-fragment-index=1}
 $$\lim_{{\color{teal}x}\to{\color{red}a}} {\color{teal}x} = {\color{red}a}$$
@@ -122,7 +134,8 @@ $$\lim_{{\color{goldenrod}h}\to 0} f({\color{teal}x}+{\color{goldenrod}h}) = f({
 
 ## La demostración {.title-line}
 
-::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.6em; font-size: 0.9em; text-align: center;"}
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0em; font-size: 0.9em; text-align: center;"}
+Queremos probar que $\displaystyle\lim_{x \to x_0} f(x) = f(x_0)$, es decir, que $\displaystyle\lim_{x \to x_0} [f(x) - f(x_0)] = 0$.
 
 $\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}} f({\color{teal}x}) = f({\color{red}a})$
 
@@ -134,7 +147,7 @@ $\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}} [f({\color{teal}x}) - f({\
 $\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}} \left[\frac{f({\color{teal}x})-f({\color{red}a})}{{\color{teal}x}-{\color{red}a}}\cdot({\color{teal}x}-{\color{red}a})\right] = 0$
 :::
 
-::: {.fragment .fade-in data-fragment-index=3 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.5em;"}
+::: {.fragment .fade-in data-fragment-index=3 style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0em;"}
 ::: {style="border: 2px dashed teal; border-radius: 6px; padding: 0.3em 0.8em;"}
 $\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}}\frac{f({\color{teal}x})-f({\color{red}a})}{{\color{teal}x}-{\color{red}a}}$
 :::
@@ -145,6 +158,138 @@ $\displaystyle\cdot\lim_{{\color{teal}x}\to{\color{red}a}}({\color{teal}x}-{\col
 
 ::: {.fragment .fade-in data-fragment-index=4}
 $\displaystyle f'({\color{red}a})\cdot 0 = 0$
+:::
+
+::: {.fragment .fade-in data-fragment-index=5}
+Por lo tanto $\displaystyle\lim_{x \to x_0} f(x) = f(x_0)$. $\blacksquare$
+:::
+:::
+
+## Intuición geométrica: La brecha que se cierra {.title-line}
+
+```{python}
+#| echo: false
+#| results: 'hide'
+import matplotlib.pyplot as plt
+import numpy as np
+
+X0 = 2.0
+
+def f_cont(x):
+    return x**2
+
+def f_disc(x):
+    return np.where(np.asarray(x) < X0, 1.0, 3.0)
+
+def make_frame(x_c, x_d, label_gap_c, label_gap_d):
+    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(13, 5.2))
+
+    # ── LEFT: continuous ──────────────────────────────────────────────────
+    xp = np.linspace(0.4, 3.6, 400)
+    ax1.plot(xp, f_cont(xp), color='#B8860B', lw=2.5)
+
+    yc0 = f_cont(X0);  yc = f_cont(x_c)
+    ax1.plot(X0, yc0, 'o', color='teal', ms=11, zorder=5)
+    ax1.plot(x_c,  yc,  'o', color='#c0392b', ms=10, zorder=5)
+
+    # dashed guides
+    for xv, yv, col in [(X0, yc0, 'teal'), (x_c, yc, '#c0392b')]:
+        ax1.plot([xv, xv], [0, yv], '--', color=col, alpha=0.45, lw=1.3)
+        ax1.plot([0.4, xv], [yv, yv], '--', color=col, alpha=0.45, lw=1.3)
+
+    # gap arrow
+    ylo, yhi = min(yc, yc0), max(yc, yc0)
+    ax1.annotate('', xy=(x_c + 0.05, ylo), xytext=(x_c + 0.05, yhi),
+                 arrowprops=dict(arrowstyle='<->', color='#c0392b', lw=2.2))
+    ax1.text(x_c + 0.18, (ylo + yhi) / 2,
+             f'brecha\n= {label_gap_c}', color='#c0392b',
+             fontsize=11, va='center', fontweight='bold')
+
+    ax1.text(X0,  -0.7, '$x_0$', color='teal',     ha='center', fontsize=13)
+    ax1.text(x_c, -0.7, '$x$',   color='#c0392b',  ha='center', fontsize=13)
+    ax1.set_xlim(0.4, 3.6); ax1.set_ylim(-0.9, 13)
+    ax1.set_xticks([]); ax1.set_yticks([])
+    ax1.spines['top'].set_visible(False); ax1.spines['right'].set_visible(False)
+    ax1.set_title('Función CONTINUA  →  brecha → 0 ✓',
+                  color='#27ae60', fontsize=13, fontweight='bold', pad=8)
+    ax1.set_xlabel('$x$', fontsize=12)
+
+    # ── RIGHT: discontinuous ──────────────────────────────────────────────
+    xl = np.linspace(0.4, X0 - 0.005, 300)
+    xr = np.linspace(X0, 3.6, 300)
+    ax2.plot(xl, f_disc(xl), color='#B8860B', lw=2.5)
+    ax2.plot(xr, f_disc(xr), color='#B8860B', lw=2.5)
+    ax2.plot(X0, 3.0, 'o', color='#B8860B', ms=10, zorder=5)           # filled
+    ax2.plot(X0, 1.0, 'o', color='white', ms=10, mec='#B8860B',
+             mew=2.2, zorder=5)                                          # open
+
+    yd0 = f_disc(X0);  yd = float(f_disc(x_d - 0.001))
+    ax2.plot(X0,  yd0, 'o', color='teal',     ms=11, zorder=6)
+    ax2.plot(x_d, yd,  'o', color='#c0392b',  ms=10, zorder=6)
+
+    ax2.plot([X0, X0], [0, yd0], '--', color='teal',    alpha=0.45, lw=1.3)
+    ax2.plot([x_d, x_d], [0, yd], '--', color='#c0392b', alpha=0.45, lw=1.3)
+
+    ylo2, yhi2 = min(yd, yd0), max(yd, yd0)
+    ax2.annotate('', xy=(x_d - 0.08, ylo2), xytext=(x_d - 0.08, yhi2),
+                 arrowprops=dict(arrowstyle='<->', color='#c0392b', lw=2.2))
+    ax2.text(x_d - 0.55, (ylo2 + yhi2) / 2,
+             f'brecha\n= {label_gap_d}', color='#c0392b',
+             fontsize=11, va='center', fontweight='bold')
+
+    ax2.text(X0,  -0.35, '$x_0$', color='teal',    ha='center', fontsize=13)
+    ax2.text(x_d, -0.35, '$x$',   color='#c0392b', ha='center', fontsize=13)
+    ax2.set_xlim(0.4, 3.6); ax2.set_ylim(-0.5, 4.8)
+    ax2.set_xticks([]); ax2.set_yticks([])
+    ax2.spines['top'].set_visible(False); ax2.spines['right'].set_visible(False)
+    ax2.set_title('Función con SALTO  →  brecha ≠ 0 ✗',
+                  color='#c0392b', fontsize=13, fontweight='bold', pad=8)
+    ax2.set_xlabel('$x$', fontsize=12)
+
+    plt.tight_layout(pad=1.2)
+    return fig
+```
+
+::: {style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.2em 1em;"}
+
+::: {.r-stack style="width: 100%;"}
+
+::: {style="width: 100%; display: flex; justify-content: center;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig = make_frame(3.4, 0.6, '8.76', '2')
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 100%; display: flex; justify-content: center;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig = make_frame(2.8, 1.3, '3.84', '2')
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 100%; display: flex; justify-content: center;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig = make_frame(2.3, 1.7, '1.29', '2')
+plt.show()
+```
+:::
+
+::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 100%; display: flex; justify-content: center;"}
+```{python}
+#| echo: false
+#| results: 'hide'
+fig = make_frame(2.05, 1.97, '0.20', '2')
+plt.show()
+```
+:::
+
 :::
 
 :::
@@ -281,35 +426,35 @@ plt.show()
 ::: {style="display: flex; flex-direction: column; flex: 1; min-height: 0;"}
 ::: {.r-stack style="flex: 1; min-height: 0; width: 90%; place-items: center;"}
 
-::: {style="width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.8em; padding: 1em 3em; font-size: 1.5em;"}
+::: {style="width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.8em; padding: 1em 3em; font-size: 1.2em;"}
 $[ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' \;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})$
 :::
 
 ::: {.fragment .fade-in data-fragment-index=1 style="background: white; width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.6em; padding: 1em 3em;"}
-::: {style="font-size: 1.5em;"}
+::: {style="font-size: 1.2em;"}
 $[ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' \;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})$
 :::
-::: {style="font-size: 1.2em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.4em;"}
+::: {style="font-size: 1.7em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.4em;"}
 ${\color{red}y} = {\color{red}g}({\color{teal}x})$
 ${\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})$
 :::
 :::
 
 ::: {.fragment .fade-in data-fragment-index=2 style="background: white; width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.6em; padding: 1em 3em;"}
-::: {style="font-size: 1.5em;"}
+::: {style="font-size: 1.2em;"}
 $[ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' \;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})$
 :::
 ::: {style="font-size: 1.2em; display: flex; flex-direction: column; gap: 0.3em; align-items: center;"}
 ${\color{red}y} = {\color{red}g}({\color{teal}x})$
 ${\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})$
 :::
-::: {style="font-size: 1.5em; margin-top: 0.3em;"}
+::: {style="font-size: 1.2em; margin-top: 0.3em;"}
 $\frac{{\color{goldenrod}dz}}{{\color{teal}dx}} \;=\; \frac{{\color{goldenrod}dz}}{{\color{red}dy}} \cdot \frac{{\color{red}dy}}{{\color{teal}dx}}$
 :::
 :::
 
 ::: {.fragment .fade-in data-fragment-index=3 style="background: white; width: 90%; display: flex; justify-content: center; align-items: center; padding: 1em 3em;"}
-::: {style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5em; font-size: 1.3em;"}
+::: {style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5em; font-size: 1em;"}
 ::: {style="display: flex; align-items: center; gap: 0.4em;"}
 ::: {style="border: 2px dashed #B8860B; border-radius: 6px; padding: 0.1em 0.5em;"}
 $[ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]'$
@@ -321,7 +466,7 @@ $\;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({
 ::: {style="display: flex; align-items: flex-start; gap: 0.5em;"}
 ::: {style="border-left: 2px solid #B8860B; width: 1.2em; min-height: 3em;"}
 :::
-::: {style="display: flex; flex-direction: column; gap: 0.25em; font-size: 0.9em; padding-top: 0.2em;"}
+::: {style="display: flex; flex-direction: column; gap: 0.25em; font-size: 1.2em; padding-top: 0.2em;"}
 ${\color{red}y} = {\color{red}g}({\color{teal}x})$
 ${\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})$
 :::
@@ -745,25 +890,23 @@ plt.show()
 ::: {style="display: flex; flex-direction: column; align-items: center; flex: 1; min-height: 0; padding: 0 1em;"}
 
 <!-- Fragmento 1: Fórmula de la regla de la cadena -->
-::: {.fragment .fade-in data-fragment-index=1 style="font-size: 1.3em;"}
+::: {.fragment .fade-in data-fragment-index=1 style="font-size: 1.7em;"}
 $[ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' = {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})$
 :::
 
 <!-- Fragmento 2: Sustituciones y + notación Leibniz -->
-::: {.fragment .fade-in data-fragment-index=2 style="font-size: 1.1em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.5em;"}
-${\color{goldenrod}y} = {\color{red}g}({\color{teal}x})$
+::: {.fragment .fade-in data-fragment-index=2 style="font-size: 1.6em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.5em;"}
+${\color{goldenrod}y} = {\color{red}g}({\color{teal}x})$ \;
 ${\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})$
 :::
-::: {.fragment .fade-in data-fragment-index=3 style="font-size: 1.1em; margin-top: 0.4em;"}
-$\frac{{\color{goldenrod}dz}}{{\color{teal}dx}} = \frac{{\color{goldenrod}dz}}{{\color{red}dy}} \cdot \frac{{\color{red}dy}}{{\color{teal}dx}}$
-:::
+
 
 <!-- Fragmento 4: Notación Leibniz con emojis -->
-::: {.fragment .fade-in data-fragment-index=4 style="font-size: 1.1em; margin-top: 1em;"}
+::: {.fragment .fade-in data-fragment-index=4 style="font-size: 1.5em; margin-top: 1em;"}
 $\frac{{\color{goldenrod}dz}}{{\color{teal}dx}} = \frac{{\color{goldenrod}dz}}{{\color{red}dy}} \cdot \frac{{\color{red}dy}}{{\color{teal}dx}}$
 :::
 
-::: {.fragment .fade-in data-fragment-index=5 style="font-size: 1.1em; margin-top: 0.5em;"}
+::: {.fragment .fade-in data-fragment-index=5 style="font-size: 1.5em; margin-top: 0.5em;"}
 $\frac{\text{✈}}{\text{🚶}} = \frac{\text{✈}}{\text{🚗}} \cdot \frac{\text{🚗}}{\text{🚶}}$
 :::
 

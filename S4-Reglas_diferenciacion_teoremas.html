@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.6.40">
 
   <meta name="author" content="Elvis M. Sánchez Rogel">
-  <meta name="dcterms.date" content="2026-05-29">
+  <meta name="dcterms.date" content="2026-05-31">
   <title>Cálculo I</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -212,7 +212,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
     </div>
 </div>
 
-  <p class="date">2026-05-29</p>
+  <p class="date">2026-05-31</p>
 </section>
 <section>
 <section id="reglas-de-diferenciación" class="title-slide slide level1 center">
@@ -228,9 +228,15 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </ul>
 </div>
 </section>
+<section id="linealidad-de-la-diferenciación" class="slide level2 title-line" data-background-color="#ffffff">
+<h2>Linealidad de la diferenciación</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; font-size: 2em;">
+<p><span class="math display">\[\frac{d}{d{\color{teal}x}}\left[{\color{goldenrod}a}f({\color{teal}x}) + {\color{red}b}g({\color{teal}x})\right] = {\color{goldenrod}a}f'({\color{teal}x}) + {\color{red}b}g'({\color{teal}x})\]</span></p>
+</div>
+</section>
 <section id="porqué-la-diferenciación-es-lineal" class="slide level2 title-line">
 <h2>¿Porqué la diferenciación es lineal?</h2>
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.4em; font-size: 0.83em;">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 0.5em; gap: 0.01em; font-size: 0.95em;margin-top: -1.7em;">
 <p><span class="math inline">\(k({\color{teal}x}) = {\color{goldenrod}a}f({\color{teal}x}) + {\color{red}b}g({\color{teal}x})\)</span></p>
 <div class="fragment fade-in" data-fragment-index="1">
 <p><span class="math inline">\(\displaystyle k' = \lim_{h \to 0}\frac{k({\color{teal}x}+h) - k({\color{teal}x})}{h}\)</span></p>
@@ -265,13 +271,14 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </section>
 <section id="el-teorema" class="slide level2 title-line">
 <h2>El Teorema</h2>
-<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; font-size: 1.3em; font-weight: bold; color: #B8860B; line-height: 1.5;">
-<p>Si la derivada existe en un punto <span class="math inline">\(x_0\)</span>, entonces la función es continua en <span class="math inline">\(x_0\)</span>.</p>
+<div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2.5em; gap: 1.3em; font-size: 1.35em;">
+<p><span style="color: teal;font-weight: bold;">Si la derivada existe en un punto <span class="math inline">\(x_0\)</span> de una función <span class="math inline">\(f\)</span>,</span></p>
+<p><span style="color: #c0392b;font-weight: bold;">entonces la función <span class="math inline">\(f\)</span> es continua en <span class="math inline">\(x_0\)</span>.</span></p>
 </div>
 </section>
 <section id="recordatorio-sobre-límites" class="slide level2 title-line">
 <h2>Recordatorio sobre límites</h2>
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 2.5em; font-size: 1.3em;">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; gap: 0.1em; font-size: 3em;">
 <div class="fragment fade-in" data-fragment-index="1">
 <p><span class="math display">\[\lim_{{\color{teal}x}\to{\color{red}a}} {\color{teal}x} = {\color{red}a}\]</span></p>
 </div>
@@ -282,7 +289,8 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </section>
 <section id="la-demostración" class="slide level2 title-line">
 <h2>La demostración</h2>
-<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0.6em; font-size: 0.9em; text-align: center;">
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.5em 2em; gap: 0em; font-size: 0.9em; text-align: center;">
+<p>Queremos probar que <span class="math inline">\(\displaystyle\lim_{x \to x_0} f(x) = f(x_0)\)</span>, es decir, que <span class="math inline">\(\displaystyle\lim_{x \to x_0} [f(x) - f(x_0)] = 0\)</span>.</p>
 <p><span class="math inline">\(\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}} f({\color{teal}x}) = f({\color{red}a})\)</span></p>
 <div class="fragment fade-in" data-fragment-index="1">
 <p><span class="math inline">\(\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}} [f({\color{teal}x}) - f({\color{red}a})] = 0\)</span></p>
@@ -290,7 +298,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="fragment fade-in" data-fragment-index="2">
 <p><span class="math inline">\(\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}} \left[\frac{f({\color{teal}x})-f({\color{red}a})}{{\color{teal}x}-{\color{red}a}}\cdot({\color{teal}x}-{\color{red}a})\right] = 0\)</span></p>
 </div>
-<div class="fragment fade-in" data-fragment-index="3" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0.5em;">
+<div class="fragment fade-in" data-fragment-index="3" style="display: flex; flex-direction: row; align-items: center; justify-content: center; gap: 0em;">
 <div style="border: 2px dashed teal; border-radius: 6px; padding: 0.3em 0.8em;">
 <p><span class="math inline">\(\displaystyle\lim_{{\color{teal}x}\to{\color{red}a}}\frac{f({\color{teal}x})-f({\color{red}a})}{{\color{teal}x}-{\color{red}a}}\)</span></p>
 </div>
@@ -300,6 +308,60 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 <div class="fragment fade-in" data-fragment-index="4">
 <p><span class="math inline">\(\displaystyle f'({\color{red}a})\cdot 0 = 0\)</span></p>
+</div>
+<div class="fragment fade-in" data-fragment-index="5">
+<p>Por lo tanto <span class="math inline">\(\displaystyle\lim_{x \to x_0} f(x) = f(x_0)\)</span>. <span class="math inline">\(\blacksquare\)</span></p>
+</div>
+</div>
+</section>
+<section id="intuición-geométrica-la-brecha-que-se-cierra" class="slide level2 title-line">
+<h2>Intuición geométrica: La brecha que se cierra</h2>
+<div style="display: flex; flex-direction: column; justify-content: center; align-items: center; flex: 1; min-height: 0; padding: 0.2em 1em;">
+<div class="r-stack" style="width: 100%;">
+<div style="width: 100%; display: flex; justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-3-1.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="1" style="background: white; width: 100%; display: flex; justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-4-3.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2" style="background: white; width: 100%; display: flex; justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-5-5.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" data-fragment-index="3" style="background: white; width: 100%; display: flex; justify-content: center;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-6-7.png" width="1248"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -339,7 +401,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-2-1.png" width="864"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-7-9.png" width="864"></p>
 </figure>
 </div>
 </div>
@@ -407,30 +469,30 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <h2>La regla de la cadena</h2>
 <div style="display: flex; flex-direction: column; flex: 1; min-height: 0;">
 <div class="r-stack" style="flex: 1; min-height: 0; width: 90%; place-items: center;">
-<div style="width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.8em; padding: 1em 3em; font-size: 1.5em;">
+<div style="width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.8em; padding: 1em 3em; font-size: 1.2em;">
 <p><span class="math inline">\([ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' \;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})\)</span></p>
 </div>
 <div class="fragment fade-in" data-fragment-index="1" style="background: white; width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.6em; padding: 1em 3em;">
-<div style="font-size: 1.5em;">
+<div style="font-size: 1.2em;">
 <p><span class="math inline">\([ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' \;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})\)</span></p>
 </div>
-<div style="font-size: 1.2em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.4em;">
+<div style="font-size: 1.7em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.4em;">
 <p><span class="math inline">\({\color{red}y} = {\color{red}g}({\color{teal}x})\)</span> <span class="math inline">\({\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})\)</span></p>
 </div>
 </div>
 <div class="fragment fade-in" data-fragment-index="2" style="background: white; width: 90%; display: flex; flex-direction: column; align-items: center; gap: 0.6em; padding: 1em 3em;">
-<div style="font-size: 1.5em;">
+<div style="font-size: 1.2em;">
 <p><span class="math inline">\([ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' \;=\; {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})\)</span></p>
 </div>
 <div style="font-size: 1.2em; display: flex; flex-direction: column; gap: 0.3em; align-items: center;">
 <p><span class="math inline">\({\color{red}y} = {\color{red}g}({\color{teal}x})\)</span> <span class="math inline">\({\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})\)</span></p>
 </div>
-<div style="font-size: 1.5em; margin-top: 0.3em;">
+<div style="font-size: 1.2em; margin-top: 0.3em;">
 <p><span class="math inline">\(\frac{{\color{goldenrod}dz}}{{\color{teal}dx}} \;=\; \frac{{\color{goldenrod}dz}}{{\color{red}dy}} \cdot \frac{{\color{red}dy}}{{\color{teal}dx}}\)</span></p>
 </div>
 </div>
 <div class="fragment fade-in" data-fragment-index="3" style="background: white; width: 90%; display: flex; justify-content: center; align-items: center; padding: 1em 3em;">
-<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5em; font-size: 1.3em;">
+<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 0.5em; font-size: 1em;">
 <div style="display: flex; align-items: center; gap: 0.4em;">
 <div style="border: 2px dashed #B8860B; border-radius: 6px; padding: 0.1em 0.5em;">
 <p><span class="math inline">\([ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]'\)</span></p>
@@ -443,7 +505,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div style="border-left: 2px solid #B8860B; width: 1.2em; min-height: 3em;">
 
 </div>
-<div style="display: flex; flex-direction: column; gap: 0.25em; font-size: 0.9em; padding-top: 0.2em;">
+<div style="display: flex; flex-direction: column; gap: 0.25em; font-size: 1.2em; padding-top: 0.2em;">
 <p><span class="math inline">\({\color{red}y} = {\color{red}g}({\color{teal}x})\)</span> <span class="math inline">\({\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})\)</span></p>
 </div>
 </div>
@@ -543,7 +605,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-3-3.png" width="672"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-8-11.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -570,7 +632,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-4-5.png" width="672"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-9-13.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -597,7 +659,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-5-7.png" width="672"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-10-15.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -680,7 +742,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-6-9.png" width="672"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-11-17.png" width="672"></p>
 </figure>
 </div>
 </div>
@@ -694,21 +756,18 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <h2>La regla de la cadena</h2>
 <div style="display: flex; flex-direction: column; align-items: center; flex: 1; min-height: 0; padding: 0 1em;">
 <!-- Fragmento 1: Fórmula de la regla de la cadena -->
-<div class="fragment fade-in" data-fragment-index="1" style="font-size: 1.3em;">
+<div class="fragment fade-in" data-fragment-index="1" style="font-size: 1.7em;">
 <p><span class="math inline">\([ {\color{goldenrod}f}({\color{red}g}({\color{teal}x})) ]' = {\color{goldenrod}f}'({\color{red}g}({\color{teal}x}))\,{\color{red}g}'({\color{teal}x})\)</span></p>
 </div>
 <!-- Fragmento 2: Sustituciones y + notación Leibniz -->
-<div class="fragment fade-in" data-fragment-index="2" style="font-size: 1.1em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.5em;">
-<p><span class="math inline">\({\color{goldenrod}y} = {\color{red}g}({\color{teal}x})\)</span> <span class="math inline">\({\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})\)</span></p>
-</div>
-<div class="fragment fade-in" data-fragment-index="3" style="font-size: 1.1em; margin-top: 0.4em;">
-<p><span class="math inline">\(\frac{{\color{goldenrod}dz}}{{\color{teal}dx}} = \frac{{\color{goldenrod}dz}}{{\color{red}dy}} \cdot \frac{{\color{red}dy}}{{\color{teal}dx}}\)</span></p>
+<div class="fragment fade-in" data-fragment-index="2" style="font-size: 1.6em; display: flex; flex-direction: column; gap: 0.3em; align-items: center; margin-top: 0.5em;">
+<p><span class="math inline">\({\color{goldenrod}y} = {\color{red}g}({\color{teal}x})\)</span> ; <span class="math inline">\({\color{goldenrod}z} = {\color{goldenrod}f}({\color{red}y})\)</span></p>
 </div>
 <!-- Fragmento 4: Notación Leibniz con emojis -->
-<div class="fragment fade-in" data-fragment-index="4" style="font-size: 1.1em; margin-top: 1em;">
+<div class="fragment fade-in" data-fragment-index="4" style="font-size: 1.5em; margin-top: 1em;">
 <p><span class="math inline">\(\frac{{\color{goldenrod}dz}}{{\color{teal}dx}} = \frac{{\color{goldenrod}dz}}{{\color{red}dy}} \cdot \frac{{\color{red}dy}}{{\color{teal}dx}}\)</span></p>
 </div>
-<div class="fragment fade-in" data-fragment-index="5" style="font-size: 1.1em; margin-top: 0.5em;">
+<div class="fragment fade-in" data-fragment-index="5" style="font-size: 1.5em; margin-top: 0.5em;">
 <p><span class="math inline">\(\frac{\text{✈}}{\text{🚶}} = \frac{\text{✈}}{\text{🚗}} \cdot \frac{\text{🚗}}{\text{🚶}}\)</span></p>
 </div>
 </div>
@@ -767,7 +826,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-7-11.png" width="576"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-12-19.png" width="576"></p>
 </figure>
 </div>
 </div>
@@ -803,7 +862,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-8-13.png" width="720"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-13-21.png" width="720"></p>
 </figure>
 </div>
 </div>
@@ -1042,7 +1101,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-11-15.png" width="480"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-16-23.png" width="480"></p>
 </figure>
 </div>
 </div>
@@ -1501,7 +1560,7 @@ Elvis M. Sánchez Rogel <a href="https://orcid.org/0009-0001-6662-2211" class="q
 </div>
 </div>
 </section>
-<section id="desafíoscode-diferenciación-implicita" class="slide level2 title-line" data-background-color="#111111">
+<section id="desafíoscode-diferenciación-implicita" class="slide level2 title-line" data-background-color="#fbfbfb">
 <h2>DesafíosCode Diferenciación implicita</h2>
 <div style="display: flex; flex-direction: column; justify-content: center; flex: 1; min-height: 0; padding: 0 2em; gap: 0.9em; font-size: 1.5em;">
 <p><span style="color: goldenrod;">En esta presentación, aprenderás</span></p>
@@ -2173,7 +2232,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-14-17.png" class="quarto-figure quarto-figure-center" width="864"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-19-25.png" class="quarto-figure quarto-figure-center" width="864"></p>
 </figure>
 </div>
 </div>
@@ -2200,7 +2259,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-15-19.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-20-27.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2211,7 +2270,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-16-21.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-21-29.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2229,7 +2288,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <section id="intuición-del-teorema-de-rolle-1" class="slide level2 title-line">
 <h2>Intuición del teorema de Rolle</h2>
 
-<img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-17-23.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
+<img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-22-31.png" class="quarto-figure quarto-figure-center r-stretch" width="960"></section>
 <section id="definición-del-teorema-de-rolle-1" class="slide level2 tile-line">
 <h2>Definición del teorema de Rolle</h2>
 <div style="font-size: 1.8em; margin-top: 1.5em; line-height: 1.8;">
@@ -2339,7 +2398,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-19-25.png" class="quarto-figure quarto-figure-center" width="624"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-24-33.png" class="quarto-figure quarto-figure-center" width="624"></p>
 </figure>
 </div>
 </div>
@@ -2615,7 +2674,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-20-27.png" class="quarto-figure quarto-figure-center" width="624"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-25-35.png" class="quarto-figure quarto-figure-center" width="624"></p>
 </figure>
 </div>
 </div>
@@ -2859,7 +2918,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-22-29.png" width="720"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-27-37.png" width="720"></p>
 </figure>
 </div>
 </div>
@@ -2889,7 +2948,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-23-31.png" width="720"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-28-39.png" width="720"></p>
 </figure>
 </div>
 </div>
@@ -2934,7 +2993,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-25-33.png" class="quarto-figure quarto-figure-center" width="864"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-30-41.png" class="quarto-figure quarto-figure-center" width="864"></p>
 </figure>
 </div>
 </div>
@@ -2945,7 +3004,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-26-35.png" class="quarto-figure quarto-figure-center" width="864"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-31-43.png" class="quarto-figure quarto-figure-center" width="864"></p>
 </figure>
 </div>
 </div>
@@ -2956,7 +3015,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-27-37.png" class="quarto-figure quarto-figure-center" width="864"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-32-45.png" class="quarto-figure quarto-figure-center" width="864"></p>
 </figure>
 </div>
 </div>
@@ -3046,7 +3105,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-29-39.png" class="quarto-figure quarto-figure-center" width="528"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-34-47.png" class="quarto-figure quarto-figure-center" width="528"></p>
 </figure>
 </div>
 </div>
@@ -3224,7 +3283,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-30-41.png" class="quarto-figure quarto-figure-center" width="528"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-35-49.png" class="quarto-figure quarto-figure-center" width="528"></p>
 </figure>
 </div>
 </div>
@@ -3256,7 +3315,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-31-43.png" class="quarto-figure quarto-figure-center" width="528"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-36-51.png" class="quarto-figure quarto-figure-center" width="528"></p>
 </figure>
 </div>
 </div>
@@ -3302,7 +3361,7 @@ e^{-1} &amp;= {\color{teal}x}^2 \\
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-33-45.png" class="quarto-figure quarto-figure-center" width="864"></p>
+<p><img data-src="S4-Reglas_diferenciacion_teoremas_files/figure-revealjs/unnamed-chunk-38-53.png" class="quarto-figure quarto-figure-center" width="864"></p>
 </figure>
 </div>
 </div>

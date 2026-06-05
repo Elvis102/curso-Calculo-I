@@ -1,7 +1,7 @@
 Te paso una secuencia de imágenes que muestran el estado progresivo de una diapositiva animada. Cada imagen representa un "paso" de la animación (un avance de diapositiva). Quiero que la repliques en mi presentación Quarto RevealJS usando fragmentos.
 
 **Convenciones de mi presentación:**
-- Archivo: `S1-Funciones.qmd.qmd`
+- Archivo: `S2-Limites.qmd.qmd`
 - Tema: `clean.scss`
 - Diapositivas de sección: `## Título {.title-line}`
 - Fragmentos: `.fragment .fade-in data-fragment-index=N`
